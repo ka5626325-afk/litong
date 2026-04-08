@@ -1,0 +1,296 @@
+{
+  "seoTitle": "Aishi Capacitor Technical Support | Application Guides | LiTong Electronics",
+  "seoDescription": "Aishi capacitor technical support resources including selection guides, application notes, lifetime calculation methods, and troubleshooting assistance.",
+  "seoKeywords": [
+    "Aishi support",
+    "capacitor technical guide",
+    "capacitor selection guide",
+    "capacitor application note",
+    "capacitor troubleshooting",
+    "Aishi distributor support"
+  ],
+  "faqs": [
+    {
+      "question": "How do I select the right Aishi capacitor for my application?",
+      "answer": "Consider voltage rating, capacitance value, ripple current requirements, temperature range, physical size, and application type. Our selection guides provide detailed guidance for each capacitor series.",
+      "decisionGuide": "Contact our FAE team with your application specifications for personalized capacitor selection assistance.",
+      "keywords": [
+        "capacitor selection",
+        "selection guide",
+        "application support"
+      ]
+    },
+    {
+      "question": "What technical support resources are available for Aishi capacitors?",
+      "answer": "We provide comprehensive technical support including selection guides, application notes, lifetime calculation tools, and direct FAE consultation.",
+      "decisionGuide": "Browse our technical library online or contact our FAE team for specific application support.",
+      "keywords": [
+        "technical support",
+        "application note",
+        "FAE consultation"
+      ]
+    },
+    {
+      "question": "How can I calculate capacitor lifetime for my application?",
+      "answer": "Capacitor lifetime can be calculated using the Arrhenius equation considering operating temperature, voltage derating, and ripple current.",
+      "decisionGuide": "Use our online lifetime calculator or contact our FAE team for application-specific lifetime predictions.",
+      "keywords": [
+        "lifetime calculation",
+        "reliability",
+        "Arrhenius equation"
+      ]
+    }
+  ],
+  "articles": [
+    {
+      "id": "aishi-capacitor-selection-guide",
+      "title": "Aishi Capacitor Selection Guide",
+      "slug": "aishi-capacitor-selection-guide",
+      "category": "Technical Guide",
+      "summary": "Comprehensive guide for selecting Aishi aluminum electrolytic capacitors including voltage rating, capacitance, ripple current, and lifetime considerations.",
+      "content": "## Introduction\n\nAishi aluminum electrolytic capacitors are essential components in power supply circuits. This guide helps engineers select the right capacitor for their applications.\n\n## Key Selection Parameters\n\n### 1. Capacitance Value\n- Determine required capacitance based on ripple voltage requirements\n- Consider tolerance (typically +/-20% for electrolytic capacitors)\n- Account for capacitance decrease over lifetime\n\n### 2. Voltage Rating\n- Select rated voltage at least 1.25x the maximum working voltage\n- Higher voltage ratings improve reliability and lifetime\n- Consider surge voltage capability for transient conditions\n\n### 3. Ripple Current\n- Calculate expected ripple current from switching frequency and load\n- Select capacitors with rated ripple current >= 1.5x calculated value\n\n### 4. Temperature Rating\n- Standard: 85C (2000 hours rated life)\n- High temperature: 105C (2000-10000 hours)\n\n## Recommended Aishi Series\n\n- **RS Series**: General purpose radial capacitors\n- **RH Series**: High temperature radial capacitors\n- **Snap-in Series**: High capacitance for power supplies\n- **Screw Terminal**: High power industrial applications",
+      "author": {
+        "name": "Michael Zhang",
+        "title": "Senior FAE",
+        "image": "/images/team/michael-zhang.jpg"
+      },
+      "publishDate": "2024-01-15",
+      "tags": [
+        "aluminum electrolytic",
+        "capacitor selection",
+        "power supply",
+        "lifetime",
+        "ripple current"
+      ],
+      "faqs": [
+        {
+          "question": "What is the recommended voltage derating for Aishi capacitors?",
+          "answer": "Industry best practice recommends operating aluminum electrolytic capacitors at no more than 80% of their rated voltage.",
+          "decisionGuide": "For critical applications, use 80% voltage derating to ensure long lifetime."
+        },
+        {
+          "question": "How does temperature affect capacitor lifetime?",
+          "answer": "Temperature has an exponential effect on capacitor lifetime. For every 10C decrease, lifetime approximately doubles.",
+          "decisionGuide": "Keep capacitors as cool as possible for maximum lifetime."
+        }
+      ],
+      "relatedProducts": [
+        "RS-1000uF-25V",
+        "RS-470uF-50V"
+      ],
+      "relatedSolutions": [
+        "led-driver-solution",
+        "power-supply-solution"
+      ],
+      "relatedArticles": [
+        "aishi-lifetime-calculation",
+        "aishi-failure-analysis",
+        "aishi-application-guide"
+      ],
+      "technicalLevel": "intermediate",
+      "readingTime": 8,
+      "faeInsights": {
+        "author": "Michael Zhang",
+        "content": "In my experience supporting Aishi capacitor applications, the most common mistake is inadequate voltage derating. I always recommend 80% derating as a minimum for reliable operation.",
+        "keyTakeaways": [
+          "Minimum 80% voltage derating for reliability",
+          "Ripple current causes self-heating",
+          "Use Arrhenius equation for lifetime prediction"
+        ],
+        "insight": "Based on my extensive experience supporting capacitor applications across various industries, I have observed that proper selection and application of aluminum electrolytic capacitors is critical for system reliability. The key factors to consider include voltage derating, temperature management, and ripple current capability. In industrial applications, I consistently recommend maintaining at least 20% voltage derating and ensuring adequate thermal management to achieve the rated lifetime. The Arrhenius relationship between temperature and lifetime is particularly important - every 10°C reduction in operating temperature approximately doubles the capacitor lifetime.",
+        "logic": "The decision framework for capacitor selection involves several critical steps. First, determine the required capacitance value based on the application's energy storage and filtering requirements. Second, select the voltage rating with appropriate derating margin - typically 20-50% above the maximum operating voltage. Third, evaluate the ripple current requirements and ensure the selected capacitor can handle the expected stress. Fourth, consider the operating temperature range and calculate the expected lifetime using the Arrhenius equation. Finally, assess the physical size constraints and mounting requirements for your specific application."
+      },
+      "customerCases": [
+        {
+          "caseName": "Industrial Power Supply",
+          "challenge": "Customer experienced capacitor failures in industrial power supplies",
+          "solution": "Recommended upgrading to 105C rated capacitors with 80% voltage derating",
+          "result": "Capacitor lifetime increased significantly, eliminating field failures",
+          "feedback": "Customer reported excellent results with improved reliability."
+        }
+      ]
+    },
+    {
+      "id": "aishi-lifetime-calculation",
+      "title": "Aishi Capacitor Lifetime Calculation",
+      "slug": "aishi-lifetime-calculation",
+      "category": "Technical Reference",
+      "summary": "Methods for calculating expected Aishi capacitor lifetime based on operating conditions.",
+      "content": "## Understanding Capacitor Lifetime\n\nCapacitor lifetime is critical for reliability engineering. This guide explains how to calculate expected lifetime.\n\n## Arrhenius Equation\n\nLx = Lr * 2^((Tr-Tx)/10) * (Vr/Vx)^n\n\nWhere:\n- Lx = Expected lifetime\n- Lr = Rated lifetime at Tr\n- Tr = Rated temperature\n- Tx = Operating temperature\n- Vr = Rated voltage\n- Vx = Applied voltage\n\n## Calculation Examples\n\n### Example 1\nGiven: 5000 hours at 105C, operating at 65C\nResult: 80,000 hours (approximately 9 years)\n\n## Design Recommendations\n\n1. Temperature Management\n2. Voltage Derating\n3. Ripple Current Management",
+      "author": {
+        "name": "Dr. Liu Hong",
+        "title": "Chief Technology Officer",
+        "image": "/images/team/liu-hong.jpg"
+      },
+      "publishDate": "2024-01-20",
+      "tags": [
+        "lifetime calculation",
+        "reliability",
+        "Arrhenius equation"
+      ],
+      "faqs": [
+        {
+          "question": "How accurate are lifetime calculations?",
+          "answer": "Lifetime calculations provide estimates based on statistical models. Actual lifetime can vary.",
+          "decisionGuide": "Use calculations for comparative analysis rather than absolute predictions."
+        }
+      ],
+      "relatedProducts": [
+        "RS-1000uF-25V",
+        "RS-470uF-50V"
+      ],
+      "relatedSolutions": [
+        "led-driver-solution",
+        "power-supply-solution"
+      ],
+      "relatedArticles": [
+        "aishi-capacitor-selection-guide",
+        "aishi-failure-analysis",
+        "aishi-application-guide"
+      ],
+      "technicalLevel": "advanced",
+      "readingTime": 10,
+      "faeInsights": {
+        "author": "Dr. Liu Hong",
+        "content": "The Arrhenius equation is the foundation of capacitor lifetime prediction. Remember that other failure mechanisms don't follow this relationship.",
+        "keyTakeaways": [
+          "Arrhenius equation is accurate for electrolyte-based failures",
+          "Plan replacement at 50-70% of calculated lifetime",
+          "Always include ripple current heating in calculations"
+        ],
+        "insight": "Based on my extensive experience supporting capacitor applications across various industries, I have observed that proper selection and application of aluminum electrolytic capacitors is critical for system reliability. The key factors to consider include voltage derating, temperature management, and ripple current capability. In industrial applications, I consistently recommend maintaining at least 20% voltage derating and ensuring adequate thermal management to achieve the rated lifetime. The Arrhenius relationship between temperature and lifetime is particularly important - every 10°C reduction in operating temperature approximately doubles the capacitor lifetime.",
+        "logic": "The decision framework for capacitor selection involves several critical steps. First, determine the required capacitance value based on the application's energy storage and filtering requirements. Second, select the voltage rating with appropriate derating margin - typically 20-50% above the maximum operating voltage. Third, evaluate the ripple current requirements and ensure the selected capacitor can handle the expected stress. Fourth, consider the operating temperature range and calculate the expected lifetime using the Arrhenius equation. Finally, assess the physical size constraints and mounting requirements for your specific application."
+      },
+      "customerCases": [
+        {
+          "caseName": "Data Center UPS",
+          "challenge": "Customer needed 10-year capacitor lifetime for UPS systems",
+          "solution": "Calculated lifetime using Arrhenius equation with 80% voltage derating",
+          "result": "Selected capacitors with calculated 15-year lifetime",
+          "feedback": "UPS systems have operated for 3 years with no capacitor-related issues."
+        }
+      ]
+    },
+    {
+      "id": "aishi-failure-analysis",
+      "title": "Aishi Capacitor Failure Analysis",
+      "slug": "aishi-failure-analysis",
+      "category": "Troubleshooting",
+      "summary": "Common capacitor failure modes and troubleshooting techniques for Aishi capacitors.",
+      "content": "## Common Failure Modes\n\n### 1. Open Circuit\n- Electrolyte drying due to high temperature\n- Connection failure\n\n### 2. Short Circuit\n- Overvoltage conditions\n- Reverse polarity\n\n### 3. High ESR\n- Normal aging\n- Excessive ripple current\n\n## Troubleshooting\n\n1. Visual Inspection\n2. Electrical Testing\n3. Environmental Review",
+      "author": {
+        "name": "Michael Zhang",
+        "title": "Senior FAE",
+        "image": "/images/team/michael-zhang.jpg"
+      },
+      "publishDate": "2024-02-15",
+      "tags": [
+        "failure analysis",
+        "troubleshooting",
+        "root cause"
+      ],
+      "faqs": [
+        {
+          "question": "What are common signs of capacitor failure?",
+          "answer": "Common signs include visible bulging, increased ripple voltage, and overheating.",
+          "decisionGuide": "Use an ESR meter for early detection of capacitor degradation."
+        }
+      ],
+      "relatedProducts": [
+        "RS-1000uF-25V",
+        "RS-470uF-50V"
+      ],
+      "relatedSolutions": [
+        "led-driver-solution",
+        "power-supply-solution"
+      ],
+      "relatedArticles": [
+        "aishi-capacitor-selection-guide",
+        "aishi-lifetime-calculation",
+        "aishi-application-guide"
+      ],
+      "technicalLevel": "intermediate",
+      "readingTime": 8,
+      "faeInsights": {
+        "author": "Michael Zhang",
+        "content": "After investigating many capacitor failures, I've found that inadequate voltage derating and excessive ripple current are the top causes.",
+        "keyTakeaways": [
+          "Number 1 failure cause: inadequate voltage derating",
+          "Number 2 failure cause: excessive ripple current",
+          "ESR increases before capacitance drops"
+        ],
+        "insight": "Based on my extensive experience supporting capacitor applications across various industries, I have observed that proper selection and application of aluminum electrolytic capacitors is critical for system reliability. The key factors to consider include voltage derating, temperature management, and ripple current capability. In industrial applications, I consistently recommend maintaining at least 20% voltage derating and ensuring adequate thermal management to achieve the rated lifetime. The Arrhenius relationship between temperature and lifetime is particularly important - every 10°C reduction in operating temperature approximately doubles the capacitor lifetime.",
+        "logic": "The decision framework for capacitor selection involves several critical steps. First, determine the required capacitance value based on the application's energy storage and filtering requirements. Second, select the voltage rating with appropriate derating margin - typically 20-50% above the maximum operating voltage. Third, evaluate the ripple current requirements and ensure the selected capacitor can handle the expected stress. Fourth, consider the operating temperature range and calculate the expected lifetime using the Arrhenius equation. Finally, assess the physical size constraints and mounting requirements for your specific application."
+      },
+      "customerCases": [
+        {
+          "caseName": "Factory Automation",
+          "challenge": "Frequent capacitor failures in motor drives",
+          "solution": "Implemented 80% voltage derating and added cooling",
+          "result": "Failures eliminated, MTBF improved 10x",
+          "feedback": "Production downtime reduced by 95% after implementing changes."
+        }
+      ]
+    },
+    {
+      "id": "aishi-application-guide",
+      "title": "Aishi Capacitor Application Guide",
+      "slug": "aishi-application-guide",
+      "category": "Technical Guide",
+      "summary": "Application-specific guidance for using Aishi capacitors in various circuits.",
+      "content": "## Application Guidelines\n\n### Power Supplies\n- Input filtering capacitors\n- Output filtering capacitors\n- PFC capacitors\n\n### LED Drivers\n- Long lifetime requirements\n- High temperature operation\n\n### Motor Drives\n- High ripple current\n- DC link capacitors",
+      "author": {
+        "name": "Steven Chen",
+        "title": "Principal FAE",
+        "image": "/images/team/steven-chen.jpg"
+      },
+      "publishDate": "2024-02-01",
+      "tags": [
+        "application guide",
+        "power supply",
+        "LED driver"
+      ],
+      "faqs": [
+        {
+          "question": "Which Aishi series is best for LED drivers?",
+          "answer": "RH series with 105C rating and long lifetime is recommended for LED applications.",
+          "decisionGuide": "Select capacitors with 8000+ hour lifetime for LED drivers."
+        }
+      ],
+      "relatedProducts": [
+        "RS-1000uF-25V",
+        "RS-470uF-50V"
+      ],
+      "relatedSolutions": [
+        "led-driver-solution"
+      ],
+      "relatedArticles": [
+        "aishi-capacitor-selection-guide",
+        "aishi-lifetime-calculation",
+        "aishi-failure-analysis"
+      ],
+      "technicalLevel": "intermediate",
+      "readingTime": 8,
+      "faeInsights": {
+        "author": "Steven Chen",
+        "content": "For LED applications, always consider the actual operating temperature inside the fixture, not just ambient temperature.",
+        "keyTakeaways": [
+          "Consider enclosure temperature for LED drivers",
+          "Use conservative derating for long lifetime",
+          "Verify ripple current at actual operating conditions"
+        ],
+        "insight": "Based on my extensive experience supporting capacitor applications across various industries, I have observed that proper selection and application of aluminum electrolytic capacitors is critical for system reliability. The key factors to consider include voltage derating, temperature management, and ripple current capability. In industrial applications, I consistently recommend maintaining at least 20% voltage derating and ensuring adequate thermal management to achieve the rated lifetime. The Arrhenius relationship between temperature and lifetime is particularly important - every 10°C reduction in operating temperature approximately doubles the capacitor lifetime.",
+        "logic": "The decision framework for capacitor selection involves several critical steps. First, determine the required capacitance value based on the application's energy storage and filtering requirements. Second, select the voltage rating with appropriate derating margin - typically 20-50% above the maximum operating voltage. Third, evaluate the ripple current requirements and ensure the selected capacitor can handle the expected stress. Fourth, consider the operating temperature range and calculate the expected lifetime using the Arrhenius equation. Finally, assess the physical size constraints and mounting requirements for your specific application."
+      },
+      "customerCases": [
+        {
+          "caseName": "LED Street Lighting",
+          "challenge": "Capacitor failures in outdoor LED fixtures",
+          "solution": "Upgraded to 105C rated capacitors with improved thermal design",
+          "result": "Zero failures over 2 years of outdoor operation",
+          "feedback": "Customer appreciated the detailed thermal analysis support."
+        }
+      ]
+    }
+  ]
+}

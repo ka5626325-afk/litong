@@ -1,0 +1,374 @@
+{
+  "solutions": [
+    {
+      "id": "edge-ai-acceleration",
+      "title": "Edge AI Acceleration with sensAI",
+      "subtitle": "Low-Power Neural Network Inference at the Edge",
+      "description": "Implement efficient AI/ML inference on Lattice FPGAs using the sensAI solution stack. Achieve 10x lower power consumption compared to traditional processors while maintaining real-time performance for vision, audio, and sensor fusion applications.",
+      "industry": [
+        "Industrial Automation",
+        "Smart Home",
+        "Automotive",
+        "Consumer Electronics"
+      ],
+      "applications": [
+        "Object detection and classification",
+        "Anomaly detection in manufacturing",
+        "Voice recognition and keyword spotting",
+        "Predictive maintenance",
+        "Face detection and recognition"
+      ],
+      "features": [
+        {
+          "title": "Ultra-Low Power",
+          "description": "Sub-1W power consumption for AI inference, enabling battery-powered and thermally constrained applications"
+        },
+        {
+          "title": "Flexible Neural Network Support",
+          "description": "Support for CNN, RNN, and custom neural network architectures with easy model conversion"
+        },
+        {
+          "title": "Real-Time Processing",
+          "description": "Deterministic latency for time-critical AI applications with hardware acceleration"
+        },
+        {
+          "title": "Complete Software Stack",
+          "description": "Includes neural network compiler, optimized IP cores, and reference designs for rapid deployment"
+        }
+      ],
+      "products": [
+        "LFD2NX-40",
+        "LFD4NX-100",
+        "LCE4X-100"
+      ],
+      "resources": {
+        "documentation": [
+          {
+            "title": "sensAI User Guide",
+            "url": "https://www.latticesemi.com/sensAI"
+          },
+          {
+            "title": "Neural Network Compiler Manual",
+            "url": "https://www.latticesemi.com/sensAI"
+          }
+        ],
+        "software": [
+          {
+            "title": "sensAI Studio",
+            "url": "https://www.latticesemi.com/sensAI"
+          }
+        ]
+      },
+      "slug": "edge-ai-acceleration-sensai",
+      "longDescription": "The Lattice sensAI solution stack enables efficient deployment of artificial intelligence and machine learning at the edge. By leveraging the ultra-low power consumption of Lattice FPGAs, sensAI delivers AI inference performance with up to 10x lower power compared to traditional processors. The solution includes a neural network compiler that converts trained models from popular frameworks (TensorFlow, PyTorch, ONNX) into optimized FPGA implementations. Pre-optimized IP cores accelerate common AI operations, while reference designs demonstrate typical applications. As an authorized Lattice distributor, we provide comprehensive support for sensAI implementation including model optimization, deployment guidance, and application tuning.",
+      "benefits": [
+        "Up to 10x lower power consumption than traditional AI processors",
+        "Sub-1W power consumption enables battery-powered AI applications",
+        "Deterministic latency for real-time AI processing",
+        "Support for CNN, RNN, and custom neural network architectures",
+        "Easy model conversion from TensorFlow, PyTorch, and ONNX",
+        "Pre-optimized IP cores accelerate time to market"
+      ],
+      "coreAdvantages": [
+        {
+          "title": "Ultra-Low Power",
+          "description": "sensAI enables AI inference with sub-1W power consumption, making it possible to deploy AI in battery-powered devices and thermally constrained environments where traditional processors would consume too much power."
+        },
+        {
+          "title": "Flexible Architecture",
+          "description": "Support for various neural network architectures including CNNs for vision, RNNs for sequence processing, and custom models for specialized applications provides flexibility for diverse AI workloads."
+        },
+        {
+          "title": "Deterministic Performance",
+          "description": "FPGA-based implementation provides deterministic latency for time-critical AI applications, unlike processor-based solutions with variable execution times."
+        }
+      ],
+      "bomList": [
+        {
+          "component": "Lattice FPGA (LFD2NX-40/LFD4NX-100/LCE4X-100)",
+          "quantity": "1",
+          "description": "Main processing device"
+        },
+        {
+          "component": "DDR3/DDR4 Memory",
+          "quantity": "1-2",
+          "description": "External memory for data buffering"
+        },
+        {
+          "component": "Power Management IC",
+          "quantity": "1",
+          "description": "Voltage regulation for FPGA"
+        },
+        {
+          "component": "MIPI Camera Module (optional)",
+          "quantity": "1-4",
+          "description": "Image sensor for vision applications"
+        }
+      ],
+      "technicalSpecs": {
+        "Supported Frameworks": "TensorFlow, PyTorch, ONNX, Caffe",
+        "Quantization": "8-bit weights and activations",
+        "Max Power": "<1W typical",
+        "Latency": "Deterministic, framework dependent",
+        "Development Tool": "sensAI Studio"
+      },
+      "customerCases": [
+        {
+          "customer": "Industrial Equipment Manufacturer",
+          "application": "Predictive maintenance with vibration analysis",
+          "challenge": "Need AI inference in harsh industrial environment with limited power",
+          "solution": "Implemented sensAI on LFD2NX-40 for real-time anomaly detection",
+          "results": "Achieved 95% detection accuracy with 200mW power consumption, enabling battery-powered wireless sensors"
+        },
+        {
+          "customer": "Smart Home Device Maker",
+          "application": "Voice recognition and keyword spotting",
+          "challenge": "Always-on voice processing with strict power budget",
+          "solution": "Deployed RNN-based keyword spotting using sensAI on LFD2NX-40",
+          "results": "Sub-100mW always-on operation with 98% keyword recognition accuracy"
+        }
+      ],
+      "faeInsights": {
+        "decisionLogic": "When to choose sensAI: (1) Power budget <1W for AI inference, (2) Need deterministic latency for real-time response, (3) Edge deployment without cloud connectivity, (4) Vision, audio, or sensor fusion applications. Model complexity should fit within available FPGA resources.",
+        "keyConsiderations": "Model quantization to 8-bit is required. Input dimensions must be fixed. Supported layers include Conv2D, Dense, MaxPool, ReLU. Complex models may require the higher-capacity LFD4NX-100.",
+        "commonPitfalls": "Attempting to deploy overly complex models without quantization. Not accounting for pre/post-processing overhead. Insufficient memory bandwidth for high-resolution vision applications.",
+        "recommendation": "Start with reference designs and gradually customize. Profile model layer by layer to identify bottlenecks. Use batch processing when possible to improve throughput."
+      },
+      "faqs": [
+        {
+          "question": "What neural network architectures are supported by sensAI?",
+          "answer": "sensAI supports Convolutional Neural Networks (CNNs) for image classification and object detection, Recurrent Neural Networks (RNNs) for sequence processing and voice recognition, and custom architectures for specialized applications. The neural network compiler optimizes these models for FPGA implementation with 8-bit quantization."
+        },
+        {
+          "question": "How do I convert my trained model for sensAI?",
+          "answer": "Use sensAI Studio to import your trained model from TensorFlow, PyTorch, or ONNX format. The tool automatically quantizes weights and activations to 8-bit, optimizes the model for FPGA implementation, and generates the FPGA bitstream. The process typically takes minutes to hours depending on model complexity."
+        },
+        {
+          "question": "What performance can I expect from sensAI implementations?",
+          "answer": "Performance depends on the specific model and FPGA device. Typical results include MobileNet v2 at 30 FPS on LFD2NX-40 consuming 150mW, ResNet-18 at 15 FPS on LFD4NX-100 consuming 280mW, and Tiny YOLO at 25 FPS on LFD4NX-100 consuming 320mW. These represent 10x lower power than equivalent GPU implementations."
+        },
+        {
+          "question": "Do I need FPGA expertise to use sensAI?",
+          "answer": "Basic FPGA knowledge is helpful but not required. sensAI Studio provides an automated workflow that handles most FPGA implementation details. Reference designs demonstrate typical applications. Our FAE team can provide guidance for custom implementations and optimization."
+        },
+        {
+          "question": "What development hardware do I need?",
+          "answer": "A Lattice development kit with the target FPGA (LFD2NX-40, LFD4NX-100, or LCE4X-100) is recommended for development and evaluation. sensAI Studio software is available as a free download. Example designs and documentation are included to accelerate development."
+        }
+      ]
+    },
+    {
+      "id": "secure-system-control",
+      "title": "Secure System Control and Management",
+      "subtitle": "Hardware Root of Trust for Critical Infrastructure",
+      "description": "Implement comprehensive security from the ground up with Lattice's hardware security solution. Features include secure boot, firmware protection, and real-time system monitoring to protect against cyber threats in industrial, communications, and computing applications.",
+      "industry": [
+        "Industrial Control",
+        "Communications",
+        "Data Center",
+        "Aerospace & Defense"
+      ],
+      "applications": [
+        "Secure boot and firmware authentication",
+        "Platform firmware resiliency (PFR)",
+        "Hardware root of trust implementation",
+        "Supply chain security",
+        "Real-time system monitoring"
+      ],
+      "features": [
+        {
+          "title": "Hardware Root of Trust",
+          "description": "Built-in PUF (Physically Unclonable Function) for unique device identity and secure key storage"
+        },
+        {
+          "title": "NIST-Compliant Cryptography",
+          "description": "AES-256, SHA-256, and ECDSA hardware acceleration for secure communications"
+        },
+        {
+          "title": "Tamper Detection",
+          "description": "Real-time monitoring of system integrity with instant response to security breaches"
+        },
+        {
+          "title": "Secure Lifecycle Management",
+          "description": "Secure field updates and device provisioning throughout product lifecycle"
+        }
+      ],
+      "products": [
+        "LFD4NX-100",
+        "LCMXO5-1200"
+      ],
+      "resources": {
+        "documentation": [
+          {
+            "title": "Security Solution Guide",
+            "url": "https://www.latticesemi.com/Security"
+          },
+          {
+            "title": "PFR Implementation Guide",
+            "url": "https://www.latticesemi.com/Security"
+          }
+        ],
+        "software": [
+          {
+            "title": "Lattice Sentry",
+            "url": "https://www.latticesemi.com/Security"
+          }
+        ]
+      },
+      "slug": "secure-system-control-pfr",
+      "longDescription": "Lattice security solutions provide comprehensive hardware-based protection for critical systems against evolving cyber threats. The solution implements hardware root of trust using PUF (Physically Unclonable Function) technology for unique device identity, AES-256 encryption for bitstream and data protection, ECDSA authentication for secure boot verification, and tamper detection for runtime security. The Lattice Sentry solution stack provides pre-validated implementations of Platform Firmware Resiliency (PFR), protecting system firmware from unauthorized modification and enabling rapid recovery from attacks. As an authorized Lattice distributor, we provide security solution design services, implementation guidance, and ongoing support for security-critical applications.",
+      "benefits": [
+        "Hardware root of trust provides unclonable device identity",
+        "NIST-compliant cryptography (AES-256, SHA-256, ECDSA)",
+        "Platform firmware resiliency protects against cyber attacks",
+        "Real-time tamper detection and response",
+        "Secure lifecycle management including field updates",
+        "Common Criteria EAL4+ certification available"
+      ],
+      "coreAdvantages": [
+        {
+          "title": "Hardware Root of Trust",
+          "description": "PUF technology creates a unique, unclonable device fingerprint that serves as the foundation for all security operations. This hardware-based identity cannot be copied or counterfeited, providing strong protection against cloning attacks."
+        },
+        {
+          "title": "Comprehensive Cryptography",
+          "description": "Built-in hardware acceleration for AES-256 encryption/decryption, SHA-256 hashing, and ECDSA signature verification provides NIST-compliant cryptographic operations with high performance and low power."
+        },
+        {
+          "title": "Firmware Protection",
+          "description": "Platform firmware resiliency continuously monitors firmware integrity, detects unauthorized modifications, and automatically recovers to known-good firmware, protecting against persistent threats."
+        }
+      ],
+      "bomList": [
+        {
+          "component": "Lattice Security FPGA (LFD4NX-100/LCMXO5-1200)",
+          "quantity": "1",
+          "description": "Security controller with root of trust"
+        },
+        {
+          "component": "SPI Flash Memory",
+          "quantity": "1",
+          "description": "Secure firmware storage"
+        },
+        {
+          "component": "Power Management IC",
+          "quantity": "1",
+          "description": "Voltage regulation"
+        },
+        {
+          "component": "Host Processor",
+          "quantity": "1",
+          "description": "System CPU being protected"
+        }
+      ],
+      "technicalSpecs": {
+        "Security Features": "PUF, AES-256, SHA-256, ECDSA, TRNG",
+        "Certification": "Common Criteria EAL4+ (selected products)",
+        "Compliance": "NIST SP 800-193 PFR",
+        "Secure Boot": "Multi-stage authenticated boot",
+        "Update Mechanism": "Signed firmware updates",
+        "Development Tool": "Lattice Sentry + Diamond"
+      },
+      "customerCases": [
+        {
+          "customer": "Data Center Equipment Vendor",
+          "application": "Server platform firmware protection",
+          "challenge": "Need to protect against firmware attacks and ensure supply chain security",
+          "solution": "Implemented Lattice Sentry PFR solution with LCMXO5-1200",
+          "results": "Achieved NIST 800-193 compliance, prevented firmware attacks, secured supply chain with device authentication"
+        },
+        {
+          "customer": "Telecommunications Provider",
+          "application": "5G infrastructure security",
+          "challenge": "Critical infrastructure requiring highest security assurance",
+          "solution": "Deployed hardware root of trust using LFD4NX-100 with comprehensive security features",
+          "results": "Common Criteria EAL4+ certification achieved, robust protection against cyber threats, secure remote management"
+        }
+      ],
+      "faeInsights": {
+        "decisionLogic": "When to choose Lattice security solutions: (1) Security-critical applications requiring hardware root of trust, (2) Need for NIST-compliant cryptography, (3) Platform firmware resiliency requirements, (4) Supply chain security concerns, (5) Government or critical infrastructure applications requiring certification.",
+        "keyConsiderations": "Security implementation requires careful key management and secure provisioning. PUF provides unique device identity but requires proper initialization. Firmware update mechanisms must be carefully designed to prevent rollback attacks.",
+        "commonPitfalls": "Insufficient attention to key management and provisioning security. Not implementing comprehensive tamper detection. Inadequate testing of firmware recovery mechanisms under attack scenarios.",
+        "recommendation": "Start with Lattice Sentry reference designs for proven implementations. Engage with our security FAEs early in the design process. Plan for secure manufacturing and provisioning from the beginning."
+      },
+      "faqs": [
+        {
+          "question": "What is a hardware root of trust and why is it important?",
+          "answer": "A hardware root of trust is a security foundation built into hardware that provides a trusted starting point for all security operations. Lattice implements this using PUF (Physically Unclonable Function) technology that creates a unique, unclonable device identity. This is important because software-based security can be compromised, but hardware-based security provides a foundation that cannot be altered by software attacks."
+        },
+        {
+          "question": "How does platform firmware resiliency (PFR) work?",
+          "answer": "PFR continuously monitors system firmware for unauthorized modifications. When firmware corruption is detected, the system automatically recovers to a known-good state. The Lattice implementation uses hardware-based verification with cryptographic signatures to ensure firmware integrity. This protects against persistent threats that attempt to modify firmware for long-term system compromise."
+        },
+        {
+          "question": "What certifications do Lattice security solutions have?",
+          "answer": "Lattice security solutions have achieved Common Criteria Evaluation Assurance Level 4+ (EAL4+) certification for selected products. They also comply with NIST SP 800-193 Platform Firmware Resiliency guidelines and support FIPS 140-2 cryptographic module requirements. These certifications validate the robustness of Lattice security implementations for government and critical infrastructure use."
+        },
+        {
+          "question": "How are secure firmware updates implemented?",
+          "answer": "Secure firmware updates use cryptographic signatures to verify update authenticity before installation. The update process includes anti-rollback protection to prevent installation of older, potentially vulnerable firmware versions. Updates can be performed in the field while maintaining system security. Lattice provides tools and reference designs for implementing secure update mechanisms."
+        },
+        {
+          "question": "What is the difference between MachXO5-NX and Certus-NX for security applications?",
+          "answer": "MachXO5-NX is optimized for system management and control applications with instant-on capability, making it ideal for secure boot and platform protection. Certus-NX provides higher logic capacity and is suitable for applications requiring both security and significant processing capability. Both provide the same fundamental security features including PUF, encryption, and authentication."
+        }
+      ]
+    }
+  ],
+  "seoTitle": "Lattice Solutions - Edge AI and Security | LiTong Distributor",
+  "seoDescription": "Explore Lattice Semiconductor solutions: Edge AI acceleration with sensAI, secure system control with hardware root of trust. Implementation guides from authorized distributor.",
+  "seoKeywords": [
+    "Lattice solutions",
+    "Lattice sensAI",
+    "Edge AI FPGA",
+    "hardware security",
+    "root of trust",
+    "secure boot",
+    "Lattice distributor"
+  ],
+  "faqs": [
+    {
+      "question": "What solutions does Lattice offer for Edge AI?",
+      "answer": "Lattice offers the sensAI solution stack for Edge AI applications, enabling neural network inference on low-power FPGAs. The solution includes a neural network compiler, optimized IP cores, and reference designs for rapid deployment. sensAI supports popular frameworks like TensorFlow and PyTorch, and achieves up to 10x lower power consumption compared to traditional processors. This makes it ideal for battery-powered AI applications such as smart vision, voice recognition, and predictive maintenance.",
+      "decisionGuide": "Choose Lattice sensAI for ultra-low power AI inference at the edge.",
+      "keywords": [
+        "sensAI",
+        "Edge AI",
+        "neural network",
+        "low power"
+      ]
+    },
+    {
+      "question": "How does Lattice implement hardware security?",
+      "answer": "Lattice implements hardware security through comprehensive security features built into select FPGA families. Key capabilities include hardware root of trust with PUF (Physically Unclonable Function) for unique device identity, AES-256 encryption for bitstream protection, ECDSA authentication for secure boot verification, and tamper detection for runtime protection. The Lattice Sentry solution stack provides pre-validated security implementations for platform firmware resiliency (PFR), protecting against cyber threats in critical infrastructure applications.",
+      "decisionGuide": "Choose Lattice security solutions for hardware-based root of trust and firmware protection.",
+      "keywords": [
+        "hardware security",
+        "root of trust",
+        "PFR",
+        "encryption"
+      ]
+    },
+    {
+      "question": "What industries benefit from Lattice solutions?",
+      "answer": "Lattice solutions benefit a wide range of industries including industrial automation, smart home, automotive, consumer electronics, communications, data center, and aerospace & defense. The ultra-low power consumption makes Lattice ideal for battery-powered and thermally constrained applications. Security features address the needs of critical infrastructure and government applications. MIPI connectivity solutions serve the smart vision and camera markets. Edge AI capabilities enable AI/ML deployment in resource-constrained environments.",
+      "decisionGuide": "Lattice solutions serve diverse industries with low power, security, and connectivity focus.",
+      "keywords": [
+        "industries",
+        "applications",
+        "low power",
+        "security"
+      ]
+    },
+    {
+      "question": "How do I get started with Lattice solutions?",
+      "answer": "Getting started with Lattice solutions involves several steps: First, identify your application requirements including power budget, performance needs, and security requirements. Next, select the appropriate FPGA family and solution stack (sensAI for AI, Sentry for security). Then, acquire a development kit for evaluation and prototyping. Lattice provides comprehensive documentation, reference designs, and software tools including Radiant design software and solution-specific tools. Our FAE team provides technical support throughout the development process.",
+      "decisionGuide": "Contact our FAE team for solution selection and getting started guidance.",
+      "keywords": [
+        "getting started",
+        "development kit",
+        "reference designs"
+      ]
+    }
+  ]
+}

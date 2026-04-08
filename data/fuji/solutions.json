@@ -1,0 +1,456 @@
+{
+  "solutions": [
+    {
+      "id": "industrial-inverter-solution",
+      "title": "Industrial Inverter Solution",
+      "description": "High-performance industrial inverter solution based on Fuji 7th Generation IGBT modules, suitable for motor drives, pumps, fans, and industrial automation",
+      "image": "/images/fuji/solutions/industrial-inverter.jpg",
+      "heroImage": "/images/fuji/solutions/industrial-inverter-hero.jpg",
+      "icon": "⚡",
+      "industry": "Industrial Automation",
+      "applications": [
+        "Inverters",
+        "Servo Drives",
+        "Pumps and Fans",
+        "CNC Machines"
+      ],
+      "products": [
+        "2MBI200VH-120-50",
+        "6MBI100VB-120-50",
+        "7MBP50RA120"
+      ],
+      "technicalSpecs": {
+        "Input Voltage": "380V AC ±15%",
+        "Output Power": "0.75kW - 75kW",
+        "Switching Frequency": "2kHz - 15kHz",
+        "Efficiency": "≥ 97%",
+        "Protection Class": "IP20 / IP54",
+        "Operating Temperature": "-10°C ~ +50°C"
+      },
+      "bomList": [
+        {
+          "designator": "Q1-Q6",
+          "partNumber": "6MBI100VB-120-50",
+          "description": "1200V 100A 6-Pack IGBT Module",
+          "quantity": 1
+        },
+        {
+          "designator": "Q7-Q8",
+          "partNumber": "2MBI200VH-120-50",
+          "description": "1200V 200A 2-Pack IGBT Module",
+          "quantity": 1
+        },
+        {
+          "designator": "U1",
+          "partNumber": "7MBP50RA120",
+          "description": "1200V 50A IPM Module",
+          "quantity": 1
+        },
+        {
+          "designator": "C1-C4",
+          "partNumber": "Electrolytic Capacitor 680μF/450V",
+          "description": "DC Bus Capacitor",
+          "quantity": 4
+        },
+        {
+          "designator": "L1",
+          "partNumber": "DC Reactor",
+          "description": "Input Filter Reactor",
+          "quantity": 1
+        },
+        {
+          "designator": "R1-R3",
+          "partNumber": "Braking Resistor",
+          "description": "Dynamic Braking Resistor",
+          "quantity": 3
+        }
+      ],
+      "coreAdvantages": [
+        {
+          "title": "Performance",
+          "description": "Optimized for best performance"
+        },
+        {
+          "title": "Reliability",
+          "description": "Designed for long-term operation"
+        },
+        {
+          "title": "Support",
+          "description": "Full technical support provided"
+        },
+        {
+          "title": "Integration",
+          "description": "Easy system integration"
+        },
+        {
+          "title": "Quality",
+          "description": "High-quality components"
+        }
+      ],
+      "designGuide": {
+        "overview": "This solution uses Fuji 7th generation IGBT modules for three-phase AC motor variable frequency drives. Design should focus on thermal management, EMI, and gate drive optimization.",
+        "keyConsiderations": [
+          "Ensure adequate thermal design with heatsink thermal resistance less than 0.3°C/W",
+          "IGBT gate drive resistor selection 3.3-10Ω to balance switching speed and EMI",
+          "DC bus capacitors should use low ESR electrolytic capacitors with capacity not less than 500μF/kW",
+          "Install EMI filters on input side to meet CISPR 11 Class A standard"
+        ],
+        "referenceDesigns": [
+          {
+            "name": "11kW Inverter Reference Design",
+            "file": "/downloads/fuji/inverter-11kw-ref.zip",
+            "description": "Complete 11kW inverter design including schematics, PCB, and BOM"
+          },
+          {
+            "name": "Servo Drive Reference Design",
+            "file": "/downloads/fuji/servo-drive-ref.zip",
+            "description": "High-performance servo drive solution supporting vector control and position control"
+          }
+        ]
+      },
+      "faqs": [
+        {
+          "question": "How to select IGBT module voltage and current ratings?",
+          "answer": "Selecting IGBT module voltage rating: (1) Input voltage: 380V AC systems choose 1200V modules, 220V AC systems choose 600V modules; (2) Safety margin: rated voltage should be at least 1.5x maximum circuit voltage; (3) Switching spikes: consider voltage spikes from parasitic inductance. Current rating selection: (1) Motor rated current: module rating should be 1.5-2x motor rated current; (2) Overload capability: consider current requirements during motor starting and overload; (3) Switching frequency: high frequency applications need larger current margin. Fuji 6MBI100VB-120-50 is suitable for 7.5-15kW inverters, 2MBI200VH-120-50 for 30-75kW inverters.",
+          "decisionGuide": "380V systems choose 1200V modules; module current should be 1.5-2x motor current; high frequency applications need larger margin.",
+          "keywords": [
+            "IGBT selection",
+            "voltage rating",
+            "current rating",
+            "safety margin"
+          ]
+        },
+        {
+          "question": "What are the improvements of 7th generation vs 6th generation IGBT?",
+          "answer": "Fuji 7th generation IGBT improvements over 6th generation: (1) Lower Vce(sat): 15-20% reduction in conduction losses; (2) Faster switching: turn-off time reduced by 30%; (3) Softness optimization: softer turn-off waveform reduces EMI; (4) SOA improvement: expanded safe operating area; (5) Chip optimization: thinner wafer and optimized carrier lifetime control; (6) Reliability improvement: advanced chip design and packaging technology; (7) Compatibility: drop-in replacement for 6th generation in many cases. 7th generation technology is especially suitable for new designs requiring highest efficiency and reliability.",
+          "decisionGuide": "New designs should prioritize 7th generation; existing 6th generation designs can be evaluated for upgrade based on efficiency requirements.",
+          "keywords": [
+            "7th generation IGBT",
+            "6th generation IGBT",
+            "technology comparison",
+            "efficiency improvement"
+          ]
+        },
+        {
+          "question": "How to design the braking unit in inverters?",
+          "answer": "Braking unit design points: (1) Braking resistor selection: resistance R = Vdc / Ib, where Vdc is DC bus voltage, Ib is braking current; (2) Power calculation: braking power selected by duty cycle, typically 10-20% of peak power; (3) Braking unit configuration: for 380V systems, typical resistance is 50-100Ω, power 2-10kW; (4) Braking chopper: use IGBT or MOSFET as braking switch, switching frequency 1-5kHz; (5) Protection: overcurrent, overtemperature, and short-circuit protection; (6) Thermal design: braking resistors need forced air or water cooling; (7) Control strategy: automatic braking based on DC bus voltage. Fuji solutions support external braking units configurable by application needs.",
+          "decisionGuide": "Frequent braking applications choose high power braking resistors; occasional braking can use smaller power; thermal design must be considered.",
+          "keywords": [
+            "braking unit",
+            "braking resistor",
+            "dynamic braking",
+            "regenerative energy"
+          ]
+        },
+        {
+          "question": "How to suppress EMI interference in inverters?",
+          "answer": "EMI suppression measures for inverters: (1) Input filters: install three-phase EMI filters at power input to suppress common mode and differential mode interference; (2) Output filters: install dv/dt filters or sine wave filters at motor end; (3) Shielded cables: use shielded cables for motor connections with both ends grounded; (4) Grounding design: single point connection for power ground and control ground to avoid ground loops; (5) PCB layout: minimize power loops to reduce parasitic inductance; (6) Gate resistors: appropriately increase gate resistors to slow switching speed; (7) Metal enclosure: inverter enclosure properly grounded for shielding. EMI testing should follow CISPR 11 Class A (industrial) or Class B (residential) standards.",
+          "decisionGuide": "Industrial environments meet CISPR 11 Class A; residential environments meet Class B; professional EMC engineers can assist if needed.",
+          "keywords": [
+            "EMI",
+            "electromagnetic interference",
+            "EMC",
+            "filter",
+            "shielding"
+          ]
+        },
+        {
+          "question": "What are the advantages of IPM modules vs discrete IGBT modules?",
+          "answer": "Fuji IPM module advantages: (1) Simplified design: integrated drive and protection circuits reduce external components by 60%+; (2) Shorter development cycle: no need to design complex drive and protection circuits, development time reduced by 50%; (3) Higher reliability: factory-matched devices and optimized layout reduce failure risk; (4) Space saving: compact package design reduces PCB area; (5) Lower cost: although module price is higher, development and BOM costs are saved; (6) Complete protection: integrated overcurrent, short-circuit, undervoltage, and overtemperature protection; (7) Technical support: complete reference designs and technical documentation. Especially suitable for medium-low power, fast development applications. Fuji 7MBP50RA120 is suitable for 5.5-11kW inverters, 7MBP25RSB120 for low power appliance applications.",
+          "decisionGuide": "Standard topology, medium-low power, fast development needs choose IPM; special topology, ultra-high power choose discrete IGBT.",
+          "keywords": [
+            "IPM",
+            "intelligent power module",
+            "integrated drive",
+            "design simplification"
+          ]
+        },
+        {
+          "question": "What motor control algorithms are supported by inverters?",
+          "answer": "This solution supports multiple motor control algorithms: (1) V/f control: open-loop control, simple implementation, suitable for fans, pumps and general speed regulation; (2) Vector control (FOC): field-oriented control provides excellent dynamic performance and torque control for high-performance drives; (3) Direct Torque Control (DTC): fast response, low torque ripple, suitable for high-performance servo; (4) Sensorless vector control: no encoder needed, reduces cost for general industrial; (5) PMSM control: supports SPM and IPM permanent magnet motor efficient control; (6) SynRM control: supports new high-efficiency synchronous reluctance motors. Fuji IGBT's fast switching characteristics (<200ns) ensure full algorithm performance.",
+          "decisionGuide": "Fans and pumps choose V/f control; general industrial drives choose vector control; high-performance servo choose DTC or direct torque control.",
+          "keywords": [
+            "control algorithm",
+            "vector control",
+            "FOC",
+            "V/f control",
+            "DTC"
+          ]
+        }
+      ],
+      "slug": "industrial-inverter-solution",
+      "longDescription": "High-performance industrial inverter solution based on Fuji 7th Generation IGBT modules, suitable for motor drives, pumps, fans, and industrial automation This solution provides comprehensive support and guidance for your application needs.",
+      "benefits": [
+        "High performance and reliability",
+        "Comprehensive technical support",
+        "Easy integration and deployment",
+        "Cost-effective solution"
+      ],
+      "customerCases": [
+        {
+          "customer": "Industrial Customer",
+          "industry": "Industrial",
+          "challenge": "Needed reliable solution",
+          "solution": "Implemented our solution",
+          "results": "Achieved expected performance"
+        },
+        {
+          "customer": "Commercial Customer",
+          "industry": "Commercial",
+          "challenge": "Cost-sensitive application",
+          "solution": "Optimized solution design",
+          "results": "Met cost targets"
+        }
+      ],
+      "faeInsights": {
+        "author": "FAE Team",
+        "content": "This solution provides excellent performance for target applications.",
+        "keyTakeaways": [
+          "Follow design guidelines",
+          "Consider environmental factors"
+        ]
+      }
+    },
+    {
+      "id": "ev-charging-solution",
+      "title": "EV Charging Solution",
+      "description": "High-efficiency EV charging solution using Fuji SiC MOSFET and IGBT modules, supporting fast charging and supercharging applications with conversion efficiency up to 99%",
+      "image": "/images/fuji/solutions/ev-charging.jpg",
+      "heroImage": "/images/fuji/solutions/ev-charging-hero.jpg",
+      "icon": "🔋",
+      "industry": "New Energy Vehicles",
+      "applications": [
+        "DC Fast Chargers",
+        "On-board Chargers",
+        "Battery Swap Stations",
+        "V2G Applications"
+      ],
+      "products": [
+        "FMF800DX-24A",
+        "FMF400HX-12A",
+        "2MBI200VH-120-50"
+      ],
+      "technicalSpecs": {
+        "Input Voltage": "380V AC ±20%",
+        "Output Voltage": "200V - 1000V DC",
+        "Output Power": "30kW - 350kW",
+        "Efficiency": "≥ 99% (SiC) / ≥ 97% (IGBT)",
+        "Power Factor": "≥ 0.99",
+        "Cooling Method": "Forced Air / Liquid Cooling"
+      },
+      "bomList": [
+        {
+          "designator": "Q1-Q4",
+          "partNumber": "FMF800DX-24A",
+          "description": "1200V SiC MOSFET",
+          "quantity": 4
+        },
+        {
+          "designator": "Q5-Q8",
+          "partNumber": "FMF400HX-12A",
+          "description": "650V SiC MOSFET",
+          "quantity": 4
+        },
+        {
+          "designator": "Q9-Q12",
+          "partNumber": "2MBI200VH-120-50",
+          "description": "1200V IGBT Module",
+          "quantity": 2
+        },
+        {
+          "designator": "D1-D4",
+          "partNumber": "SiC Schottky Diode",
+          "description": "1200V SiC SBD",
+          "quantity": 4
+        },
+        {
+          "designator": "T1",
+          "partNumber": "High Frequency Transformer",
+          "description": "LLC Resonant Transformer",
+          "quantity": 1
+        },
+        {
+          "designator": "L1",
+          "partNumber": "Resonant Inductor",
+          "description": "LLC Resonant Inductor",
+          "quantity": 1
+        }
+      ],
+      "coreAdvantages": [
+        {
+          "title": "Performance",
+          "description": "Optimized for best performance"
+        },
+        {
+          "title": "Reliability",
+          "description": "Designed for long-term operation"
+        },
+        {
+          "title": "Support",
+          "description": "Full technical support provided"
+        },
+        {
+          "title": "Integration",
+          "description": "Easy system integration"
+        },
+        {
+          "title": "Quality",
+          "description": "High-quality components"
+        }
+      ],
+      "designGuide": {
+        "overview": "This solution uses two-stage architecture: front-end PFC for power factor correction, back-end LLC resonant converter for isolated DC/DC conversion. SiC devices' high-frequency characteristics significantly reduce system size.",
+        "keyConsiderations": [
+          "PFC stage switching frequency recommended 65-100kHz, using SiC MOSFET for best efficiency",
+          "LLC transformer uses planar core design to reduce height and leakage inductance",
+          "DC bus voltage controlled below 850V to ensure SiC device safety margin",
+          "Charging gun cables should use high-temperature silicone wire supporting high current transmission"
+        ],
+        "referenceDesigns": [
+          {
+            "name": "30kW DC Fast Charger Module",
+            "file": "/downloads/fuji/ev-charger-30kw-ref.zip",
+            "description": "Complete 30kW charging module design, efficiency 99.2%, power density 4.5kW/L"
+          },
+          {
+            "name": "120kW Integrated Charging Station",
+            "file": "/downloads/fuji/ev-charger-120kw-ref.zip",
+            "description": "120kW dual-gun charging station solution with intelligent power allocation"
+          }
+        ]
+      },
+      "faqs": [
+        {
+          "question": "What are the advantages of SiC MOSFETs vs IGBTs in EV chargers?",
+          "answer": "SiC MOSFET advantages vs IGBTs: (1) No reverse recovery: zero Qrr eliminates diode reverse recovery losses; (2) Low switching losses: 80% reduction enables 100kHz+ high frequency operation; (3) Low on-resistance: Rds(on) has small temperature variation, efficiency advantage at high temperature; (4) High efficiency: system efficiency up to 99%, 2-3 percentage points higher than IGBT; (5) Small size: high frequency reduces magnetic component size by 60%; (6) Simple cooling: high efficiency reduces cooling requirements; (7) High reliability: SiC material characteristics suitable for high temperature and high voltage. Fuji FMF800DX-24A (1200V) and FMF400HX-12A (650V) are ideal for EV chargers.",
+          "decisionGuide": "Choose SiC for high efficiency and power density; IGBT for cost-sensitive applications with lower power density requirements.",
+          "keywords": [
+            "SiC MOSFET",
+            "silicon carbide",
+            "high frequency",
+            "efficiency",
+            "power density"
+          ]
+        },
+        {
+          "question": "How to design the PFC circuit for EV chargers?",
+          "answer": "EV charger PFC circuit design points: (1) Topology selection: below 30kW can use single-phase or interleaved Boost PFC; above 30kW recommend three-phase Vienna rectifier or totem-pole bridgeless PFC; (2) Switching devices: use SiC MOSFET (FMF400HX-12A) or super-junction MOSFET as switches; (3) Switching frequency: SiC solution 65-100kHz, IGBT solution 15-30kHz; (4) Inductor design: consider current ripple and core losses, recommend iron-silicon-aluminum powder core; (5) Control loop: voltage loop bandwidth <10Hz, current loop bandwidth <5kHz; (6) EMI filter: install three-phase EMI filter on input side; (7) Soft start: limit starting current to protect devices. Fuji SiC solution can achieve 99%+ PFC efficiency.",
+          "decisionGuide": "Below 30kW use single-phase Boost PFC; above 30kW use three-phase Vienna or totem-pole PFC; choose SiC for ultimate efficiency.",
+          "keywords": [
+            "PFC",
+            "power factor correction",
+            "totem-pole",
+            "Vienna rectifier"
+          ]
+        },
+        {
+          "question": "What are the design considerations for LLC resonant converters?",
+          "answer": "LLC resonant converter design points: (1) Resonant frequency: typically 100-200kHz to leverage SiC high-frequency advantages; (2) Transformer design: use planar core to reduce height and leakage inductance, improve efficiency; (3) Resonant inductor: can be integrated in transformer using leakage inductance; (4) Dead time: precise control to ensure ZVS, typically 200-500ns; (5) Gain range: design sufficient gain range for input voltage and load variations; (6) Rectifier diodes: use SiC Schottky diodes to eliminate reverse recovery losses; (7) Control strategy: use variable frequency control, burst mode at light load. Fuji SiC MOSFET's low output capacitance benefits ZVS implementation.",
+          "decisionGuide": "Choose LLC for isolated applications; resonant frequency 100-200kHz; use SiC diodes for rectification.",
+          "keywords": [
+            "LLC",
+            "resonant converter",
+            "ZVS",
+            "planar transformer"
+          ]
+        },
+        {
+          "question": "How do EV chargers meet different vehicle charging requirements?",
+          "answer": "Fuji EV charger solution supports 200V-1000V wide voltage output: (1) Voltage range: through LLC variable frequency control for wide voltage regulation covering all EV battery voltages; (2) Charging standards: support GB/T (China), CCS Combo (Europe), CHAdeMO (Japan) and other standards; (3) BMS communication: CAN bus communication with vehicle BMS, dynamic output adjustment based on battery needs; (4) Power allocation: multi-gun design supports intelligent power allocation improving equipment utilization; (5) Charging curve: optimal charging curve based on battery characteristics to protect battery life; (6) Safety protection: overvoltage, overcurrent, overtemperature, insulation monitoring and other protections. Solution has passed compatibility testing with multiple mainstream automakers.",
+          "decisionGuide": "Public charging stations support multiple standards; dedicated scenarios can choose single standard; new projects prioritize GB/T and CCS standards.",
+          "keywords": [
+            "charging standards",
+            "CCS",
+            "CHAdeMO",
+            "GB/T",
+            "wide voltage"
+          ]
+        },
+        {
+          "question": "How to select cooling solutions for EV chargers?",
+          "answer": "EV charger cooling solution selection: (1) Below 30kW: can use forced air cooling, simple design and low cost; (2) 30-120kW: recommend intelligent air cooling, adjusting fan speed based on temperature to balance cooling and noise; (3) Above 120kW: recommend liquid cooling, power density up to 6kW/L+, low noise; (4) SiC solution: due to high efficiency and low losses, can simplify cooling design, 30kW modules can use natural or light forced air cooling; (5) Liquid cooling design: use deionized water coolant, flow rate 10-20L/min, inlet temperature 40°C; (6) Thermal management: intelligent temperature control system, dynamically adjusting cooling capacity based on module temperature. Fuji solutions provide both air and liquid cooling reference designs.",
+          "decisionGuide": "Power density >4kW/L consider liquid cooling; cost-sensitive choose air cooling; SiC solutions can simplify cooling design.",
+          "keywords": [
+            "cooling solution",
+            "liquid cooling",
+            "air cooling",
+            "power density",
+            "thermal management"
+          ]
+        },
+        {
+          "question": "What are the EMC design requirements for EV chargers?",
+          "answer": "EV charger EMC design requirements: (1) Standards compliance: meet GB/T 18487.2 and CISPR 11 Class B standards; (2) Input filtering: three-phase EMI filters to suppress common mode (100kHz-30MHz) and differential mode (150kHz-30MHz) interference; (3) Output filtering: filter ferrite rings at charging gun output to suppress high frequency noise; (4) Shielding design: power module metal enclosure grounded for shielding; (5) Grounding system: power ground connected to chassis through Y capacitors single point, control ground separate; (6) Cable shielding: charging gun cables use shielded wire with both ends grounded; (7) Margin: recommend 10-15dB margin to avoid later corrections. Early EMC pre-testing is recommended.",
+          "decisionGuide": "Public chargers must meet Class B standard; reserve EMC correction margin; early EMC pre-testing recommended.",
+          "keywords": [
+            "EMC",
+            "electromagnetic compatibility",
+            "EMI filter",
+            "GB/T 18487",
+            "shielding"
+          ]
+        }
+      ],
+      "slug": "ev-charging-solution",
+      "longDescription": "High-efficiency EV charging solution using Fuji SiC MOSFET and IGBT modules, supporting fast charging and supercharging applications with conversion efficiency up to 99% This solution provides comprehensive support and guidance for your application needs.",
+      "benefits": [
+        "High performance and reliability",
+        "Comprehensive technical support",
+        "Easy integration and deployment",
+        "Cost-effective solution"
+      ],
+      "customerCases": [
+        {
+          "customer": "Industrial Customer",
+          "industry": "Industrial",
+          "challenge": "Needed reliable solution",
+          "solution": "Implemented our solution",
+          "results": "Achieved expected performance"
+        },
+        {
+          "customer": "Commercial Customer",
+          "industry": "Commercial",
+          "challenge": "Cost-sensitive application",
+          "solution": "Optimized solution design",
+          "results": "Met cost targets"
+        }
+      ],
+      "faeInsights": {
+        "author": "FAE Team",
+        "content": "This solution provides excellent performance for target applications.",
+        "keyTakeaways": [
+          "Follow design guidelines",
+          "Consider environmental factors"
+        ]
+      }
+    }
+  ],
+  "seoTitle": "fuji Solutions - Application Guides | Technical Support",
+  "seoDescription": "Explore fuji application solutions. Get technical support, BOM recommendations, and design guidance from our expert team.",
+  "seoKeywords": [
+    "fuji distributor",
+    "fuji 选型",
+    "fuji products",
+    "fuji authorized distributor",
+    "fuji technical support",
+    "fuji datasheet",
+    "fuji pricing",
+    "fuji inventory",
+    "fuji samples",
+    "fuji evaluation kit"
+  ],
+  "faqs": [
+    {
+      "question": "What applications are fuji solutions suitable for?",
+      "answer": "Our fuji solutions cover a wide range of applications including automotive, industrial, consumer electronics, and telecommunications. Contact our technical team for application-specific guidance."
+    },
+    {
+      "question": "Do you provide design support for these solutions?",
+      "answer": "Yes, our FAE team provides comprehensive design support including schematic review, PCB layout guidance, and troubleshooting assistance."
+    },
+    {
+      "question": "Can I customize these solutions for my specific needs?",
+      "answer": "Absolutely. We can help customize these reference designs to meet your specific requirements. Contact our engineering team to discuss your project."
+    }
+  ]
+}

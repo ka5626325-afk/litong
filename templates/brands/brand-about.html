@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= brand.displayName %> | Core Distributor | LiTong Electronics</title>
+  <meta name="description" content="<%= brand.description %>">
+  <meta name="keywords" content="<%= brand.name %>, distributor, <%= brand.coreProducts.map(function(p) { return typeof p === 'string' ? p : p.name; }).join(', ') %>">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="LiTong Electronics">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="<%= brand.displayName %> | LiTong Electronics">
+  <meta property="og:description" content="<%= brand.description %>">
+  <meta property="og:type" content="website">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="/assets/css/navbar.css">
+  <link rel="stylesheet" href="/assets/css/footer.css">
+  <link rel="stylesheet" href="/assets/css/breadcrumb.css">
+  <link rel="stylesheet" href="/assets/css/brand-tab-nav.css">
+  <link rel="stylesheet" href="/assets/css/floating-contact.css">
+  
+  <!-- Brand About Styles -->
+  <style>
+    .brand-about {
+      padding: var(--space-16) 0;
+    }
+    
+    .brand-header {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-12);
+      align-items: center;
+      margin-bottom: var(--space-16);
+    }
+    
+    .brand-logo-large {
+      max-width: 400px;
+      margin: 0 auto;
+    }
+    
+    .brand-info h1 {
+      font-size: 2.5rem;
+      color: var(--primary-blue);
+      margin-bottom: var(--space-4);
+    }
+    
+    .brand-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-6);
+      margin-bottom: var(--space-6);
+    }
+    
+    .meta-item {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      color: var(--text-medium);
+      font-size: 0.875rem;
+    }
+    
+    .brand-description {
+      font-size: 1.125rem;
+      line-height: 1.8;
+      color: var(--text-medium);
+    }
+    
+    /* Core Products */
+    .core-products {
+      background: var(--bg-light);
+      padding: var(--space-16) 0;
+    }
+    
+    .product-categories {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: var(--space-6);
+    }
+    
+    .product-category {
+      background: #ffffff;
+      padding: var(--space-6);
+      border-radius: var(--radius-lg);
+      text-align: center;
+      box-shadow: var(--shadow-md);
+      transition: all 0.3s ease-out;
+      text-decoration: none;
+      color: inherit;
+    }
+    
+    .product-category:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-xl);
+    }
+    
+    .category-icon {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto var(--space-4);
+      color: var(--primary-blue);
+    }
+    
+    .product-category h3 {
+      font-size: 1.125rem;
+      margin-bottom: var(--space-2);
+    }
+    
+    .product-category p {
+      font-size: 0.875rem;
+      color: var(--text-light);
+      margin: 0;
+    }
+    
+    /* Certifications */
+    .certifications {
+      background: var(--bg-light);
+      padding: var(--space-16) 0;
+    }
+    
+    .cert-grid {
+      display: flex;
+      justify-content: center;
+      gap: var(--space-8);
+      flex-wrap: wrap;
+    }
+    
+    .cert-item {
+      background: #ffffff;
+      padding: var(--space-6);
+      border-radius: var(--radius-md);
+      text-align: center;
+      min-width: 150px;
+    }
+    
+    .cert-item h4 {
+      font-size: 1.25rem;
+      color: var(--primary-blue);
+      margin: 0;
+    }
+    
+    /* CTA Section */
+    .brand-cta {
+      background: var(--cta-orange);
+      color: #ffffff;
+      text-align: center;
+      padding: var(--space-16) 0;
+    }
+    
+    .brand-cta h2 {
+      font-size: 2.5rem;
+      margin-bottom: var(--space-4);
+    }
+    
+    .brand-cta .btn-primary {
+      background: #ffffff;
+      color: var(--cta-orange);
+    }
+    
+    /* 响应式 */
+    @media (max-width: 1023px) {
+      .brand-header {
+        grid-template-columns: 1fr;
+      }
+      
+      .product-categories {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    
+    @media (max-width: 767px) {
+      .product-categories {
+        grid-template-columns: 1fr;
+      }
+      
+      .brand-meta {
+        flex-direction: column;
+        gap: var(--space-2);
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- 导航栏 -->
+  <!--#include virtual="/templates/components/navbar.html" -->
+  
+  <!-- 面包屑导航 -->
+  <!--#include virtual="/templates/components/breadcrumb.html" -->
+  
+  <!-- 品牌 Tab 二级导航 -->
+  <!--#include virtual="/templates/components/brand-tab-nav.html" -->
+  
+  <main>
+    <!-- Brand About Section -->
+    <section class="brand-about">
+      <div class="container">
+        <div class="brand-header">
+          <div class="brand-info">
+            <h1><%= brand.displayName %></h1>
+            <div class="brand-meta">
+              <div class="meta-item">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
+                  <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                </svg>
+                <%= brand.headquarters %>
+              </div>
+              <div class="meta-item">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
+                  <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11z"/>
+                </svg>
+                Founded <%= brand.yearFounded %>
+              </div>
+              <div class="meta-item">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
+                  <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/>
+                </svg>
+                <%= brand.distributorStatus %>
+              </div>
+            </div>
+            <p class="brand-description"><%= brand.description %></p>
+          </div>
+          <div class="brand-visual">
+            <!-- 品牌Logo -->
+            <div class="brand-logo-large">
+              <svg viewBox="0 0 400 200" aria-hidden="true">
+                <rect fill="#f8f9fa" width="400" height="200" rx="12"/>
+                <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-size="28" font-weight="bold" fill="#0072ce"><%= brand.displayName %></text>
+              </svg>
+            </div>
+            
+            <!-- 关键数据展示 -->
+            <div class="brand-stats">
+              <div class="stat-card">
+                <div class="stat-number"><%= brand.yearFounded %></div>
+                <div class="stat-label">Founded</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-number">50+</div>
+                <div class="stat-label">Years Experience</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-number">Global</div>
+                <div class="stat-label">Presence</div>
+              </div>
+            </div>
+            
+          </div>
+          
+          <style>
+            .brand-visual {
+              display: flex;
+              flex-direction: column;
+              gap: var(--space-6);
+            }
+            .brand-logo-large svg {
+              width: 100%;
+              height: auto;
+              border-radius: var(--radius-lg);
+              box-shadow: var(--shadow-md);
+            }
+            .brand-stats {
+              display: grid;
+              grid-template-columns: repeat(3, 1fr);
+              gap: var(--space-4);
+            }
+            .stat-card {
+              background: linear-gradient(135deg, var(--primary-blue), var(--primary-blue-dark));
+              color: white;
+              padding: var(--space-4);
+              border-radius: var(--radius-lg);
+              text-align: center;
+            }
+            .stat-number {
+              font-size: 1.5rem;
+              font-weight: 700;
+              margin-bottom: var(--space-1);
+            }
+            .stat-label {
+              font-size: 0.75rem;
+              opacity: 0.9;
+            }
+            @media (max-width: 1023px) {
+              .brand-stats {
+                grid-template-columns: repeat(3, 1fr);
+              }
+            }
+            @media (max-width: 767px) {
+              .brand-stats {
+                grid-template-columns: 1fr;
+              }
+            }
+          </style>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Core Products -->
+    <section class="core-products">
+      <div class="container">
+        <h2 class="section-title">Core Product Areas</h2>
+        <div class="product-categories">
+          <% 
+            // 产品名称到分类文件名的映射
+            var productFileMap = {
+              'IGBT Modules': 'igbt',
+              'IGBT Module': 'igbt',
+              'IGBTs': 'igbt',
+              'IGBT': 'igbt',
+              'MOSFETs': 'mosfet',
+              'MOSFET': 'mosfet',
+              'Power MOSFETs': 'power-mosfet',
+              'Power MOSFET': 'power-mosfet',
+              'MCUs': 'mcu',
+              'MCU': 'mcu',
+              'Sensors': 'sensor',
+              'Sensor': 'sensor',
+              'Gate Drivers': 'gate-driver',
+              'Gate Driver': 'gate-driver',
+              'STM32 Microcontrollers': 'stm32-mcu',
+              'Power Discrete': 'power-mosfet',
+              'Analog ICs': 'analog-ics',
+              'FRED Modules': 'fred-modules',
+              'Power Discrete Devices': 'power-discrete',
+              'MOSFET Modules': 'mosfet-modules',
+              'Diodes & Rectifiers': 'diodes',
+              'Traction Systems': 'traction-systems',
+              'Rail Components': 'rail-components',
+              'Power Electronics': 'power-electronics',
+              'Protection Devices': 'protection-devices',
+              'Protection Device': 'protection-devices',
+              'Power Management ICs': 'power-management-ic',
+              'Power Management IC': 'power-management-ic',
+              'SiC Modules': 'sic-modules',
+              'SiC Module': 'sic-modules',
+              'Rectifier Modules': 'rectifier-modules',
+              'Rectifier Module': 'rectifier-modules',
+              // BYD Electronics 产品分类映射
+              'Automotive Electronics': 'automotive-electronics',
+              'Power Semiconductors': 'power-semiconductors',
+              'Optoelectronics': 'optoelectronics',
+              'RF Components': 'rf-components',
+              // Silan Microelectronics 产品分类映射
+              'Power Semiconductors': 'power-semiconductors',
+              'MEMS Sensors': 'mems-sensors',
+              'LED Drivers': 'led-drivers',
+              'Power Management ICs': 'power-management',
+              // NCE Power 产品分类映射
+              'MOSFETs': 'mosfets',
+              'IGBTs': 'igbts',
+              'Power Modules': 'power-modules',
+              'GaN Devices': 'gan-devices',
+              // Fuji Electric 产品分类映射
+              'IGBT Modules': 'igbt-modules',
+              'Discrete IGBTs': 'discrete-igbts',
+              'IPM Modules': 'ipm-modules',
+              'SiC MOSFETs': 'sic-mosfets',
+              // Mitsubishi Electric 产品分类映射
+              'IGBT Modules': 'igbt-modules',
+              'DIPIPM': 'dipipm',
+              'IPM Modules': 'ipm-modules',
+              'SiC MOSFETs': 'sic-mosfets',
+              // IXYS 产品分类映射
+              'Power MOSFETs': 'power-mosfets',
+              'IGBTs': 'igbts',
+              'Thyristors & Rectifiers': 'thyristors-rectifiers',
+              'Power Modules': 'power-modules',
+              // Cree (Wolfspeed) 产品分类映射
+              'SiC MOSFETs': 'sic-mosfets',
+              'SiC Schottky Diodes': 'sic-schottky-diodes',
+              'GaN HEMTs': 'gan-hemts',
+              'Power Modules': 'power-modules',
+              // GeneSiC 产品分类映射
+              'SiC MOSFETs': 'sic-mosfets',
+              'SiC Schottky Diodes': 'sic-schottky-diodes',
+              'GaN HEMTs': 'gan-hemts',
+              'Power Modules': 'power-modules',
+              // InventChip 产品分类映射
+              'SiC MOSFETs': 'sic-mosfets',
+              'SiC Power Modules': 'sic-power-modules',
+              'SiC Bare Die': 'sic-bare-die',
+              'Gate Drivers': 'gate-drivers',
+              // Rohm 产品分类映射
+              'SiC MOSFETs': 'sic-mosfets',
+              'SiC Schottky Barrier Diodes': 'sic-schottky-diodes',
+              'IGBTs': 'igbts',
+              'Power Modules': 'power-modules',
+              // Sanrex 产品分类映射
+              'Power Diodes': 'power-diodes',
+              'Thyristors/SCRs': 'thyristors-scrs',
+              'Diode Modules': 'diode-modules',
+              'Thyristor Modules': 'thyristor-modules',
+              // Tongfeng 产品分类映射
+              'Film Capacitors': 'ac-motor-capacitors',
+              'Power Electronics Capacitors': 'power-electronics-capacitors',
+              'Metallized Films': 'metallized-films',
+              'Electronic Connectors': 'electronic-connectors'
+            };
+          %>
+          <% brand.coreProducts.forEach(function(product) { %>
+            <% var productName = typeof product === 'string' ? product : product.name; %>
+            <% var productDesc = typeof product === 'string' ? '' : product.description; %>
+            <% var fileName = productFileMap[productName] || productName.toLowerCase().replace(/\s+/g, '-'); %>
+            <a href="/<%= brand.name.toLowerCase() %>/products/<%= fileName %>.html" class="product-category">
+              <div class="category-icon">
+                <svg viewBox="0 0 80 80" fill="currentColor">
+                  <rect x="15" y="25" width="50" height="30" rx="4" fill="#0072ce" opacity="0.2"/>
+                  <rect x="20" y="30" width="40" height="20" rx="2" fill="#0072ce"/>
+                  <line x1="25" y1="37" x2="55" y2="37" stroke="white" stroke-width="2"/>
+                  <line x1="25" y1="43" x2="50" y2="43" stroke="white" stroke-width="2"/>
+                  <rect x="10" y="33" width="8" height="4" fill="#666"/>
+                  <rect x="10" y="43" width="8" height="4" fill="#666"/>
+                  <rect x="62" y="33" width="8" height="4" fill="#666"/>
+                  <rect x="62" y="43" width="8" height="4" fill="#666"/>
+                </svg>
+              </div>
+              <h3><%= productName %></h3>
+              <p><%= productDesc %></p>
+            </a>
+          <% }); %>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Solutions & Applications -->
+    <section class="solutions-showcase">
+      <div class="container">
+        <h2 class="section-title">Solutions & Applications</h2>
+        <p class="section-subtitle">Tailored solutions for your industry needs</p>
+        <div class="solutions-grid">
+          <% if (solutions && solutions.solutions && solutions.solutions.length > 0) { %>
+            <% solutions.solutions.forEach(function(solution, index) { %>
+              <a href="/<%= brand.name.toLowerCase() %>/solutions/<%= solution.id %>.html" class="solution-card">
+                <div class="solution-icon">
+                  <% if (index % 4 === 0) { %>
+                    <svg viewBox="0 0 80 80" fill="currentColor">
+                      <rect x="10" y="35" width="60" height="25" rx="5"/>
+                      <circle cx="22" cy="60" r="8"/>
+                      <circle cx="58" cy="60" r="8"/>
+                      <rect x="15" y="25" width="20" height="10" rx="2"/>
+                      <path d="M55 30 L65 20 L70 25 L60 35 Z" fill="#ffc107"/>
+                    </svg>
+                  <% } else if (index % 4 === 1) { %>
+                    <svg viewBox="0 0 80 80" fill="currentColor">
+                      <circle cx="40" cy="40" r="25"/>
+                      <circle cx="40" cy="40" r="10" fill="none" stroke="currentColor" stroke-width="3"/>
+                      <rect x="35" y="10" width="10" height="15"/>
+                      <rect x="35" y="55" width="10" height="15"/>
+                      <rect x="10" y="35" width="15" height="10"/>
+                      <rect x="55" y="35" width="15" height="10"/>
+                    </svg>
+                  <% } else if (index % 4 === 2) { %>
+                    <svg viewBox="0 0 80 80" fill="currentColor">
+                      <path d="M40 10 L60 30 L60 50 L40 70 L20 50 L20 30 Z"/>
+                      <line x1="40" y1="5" x2="40" y2="15" stroke="currentColor" stroke-width="3"/>
+                      <line x1="40" y1="65" x2="40" y2="75" stroke="currentColor" stroke-width="3"/>
+                      <line x1="5" y1="40" x2="15" y2="40" stroke="currentColor" stroke-width="3"/>
+                      <line x1="65" y1="40" x2="75" y2="40" stroke="currentColor" stroke-width="3"/>
+                    </svg>
+                  <% } else { %>
+                    <svg viewBox="0 0 80 80" fill="currentColor">
+                      <rect x="15" y="20" width="50" height="40" rx="5"/>
+                      <rect x="25" y="30" width="10" height="10"/>
+                      <rect x="45" y="30" width="10" height="10"/>
+                      <rect x="25" y="45" width="10" height="10"/>
+                      <rect x="45" y="45" width="10" height="10"/>
+                    </svg>
+                  <% } %>
+                </div>
+                <h3><%= solution.name %></h3>
+                <p><%= solution.description %></p>
+                <span class="solution-link">Learn More →</span>
+              </a>
+            <% }); %>
+          <% } else { %>
+            <p class="no-solutions">No solutions available at the moment.</p>
+          <% } %>
+        </div>
+      </div>
+    </section>
+    
+    <style>
+      .solutions-showcase {
+        padding: var(--space-16) 0;
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+      }
+      
+      .section-subtitle {
+        text-align: center;
+        color: var(--text-medium);
+        margin-bottom: var(--space-8);
+        font-size: 1.125rem;
+      }
+      
+      .solutions-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: var(--space-6);
+      }
+      
+      .solution-card {
+        background: #ffffff;
+        padding: var(--space-6);
+        border-radius: var(--radius-lg);
+        text-align: center;
+        box-shadow: var(--shadow-md);
+        transition: all 0.3s ease-out;
+        text-decoration: none;
+        color: inherit;
+      }
+      
+      .solution-card:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-xl);
+      }
+      
+      .solution-icon {
+        width: 80px;
+        height: 80px;
+        margin: 0 auto var(--space-4);
+        color: var(--primary-blue);
+      }
+      
+      .solution-card h3 {
+        font-size: 1.125rem;
+        margin-bottom: var(--space-2);
+        color: var(--text-dark);
+      }
+      
+      .solution-card p {
+        font-size: 0.875rem;
+        color: var(--text-medium);
+        margin-bottom: var(--space-4);
+        line-height: 1.6;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-height: 4.2em;
+      }
+      
+      .solution-link {
+        color: var(--primary-blue);
+        font-weight: 600;
+        font-size: 0.875rem;
+      }
+      
+      @media (max-width: 1023px) {
+        .solutions-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      
+      @media (max-width: 767px) {
+        .solutions-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+
+    <!-- Latest Technical Support -->
+    <section class="tech-support-showcase">
+      <div class="container">
+        <h2 class="section-title">Latest Technical Support</h2>
+        <p class="section-subtitle">Expert resources to help you succeed</p>
+        <div class="support-grid">
+          <% if (support && support.articles && support.articles.length > 0) { %>
+            <% support.articles.slice(0, 4).forEach(function(article) { %>
+              <a href="/<%= brand.name.toLowerCase() %>/support/<%= article.id %>.html" class="support-card">
+                <div class="support-category"><%= article.category || 'Technical Article' %></div>
+                <h3><%= article.title %></h3>
+                <p><%= article.summary || article.desc %></p>
+                <span class="support-link">Read Article →</span>
+              </a>
+            <% }); %>
+          <% } else { %>
+            <p class="no-articles">No support articles available at the moment.</p>
+          <% } %>
+        </div>
+        <div class="support-cta">
+          <a href="/<%= brand.name.toLowerCase() %>/support/" class="btn-primary">View All Resources</a>
+        </div>
+      </div>
+    </section>
+    
+    <style>
+      .tech-support-showcase {
+        padding: var(--space-16) 0;
+        background: #ffffff;
+      }
+      
+      .support-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: var(--space-6);
+        margin-bottom: var(--space-8);
+      }
+      
+      .support-card {
+        background: var(--bg-light);
+        padding: var(--space-6);
+        border-radius: var(--radius-lg);
+        border-left: 4px solid var(--primary-blue);
+        transition: all 0.3s ease-out;
+        text-decoration: none;
+        color: inherit;
+      }
+      
+      .support-card:hover {
+        transform: translateX(4px);
+        box-shadow: var(--shadow-md);
+      }
+      
+      .support-category {
+        font-size: 0.75rem;
+        color: var(--primary-blue);
+        font-weight: 600;
+        text-transform: uppercase;
+        margin-bottom: var(--space-2);
+      }
+      
+      .support-card h3 {
+        font-size: 1.125rem;
+        margin-bottom: var(--space-2);
+        color: var(--text-dark);
+      }
+      
+      .support-card p {
+        font-size: 0.875rem;
+        color: var(--text-medium);
+        margin-bottom: var(--space-4);
+        line-height: 1.6;
+      }
+      
+      .support-link {
+        color: var(--primary-blue);
+        font-weight: 600;
+        font-size: 0.875rem;
+      }
+      
+      .support-cta {
+        text-align: center;
+      }
+      
+      @media (max-width: 1023px) {
+        .support-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      
+      @media (max-width: 767px) {
+        .support-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+
+    <!-- FAQ Section -->
+    <% if (brand.faqs && brand.faqs.length > 0) { %>
+    <section class="faq-section" style="padding: var(--space-12) 0; background: var(--bg-light);">
+      <div class="container">
+        <h2 style="text-align: center; margin-bottom: var(--space-8);">Frequently Asked Questions</h2>
+        <% brand.faqs.forEach(function(faq) { %>
+        <details class="faq-item" style="border: 1px solid var(--border-light); border-radius: var(--radius-md); margin-bottom: var(--space-4); overflow: hidden; background: white;">
+          <summary style="padding: 16px; cursor: pointer; font-weight: 500; background: white; list-style: none;"><%= faq.question %></summary>
+          <div class="faq-answer" style="padding: 16px; color: var(--text-medium); line-height: 1.6;">
+            <% faq.answer.split('; ').forEach(function(paragraph) { %>
+              <% if (paragraph.trim()) { %>
+              <p style="margin-bottom: var(--space-3);"><%= paragraph.trim() %></p>
+              <% } %>
+            <% }); %>
+            <p style="margin-top: var(--space-4); padding-top: var(--space-3); border-top: 1px solid var(--border-light); font-weight: 500; color: var(--primary-blue);"><%= faq.decisionGuide %></p>
+          </div>
+        </details>
+        <% }); %>
+      </div>
+    </section>
+    <% } %>
+
+    <!-- CTA Section -->
+    <section class="brand-cta">
+      <div class="container">
+        <h2>Ready to Get Started?</h2>
+        <p>Contact us today for quotes and technical support</p>
+        <a href="/about/contact/" class="btn-primary btn-large">Contact Us Now</a>
+      </div>
+    </section>
+  </main>
+  
+  <!-- 页脚 -->
+  <!--#include virtual="/templates/components/footer.html" -->
+  
+  <!-- 悬浮联系方式 -->
+  <!--#include virtual="/templates/components/floating-contact.html" -->
+  
+  <script src="/assets/js/navbar.js"></script>
+</body>
+</html>

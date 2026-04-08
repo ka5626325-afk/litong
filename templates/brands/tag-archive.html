@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Products by Tag: <%= tag %> | <%= brand.displayName %></title>
+  <meta name="description" content="All <%= brand.name %> products tagged with <%= tag %>.">
+  
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="/assets/css/navbar.css">
+  <link rel="stylesheet" href="/assets/css/footer.css">
+  <link rel="stylesheet" href="/assets/css/breadcrumb.css">
+  <link rel="stylesheet" href="/assets/css/brand-tab-nav.css">
+  <link rel="stylesheet" href="/assets/css/floating-contact.css">
+  
+  <style>
+    .tag-page { padding: var(--space-16) 0; }
+    .tag-header { text-align: center; margin-bottom: var(--space-12); }
+    .tag-badge { display: inline-block; background: var(--primary-blue); color: #ffffff; padding: 8px 24px; border-radius: var(--radius-full); font-size: 1.25rem; font-weight: 600; margin-bottom: var(--space-4); }
+    
+    .products-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-6); }
+    .product-card {
+      background: #ffffff;
+      border-radius: var(--radius-lg);
+      padding: var(--space-6);
+      box-shadow: var(--shadow-md);
+      transition: all 0.3s ease-out;
+      text-decoration: none;
+      color: inherit;
+    }
+    .product-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-xl); }
+    .product-card h3 { font-size: 1.125rem; color: var(--primary-blue); margin-bottom: var(--space-2); }
+    .product-card p { font-size: 0.875rem; color: var(--text-medium); margin-bottom: var(--space-4); }
+    .product-tags { display: flex; flex-wrap: wrap; gap: var(--space-1); }
+    .tag { background: var(--bg-light); color: var(--text-medium); padding: 4px 12px; border-radius: var(--radius-full); font-size: 0.75rem; }
+    
+    @media (max-width: 1023px) { .products-grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 767px) { .products-grid { grid-template-columns: repeat(2, 1fr); } }
+  </style>
+</head>
+<body>
+  <!--#include virtual="/templates/components/navbar.html" -->
+  <!--#include virtual="/templates/components/breadcrumb.html" -->
+  <!--#include virtual="/templates/components/brand-tab-nav.html" -->
+  
+  <main>
+    <section class="tag-page">
+      <div class="container">
+        <div class="tag-header">
+          <span class="tag-badge">#<%= tag %></span>
+          <h1>Products tagged with "<%= tag %>"</h1>
+        </div>
+        
+        <div class="products-grid">
+          <% taggedProducts.forEach(function(product) { %>
+            <a href="/<%= brand.name.toLowerCase() %>/products/<%= product.partNumber.toLowerCase() %>.html" class="product-card">
+              <h3><%= product.partNumber %></h3>
+              <p><%= product.description.substring(0, 100) %>...</p>
+              <div class="product-tags">
+                <% product.tags.forEach(function(t) { %>
+                  <span class="tag"><%= t %></span>
+                <% }); %>
+              </div>
+            </a>
+          <% }); %>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <!--#include virtual="/templates/components/footer.html" -->
+  <!--#include virtual="/templates/components/floating-contact.html" -->
+  <script src="/assets/js/navbar.js"></script>
+</body>
+</html>

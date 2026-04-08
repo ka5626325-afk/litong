@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= product.partNumber %> | <%= brand.displayName %> | Core Distributor</title>
+  <meta name="description" content="<%= product.description %> - In stock at LiTong. Authorized core distributor.">
+  <meta name="keywords" content="<%= product.partNumber %>, <%= brand.name %>, distributor">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="LiTong Electronics">
+  <link rel="canonical" href="https://www.elec-distributor.com/<%= brand.name.toLowerCase() %>/products/<%= product.partNumber.toLowerCase() %>.html">
+  
+  <!-- Product Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "<%= product.partNumber %>",
+    "description": "<%= product.description %>",
+    "brand": { "@type": "Brand", "name": "<%= brand.name %>" },
+    "offers": {
+      "@type": "Offer",
+      "availability": "https://schema.org/InStock",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
+  
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="/assets/css/navbar.css">
+  <link rel="stylesheet" href="/assets/css/footer.css">
+  <link rel="stylesheet" href="/assets/css/breadcrumb.css">
+  <link rel="stylesheet" href="/assets/css/brand-tab-nav.css">
+  <link rel="stylesheet" href="/assets/css/floating-contact.css">
+  
+  <style>
+    .product-detail { padding: var(--space-16) 0; }
+    .product-hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-12);
+      margin-bottom: var(--space-12);
+    }
+    
+    .product-image {
+      background: var(--bg-light);
+      border-radius: var(--radius-lg);
+      padding: var(--space-8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 400px;
+    }
+    
+    .product-info h1 { font-size: 2.5rem; color: var(--primary-blue); margin-bottom: var(--space-4); }
+    
+    .product-short-desc {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: var(--text-medium);
+      margin-bottom: var(--space-6);
+      max-width: 600px;
+    }
+    
+    .stock-badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 6px 16px;
+      border-radius: var(--radius-full);
+      font-size: 0.875rem;
+      font-weight: 600;
+      margin-bottom: var(--space-4);
+    }
+    .stock-badge.in-stock { background: #d4edda; color: #155724; }
+    .stock-badge.inquiry { background: #fff3cd; color: #856404; }
+    
+    .product-description { font-size: 1.125rem; line-height: 1.8; color: var(--text-medium); margin-bottom: var(--space-6); }
+    
+    .product-cta-group { display: flex; gap: var(--space-4); flex-wrap: wrap; margin-bottom: var(--space-6); }
+    .btn-primary {
+      background: var(--cta-orange);
+      color: #ffffff;
+      padding: 12px 32px;
+      border-radius: var(--radius-md);
+      font-weight: 500;
+      text-decoration: none;
+      display: inline-block;
+      min-height: 44px;
+    }
+    .btn-secondary {
+      background: transparent;
+      color: var(--primary-blue);
+      border: 2px solid var(--primary-blue);
+      padding: 10px 30px;
+      border-radius: var(--radius-md);
+      font-weight: 500;
+      text-decoration: none;
+      display: inline-block;
+      min-height: 44px;
+    }
+    
+    /* Tabs */
+    .tab-container { margin-top: var(--space-12); }
+    .tab-headers {
+      display: flex;
+      background: var(--bg-light);
+      border-bottom: 2px solid var(--border-light);
+    }
+    .tab-header {
+      padding: 16px 24px;
+      background: transparent;
+      border: none;
+      border-bottom: 3px solid transparent;
+      cursor: pointer;
+      font-weight: 500;
+      color: var(--text-medium);
+      transition: all 0.2s ease-out;
+    }
+    .tab-header:hover { color: var(--primary-blue); background: rgba(0,114,206,0.05); }
+    .tab-header.active { color: var(--primary-blue); border-bottom-color: var(--cta-orange); }
+    
+    .tab-panels { padding: var(--space-6); }
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; animation: fadeIn 0.3s ease-out; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    
+    /* Spec Table */
+    .spec-table { width: 100%; border-collapse: collapse; }
+    .spec-table th { background: #f5f5f5; font-weight: 600; padding: 12px 16px; text-align: left; border: 1px solid var(--border-light); }
+    .spec-table td { padding: 12px 16px; border: 1px solid var(--border-light); }
+    .spec-table tr:nth-child(even) { background: #fafafa; }
+    .spec-table tr:hover { background: #f0f7ff; }
+    .table-wrapper { overflow-x: auto; }
+    
+    /* FAQ */
+    .faq-section { margin-top: var(--space-12); }
+    .faq-item { border: 1px solid var(--border-light); border-radius: var(--radius-md); margin-bottom: var(--space-4); overflow: hidden; }
+    .faq-item summary { padding: 16px; cursor: pointer; font-weight: 500; background: var(--bg-light); list-style: none; }
+    .faq-item summary::after { content: '+'; float: right; font-size: 20px; }
+    .faq-item[open] summary::after { content: '−'; }
+    .faq-answer { padding: 16px; color: var(--text-medium); line-height: 1.6; }
+    
+    @media (max-width: 1023px) { .product-hero { grid-template-columns: 1fr; } }
+    @media (max-width: 767px) { .product-cta-group { flex-direction: column; } .btn-primary, .btn-secondary { width: 100%; text-align: center; } }
+  </style>
+</head>
+<body>
+  <!--#include virtual="/templates/components/navbar.html" -->
+  <!--#include virtual="/templates/components/breadcrumb.html" -->
+  <!--#include virtual="/templates/components/brand-tab-nav.html" -->
+  
+  <main>
+    <section class="product-detail">
+      <div class="container">
+        <div class="product-hero">
+          <div class="product-image">
+            <svg viewBox="0 0 400 400" width="300" height="300" aria-hidden="true">
+              <rect fill="#f0f0f0" width="400" height="400"/>
+              <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-size="24" fill="#999999"><%= product.partNumber %></text>
+            </svg>
+          </div>
+          <div class="product-info">
+            <h1><%= product.partNumber %></h1>
+            <div class="stock-badge in-stock">✓ In Stock</div>
+            <p class="product-short-desc"><%= product.shortDescription || product.description.substring(0, 120) + '...' %></p>
+            <div class="product-cta-group">
+              <a href="/about/contact/" class="btn-primary">Get Quote</a>
+              <a href="<%= product.datasheet %>" class="btn-secondary" download>Download Datasheet</a>
+            </div>
+            <div class="product-cta-group">
+              <a href="#" class="btn-secondary">Request Sample</a>
+              <a href="/about/contact/" class="btn-secondary">Ask FAE</a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Tabs -->
+        <div class="tab-container">
+          <div class="tab-headers">
+            <button class="tab-header active" data-tab="overview">Product Overview</button>
+            <button class="tab-header" data-tab="specs">Specifications</button>
+            <button class="tab-header" data-tab="apps">Applications</button>
+            <button class="tab-header" data-tab="docs">Documents</button>
+          </div>
+          <div class="tab-panels">
+            <div class="tab-panel active" id="overview">
+              <h2>Product Overview</h2>
+              <div class="overview-grid">
+                <div class="overview-card main-description">
+                  <div class="card-header">
+                    <div class="card-icon">
+                      <svg viewBox="0 0 48 48" fill="currentColor">
+                        <path d="M24 4C12.95 4 4 12.95 4 24s8.95 20 20 20 20-8.95 20-20S35.05 4 24 4zm0 36c-8.82 0-16-7.18-16-16S15.18 8 24 8s16 7.18 16 16-7.18 16-16 16z"/>
+                      </svg>
+                    </div>
+                    <h3>Description</h3>
+                  </div>
+                  <% if (product.descriptionParagraphs) { %>
+                    <% product.descriptionParagraphs.forEach(function(para) { %>
+                      <p class="desc-paragraph"><%= para %></p>
+                    <% }); %>
+                  <% } else { %>
+                    <p><%= product.description %></p>
+                  <% } %>
+                </div>
+                <div class="overview-card">
+                  <div class="card-header">
+                    <div class="card-icon">
+                      <svg viewBox="0 0 48 48" fill="currentColor">
+                        <path d="M24 4L4 14v20l20 10 20-10V14L24 4zm0 6.8l12.6 6.3L24 23.4 11.4 17.1 24 10.8zM10 19.6l12 6v11.8l-12-6v-11.8zm28 0v11.8l-12 6V25.6l12-6z"/>
+                      </svg>
+                    </div>
+                    <h3>Product Series</h3>
+                  </div>
+                  <p class="series-name"><%= product.series %></p>
+                </div>
+                <div class="overview-card">
+                  <div class="card-header">
+                    <div class="card-icon">
+                      <svg viewBox="0 0 48 48" fill="currentColor">
+                        <path d="M24 4C12.95 4 4 12.95 4 24s8.95 20 20 20 20-8.95 20-20S35.05 4 24 4zm-2 30h4v-4h-4v4zm0-8h4V14h-4v12z"/>
+                      </svg>
+                    </div>
+                    <h3>Primary Application</h3>
+                  </div>
+                  <p><%= product.application %></p>
+                </div>
+                <div class="overview-card features-card">
+                  <div class="card-header">
+                    <div class="card-icon">
+                      <svg viewBox="0 0 48 48" fill="currentColor">
+                        <path d="M24 2L6 10v12c0 11.11 7.67 21.47 18 24 10.33-2.53 18-12.89 18-24V10L24 2zm-4 32l-8-8 2.83-2.83L20 28.34l9.17-9.17L32 22l-12 12z"/>
+                      </svg>
+                    </div>
+                    <h3>Key Features</h3>
+                  </div>
+                  <ul class="feature-list">
+                    <li>High efficiency and reliability</li>
+                    <li>Optimized for industrial applications</li>
+                    <li>Comprehensive technical support</li>
+                    <li>Available from stock</li>
+                  </ul>
+                </div>
+              </div>
+              <style>
+                .overview-grid {
+                  display: grid;
+                  grid-template-columns: 2fr 1fr 1fr;
+                  gap: var(--space-4);
+                  margin-top: var(--space-6);
+                }
+                .overview-card {
+                  background: var(--bg-light);
+                  padding: var(--space-5);
+                  border-radius: var(--radius-lg);
+                  transition: all 0.3s ease;
+                }
+                .overview-card:hover {
+                  transform: translateY(-4px);
+                  box-shadow: var(--shadow-md);
+                }
+                .overview-card.main-description {
+                  grid-row: span 2;
+                }
+                
+                .overview-card.main-description p {
+                  margin-bottom: var(--space-4);
+                  line-height: 1.7;
+                  color: var(--text-medium);
+                }
+                
+                .overview-card.main-description p:last-child {
+                  margin-bottom: 0;
+                }
+                .overview-card.features-card {
+                  grid-column: span 2;
+                }
+                .card-header {
+                  display: flex;
+                  align-items: center;
+                  gap: var(--space-3);
+                  margin-bottom: var(--space-3);
+                }
+                .card-icon {
+                  width: 40px;
+                  height: 40px;
+                  color: var(--primary-blue);
+                  flex-shrink: 0;
+                }
+                .overview-card h3 {
+                  font-size: 1rem;
+                  color: var(--text-dark);
+                  margin: 0;
+                }
+                .overview-card p {
+                  color: var(--text-medium);
+                  line-height: 1.6;
+                  margin: 0;
+                }
+                .series-name {
+                  font-size: 1.25rem;
+                  font-weight: 600;
+                  color: var(--primary-blue);
+                }
+                .feature-list {
+                  list-style: none;
+                  padding: 0;
+                  margin: 0;
+                }
+                .feature-list li {
+                  padding: var(--space-2) 0;
+                  padding-left: var(--space-6);
+                  position: relative;
+                  color: var(--text-medium);
+                }
+                .feature-list li::before {
+                  content: '✓';
+                  position: absolute;
+                  left: 0;
+                  color: var(--primary-blue);
+                  font-weight: bold;
+                }
+                @media (max-width: 1023px) {
+                  .overview-grid {
+                    grid-template-columns: 1fr 1fr;
+                  }
+                  .overview-card.main-description {
+                    grid-row: span 1;
+                    grid-column: span 2;
+                  }
+                  .overview-card.features-card {
+                    grid-column: span 2;
+                  }
+                }
+                @media (max-width: 767px) {
+                  .overview-grid {
+                    grid-template-columns: 1fr;
+                  }
+                  .overview-card.main-description,
+                  .overview-card.features-card {
+                    grid-column: span 1;
+                  }
+                }
+              </style>
+            </div>
+            <div class="tab-panel" id="specs">
+              <h2>Specifications</h2>
+              <div class="table-wrapper">
+                <table class="spec-table">
+                  <% Object.keys(product).forEach(function(key) { if(key !== 'description' && key !== 'datasheet' && key !== 'application' && key !== 'series') { %>
+                  <tr>
+                    <th><%= key.charAt(0).toUpperCase() + key.slice(1).replace(/([A-Z])/g, ' $1').trim() %></th>
+                    <td><%= product[key] %></td>
+                  </tr>
+                  <% } }); %>
+                </table>
+              </div>
+            </div>
+            <div class="tab-panel" id="apps">
+              <h2>Applications</h2>
+              <div class="applications-grid">
+                <% var applications = [
+                  { name: 'Motor Drives', desc: 'Variable frequency drives and servo motor controls', icon: 'motor' },
+                  { name: 'Power Supplies', desc: 'SMPS, UPS, and industrial power systems', icon: 'power' },
+                  { name: 'Renewable Energy', desc: 'Solar inverters and wind turbine converters', icon: 'solar' },
+                  { name: 'EV Charging', desc: 'Electric vehicle charging stations', icon: 'ev' }
+                ]; %>
+                <% applications.forEach(function(app) { %>
+                  <div class="application-card">
+                    <div class="app-icon">
+                      <% if (app.icon === 'motor') { %>
+                        <svg viewBox="0 0 60 60" fill="currentColor">
+                          <circle cx="30" cy="30" r="18"/>
+                          <circle cx="30" cy="30" r="8" fill="none" stroke="white" stroke-width="2"/>
+                          <rect x="27" y="8" width="6" height="10"/>
+                          <rect x="27" y="42" width="6" height="10"/>
+                          <rect x="8" y="27" width="10" height="6"/>
+                          <rect x="42" y="27" width="10" height="6"/>
+                        </svg>
+                      <% } else if (app.icon === 'power') { %>
+                        <svg viewBox="0 0 60 60" fill="currentColor">
+                          <rect x="15" y="20" width="30" height="20" rx="3"/>
+                          <path d="M30 15 L35 25 L25 25 Z" fill="#ffc107"/>
+                          <line x1="30" y1="25" x2="30" y2="45" stroke="currentColor" stroke-width="3"/>
+                        </svg>
+                      <% } else if (app.icon === 'solar') { %>
+                        <svg viewBox="0 0 60 60" fill="currentColor">
+                          <path d="M30 8 L45 22 L45 38 L30 52 L15 38 L15 22 Z"/>
+                          <line x1="30" y1="4" x2="30" y2="12" stroke="currentColor" stroke-width="2"/>
+                          <line x1="30" y1="48" x2="30" y2="56" stroke="currentColor" stroke-width="2"/>
+                          <line x1="4" y1="30" x2="12" y2="30" stroke="currentColor" stroke-width="2"/>
+                          <line x1="48" y1="30" x2="56" y2="30" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                      <% } else if (app.icon === 'ev') { %>
+                        <svg viewBox="0 0 60 60" fill="currentColor">
+                          <rect x="8" y="25" width="44" height="18" rx="4"/>
+                          <circle cx="18" cy="43" r="5"/>
+                          <circle cx="42" cy="43" r="5"/>
+                          <rect x="12" y="18" width="14" height="7" rx="2"/>
+                          <path d="M40 22 L48 12 L52 16 L44 26 Z" fill="#ffc107"/>
+                        </svg>
+                      <% } %>
+                    </div>
+                    <h3><%= app.name %></h3>
+                    <p><%= app.desc %></p>
+                  </div>
+                <% }); %>
+              </div>
+              <style>
+                .applications-grid {
+                  display: grid;
+                  grid-template-columns: repeat(4, 1fr);
+                  gap: var(--space-4);
+                  margin-top: var(--space-6);
+                }
+                .application-card {
+                  background: var(--bg-light);
+                  padding: var(--space-5);
+                  border-radius: var(--radius-lg);
+                  text-align: center;
+                  transition: all 0.3s ease;
+                }
+                .application-card:hover {
+                  transform: translateY(-4px);
+                  box-shadow: var(--shadow-md);
+                }
+                .app-icon {
+                  width: 60px;
+                  height: 60px;
+                  margin: 0 auto var(--space-3);
+                  color: var(--primary-blue);
+                }
+                .application-card h3 {
+                  font-size: 1rem;
+                  margin-bottom: var(--space-2);
+                  color: var(--text-dark);
+                }
+                .application-card p {
+                  font-size: 0.875rem;
+                  color: var(--text-medium);
+                  margin: 0;
+                }
+                @media (max-width: 1023px) {
+                  .applications-grid {
+                    grid-template-columns: repeat(2, 1fr);
+                  }
+                }
+                @media (max-width: 767px) {
+                  .applications-grid {
+                    grid-template-columns: 1fr;
+                  }
+                }
+              </style>
+            </div>
+            <div class="tab-panel" id="docs">
+              <h2>Documents & Resources</h2>
+              <div class="documents-grid">
+                <a href="<%= product.datasheet %>" class="doc-card" download>
+                  <div class="doc-icon">
+                    <svg viewBox="0 0 48 48" fill="currentColor">
+                      <path d="M28 4H12C9.79 4 8 5.79 8 8v32c0 2.21 1.79 4 4 4h24c2.21 0 4-1.79 4-4V16L28 4zm0 4l12 12h-8c-2.21 0-4-1.79-4-4V8zM12 40V8h12v8c0 2.21 1.79 4 4 4h8v20H12z"/>
+                    </svg>
+                  </div>
+                  <div class="doc-info">
+                    <h3>Datasheet</h3>
+                    <p><%= product.partNumber %>.pdf</p>
+                    <span class="doc-tag">PDF</span>
+                  </div>
+                  <span class="doc-action">Download →</span>
+                </a>
+                <a href="/<%= brand.name.toLowerCase() %>/support/" class="doc-card">
+                  <div class="doc-icon">
+                    <svg viewBox="0 0 48 48" fill="currentColor">
+                      <path d="M24 4C12.95 4 4 12.95 4 24s8.95 20 20 20 20-8.95 20-20S35.05 4 24 4zm2 30h-4v-4h4v4zm0-8h-4V14h4v12z"/>
+                    </svg>
+                  </div>
+                  <div class="doc-info">
+                    <h3>Application Notes</h3>
+                    <p>Design guides and tips</p>
+                    <span class="doc-tag">Guide</span>
+                  </div>
+                  <span class="doc-action">View →</span>
+                </a>
+                <a href="/<%= brand.name.toLowerCase() %>/support/" class="doc-card">
+                  <div class="doc-icon">
+                    <svg viewBox="0 0 48 48" fill="currentColor">
+                      <path d="M28 4H12C9.79 4 8 5.79 8 8v32c0 2.21 1.79 4 4 4h24c2.21 0 4-1.79 4-4V16L28 4z"/>
+                    </svg>
+                  </div>
+                  <div class="doc-info">
+                    <h3>Reference Designs</h3>
+                    <p>Circuit examples</p>
+                    <span class="doc-tag">Design</span>
+                  </div>
+                  <span class="doc-action">View →</span>
+                </a>
+                <a href="/<%= brand.name.toLowerCase() %>/support/" class="doc-card">
+                  <div class="doc-icon">
+                    <svg viewBox="0 0 48 48" fill="currentColor">
+                      <path d="M24 4C12.95 4 4 12.95 4 24s8.95 20 20 20 20-8.95 20-20S35.05 4 24 4zm-2 30h4v-4h-4v4zm0-8h4V14h-4v12z"/>
+                    </svg>
+                  </div>
+                  <div class="doc-info">
+                    <h3>FAQs</h3>
+                    <p>Common questions</p>
+                    <span class="doc-tag">FAQ</span>
+                  </div>
+                  <span class="doc-action">View →</span>
+                </a>
+              </div>
+              <style>
+                .documents-grid {
+                  display: grid;
+                  grid-template-columns: repeat(2, 1fr);
+                  gap: var(--space-4);
+                  margin-top: var(--space-6);
+                }
+                .doc-card {
+                  display: flex;
+                  align-items: center;
+                  gap: var(--space-4);
+                  background: var(--bg-light);
+                  padding: var(--space-5);
+                  border-radius: var(--radius-lg);
+                  text-decoration: none;
+                  color: inherit;
+                  transition: all 0.3s ease;
+                }
+                .doc-card:hover {
+                  transform: translateX(4px);
+                  box-shadow: var(--shadow-md);
+                }
+                .doc-icon {
+                  width: 48px;
+                  height: 48px;
+                  color: var(--primary-blue);
+                  flex-shrink: 0;
+                }
+                .doc-info {
+                  flex: 1;
+                }
+                .doc-info h3 {
+                  font-size: 1rem;
+                  margin-bottom: var(--space-1);
+                  color: var(--text-dark);
+                }
+                .doc-info p {
+                  font-size: 0.875rem;
+                  color: var(--text-medium);
+                  margin: 0;
+                }
+                .doc-tag {
+                  display: inline-block;
+                  background: var(--primary-blue);
+                  color: white;
+                  padding: 2px 8px;
+                  border-radius: var(--radius-full);
+                  font-size: 0.75rem;
+                  margin-top: var(--space-2);
+                }
+                .doc-action {
+                  color: var(--primary-blue);
+                  font-weight: 600;
+                  font-size: 0.875rem;
+                  white-space: nowrap;
+                }
+                @media (max-width: 767px) {
+                  .documents-grid {
+                    grid-template-columns: 1fr;
+                  }
+                }
+              </style>
+            </div>
+          </div>
+        </div>
+        
+        <!-- FAE Expert Review -->
+        <% if (product.faeReview) { %>
+        <div class="fae-review-section" style="margin-top: var(--space-12); padding: var(--space-8); background: linear-gradient(135deg, #f8f9fa, #e9ecef); border-radius: var(--radius-lg); border-left: 4px solid var(--primary-blue);">
+          <h2 style="margin-bottom: var(--space-4);">FAE Expert Insights</h2>
+          <div style="display: flex; gap: var(--space-4); align-items: flex-start;">
+            <div class="fae-avatar" style="width: 64px; height: 64px; border-radius: 50%; background: var(--primary-blue); display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem; font-weight: bold; flex-shrink: 0;"><%= product.faeReview.author ? product.faeReview.author.charAt(0) : 'F' %></div>
+            <div style="flex: 1;">
+              <p style="font-style: italic; color: var(--text-medium); line-height: 1.8; margin-bottom: var(--space-3);">"<%= product.faeReview.content || product.faeReview.highlight || product.partNumber + ' is an excellent choice for industrial applications.' %>"</p>
+              <% if (product.faeReview.highlight) { %>
+              <p style="font-weight: 600; color: var(--primary-blue); margin-bottom: var(--space-3);"><%= product.faeReview.highlight %></p>
+              <% } %>
+              <p style="font-weight: 600; color: var(--text-dark);">— <%= product.faeReview.author || 'Field Application Engineer' %>, LiTong Electronics</p>
+            </div>
+          </div>
+        </div>
+        <% } %>
+
+        <!-- Alternative & Companion Parts -->
+        <% if ((product.recommendedCompanionParts && product.recommendedCompanionParts.length > 0) || (product.companionParts && product.companionParts.length > 0)) { %>
+        <div class="related-products-section" style="margin-top: var(--space-12);">
+          <h2>Recommended Companion Parts</h2>
+          <p style="color: var(--text-medium); margin-bottom: var(--space-6);">Complete your design with these compatible components:</p>
+          <div class="companion-parts-grid">
+            <% var companionParts = product.recommendedCompanionParts || product.companionParts || []; %>
+            <% companionParts.forEach(function(part) { %>
+            <% if (part.link && part.link !== '#' && part.link !== '') { %>
+            <a href="<%= part.link %>" class="companion-card">
+            <% } else { %>
+            <div class="companion-card" style="cursor: default;">
+            <% } %>
+              <div class="companion-icon">
+                <svg viewBox="0 0 48 48" fill="currentColor">
+                  <path d="M24 4L4 14v20l20 10 20-10V14L24 4zm0 6.8l12.6 6.3L24 23.4 11.4 17.1 24 10.8z"/>
+                </svg>
+              </div>
+              <div class="companion-content">
+                <h4><%= part.partNumber %></h4>
+                <p><%= part.description %></p>
+                <% if (part.link && part.link !== '#' && part.link !== '') { %>
+                <span class="companion-link"><%= part.category %> →</span>
+                <% } else { %>
+                <span class="companion-link" style="color: var(--text-medium);"><%= part.category %></span>
+                <% } %>
+              </div>
+            <% if (part.link && part.link !== '#' && part.link !== '') { %>
+            </a>
+            <% } else { %>
+            </div>
+            <% } %>
+            <% }); %>
+          </div>
+        <% } %>
+
+        <% if (product.alternativeParts && product.alternativeParts.length > 0) { %>
+          <h3 style="margin-top: var(--space-10);">Alternative Parts</h3>
+          <p style="color: var(--text-medium); margin-bottom: var(--space-6);">Consider these alternatives based on your specific requirements:</p>
+          <div class="alternative-parts">
+            <% product.alternativeParts.forEach(function(part) { %>
+            <% if (part.link && part.link !== '#' && part.link !== '') { %>
+            <a href="<%= part.link %>" class="alt-part-card">
+            <% } else { %>
+            <div class="alt-part-card" style="cursor: default;">
+            <% } %>
+              <div class="alt-icon">
+                <svg viewBox="0 0 48 48" fill="currentColor">
+                  <path d="M24 4L6 24h12v20h12V24h12L24 4z"/>
+                </svg>
+              </div>
+              <div class="alt-content">
+                <h4><%= part.partNumber %></h4>
+                <p><%= part.reason %></p>
+                <% if (part.link && part.link !== '#' && part.link !== '') { %>
+                <span class="alt-link"><%= part.brand %> →</span>
+                <% } else { %>
+                <span class="alt-link" style="color: var(--text-medium);"><%= part.brand %></span>
+                <% } %>
+              </div>
+            <% if (part.link && part.link !== '#' && part.link !== '') { %>
+            </a>
+            <% } else { %>
+            </div>
+            <% } %>
+            <% }); %>
+          </div>
+        </div>
+        <% } %>
+        
+        <style>
+          /* Companion Parts Cards */
+          .companion-parts-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--space-5);
+            margin-bottom: var(--space-8);
+          }
+          .companion-card {
+            display: flex;
+            flex-direction: column;
+            background: white;
+            padding: var(--space-5);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-light);
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+            height: 100%;
+          }
+          .companion-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-xl);
+            border-color: var(--primary-blue);
+          }
+          .companion-icon {
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-blue-dark));
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            margin-bottom: var(--space-4);
+            flex-shrink: 0;
+          }
+          .companion-icon svg {
+            width: 28px;
+            height: 28px;
+          }
+          .companion-content {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+          }
+          .companion-content h4 {
+            font-size: 1.125rem;
+            color: var(--text-dark);
+            margin-bottom: var(--space-2);
+            font-weight: 600;
+          }
+          .companion-content p {
+            font-size: 0.9375rem;
+            color: var(--text-medium);
+            line-height: 1.6;
+            margin-bottom: var(--space-4);
+            flex: 1;
+          }
+          .companion-link {
+            color: var(--primary-blue);
+            font-weight: 600;
+            font-size: 0.9375rem;
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-1);
+            transition: gap 0.2s ease;
+          }
+          .companion-card:hover .companion-link {
+            gap: var(--space-2);
+          }
+          
+          /* Alternative Parts Cards */
+          .alternative-parts {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-5);
+          }
+          .alt-part-card {
+            display: flex;
+            align-items: flex-start;
+            gap: var(--space-4);
+            background: var(--bg-light);
+            padding: var(--space-5);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border-light);
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+          }
+          .alt-part-card:hover {
+            background: white;
+            box-shadow: var(--shadow-md);
+            border-color: var(--primary-blue);
+            transform: translateX(4px);
+          }
+          .alt-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-blue-dark));
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            flex-shrink: 0;
+          }
+          .alt-icon svg {
+            width: 24px;
+            height: 24px;
+          }
+          .alt-icon--cost {
+            background: linear-gradient(135deg, #28a745, #20c997);
+          }
+          .alt-icon--new {
+            background: linear-gradient(135deg, #6f42c1, #e83e8c);
+          }
+          .alt-content {
+            flex: 1;
+          }
+          .alt-content h4 {
+            font-size: 1.0625rem;
+            color: var(--text-dark);
+            margin-bottom: var(--space-1);
+            font-weight: 600;
+          }
+          .alt-content p {
+            font-size: 0.875rem;
+            color: var(--text-medium);
+            line-height: 1.5;
+            margin-bottom: var(--space-3);
+          }
+          .alt-link {
+            color: var(--primary-blue);
+            font-weight: 600;
+            font-size: 0.875rem;
+          }
+          
+          @media (max-width: 1023px) {
+            .companion-parts-grid {
+              grid-template-columns: repeat(2, 1fr);
+            }
+            .alternative-parts {
+              grid-template-columns: repeat(2, 1fr);
+            }
+          }
+          @media (max-width: 767px) {
+            .companion-parts-grid {
+              grid-template-columns: 1fr;
+            }
+            .alternative-parts {
+              grid-template-columns: 1fr;
+            }
+          }
+        </style>
+
+        <!-- FAQ -->
+        <% if (product.faqs && product.faqs.length > 0) { %>
+        <div class="faq-section" style="margin-top: var(--space-12);">
+          <h2>Frequently Asked Questions</h2>
+          <% product.faqs.forEach(function(faq) { %>
+          <details class="faq-item">
+            <summary><%= faq.question %></summary>
+            <div class="faq-answer">
+              <p style="margin-bottom: var(--space-3);"><%= faq.answer %></p>
+              <% if (faq.decisionGuide) { %>
+              <p style="margin-top: var(--space-4); padding-top: var(--space-3); border-top: 1px solid var(--border-light); font-weight: 500; color: var(--primary-blue);"><%= faq.decisionGuide %></p>
+              <% } %>
+              <% if (faq.keywords && faq.keywords.length > 0) { %>
+              <div class="faq-keywords" style="margin-top: var(--space-3);">
+                <% faq.keywords.forEach(function(keyword) { %>
+                  <span class="faq-keyword" style="display: inline-block; background: var(--bg-light); color: var(--text-light); padding: 4px 12px; border-radius: var(--radius-full); font-size: 0.75rem; margin-right: var(--space-2); margin-bottom: var(--space-2);"><%= keyword %></span>
+                <% }); %>
+              </div>
+              <% } %>
+            </div>
+          </details>
+          <% }); %>
+        </div>
+        <% } %>
+      </div>
+    </section>
+  </main>
+  
+  <!--#include virtual="/templates/components/footer.html" -->
+  <!--#include virtual="/templates/components/floating-contact.html" -->
+  <script>
+    document.querySelectorAll('.tab-header').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.tab-header').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+        btn.classList.add('active');
+        document.getElementById(btn.dataset.tab).classList.add('active');
+      });
+    });
+  </script>
+  <script src="/assets/js/navbar.js"></script>
+</body>
+</html>

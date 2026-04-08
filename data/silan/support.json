@@ -1,0 +1,341 @@
+{
+  "articles": [
+    {
+      "id": "support-1",
+      "title": "IGBT Selection and Application Guide",
+      "summary": "Comprehensive guide for selecting and applying Silan IGBT power modules in motor control and power conversion applications",
+      "author": {
+        "name": "Technical Team",
+        "title": "FAE"
+      },
+      "publishDate": "2024-03-15",
+      "category": "Application Guide",
+      "tags": [
+        "IGBT",
+        "Power Semiconductor",
+        "Motor Control",
+        "Selection Guide"
+      ],
+      "contentSections": [
+        {
+          "heading": "IGBT Selection Criteria",
+          "content": "Selecting the right IGBT involves evaluating voltage rating, current capacity, switching speed, and thermal characteristics. Silan offers IGBTs from 600V to 1200V with current ratings from 10A to 100A, suitable for applications ranging from home appliances to industrial drives."
+        },
+        {
+          "heading": "Key Parameters Explained",
+          "content": "Vce(sat) - Collector-emitter saturation voltage affects conduction losses. Lower values mean higher efficiency. Switching times (ton, toff) determine switching losses and maximum operating frequency. Thermal resistance (Rth) impacts heatsink requirements and maximum power dissipation."
+        },
+        {
+          "heading": "Application Considerations",
+          "content": "Motor control applications typically use 5-20kHz switching frequency. For hard-switching applications, select IGBTs with fast switching characteristics. Soft-switching applications can use standard speed IGBTs. Always consider safety margins for voltage (1.5-2x DC bus voltage) and current (1.5-2x RMS current)."
+        }
+      ],
+      "faqs": [
+        {
+          "question": "How do I select the right voltage rating for my IGBT?",
+          "answer": "IGBT voltage rating selection: (1) For 220V AC applications (rectified to ~310V DC), use 600V IGBTs with 2x safety margin. (2) For 380V AC industrial applications (rectified to ~540V DC), use 1200V IGBTs. (3) Consider voltage spikes from switching - add 20-30% margin above normal DC bus voltage. (4) For applications with regenerative braking or inductive loads, higher voltage margin is recommended. (5) Silan's 600V IGBTs (SGM15N60, SGM20N60) are ideal for appliance applications. (6) 1200V IGBTs are available for industrial and EV applications. Always verify actual voltage transients with oscilloscope during prototype testing."
+        },
+        {
+          "question": "What is the difference between soft switching and hard switching IGBTs?",
+          "answer": "Soft switching vs hard switching IGBT characteristics: (1) Hard switching - IGBT turns on/off at full voltage and current, causing switching losses. Requires fast switching IGBTs for high-frequency operation. (2) Soft switching - switching occurs at zero voltage (ZVS) or zero current (ZCS), minimizing switching losses. Can use standard speed IGBTs. (3) Applications - hard switching for standard PWM inverters; soft switching for resonant converters. (4) Trade-offs - soft switching reduces losses but increases circuit complexity. (5) Silan IGBTs are optimized for hard-switching motor control applications with switching frequencies 5-20kHz. (6) For soft-switching applications above 50kHz, consider Silan's high-speed series or SiC MOSFETs."
+        },
+        {
+          "question": "How do I calculate the heatsink requirements for IGBTs?",
+          "answer": "Heatsink thermal design calculation: (1) Calculate total losses - Ptotal = Pconduction + Pswitching. Conduction loss = Ic × Vce(sat) × duty cycle. Switching loss = (Eon + Eoff) × fsw. (2) Determine temperature rise - ΔT = Ptotal × (Rth(j-c) + Rth(c-s) + Rth(s-a)). (3) Target junction temperature - keep Tj below 125°C for reliable operation, maximum 150°C. (4) Example: SGM15N60 at 10A, 10kHz with 20W total loss: Rth(j-c) = 0.5°C/W, Rth(c-s) = 0.3°C/W (with thermal pad). For Ta = 50°C, max Rth(s-a) = (125-50)/20 - 0.5 - 0.3 = 2.95°C/W. (5) Select heatsink with thermal resistance below calculated value. (6) Consider forced air cooling for high-power applications."
+        },
+        {
+          "question": "What gate drive voltage should I use for Silan IGBTs?",
+          "answer": "Gate drive voltage recommendations for Silan IGBTs: (1) Standard drive - +15V for turn-on, 0V for turn-off. This provides full enhancement and fast switching. (2) Negative voltage turn-off - use -5V to -8V for improved noise immunity in high dv/dt applications. Reduces risk of false triggering. (3) Gate resistor - typically 5-20Ω depending on switching speed requirements. Lower values for faster switching, higher for reduced EMI. (4) Gate drive current - provide peak current capability of 1-2A for fast charging/discharging of gate capacitance. (5) Isolation - use isolated gate drivers for high-voltage applications. Silan's SLM2110 is recommended for half-bridge applications. (6) Protection - include TVS diodes or zener clamps to protect gate from overvoltage."
+        },
+        {
+          "question": "Can I parallel IGBTs for higher current capacity?",
+          "answer": "IGBT parallel operation guidelines: (1) Static current sharing - use IGBTs from same production lot with matched Vce(sat) characteristics. Variation should be <0.2V. (2) Dynamic current sharing - symmetric layout is critical. Equal emitter inductance and use Kelvin emitter connections for gate drive. (3) Individual gate resistors - use separate gate resistor (5-10Ω) for each IGBT to prevent oscillation. (4) Layout - connect collectors and emitters directly at device terminals, not through PCB traces. (5) Derating - parallel 3 devices for 2x current capability to ensure reliability margin. (6) Testing - verify current sharing with oscilloscope current probes under full load. (7) Thermal design - ensure equal thermal resistance to heatsink for each device."
+        },
+        {
+          "question": "What protection circuits are recommended for IGBT applications?",
+          "answer": "Essential IGBT protection circuits: (1) Overcurrent protection - use desaturation detection or shunt resistor with comparator. Response time <10μs for normal overcurrent, <2μs for short circuit. (2) Overvoltage protection - active clamping circuit or TVS diodes across collector-emitter to suppress inductive spikes. (3) Overtemperature protection - NTC thermistor on heatsink with shutdown at 85-100°C. (4) Undervoltage lockout - disable gate drive if supply voltage drops below 12V. (5) Soft start - gradual current ramp at startup to prevent inrush current. (6) Gate protection - TVS diodes or zener clamps to prevent gate overvoltage. (7) Miller clamp - prevents dv/dt induced turn-on. Silan's SLM2110 gate driver includes many of these protection features integrated."
+        }
+      ],
+      "relatedArticles": [
+        "article-1",
+        "article-2",
+        "article-3"
+      ],
+      "slug": "support-1",
+      "faeInsights": {
+        "author": "FAE Team",
+        "content": "This article provides valuable technical information.",
+        "highlight": "Key technical insights"
+      },
+      "customerCases": [
+        {
+          "customer": "Customer",
+          "industry": "Industry",
+          "challenge": "Technical challenge",
+          "solution": "Applied solution",
+          "results": "Successful outcome"
+        }
+      ]
+    },
+    {
+      "id": "support-2",
+      "title": "MEMS Sensor Application Guide",
+      "summary": "Complete guide for integrating Silan MEMS sensors including accelerometers, gyroscopes, and pressure sensors into consumer and industrial applications",
+      "author": {
+        "name": "Technical Team",
+        "title": "FAE"
+      },
+      "publishDate": "2024-03-10",
+      "category": "Application Guide",
+      "tags": [
+        "MEMS",
+        "Accelerometer",
+        "Pressure Sensor",
+        "Sensor Fusion"
+      ],
+      "contentSections": [
+        {
+          "heading": "MEMS Sensor Selection",
+          "content": "Silan offers a comprehensive portfolio of MEMS sensors including tri-axial accelerometers, gyroscopes, pressure sensors, and microphones. Selection criteria include measurement range, resolution, power consumption, and interface type (I2C or SPI)."
+        },
+        {
+          "heading": "Interface and Communication",
+          "content": "Digital MEMS sensors communicate via I2C or SPI interfaces. I2C is preferred for simplicity with two-wire interface. SPI offers higher data rates for demanding applications. Both interfaces support standard microcontroller communication protocols."
+        },
+        {
+          "heading": "Calibration and Compensation",
+          "content": "MEMS sensors require calibration for zero-g offset, sensitivity, and temperature drift. Factory calibration provides initial values, but user calibration is recommended for high-precision applications. Temperature compensation uses built-in temperature sensors and correction coefficients."
+        }
+      ],
+      "faqs": [
+        {
+          "question": "How do I choose between I2C and SPI for MEMS sensors?",
+          "answer": "I2C vs SPI interface selection: (1) I2C advantages - only 2 wires (SDA, SCL), multiple devices on same bus with different addresses, widely supported by microcontrollers. Best for simple applications with moderate data rates (<400kHz). (2) SPI advantages - higher speed (up to 10MHz), full-duplex communication, simpler protocol. Best for high-speed data acquisition and real-time applications. (3) Pin count - I2C uses 2 pins + power; SPI uses 4 pins (MOSI, MISO, SCK, CS) + power. (4) Bus sharing - I2C shares bus among multiple devices; SPI needs separate CS line per device. (5) For most wearable and IoT applications, I2C is sufficient and preferred. (6) For high-speed motion tracking (>1kHz sampling), SPI is recommended."
+        },
+        {
+          "question": "What is the proper way to calibrate MEMS accelerometers?",
+          "answer": "MEMS accelerometer calibration procedure: (1) Zero-g offset calibration - place sensor in 6 orthogonal positions (±X, ±Y, ±Z facing up). Record output for each position. Calculate offset as average of positive and negative readings for each axis. (2) Sensitivity calibration - use known gravity (1g) or centrifuge for multiple g-levels. Calculate sensitivity from output change vs applied acceleration. (3) Temperature calibration - collect data across operating temperature range. Determine temperature coefficients for offset and sensitivity. (4) Cross-axis sensitivity - apply acceleration along one axis, measure output on other axes. Calculate cross-axis matrix. (5) Store calibration coefficients in non-volatile memory. (6) Apply corrections in software: Corrected = (Raw - Offset) × Sensitivity_Correction. Factory calibration provides ±50mg accuracy; user calibration improves to ±10mg."
+        },
+        {
+          "question": "How do I minimize power consumption with MEMS sensors?",
+          "answer": "Power optimization techniques for MEMS sensors: (1) Output data rate (ODR) - lower ODR reduces power. Use lowest ODR that meets application requirements. Example: SC7A20 at 10Hz uses ~10μA vs 130μA at 100Hz. (2) Operating mode - use low-power or sleep modes when possible. SC7A20 sleep mode is 2μA. (3) Wake-on-motion - enable motion detection interrupt to wake from sleep only when activity detected. (4) FIFO usage - configure FIFO to batch data and reduce host processor wake-ups. (5) Sensor fusion - coordinate multiple sensors to avoid redundant sampling. (6) Power supply - use efficient LDO or DC-DC converter. (7) Duty cycling - turn off sensors during inactive periods. For battery-powered wearables, these techniques can extend battery life from days to weeks."
+        },
+        {
+          "question": "What PCB layout considerations are important for MEMS sensors?",
+          "answer": "MEMS sensor PCB layout guidelines: (1) Placement - mount sensor at PCB edge for mechanical stability and reduced PCB flexing effects. Keep away from high-current traces and switching regulators. (2) Grounding - use solid ground plane beneath sensor. Connect sensor GND to main ground with multiple vias. (3) Decoupling - place 100nF ceramic capacitor close to VDD pin. Add 10μF bulk capacitor for power supply filtering. (4) Trace routing - keep I2C/SPI traces short and away from high-speed signals. Use series resistors (10-47Ω) on digital lines for EMI suppression. (5) Shielding - for high-EMI environments, consider ground plane shielding or metal can over sensor. (6) Thermal - avoid placing near heat sources. Temperature gradients affect sensor accuracy. (7) Mechanical - ensure sensor is not subjected to PCB bending stress. Use proper mounting techniques."
+        },
+        {
+          "question": "How do I implement sensor fusion with multiple MEMS sensors?",
+          "answer": "Sensor fusion implementation: (1) Data synchronization - sample all sensors at same time or timestamp each reading. Use common trigger or synchronized sampling. (2) Coordinate alignment - ensure all sensors share same coordinate system. Account for physical mounting orientation. (3) Complementary filtering - combine accelerometer (good for static, noisy for dynamic) and gyroscope (good for dynamic, drifts over time). Example: Angle = α × (Angle_prev + Gyro × dt) + (1-α) × Accel_angle. (4) Kalman filtering - optimal estimation for multi-sensor systems. More complex but provides best accuracy. (5) Pressure fusion - combine with accelerometer for altitude/height estimation. (6) Magnetometer fusion - add compass heading to inertial data. (7) Software libraries - consider using established sensor fusion libraries (Mahony, Madgwick) for implementation."
+        },
+        {
+          "question": "What are common sources of error in MEMS sensors and how to compensate?",
+          "answer": "MEMS sensor error sources and compensation: (1) Zero-g offset - varies with temperature and aging. Compensate with calibration and temperature coefficients. (2) Sensitivity error - scale factor variation. Compensate with calibration at multiple g-levels. (3) Cross-axis sensitivity - acceleration in one axis affects other axes. Compensate with cross-axis matrix. (4) Non-linearity - deviation from ideal linear response. Compensate with higher-order polynomial correction. (5) Noise - electronic and mechanical noise. Reduce with filtering (low-pass, averaging) or oversampling. (6) Temperature drift - offset and sensitivity change with temperature. Compensate with built-in temperature sensor and lookup tables. (7) Mechanical stress - PCB bending affects output. Minimize with proper mounting and flexible PCB areas. (8) Magnetic interference - affects magnetometers. Use magnetic shielding or calibration. Proper compensation can improve accuracy by 5-10x."
+        }
+      ],
+      "relatedArticles": [
+        "article-1",
+        "article-2",
+        "article-3"
+      ],
+      "slug": "support-2",
+      "faeInsights": {
+        "author": "FAE Team",
+        "content": "This article provides valuable technical information.",
+        "highlight": "Key technical insights"
+      },
+      "customerCases": [
+        {
+          "customer": "Customer",
+          "industry": "Industry",
+          "challenge": "Technical challenge",
+          "solution": "Applied solution",
+          "results": "Successful outcome"
+        }
+      ]
+    },
+    {
+      "id": "support-3",
+      "title": "LED Driver Design Guide",
+      "summary": "Comprehensive guide for designing LED lighting systems using Silan LED driver ICs including buck, boost, and linear topologies",
+      "author": {
+        "name": "Technical Team",
+        "title": "FAE"
+      },
+      "publishDate": "2024-03-05",
+      "category": "Design Guide",
+      "tags": [
+        "LED Driver",
+        "Buck Converter",
+        "Boost Converter",
+        "Lighting"
+      ],
+      "contentSections": [
+        {
+          "heading": "LED Driver Topology Selection",
+          "content": "Select topology based on input/output voltage relationship. Buck (step-down) for Vin > Vled. Boost (step-up) for Vin < Vled. Buck-boost for Vin range that crosses Vled. Linear drivers for simple, low-power applications."
+        },
+        {
+          "heading": "Component Selection",
+          "content": "Key components include inductor, input/output capacitors, current sense resistor, and feedback network. Inductor value affects ripple current and efficiency. Capacitors provide filtering and stability. Current sense sets LED current."
+        },
+        {
+          "heading": "Dimming and Control",
+          "content": "LED brightness control via analog dimming (adjusting current) or PWM dimming (rapid on/off switching). PWM maintains color temperature but may cause EMI. Analog dimming is simpler but may shift color at low currents."
+        }
+      ],
+      "faqs": [
+        {
+          "question": "How do I calculate the inductor value for LED driver?",
+          "answer": "LED driver inductor calculation: (1) Buck LED driver - L = (Vled × (Vin - Vled)) / (Vin × fsw × ΔIL), where ΔIL is ripple current (typically 30% of LED current). (2) Example: 9V LED from 24V input at 700mA, 1MHz switching: L = (9 × 15) / (24 × 1M × 0.21) = 26.8μH. Use 27μH or 33μH standard value. (3) Boost LED driver - L = (Vin × (Vled - Vin)) / (Vled × fsw × ΔIL). (4) Ripple current trade-off - higher inductance reduces ripple but increases size and DCR. Lower inductance allows smaller size but higher ripple. (5) Current rating - select inductor with saturation current >1.5× peak current. (6) DCR impact - lower DCR improves efficiency. Target DCR <100mΩ for 1A applications. (7) Shielding - use shielded inductors for low EMI applications."
+        },
+        {
+          "question": "What is the difference between analog and PWM dimming?",
+          "answer": "Analog vs PWM dimming comparison: (1) Analog dimming - adjusts LED current by changing current sense reference. Simple implementation with potentiometer or DAC. May cause color shift in white LEDs at low currents due to phosphor behavior. (2) PWM dimming - rapidly switches LED on/off at high frequency (>100Hz to avoid flicker, typically 200Hz-20kHz). Maintains consistent color temperature across dimming range. May cause EMI from switching. (3) Dimming range - analog typically 10:1, PWM can achieve 1000:1 or better. (4) Efficiency - analog has lower efficiency at dimmed levels; PWM maintains efficiency but has switching losses. (5) Flicker - PWM below 100Hz causes visible flicker; above 20kHz may cause audible noise from inductor. (6) Hybrid approach - combine both for wide dimming range with good color consistency."
+        },
+        {
+          "question": "How do I prevent LED flicker in my design?",
+          "answer": "LED flicker prevention techniques: (1) PWM frequency - use minimum 100Hz to avoid visible flicker. Higher frequencies (1kHz+) better for photography/video. (2) Current ripple - keep LED current ripple <10% to minimize perceived flicker. Increase output capacitance or inductance if needed. (3) Input voltage ripple - ensure input supply has low ripple (<5%). Add input capacitance if necessary. (4) Control loop stability - unstable feedback loop causes low-frequency oscillation. Check phase margin and compensation. (5) Dimming transitions - use smooth ramping for brightness changes. Abrupt changes are more noticeable. (6) Multiple LEDs - parallel strings may have current imbalance causing flicker. Use individual drivers or current balancing circuits. (7) Testing - use high-speed camera or flicker meter to quantify flicker percentage."
+        },
+        {
+          "question": "What thermal design considerations are important for LED drivers?",
+          "answer": "LED driver thermal design: (1) IC junction temperature - keep below 125°C for reliable operation. Calculate using Tj = Ta + Ploss × Rth(j-a). (2) Power dissipation - calculate conduction and switching losses. Buck driver loss is mainly (Vin - Vled) × Iled. (3) PCB copper area - provide adequate copper on PCB for heat dissipation. Use thermal vias under IC pad. (4) Ambient temperature - derate maximum current at high ambient temperatures. (5) LED heating - LEDs generate heat that affects driver. Separate LED and driver thermally if possible. (6) Thermal shutdown - most drivers have thermal protection, but avoid triggering it in normal operation. (7) Heatsinking - for high-power applications (>10W), consider external heatsink or metal core PCB. (8) Thermal coupling - temperature sensor (if available) should be near LEDs for accurate thermal regulation."
+        },
+        {
+          "question": "How do I design for EMI compliance with LED drivers?",
+          "answer": "LED driver EMI design guidelines: (1) Switching frequency selection - choose frequency below or above AM band (530-1700kHz) to avoid interference. (2) Input filtering - use common mode choke and X-capacitor at input. 100nF-1μF ceramic capacitor close to IC. (3) Output filtering - small LC filter or ferrite bead on LED output reduces conducted EMI. (4) PCB layout - minimize loop areas for high di/dt paths (input cap, inductor, switch). Use ground planes. (5) Snubber circuits - RC snubber across switch reduces voltage spikes and ringing. (6) Shielding - for high-power applications, shielded inductor and grounded metal enclosure help. (7) Spread spectrum - some drivers have frequency dithering to spread EMI spectrum. (8) Testing - perform pre-compliance testing early in design. Use spectrum analyzer and near-field probes to identify emission sources. Most designs can pass CISPR 15/22 Class B with proper filtering."
+        },
+        {
+          "question": "Can I drive multiple LED strings with one LED driver?",
+          "answer": "Multiple LED string driving options: (1) Series connection - connect all LEDs in series if total voltage < driver maximum. Simplest solution with inherent current matching. (2) Parallel strings - not recommended due to current imbalance from LED forward voltage variation. Can cause uneven brightness and thermal runaway. (3) Individual drivers - use separate LED driver per string for best current matching. Sync PWM signals for uniform dimming. (4) Current balancing - if parallel operation necessary, use ballast resistors (inefficient) or active current balancing circuits. (5) Multi-channel drivers - use ICs designed for multiple strings (e.g., 3-channel or 4-channel drivers) with built-in current matching. (6) Matrix configurations - for large displays, use matrix driving with scanning. (7) Recommendation - for critical applications requiring uniform brightness, use individual drivers or multi-channel drivers with current matching."
+        }
+      ],
+      "relatedArticles": [
+        "article-1",
+        "article-2",
+        "article-3"
+      ],
+      "slug": "support-3",
+      "faeInsights": {
+        "author": "FAE Team",
+        "content": "This article provides valuable technical information.",
+        "highlight": "Key technical insights"
+      },
+      "customerCases": [
+        {
+          "customer": "Customer",
+          "industry": "Industry",
+          "challenge": "Technical challenge",
+          "solution": "Applied solution",
+          "results": "Successful outcome"
+        }
+      ]
+    },
+    {
+      "id": "support-4",
+      "title": "Power Management Design Guide",
+      "summary": "Guide for designing power supplies using Silan AC-DC and DC-DC converters including flyback, buck, and boost topologies",
+      "author": {
+        "name": "Technical Team",
+        "title": "FAE"
+      },
+      "publishDate": "2024-02-28",
+      "category": "Design Guide",
+      "tags": [
+        "Power Management",
+        "AC-DC",
+        "DC-DC",
+        "Flyback",
+        "Buck"
+      ],
+      "contentSections": [
+        {
+          "heading": "AC-DC Power Supply Design",
+          "content": "Flyback converters are popular for low-power AC-DC applications (5-100W). Key design considerations include transformer design, snubber circuits, feedback loop compensation, and EMI filtering. Silan's integrated controllers simplify design with built-in protections."
+        },
+        {
+          "heading": "DC-DC Converter Design",
+          "content": "Buck converters step down voltage efficiently. Boost converters step up voltage. Key parameters include inductor selection, capacitor sizing, feedback network, and loop stability. Synchronous rectification improves efficiency over diode rectification."
+        },
+        {
+          "heading": "Protection and Safety",
+          "content": "Power supplies require overvoltage, overcurrent, overtemperature, and short circuit protection. Isolation is required for AC-DC supplies. Safety certifications (UL, CE) require specific creepage, clearance, and component ratings."
+        }
+      ],
+      "faqs": [
+        {
+          "question": "How do I design the transformer for a flyback converter?",
+          "answer": "Flyback transformer design steps: (1) Core selection - choose core size based on power level. EE16 for 10-20W, EE19/EE22 for 20-50W, EE25 for 50-100W. (2) Primary inductance - Lp = (Vin_min × D_max)² / (2 × Pout × fsw × Krf), where Krf is ripple factor (0.3-0.5 for DCM, 0.5-1.0 for CCM). (3) Turns ratio - Np/Ns = (Vin_min × D_max) / ((Vout + Vf) × (1-D_max)). (4) Wire sizing - use litz wire or multiple strands for high frequency to reduce skin effect. Current density 4-6 A/mm². (5) Air gap - required for energy storage in flyback. Typically 0.1-0.5mm depending on inductance and core. (6) Safety - maintain 6mm creepage/clearance for reinforced insulation. (7) Verification - check flux density Bmax < 300mT to avoid saturation. Silan provides reference designs with transformer specifications for their controllers."
+        },
+        {
+          "question": "What is the difference between CCM and DCM operation?",
+          "answer": "Continuous Conduction Mode (CCM) vs Discontinuous Conduction Mode (DCM): (1) CCM - inductor current never reaches zero during switching cycle. Lower peak currents, better utilization of magnetic core. Requires larger inductance. Better for high power applications. (2) DCM - inductor current falls to zero each cycle. Smaller inductor size, simpler compensation. Higher peak currents and RMS losses. Better for low power and wide input range. (3) Boundary/CRM - operates at CCM/DCM boundary. Variable frequency, good for PFC applications. (4) Selection - CCM for >50W, high efficiency requirements. DCM for <30W, cost-sensitive designs. (5) Trade-offs - CCM has lower ripple but more complex right-half-plane zero in feedback loop. DCM has simpler control but higher EMI. (6) Silan controllers support both modes - SLM2100 operates in DCM at light load automatically."
+        },
+        {
+          "question": "How do I achieve low standby power in AC-DC supplies?",
+          "answer": "Low standby power (<100mW) techniques: (1) Burst mode operation - controller switches in bursts at light load, reducing switching losses. Silan controllers have automatic burst mode. (2) Startup circuit - use high-value startup resistor (2-5MΩ) or active startup circuit that disconnects after startup. (3) Vcc supply - power controller from auxiliary winding instead of startup resistor after startup. (4) Feedback optocoupler - use high-CTR optocoupler to minimize LED current. Consider deactivating feedback at no-load. (5) Synchronous rectification - replace output diode with MOSFET to reduce conduction losses. (6) Transformer - use low-core-loss ferrite material (PC95, 3C95). (7) Control IC - select IC with low quiescent current (<1mA). (8) Measured results - typical designs achieve 50-100mW at 230VAC. For <75mW (EuP Lot 6), careful optimization of all aspects is required."
+        },
+        {
+          "question": "What feedback loop compensation is needed for DC-DC converters?",
+          "answer": "DC-DC converter compensation design: (1) Purpose - ensure stable operation with good transient response and adequate phase margin (>45°). (2) Type II compensation - single pole, single zero. Suitable for current-mode converters with ceramic output capacitors. (3) Type III compensation - two poles, two zeros. Needed for voltage-mode or converters with electrolytic capacitors. (4) Crossover frequency - typically 1/10 to 1/5 of switching frequency. Higher for faster response, lower for more stability. (5) Components - compensation network consists of resistors and capacitors around error amplifier. Values calculated based on power stage characteristics. (6) Testing - verify stability with load step response and Bode plot measurement. Look for clean transient response without ringing. (7) Tools - use Silan's compensation calculation tools or general-purpose tools like TI's WEBENCH. (8) Layout - keep compensation components close to IC, away from switching nodes."
+        },
+        {
+          "question": "How do I select input and output capacitors for power supplies?",
+          "answer": "Capacitor selection guidelines: (1) Input capacitors - for AC-DC, use electrolytic (bulk) + ceramic (high frequency). Size for 2-3μF per watt. Voltage rating >1.5× peak AC voltage. For DC-DC, use ceramic capacitors close to IC. 10-100μF typical. (2) Output capacitors - affect ripple and transient response. Ceramic preferred for low ESR. 22-100μF typical for DC-DC. For AC-DC, use 100-1000μF electrolytic with ceramic bypass. (3) Ripple current - ensure capacitor ripple current rating exceeds actual ripple. (4) ESR - lower ESR reduces output ripple. Ceramic <10mΩ, polymer <50mΩ, electrolytic 50-500mΩ. (5) Voltage rating - use 50% derating for reliability. 16V cap for 12V rail. (6) Temperature - consider operating temperature range. X7R ceramic for -55 to +125°C. (7) Lifetime - electrolytic life decreases with temperature. Use 105°C rated caps for hot environments."
+        },
+        {
+          "question": "What safety considerations are important for AC-DC power supplies?",
+          "answer": "AC-DC safety design requirements: (1) Isolation - maintain reinforced insulation between primary (AC) and secondary (DC) sides. Minimum 6mm creepage, 3mm clearance on PCB. (2) Transformer - use triple-insulated wire or adequate insulation tape between windings. Bobbin must meet CTI requirements. (3) X and Y capacitors - use safety-rated capacitors for EMI filtering. X2 for line-to-line, Y2 for line-to-ground. (4) Fuse - provide overcurrent protection on AC input. Select rating based on maximum input current. (5) Varistor - add MOV for surge protection. (6) Grounding - connect metal enclosure to earth ground. Ensure low impedance ground connection. (7) Spacing - maintain adequate spacing between high-voltage and low-voltage circuits. (8) Certifications - design to meet IEC 62368-1 (IT equipment) or IEC 60335-1 (appliances). (9) Testing - hi-pot test at 3kVAC or 4kVDC for basic insulation. (10) Documentation - maintain safety critical component list for certifications."
+        }
+      ],
+      "relatedArticles": [
+        "article-1",
+        "article-2",
+        "article-3"
+      ],
+      "slug": "support-4",
+      "faeInsights": {
+        "author": "FAE Team",
+        "content": "This article provides valuable technical information.",
+        "highlight": "Key technical insights"
+      },
+      "customerCases": [
+        {
+          "customer": "Customer",
+          "industry": "Industry",
+          "challenge": "Technical challenge",
+          "solution": "Applied solution",
+          "results": "Successful outcome"
+        }
+      ]
+    }
+  ],
+  "seoTitle": "silan Technical Support - Documentation & Resources",
+  "seoDescription": "Get silan technical support, documentation, and application notes. Our FAE team is ready to help with your design challenges.",
+  "seoKeywords": [
+    "silan distributor",
+    "silan 选型",
+    "silan products",
+    "silan authorized distributor",
+    "silan technical support",
+    "silan datasheet",
+    "silan pricing",
+    "silan inventory",
+    "silan samples",
+    "silan evaluation kit"
+  ],
+  "faqs": [
+    {
+      "question": "How do I get technical support for silan products?",
+      "answer": "You can contact our technical support team via email, phone, or through our website. Our FAEs are available to help with product selection, application questions, and troubleshooting."
+    },
+    {
+      "question": "Where can I find datasheets and technical documentation?",
+      "answer": "All datasheets, application notes, and technical documentation are available on our website. You can also contact us for specific documents or additional information."
+    },
+    {
+      "question": "Do you offer evaluation kits?",
+      "answer": "Yes, evaluation kits are available for most products. Contact our sales team to request evaluation kits for your project."
+    }
+  ]
+}

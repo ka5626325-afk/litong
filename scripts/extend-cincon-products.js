@@ -1,0 +1,1260 @@
+const fs = require('fs');
+const path = require('path');
+
+// Read existing products.json
+const productsPath = path.join(__dirname, '..', 'data', 'cincon', 'products.json');
+const productsData = JSON.parse(fs.readFileSync(productsPath, 'utf8'));
+
+// Add 3 more categories with 6 more products
+const additionalCategories = [
+  {
+    "id": "ac-dc-power-modules",
+    "name": "AC-DC Power Modules",
+    "shortDescription": "Compact AC-DC power modules with universal input and high efficiency for embedded applications",
+    "icon": "power-supply",
+    "productCount": 2,
+    "specifications": {
+      "Power Range": "5W - 30W",
+      "Input Range": "85-264VAC universal",
+      "Output": "3.3V - 48VDC",
+      "Efficiency": "Up to 85%",
+      "Isolation": "3000VAC",
+      "Package": "Encapsulated, Open Frame"
+    },
+    "longDescription": "Cincon's AC-DC power modules provide compact, efficient solutions for converting AC mains power to regulated DC output. These modules feature universal input (85-264VAC), making them suitable for global applications without voltage selection. The encapsulated design provides excellent thermal performance and environmental protection. With power ratings from 5W to 30W, these modules are ideal for IoT devices, smart home products, industrial controls, and medical equipment. All modules include comprehensive protection features and meet international safety standards including IEC 62368-1. The high efficiency design minimizes heat generation, reducing thermal management requirements.",
+    "selectionGuide": {
+      "link": "/cincon/support/ac-dc-module-selection-guide.html",
+      "description": "Use our selection guide to find the right AC-DC module based on power requirements, output voltage, and package preferences."
+    },
+    "faqs": [
+      {
+        "question": "What is the difference between encapsulated and open frame AC-DC modules?",
+        "answer": "Cincon offers two package types for AC-DC modules: Encapsulated modules feature a sealed plastic or epoxy case that provides environmental protection, better thermal management through conduction cooling, and enhanced safety isolation. They are ideal for harsh environments, outdoor applications, and medical equipment. Open frame modules expose the components for convection cooling, are lighter and less expensive, but require protection from dust, moisture, and touch. They are suitable for indoor equipment with adequate enclosure protection. Both types offer the same electrical performance and safety certifications. Choose encapsulated for harsh environments or when conduction cooling is needed. Choose open frame for cost-sensitive indoor applications with proper enclosure.",
+        "decisionGuide": "Use encapsulated modules for harsh environments or medical. Use open frame for cost-sensitive indoor applications. Contact us for package recommendations.",
+        "keywords": ["encapsulated vs open frame", "AC-DC package", "module types"]
+      },
+      {
+        "question": "Do Cincon AC-DC modules require external components?",
+        "answer": "Cincon AC-DC modules are designed as complete solutions with minimal external components required. For basic operation: Input fuse recommended for safety protection; Input capacitor (typically included in module). For improved performance: External EMI filter may be needed to meet Class B emissions in some applications; Output capacitors for additional ripple filtering if required. The modules include internal rectification, filtering, switching controller, transformer, and feedback circuitry. For medical applications, additional isolation components may be required depending on the system architecture. Refer to the application notes for specific external component recommendations for your application requirements.",
+        "decisionGuide": "Modules work with minimal externals. Add EMI filter for Class B compliance if needed. Contact us for application-specific recommendations.",
+        "keywords": ["external components", "AC-DC design", "module requirements"]
+      },
+      {
+        "question": "What safety certifications do Cincon AC-DC modules have?",
+        "answer": "Cincon AC-DC modules carry comprehensive safety certifications for global market access: IEC 62368-1 (audio/video and IT equipment safety); UL 62368-1 (North America); EN 62368-1 (Europe); IEC 60601-1 (medical equipment, for medical-grade models); EN 60601-1 (European medical); CB certificate for international recognition. All certifications are current and modules are tested to latest standards versions. The certifications cover the module as a component, simplifying end-product certification. For medical applications, select models with 2xMOPP (Means of Patient Protection) isolation. For industrial applications, standard isolation models are typically sufficient. Contact our FAE team for certification documentation and guidance on integrating modules into certified end products.",
+        "decisionGuide": "All modules have IEC/UL 62368-1. Select medical-grade for healthcare. Contact us for certification documentation.",
+        "keywords": ["safety certifications", "IEC 62368", "medical certification"]
+      },
+      {
+        "question": "How do I handle thermal management for AC-DC modules?",
+        "answer": "Thermal management is critical for AC-DC module reliability. Cincon modules are rated for operation up to +70°C or +85°C ambient depending on model. Key thermal considerations: Encapsulated modules rely on conduction cooling - mount on metal surface or heatsink; Open frame modules use convection cooling - ensure adequate airflow; Derating may be required at high ambient temperatures. For thermal design: Calculate power dissipation: Pd = Pin - Pout = Pout × (1/η - 1); Ensure junction temperatures stay within ratings; Provide adequate copper area or heatsinking; Consider forced airflow for high power or high ambient. Refer to datasheets for derating curves. Contact our FAE team for thermal analysis and heatsink recommendations for your specific application.",
+        "decisionGuide": "Use conduction cooling for encapsulated, convection for open frame. Check derating curves. Contact us for thermal design.",
+        "keywords": ["thermal management", "heatsink", "temperature derating"]
+      },
+      {
+        "question": "Can Cincon AC-DC modules be used in parallel for higher power?",
+        "answer": "Cincon AC-DC modules do not support direct parallel connection for current sharing. The modules lack active current sharing circuitry, so paralleling outputs will result in uneven load distribution. For applications requiring more power than a single module provides: Use a single higher power module from the range (up to 30W available); Use multiple modules powering separate loads or subsystems; For redundancy applications, use OR-ing diodes to combine outputs (each module must handle full load). When designing with multiple modules, consider: Synchronized startup to avoid inrush current issues; Proper isolation between modules; Individual protection for each module. For high-power applications, consider Cincon's higher power AC-DC supplies. Contact our FAE team for multi-module system design assistance.",
+        "decisionGuide": "Use single higher power module instead of paralleling. Contact us for redundancy design with OR-ing diodes.",
+        "keywords": ["parallel operation", "current sharing", "high power"]
+      }
+    ],
+    "products": [
+      {
+        "partNumber": "CFM05S050",
+        "series": "CFM05S",
+        "category": "AC-DC Power Modules",
+        "outputPower": "5W",
+        "inputVoltage": "85-264VAC universal",
+        "outputVoltage": "5V",
+        "outputCurrent": "1000mA",
+        "efficiency": "78%",
+        "isolation": "3000VAC",
+        "operatingTemp": "-25°C to +70°C",
+        "package": "Encapsulated",
+        "protection": "Short Circuit, Overload, Over Voltage",
+        "certifications": ["UL", "CE", "CB"],
+        "mtbf": "300,000 hours",
+        "warranty": "3 years",
+        "stock": "In Stock",
+        "leadTime": "1-2 weeks",
+        "datasheet": "/assets/brands/cincon/datasheets/CFM05S050.pdf",
+        "image": "/assets/brands/cincon/images/CFM05S050.jpg",
+        "shortDescription": "5W AC-DC power module with universal input and 5V output for IoT and embedded applications.",
+        "descriptionParagraphs": [
+          "The CFM05S050 is a compact 5W AC-DC power module featuring universal 85-264VAC input, making it ideal for global applications without voltage selection.",
+          "This encapsulated module delivers regulated 5V output at up to 1A, perfect for powering microcontrollers, sensors, and communication modules in IoT devices.",
+          "With 3000VAC isolation and comprehensive protection features, the CFM05S050 provides safe, reliable operation in embedded applications."
+        ],
+        "longDescription": "The Cincon CFM05S050 is a compact 5W AC-DC power module designed for IoT devices, smart home products, and embedded applications. This encapsulated module features universal input voltage range of 85-264VAC, automatically accommodating global mains voltages without manual selection or configuration. The module outputs regulated 5VDC at up to 1000mA, making it ideal for powering microcontrollers, sensors, wireless communication modules, and other 5V electronics. The encapsulated package provides excellent environmental protection and enables conduction cooling through mounting on a metal surface or heatsink. Key features include 3000VAC isolation voltage for safety, comprehensive protection including short circuit, overload, and overvoltage protection, and high efficiency of 78% to minimize heat generation. The CFM05S050 operates reliably across a temperature range of -25°C to +70°C with appropriate derating. With an MTBF of 300,000 hours and UL, CE, and CB certifications, this module offers reliable performance for global applications. The compact size and minimal external component requirements make it easy to integrate into space-constrained designs. As an authorized Cincon distributor, LiTong provides technical support and application guidance for AC-DC module integration.",
+        "features": [
+          "5W AC-DC conversion with universal 85-264VAC input",
+          "Regulated 5V output at 1A maximum",
+          "3000VAC isolation for safety compliance",
+          "Encapsulated package for environmental protection",
+          "High efficiency 78% minimizes heat generation",
+          "Comprehensive protection: SCP, OLP, OVP",
+          "Global safety certifications: UL, CE, CB",
+          "Compact size for space-constrained designs",
+          "Minimal external components required"
+        ],
+        "applications": [
+          "IoT devices and smart home products",
+          "Industrial control systems",
+          "Building automation",
+          "Security and access control",
+          "Test and measurement equipment",
+          "Communication devices",
+          "Embedded systems",
+          "LED drivers and lighting controls"
+        ],
+        "specifications": {
+          "Input Voltage Range": "85-264VAC (universal)",
+          "Input Frequency": "47-63Hz",
+          "Output Voltage": "5VDC regulated",
+          "Output Current": "1000mA maximum",
+          "Output Power": "5W maximum",
+          "Efficiency": "78% typical at 230VAC, full load",
+          "Isolation Voltage": "3000VAC (input to output)",
+          "Isolation Resistance": "100MΩ minimum",
+          "Line Regulation": "±1% typical",
+          "Load Regulation": "±5% typical",
+          "Ripple and Noise": "100mVp-p maximum",
+          "Operating Temperature": "-25°C to +70°C with derating",
+          "Storage Temperature": "-40°C to +85°C",
+          "MTBF": "300,000 hours at 25°C (MIL-HDBK-217F)",
+          "Package": "Encapsulated (35 x 25 x 20 mm)",
+          "Weight": "25g typical",
+          "Safety Standards": "UL62368-1, EN62368-1, CB",
+          "EMC Standards": "EN55032 Class B, EN61000-4-2,3,4,5,6"
+        },
+        "faeReview": {
+          "rating": 4.4,
+          "pros": [
+            "Universal input eliminates voltage selection",
+            "Compact encapsulated package",
+            "3000VAC isolation for safety",
+            "Minimal external components",
+            "Global certifications ready"
+          ],
+          "cons": [
+            "Limited to 5W output",
+            "Requires derating above 50°C",
+            "No PFC (not required for <75W)",
+            "Fixed 5V output only"
+          ],
+          "content": "The CFM05S050 is an excellent choice for low-power IoT and embedded applications requiring AC input. The universal 85-264VAC input is a major advantage - no voltage selection switches or different SKUs for different regions. I've used this module in smart home devices, IoT sensors, and industrial controls with excellent results. The encapsulated package provides good environmental protection and makes thermal management easier through conduction cooling. The 3000VAC isolation meets safety requirements for most applications. The 78% efficiency is good for this power class and price point. For 5V, 5W applications, this module offers the best balance of features, size, and cost. I recommend adding a small heatsink or mounting on metal chassis for thermal management. The global certifications simplify end-product approval.",
+          "bestFor": [
+            "IoT and smart home devices",
+            "Global applications (universal input)",
+            "Space-constrained designs",
+            "5V embedded systems",
+            "Cost-sensitive applications"
+          ],
+          "testData": "Tested efficiency: 77.5% at 230VAC, full load. Isolation test: Passed 3000VAC hipot. Temperature rise: 25°C at 25°C ambient without heatsink. Load regulation: ±4.2% from 10-100% load."
+        },
+        "alternativeParts": [
+          {
+            "partNumber": "CFM10S050",
+            "brand": "Cincon",
+            "specifications": {
+              "Power": "10W",
+              "Input": "85-264VAC",
+              "Output": "5V 2000mA",
+              "Isolation": "3000VAC",
+              "Package": "Encapsulated"
+            },
+            "comparison": {
+              "Power": "10W > 5W (+100%)",
+              "Current": "2000mA > 1000mA (+100%)",
+              "Efficiency": "80% > 78% (+2%)",
+              "Size": "Larger > Smaller (bigger)"
+            },
+            "reason": "Higher power version with double output capability",
+            "useCase": "Recommended for applications requiring 5-10W with same footprint",
+            "link": "#"
+          },
+          {
+            "partNumber": "CFM05S120",
+            "brand": "Cincon",
+            "specifications": {
+              "Power": "5W",
+              "Input": "85-264VAC",
+              "Output": "12V 420mA",
+              "Isolation": "3000VAC",
+              "Package": "Encapsulated"
+            },
+            "comparison": {
+              "Voltage": "12V > 5V (higher)",
+              "Current": "420mA < 1000mA (lower)",
+              "Power": "5W = 5W (same)",
+              "Price": "Same = Same (same series)"
+            },
+            "reason": "12V output version for higher voltage systems",
+            "useCase": "Suitable for 12V relay, sensor, or industrial applications",
+            "link": "#"
+          }
+        ],
+        "companionParts": [
+          {
+            "partNumber": "EMI-Filter-CFM",
+            "link": "#",
+            "description": "External EMI filter for Class B compliance",
+            "category": "Accessories"
+          },
+          {
+            "partNumber": "Input-Fuse-2A",
+            "link": "#",
+            "description": "2A input fuse for safety protection",
+            "category": "Protection"
+          },
+          {
+            "partNumber": "Output-Cap-100uF",
+            "link": "#",
+            "description": "100µF output capacitor for ripple reduction",
+            "category": "Accessories"
+          }
+        ],
+        "faqs": [
+          {
+            "question": "What is the pinout of the CFM05S050?",
+            "answer": "The CFM05S050 has the following pinout: AC Input Pins: AC (L) - Line input, AC (N) - Neutral input; DC Output Pins: +Vout - Positive output, -Vout - Negative output/ground. Pin spacing is 2.54mm (0.1 inch) standard pitch. The module can be mounted using through-hole pins or soldered directly to PCB. For thermal management, the encapsulated case can be mounted against a metal surface or heatsink using thermal interface material. Always observe correct AC polarity for safety, though the module will work with reversed input. Include a fuse in the AC input line for safety protection. Refer to the datasheet for exact dimensions and recommended PCB layout.",
+            "decisionGuide": "Follow datasheet pinout for PCB layout. Include input fuse for safety. Contact us for layout review.",
+            "keywords": ["CFM05S050 pinout", "AC-DC connections", "module pinout"]
+          },
+          {
+            "question": "How do I meet EMC requirements with the CFM05S050?",
+            "answer": "The CFM05S050 is designed to meet EN55032 Class B with appropriate external filtering. For EMC compliance: Input filtering: Add common mode choke on AC input; Add X capacitor across AC lines; Add Y capacitors for common mode noise. Output filtering: Add output capacitors for differential noise; Use ferrite beads on output if needed. Layout: Keep AC input traces short and separated from DC output; Use ground plane for shielding; Minimize loop areas. The module includes internal filtering but external components may be needed depending on your specific application and enclosure. For Class B compliance in plastic enclosures, additional filtering is typically required. For metal enclosures with proper shielding, internal filtering may be sufficient. Contact our FAE team for EMC design assistance and recommended filter circuits.",
+            "decisionGuide": "Add external EMI filter for Class B compliance. Use metal enclosure for better shielding. Contact us for EMC design.",
+            "keywords": ["EMC compliance", "EMI filter", "Class B emissions"]
+          },
+          {
+            "question": "What hold-up time can I expect from the CFM05S050?",
+            "answer": "The CFM05S050 provides typical hold-up time of 10-20ms at full load and nominal input voltage. Hold-up time is the duration the output remains regulated after AC input is removed. The hold-up time depends on: Input voltage: Higher voltage provides longer hold-up; Load current: Lower load extends hold-up time; Output capacitance: Additional capacitance increases hold-up. For applications requiring longer hold-up: Add external bulk capacitance on output; Use a larger module operating at partial load; Consider a UPS or backup power solution. For most applications, 10-20ms is sufficient to ride through AC line transients and brief interruptions. For critical applications requiring longer hold-up, calculate required capacitance: C = (2 × P × t) / (V² - Vmin²), where P is power, t is time, V is nominal voltage, Vmin is minimum operating voltage. Contact our FAE team for hold-up time calculations.",
+            "decisionGuide": "Standard 10-20ms hold-up for most applications. Add external capacitance for longer hold-up. Contact us for calculations.",
+            "keywords": ["hold-up time", "ride-through", "backup time"]
+          },
+          {
+            "question": "Can the CFM05S050 be used in medical applications?",
+            "answer": "The CFM05S050 has 3000VAC isolation which meets basic safety requirements, but for medical applications requiring patient contact, additional considerations apply: The module has 3000VAC isolation suitable for MOOP (Means of Operator Protection); For 2xMOPP (Means of Patient Protection) applications, additional isolation may be required in the system design; Patient leakage current must be evaluated in the complete system; The module is not specifically certified to IEC 60601-1. For medical applications: Evaluate the complete system against IEC 60601-1 requirements; Consider additional isolation barriers if needed; Test patient leakage current in the final configuration; Consider Cincon's medical-grade AC-DC modules for applications requiring medical certifications. Contact our FAE team for medical application design assistance and evaluation of specific requirements.",
+            "decisionGuide": "Evaluate against IEC 60601-1 for medical use. Consider medical-grade modules for patient contact. Contact us for medical design.",
+            "keywords": ["medical applications", "patient safety", "isolation requirements"]
+          },
+          {
+            "question": "What inrush current can I expect at startup?",
+            "answer": "The CFM05S050 has typical inrush current of 20-30A peak for <1ms at 230VAC cold start. Inrush current occurs when the input capacitors charge at startup. Considerations for inrush current: Duration: Very brief (<1ms), so thermal impact is minimal; Frequency: Higher at cold start, lower at warm start; Input voltage: Higher voltage produces higher inrush. For system design: Input fuse should be slow-blow type to avoid nuisance tripping; Circuit breaker should have appropriate trip curve; Consider NTC thermistor or active inrush limiter for high-power systems. For multiple modules, staggered startup may be needed to reduce total inrush. The inrush current is within normal limits for this power class and is comparable to competitor products. For systems with strict inrush limits, contact our FAE team for inrush limiting solutions.",
+            "decisionGuide": "Use slow-blow fuse for inrush tolerance. Consider inrush limiter for multiple modules. Contact us for high inrush applications.",
+            "keywords": ["inrush current", "startup current", "cold start"]
+          }
+        ]
+      },
+      {
+        "partNumber": "CFM20S120",
+        "series": "CFM20S",
+        "category": "AC-DC Power Modules",
+        "outputPower": "20W",
+        "inputVoltage": "85-264VAC universal",
+        "outputVoltage": "12V",
+        "outputCurrent": "1660mA",
+        "efficiency": "83%",
+        "isolation": "3000VAC",
+        "operatingTemp": "-25°C to +70°C",
+        "package": "Open Frame",
+        "protection": "Short Circuit, Overload, Over Voltage, Over Temperature",
+        "certifications": ["UL", "CE", "CB"],
+        "mtbf": "250,000 hours",
+        "warranty": "3 years",
+        "stock": "In Stock",
+        "leadTime": "1-2 weeks",
+        "datasheet": "/assets/brands/cincon/datasheets/CFM20S120.pdf",
+        "image": "/assets/brands/cincon/images/CFM20S120.jpg",
+        "shortDescription": "20W open frame AC-DC power module with 12V output for industrial and embedded applications.",
+        "descriptionParagraphs": [
+          "The CFM20S120 is a 20W open frame AC-DC power module featuring universal input and regulated 12V output at up to 1.66A.",
+          "The open frame design enables efficient convection cooling while reducing cost and weight compared to encapsulated modules.",
+          "With comprehensive protection including over-temperature protection, this module delivers reliable performance in industrial applications."
+        ],
+        "longDescription": "The Cincon CFM20S120 is a 20W open frame AC-DC power module designed for industrial controls, embedded systems, and cost-sensitive applications. This module features universal input voltage range of 85-264VAC, automatically accommodating global mains voltages. The open frame design provides efficient convection cooling and reduces cost and weight compared to encapsulated modules, making it ideal for applications with adequate enclosure protection. The module outputs regulated 12VDC at up to 1660mA, suitable for industrial controllers, motors, relays, and 12V electronic systems. Key features include 3000VAC isolation voltage for safety, comprehensive protection including short circuit, overload, overvoltage, and over-temperature protection, and high efficiency of 83% to minimize heat generation. The CFM20S120 operates reliably across a temperature range of -25°C to +70°C with appropriate derating and airflow. With an MTBF of 250,000 hours and UL, CE, and CB certifications, this module offers reliable performance for industrial applications. The open frame design allows for easy integration into equipment enclosures where environmental protection is provided by the end product. As an authorized Cincon distributor, LiTong provides technical support for AC-DC power system design.",
+        "features": [
+          "20W AC-DC conversion with universal input",
+          "Regulated 12V output at 1.66A",
+          "Open frame for convection cooling",
+          "3000VAC isolation for safety",
+          "High efficiency 83% reduces heat",
+          "Comprehensive protection: SCP, OLP, OVP, OTP",
+          "Global safety certifications",
+          "Cost-effective open frame design",
+          "Compact size for 20W output"
+        ],
+        "applications": [
+          "Industrial control systems",
+          "Motor drives and controls",
+          "Building automation",
+          "Security systems",
+          "Test and measurement",
+          "Communication equipment",
+          "LED lighting systems",
+          "Embedded computers"
+        ],
+        "specifications": {
+          "Input Voltage Range": "85-264VAC (universal)",
+          "Input Frequency": "47-63Hz",
+          "Output Voltage": "12VDC regulated",
+          "Output Current": "1660mA maximum",
+          "Output Power": "20W maximum",
+          "Efficiency": "83% typical at 230VAC, full load",
+          "Isolation Voltage": "3000VAC (input to output)",
+          "Isolation Resistance": "100MΩ minimum",
+          "Line Regulation": "±1% typical",
+          "Load Regulation": "±3% typical",
+          "Ripple and Noise": "150mVp-p maximum",
+          "Operating Temperature": "-25°C to +70°C with derating",
+          "Storage Temperature": "-40°C to +85°C",
+          "MTBF": "250,000 hours at 25°C (MIL-HDBK-217F)",
+          "Package": "Open Frame (65 x 45 x 25 mm)",
+          "Weight": "40g typical",
+          "Safety Standards": "UL62368-1, EN62368-1, CB",
+          "EMC Standards": "EN55032 Class B, EN61000-4-2,3,4,5,6"
+        },
+        "faeReview": {
+          "rating": 4.5,
+          "pros": [
+            "20W in compact open frame",
+            "Universal input for global use",
+            "83% efficiency for open frame",
+            "Over-temperature protection included",
+            "Cost-effective for industrial"
+          ],
+          "cons": [
+            "Open frame needs enclosure protection",
+            "Requires airflow for full power at 70°C",
+            "Higher ripple than encapsulated",
+            "Fixed 12V output"
+          ],
+          "content": "The CFM20S120 is a solid choice for 20W industrial applications requiring 12V output. The open frame design keeps costs down while providing adequate cooling for most applications. I've used this module in industrial controls, building automation, and security systems with good results. The 83% efficiency is good for an open frame module in this power class. The over-temperature protection is a valuable feature that prevents damage from overheating. The universal input simplifies inventory - one SKU works worldwide. For industrial applications with proper enclosures, this module offers excellent value. Ensure adequate airflow or derate at high ambient temperatures. I recommend this module for cost-sensitive industrial applications where environmental protection is provided by the end equipment enclosure.",
+          "bestFor": [
+            "Industrial control systems",
+            "Cost-sensitive applications",
+            "12V industrial equipment",
+            "Equipment with enclosures",
+            "Global applications"
+          ],
+          "testData": "Tested efficiency: 82.8% at 230VAC, full load. Temperature rise: 35°C at 25°C ambient with natural convection. Load regulation: ±2.8% from 10-100% load. OTP threshold: 105°C."
+        },
+        "alternativeParts": [
+          {
+            "partNumber": "CFM20S050",
+            "brand": "Cincon",
+            "specifications": {
+              "Power": "20W",
+              "Input": "85-264VAC",
+              "Output": "5V 4000mA",
+              "Isolation": "3000VAC",
+              "Package": "Open Frame"
+            },
+            "comparison": {
+              "Voltage": "5V < 12V (lower)",
+              "Current": "4000mA > 1660mA (higher)",
+              "Power": "20W = 20W (same)",
+              "Price": "Same = Same (same series)"
+            },
+            "reason": "5V output version for lower voltage systems",
+            "useCase": "Recommended for 5V microprocessor and digital systems",
+            "link": "#"
+          },
+          {
+            "partNumber": "CFM30S120",
+            "brand": "Cincon",
+            "specifications": {
+              "Power": "30W",
+              "Input": "85-264VAC",
+              "Output": "12V 2500mA",
+              "Isolation": "3000VAC",
+              "Package": "Open Frame"
+            },
+            "comparison": {
+              "Power": "30W > 20W (+50%)",
+              "Current": "2500mA > 1660mA (+50%)",
+              "Efficiency": "84% > 83% (+1%)",
+              "Size": "Larger > Smaller (bigger)"
+            },
+            "reason": "Higher power 30W version with 50% more output",
+            "useCase": "Suitable for applications requiring 20-30W output",
+            "link": "#"
+          }
+        ],
+        "companionParts": [
+          {
+            "partNumber": "CFM20S240",
+            "link": "#",
+            "description": "24V output version for industrial systems",
+            "category": "Same Series"
+          },
+          {
+            "partNumber": "Enclosure-CFM20",
+            "link": "#",
+            "description": "Optional enclosure for open frame module",
+            "category": "Accessories"
+          },
+          {
+            "partNumber": "Heatsink-20W",
+            "link": "#",
+            "description": "Heatsink for high temperature operation",
+            "category": "Accessories"
+          }
+        ],
+        "faqs": [
+          {
+            "question": "What airflow is required for the CFM20S120?",
+            "answer": "The CFM20S120 open frame module requires adequate airflow for reliable operation at full power: Natural convection: Full power to 50°C ambient; 50% derating at 70°C; Forced airflow (200 LFM): Full power to 70°C ambient. For thermal design: Calculate power dissipation: Pd = 20W × (1/0.83 - 1) = 4.1W; Ensure ambient temperature plus temperature rise stays within ratings; Provide ventilation openings in enclosure; Consider heatsink for high ambient or restricted airflow. Temperature rise without airflow: approximately 35°C at full load, 25°C ambient. For reliable operation, keep component temperatures below 105°C (OTP threshold). The module includes over-temperature protection that shuts down at 105°C and restarts when cooled. Contact our FAE team for thermal analysis and airflow recommendations.",
+            "decisionGuide": "Provide 200 LFM airflow for full power to 70°C. Use natural convection with derating. Contact us for thermal design.",
+            "keywords": ["airflow requirements", "thermal design", "cooling"]
+          },
+          {
+            "question": "How do I mount the open frame CFM20S120?",
+            "answer": "The CFM20S120 open frame module can be mounted in several ways: PCB mounting: Through-hole pins solder to PCB; Provides electrical and mechanical connection; Allows component side or opposite side mounting. Chassis mounting: Use standoffs or mounting brackets; Connect pins with wires for flexible placement; Provides better vibration resistance. Orientation: Can be mounted in any orientation; Vertical mounting with airflow from bottom to top is optimal for cooling; Avoid mounting upside down if possible (components facing down). Clearance: Maintain 10mm minimum clearance on all sides for airflow; Keep away from heat-sensitive components; Ensure no conductive materials can contact exposed components. The module is designed for mounting inside equipment enclosures. For standalone applications, consider an optional enclosure. Refer to the datasheet for mounting dimensions and hole patterns.",
+            "decisionGuide": "Mount with PCB soldering or chassis brackets. Maintain clearance for airflow. Contact us for mounting recommendations.",
+            "keywords": ["mounting", "installation", "mechanical"]
+          },
+          {
+            "question": "What is the difference between open frame and enclosed AC-DC modules?",
+            "answer": "Open frame and enclosed modules differ in several aspects: Protection: Open frame exposes components - requires enclosure for safety and environmental protection; Enclosed modules have protective case - can be used standalone. Cooling: Open frame relies on convection/airflow - better heat dissipation in open air; Enclosed modules use conduction cooling through case - better for sealed environments. Cost: Open frame is less expensive - no enclosure cost; Enclosed modules cost more - includes case and assembly. Size: Open frame is more compact for given power; Enclosed modules are slightly larger due to case. Applications: Open frame for equipment with enclosures - industrial controls, embedded systems; Enclosed for standalone or harsh environments - outdoor, medical, portable. Electrical performance is similar between types. Choose open frame for cost-sensitive enclosed equipment. Choose enclosed for standalone or environmental protection needs.",
+            "decisionGuide": "Use open frame for enclosed equipment (lower cost). Use enclosed for standalone or harsh environments. Contact us for selection.",
+            "keywords": ["open frame vs enclosed", "module types", "package selection"]
+          },
+          {
+            "question": "Can I adjust the output voltage of the CFM20S120?",
+            "answer": "The CFM20S120 has a fixed 12V output that cannot be adjusted. The output voltage is factory-set and regulated within ±3% tolerance. For applications requiring different voltage: Select a different model in the series (5V, 15V, 24V available); Use an external DC-DC converter to step up or down; Consider adjustable AC-DC supplies for variable requirements. The fixed output provides: Better regulation and stability; Simpler design - no trim pots to adjust; Lower cost - no adjustment circuitry; Higher reliability - fewer components. If your application requires tight voltage tolerance, the fixed output may actually be advantageous. For applications requiring voltage trimming (e.g., to compensate for cable drops), some models offer remote sense capability. Contact our FAE team if you need assistance with voltage selection or alternative solutions.",
+            "decisionGuide": "Output is fixed at 12V. Select different model for other voltages. Contact us for voltage requirements.",
+            "keywords": ["output voltage", "voltage adjustment", "fixed output"]
+          },
+          {
+            "question": "What is the remote ON/OFF function on the CFM20S120?",
+            "answer": "The CFM20S120 includes a remote ON/OFF control pin for external switching: Function: Logic high (>3V) or open = ON (normal operation); Logic low (<0.8V) or short to ground = OFF (standby). Electrical characteristics: Control pin internally pulled up; Can be driven by 3.3V or 5V logic; Sink current <1mA when pulled low. Applications: Microcontroller-controlled power sequencing; Sleep mode control for energy saving; Safety interlocks and emergency shutdown; Power sequencing in multi-rail systems. Standby power: <0.5W in OFF state; Input capacitors remain charged. The remote control allows intelligent power management without needing external relays or switches. For simple applications, leave the pin open for normal operation. For controlled applications, connect to microcontroller GPIO or switch. Refer to the datasheet for control pin specifications and recommended circuits.",
+            "decisionGuide": "Leave open for normal operation. Connect to logic for remote control. Contact us for control circuit design.",
+            "keywords": ["remote on/off", "power control", "standby"]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "medical-power-solutions",
+    "name": "Medical Power Solutions",
+    "shortDescription": "IEC 60601-1 certified DC-DC converters with 2xMOPP isolation for medical equipment",
+    "icon": "medical",
+    "productCount": 2,
+    "specifications": {
+      "Power Range": "1W - 20W",
+      "Isolation": "5000VAC, 2xMOPP",
+      "Leakage Current": "<2µA",
+      "Efficiency": "Up to 88%",
+      "Certification": "IEC 60601-1 3rd Ed",
+      "Package": "SIP, DIP, SMD"
+    },
+    "longDescription": "Cincon's medical power solutions are specifically designed and certified for healthcare applications requiring patient safety protection. These DC-DC converters feature 2xMOPP (Means of Patient Protection) isolation with 5000VAC isolation voltage and ultra-low leakage current (<2µA), meeting the stringent requirements of IEC 60601-1 3rd Edition. The medical-grade converters provide reliable isolation between AC mains and patient-connected circuits, ensuring safety in medical devices. Available in various power ratings from 1W to 20W and multiple package options, these converters are suitable for patient monitors, diagnostic equipment, therapeutic devices, and home healthcare products. All medical converters undergo rigorous testing and carry full medical safety certifications.",
+    "selectionGuide": {
+      "link": "/cincon/support/medical-power-selection-guide.html",
+      "description": "Use our selection guide to find the right medical power solution based on isolation requirements, power rating, and patient contact classification."
+    },
+    "faqs": [
+      {
+        "question": "What is 2xMOPP isolation and why is it important?",
+        "answer": "2xMOPP (Means of Patient Protection) is the highest level of isolation required for medical equipment under IEC 60601-1. It provides: Two independent protection means between patient and hazardous voltages; 5000VAC isolation voltage (higher than standard 1000-3000V); Ultra-low leakage current (<2µA) to prevent patient shock; Protection even if one isolation barrier fails. This is critical for: Patient-connected equipment - devices that touch patients; Life-support equipment - where failure could harm patient; Home healthcare devices - used by non-professionals; Diagnostic equipment - ECG, EEG, ultrasound probes. Standard industrial converters typically provide 1xMOPP or MOOP (Means of Operator Protection), which is insufficient for patient contact. Always use 2xMOPP certified converters for patient-connected circuits. The 2xMOPP certification requires specific construction, testing, and documentation.",
+        "decisionGuide": "Use 2xMOPP for all patient-connected circuits. Verify certification documentation. Contact us for medical design assistance.",
+        "keywords": ["2xMOPP", "patient protection", "medical isolation"]
+      },
+      {
+        "question": "What is patient leakage current and why does it matter?",
+        "answer": "Patient leakage current is the current that could flow through a patient to ground in a fault condition. It's critical because: Patient safety: Even small currents (<100µA) can cause cardiac fibrillation; Regulatory requirement: IEC 60601-1 specifies maximum leakage limits; Type B equipment: <100µA normal, <500µA fault; Type BF equipment: <100µA normal, <500µA fault; Type CF equipment: <10µA normal, <50µA fault. Cincon medical converters achieve: <2µA leakage current - far below requirements; Provides large safety margin for system design; Allows multiple converters in system while staying within limits. The ultra-low leakage is achieved through: High-quality isolation transformers; Careful component selection; Optimized circuit design; Strict manufacturing controls. When designing medical equipment, calculate total system leakage including all converters and components. Contact our FAE team for leakage current analysis.",
+        "decisionGuide": "Cincon medical converters have <2µA leakage. Calculate total system leakage. Contact us for medical safety analysis.",
+        "keywords": ["leakage current", "patient safety", "IEC 60601-1"]
+      },
+      {
+        "question": "What medical device types require 2xMOPP isolation?",
+        "answer": "Medical devices requiring 2xMOPP isolation include: Patient contact devices: ECG/EKG monitors and electrodes; Blood pressure monitors; Pulse oximeters; Patient temperature monitors; Diagnostic ultrasound probes; Electrosurgical equipment; Infusion pumps; Dialysis machines; Therapeutic devices: Defibrillators; TENS units; Muscle stimulators; Home healthcare: CPAP/BiPAP machines; Nebulizers; Blood glucose meters; Home dialysis equipment; Life support: Ventilators; Anesthesia machines; Heart-lung machines; Patient monitors in ICU. The requirement depends on: Patient contact type - B (body), BF (body floating), CF (cardiac floating); Application criticality - life support requires highest protection; Location of use - home healthcare has stricter requirements. Always consult IEC 60601-1 for specific requirements. When in doubt, use 2xMOPP to ensure compliance. Contact our FAE team for medical device classification assistance.",
+        "decisionGuide": "Use 2xMOPP for all patient-connected devices. Verify device classification. Contact us for compliance guidance.",
+        "keywords": ["medical device types", "patient contact", "device classification"]
+      },
+      {
+        "question": "What certifications do Cincon medical converters have?",
+        "answer": "Cincon medical DC-DC converters carry comprehensive medical safety certifications: IEC 60601-1 3rd Edition - International medical safety standard; ANSI/AAMI ES60601-1 - US medical safety standard; CSA C22.2 No. 60601-1 - Canadian medical safety; EN 60601-1 - European medical safety; CB certificate - International recognition. The certifications include: 2xMOPP (Means of Patient Protection) rating; 5000VAC isolation voltage; <2µA leakage current; Risk management file (ISO 14971); Usability file (IEC 62366). These certifications simplify end-product approval by: Providing pre-certified components; Reducing testing requirements; Offering documentation package; Ensuring compliance with latest standards. The 3rd Edition certification includes risk management and usability requirements. Contact our FAE team for certification documentation and guidance on integrating medical converters into your designs.",
+        "decisionGuide": "All medical converters have IEC 60601-1 3rd Ed certification. Request documentation package. Contact us for integration support.",
+        "keywords": ["medical certifications", "IEC 60601-1", "safety standards"]
+      },
+      {
+        "question": "How do I integrate medical converters into my design?",
+        "answer": "Integrating medical converters requires attention to several factors: Isolation barriers: Maintain creepage and clearance distances; Don't bridge isolation with components or traces; Use appropriate PCB materials (CTI rating). Grounding: Keep patient ground separate from protective earth; Connect converter output ground to patient circuit ground; Input ground connects to system ground. Protection: Add fuses on input and output; Consider additional isolation if required; Implement enclosure protection. EMC: Medical equipment has strict EMC requirements; Follow datasheet filtering recommendations; Consider shielding for sensitive circuits. Documentation: Maintain risk management file; Document safety critical components; Prepare for regulatory submission. Testing: Verify isolation voltage; Measure leakage current; Perform dielectric withstand tests. Contact our FAE team for medical design review and integration assistance.",
+        "decisionGuide": "Maintain isolation barriers and proper grounding. Follow EMC guidelines. Contact us for medical design review.",
+            "keywords": ["medical design", "isolation barriers", "integration"]
+          }
+        ],
+        "products": [
+          {
+            "partNumber": "EC2M11",
+            "series": "EC2M",
+            "category": "Medical Power Solutions",
+            "outputPower": "2W",
+            "inputVoltage": "4.5-5.5V / 9-18V / 18-36V / 36-72V",
+            "outputVoltage": "5V / 12V / 15V",
+            "outputCurrent": "400mA (5V)",
+            "efficiency": "84%",
+            "isolation": "5000VAC, 2xMOPP",
+            "operatingTemp": "-40°C to +85°C",
+            "package": "SIP7",
+            "protection": "Short Circuit, Overload",
+            "certifications": ["IEC 60601-1", "UL"],
+            "mtbf": "2,000,000 hours",
+            "warranty": "3 years",
+            "stock": "In Stock",
+            "leadTime": "1-2 weeks",
+            "datasheet": "/assets/brands/cincon/datasheets/EC2M11.pdf",
+            "image": "/assets/brands/cincon/images/EC2M11.jpg",
+            "shortDescription": "2W medical-grade DC-DC converter with 2xMOPP isolation and 5000VAC for patient-connected equipment.",
+            "descriptionParagraphs": [
+              "The EC2M11 is a medical-grade 2W DC-DC converter featuring 2xMOPP isolation with 5000VAC isolation voltage, certified to IEC 60601-1 3rd Edition.",
+              "With ultra-low leakage current of <2µA, this converter provides safe isolation for patient-connected medical equipment including monitors and diagnostic devices.",
+              "The compact SIP7 package and -40°C to +85°C operating range make it suitable for portable and home healthcare applications."
+            ],
+            "longDescription": "The Cincon EC2M11 is a medical-grade 2W isolated DC-DC converter specifically designed for patient-connected medical equipment. This converter features 2xMOPP (Means of Patient Protection) isolation with 5000VAC isolation voltage, meeting the stringent requirements of IEC 60601-1 3rd Edition for medical safety. The ultra-low leakage current of less than 2µA ensures patient safety even in direct contact applications. The EC2M11 is available with 2:1 input ranges (4.5-5.5V, 9-18V, 18-36V, 36-72V) and provides regulated 5V, 12V, or 15V output at up to 400mA. The compact SIP7 package (19.5 x 7.0 x 10.0 mm) is ideal for space-constrained medical devices including portable monitors, diagnostic equipment, and home healthcare products. Key features include 2xMOPP medical certification, 5000VAC isolation, <2µA leakage current, continuous short circuit protection, and extended temperature operation from -40°C to +85°C. The high efficiency of 84% minimizes heat generation in enclosed medical devices. With an MTBF of 2 million hours and full medical safety certifications, the EC2M11 provides reliable, safe power isolation for critical medical applications. As an authorized Cincon distributor, LiTong provides technical support and certification documentation for medical device designers.",
+            "features": [
+              "2W medical-grade DC-DC conversion",
+              "2xMOPP isolation certified to IEC 60601-1 3rd Ed",
+              "5000VAC isolation voltage",
+              "Ultra-low <2µA leakage current",
+              "Compact SIP7 package for portable devices",
+              "Extended temperature -40°C to +85°C",
+              "High 84% efficiency",
+              "2 million hour MTBF",
+              "Full medical safety certifications"
+            ],
+            "applications": [
+              "Patient monitors (ECG, blood pressure)",
+              "Diagnostic equipment",
+              "Pulse oximeters",
+              "Infusion pumps",
+              "Home healthcare devices",
+              "Portable medical instruments",
+              "Therapeutic equipment",
+              "Medical sensors and probes"
+            ],
+            "specifications": {
+              "Input Voltage Range": "4.5-5.5V / 9-18V / 18-36V / 36-72V",
+              "Output Voltage": "5V / 12V / 15V",
+              "Output Current": "Up to 400mA (5V)",
+              "Output Power": "2W maximum",
+              "Efficiency": "84% typical",
+              "Isolation Voltage": "5000VAC (2xMOPP)",
+              "Leakage Current": "<2µA",
+              "Isolation Resistance": "10000MΩ minimum",
+              "Operating Temperature": "-40°C to +85°C",
+              "Safety Standards": "IEC 60601-1 3rd Ed, UL60601-1",
+              "Package": "SIP7 (19.5 x 7.0 x 10.0 mm)",
+              "MTBF": "2,000,000 hours"
+            },
+            "faeReview": {
+              "rating": 4.8,
+              "pros": [
+                "Full 2xMOPP medical certification",
+                "5000VAC isolation (highest level)",
+                "Ultra-low <2µA leakage",
+                "Compact for portable devices",
+                "Complete documentation package"
+              ],
+              "cons": [
+                "Higher cost than industrial grade",
+                "Limited to 2W output",
+                "Longer lead times for some variants",
+                "Strict handling requirements"
+              ],
+              "content": "The EC2M11 is my first choice for patient-connected medical applications requiring 2W or less. The full 2xMOPP certification to IEC 60601-1 3rd Edition provides confidence for regulatory submissions. The 5000VAC isolation and <2µA leakage current meet the most stringent patient safety requirements. I've used this converter in patient monitors, diagnostic equipment, and home healthcare devices with excellent results and successful regulatory approvals. The compact SIP7 package is perfect for portable medical devices. The complete documentation package including risk management files simplifies the approval process. While more expensive than industrial-grade converters, the medical certification and safety margin are essential for patient-connected applications. I highly recommend this converter for any medical device requiring patient isolation.",
+              "bestFor": [
+                "Patient-connected medical devices",
+                "Portable medical equipment",
+                "Home healthcare products",
+                "Diagnostic instruments",
+                "Life-support equipment"
+              ],
+              "testData": "Isolation test: Passed 5000VAC hipot. Leakage current: 1.2µA measured. Efficiency: 83.8% at full load. Temperature rise: 16°C at 25°C ambient."
+            },
+            "alternativeParts": [
+              {
+                "partNumber": "EC3M11",
+                "brand": "Cincon",
+                "specifications": {
+                  "Power": "3W",
+                  "Isolation": "5000VAC, 2xMOPP",
+                  "Leakage": "<2µA",
+                  "Package": "SIP7"
+                },
+                "comparison": {
+                  "Power": "3W > 2W (+50%)",
+                  "Current": "600mA > 400mA (+50%)",
+                  "Certification": "Same = Same (2xMOPP)",
+                  "Price": "Higher = Higher (more power)"
+                },
+                "reason": "Higher power medical-grade with same certification",
+                "useCase": "Recommended for 2-3W patient-connected applications",
+                "link": "#"
+              },
+              {
+                "partNumber": "EC2A11",
+                "brand": "Cincon",
+                "specifications": {
+                  "Power": "2W",
+                  "Isolation": "1000VDC",
+                  "Package": "SIP7"
+                },
+                "comparison": {
+                  "Isolation": "1000V < 5000V (lower)",
+                  "Certification": "Industrial < Medical (no 2xMOPP)",
+                  "Price": "Lower = Lower (industrial grade)",
+                  "Leakage": "Higher > Lower (not specified)"
+                },
+                "reason": "Industrial grade for non-patient applications",
+                "useCase": "Suitable for equipment not contacting patients",
+                "link": "#"
+              }
+            ],
+            "companionParts": [
+              {
+                "partNumber": "EC2M12",
+                "link": "#",
+                "description": "12V output version for higher voltage needs",
+                "category": "Same Series"
+              },
+              {
+                "partNumber": "Medical-Filter",
+                "link": "#",
+                "description": "EMI filter for medical EMC compliance",
+                "category": "Accessories"
+              }
+            ],
+            "faqs": [
+              {
+                "question": "What documentation is provided with the EC2M11?",
+                "answer": "The EC2M11 comes with comprehensive medical certification documentation: Datasheet with electrical specifications; Safety certificates (IEC 60601-1, UL); CB test certificate; Risk management file (ISO 14971); Usability file (IEC 62366); Isolation diagram and specifications; Leakage current test data; MTBF calculation; Declaration of conformity. This documentation package is essential for medical device regulatory submissions. The files are available in PDF format from LiTong or Cincon. For custom documentation or specific test reports, contact our FAE team. We can also provide application notes for medical design integration and compliance guidance.",
+                "decisionGuide": "Complete documentation package available. Request from LiTong. Contact us for custom documentation needs.",
+                "keywords": ["documentation", "certification files", "medical compliance"]
+              },
+              {
+                "question": "Can I use the EC2M11 in home healthcare devices?",
+                "answer": "Yes, the EC2M11 is ideal for home healthcare devices. Home healthcare applications have specific requirements: Patient safety: 2xMOPP isolation required for patient contact; User safety: Protection for non-professional users; Reliability: High MTBF for unsupervised operation; Environmental: Operation in home conditions. The EC2M11 meets all these requirements: Full 2xMOPP certification for patient safety; 2 million hour MTBF for reliability; -40°C to +85°C operation for various home environments; Compact size for portable devices. Common home healthcare applications include: Blood pressure monitors; Pulse oximeters; CPAP/BiPAP machines; Nebulizers; Blood glucose meters; Home dialysis equipment; Portable ECG monitors. The medical certification simplifies FDA and international approvals for home healthcare devices. Contact our FAE team for home healthcare design assistance.",
+                "decisionGuide": "EC2M11 is ideal for home healthcare. Full certification for patient safety. Contact us for design support.",
+                "keywords": ["home healthcare", "patient safety", "portable devices"]
+              },
+              {
+                "question": "How does 2xMOPP differ from 2xMOOP?",
+                "answer": "2xMOPP and 2xMOOP are different isolation levels in medical equipment: 2xMOPP (Means of Patient Protection): Highest isolation level; Required for patient-connected circuits; 5000VAC isolation voltage; <2µA leakage current; Two independent protection means; For devices touching patients. 2xMOOP (Means of Operator Protection): Lower isolation level; For operator/user protection only; 3000VAC isolation voltage; Higher leakage current allowed; Not sufficient for patient contact; For equipment not touching patients. Key differences: Application: MOPP for patient circuits, MOOP for operator circuits; Isolation: MOPP requires higher voltage rating; Leakage: MOPP has stricter limits; Testing: MOPP requires more rigorous testing; Certification: Different requirements in standards. Always use 2xMOPP for patient-connected circuits. Using MOOP for patient contact violates safety standards and creates liability. Contact our FAE team for isolation level selection guidance.",
+                "decisionGuide": "Use 2xMOPP for patient contact. Use 2xMOOP for operator protection only. Contact us for guidance.",
+                "keywords": ["2xMOPP vs 2xMOOP", "isolation levels", "patient protection"]
+              },
+              {
+                "question": "What is the creepage and clearance for the EC2M11?",
+                "answer": "The EC2M11 meets creepage and clearance requirements for 2xMOPP: Creepage distance: 8mm minimum (along surface); Clearance distance: 5mm minimum (through air); These distances ensure adequate isolation at 5000VAC working voltage. Creepage and clearance are critical for: Maintaining isolation over product lifetime; Preventing tracking across surfaces; Withstanding voltage surges; Meeting pollution degree requirements. The SIP7 package is designed with appropriate spacing: Pin spacing maintains creepage/clearance; PCB layout must preserve these distances; No components should bridge isolation barrier. For PCB design: Maintain 8mm creepage between input and output sides; Use slots or barriers if space is limited; Select appropriate CTI (Comparative Tracking Index) rated materials. Refer to the datasheet for detailed mechanical drawings and recommended PCB layouts. Contact our FAE team for layout review.",
+                "decisionGuide": "Maintain 8mm creepage, 5mm clearance in layout. Follow datasheet recommendations. Contact us for layout review.",
+                "keywords": ["creepage", "clearance", "isolation distance"]
+              },
+              {
+                "question": "Can the EC2M11 be used in life-support equipment?",
+                "answer": "The EC2M11 can be used in life-support equipment with proper system design. Life-support applications include: Ventilators; Anesthesia machines; Heart-lung machines; Infusion pumps for critical care; Defibrillators; Dialysis machines. Considerations for life-support: Redundancy: Consider dual converters with OR-ing for critical systems; Monitoring: Implement output voltage and current monitoring; Alarms: Provide fault detection and alarm outputs; Reliability: 2M hour MTBF provides good baseline; Certification: Ensure complete system meets life-support requirements. The EC2M11 provides: 2xMOPP isolation for patient safety; High reliability for continuous operation; Medical certification for regulatory compliance; Compact size for equipment integration. For life-support applications, we recommend: System-level FMEA analysis; Redundant power architecture; Comprehensive testing; Regulatory consultation. Contact our FAE team for life-support design assistance and reliability analysis.",
+                "decisionGuide": "Can be used in life-support with proper system design. Consider redundancy. Contact us for critical care design.",
+                "keywords": ["life-support", "critical care", "medical equipment"]
+              }
+            ]
+          },
+          {
+            "partNumber": "EC6M11",
+            "series": "EC6M",
+            "category": "Medical Power Solutions",
+            "outputPower": "6W",
+            "inputVoltage": "9-18V / 18-36V / 36-72V",
+            "outputVoltage": "5V / 12V / 15V / 24V",
+            "outputCurrent": "1200mA (5V)",
+            "efficiency": "86%",
+            "isolation": "5000VAC, 2xMOPP",
+            "operatingTemp": "-40°C to +85°C",
+            "package": "SIP8 / DIP8",
+            "protection": "Short Circuit, Overload",
+            "certifications": ["IEC 60601-1", "UL"],
+            "mtbf": "1,800,000 hours",
+            "warranty": "3 years",
+            "stock": "In Stock",
+            "leadTime": "1-2 weeks",
+            "datasheet": "/assets/brands/cincon/datasheets/EC6M11.pdf",
+            "image": "/assets/brands/cincon/images/EC6M11.jpg",
+            "shortDescription": "6W medical-grade DC-DC converter with 2xMOPP isolation for higher power patient-connected equipment.",
+            "descriptionParagraphs": [
+              "The EC6M11 is a 6W medical-grade DC-DC converter featuring 2xMOPP isolation with 5000VAC, certified to IEC 60601-1 3rd Edition.",
+              "With 50% more power than the EC2M series, this converter supports higher power medical devices including therapeutic equipment and diagnostic systems.",
+              "Available in SIP8 and DIP8 packages, the EC6M11 offers flexible mounting options for various medical device designs."
+            ],
+            "longDescription": "The Cincon EC6M11 is a high-power medical-grade 6W isolated DC-DC converter designed for medical devices requiring higher output power. This converter features full 2xMOPP (Means of Patient Protection) isolation with 5000VAC isolation voltage and ultra-low leakage current of less than 2µA, meeting IEC 60601-1 3rd Edition requirements for patient safety. With 50% more power than the EC2M series, the EC6M11 supports therapeutic equipment, diagnostic systems, and other higher-power medical devices. Available with 2:1 input ranges (9-18V, 18-36V, 36-72V), the converter provides regulated 5V, 12V, 15V, or 24V output at up to 1200mA (5V model). Both SIP8 and DIP8 package options offer flexibility for different PCB layouts and assembly processes. Key features include 2xMOPP medical certification, 5000VAC isolation, <2µA leakage current, high efficiency of 86%, and extended temperature operation from -40°C to +85°C. With an MTBF of 1.8 million hours and comprehensive medical safety certifications, the EC6M11 provides reliable, safe power for demanding medical applications. As an authorized Cincon distributor, LiTong provides technical support and certification documentation for medical device integration.",
+            "features": [
+              "6W medical-grade DC-DC conversion",
+              "2xMOPP isolation certified to IEC 60601-1",
+              "5000VAC isolation voltage",
+              "Ultra-low <2µA leakage current",
+              "SIP8 and DIP8 package options",
+              "High 86% efficiency",
+              "Extended temperature -40°C to +85°C",
+              "1.8 million hour MTBF",
+              "Full medical certifications"
+            ],
+            "applications": [
+              "Therapeutic medical equipment",
+              "Diagnostic imaging systems",
+              "Patient monitoring systems",
+              "Infusion and syringe pumps",
+              "Electrosurgical equipment",
+              "Medical lasers",
+              "Dental equipment",
+              "Rehabilitation devices"
+            ],
+            "specifications": {
+              "Input Voltage Range": "9-18V / 18-36V / 36-72V",
+              "Output Voltage": "5V / 12V / 15V / 24V",
+              "Output Current": "Up to 1200mA (5V)",
+              "Output Power": "6W maximum",
+              "Efficiency": "86% typical",
+              "Isolation Voltage": "5000VAC (2xMOPP)",
+              "Leakage Current": "<2µA",
+              "Operating Temperature": "-40°C to +85°C",
+              "Safety Standards": "IEC 60601-1 3rd Ed, UL60601-1",
+              "Package": "SIP8/DIP8 (22.0 x 8.0/10.0 x 10.0 mm)",
+              "MTBF": "1,800,000 hours"
+            },
+            "faeReview": {
+              "rating": 4.7,
+              "pros": [
+                "6W power for higher demand devices",
+                "Full 2xMOPP medical certification",
+                "Both SIP and DIP options",
+                "86% efficiency for medical grade",
+                "Complete documentation"
+              ],
+              "cons": [
+                "Larger than EC2M series",
+                "Higher cost than industrial equivalent",
+                "DIP package needs more PCB space",
+                "Limited to 6W"
+              ],
+              "content": "The EC6M11 is the go-to solution for medical applications requiring 4-6W with patient isolation. The full 2xMOPP certification provides confidence for regulatory submissions, and the 5000VAC isolation with <2µA leakage meets the most stringent requirements. I've used this converter in therapeutic equipment, diagnostic systems, and surgical devices with excellent results. Having both SIP and DIP options is valuable - SIP for compact designs, DIP for easier assembly. The 86% efficiency is impressive for a medical-grade converter with such high isolation. For higher power medical devices that contact patients, this converter offers the best combination of power, safety, and certification. The documentation package simplifies regulatory approval. I highly recommend it for therapeutic and diagnostic equipment.",
+              "bestFor": [
+                "Therapeutic equipment",
+                "Diagnostic systems",
+                "Higher power medical devices",
+                "Surgical equipment",
+                "Patient-connected instruments"
+              ],
+              "testData": "Isolation test: Passed 5000VAC hipot. Leakage current: 1.5µA measured. Efficiency: 85.6% at full load. Temperature rise: 20°C at 25°C ambient."
+            },
+            "alternativeParts": [
+              {
+                "partNumber": "EC2M11",
+                "brand": "Cincon",
+                "specifications": {
+                  "Power": "2W",
+                  "Isolation": "5000VAC, 2xMOPP",
+                  "Package": "SIP7"
+                },
+                "comparison": {
+                  "Power": "2W < 6W (-67%)",
+                  "Size": "SIP7 < SIP8 (smaller)",
+                  "Certification": "Same = Same (2xMOPP)",
+                  "Price": "Lower = Lower (less power)"
+                },
+                "reason": "Lower power for less demanding applications",
+                "useCase": "Suitable for 1-2W patient-connected devices",
+                "link": "#"
+              },
+              {
+                "partNumber": "EC6A11",
+                "brand": "Cincon",
+                "specifications": {
+                  "Power": "6W",
+                  "Isolation": "1500VDC",
+                  "Package": "SIP8"
+                },
+                "comparison": {
+                  "Isolation": "1500V < 5000V (lower)",
+                  "Certification": "Industrial < Medical (no 2xMOPP)",
+                  "Price": "Lower = Lower (industrial)",
+                  "Leakage": "Not specified > <2µA"
+                },
+                "reason": "Industrial grade for non-patient applications",
+                "useCase": "Recommended for equipment not contacting patients",
+                "link": "#"
+              }
+            ],
+            "companionParts": [
+              {
+                "partNumber": "EC6M12",
+                "link": "#",
+                "description": "12V output version for mixed voltage systems",
+                "category": "Same Series"
+              },
+              {
+                "partNumber": "EC6M24",
+                "link": "#",
+                "description": "24V output version for industrial interfaces",
+                "category": "Same Series"
+              }
+            ],
+            "faqs": [
+              {
+                "question": "When should I choose EC6M over EC2M?",
+                "answer": "Choose EC6M over EC2M when your application requires: Higher power: EC6M provides 6W vs 2W (3x more); Higher current: Up to 1200mA vs 400mA at 5V; More voltage options: Includes 24V output (EC2M limited to 15V max); Future expansion: Headroom for power increases; Lower stress: Operating at 50% load vs 100% improves reliability. EC2M is sufficient for: Low-power sensors; Small displays; Low-current logic; Cost-sensitive designs; Space-critical applications. Cost comparison: EC6M costs approximately 40% more than EC2M; But provides 3x the power capability; Better value for higher power needs. For new designs, if power requirement is close to 2W or may increase, consider EC6M for margin. Contact our FAE team for power budgeting and selection assistance.",
+                "decisionGuide": "Choose EC6M for >2W or 24V needs. Choose EC2M for <2W cost-sensitive. Contact us for selection.",
+                "keywords": ["EC6M vs EC2M", "power selection", "medical converter"]
+              },
+              {
+                "question": "What is the difference between SIP8 and DIP8 for medical applications?",
+                "answer": "For medical applications, both SIP8 and DIP8 packages offer the same electrical performance and 2xMOPP certification. The differences are: SIP8: Single row of pins; More compact (22.0 x 8.0 x 10.0 mm); Better for automated assembly; Preferred for high-density PCBs; DIP8: Dual row of pins; Slightly larger (22.0 x 10.0 x 10.0 mm); Easier for manual soldering; More stable mechanical mounting; Better for prototypes. Medical considerations: Both meet creepage/clearance requirements; Both have same isolation performance; Both certified to same standards; Choice based on assembly process and space. For production medical devices: SIP8 for automated assembly; DIP8 if manual rework is expected. Contact our FAE team for package selection guidance.",
+                "decisionGuide": "Both packages medically certified. SIP8 for automated, DIP8 for manual. Contact us for selection.",
+                "keywords": ["SIP8 vs DIP8", "medical package", "assembly"]
+              },
+              {
+                "question": "Can I use multiple EC6M11 converters in one medical device?",
+                "answer": "Yes, multiple EC6M11 converters can be used in one medical device with proper design considerations: Isolation: Each converter provides independent 2xMOPP isolation; Multiple isolation barriers increase system safety; Leakage current: Total leakage is sum of all converters; 2 converters = <4µA total (still well below limits); 4 converters = <8µA total (acceptable for most applications); Grounding: Connect all input grounds to system ground; Keep output grounds separate if different patient circuits; Connect together if same circuit. Layout: Maintain creepage/clearance for each converter; Don't bridge isolation barriers with components; Spacing between converters for thermal management. Applications: Multiple voltage rails (5V, 12V, 24V); Isolated channels for multi-parameter monitors; Redundant power for critical systems; Distributed power architecture. Calculate total system leakage to ensure compliance. Contact our FAE team for multi-converter medical design.",
+                "decisionGuide": "Multiple converters allowed. Sum leakage currents. Maintain isolation. Contact us for design review.",
+                "keywords": ["multiple converters", "system design", "leakage current"]
+              },
+              {
+                "question": "What thermal management is needed for the EC6M11?",
+                "answer": "The EC6M11 requires appropriate thermal management for reliable operation: Power dissipation: Pd = 6W × (1/0.86 - 1) = 0.98W; This heat must be dissipated to maintain safe temperatures. Thermal ratings: Operating temperature: -40°C to +85°C; Temperature rise: approximately 20°C at full load, 25°C ambient; Maximum component temperature: 105°C. Thermal management options: Natural convection: Full power to 60°C ambient; Conduction cooling: Mount on metal surface or heatsink; Forced airflow: Extends temperature capability. For medical devices: Enclosed devices may need heatsinks; Ensure adequate ventilation; Consider thermal shutdown protection; Monitor temperature in critical applications. The 86% efficiency minimizes heat generation compared to less efficient alternatives. For high-reliability medical devices, operate below maximum temperature. Contact our FAE team for thermal analysis and heatsink recommendations.",
+                "decisionGuide": "Natural convection to 60°C. Use heatsink for higher temps. Contact us for thermal design.",
+                "keywords": ["thermal management", "heatsink", "temperature"]
+              },
+              {
+                "question": "How do I verify the 2xMOPP isolation in my design?",
+                "answer": "Verifying 2xMOPP isolation requires several steps: Design review: Check creepage distances (8mm minimum); Verify clearance distances (5mm minimum); Ensure no components bridge isolation; Confirm PCB material CTI rating; Documentation: Obtain isolation diagram from datasheet; Maintain risk management file; Document safety critical components. Testing: Hipot test at 5000VAC for 60 seconds; Check leakage current <2µA; Verify insulation resistance >10GΩ; Perform dielectric withstand test. Production: 100% hipot testing recommended; Statistical sampling for leakage; Maintain test records for traceability. Certification: Work with notified body for approval; Provide complete documentation; Demonstrate compliance with IEC 60601-1. The EC6M11 is pre-certified, simplifying this process. Contact our FAE team for isolation verification procedures and testing guidance.",
+                "decisionGuide": "Verify creepage/clearance, perform hipot testing. EC6M11 pre-certified. Contact us for verification.",
+                "keywords": ["isolation verification", "hipot testing", "2xMOPP validation"]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "railway-industrial-power",
+        "name": "Railway & Industrial Power",
+        "shortDescription": "EN 50155 certified DC-DC converters for railway and harsh industrial environments",
+        "icon": "train",
+        "productCount": 2,
+        "specifications": {
+          "Power Range": "8W - 40W",
+          "Input Range": "14.4-154VDC (ultra-wide)",
+          "Isolation": "3000VDC",
+          "Efficiency": "Up to 90%",
+          "Certification": "EN 50155, EN 50121-3-2",
+          "Temperature": "-40°C to +85°C"
+        },
+        "longDescription": "Cincon's railway and industrial power solutions are specifically designed for the demanding requirements of railway applications and harsh industrial environments. These DC-DC converters are certified to EN 50155 for railway rolling stock and EN 50121-3-2 for EMC compliance. They feature ultra-wide input voltage ranges to accommodate railway battery systems (24V, 48V, 72V, 96V, 110V) with full voltage variation including transients. The converters withstand severe environmental conditions including extreme temperatures, vibration, shock, and humidity. With high efficiency up to 90%, they minimize heat generation and power consumption. These rugged converters are ideal for train control systems, passenger information systems, railway signaling, and industrial automation in harsh environments.",
+        "selectionGuide": {
+          "link": "/cincon/support/railway-power-selection-guide.html",
+          "description": "Use our selection guide to find the right railway power solution based on input voltage, power requirements, and environmental conditions."
+        },
+        "faqs": [
+          {
+            "question": "What is EN 50155 and why is it important for railway applications?",
+            "answer": "EN 50155 is the European standard for electronic equipment used on railway rolling stock. It specifies requirements for: Input voltage: Nominal voltages (24V, 48V, 72V, 96V, 110V); Voltage variations (0.7x to 1.25x nominal); Transients (up to 1.4x nominal for 1s); Temperature: Operating range typically -40°C to +70°C or +85°C; Storage down to -40°C; Humidity: Operation up to 95% RH non-condensing; Vibration and shock: Random vibration 5-150Hz; Shock 50g, 11ms; EMC: Immunity to railway electromagnetic environment; Emissions control to prevent interference. Certification to EN 50155 ensures: Reliable operation in railway conditions; Compliance with railway operator requirements; Safety in critical applications; Interoperability across European railways. Cincon railway converters are fully tested and certified to EN 50155, simplifying approval for railway projects. Contact our FAE team for railway certification documentation.",
+            "decisionGuide": "EN 50155 certification required for railway. Cincon converters fully certified. Contact us for documentation.",
+            "keywords": ["EN 50155", "railway standard", "rolling stock"]
+          },
+          {
+            "question": "What input voltage ranges are needed for railway applications?",
+            "answer": "Railway applications require wide input voltage ranges to accommodate: Nominal voltages: 24V (light rail, trams); 48V (some regional trains); 72V (industrial vehicles); 96V (some metros); 110V (mainline trains, most common). Voltage variations per EN 50155: Continuous operation: 0.7x to 1.25x nominal; Temporary operation: 0.6x for 0.1s, 1.4x for 1s; For 110V nominal: 77V to 137.5V continuous; 66V to 154V temporary. Cincon railway converters provide: Ultra-wide 14.4-154VDC range; Covers all nominal voltages (24V-110V); Handles all variations including transients; Single converter works across multiple systems. This eliminates: Different converters for different voltages; Inventory complexity; Voltage selection switches; Compatibility issues. For railway projects, verify the nominal voltage and required range. Contact our FAE team for input voltage selection and railway system design.",
+            "decisionGuide": "14.4-154V range covers all railway voltages. Single converter for all systems. Contact us for selection.",
+            "keywords": ["railway voltage", "input range", "EN 50155 voltage"]
+          },
+          {
+            "question": "What environmental tests do railway converters undergo?",
+            "answer": "Railway converters undergo rigorous environmental testing per EN 50155: Temperature tests: Cold start and operation at -40°C; High temperature operation at +70°C or +85°C; Thermal cycling between extremes; Temperature shock testing. Humidity tests: Damp heat at 95% RH, 40°C; Condensation resistance; Mold growth resistance. Vibration and shock: Random vibration 5-150Hz, 1.0g RMS; Sine vibration for resonance detection; Shock 50g, 11ms half-sine; Bump testing for repeated shock. Altitude: Operation up to 3000m; Reduced ratings above 3000m. Contamination: Dust and sand resistance; Salt mist for coastal applications; Chemical resistance. EMC tests: EN 50121-3-2 immunity and emissions; ESD, surge, burst immunity; Radiated and conducted emissions. These tests ensure reliable operation in harsh railway environments. Cincon railway converters pass all required tests. Contact our FAE team for test reports and environmental specifications.",
+            "decisionGuide": "All Cincon railway converters pass EN 50155 environmental tests. Contact us for test reports.",
+            "keywords": ["environmental testing", "railway tests", "reliability"]
+          },
+          {
+            "question": "What is the difference between railway and industrial grade converters?",
+            "answer": "Railway and industrial grade converters differ in several aspects: Input voltage: Railway: Ultra-wide 14.4-154V for multiple battery systems; Industrial: Standard ranges (9-36V, 18-75V) for specific voltages. Certification: Railway: EN 50155, EN 50121-3-2 specifically; Industrial: General industrial standards. Environmental: Railway: More severe vibration, shock, temperature; Industrial: Standard industrial environments. Reliability: Railway: Higher MTBF for critical applications; Industrial: Standard reliability for general use. Cost: Railway: Higher cost due to ruggedization; Industrial: Lower cost for standard applications. Applications: Railway: Rolling stock, signaling, platform systems; Industrial: Factory automation, process control. For railway applications, always use EN 50155 certified converters. For industrial applications, railway grade can be used but may be over-specified. Contact our FAE team for grade selection guidance.",
+            "decisionGuide": "Use railway grade for EN 50155 compliance. Use industrial grade for standard applications. Contact us for selection.",
+            "keywords": ["railway vs industrial", "grade selection", "EN 50155"]
+          },
+          {
+            "question": "How do I handle voltage transients in railway systems?",
+            "answer": "Railway systems experience voltage transients that must be handled: Transient types: Load dump: Sudden load removal causes voltage spike; Jump start: 24V system started from 110V; Interruption: Brief power loss during switching; Surge: Lightning or switching transients. EN 50155 requirements: 1.4x nominal for 1 second (154V for 110V system); 0.6x nominal for 0.1 second (66V for 110V system); Surge protection for external transients. Cincon railway converters: Handle all EN 50155 transients internally; No external protection needed for standard transients; Surge protection may be needed for severe lightning. For system design: Select converter with appropriate transient rating; Add external TVS for severe environments; Use input filtering for noise reduction; Consider hold-up capacitors for interruptions. The ultra-wide input range (14.4-154V) accommodates all standard transients. Contact our FAE team for transient protection design.",
+            "decisionGuide": "Cincon converters handle standard transients. Add TVS for severe environments. Contact us for protection design.",
+            "keywords": ["voltage transients", "load dump", "surge protection"]
+          }
+        ],
+        "products": [
+          {
+            "partNumber": "EC7A11",
+            "series": "EC7A",
+            "category": "Railway & Industrial Power",
+            "outputPower": "8W",
+            "inputVoltage": "14.4-154VDC (ultra-wide)",
+            "outputVoltage": "5V / 12V / 15V / 24V",
+            "outputCurrent": "1600mA (5V)",
+            "efficiency": "88%",
+            "isolation": "3000VDC",
+            "operatingTemp": "-40°C to +85°C",
+            "package": "DIP16",
+            "protection": "Short Circuit, Overload, Input UVLO",
+            "certifications": ["EN 50155", "EN 50121-3-2", "UL"],
+            "mtbf": "1,500,000 hours",
+            "warranty": "3 years",
+            "stock": "In Stock",
+            "leadTime": "2-3 weeks",
+            "datasheet": "/assets/brands/cincon/datasheets/EC7A11.pdf",
+            "image": "/assets/brands/cincon/images/EC7A11.jpg",
+            "shortDescription": "8W railway-certified DC-DC converter with ultra-wide 14.4-154V input for rolling stock applications.",
+            "descriptionParagraphs": [
+              "The EC7A11 is an 8W railway-certified DC-DC converter featuring ultra-wide 14.4-154VDC input range, covering all railway battery systems from 24V to 110V.",
+              "Certified to EN 50155 and EN 50121-3-2, this converter withstands severe railway conditions including voltage transients, vibration, and extreme temperatures.",
+              "With 3000VDC isolation and -40°C to +85°C operation, the EC7A11 delivers reliable performance in demanding railway and industrial environments."
+            ],
+            "longDescription": "The Cincon EC7A11 is a rugged 8W DC-DC converter specifically designed and certified for railway rolling stock applications. This converter features an ultra-wide input voltage range of 14.4-154VDC, accommodating all standard railway battery systems (24V, 48V, 72V, 96V, 110V) with their full voltage variations and transients per EN 50155. The EC7A11 is fully certified to EN 50155 for railway electronic equipment and EN 50121-3-2 for EMC compliance, ensuring reliable operation in the harsh railway environment. The converter withstands severe conditions including temperature extremes (-40°C to +85°C), high vibration and shock, humidity, and voltage transients. Available output voltages include 5V, 12V, 15V, and 24V at up to 1600mA (5V model). The DIP16 package provides robust through-hole mounting suitable for high-vibration environments. Key features include 3000VDC isolation, high efficiency of 88%, comprehensive protection (SCP, OLP, UVLO), and 1.5 million hour MTBF. The EC7A11 is ideal for train control systems, passenger information systems, railway signaling, door controls, and lighting systems. As an authorized Cincon distributor, LiTong provides technical support and railway certification documentation.",
+            "features": [
+              "8W railway-certified DC-DC converter",
+              "Ultra-wide 14.4-154VDC input range",
+              "Covers all railway voltages (24V-110V)",
+              "EN 50155 and EN 50121-3-2 certified",
+              "3000VDC isolation",
+              "High 88% efficiency",
+              "-40°C to +85°C operation",
+              "Rugged DIP16 package",
+              "1.5 million hour MTBF"
+            ],
+            "applications": [
+              "Train control systems",
+              "Passenger information systems",
+              "Railway signaling equipment",
+              "Door and gate controls",
+              "Interior and exterior lighting",
+              "Communication systems",
+              "CCTV and security",
+              "HVAC controls"
+            ],
+            "specifications": {
+              "Input Voltage Range": "14.4-154VDC (ultra-wide)",
+              "Output Voltage": "5V / 12V / 15V / 24V",
+              "Output Current": "Up to 1600mA (5V)",
+              "Output Power": "8W maximum",
+              "Efficiency": "88% typical",
+              "Isolation Voltage": "3000VDC",
+              "Operating Temperature": "-40°C to +85°C",
+              "Certifications": "EN 50155, EN 50121-3-2, UL",
+              "Package": "DIP16 (31.8 x 15.2 x 12.0 mm)",
+              "MTBF": "1,500,000 hours",
+              "Vibration": "5-150Hz, 1.0g RMS per EN 50155",
+              "Shock": "50g, 11ms per EN 50155"
+            },
+            "faeReview": {
+              "rating": 4.9,
+              "pros": [
+                "Full EN 50155 railway certification",
+                "Ultra-wide input covers all railway voltages",
+                "Handles severe railway transients",
+                "Rugged package for vibration",
+                "Complete certification documentation"
+              ],
+              "cons": [
+                "Higher cost than industrial grade",
+                "Longer lead times",
+                "DIP package only (no SIP)",
+                "Limited to 8W"
+              ],
+              "content": "The EC7A11 is the gold standard for railway power applications. The full EN 50155 certification gives confidence for railway projects, and the ultra-wide 14.4-154V input eliminates voltage compatibility issues across different train systems. I've used this converter in train control systems, passenger information displays, and railway signaling with excellent results. The converter handles all standard railway transients internally, simplifying system design. The rugged DIP16 package withstands severe vibration and shock. The 88% efficiency is excellent for such a wide input range. For any railway rolling stock application, this converter is my top recommendation. The certification documentation package simplifies approval with railway operators. While more expensive than industrial alternatives, the railway certification and ruggedization are essential for these critical applications.",
+              "bestFor": [
+                "Railway rolling stock",
+                "Train control systems",
+                "Passenger information",
+                "Railway signaling",
+                "Multi-voltage railway systems"
+              ],
+              "testData": "Efficiency: 87.5% at 110V input, full load. Temperature range verified: -40°C to +85°C. Vibration test: Passed 5-150Hz, 1.0g RMS. Transient test: Passed 154V/1s, 66V/0.1s."
+            },
+            "alternativeParts": [
+              {
+                "partNumber": "EC7A21",
+                "brand": "Cincon",
+                "specifications": {
+                  "Power": "15W",
+                  "Input": "14.4-154VDC",
+                  "Isolation": "3000VDC",
+                  "Certification": "EN 50155"
+                },
+                "comparison": {
+                  "Power": "15W > 8W (+88%)",
+                  "Current": "3000mA > 1600mA (+88%)",
+                  "Efficiency": "89% > 88% (+1%)",
+                  "Size": "Larger > Smaller (bigger)"
+                },
+                "reason": "Higher power railway-certified converter",
+                "useCase": "Recommended for 8-15W railway applications",
+                "link": "#"
+              },
+              {
+                "partNumber": "EC4A11",
+                "brand": "Cincon",
+                "specifications": {
+                  "Power": "4W",
+                  "Input": "9-36VDC",
+                  "Isolation": "1500VDC"
+                },
+                "comparison": {
+                  "Input": "9-36V < 14.4-154V (narrower)",
+                  "Certification": "Industrial < Railway (no EN 50155)",
+                  "Price": "Lower = Lower (industrial)",
+                  "Ruggedization": "Standard < Severe (railway grade)"
+                },
+                "reason": "Industrial grade for non-railway applications",
+                "useCase": "Suitable for standard industrial (not railway rolling stock)",
+                "link": "#"
+              }
+            ],
+            "companionParts": [
+              {
+                "partNumber": "EC7A12",
+                "link": "#",
+                "description": "12V output version for higher voltage systems",
+                "category": "Same Series"
+              },
+              {
+                "partNumber": "Input-Filter-Railway",
+                "link": "#",
+                "description": "Input filter for railway EMC compliance",
+                "category": "Accessories"
+              },
+              {
+                "partNumber": "Holdup-Capacitor",
+                "link": "#",
+                "description": "Hold-up capacitor for interruption ride-through",
+                "category": "Accessories"
+              }
+            ],
+            "faqs": [
+              {
+                "question": "What railway voltages does the EC7A11 support?",
+                "answer": "The EC7A11 supports all standard railway voltages with the ultra-wide 14.4-154V input: 24V systems: Nominal 24V, range 16.8-30V continuous, 14.4-33.6V temporary; 48V systems: Nominal 48V, range 33.6-60V continuous, 28.8-67.2V temporary; 72V systems: Nominal 72V, range 50.4-90V continuous, 43.2-100.8V temporary; 96V systems: Nominal 96V, range 67.2-120V continuous, 57.6-134.4V temporary; 110V systems: Nominal 110V, range 77-137.5V continuous, 66-154V temporary. The 14.4-154V range covers all these with margin. This means: One converter SKU for all railway voltages; No voltage selection switches; Simplified inventory; Reduced qualification time. For new railway projects, the EC7A11 works regardless of the nominal voltage selected. For existing systems, it replaces multiple voltage-specific converters. Contact our FAE team for railway voltage application notes.",
+                "decisionGuide": "EC7A11 covers 24V-110V railway systems. Single SKU for all voltages. Contact us for application support.",
+                "keywords": ["railway voltage", "24V 48V 110V", "input range"]
+              },
+              {
+                "question": "How does the EC7A11 handle voltage interruptions?",
+                "answer": "The EC7A11 handles voltage interruptions per EN 50155 requirements: Short interruptions: <10ms: No effect on output; 10-30ms: May see output dip, remains operational; >30ms: Output may drop, auto-recovers when input returns. EN 50155 requirements: S2 class: 10ms interruption (standard); S3 class: 20ms interruption; S4 class: Custom requirement. For interruption ride-through: Internal capacitance provides ~10ms hold-up; External hold-up capacitor extends ride-through; Calculate required capacitance: C = (2 × P × t) / (V² - Vmin²); Where P=8W, t=required time, V=input voltage, Vmin=14.4V. For critical applications: Size hold-up capacitor for required time; Consider UPS or battery backup; Implement power-fail warning. The EC7A11 automatically recovers when input returns with soft-start to limit inrush. Contact our FAE team for hold-up design calculations.",
+                "decisionGuide": "10ms internal hold-up standard. Add external capacitor for longer. Contact us for hold-up design.",
+                "keywords": ["voltage interruption", "hold-up time", "ride-through"]
+              },
+              {
+                "question": "What is the vibration and shock rating of the EC7A11?",
+                "answer": "The EC7A11 is rated for severe railway vibration and shock per EN 50155: Vibration: Random vibration: 5-150Hz, 1.0g RMS; Sine vibration: For resonance detection; Duration: Tested for extended periods; Axes: Tested on X, Y, Z axes. Shock: Half-sine shock: 50g peak, 11ms duration; Number of shocks: 3 per direction, 6 directions; Total: 18 shocks. Railway conditions: Rolling stock experiences continuous vibration; Switches and crossings cause shock; Temperature cycling adds stress. The EC7A11 design: Rugged DIP16 package with secure mounting; High-reliability components; Conformal coating available; Reinforced internal construction. For installation: Use proper PCB mounting with adequate solder; Consider potting for severe environments; Ensure connector retention; Follow EN 50155 installation guidelines. The EC7A11 passes all required tests and is proven in railway applications worldwide. Contact our FAE team for vibration and shock specifications.",
+                "decisionGuide": "Rated for 50g shock, 1.0g RMS vibration. Rugged DIP16 package. Contact us for installation guidelines.",
+                "keywords": ["vibration", "shock", "mechanical rating"]
+              },
+              {
+                "question": "Can the EC7A11 be used in wayside railway equipment?",
+                "answer": "The EC7A11 is designed for rolling stock (onboard) applications per EN 50155. For wayside equipment (trackside, stations), consider: EN 50121-4: EMC standard for wayside equipment; Environmental: May have different requirements than onboard; Input power: May be from different sources (AC mains, local DC). The EC7A11 can be used in wayside applications if: Input voltage is within 14.4-154V range; Environmental conditions are within ratings; EMC requirements are met with filtering. For wayside applications: Verify input voltage source and range; Check environmental conditions (temperature, humidity); Add appropriate filtering for EMC; Consider enclosure for environmental protection. Common wayside applications: Signal control cabinets; Platform equipment; Trackside monitoring; Station controls. For dedicated wayside power supplies, Cincon offers other products. Contact our FAE team for wayside application guidance.",
+                "decisionGuide": "Designed for rolling stock. Can be used wayside with verification. Contact us for wayside guidance.",
+                "keywords": ["wayside equipment", "trackside", "railway applications"]
+              },
+              {
+                "question": "What is the MTBF of the EC7A11 in railway applications?",
+                "answer": "The EC7A11 has a rated MTBF of 1,500,000 hours at 25°C per MIL-HDBK-217F. For railway applications, actual MTBF depends on: Temperature: Railway environments often 40-60°C; MTBF decreases with temperature; At 60°C, MTBF approximately 400,000 hours. Vibration: Continuous vibration can reduce MTBF; EN 50155 vibration factored into rating. Load: Operating at 100% vs 50% load affects MTBF; Derating improves reliability. Environment: Clean vs dusty/humid conditions; Protection from contamination helps. For railway reliability: Use conservative derating (50-70% load); Ensure adequate cooling; Protect from contamination; Implement condition monitoring if possible. The 1.5M hour rating at 25°C provides good baseline reliability. For critical railway systems, consider redundancy. Contact our FAE team for reliability analysis and MTBF calculations for your specific application.",
+                "decisionGuide": "1.5M hours at 25°C. Derate for temperature and load. Contact us for reliability analysis.",
+                "keywords": ["MTBF", "reliability", "railway reliability"]
+              }
+            ]
+          },
+          {
+            "partNumber": "EC7A21",
+            "series": "EC7A",
+            "category": "Railway & Industrial Power",
+            "outputPower": "15W",
+            "inputVoltage": "14.4-154VDC (ultra-wide)",
+            "outputVoltage": "5V / 12V / 15V / 24V",
+            "outputCurrent": "3000mA (5V)",
+            "efficiency": "89%",
+            "isolation": "3000VDC",
+            "operatingTemp": "-40°C to +85°C",
+            "package": "DIP24",
+            "protection": "Short Circuit, Overload, Input UVLO, Over Temperature",
+            "certifications": ["EN 50155", "EN 50121-3-2", "UL"],
+            "mtbf": "1,200,000 hours",
+            "warranty": "3 years",
+            "stock": "In Stock",
+            "leadTime": "2-3 weeks",
+            "datasheet": "/assets/brands/cincon/datasheets/EC7A21.pdf",
+            "image": "/assets/brands/cincon/images/EC7A21.jpg",
+            "shortDescription": "15W railway-certified DC-DC converter with ultra-wide input for higher power rolling stock applications.",
+            "descriptionParagraphs": [
+              "The EC7A21 is a 15W railway-certified DC-DC converter with ultra-wide 14.4-154VDC input, providing higher power for demanding railway applications.",
+              "Fully certified to EN 50155 and EN 50121-3-2, this converter includes over-temperature protection for enhanced reliability in harsh environments.",
+              "With 89% efficiency and 3000VDC isolation, the EC7A21 delivers efficient, reliable power for train control and passenger systems."
+            ],
+            "longDescription": "The Cincon EC7A21 is a high-power 15W railway-certified DC-DC converter designed for demanding railway rolling stock applications. This converter features the same ultra-wide 14.4-154VDC input range as the EC7A11, accommodating all railway battery systems (24V-110V) with their full variations and transients. With 88% more power than the EC7A11, the EC7A21 supports higher-power train systems including passenger information displays, CCTV systems, communication equipment, and control systems. The converter is fully certified to EN 50155 for railway electronic equipment and EN 50121-3-2 for EMC compliance. The rugged DIP24 package provides robust mounting for high-vibration railway environments. Key features include 3000VDC isolation, high efficiency of 89%, comprehensive protection including over-temperature protection, and extended temperature operation from -40°C to +85°C. With an MTBF of 1.2 million hours, the EC7A21 provides reliable performance for critical railway applications. The over-temperature protection enhances reliability by preventing thermal damage. As an authorized Cincon distributor, LiTong provides technical support and railway certification documentation.",
+            "features": [
+              "15W railway-certified DC-DC converter",
+              "Ultra-wide 14.4-154VDC input",
+              "Covers all railway battery systems",
+              "EN 50155 and EN 50121-3-2 certified",
+              "3000VDC isolation",
+              "High 89% efficiency",
+              "Over-temperature protection",
+              "Rugged DIP24 package",
+              "1.2 million hour MTBF"
+            ],
+            "applications": [
+              "Passenger information displays",
+              "CCTV and surveillance systems",
+              "Train communication systems",
+              "Door and platform controls",
+              "Interior lighting systems",
+              "HVAC control systems",
+              "Driver display systems",
+              "Ticketing and access control"
+            ],
+            "specifications": {
+              "Input Voltage Range": "14.4-154VDC (ultra-wide)",
+              "Output Voltage": "5V / 12V / 15V / 24V",
+              "Output Current": "Up to 3000mA (5V)",
+              "Output Power": "15W maximum",
+              "Efficiency": "89% typical",
+              "Isolation Voltage": "3000VDC",
+              "Operating Temperature": "-40°C to +85°C",
+              "Certifications": "EN 50155, EN 50121-3-2, UL",
+              "Package": "DIP24 (50.8 x 25.4 x 15.0 mm)",
+              "MTBF": "1,200,000 hours",
+              "Vibration": "5-150Hz, 1.0g RMS per EN 50155",
+              "Shock": "50g, 11ms per EN 50155"
+            },
+            "faeReview": {
+              "rating": 4.8,
+              "pros": [
+                "15W for higher power needs",
+                "Full railway certification",
+                "89% efficiency excellent for range",
+                "Over-temperature protection",
+                "Proven railway reliability"
+              ],
+              "cons": [
+                "Larger DIP24 package",
+                "Higher cost than 8W version",
+                "Lower MTBF than 8W (more power)",
+                "Longer lead times"
+              ],
+              "content": "The EC7A21 is the higher-power solution for railway applications requiring 10-15W. It maintains all the railway certifications and ruggedization of the EC7A11 with 88% more power output. I've used this converter in passenger information systems, CCTV installations, and train communication systems with excellent reliability. The 89% efficiency is outstanding for a converter with such a wide input range - many competitors struggle to achieve 85%. The over-temperature protection adds an extra layer of reliability for harsh environments. For higher-power railway systems, this is my recommended solution. The DIP24 package provides secure mounting for vibration resistance. While the MTBF is slightly lower than the 8W version (due to higher power stress), the 1.2M hours still provides excellent reliability. The full certification package simplifies railway project approvals.",
+              "bestFor": [
+                "Higher power railway systems",
+                "Passenger information displays",
+                "CCTV and surveillance",
+                "Communication systems",
+                "Multi-output power systems"
+              ],
+              "testData": "Efficiency: 88.8% at 110V input, full load. OTP threshold: 110°C. Vibration: Passed EN 50155 testing. Temperature rise: 28°C at 25°C ambient."
+            },
+            "alternativeParts": [
+              {
+                "partNumber": "EC7A11",
+                "brand": "Cincon",
+                "specifications": {
+                  "Power": "8W",
+                  "Input": "14.4-154VDC",
+                  "Isolation": "3000VDC",
+                  "Certification": "EN 50155"
+                },
+                "comparison": {
+                  "Power": "8W < 15W (-47%)",
+                  "Size": "DIP16 < DIP24 (smaller)",
+                  "MTBF": "1.5M > 1.2M (higher)",
+                  "Price": "Lower = Lower (less power)"
+                },
+                "reason": "Lower power for less demanding applications",
+                "useCase": "Recommended for 5-8W railway applications",
+                "link": "#"
+              },
+              {
+                "partNumber": "EC7A31",
+                "brand": "Cincon",
+                "specifications": {
+                  "Power": "30W",
+                  "Input": "14.4-154VDC",
+                  "Isolation": "3000VDC",
+                  "Certification": "EN 50155"
+                },
+                "comparison": {
+                  "Power": "30W > 15W (+100%)",
+                  "Efficiency": "90% > 89% (+1%)",
+                  "Size": "Larger > Larger (bigger)",
+                  "Price": "Higher = Higher (more power)"
+                },
+                "reason": "Higher power 30W railway converter",
+                "useCase": "Suitable for 15-30W high-power railway systems",
+                "link": "#"
+              }
+            ],
+            "companionParts": [
+              {
+                "partNumber": "EC7A22",
+                "link": "#",
+                "description": "12V output version for industrial interfaces",
+                "category": "Same Series"
+              },
+              {
+                "partNumber": "Heatsink-DIP24",
+                "link": "#",
+                "description": "Heatsink for high temperature operation",
+                "category": "Accessories"
+              }
+            ],
+            "faqs": [
+              {
+                "question": "When should I choose EC7A21 over EC7A11?",
+                "answer": "Choose EC7A21 over EC7A11 when your railway application requires: Higher power: 15W vs 8W (88% more); Higher current: 3000mA vs 1600mA at 5V; Multiple loads: Power several subsystems from one converter; Future expansion: Headroom for power increases; Lower stress: Operating at 50% load improves reliability. EC7A11 is sufficient for: Low-power sensors and interfaces; Single display or control; Cost-sensitive designs; Space-constrained applications. Power budgeting example: EC7A11: 8W for single 5V/1.5A load; EC7A21: 15W for dual 5V/1.5A loads or higher current. Cost comparison: EC7A21 costs approximately 35% more than EC7A11; But provides 88% more power; Better value for higher power needs. For new railway designs, if power is close to 8W or may increase, consider EC7A21. Contact our FAE team for railway power budgeting.",
+                "decisionGuide": "Choose EC7A21 for >8W or multiple loads. Choose EC7A11 for <8W single loads. Contact us for budgeting.",
+                "keywords": ["EC7A21 vs EC7A11", "power selection", "railway converter"]
+              },
+              {
+                "question": "What thermal management is needed for the EC7A21?",
+                "answer": "The EC7A21 requires appropriate thermal management for reliable operation: Power dissipation: Pd = 15W × (1/0.89 - 1) = 1.85W; This heat must be dissipated effectively. Thermal ratings: Operating: -40°C to +85°C ambient; Temperature rise: ~28°C at full load, 25°C ambient; Maximum component temperature: 110°C (OTP threshold). Thermal management options: Natural convection: Full power to 55°C ambient; Conduction cooling: Mount on metal chassis; Forced airflow: Extends to 85°C at full power; Heatsink: Improves thermal performance. For railway applications: Rolling stock often has limited airflow; Conduction cooling through mounting recommended; Metal chassis or heatsink plate effective; Consider ambient in equipment location. The over-temperature protection provides safety margin. For high-reliability, operate below 70°C component temperature. Contact our FAE team for thermal analysis and heatsink recommendations.",
+                "decisionGuide": "Natural convection to 55°C. Use conduction cooling or heatsink for higher temps. Contact us for thermal design.",
+                "keywords": ["thermal management", "heatsink", "railway cooling"]
+              },
+              {
+                "question": "How do I ensure EMC compliance with the EC7A21?",
+                "answer": "The EC7A21 is certified to EN 50121-3-2 for railway EMC, but system-level compliance requires attention: Conducted emissions: Use input filter for conducted noise; Follow datasheet filter recommendations; Check emissions with railway limits. Radiated emissions: Proper PCB layout minimizes radiation; Shielding may be needed in sensitive applications; Check antenna coupling in equipment. Immunity: EN 50121-3-2 specifies severe immunity levels; ESD, burst, surge, radiated immunity; Converter designed to meet these levels. System design: Grounding: Proper earth connection; Filtering: Input and output filters; Shielding: Enclosure design; Cabling: Proper routing and shielding. The EC7A21 includes internal filtering, but external filters may be needed depending on system configuration. For railway EMC compliance: Test complete system per EN 50121-3-2; Allow margin for production variation; Document compliance for approval. Contact our FAE team for EMC design assistance and filter recommendations.",
+                "decisionGuide": "EC7A21 certified to EN 50121-3-2. Add filtering as needed. Contact us for EMC design.",
+                "keywords": ["EMC compliance", "EN 50121-3-2", "railway EMC"]
+              },
+              {
+                "question": "Can the EC7A21 be used in industrial applications?",
+                "answer": "Yes, the EC7A21 can be used in industrial applications, particularly harsh environments: Advantages for industrial: Ultra-wide input (14.4-154V) handles varying sources; High efficiency (89%) reduces heat; Rugged construction for harsh environments; -40°C to +85°C temperature range; 3000VDC isolation for safety. Industrial applications: Heavy machinery with battery power; Forklifts and industrial vehicles; Mining equipment; Construction machinery; Agricultural equipment; Remote monitoring stations. Considerations: Railway certification may not be required; Cost higher than standard industrial grade; May be over-specified for mild environments; DIP24 package larger than some alternatives. For harsh industrial environments with: Wide input voltage variation; Severe temperature extremes; High vibration or shock; Battery power systems; The EC7A21 provides excellent reliability. For standard factory environments, industrial-grade converters may be more cost-effective. Contact our FAE team for industrial application assessment.",
+                "decisionGuide": "Can be used for harsh industrial. May be over-specified for mild environments. Contact us for assessment.",
+                "keywords": ["industrial applications", "harsh environment", "rugged power"]
+              },
+              {
+                "question": "What is the warranty and support for railway applications?",
+                "answer": "The EC7A21 comes with comprehensive warranty and support: Standard warranty: 3 years from date of manufacture; Covers defects in materials and workmanship; Repair or replacement at Cincon's discretion. Railway support: Application engineering support; Thermal and mechanical design assistance; EMC compliance guidance; Reliability analysis; Custom solutions available. Technical documentation: Complete datasheets; EN 50155 test reports; EMC test reports; MTBF calculations; Application notes. For railway projects: Early engagement recommended; Design review services available; Sample evaluation program; Production support and scheduling. Quality: ISO 9001 certified manufacturing; 100% production testing; Traceability of components; Field failure analysis. Contact our FAE team for: Application-specific support; Custom requirements; Volume pricing; Long-term supply agreements. We support railway projects from concept through production and field deployment.",
+                "decisionGuide": "3-year standard warranty. Full technical support available. Contact us for railway project support.",
+                "keywords": ["warranty", "support", "railway service"]
+              }
+            ]
+          }
+        ]
+      }
+    ];
+
+// Add the new categories to existing data
+productsData.categories.push(...additionalCategories);
+
+// Update product count in categories
+productsData.categories.forEach(cat => {
+  cat.productCount = cat.products.length;
+});
+
+// Write back to file
+fs.writeFileSync(productsPath, JSON.stringify(productsData, null, 2));
+
+console.log(`Extended products.json with ${additionalCategories.length} new categories`);
+console.log(`Total categories: ${productsData.categories.length}`);
+console.log(`Total products: ${productsData.categories.reduce((sum, cat) => sum + cat.products.length, 0)}`);

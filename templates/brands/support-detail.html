@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= article.title %> | <%= brand.displayName %> Technical Support</title>
+  <meta name="description" content="<%= article.summary %>">
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "<%= article.title %>",
+    "author": { "@type": "Person", "name": "<%= article.author.name %>" },
+    "datePublished": "<%= article.publishDate %>"
+  }
+  </script>
+  
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="/assets/css/navbar.css">
+  <link rel="stylesheet" href="/assets/css/footer.css">
+  <link rel="stylesheet" href="/assets/css/breadcrumb.css">
+  <link rel="stylesheet" href="/assets/css/brand-tab-nav.css">
+  <link rel="stylesheet" href="/assets/css/floating-contact.css">
+  
+  <style>
+    .support-detail { padding: var(--space-16) 0; }
+    .article-layout { display: grid; grid-template-columns: 1fr 300px; gap: var(--space-12); }
+    
+    .article-content { max-width: 800px; }
+    .article-header { margin-bottom: var(--space-8); }
+    .article-category { color: var(--primary-blue); font-size: 0.875rem; font-weight: 600; text-transform: uppercase; margin-bottom: var(--space-2); }
+    .article-title { font-size: 2.5rem; color: var(--text-dark); margin-bottom: var(--space-4); }
+    
+    .author-bar { display: flex; align-items: center; gap: var(--space-4); padding: var(--space-4); background: var(--bg-light); border-radius: var(--radius-md); margin-bottom: var(--space-8); }
+    .author-avatar { width: 64px; height: 64px; border-radius: var(--radius-full); background: var(--primary-blue); display: flex; align-items: center; justify-content: center; color: #ffffff; font-size: 1.5rem; }
+    .author-info h4 { margin: 0; font-size: 1rem; }
+    .author-info p { margin: 0; font-size: 0.875rem; color: var(--text-light); }
+    .publish-date { font-size: 0.875rem; color: var(--text-light); }
+    
+    .article-body { line-height: 1.8; color: var(--text-medium); }
+    .article-body h2 { font-size: 1.75rem; margin: var(--space-8) 0 var(--space-4); padding-left: 16px; border-left: 4px solid var(--primary-blue); }
+    .article-body h3 { font-size: 1.25rem; margin: var(--space-6) 0 var(--space-2); }
+    .article-body p { margin-bottom: var(--space-4); }
+    .article-body pre { background: #f5f5f5; padding: var(--space-4); border-radius: var(--radius-md); overflow-x: auto; margin: var(--space-4) 0; }
+    .article-body code { font-family: var(--font-family-mono); font-size: 0.875rem; }
+    .article-body blockquote { border-left: 4px solid var(--border-light); padding: var(--space-4) var(--space-6); margin: var(--space-6) 0; background: var(--bg-light); font-style: italic; }
+    
+    .tags { display: flex; flex-wrap: wrap; gap: var(--space-2); margin: var(--space-8) 0; }
+    .tag { background: var(--bg-light); color: var(--text-medium); padding: 6px 16px; border-radius: var(--radius-full); font-size: 0.875rem; text-decoration: none; }
+    .tag:hover { background: var(--primary-blue); color: #ffffff; }
+    
+    .sidebar { position: sticky; top: 100px; height: fit-content; }
+    .toc { background: var(--bg-light); padding: var(--space-4); border-radius: var(--radius-md); margin-bottom: var(--space-6); }
+    .toc h4 { margin: 0 0 var(--space-3); font-size: 1rem; }
+    .toc ul { list-style: none; padding: 0; margin: 0; }
+    .toc li { margin-bottom: var(--space-2); }
+    .toc a { color: var(--text-medium); font-size: 0.875rem; text-decoration: none; }
+    .toc a:hover { color: var(--primary-blue); }
+    
+    .related-articles { margin-top: var(--space-12); padding-top: var(--space-8); border-top: 1px solid var(--border-light); }
+    .related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-6); }
+    .related-card { background: #ffffff; border-radius: var(--radius-md); padding: var(--space-4); box-shadow: var(--shadow-md); text-decoration: none; color: inherit; }
+    .related-card h4 { font-size: 1rem; margin: 0; color: var(--primary-blue); }
+    .related-card p { font-size: 0.875rem; color: var(--text-medium); margin: var(--space-2) 0 0; }
+    
+    @media (max-width: 1023px) { .article-layout { grid-template-columns: 1fr; } .sidebar { position: static; } }
+    @media (max-width: 767px) { .related-grid { grid-template-columns: 1fr; } .article-title { font-size: 2rem; } }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <header class="navbar" id="navbar">
+    <div class="container">
+      <div class="navbar-brand">
+        <a href="/<%= brand.name.toLowerCase() %>/" class="logo-link">
+          <div class="logo-text">
+            <span class="logo-main">LiTong</span>
+            <span class="logo-sub">Electronics</span>
+          </div>
+          <span class="brand-tagline">Top 8 Electronic Component Distributor in China</span>
+        </a>
+      </div>
+
+      <nav class="navbar-menu" id="navbar-menu">
+        <a href="/" class="nav-item">Home</a>
+        <a href="/brands/" class="nav-item">Brands</a>
+        <a href="/news/" class="nav-item">News</a>
+        <a href="/about/" class="nav-item">About Us</a>
+      </nav>
+
+      <button class="navbar-toggle" id="navbar-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span class="hamburger"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Breadcrumb -->
+  <nav aria-label="Breadcrumb" class="breadcrumb">
+    <div class="container">
+      <ol>
+        <li>
+          <a href="/">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" width="16" height="16">
+              <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+            </svg>
+            <span class="sr-only">Home</span>
+          </a>
+        </li>
+        <li><a href="/<%= brand.name.toLowerCase() %>/"><%= brand.displayName %></a></li>
+        <li><a href="/<%= brand.name.toLowerCase() %>/support/">Support</a></li>
+        <li aria-current="page"><%= article.title %></li>
+      </ol>
+    </div>
+  </nav>
+
+  <!-- Brand Tab Nav -->
+  <nav class="brand-tab-nav" aria-label="Brand navigation">
+    <div class="container">
+      <ul class="tab-list">
+        <li><a href="/<%= brand.name.toLowerCase() %>/" class="tab-item">About Brand</a></li>
+        <li><a href="/<%= brand.name.toLowerCase() %>/products/" class="tab-item">Products</a></li>
+        <li><a href="/<%= brand.name.toLowerCase() %>/solutions/" class="tab-item">Solutions</a></li>
+        <li><a href="/<%= brand.name.toLowerCase() %>/support/" class="tab-item active">Support</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <section class="support-detail">
+      <div class="container">
+        <div class="article-layout">
+          <div class="article-content">
+            <div class="article-header">
+              <div class="article-category"><%= article.category %></div>
+              <h1 class="article-title"><%= article.title %></h1>
+              <div class="author-bar">
+                <div class="author-avatar"><%= article.author.name.charAt(0) %></div>
+                <div class="author-info">
+                  <h4><%= article.author.name %></h4>
+                  <p><%= article.author.title %></p>
+                </div>
+                <div class="publish-date" style="margin-left: auto;"><%= article.publishDate %></div>
+              </div>
+            </div>
+            
+            <div class="article-body">
+              <% if (article.contentHtml) { %>
+                <%- article.contentHtml %>
+              <% } else if (article.contentSections) { %>
+                <% article.contentSections.forEach(function(section) { %>
+                  <h2><%= section.heading %></h2>
+                  <p><%= section.content %></p>
+                <% }); %>
+              <% } else if (article.content) { %>
+                <p><%= article.content %></p>
+              <% } %>
+            </div>
+
+            <% if (article.faeInsights) { %>
+            <div class="fae-insights" style="margin-top: var(--space-12); padding: var(--space-6); background: linear-gradient(135deg, #f0f7ff 0%, #e6f0ff 100%); border-radius: var(--radius-md); border-left: 4px solid var(--primary-blue);">
+              <h2 style="font-size: 1.5rem; color: var(--primary-blue); margin-bottom: var(--space-4);">💡 FAE Insights</h2>
+              
+              <% if (article.faeInsights.insight) { %>
+                <div class="insight-section" style="margin-bottom: var(--space-4);">
+                  <h3 style="font-size: 1.125rem; color: var(--text-dark); margin-bottom: var(--space-2);">Professional Insight</h3>
+                  <p style="color: var(--text-medium); line-height: 1.8;"><%= article.faeInsights.insight %></p>
+                </div>
+              <% } %>
+              
+              <% if (article.faeInsights.logic) { %>
+                <div class="logic-section" style="margin-bottom: var(--space-4);">
+                  <h3 style="font-size: 1.125rem; color: var(--text-dark); margin-bottom: var(--space-2);">Technical Logic</h3>
+                  <p style="color: var(--text-medium); line-height: 1.8;"><%= article.faeInsights.logic %></p>
+                </div>
+              <% } %>
+              
+              <% if (article.faeInsights.keyTakeaways && article.faeInsights.keyTakeaways.length > 0) { %>
+                <div class="takeaways-section" style="margin-bottom: var(--space-4);">
+                  <h3 style="font-size: 1.125rem; color: var(--text-dark); margin-bottom: var(--space-2);">Key Takeaways</h3>
+                  <ul style="list-style: none; padding: 0;">
+                    <% article.faeInsights.keyTakeaways.forEach(function(takeaway) { %>
+                      <li style="padding: var(--space-2) 0; padding-left: var(--space-6); position: relative; color: var(--text-medium);">
+                        <span style="position: absolute; left: 0; color: var(--primary-blue);">✓</span>
+                        <%= takeaway %>
+                      </li>
+                    <% }); %>
+                  </ul>
+                </div>
+              <% } %>
+              
+              <% if (article.faeInsights.commonPitfalls && article.faeInsights.commonPitfalls.length > 0) { %>
+                <div class="pitfalls-section" style="margin-bottom: var(--space-4);">
+                  <h3 style="font-size: 1.125rem; color: var(--text-dark); margin-bottom: var(--space-2);">⚠️ Common Pitfalls</h3>
+                  <ul style="list-style: none; padding: 0;">
+                    <% article.faeInsights.commonPitfalls.forEach(function(pitfall) { %>
+                      <li style="padding: var(--space-2) 0; padding-left: var(--space-6); position: relative; color: var(--text-medium);">
+                        <span style="position: absolute; left: 0; color: #dc3545;">✗</span>
+                        <%= pitfall %>
+                      </li>
+                    <% }); %>
+                  </ul>
+                </div>
+              <% } %>
+              
+              <% if (article.faeInsights.bestPractices && article.faeInsights.bestPractices.length > 0) { %>
+                <div class="best-practices-section" style="margin-bottom: var(--space-4);">
+                  <h3 style="font-size: 1.125rem; color: var(--text-dark); margin-bottom: var(--space-2);">✓ Best Practices</h3>
+                  <ul style="list-style: none; padding: 0;">
+                    <% article.faeInsights.bestPractices.forEach(function(practice) { %>
+                      <li style="padding: var(--space-2) 0; padding-left: var(--space-6); position: relative; color: var(--text-medium);">
+                        <span style="position: absolute; left: 0; color: #28a745;">✓</span>
+                        <%= practice %>
+                      </li>
+                    <% }); %>
+                  </ul>
+                </div>
+              <% } %>
+              
+              <% if (article.faeInsights.troubleshootingTips && article.faeInsights.troubleshootingTips.length > 0) { %>
+                <div class="troubleshooting-section">
+                  <h3 style="font-size: 1.125rem; color: var(--text-dark); margin-bottom: var(--space-2);">🔧 Troubleshooting Tips</h3>
+                  <ul style="list-style: none; padding: 0;">
+                    <% article.faeInsights.troubleshootingTips.forEach(function(tip) { %>
+                      <li style="padding: var(--space-2) 0; padding-left: var(--space-6); position: relative; color: var(--text-medium);">
+                        <span style="position: absolute; left: 0; color: var(--primary-blue);">🔧</span>
+                        <%= tip %>
+                      </li>
+                    <% }); %>
+                  </ul>
+                </div>
+              <% } %>
+            </div>
+            <% } %>
+
+            <% if (article.customerCases && article.customerCases.length > 0) { %>
+            <div class="customer-cases" style="margin-top: var(--space-12);">
+              <h2 style="font-size: 1.5rem; color: var(--text-dark); margin-bottom: var(--space-6);">📋 Customer Cases</h2>
+              <div class="cases-grid" style="display: flex; flex-direction: column; gap: var(--space-4);">
+                <% article.customerCases.forEach(function(caseItem) { %>
+                  <div class="case-card" style="background: var(--bg-light); padding: var(--space-6); border-radius: var(--radius-md); border-left: 4px solid #28a745;">
+                    <div class="case-header" style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: var(--space-4);">
+                      <div>
+                        <h3 style="font-size: 1.25rem; color: var(--text-dark); margin-bottom: var(--space-1);"><%= caseItem.customerName %></h3>
+                        <p style="color: var(--text-light); font-size: 0.875rem;"><%= caseItem.industry %></p>
+                      </div>
+                      <% if (caseItem.application) { %>
+                        <span style="background: var(--primary-blue); color: #ffffff; padding: 4px 12px; border-radius: var(--radius-full); font-size: 0.75rem;"><%= caseItem.application %></span>
+                      <% } %>
+                    </div>
+                    
+                    <% if (caseItem.problem) { %>
+                      <div class="case-section" style="margin-bottom: var(--space-3);">
+                        <h4 style="font-size: 0.875rem; color: #dc3545; margin-bottom: var(--space-1);">Problem</h4>
+                        <p style="color: var(--text-medium);"><%= caseItem.problem %></p>
+                      </div>
+                    <% } %>
+                    
+                    <% if (caseItem.diagnosis) { %>
+                      <div class="case-section" style="margin-bottom: var(--space-3);">
+                        <h4 style="font-size: 0.875rem; color: var(--primary-blue); margin-bottom: var(--space-1);">Diagnosis</h4>
+                        <p style="color: var(--text-medium);"><%= caseItem.diagnosis %></p>
+                      </div>
+                    <% } %>
+                    
+                    <% if (caseItem.solution) { %>
+                      <div class="case-section" style="margin-bottom: var(--space-3);">
+                        <h4 style="font-size: 0.875rem; color: #28a745; margin-bottom: var(--space-1);">Solution</h4>
+                        <p style="color: var(--text-medium);"><%= caseItem.solution %></p>
+                      </div>
+                    <% } %>
+                    
+                    <% if (caseItem.results) { %>
+                      <div class="case-section" style="background: #ffffff; padding: var(--space-3); border-radius: var(--radius-sm);">
+                        <h4 style="font-size: 0.875rem; color: #28a745; margin-bottom: var(--space-1);">Results</h4>
+                        <p style="color: var(--text-medium); margin: 0;"><%= caseItem.results %></p>
+                      </div>
+                    <% } %>
+                  </div>
+                <% }); %>
+              </div>
+            </div>
+            <% } %>
+
+            <% if (article.faqs && article.faqs.length > 0) { %>
+            <div class="article-faqs" style="margin-top: var(--space-12); padding-top: var(--space-8); border-top: 1px solid var(--border-light);">
+              <h2 style="font-size: 1.75rem; margin-bottom: var(--space-6);">Frequently Asked Questions</h2>
+              <div class="faq-list" style="display: flex; flex-direction: column; gap: var(--space-4);">
+                <% article.faqs.forEach(function(faq, index) { %>
+                  <div class="faq-item" style="background: var(--bg-light); padding: var(--space-4); border-radius: var(--radius-md);">
+                    <h3 style="font-size: 1.125rem; color: var(--primary-blue); margin-bottom: var(--space-2);"><%= index + 1 %>. <%= faq.question %></h3>
+                    <p style="color: var(--text-medium); margin-bottom: var(--space-3);"><%= faq.answer %></p>
+                    <% if (faq.decisionGuide) { %>
+                      <div class="decision-guide" style="background: #ffffff; padding: var(--space-3); border-radius: var(--radius-sm); border-left: 3px solid var(--primary-blue); margin-top: var(--space-2);">
+                        <strong>💡 Decision Guide:</strong> <%= faq.decisionGuide %>
+                      </div>
+                    <% } %>
+                  </div>
+                <% }); %>
+              </div>
+            </div>
+            <% } %>
+
+            <div class="tags">
+              <% article.tags.forEach(function(tag) { %>
+                <span class="tag">#<%= tag %></span>
+              <% }); %>
+            </div>
+
+            <% if (article.relatedArticles && article.relatedArticles.length > 0) { %>
+            <div class="related-articles">
+              <h3>Related Articles</h3>
+              <div class="related-grid">
+                <% article.relatedArticles.slice(0,3).forEach(function(related) { %>
+                  <% if (typeof related === 'object' && related.url) { %>
+                    <a href="<%= related.url %>" class="related-card">
+                      <h4><%= related.title %></h4>
+                      <p>Read more →</p>
+                    </a>
+                  <% } else if (typeof related === 'string') { %>
+                    <a href="/<%= brand.name.toLowerCase() %>/support/<%= related %>.html" class="related-card">
+                      <h4><%= related.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase()) %></h4>
+                      <p>Read more →</p>
+                    </a>
+                  <% } %>
+                <% }); %>
+              </div>
+            </div>
+            <% } %>
+          </div>
+          
+          <aside class="sidebar">
+            <div class="toc">
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a href="#introduction">Introduction</a></li>
+                <li><a href="#key-considerations">Key Considerations</a></li>
+                <li><a href="#implementation">Implementation</a></li>
+                <li><a href="#conclusion">Conclusion</a></li>
+              </ul>
+            </div>
+            <div class="toc">
+              <h4>Need Help?</h4>
+              <p style="font-size: 0.875rem; color: var(--text-medium);">Contact our FAE team for technical support</p>
+              <a href="/about/contact/" class="btn-primary" style="display: block; text-align: center; margin-top: var(--space-3);">Ask FAE</a>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <!--#include virtual="/templates/components/footer.html" -->
+  <!--#include virtual="/templates/components/floating-contact.html" -->
+  <script src="/assets/js/navbar.js"></script>
+</body>
+</html>

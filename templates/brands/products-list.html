@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= brand.displayName %> Products | Core Distributor</title>
+  <meta name="description" content="Browse <%= brand.name %> product categories including <%= products.categories.slice(0,3).map(c => c.name).join(', ') %>.">
+  <meta name="keywords" content="<%= brand.name %>, products, <%= brand.coreProducts.join(', ') %>">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="/assets/css/navbar.css">
+  <link rel="stylesheet" href="/assets/css/footer.css">
+  <link rel="stylesheet" href="/assets/css/breadcrumb.css">
+  <link rel="stylesheet" href="/assets/css/brand-tab-nav.css">
+  <link rel="stylesheet" href="/assets/css/floating-contact.css">
+  
+  <style>
+    .products-list { padding: var(--space-16) 0; }
+    .section-title { text-align: center; font-size: 2.5rem; margin-bottom: var(--space-12); }
+    
+    .category-intro {
+      background: var(--bg-light);
+      padding: var(--space-8);
+      border-radius: var(--radius-lg);
+      margin-bottom: var(--space-8);
+    }
+    
+    .category-intro h1 { font-size: 2rem; margin-bottom: var(--space-4); color: var(--primary-blue); }
+    .category-intro p { font-size: 1.125rem; line-height: 1.8; color: var(--text-medium); }
+    
+    .product-categories {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-6);
+    }
+    
+    .product-category-card {
+      background: #ffffff;
+      border-radius: var(--radius-lg);
+      padding: var(--space-6);
+      box-shadow: var(--shadow-md);
+      transition: all 0.3s ease-out;
+      text-decoration: none;
+      color: inherit;
+    }
+    
+    .product-category-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-xl);
+    }
+    
+    .category-icon {
+      width: 80px;
+      height: 80px;
+      margin-bottom: var(--space-4);
+      color: var(--primary-blue);
+    }
+    
+    .product-category-card h3 { font-size: 1.25rem; margin-bottom: var(--space-2); }
+    .product-category-card p { color: var(--text-medium); margin-bottom: var(--space-4); }
+    
+    .category-series { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+    .series-tag {
+      background: var(--bg-light);
+      color: var(--text-medium);
+      padding: 4px 12px;
+      border-radius: var(--radius-full);
+      font-size: 0.75rem;
+    }
+    
+    @media (max-width: 1023px) { .product-categories { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 767px) { .product-categories { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <!--#include virtual="/templates/components/navbar.html" -->
+  <!--#include virtual="/templates/components/breadcrumb.html" -->
+  <!--#include virtual="/templates/components/brand-tab-nav.html" -->
+  
+  <main>
+    <section class="products-list">
+      <div class="container">
+        <div class="category-intro">
+          <h1><%= brand.displayName %> Products</h1>
+          <p>Browse our comprehensive range of <%= brand.name %> electronic components. As a core distributor, we provide genuine products with technical support and competitive pricing.</p>
+        </div>
+        
+        <h2 class="section-title">Product Categories</h2>
+        <div class="product-categories">
+          <% products.categories.forEach(function(category) { %>
+            <a href="/<%= brand.name.toLowerCase() %>/products/<%= category.id %>.html" class="product-category-card">
+              <div class="category-icon">
+                <svg viewBox="0 0 80 80" fill="currentColor">
+                  <rect x="15" y="25" width="50" height="30" rx="4" fill="#0072ce" opacity="0.2"/>
+                  <rect x="20" y="30" width="40" height="20" rx="2" fill="#0072ce"/>
+                  <line x1="25" y1="37" x2="55" y2="37" stroke="white" stroke-width="2"/>
+                  <line x1="25" y1="43" x2="50" y2="43" stroke="white" stroke-width="2"/>
+                  <rect x="10" y="33" width="8" height="4" fill="#666"/>
+                  <rect x="10" y="43" width="8" height="4" fill="#666"/>
+                  <rect x="62" y="33" width="8" height="4" fill="#666"/>
+                  <rect x="62" y="43" width="8" height="4" fill="#666"/>
+                </svg>
+              </div>
+              <h3><%= category.name %></h3>
+              <p><%= category.description.substring(0, 100) %>...</p>
+              <div class="category-series">
+                <% category.series.forEach(function(series) { %>
+                  <span class="series-tag"><%= series.name %></span>
+                <% }); %>
+              </div>
+            </a>
+          <% }); %>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <% if (products.faqs && products.faqs.length > 0) { %>
+    <section class="faq-section" style="padding: var(--space-12) 0; background: var(--bg-light);">
+      <div class="container">
+        <h2 style="text-align: center; margin-bottom: var(--space-8);">Frequently Asked Questions</h2>
+        <% products.faqs.forEach(function(faq) { %>
+        <details class="faq-item" style="border: 1px solid var(--border-light); border-radius: var(--radius-md); margin-bottom: var(--space-4); overflow: hidden; background: white;">
+          <summary style="padding: 16px; cursor: pointer; font-weight: 500; background: white; list-style: none;"><%= faq.question %></summary>
+          <div class="faq-answer" style="padding: 16px; color: var(--text-medium); line-height: 1.6;">
+            <p style="margin-bottom: var(--space-3);"><%= faq.answer %></p>
+            <% if (faq.decisionGuide) { %>
+            <p style="margin-top: var(--space-4); padding-top: var(--space-3); border-top: 1px solid var(--border-light); font-weight: 500; color: var(--primary-blue);"><%= faq.decisionGuide %></p>
+            <% } %>
+            <% if (faq.keywords && faq.keywords.length > 0) { %>
+            <div class="faq-keywords" style="margin-top: var(--space-3);">
+              <% faq.keywords.forEach(function(keyword) { %>
+                <span class="faq-keyword" style="display: inline-block; background: var(--bg-light); color: var(--text-light); padding: 4px 12px; border-radius: var(--radius-full); font-size: 0.75rem; margin-right: var(--space-2); margin-bottom: var(--space-2);"><%= keyword %></span>
+              <% }); %>
+            </div>
+            <% } %>
+          </div>
+        </details>
+        <% }); %>
+      </div>
+    </section>
+    <% } %>
+  </main>
+  
+  <!--#include virtual="/templates/components/footer.html" -->
+  <!--#include virtual="/templates/components/floating-contact.html" -->
+  <script src="/assets/js/navbar.js"></script>
+</body>
+</html>

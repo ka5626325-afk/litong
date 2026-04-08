@@ -1,0 +1,601 @@
+{
+  "seoTitle": "HJC Capacitor Technical Support | Selection Guides, Application Notes",
+  "seoDescription": "Access HJC capacitor technical resources including selection guides, application notes, FAQs, and design support. Expert FAE assistance available.",
+  "seoKeywords": [
+    "HJC technical support",
+    "capacitor selection guide",
+    "HJC application notes",
+    "capacitor design support",
+    "HJC distributor selection guide"
+  ],
+  "articles": [
+    {
+      "id": "mlcc-selection-guide",
+      "title": "MLCC Selection Guide",
+      "author": {
+        "name": "David Chen",
+        "title": "Application Engineer",
+        "email": "support@hjcap.com",
+        "image": "/assets/team/hjc-engineer.jpg"
+      },
+      "publishDate": "2024-01-15",
+      "lastUpdated": "2024-01-15",
+      "readTime": "15 min",
+      "category": "Component Selection",
+      "content": [
+        "Multilayer Ceramic Capacitors (MLCCs) are essential components in modern electronics. This guide covers the key selection criteria for choosing the right MLCC for your application.",
+        "",
+        "## Dielectric Selection",
+        "",
+        "The dielectric material determines the capacitor's temperature and voltage characteristics:",
+        "",
+        "- **C0G (NP0)** - Class I ceramic with ultra-stable capacitance (0±30ppm/°C). Best for precision timing, RF circuits, and filters. Limited capacitance range (0.5pF to 47nF).",
+        "- **X7R** - Class II ceramic with ±15% capacitance change over -55°C to +125°C. Good for general-purpose decoupling and filtering. Wide capacitance range (100pF to 47µF).",
+        "- **X5R** - Class II ceramic with ±15% capacitance change over -55°C to +85°C. Cost-effective for consumer electronics. Capacitance range 1nF to 100µF.",
+        "",
+        "## Case Size Selection",
+        "",
+        "Case size affects capacitance density, current capability, and DC bias performance:",
+        "",
+        "- **0201/0402** - For space-constrained mobile devices",
+        "- **0603/0805** - General purpose, best availability",
+        "- **1206/1210** - Higher capacitance and current capability",
+        "",
+        "## Voltage Rating",
+        "",
+        "Always apply voltage derating for reliability:",
+        "",
+        "- **Standard derating** - 80% of rated voltage (20% margin)",
+        "- **High-reliability** - 50% of rated voltage",
+        "- **Automotive** - Typically 50% derating per AEC guidelines",
+        "",
+        "## DC Bias Effect",
+        "",
+        "Class II ceramics (X7R, X5R) exhibit capacitance reduction under DC voltage. The effect is more severe with smaller case sizes and higher capacitance values. Always consult DC bias curves in the datasheet."
+      ],
+      "faqs": [
+        {
+          "question": "What is the difference between C0G and X7R dielectrics?",
+          "answer": "C0G (NP0) is a Class I ceramic with near-zero temperature coefficient (0±30ppm/°C), making it ideal for precision applications. X7R is a Class II ceramic with ±15% capacitance variation over temperature, offering higher capacitance density but less stability. C0G is best for RF, timing, and precision circuits; X7R is suitable for general decoupling and filtering where stability is less critical.",
+          "decisionGuide": "Choose C0G for precision applications; X7R for general purpose where cost and density matter more than precision.",
+          "keywords": [
+            "C0G vs X7R",
+            "NP0 capacitor",
+            "MLCC dielectric selection"
+          ]
+        },
+        {
+          "question": "How much DC bias capacitance loss should I expect?",
+          "answer": "DC bias loss in X7R/X5R capacitors depends on case size, capacitance, and voltage. At 50% of rated voltage, expect 20-40% capacitance loss. The loss is more severe with smaller case sizes - a 10µF/6.3V 0603 capacitor may lose 60% of capacitance at 5V. To minimize DC bias effects: use larger case sizes, select higher voltage ratings, or use C0G dielectric which has no DC bias effect.",
+          "decisionGuide": "Use larger case sizes and higher voltage ratings to minimize DC bias; measure actual capacitance under operating conditions.",
+          "keywords": [
+            "DC bias effect",
+            "X7R capacitance drop",
+            "MLCC derating"
+          ]
+        },
+        {
+          "question": "What is the minimum order quantity for HJC capacitors?",
+          "answer": "Minimum order quantities (MOQ) vary by product type: MLCCs typically 10,000-100,000 pieces depending on case size, Aluminum electrolytics 1,000-10,000 pieces, Film capacitors 500-5,000 pieces, Supercapacitors 100-1,000 pieces. As an authorized distributor, we stock common parts for immediate delivery and can support smaller quantities. For high-volume production, contact our sales team for pricing and scheduling.",
+          "decisionGuide": "Contact our sales team with your specific requirements for MOQ and pricing information.",
+          "keywords": [
+            "HJC MOQ",
+            "minimum order quantity",
+            "capacitor ordering"
+          ]
+        },
+        {
+          "question": "Where can I get samples of HJC capacitors?",
+          "answer": "Samples of HJC capacitors are available through our authorized distributor network. You can request samples by contacting our sales team or through our website. Sample kits are available for each product family including MLCCs, electrolytics, film capacitors, and supercapacitors. Typical sample delivery time is 1-2 weeks depending on location and part availability.",
+          "decisionGuide": "Contact our sales team or distributor to request samples for your evaluation.",
+          "keywords": [
+            "HJC samples",
+            "capacitor samples",
+            "evaluation parts"
+          ]
+        },
+        {
+          "question": "Does HJC provide Spice models for simulation?",
+          "answer": "Yes, HJC provides Spice models for many of our capacitor products. These models include equivalent series resistance (ESR), equivalent series inductance (ESL), and capacitance values across frequency and temperature. Models are available for MLCCs, aluminum electrolytics, and film capacitors. Contact our technical support team to request Spice models for your simulation needs.",
+          "decisionGuide": "Contact technical support to request Spice models for your specific part numbers.",
+          "keywords": [
+            "HJC spice models",
+            "capacitor simulation",
+            "circuit simulation"
+          ]
+        }
+      ],
+      "relatedArticles": [
+        "electrolytic-capacitor-selection-guide",
+        "film-capacitor-selection-guide",
+        "supercapacitor-selection-guide"
+      ],
+      "faeInsights": {
+        "author": "David Chen",
+        "title": "Senior FAE - Passive Components",
+        "content": "The most common mistake I see in MLCC selection is ignoring DC bias effects. Designers look at the nominal capacitance and voltage rating, but don't account for the 30-60% capacitance loss that occurs in X7R capacitors under DC bias. This is particularly problematic in power supply output filters where the effective capacitance directly affects ripple voltage. I always recommend using larger case sizes than minimum required - the improved DC bias performance and lower ESR are worth the small cost increase. For critical applications, measure the actual capacitance with DC bias applied using an LCR meter with bias capability.",
+        "insightLogic": "DC bias effect is the most overlooked parameter in MLCC selection. The capacitance loss can be severe enough to cause circuit malfunction if not properly accounted for in the design.",
+        "keyTakeaways": [
+          "Always account for DC bias capacitance loss in X7R/X5R capacitors",
+          "Use larger case sizes for better DC bias performance",
+          "Measure actual capacitance under operating voltage when possible",
+          "Consider C0G for precision applications where DC bias cannot be tolerated"
+        ]
+      },
+      "slug": "mlcc-selection-guide",
+      "summary": "Multilayer Ceramic Capacitors (MLCCs) are essential components in modern electronics. This guide covers the key selection criteria for choosing the ri...",
+      "tags": [
+        "Capacitor Selection",
+        "Design Guide",
+        "Technical Support"
+      ],
+      "customerCases": [
+        {
+          "title": "Successful Application",
+          "challenge": "Customer needed guidance on capacitor selection",
+          "solution": "Applied HJC MLCC Selection Guide",
+          "results": "Improved design reliability and performance",
+          "feedback": "Excellent technical support helped optimize our design"
+        }
+      ]
+    },
+    {
+      "id": "electrolytic-capacitor-selection-guide",
+      "title": "Aluminum Electrolytic Capacitor Selection Guide",
+      "author": {
+        "name": "Michael Zhang",
+        "title": "Application Engineer",
+        "email": "support@hjcap.com",
+        "image": "/assets/team/hjc-engineer.jpg"
+      },
+      "publishDate": "2024-01-20",
+      "lastUpdated": "2024-01-20",
+      "readTime": "12 min",
+      "category": "Component Selection",
+      "content": [
+        "Aluminum electrolytic capacitors provide high capacitance density for power supply filtering, energy storage, and coupling applications. This guide covers selection criteria for reliable operation.",
+        "",
+        "## Lifetime Considerations",
+        "",
+        "Electrolytic capacitor lifetime follows the Arrhenius equation:",
+        "",
+        "- **Temperature** - Lifetime doubles for every 10°C decrease",
+        "- **Voltage** - Operating at 80% of rated voltage extends life significantly",
+        "- **Ripple Current** - Self-heating from ripple current reduces lifetime",
+        "",
+        "Typical lifetimes:",
+        "- Standard: 2,000 hours at 85°C",
+        "- Long-life: 8,000-15,000 hours at 105°C",
+        "- High-temp: 2,000-5,000 hours at 125-150°C",
+        "",
+        "## Voltage Derating",
+        "",
+        "Recommended voltage margins:",
+        "",
+        "- **General purpose** - 80% of rated voltage",
+        "- **High reliability** - 50-60% of rated voltage",
+        "- **Automotive** - 50% derating typical",
+        "",
+        "## Ripple Current",
+        "",
+        "Ripple current causes self-heating. Calculate temperature rise and ensure it does not exceed 5-10°C above ambient. Use multiple capacitors in parallel for high ripple applications."
+      ],
+      "faqs": [
+        {
+          "question": "How do I calculate expected lifetime?",
+          "answer": "Use the Arrhenius equation: Lifetime = Rated Lifetime × 2^((Rated Temp - Actual Temp)/10) × Voltage Factor. For example, a 10,000 hour/105°C capacitor at 75°C with 80% voltage: Lifetime = 10,000 × 2^3 × 1.0 = 80,000 hours. Voltage factor is typically 1.0 at 80% derating, 0.8 at 100% voltage.",
+          "decisionGuide": "Calculate lifetime based on actual operating temperature and voltage; use online calculators for complex scenarios.",
+          "keywords": [
+            "electrolytic lifetime",
+            "capacitor life calculation",
+            "Arrhenius equation"
+          ]
+        },
+        {
+          "question": "What causes electrolytic capacitors to fail?",
+          "answer": "Primary failure mode is electrolyte evaporation over time, accelerated by high temperature. Other causes include overvoltage (damages oxide layer), reverse voltage (even brief), excessive ripple current (overheating), and mechanical damage. Warning signs: capacitance drop >20%, ESR increase >2x, visible bulging, or leakage.",
+          "decisionGuide": "Follow derating guidelines and ensure adequate cooling to maximize lifetime; replace when capacitance drops below 80%.",
+          "keywords": [
+            "capacitor failure",
+            "electrolytic end of life",
+            "capacitor degradation"
+          ]
+        },
+        {
+          "question": "What is the minimum order quantity for HJC capacitors?",
+          "answer": "Minimum order quantities (MOQ) vary by product type: MLCCs typically 10,000-100,000 pieces depending on case size, Aluminum electrolytics 1,000-10,000 pieces, Film capacitors 500-5,000 pieces, Supercapacitors 100-1,000 pieces. As an authorized distributor, we stock common parts for immediate delivery and can support smaller quantities. For high-volume production, contact our sales team for pricing and scheduling.",
+          "decisionGuide": "Contact our sales team with your specific requirements for MOQ and pricing information.",
+          "keywords": [
+            "HJC MOQ",
+            "minimum order quantity",
+            "capacitor ordering"
+          ]
+        },
+        {
+          "question": "Where can I get samples of HJC capacitors?",
+          "answer": "Samples of HJC capacitors are available through our authorized distributor network. You can request samples by contacting our sales team or through our website. Sample kits are available for each product family including MLCCs, electrolytics, film capacitors, and supercapacitors. Typical sample delivery time is 1-2 weeks depending on location and part availability.",
+          "decisionGuide": "Contact our sales team or distributor to request samples for your evaluation.",
+          "keywords": [
+            "HJC samples",
+            "capacitor samples",
+            "evaluation parts"
+          ]
+        },
+        {
+          "question": "Does HJC provide Spice models for simulation?",
+          "answer": "Yes, HJC provides Spice models for many of our capacitor products. These models include equivalent series resistance (ESR), equivalent series inductance (ESL), and capacitance values across frequency and temperature. Models are available for MLCCs, aluminum electrolytics, and film capacitors. Contact our technical support team to request Spice models for your simulation needs.",
+          "decisionGuide": "Contact technical support to request Spice models for your specific part numbers.",
+          "keywords": [
+            "HJC spice models",
+            "capacitor simulation",
+            "circuit simulation"
+          ]
+        }
+      ],
+      "relatedArticles": [
+        "mlcc-selection-guide",
+        "film-capacitor-selection-guide",
+        "power-supply-design"
+      ],
+      "faeInsights": {
+        "author": "Michael Zhang",
+        "title": "Senior FAE - Power Electronics",
+        "content": "Temperature is everything with electrolytic capacitors. I can't count how many failures I've investigated that were caused by inadequate thermal design. Designers often look at ambient temperature but forget about self-heating from ripple current. A capacitor in a 40°C ambient can easily reach 80°C+ if the ripple current is high and there's no airflow. My rule of thumb: measure the actual capacitor temperature with a thermocouple during full-load testing. If it's over 70°C, redesign for better cooling or use multiple capacitors to share the current. The cost of adding a second capacitor is much less than the cost of field failures and warranty claims.",
+        "insightLogic": "Self-heating from ripple current is often underestimated. Actual capacitor temperature can be 20-40°C above ambient in poorly designed systems.",
+        "keyTakeaways": [
+          "Measure actual capacitor temperature during full-load testing",
+          "Account for self-heating from ripple current",
+          "Use multiple capacitors in parallel to distribute heating",
+          "Design for capacitor temperature below 70°C for maximum life"
+        ]
+      },
+      "slug": "electrolytic-capacitor-selection-guide",
+      "summary": "Aluminum electrolytic capacitors provide high capacitance density for power supply filtering, energy storage, and coupling applications. This guide co...",
+      "tags": [
+        "Capacitor Selection",
+        "Design Guide",
+        "Technical Support"
+      ],
+      "customerCases": [
+        {
+          "title": "Successful Application",
+          "challenge": "Customer needed guidance on capacitor selection",
+          "solution": "Applied HJC Aluminum Electrolytic Capacitor Selection Guide",
+          "results": "Improved design reliability and performance",
+          "feedback": "Excellent technical support helped optimize our design"
+        }
+      ]
+    },
+    {
+      "id": "film-capacitor-selection-guide",
+      "title": "Film Capacitor Selection Guide",
+      "author": {
+        "name": "Lisa Wang",
+        "title": "Application Engineer",
+        "email": "support@hjcap.com",
+        "image": "/assets/team/hjc-engineer.jpg"
+      },
+      "publishDate": "2024-02-01",
+      "lastUpdated": "2024-02-01",
+      "readTime": "10 min",
+      "category": "Component Selection",
+      "content": [
+        "Film capacitors offer excellent reliability, low losses, and self-healing properties for industrial and power electronics applications.",
+        "",
+        "## Dielectric Types",
+        "",
+        "HJC offers two main dielectric types:",
+        "",
+        "- **Polyester (PET)** - Higher capacitance density, lower cost, good for general purpose. Tan δ ~0.5%.",
+        "- **Polypropylene (PP)** - Lower losses (tan δ ~0.01%), better for high-frequency. More stable over time.",
+        "",
+        "## Self-Healing",
+        "",
+        "Metallized film capacitors self-heal when dielectric breakdown occurs. The metallization vaporizes around the fault, isolating the defect. This provides:",
+        "",
+        "- Graceful degradation rather than catastrophic failure",
+        "- Tolerance of occasional voltage transients",
+        "- Extended lifetime compared to non-healing types",
+        "",
+        "## Voltage Derating",
+        "",
+        "Recommended derating for long life:",
+        "",
+        "- DC applications: 70-80% of rated voltage",
+        "- AC applications: 50-60% of rated DC voltage",
+        "- Pulse applications: Peak voltage should not exceed rated DC voltage"
+      ],
+      "faqs": [
+        {
+          "question": "What is self-healing in film capacitors?",
+          "answer": "Self-healing occurs when a localized dielectric breakdown causes the metallized electrode to vaporize around the fault point, isolating the defect. This happens in microseconds and removes only micrograms of material. Benefits include extended lifetime, graceful degradation, and tolerance of voltage transients. Typical capacitance loss is <5% over 100,000 hours.",
+          "decisionGuide": "Self-healing is inherent in metallized film capacitors; no special selection required. Monitor capacitance over time to track gradual degradation.",
+          "keywords": [
+            "self-healing capacitor",
+            "metallized film",
+            "capacitor clearing"
+          ]
+        },
+        {
+          "question": "When should I use polyester vs polypropylene?",
+          "answer": "Use polyester (PET) for cost-sensitive general applications, LED drivers, and coupling circuits where higher losses are acceptable. Use polypropylene (PP) for high-frequency switching (>10kHz), resonant circuits, and precision applications where low loss is critical. Polypropylene has 10x lower dissipation factor but costs 20-30% more.",
+          "decisionGuide": "Choose PET for cost-sensitive applications; PP for high-frequency or low-loss requirements.",
+          "keywords": [
+            "polyester vs polypropylene",
+            "PET capacitor",
+            "PP film capacitor"
+          ]
+        },
+        {
+          "question": "What is the minimum order quantity for HJC capacitors?",
+          "answer": "Minimum order quantities (MOQ) vary by product type: MLCCs typically 10,000-100,000 pieces depending on case size, Aluminum electrolytics 1,000-10,000 pieces, Film capacitors 500-5,000 pieces, Supercapacitors 100-1,000 pieces. As an authorized distributor, we stock common parts for immediate delivery and can support smaller quantities. For high-volume production, contact our sales team for pricing and scheduling.",
+          "decisionGuide": "Contact our sales team with your specific requirements for MOQ and pricing information.",
+          "keywords": [
+            "HJC MOQ",
+            "minimum order quantity",
+            "capacitor ordering"
+          ]
+        },
+        {
+          "question": "Where can I get samples of HJC capacitors?",
+          "answer": "Samples of HJC capacitors are available through our authorized distributor network. You can request samples by contacting our sales team or through our website. Sample kits are available for each product family including MLCCs, electrolytics, film capacitors, and supercapacitors. Typical sample delivery time is 1-2 weeks depending on location and part availability.",
+          "decisionGuide": "Contact our sales team or distributor to request samples for your evaluation.",
+          "keywords": [
+            "HJC samples",
+            "capacitor samples",
+            "evaluation parts"
+          ]
+        },
+        {
+          "question": "Does HJC provide Spice models for simulation?",
+          "answer": "Yes, HJC provides Spice models for many of our capacitor products. These models include equivalent series resistance (ESR), equivalent series inductance (ESL), and capacitance values across frequency and temperature. Models are available for MLCCs, aluminum electrolytics, and film capacitors. Contact our technical support team to request Spice models for your simulation needs.",
+          "decisionGuide": "Contact technical support to request Spice models for your specific part numbers.",
+          "keywords": [
+            "HJC spice models",
+            "capacitor simulation",
+            "circuit simulation"
+          ]
+        }
+      ],
+      "relatedArticles": [
+        "mlcc-selection-guide",
+        "electrolytic-capacitor-selection-guide",
+        "motor-capacitor-application-guide"
+      ],
+      "faeInsights": {
+        "author": "Lisa Wang",
+        "title": "FAE - Power Electronics",
+        "content": "Film capacitors are the unsung heroes of power electronics. Designers often default to electrolytics because of lower cost, but for high-frequency applications, film capacitors actually provide better value. The low ESR means less heating and longer life, plus no wear-out mechanism like electrolytes drying out. I frequently see designs where engineers parallel a small film capacitor with a large electrolytic - the film handles the high-frequency ripple while the electrolytic provides bulk capacitance. This hybrid approach gives the best of both worlds: low cost and high reliability. For DC-link applications above 5kHz switching, I strongly recommend considering film capacitors as the primary solution.",
+        "insightLogic": "Film capacitors excel in high-frequency applications due to low ESR and no wear-out mechanism. The higher initial cost is offset by longer lifetime and better performance.",
+        "keyTakeaways": [
+          "Consider film capacitors for high-frequency ripple applications",
+          "Use hybrid approach: film for high-frequency, electrolytic for bulk",
+          "Film capacitors have no wear-out mechanism - calculate total cost of ownership",
+          "Polypropylene is worth the premium for switching applications above 10kHz"
+        ]
+      },
+      "slug": "film-capacitor-selection-guide",
+      "summary": "Film capacitors offer excellent reliability, low losses, and self-healing properties for industrial and power electronics applications....",
+      "tags": [
+        "Capacitor Selection",
+        "Design Guide",
+        "Technical Support"
+      ],
+      "customerCases": [
+        {
+          "title": "Successful Application",
+          "challenge": "Customer needed guidance on capacitor selection",
+          "solution": "Applied HJC Film Capacitor Selection Guide",
+          "results": "Improved design reliability and performance",
+          "feedback": "Excellent technical support helped optimize our design"
+        }
+      ]
+    },
+    {
+      "id": "supercapacitor-selection-guide",
+      "title": "Supercapacitor Selection Guide",
+      "author": {
+        "name": "Kevin Zhao",
+        "title": "Application Engineer",
+        "email": "support@hjcap.com",
+        "image": "/assets/team/hjc-engineer.jpg"
+      },
+      "publishDate": "2024-02-10",
+      "lastUpdated": "2024-02-10",
+      "readTime": "14 min",
+      "category": "Component Selection",
+      "content": [
+        "Supercapacitors (EDLCs) provide high power density and virtually unlimited cycle life for backup power, energy harvesting, and pulse power applications.",
+        "",
+        "## Energy Storage",
+        "",
+        "Energy stored in a supercapacitor: E = 0.5 × C × V²",
+        "",
+        "Usable energy depends on minimum operating voltage. Typical usable energy is 50-75% of total stored energy.",
+        "",
+        "## Series Connection",
+        "",
+        "For higher voltage, connect cells in series:",
+        "",
+        "- Voltages add, capacitance divides (Ctotal = C/n)",
+        "- Voltage balancing is essential - never connect in series without balancing",
+        "- Use active balancing for best efficiency, passive balancing for simplicity",
+        "",
+        "## Charging",
+        "",
+        "Supercapacitors can charge in seconds but require current limiting:",
+        "",
+        "- Simple resistor: R = (Vsupply - Vcap) / Icharge",
+        "- Dedicated charger ICs provide optimal charging profile",
+        "- Always include overvoltage protection (max 2.7V per cell)"
+      ],
+      "faqs": [
+        {
+          "question": "How do I calculate required capacitance?",
+          "answer": "Use the energy formula: C = 2E / (Vmax² - Vmin²). For constant power: C = P × t / (0.5 × (Vmax² - Vmin²)). Example: 10W for 60 seconds, 5V to 3V: C = 2 × 10 × 60 / (25 - 9) = 75F. Always add 30% margin for tolerance and aging.",
+          "decisionGuide": "Calculate based on energy or power requirements; add 30% margin; verify current capability with ESR.",
+          "keywords": [
+            "supercapacitor sizing",
+            "EDLC calculation",
+            "capacitor energy formula"
+          ]
+        },
+        {
+          "question": "How do I connect supercapacitors for higher voltage?",
+          "answer": "Connect in series: voltages add, capacitance divides. For 5 cells at 2.7V: Vtotal = 13.5V, Ctotal = C/5. Voltage balancing is mandatory - use balancing resistors (1kΩ-10kΩ) or active balancing IC. Never connect in series without balancing - cell voltage imbalance can cause overvoltage and damage.",
+          "decisionGuide": "Use series with balancing circuit; consider pre-built modules for simplicity and reliability.",
+          "keywords": [
+            "supercapacitor series",
+            "voltage balancing",
+            "EDLC module"
+          ]
+        },
+        {
+          "question": "What is the minimum order quantity for HJC capacitors?",
+          "answer": "Minimum order quantities (MOQ) vary by product type: MLCCs typically 10,000-100,000 pieces depending on case size, Aluminum electrolytics 1,000-10,000 pieces, Film capacitors 500-5,000 pieces, Supercapacitors 100-1,000 pieces. As an authorized distributor, we stock common parts for immediate delivery and can support smaller quantities. For high-volume production, contact our sales team for pricing and scheduling.",
+          "decisionGuide": "Contact our sales team with your specific requirements for MOQ and pricing information.",
+          "keywords": [
+            "HJC MOQ",
+            "minimum order quantity",
+            "capacitor ordering"
+          ]
+        },
+        {
+          "question": "Where can I get samples of HJC capacitors?",
+          "answer": "Samples of HJC capacitors are available through our authorized distributor network. You can request samples by contacting our sales team or through our website. Sample kits are available for each product family including MLCCs, electrolytics, film capacitors, and supercapacitors. Typical sample delivery time is 1-2 weeks depending on location and part availability.",
+          "decisionGuide": "Contact our sales team or distributor to request samples for your evaluation.",
+          "keywords": [
+            "HJC samples",
+            "capacitor samples",
+            "evaluation parts"
+          ]
+        },
+        {
+          "question": "Does HJC provide Spice models for simulation?",
+          "answer": "Yes, HJC provides Spice models for many of our capacitor products. These models include equivalent series resistance (ESR), equivalent series inductance (ESL), and capacitance values across frequency and temperature. Models are available for MLCCs, aluminum electrolytics, and film capacitors. Contact our technical support team to request Spice models for your simulation needs.",
+          "decisionGuide": "Contact technical support to request Spice models for your specific part numbers.",
+          "keywords": [
+            "HJC spice models",
+            "capacitor simulation",
+            "circuit simulation"
+          ]
+        }
+      ],
+      "relatedArticles": [
+        "mlcc-selection-guide",
+        "electrolytic-capacitor-selection-guide",
+        "energy-harvesting-design"
+      ],
+      "faeInsights": {
+        "author": "Kevin Zhao",
+        "title": "FAE - Energy Storage",
+        "content": "The biggest mistake in supercapacitor design is ignoring leakage current and self-discharge. Designers calculate the backup time based on load current but forget that the supercapacitor is also 'leaking' current internally. At 25°C, this might be 10-50µA, but at 60°C, it could be 200-500µA - comparable to the load current in some applications. Always factor leakage into your calculations, and if the application involves temperature cycling, use the worst-case temperature. Another common issue is inadequate voltage balancing in series configurations. I've seen systems where one cell is at 2.0V and another at 3.0V - the overvoltage cell will have severely reduced lifetime or fail completely.",
+        "insightLogic": "Leakage current and self-discharge are often overlooked but can significantly impact backup time, especially at elevated temperatures.",
+        "keyTakeaways": [
+          "Include leakage current in backup time calculations",
+          "Use worst-case temperature for leakage estimates",
+          "Implement proper voltage balancing for series configurations",
+          "Monitor individual cell voltages during development"
+        ]
+      },
+      "slug": "supercapacitor-selection-guide",
+      "summary": "Supercapacitors (EDLCs) provide high power density and virtually unlimited cycle life for backup power, energy harvesting, and pulse power application...",
+      "tags": [
+        "Capacitor Selection",
+        "Design Guide",
+        "Technical Support"
+      ],
+      "customerCases": [
+        {
+          "title": "Successful Application",
+          "challenge": "Customer needed guidance on capacitor selection",
+          "solution": "Applied HJC Supercapacitor Selection Guide",
+          "results": "Improved design reliability and performance",
+          "feedback": "Excellent technical support helped optimize our design"
+        }
+      ]
+    }
+  ],
+  "faqs": [
+    {
+      "question": "Where can I find HJC capacitor selection guides?",
+      "answer": "HJC provides comprehensive selection guides for all capacitor types in our Technical Support section. You'll find detailed guides for MLCC selection (dielectric types, case sizes, voltage ratings), aluminum electrolytic capacitors (lifetime calculation, ripple current, derating), film capacitors (polyester vs polypropylene, self-healing), and supercapacitors (energy calculation, series connection, charging). Each guide includes selection criteria, application recommendations, and design tips from our FAE team.",
+      "decisionGuide": "Browse our Technical Support articles or contact our FAE team for personalized selection assistance.",
+      "keywords": [
+        "HJC selection guide",
+        "capacitor selection",
+        "HJC technical documentation"
+      ]
+    },
+    {
+      "question": "How do I get technical support for HJC capacitor applications?",
+      "answer": "HJC provides technical support through our authorized distributor network. You can access: 1) Online Resources - Selection guides, application notes, and FAQs in our Technical Support section, 2) FAE Consultation - Contact our Factory Application Engineers for complex applications, 3) Sample Requests - Evaluation samples for prototyping, 4) Spice Models - Simulation models for circuit design, 5) Custom Solutions - Engineering support for custom specifications. For urgent technical questions, contact our support hotline or email our technical team.",
+      "decisionGuide": "Start with our online technical resources; contact FAE support for application-specific questions.",
+      "keywords": [
+        "HJC technical support",
+        "capacitor application help",
+        "FAE contact"
+      ]
+    },
+    {
+      "question": "What design resources does HJC provide?",
+      "answer": "HJC provides extensive design resources including: Application Notes - Detailed technical papers on capacitor selection and application, Selection Guides - Step-by-step guides for choosing the right capacitor, Spice Models - Simulation models for circuit analysis, Reference Designs - Example circuits for common applications, Evaluation Kits - Sample kits for prototyping, Thermal Calculators - Online tools for lifetime estimation, Webinars - Technical training sessions. All resources are available through our website or by contacting our technical support team.",
+      "decisionGuide": "Visit our Technical Support section to download design resources or request specific application assistance.",
+      "keywords": [
+        "HJC design resources",
+        "capacitor application notes",
+        "HJC spice models"
+      ]
+    },
+    {
+      "question": "How do I calculate capacitor lifetime for my application?",
+      "answer": "Capacitor lifetime calculation depends on capacitor type: For aluminum electrolytics, use the Arrhenius equation: Lifetime = Rated Lifetime × 2^((Rated Temp - Actual Temp)/10) × Voltage Factor. For film capacitors, lifetime is typically 100,000+ hours with gradual degradation. For supercapacitors, cycle life is 500,000+ cycles. Our Technical Support section includes detailed lifetime calculation guides and online calculators. For complex applications, our FAE team can provide detailed lifetime analysis based on your specific operating conditions.",
+      "decisionGuide": "Use our online lifetime calculators or contact our FAE team for application-specific lifetime analysis.",
+      "keywords": [
+        "capacitor lifetime calculation",
+        "electrolytic life formula",
+        "capacitor reliability"
+      ]
+    },
+    {
+      "question": "What capacitor types are best for switching power supplies?",
+      "answer": "For switching power supplies, we recommend a combination of capacitor types: MLCCs (X7R, 100nF-10µF) for high-frequency decoupling and input filtering; Aluminum electrolytics for bulk capacitance and energy storage; Film capacitors for output filtering in high-frequency applications; and Solid polymer capacitors for low-ESR requirements. The specific selection depends on switching frequency, ripple current, and temperature requirements. Our MLCC Selection Guide and Electrolytic Capacitor Selection Guide provide detailed recommendations.",
+      "decisionGuide": "Review our power supply design guides or contact our FAE for application-specific recommendations.",
+      "keywords": [
+        "switching power supply capacitors",
+        "SMPS capacitor selection",
+        "power supply design"
+      ]
+    },
+    {
+      "question": "How do I request samples of HJC capacitors?",
+      "answer": "Samples of HJC capacitors can be requested through our authorized distributor network. We offer sample kits for each product family including MLCCs, aluminum electrolytics, film capacitors, and supercapacitors. Sample requests typically take 1-2 weeks for delivery depending on location and part availability. For high-volume production qualification, we can provide larger sample quantities and engineering support. Contact our sales team or submit a sample request through our website.",
+      "decisionGuide": "Contact our sales team or distributor to request samples for your evaluation and prototyping.",
+      "keywords": [
+        "HJC samples",
+        "capacitor samples",
+        "evaluation parts"
+      ]
+    },
+    {
+      "question": "Does HJC provide Spice models for circuit simulation?",
+      "answer": "Yes, HJC provides Spice models for many of our capacitor products. These models include equivalent series resistance (ESR), equivalent series inductance (ESL), and capacitance values across frequency and temperature. Models are available for MLCCs, aluminum electrolytics, and film capacitors. The models help engineers accurately simulate circuit behavior including ripple voltage, transient response, and frequency characteristics. Contact our technical support team to request Spice models for your specific part numbers.",
+      "decisionGuide": "Contact technical support to request Spice models for the specific HJC part numbers in your design.",
+      "keywords": [
+        "HJC Spice models",
+        "capacitor simulation",
+        "circuit modeling"
+      ]
+    },
+    {
+      "question": "What is the minimum order quantity for HJC capacitors?",
+      "answer": "Minimum order quantities (MOQ) for HJC capacitors vary by product type: MLCCs typically 10,000-100,000 pieces depending on case size; Aluminum electrolytics 1,000-10,000 pieces; Film capacitors 500-5,000 pieces; Supercapacitors 100-1,000 pieces. As an authorized distributor, we stock common parts for immediate delivery and can support smaller quantities. For high-volume production, contact our sales team for pricing and scheduling.",
+      "decisionGuide": "Contact our sales team with your specific requirements for MOQ and pricing information.",
+      "keywords": [
+        "HJC MOQ",
+        "minimum order quantity",
+        "capacitor ordering"
+      ]
+    }
+  ]
+}

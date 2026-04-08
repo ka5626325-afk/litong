@@ -1,0 +1,20 @@
+<!-- templates/components/breadcrumb.html -->
+<nav aria-label="Breadcrumb" class="breadcrumb">
+  <div class="container">
+    <ol>
+      <li>
+        <a href="/" class="breadcrumb-home">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+          <span class="sr-only">Home</span>
+        </a>
+      </li>
+      <% if (typeof brand !== 'undefined' && brand) { %>
+        <li><a href="/brands/">Brands</a></li>
+        <li><a href="/<%= brand.name.toLowerCase() %>/"><%= brand.displayName %></a></li>
+        <li aria-current="page"><%= typeof pageTitle !== 'undefined' ? pageTitle : (typeof category !== 'undefined' && category ? category.name : (typeof product !== 'undefined' && product ? product.partNumber : 'Current Page')) %></li>
+      <% } else { %>
+        <li aria-current="page"><%= typeof pageTitle !== 'undefined' ? pageTitle : 'Current Page' %></li>
+      <% } %>
+    </ol>
+  </div>
+</nav>

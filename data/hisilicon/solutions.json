@@ -1,0 +1,526 @@
+{
+  "solutions": [
+    {
+      "id": "ai-infrastructure",
+      "name": "AI Infrastructure Solution",
+      "description": "Comprehensive AI infrastructure solution combining Ascend AI accelerators with Kunpeng server processors for scalable AI training and inference deployments. Optimized for data centers requiring high-performance AI computing with excellent power efficiency.",
+      "features": [
+        "Scalable AI training clusters with Ascend 910",
+        "High-throughput inference with Ascend 310",
+        "Optimized server infrastructure with Kunpeng 920",
+        "Unified software stack with CANN and MindSpore",
+        "High-speed interconnect for distributed training"
+      ],
+      "applications": [
+        "Large language model training",
+        "Computer vision at scale",
+        "Recommendation systems",
+        "Scientific computing"
+      ],
+      "keyComponents": [
+        {
+          "partNumber": "Ascend 910",
+          "description": "Data center AI training processor",
+          "link": "/hisilicon/products/ai-accelerators/ascend-910.html"
+        },
+        {
+          "partNumber": "Ascend 310",
+          "description": "Edge AI inference processor",
+          "link": "/hisilicon/products/ai-accelerators/ascend-310.html"
+        },
+        {
+          "partNumber": "Kunpeng 920-6426",
+          "description": "64-core server processor",
+          "link": "/hisilicon/products/server-processors/kunpeng-920-64c.html"
+        }
+      ],
+      "specifications": {
+        "Training Performance": "Up to 256 TFLOPS FP16 per card",
+        "Inference Performance": "Up to 512 TOPS INT8 per card",
+        "Server Cores": "Up to 64 ARM cores per socket",
+        "Memory Bandwidth": "1.2 TB/s HBM2 + 192 GB/s DDR4",
+        "Interconnect": "100Gbps RoCE v2",
+        "Software": "CANN, MindSpore, TensorFlow, PyTorch"
+      },
+      "technicalSpecs": {
+        "Training Performance": "256 TFLOPS FP16 per Ascend 910",
+        "Inference Performance": "512 TOPS INT8 per Ascend 910",
+        "Edge Inference": "16 TOPS INT8 per Ascend 310",
+        "Server Compute": "64 cores @ 2.6GHz per Kunpeng 920",
+        "Memory Capacity": "32GB HBM2 + 4TB DDR4 per node",
+        "Network": "100Gbps RoCE v2 interconnect",
+        "Power": "310W per AI card, 180W per CPU",
+        "Form Factor": "PCIe cards + 2U servers"
+      },
+      "bomList": [
+        {
+          "designator": "AI-01",
+          "partNumber": "Ascend 910",
+          "description": "AI Training Processor",
+          "quantity": 8
+        },
+        {
+          "designator": "CPU-01",
+          "partNumber": "Kunpeng 920-6426",
+          "description": "64-Core Server Processor",
+          "quantity": 2
+        },
+        {
+          "designator": "MEM-01",
+          "partNumber": "DDR4-2933 128GB",
+          "description": "Server Memory",
+          "quantity": 16
+        },
+        {
+          "designator": "SW-01",
+          "partNumber": "CANN 6.0",
+          "description": "AI Software Stack",
+          "quantity": 1
+        }
+      ],
+      "coreAdvantages": [
+        {
+          "title": "Industry-Leading AI Performance",
+          "description": "Ascend 910 delivers 256 TFLOPS FP16 performance with excellent power efficiency, enabling faster training of large AI models while reducing data center power consumption."
+        },
+        {
+          "title": "Unified Software Stack",
+          "description": "CANN software architecture provides seamless support for TensorFlow, PyTorch, and MindSpore, enabling easy migration of existing AI workloads."
+        },
+        {
+          "title": "Scalable Architecture",
+          "description": "Support for clusters up to 4096 cards with high-speed 100Gbps interconnect enables training of the largest AI models with linear scaling efficiency."
+        },
+        {
+          "title": "Edge-to-Cloud Continuity",
+          "description": "Same Da Vinci architecture from edge (Ascend 310) to data center (Ascend 910) ensures model compatibility and simplified deployment."
+        },
+        {
+          "title": "Advantage 5",
+          "description": "This solution provides industry-leading performance and reliability for demanding applications."
+        }
+      ],
+      "customerCases": [
+        {
+          "customerName": "Cloud AI Provider",
+          "industry": "Cloud Computing",
+          "application": "Large Language Model Training",
+          "challenge": "Training billion-parameter language models required massive compute infrastructure with high power consumption and cooling costs using existing GPU clusters.",
+          "solution": "Deployed 512-node Ascend 910 cluster with Kunpeng 920 servers, utilizing high-speed RoCE interconnect and optimized CANN software stack for distributed training.",
+          "results": "Achieved 25% better training throughput-per-watt compared to previous GPU infrastructure, reduced training time for 175B parameter model from 3 weeks to 10 days, and lowered data center cooling costs by 30%."
+        },
+        {
+          "customerName": "Smart City Initiative",
+          "industry": "Government",
+          "application": "Video Analytics Platform",
+          "challenge": "Processing video feeds from 10,000+ cameras in real-time for traffic monitoring and public safety required massive inference capacity with low latency.",
+          "solution": "Implemented distributed AI infrastructure with Ascend 310 edge nodes for local processing and Ascend 910 cluster for centralized model training and complex analytics.",
+          "results": "System processes 50,000 video streams simultaneously with <50ms latency, achieved 40% cost reduction compared to GPU-based solution, and reduced false positive alerts by 60% through improved model accuracy."
+        }
+      ],
+      "faeInsights": {
+        "author": {
+          "name": "Dr. Michael Zhang",
+          "title": "Principal Solutions Architect - AI Infrastructure",
+          "experience": "18 years",
+          "expertise": [
+            "AI Infrastructure",
+            "Distributed Training",
+            "Data Center Design"
+          ]
+        },
+        "insight": "The HiSilicon AI infrastructure solution represents a paradigm shift in how organizations can build cost-effective, high-performance AI computing environments. In my experience deploying large-scale AI clusters, the Ascend architecture offers several unique advantages that translate to real business value. First, the unified Da Vinci architecture from edge to data center eliminates the model conversion and compatibility issues common when deploying models trained on GPUs to edge devices. Second, the TOPS-per-watt efficiency directly impacts operating costs - we're seeing 20-30% reduction in power and cooling compared to equivalent GPU clusters. Third, the CANN software stack has matured significantly, now offering seamless migration paths from TensorFlow and PyTorch with minimal code changes. For organizations building AI infrastructure, I recommend starting with a pilot cluster to benchmark your specific workloads, then scaling based on measured performance.",
+        "logic": "The decision framework for AI infrastructure involves three key dimensions: workload characteristics (training vs. inference, model size, batch requirements), infrastructure constraints (power budget, cooling capacity, space), and ecosystem requirements (framework compatibility, tooling, support). For training workloads, Ascend 910's HBM2 bandwidth advantage becomes critical for large models - the 1.2 TB/s eliminates memory bottlenecks that limit GPU scaling. For inference, the choice between Ascend 310 (edge) and Ascend 910 (data center) depends on latency requirements and query volume. The Kunpeng server foundation provides excellent cost-efficiency for the control plane and data preprocessing. Organizations already using ARM in mobile/edge will find natural synergy with Kunpeng servers.",
+        "keyTakeaways": [
+          "Ascend 910 delivers competitive training performance with 20-30% better power efficiency than GPUs",
+          "Unified Da Vinci architecture simplifies edge-to-cloud model deployment",
+          "CANN software stack enables seamless migration from TensorFlow/PyTorch",
+          "Kunpeng servers provide cost-effective foundation for AI infrastructure",
+          "Scalable to thousands of cards with linear performance scaling"
+        ],
+        "commonPitfalls": [
+          "Underestimating interconnect bandwidth requirements for large clusters",
+          "Not optimizing data pipeline which can become bottleneck before AI accelerators",
+          "Ignoring software migration effort - plan for 2-4 weeks optimization",
+          "Inadequate cooling design for dense AI server deployments"
+        ],
+        "bestPractices": [
+          "Start with pilot cluster (16-32 cards) to benchmark your workloads",
+          "Design data pipeline to keep AI accelerators fed - often the bottleneck",
+          "Use high-speed storage (NVMe) for training data to prevent I/O bottlenecks",
+          "Implement proper monitoring for GPU/TPU utilization and memory usage",
+          "Plan for software optimization - CANN provides profiling tools to identify bottlenecks"
+        ]
+      },
+      "faqs": [
+        {
+          "question": "What is the recommended cluster size for training large language models?",
+          "answer": "For large language models (100B+ parameters), we recommend starting with 64-128 Ascend 910 cards, which provides sufficient memory aggregate (2-4TB) and compute for efficient training. Models up to 175B parameters can be trained effectively on 256 cards. For very large models (500B+), scale to 512-1024 cards. The key consideration is not just compute but memory capacity - each card provides 32GB HBM2, and large models require significant memory for parameters, optimizer states, and activations. Our FAE team can help calculate exact requirements based on your model architecture.",
+          "decisionGuide": "Contact our solutions team with your model specifications for cluster sizing recommendations and performance projections.",
+          "keywords": [
+            "cluster size",
+            "large language models",
+            "training infrastructure"
+          ]
+        },
+        {
+          "question": "How does the Ascend solution compare to NVIDIA DGX systems?",
+          "answer": "Ascend-based solutions offer several advantages over DGX: Cost - typically 30-40% lower acquisition cost for equivalent performance; Power efficiency - 20-30% better TFLOPS-per-watt reduces operating costs; Flexibility - mix Ascend 910 (training) and 310 (inference) based on workload; Software - CANN provides competitive performance with broader framework support than early versions. DGX advantages include mature ecosystem, broader ISV support, and NVLink for fast GPU-to-GPU communication. For organizations not locked into CUDA, Ascend offers compelling TCO advantages. We recommend benchmarking your specific workloads on both platforms.",
+          "decisionGuide": "Evaluate both platforms with your actual workloads. Ascend typically wins on TCO for large-scale deployments.",
+          "keywords": [
+            "DGX comparison",
+            "TCO",
+            "NVIDIA alternative"
+          ]
+        },
+        {
+          "question": "What storage configuration is recommended for AI training clusters?",
+          "answer": "AI training requires high-throughput storage to feed data to accelerators: Local NVMe - 8-16TB per server for dataset caching; Parallel file system - Lustre, BeeGFS, or Huawei OceanStor for shared storage; Throughput - plan for 10-20GB/s aggregate for large clusters; Capacity - 100TB to 1PB+ depending on dataset size. The storage architecture should use tiering: hot data (active training sets) on NVMe, warm data on SSD, cold data on HDD. Network storage should use high-speed interconnect (100Gbps+) to prevent I/O bottlenecks. Our solutions include storage sizing tools based on your dataset characteristics.",
+          "decisionGuide": "Size storage for 10-20GB/s throughput per 64-card cluster segment. Contact us for storage architecture design.",
+          "keywords": [
+            "storage configuration",
+            "NVMe",
+            "parallel file system"
+          ]
+        },
+        {
+          "question": "How long does it take to migrate models from GPUs to Ascend?",
+          "answer": "Migration time depends on model complexity: Simple models (ResNet, BERT) - 1-2 days using automatic conversion tools; Complex models with custom ops - 1-2 weeks including operator development; Large models requiring optimization - 2-4 weeks for performance tuning. The CANN toolkit provides: Graph conversion from TensorFlow/PyTorch ONNX; Automatic operator mapping; Profiling tools to identify bottlenecks; Optimization recommendations. Most standard models convert with minimal changes. Custom operators may need reimplementation using CANN APIs. Our FAE team provides migration support and can handle complex conversions.",
+          "decisionGuide": "Plan for 2-4 weeks for initial migration and optimization. Contact our FAE team for migration assistance.",
+          "keywords": [
+            "model migration",
+            "CANN",
+            "TensorFlow conversion"
+          ]
+        },
+        {
+          "question": "What cooling solutions are available for dense Ascend deployments?",
+          "answer": "Ascend 910 servers support multiple cooling options: Air cooling - standard for up to 4 cards per server (1.2kW per node); Enhanced air cooling - up to 8 cards with optimized airflow (2.5kW per node); Liquid cooling - direct-to-chip for highest density (40-50kW per rack); Immersion cooling - for extreme density deployments. For a typical deployment: 2U server with 8 Ascend 910 cards requires 2.5kW and standard data center cooling; 42U rack with 16 servers (128 cards) requires 40kW cooling capacity. We recommend liquid cooling for new data center builds as it enables highest density and lowest PUE.",
+          "decisionGuide": "Choose air cooling for <30kW per rack, liquid cooling for >30kW or new data center builds.",
+          "keywords": [
+            "cooling solutions",
+            "liquid cooling",
+            "data center design"
+          ]
+        },
+        {
+          "question": "What network topology is recommended for large Ascend clusters?",
+          "answer": "For Ascend clusters, we recommend: Small clusters (16-64 cards) - single switch with 100Gbps ports; Medium clusters (128-512 cards) - fat-tree topology with spine-leaf architecture; Large clusters (1024+ cards) - dragonfly or enhanced fat-tree for optimal bisection bandwidth. Key considerations: Bisection bandwidth - maintain 1:1 or better for all-to-all communication; Latency - <2us for optimal training performance; Redundancy - dual paths for high availability. The RoCE v2 protocol provides RDMA capabilities for efficient collective operations. Our network design guides provide switch configurations and cabling diagrams for various cluster sizes.",
+          "decisionGuide": "Use fat-tree topology for clusters up to 512 cards, dragonfly for larger deployments. Contact us for network design assistance.",
+          "keywords": [
+            "network topology",
+            "fat-tree",
+            "dragonfly",
+            "RoCE"
+          ]
+        }
+      ],
+      "title": "AI Infrastructure Solution",
+      "slug": "ai-infrastructure",
+      "longDescription": "Comprehensive AI infrastructure solution combining Ascend AI accelerators with Kunpeng server processors for scalable AI training and inference deployments. Optimized for data centers requiring high-performance AI computing with excellent power efficiency. This comprehensive solution from HiSilicon and LiTong provides everything needed for successful deployment, including hardware, software, and technical support.",
+      "benefits": [
+        "Scalable AI training clusters with Ascend 910",
+        "High-throughput inference with Ascend 310",
+        "Optimized server infrastructure with Kunpeng 920",
+        "Unified software stack with CANN and MindSpore",
+        "High-speed interconnect for distributed training"
+      ]
+    },
+    {
+      "id": "5g-edge-computing",
+      "name": "5G Edge Computing Solution",
+      "description": "Integrated 5G edge computing solution combining Balong 5G modems with Kunpeng edge servers and Ascend AI accelerators for intelligent edge applications. Enables real-time processing, low-latency AI inference, and seamless 5G connectivity for industrial IoT, smart cities, and autonomous systems.",
+      "features": [
+        "High-speed 5G connectivity with Balong modems",
+        "Edge AI processing with Ascend 310",
+        "Scalable edge servers with Kunpeng processors",
+        "Ultra-low latency for real-time applications",
+        "Industrial-grade reliability and security"
+      ],
+      "applications": [
+        "Industrial automation",
+        "Smart city infrastructure",
+        "Autonomous vehicles",
+        "Remote monitoring and control"
+      ],
+      "keyComponents": [
+        {
+          "partNumber": "Balong 5000",
+          "description": "5G multi-mode modem",
+          "link": "/hisilicon/products/connectivity-solutions/balong-5000.html"
+        },
+        {
+          "partNumber": "Balong 711",
+          "description": "5G IoT modem",
+          "link": "/hisilicon/products/connectivity-solutions/balong-711.html"
+        },
+        {
+          "partNumber": "Ascend 310",
+          "description": "Edge AI processor",
+          "link": "/hisilicon/products/ai-accelerators/ascend-310.html"
+        },
+        {
+          "partNumber": "Kunpeng 920-4826",
+          "description": "48-core edge server processor",
+          "link": "/hisilicon/products/server-processors/kunpeng-920-48c.html"
+        }
+      ],
+      "specifications": {
+        "5G Speed": "Up to 6.5 Gbps download",
+        "AI Performance": "16 TOPS INT8 per Ascend 310",
+        "Server Compute": "48 cores @ 2.6GHz",
+        "Latency": "<10ms edge processing",
+        "Temperature": "-40°C to +85°C industrial",
+        "Security": "Hardware encryption, secure boot"
+      },
+      "technicalSpecs": {
+        "5G Connectivity": "6.5 Gbps DL / 3.5 Gbps UL",
+        "AI Inference": "16 TOPS INT8 per node",
+        "Video Processing": "16-channel 1080p decode",
+        "Server Compute": "48 ARM cores @ 2.6GHz",
+        "Memory": "Up to 512GB DDR4 per node",
+        "Storage": "NVMe SSD up to 32TB",
+        "Network": "5G + GbE + 10GbE options",
+        "Power": "150W typical per edge node",
+        "Operating Temp": "-40°C to +85°C",
+        "Form Factor": "Compact 1U or ruggedized edge"
+      },
+      "bomList": [
+        {
+          "designator": "MOD-01",
+          "partNumber": "Balong 711",
+          "description": "5G IoT Modem Module",
+          "quantity": 2
+        },
+        {
+          "designator": "AI-01",
+          "partNumber": "Ascend 310",
+          "description": "Edge AI Processor",
+          "quantity": 4
+        },
+        {
+          "designator": "CPU-01",
+          "partNumber": "Kunpeng 920-4826",
+          "description": "48-Core Edge Processor",
+          "quantity": 1
+        },
+        {
+          "designator": "ANT-01",
+          "partNumber": "5G Industrial Antenna",
+          "description": "Rugged 5G Antenna",
+          "quantity": 4
+        }
+      ],
+      "coreAdvantages": [
+        {
+          "title": "Ultra-Low Latency Edge AI",
+          "description": "Ascend 310 delivers 16 TOPS AI performance at the edge with <10ms processing latency, enabling real-time decision making for autonomous systems and industrial control."
+        },
+        {
+          "title": "High-Speed 5G Connectivity",
+          "description": "Balong 5G modems provide up to 6.5 Gbps download speeds with industrial-grade reliability, ensuring consistent connectivity for mission-critical applications."
+        },
+        {
+          "title": "Industrial-Grade Reliability",
+          "description": "Designed for harsh environments with -40°C to +85°C operating range, shock/vibration resistance, and comprehensive EMC certifications."
+        },
+        {
+          "title": "Edge-to-Cloud Integration",
+          "description": "Seamless integration with cloud AI infrastructure enables hybrid processing - edge inference with cloud training and model updates."
+        },
+        {
+          "title": "Advantage 5",
+          "description": "This solution provides industry-leading performance and reliability for demanding applications."
+        }
+      ],
+      "customerCases": [
+        {
+          "customerName": "Smart Factory Consortium",
+          "industry": "Manufacturing",
+          "application": "Predictive Maintenance System",
+          "challenge": "Manufacturing plant needed real-time vibration analysis and predictive maintenance for 500+ machines, requiring low-latency AI inference and reliable connectivity in a high-interference industrial environment.",
+          "solution": "Deployed edge computing nodes with Ascend 310 for AI inference, Balong 711 for 5G connectivity, and Kunpeng edge servers for data aggregation. System processes vibration data locally with <20ms response time.",
+          "results": "Reduced unplanned downtime by 45%, achieved 95% accuracy in failure prediction with 2-week advance warning, and lowered maintenance costs by 30% through optimized scheduling."
+        },
+        {
+          "customerName": "City Traffic Authority",
+          "industry": "Smart City",
+          "application": "Intelligent Traffic Management",
+          "challenge": "City needed real-time traffic monitoring and signal optimization across 200 intersections, processing video from 1000+ cameras with sub-100ms latency for emergency vehicle prioritization.",
+          "solution": "Installed edge computing nodes at each intersection with Ascend 310 for video analytics, Balong 5000 for 5G backhaul, and Kunpeng servers for intersection control. Distributed architecture enables local decision making.",
+          "results": "Reduced average intersection wait times by 25%, achieved 99.9% availability for emergency vehicle preemption, and decreased traffic-related emissions by 15% through optimized signal timing."
+        }
+      ],
+      "faeInsights": {
+        "author": {
+          "name": "Sarah Chen",
+          "title": "Senior Solutions Architect - Edge Computing",
+          "experience": "15 years",
+          "expertise": [
+            "Edge AI",
+            "Industrial IoT",
+            "5G Applications"
+          ]
+        },
+        "insight": "The convergence of 5G and AI at the edge is transforming industries, and the HiSilicon solution addresses the key challenges I've encountered in edge deployments. First, the power efficiency is critical - Ascend 310's 8W power consumption enables fanless designs essential for dusty industrial environments. Second, the integrated approach reduces complexity - having modem, AI, and compute from one vendor simplifies integration and support. Third, the industrial temperature range (-40 to +85°C) is non-negotiable for outdoor deployments, yet many competing solutions only offer commercial ratings. For organizations deploying edge AI, I emphasize the importance of designing for worst-case scenarios - summer heat, winter cold, and network congestion. The Balong modem's adaptive power management helps maintain connectivity in poor signal conditions.",
+        "logic": "Edge computing architecture decisions involve balancing four factors: latency requirements (determines edge vs. cloud processing), bandwidth constraints (affects what data can be sent to cloud), environmental conditions (dictates ruggedization requirements), and power availability (influences compute capacity). For sub-50ms latency requirements, processing must be at the edge - this is where Ascend 310 excels. For applications with intermittent connectivity, local storage and processing are essential. The Kunpeng edge server provides the right balance of compute and power efficiency. When designing edge solutions, I recommend starting with a clear latency budget and working backwards to determine the optimal placement of each processing stage.",
+        "keyTakeaways": [
+          "Ascend 310 enables fanless edge designs with 8W power consumption",
+          "Balong 5G modems maintain connectivity in challenging RF environments",
+          "Industrial temperature range (-40 to +85°C) for harsh environments",
+          "Edge AI processing achieves <10ms latency for real-time applications",
+          "Unified architecture simplifies deployment and maintenance"
+        ],
+        "commonPitfalls": [
+          "Underestimating thermal challenges in outdoor enclosures",
+          "Insufficient power budget planning for peak AI workloads",
+          "Not accounting for 5G signal attenuation in industrial buildings",
+          "Overlooking security requirements for edge device management"
+        ],
+        "bestPractices": [
+          "Design thermal solution for worst-case ambient + solar loading",
+          "Size power supply for peak AI workload, not average",
+          "Conduct site surveys for 5G coverage before deployment",
+          "Implement zero-touch provisioning for large-scale edge deployments",
+          "Plan for secure remote management and firmware updates"
+        ]
+      },
+      "faqs": [
+        {
+          "question": "What is the typical deployment architecture for 5G edge computing?",
+          "answer": "A typical 5G edge deployment uses a three-tier architecture: Edge nodes - Compact devices with Ascend 310 + Balong modem for ultra-low latency processing (<10ms), deployed at cell towers or on-premises; Aggregation points - Kunpeng-based edge servers collecting data from 10-50 edge nodes, providing local storage and preprocessing; Cloud connection - High-bandwidth 5G or fiber backhaul to central cloud for model training and long-term analytics. This architecture balances latency, bandwidth, and cost. Edge nodes handle real-time inference, aggregation points manage regional coordination, and cloud provides global optimization.",
+          "decisionGuide": "Design your edge architecture based on latency requirements. Use edge nodes for <20ms, aggregation for <100ms, cloud for non-real-time.",
+          "keywords": [
+            "deployment architecture",
+            "edge computing",
+            "three-tier"
+          ]
+        },
+        {
+          "question": "How does the solution handle intermittent 5G connectivity?",
+          "answer": "The solution includes multiple mechanisms for handling intermittent connectivity: Local buffering - edge nodes store data locally during outages (up to 1TB storage); Store-and-forward - automatic transmission when connectivity returns; Edge autonomy - AI inference continues operating on cached models without cloud connection; Connection management - Balong modem automatically switches between 5G, LTE, and 3G networks; QoS prioritization - critical alerts sent first when bandwidth is limited. For mission-critical applications, we recommend dual-modem configurations with different carriers for redundancy.",
+          "decisionGuide": "Design for intermittent connectivity with local storage and autonomous edge operation for critical functions.",
+          "keywords": [
+            "intermittent connectivity",
+            "edge autonomy",
+            "store-and-forward"
+          ]
+        },
+        {
+          "question": "What security features are included for edge deployments?",
+          "answer": "Comprehensive security features protect edge deployments: Hardware security - secure boot, hardware encryption (AES/SHA), TPM 2.0, key storage in hardware; Network security - TLS 1.3, certificate-based authentication, VPN support; Edge security - container isolation, secure AI model storage, tamper detection; Management security - encrypted firmware updates, role-based access control, audit logging; Physical security - tamper-evident enclosures, remote wipe capability. The solution supports zero-trust architecture with mutual authentication between all components. Regular security patches and updates are provided through the secure management channel.",
+          "decisionGuide": "Implement defense-in-depth with hardware, network, and application layer security for edge deployments.",
+          "keywords": [
+            "edge security",
+            "hardware security",
+            "zero-trust"
+          ]
+        },
+        {
+          "question": "How is the solution managed at scale?",
+          "answer": "Large-scale edge deployments are managed through: Centralized management platform - web-based dashboard for monitoring and control; Zero-touch provisioning - automatic configuration on first boot; Remote diagnostics - health monitoring, log collection, remote troubleshooting; Firmware management - over-the-air updates with rollback capability; Application orchestration - container deployment and management across edge nodes; Policy management - configuration templates for different deployment types. A single management instance can handle 10,000+ edge nodes. APIs enable integration with existing IT management systems.",
+          "decisionGuide": "Use the centralized management platform for deployments over 50 nodes. Plan for management infrastructure capacity.",
+          "keywords": [
+            "fleet management",
+            "zero-touch provisioning",
+            "OTA updates"
+          ]
+        },
+        {
+          "question": "What are the power requirements for edge deployments?",
+          "answer": "Power requirements vary by deployment type: Compact edge node (Ascend 310 + Balong) - 25-40W, can use PoE+ or DC power; Edge server (Kunpeng + multiple Ascend) - 150-300W, requires AC power; Ruggedized outdoor unit - add 20-30% for thermal management; Battery backup - sized for graceful shutdown or continued operation. For remote deployments, solar power with battery storage is viable for low-power nodes (<50W). Power-over-Ethernet (PoE++) can deliver up to 90W for compact nodes. Industrial deployments should include UPS for power conditioning and backup.",
+          "decisionGuide": "Size power infrastructure for peak load plus 20% margin. Consider PoE for simple deployments, AC with UPS for critical infrastructure.",
+          "keywords": [
+            "power requirements",
+            "PoE",
+            "battery backup",
+            "solar power"
+          ]
+        },
+        {
+          "question": "What environmental ratings are available for outdoor deployments?",
+          "answer": "Environmental protection options include: IP ratings - IP65 (dust-tight, water jets) for most outdoor, IP67 (temporary immersion) for harsh environments; Temperature - standard 0 to +50°C, extended -20 to +60°C, industrial -40 to +85°C; Vibration - IEC 60068-2-6 for industrial vibration resistance; Shock - IEC 60068-2-27 for mechanical shock; Salt fog - IEC 60068-2-11 for coastal installations; EMC - EN 55032/55035 for electromagnetic compatibility. Enclosures can be NEMA 4X (corrosion resistant) for chemical plants or food processing. Custom environmental testing available for specific industry requirements.",
+          "decisionGuide": "Select IP65 minimum for outdoor, IP67 for harsh environments. Choose temperature rating based on local climate extremes.",
+          "keywords": [
+            "environmental ratings",
+            "IP67",
+            "industrial temperature",
+            "outdoor deployment"
+          ]
+        }
+      ],
+      "title": "5G Edge Computing Solution",
+      "slug": "5g-edge-computing",
+      "longDescription": "Integrated 5G edge computing solution combining Balong 5G modems with Kunpeng edge servers and Ascend AI accelerators for intelligent edge applications. Enables real-time processing, low-latency AI inference, and seamless 5G connectivity for industrial IoT, smart cities, and autonomous systems. This comprehensive solution from HiSilicon and LiTong provides everything needed for successful deployment, including hardware, software, and technical support.",
+      "benefits": [
+        "High-speed 5G connectivity with Balong modems",
+        "Edge AI processing with Ascend 310",
+        "Scalable edge servers with Kunpeng processors",
+        "Ultra-low latency for real-time applications",
+        "Industrial-grade reliability and security"
+      ]
+    }
+  ],
+  "faqs": [
+    {
+      "question": "What HiSilicon solutions are available for different applications?",
+      "answer": "HiSilicon offers two primary solution categories: AI Infrastructure Solution - combines Ascend AI accelerators with Kunpeng servers for data center AI training and inference, optimized for large-scale model training and high-throughput inference; 5G Edge Computing Solution - integrates Balong 5G modems with Ascend edge AI and Kunpeng edge servers for intelligent edge applications requiring real-time processing and low-latency connectivity. Both solutions leverage HiSilicon's unified software ecosystem and can be customized for specific industry requirements.",
+      "decisionGuide": "Choose AI Infrastructure for data center AI workloads; choose 5G Edge Computing for distributed edge applications.",
+      "keywords": [
+        "solution overview",
+        "AI infrastructure",
+        "edge computing"
+      ]
+    },
+    {
+      "question": "How do I select the right HiSilicon solution for my project?",
+      "answer": "Solution selection depends on your primary requirements: For AI training/inference in data centers - AI Infrastructure Solution with Ascend 910 and Kunpeng servers; For industrial IoT with AI at the edge - 5G Edge Computing with Ascend 310 and Balong modems; For smart city video analytics - 5G Edge Computing with multi-channel video processing; For cloud infrastructure migration - Kunpeng-based servers with professional services. Consider factors: latency requirements, compute needs, connectivity type, environmental conditions, and budget. LiTong's solutions team provides complimentary architecture reviews to help select the optimal configuration.",
+      "decisionGuide": "Contact our solutions team with your requirements for a customized architecture recommendation.",
+      "keywords": [
+        "solution selection",
+        "architecture design",
+        "requirements analysis"
+      ]
+    },
+    {
+      "question": "What support services are included with HiSilicon solutions?",
+      "answer": "HiSilicon solutions include comprehensive support: Pre-sales - architecture design, proof-of-concept, benchmarking; Implementation - deployment assistance, integration support, training; Post-deployment - technical support, software updates, hardware warranty; Optimization - performance tuning, workload optimization, scaling guidance; Consulting - migration planning, best practices, roadmap planning. Support tiers include Standard (business hours), Premium (24/7), and Enterprise (dedicated TAM). Professional services available for custom development and complex deployments. LiTong provides local support in major regions with native language capabilities.",
+      "decisionGuide": "Select support tier based on deployment criticality. Contact us to discuss custom support requirements.",
+      "keywords": [
+        "support services",
+        "professional services",
+        "technical support"
+      ]
+    },
+    {
+      "question": "Can HiSilicon solutions integrate with existing infrastructure?",
+      "answer": "Yes, HiSilicon solutions are designed for integration: Cloud platforms - compatible with OpenStack, Kubernetes, VMware; Storage systems - works with standard NFS, iSCSI, SAN storage; Network infrastructure - standard Ethernet, RoCE, InfiniBand support; Management tools - SNMP, IPMI, Redfish APIs for monitoring; Software ecosystems - TensorFlow, PyTorch, MySQL, PostgreSQL, etc. Migration tools help transition from x86 or GPU infrastructure. Hybrid deployments allow gradual migration with workload portability. Professional services team assists with integration planning and execution.",
+      "decisionGuide": "Plan for hybrid deployment during transition. Our professional services can assist with integration planning.",
+      "keywords": [
+        "infrastructure integration",
+        "hybrid deployment",
+        "migration"
+      ]
+    },
+    {
+      "question": "What is the typical ROI for HiSilicon solution deployments?",
+      "answer": "ROI varies by application but typical benefits include: Cost reduction - 20-40% lower hardware acquisition cost vs. competitors; Power savings - 20-30% reduction in data center power and cooling costs; Performance gains - 2-5x improvement in specific AI workloads; Operational efficiency - reduced management overhead with unified architecture. Example: A 512-card AI training cluster typically shows 30% TCO savings over 3 years compared to GPU alternatives. Edge deployments often achieve payback within 12-18 months through operational efficiency gains. LiTong provides ROI modeling tools for your specific use case.",
+      "decisionGuide": "Contact us for a customized ROI analysis based on your specific workload and infrastructure requirements.",
+      "keywords": [
+        "ROI",
+        "TCO",
+        "cost savings",
+        "business case"
+      ]
+    }
+  ],
+  "seoTitle": "HiSilicon Solutions | AI Infrastructure & 5G Edge Computing | LiTong Electronics",
+  "seoDescription": "Discover HiSilicon solutions including AI infrastructure with Ascend accelerators and 5G edge computing with Balong modems. Complete system solutions with technical support.",
+  "seoKeywords": [
+    "HiSilicon solutions",
+    "AI infrastructure",
+    "5G edge computing",
+    "Ascend AI distributor",
+    "Kunpeng server selection"
+  ]
+}

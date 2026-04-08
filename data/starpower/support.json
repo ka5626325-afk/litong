@@ -1,0 +1,607 @@
+{
+  "seoTitle": "Starpower Technical Support | Application Guides, FAQs | LiTong",
+  "seoDescription": "Access Starpower technical resources including IGBT selection guides, SiC application notes, thermal design guidelines, and troubleshooting support.",
+  "seoKeywords": [
+    "Starpower support",
+    "Technical Support",
+    "IGBT application guide",
+    "SiC design guide",
+    "power module thermal design",
+    "starpower distributor",
+    "starpower authorized distributor",
+    "starpower 选型",
+    "starpower 选型指南"
+  ],
+  "faqs": [
+    {
+      "question": "How do I select the right Starpower IGBT module for my application?",
+      "answer": "Selecting the right Starpower IGBT module involves several key considerations: (1) Voltage rating - choose at least 1.5-2x the DC bus voltage to account for voltage transients. For 380VAC systems, use 1200V modules. (2) Current rating - calculate based on RMS current with 50% derating for reliable operation. Consider overload requirements. (3) Switching frequency - higher frequencies favor modules with lower switching losses. (4) Package - select based on power level, cooling method, and mechanical constraints. (5) Thermal performance - ensure RthJC and package thermal resistance meet your cooling system capabilities. (6) Short-circuit requirements - verify tSC meets your protection circuit response time. Starpower provides selection guides and FAE support to help with module selection.",
+      "decisionGuide": "Contact our FAE team for personalized module selection assistance.",
+      "keywords": [
+        "Starpower IGBT selection",
+        "IGBT module selection guide",
+        "power module selection"
+      ]
+    },
+    {
+      "question": "What are the key considerations for SiC MOSFET module design?",
+      "answer": "Designing with Starpower SiC MOSFET modules requires attention to: (1) Gate drive - use +18V turn-on and -3V to -5V turn-off with fast rise time. Negative voltage is critical for dv/dt immunity. (2) Gate resistance - 5-10Ω typical, lower than IGBT for fast switching. (3) Layout - minimize gate loop inductance (<10nH) and use Kelvin source connection. (4) Protection - implement fast overcurrent protection (<2μs) due to limited short-circuit withstand. (5) EMI - high dv/dt (>50V/ns) requires careful filtering and shielding. (6) Thermal - plan for higher power density and ensure adequate cooling. (7) Parallel operation - SiC modules parallel well due to positive temperature coefficient. Starpower provides detailed application notes for SiC module design.",
+      "decisionGuide": "Contact our FAE team for SiC design support and application guidance.",
+      "keywords": [
+        "SiC MOSFET design",
+        "SiC module application",
+        "SiC gate drive design"
+      ]
+    },
+    {
+      "question": "How do I design proper thermal management for Starpower modules?",
+      "answer": "Thermal management design for Starpower modules: (1) Calculate losses - determine conduction and switching losses at operating conditions. (2) Heatsink selection - target RthSA based on maximum allowable junction temperature and ambient. Use Tj = Ta + Ploss × (RthJC + RthCS + RthSA). (3) Thermal interface - use high-performance TIM with proper thickness and coverage. (4) Cooling method - natural convection for low power, forced air for medium power, liquid cooling for high power. (5) Temperature monitoring - use module NTC for protection and thermal management. (6) Derating - plan for worst-case ambient and load conditions. (7) Thermal simulation - use Starpower's thermal models to verify design. Example: For GD100HFL120C2S at 100A, 1.75V VF, 175W loss, with RthSA=0.2K/W at 40°C ambient: Tj = 40 + 175 × (0.35+0.1+0.2) = 40 + 114 = 154°C (acceptable).",
+      "decisionGuide": "Contact our FAE team for thermal simulation and cooling system design support.",
+      "keywords": [
+        "thermal management",
+        "heatsink design",
+        "power module cooling"
+      ]
+    },
+    {
+      "question": "What gate driver should I use with Starpower IGBT modules?",
+      "answer": "Gate driver selection for Starpower IGBT modules: (1) Voltage levels - +15V turn-on and -8V turn-off for optimal performance. (2) Peak current - 2-6A depending on module size and switching speed requirements. (3) Isolation - reinforced isolation (5kV+) for safety and noise immunity. (4) Protection features - desaturation detection, soft turn-off, active Miller clamp. (5) Propagation delay - <100ns for precise timing control. (6) CMTI - >50kV/μs for high dv/dt immunity. Recommended drivers for Starpower modules: 2ED020I12-FI, 1EDI20N12AF, HCPL-316J for IGBTs. For SiC modules: 1EDI20N12AF, UCC21520, 2EDF7275K with higher peak current. Starpower provides gate drive circuit recommendations in datasheets.",
+      "decisionGuide": "Contact our FAE team for gate driver selection and circuit design.",
+      "keywords": [
+        "gate driver selection",
+        "IGBT gate driver",
+        "isolated gate driver"
+      ]
+    },
+    {
+      "question": "How do I protect Starpower modules from overcurrent and short-circuit?",
+      "answer": "Protection strategies for Starpower modules: (1) Overcurrent detection - use shunt resistors or Hall sensors with fast comparators (<1μs response). (2) Desaturation detection - monitor VCE during on-state; voltage >7V indicates fault. (3) Soft turn-off - gradual gate discharge to prevent overvoltage spikes during fault. (4) Gate clamping - active Miller clamp to prevent false turn-on. (5) Current limiting - implement in control loop for overload protection. (6) Fuses - semiconductor fuses for catastrophic failure protection. (7) Snubbers - RC snubbers to limit voltage overshoot. For IGBT modules with 10μs tSC, protection must respond within 5-8μs. For SiC modules with 2-5μs tSC, response must be <2μs. Starpower provides protection circuit reference designs.",
+      "decisionGuide": "Contact our FAE team for protection circuit design and component selection.",
+      "keywords": [
+        "overcurrent protection",
+        "short-circuit protection",
+        "desaturation detection"
+      ]
+    },
+    {
+      "question": "What are common failure modes in power module applications and how to prevent them?",
+      "answer": "Common failure modes and prevention for Starpower modules: (1) Overheating - caused by inadequate cooling or overload. Prevent with proper thermal design and temperature monitoring. (2) Overvoltage - from switching transients or lightning. Use snubbers and TVS protection. (3) Overcurrent/short-circuit - implement fast protection circuits with desaturation detection. (4) Gate oxide damage - from ESD or overvoltage. Use proper handling and gate protection. (5) Bond wire fatigue - from thermal cycling. Ensure adequate cooling and avoid excessive temperature swings. (6) Solder fatigue - from CTE mismatch. Use proper thermal interface materials. (7) Cosmic ray failures - rare but possible at high altitude/voltage. Use derating. Starpower modules undergo extensive reliability testing to minimize these risks.",
+      "decisionGuide": "Contact our FAE team for reliability analysis and failure prevention strategies.",
+      "keywords": [
+        "failure modes",
+        "reliability",
+        "power module reliability"
+      ]
+    },
+    {
+      "question": "How do I parallel Starpower modules for higher current?",
+      "answer": "Paralleling Starpower modules for higher current: (1) Module matching - use modules from same production batch for similar characteristics. (2) Symmetrical layout - equalize busbar inductance and resistance to each module. (3) Separate gate drives - each module should have its own gate driver to prevent oscillations. (4) Current sharing - modules with positive temperature coefficient (SiC) share current better than IGBT. (5) Balancing resistors - small resistors (0.01-0.1Ω) in series with each module can improve current sharing. (6) Common heatsink - ensures similar operating temperatures. (7) Current monitoring - monitor each module for protection and diagnostics. Starpower modules are designed for parallel operation with proper design. Typical current imbalance <10% with good layout.",
+      "decisionGuide": "Contact our FAE team for parallel module design and layout guidelines.",
+      "keywords": [
+        "parallel modules",
+        "current sharing",
+        "module paralleling"
+      ]
+    },
+    {
+      "question": "What testing should be performed on systems using Starpower modules?",
+      "answer": "Recommended testing for systems with Starpower modules: (1) Electrical testing - verify static parameters (VCE(sat), VF, RDS(on)) at room temperature. (2) Functional testing - verify switching waveforms, gate drive signals, and control loops. (3) Thermal testing - measure case and heatsink temperatures at full load and maximum ambient. (4) Protection testing - verify overcurrent, overvoltage, and over-temperature protection functions. (5) Environmental testing - temperature cycling, humidity, and vibration per application requirements. (6) EMI testing - conducted and radiated emissions compliance. (7) Safety testing - hipot, insulation resistance, and ground continuity. (8) Reliability testing - accelerated life testing for mission-critical applications. Starpower provides test guidelines and can support qualification testing.",
+      "decisionGuide": "Contact our FAE team for test plan development and qualification support.",
+      "keywords": [
+        "power module testing",
+        "system validation",
+        "reliability testing"
+      ]
+    }
+  ],
+  "articles": [
+    {
+      "id": "how-to-select-starpower-igbt",
+      "title": "How to Select Starpower IGBT Modules for Your Application",
+      "summary": "Comprehensive guide to selecting the right Starpower IGBT module based on voltage, current, switching frequency, and thermal requirements",
+      "category": "Technical Guide",
+      "author": {
+        "name": "LiTong FAE Team",
+        "title": "Field Application Engineer",
+        "image": "/assets/authors/fae-team.jpg"
+      },
+      "publishDate": "2026-03-15",
+      "readTime": "15 min",
+      "tags": [
+        "IGBT selection",
+        "power modules",
+        "application guide"
+      ],
+      "contentSections": [
+        {
+          "heading": "Introduction",
+          "content": "Selecting the right IGBT module is critical for the performance, reliability, and cost-effectiveness of your power electronic system. This guide provides a systematic approach to selecting Starpower IGBT modules based on your application requirements."
+        },
+        {
+          "heading": "Voltage Rating Selection",
+          "content": "The voltage rating of an IGBT module must be selected with adequate margin above the maximum DC bus voltage in your application. As a general rule, the module voltage rating should be 1.5 to 2 times the maximum DC bus voltage. For example, for a 380VAC three-phase system with 540V DC bus, a 1200V IGBT module is appropriate. Consider voltage transients from switching and line disturbances when determining the required voltage rating."
+        },
+        {
+          "heading": "Current Rating Selection",
+          "content": "Current rating selection involves calculating the RMS current in your application and applying appropriate derating factors. For reliable operation, the module current rating should be at least 1.5 to 2 times the maximum RMS load current. Consider overload requirements, thermal limitations, and switching losses when determining the appropriate current rating."
+        },
+        {
+          "heading": "Switching Frequency Considerations",
+          "content": "The switching frequency of your application affects both the choice of IGBT module and the overall system design. Higher switching frequencies require modules with lower switching losses and may benefit from SiC hybrid modules or full SiC modules. Standard industrial drives typically operate at 4-8kHz, while high-performance drives may use 16kHz or higher."
+        },
+        {
+          "heading": "Thermal Design",
+          "content": "Proper thermal design is essential for reliable operation. Calculate the total power dissipation (conduction + switching losses) and ensure the cooling system can maintain the junction temperature within specified limits. Use the thermal resistance values provided in the datasheet and apply appropriate safety margins."
+        },
+        {
+          "heading": "Package Selection",
+          "content": "Starpower offers various package options including 34mm, 62mm, EasyPIM, and custom packages. Package selection depends on power level, cooling method, mechanical constraints, and cost considerations. Higher power applications typically require larger packages with better thermal performance."
+        }
+      ],
+      "faeInsights": {
+        "overview": "Based on our experience supporting hundreds of IGBT applications, here are practical insights for module selection:",
+        "keyPoints": [
+          "Always measure actual operating conditions - theoretical calculations often differ from reality",
+          "Consider worst-case scenarios: highest ambient, lowest line voltage, maximum load",
+          "Plan for 50% current derating for 100k hour reliability",
+          "Higher voltage modules have higher VCE(sat) - don't overspecify voltage rating",
+          "Package thermal resistance is as important as chip performance",
+          "Switching losses dominate at high frequency - verify with double-pulse tests"
+        ],
+        "recommendations": [
+          "For motor drives: Use 1200V modules for 380-480VAC systems",
+          "For solar inverters: Consider three-level topology with 600V modules for 1000V systems",
+          "For EV applications: Use automotive-qualified modules with AEC-Q101 certification",
+          "For parallel operation: Select modules from same batch for best current sharing"
+        ],
+        "commonIssues": [
+          "Undersizing: Results in overheating and reduced lifetime",
+          "Oversizing: Increases cost and may reduce efficiency due to higher VCE(sat)",
+          "Inadequate cooling: Most common cause of field failures",
+          "Poor layout: High parasitic inductance causes voltage overshoot"
+        ]
+      },
+      "customerCases": [
+        {
+          "company": "DriveSystems Inc.",
+          "industry": "Industrial Automation",
+          "challenge": "Selecting IGBT modules for 75kW servo drive with high overload requirements",
+          "solution": "Used GD100HFL120C2S with 50% current margin for 200% overload capability",
+          "results": "Reliable operation at 150% overload for 60 seconds, passed 1000-hour burn-in test",
+          "quote": "Proper module selection following Starpower guidelines ensured reliable operation under demanding conditions."
+        }
+      ],
+      "faqs": [
+        {
+          "question": "What is the recommended voltage margin for IGBT module selection?",
+          "answer": "For IGBT module voltage selection, we recommend a margin of 1.5 to 2 times the maximum DC bus voltage: (1) For 380VAC systems (540V DC bus), use 1200V modules. (2) For 220VAC systems (310V DC bus), 600V modules are sufficient. (3) For 690VAC systems (1000V DC bus), use 1700V modules. The margin accounts for voltage transients from switching (typically 1.3-1.5x DC bus), line surges, and safety margin. Higher voltage margins improve reliability but increase conduction losses due to higher VCE(sat). For applications with high line transients or long cable runs, use higher margin (2x).",
+          "decisionGuide": "Contact our FAE team for voltage rating analysis based on your specific application conditions.",
+          "keywords": [
+            "IGBT voltage rating",
+            "voltage margin",
+            "module voltage selection"
+          ]
+        },
+        {
+          "question": "How much current derating should I apply for reliable operation?",
+          "answer": "For reliable long-term operation, apply the following derating to Starpower IGBT modules: (1) Standard industrial: 50% derating (use module rated at 2x actual current). (2) High reliability/MIL applications: 60% derating. (3) High ambient temperature (>50°C): Additional 20% derating. (4) High switching frequency (>10kHz): Additional 10-20% derating due to switching losses. Example: For 50A RMS load current, select 100A module for standard industrial, 120A+ for high reliability. This derating accounts for current imbalance in parallel devices, temperature variations, and long-term reliability. Starpower modules are rated at Tc=80°C; derate further for higher case temperatures.",
+          "decisionGuide": "Contact our FAE team for derating analysis based on your reliability requirements.",
+          "keywords": [
+            "IGBT current derating",
+            "reliability derating",
+            "current margin"
+          ]
+        },
+        {
+          "question": "Should I choose IGBT or SiC modules for my application?",
+          "answer": "Choose between IGBT and SiC based on your application priorities: (1) Choose IGBT when: Cost is primary concern, switching frequency <10kHz, efficiency requirements moderate (>97%), mature design with proven reliability. (2) Choose SiC when: Highest efficiency needed (>98.5%), switching frequency >20kHz, power density critical, operating temperature high, total cost of ownership important. Cost comparison: SiC modules are 2-3x higher component cost but reduce system cost by 10-20% through smaller passive components, reduced cooling, and higher efficiency. For new designs, we generally recommend SiC for power levels >10kW and frequencies >16kHz.",
+          "decisionGuide": "Contact our FAE team for IGBT vs SiC cost-benefit analysis for your specific application.",
+          "keywords": [
+            "IGBT vs SiC selection",
+            "SiC module benefits",
+            "technology selection"
+          ]
+        },
+        {
+          "question": "How do I calculate power losses in IGBT modules?",
+          "answer": "Calculate IGBT module losses as follows: (1) Conduction loss: Pcond = VCE(sat) × I × D, where D is duty cycle. Use VCE(sat) at operating temperature (typically 1.5x room temp value). (2) Switching loss: Psw = (Eon + Eoff) × fsw, where Eon/Eoff from datasheet at operating current/voltage. (3) Diode loss: Pdiode = VF × I × (1-D) + Erec × fsw. (4) Total loss: Ptotal = Pcond_IGBT + Psw_IGBT + Pcond_diode + Psw_diode. Example: GD100HFL120C2S at 100A, 1.75V VCE(sat), 6.5mJ Eon+Eoff, 16kHz: Pcond = 1.75V × 100A × 0.5 = 87.5W, Psw = 6.5mJ × 16kHz = 104W, Ptotal ≈ 191W. Use Starpower's loss calculation tools for accurate estimation.",
+          "decisionGuide": "Contact our FAE team for detailed loss calculations and thermal analysis.",
+          "keywords": [
+            "IGBT loss calculation",
+            "conduction loss",
+            "switching loss"
+          ]
+        }
+      ],
+      "relatedArticles": [
+        "how-to-select-starpower-sic",
+        "starpower-thermal-design-guide",
+        "starpower-troubleshooting-guide"
+      ],
+      "slug": "how-to-select-starpower-igbt"
+    },
+    {
+      "id": "how-to-select-starpower-sic",
+      "title": "SiC MOSFET Module Application Guide",
+      "summary": "Complete guide to designing with Starpower SiC MOSFET modules including gate drive, layout, thermal management, and protection",
+      "category": "Application Note",
+      "author": {
+        "name": "LiTong FAE Team",
+        "title": "Field Application Engineer",
+        "image": "/assets/authors/fae-team.jpg"
+      },
+      "publishDate": "2026-03-10",
+      "readTime": "20 min",
+      "tags": [
+        "SiC MOSFET",
+        "gate drive",
+        "PCB layout",
+        "thermal design"
+      ],
+      "contentSections": [
+        {
+          "heading": "Introduction to SiC Technology",
+          "content": "Silicon Carbide (SiC) MOSFETs offer superior performance compared to silicon IGBTs including higher switching speeds, lower losses, and higher temperature operation. This guide covers the key design considerations for using Starpower SiC MOSFET modules."
+        },
+        {
+          "heading": "Gate Drive Requirements",
+          "content": "SiC MOSFETs require specific gate drive conditions for optimal performance. Recommended gate voltage is +18V for turn-on and -3V to -5V for turn-off. The negative turn-off voltage is critical for immunity against high dv/dt transients. Gate resistance should be 5-10Ω for fast switching while controlling EMI."
+        },
+        {
+          "heading": "PCB Layout Guidelines",
+          "content": "Proper PCB layout is essential for SiC MOSFET performance. Minimize gate loop inductance by using short, wide traces and placing the gate driver close to the module. Use Kelvin source connection to eliminate source inductance effects. Place decoupling capacitors close to the module terminals."
+        },
+        {
+          "heading": "Thermal Management",
+          "content": "SiC MOSFETs can operate at higher junction temperatures (up to 175°C) than silicon devices, but proper thermal management is still critical. Calculate losses based on RDS(on) at operating temperature and switching frequency. Design cooling system to maintain acceptable junction temperature under worst-case conditions."
+        },
+        {
+          "heading": "Protection Considerations",
+          "content": "SiC MOSFETs have limited short-circuit withstand time (2-5μs) compared to IGBTs. Implement fast overcurrent protection with response time <2μs. Use desaturation detection or shunt-based current sensing. Implement soft turn-off to prevent overvoltage spikes during fault conditions."
+        },
+        {
+          "heading": "EMI Management",
+          "content": "The high switching speed of SiC MOSFETs (dv/dt >50V/ns) can generate significant EMI. Implement proper filtering, shielding, and layout techniques to meet EMI requirements. Common mode filters and snubber circuits may be necessary depending on application requirements."
+        }
+      ],
+      "faeInsights": {
+        "overview": "Our experience with SiC module applications has revealed several critical design considerations:",
+        "keyPoints": [
+          "Gate drive design is the most critical factor - invest time in getting this right",
+          "Negative turn-off voltage (-3V to -5V) is essential, not optional",
+          "PCB layout mistakes are harder to fix than with IGBT - plan carefully",
+          "EMI will be worse than IGBT design - plan for additional filtering",
+          "Thermal management is easier due to lower losses but still critical",
+          "Protection must be faster - <2μs response time required"
+        ],
+        "recommendations": [
+          "Use gate drivers specifically designed for SiC (UCC21520, 1EDI20N12AF)",
+          "Implement active Miller clamp for high dv/dt immunity",
+          "Use 4-layer PCB minimum with dedicated power and ground planes",
+          "Plan for 30-50% more EMI filtering than equivalent IGBT design",
+          "Always use Kelvin source connection for gate drive"
+        ],
+        "commonIssues": [
+          "Gate oscillations: Insufficient damping or high gate loop inductance",
+          "False turn-on: Inadequate negative turn-off voltage or high dv/dt",
+          "Overvoltage failure: Poor layout causing excessive stray inductance",
+          "Thermal runaway: Inadequate cooling or high RDS(on) at temperature"
+        ]
+      },
+      "customerCases": [
+        {
+          "company": "PowerElectro GmbH",
+          "industry": "Power Electronics",
+          "challenge": "Designing 100kHz EV charger with SiC modules, experiencing gate oscillations",
+          "solution": "Redesigned gate drive with proper damping resistors and minimized loop inductance",
+          "results": "Eliminated oscillations, achieved clean switching, passed EMI testing",
+          "quote": "Following Starpower's SiC layout guidelines solved our gate drive issues and enabled successful product launch."
+        }
+      ],
+      "faqs": [
+        {
+          "question": "Why is negative gate voltage required for SiC MOSFETs?",
+          "answer": "Negative gate voltage (-3V to -5V) is critical for SiC MOSFETs due to: (1) High dv/dt immunity - SiC switches with dv/dt >50V/ns, which can capacitively couple through Cgd and cause false turn-on. Negative VGS ensures gate stays below threshold during high dv/dt. (2) Miller effect - during turn-off, high dv/dt causes current through Cgd that can raise gate voltage. Negative bias provides margin. (3) Threshold voltage variation - Vth can be as low as 2V; negative bias ensures reliable off-state. (4) Noise immunity - industrial environments have high noise levels; negative bias improves immunity. Without negative bias, false turn-on can cause shoot-through and module failure. Starpower strongly recommends -3V minimum, -5V preferred for high dv/dt applications.",
+          "decisionGuide": "Contact our FAE team for gate drive circuit design with proper negative voltage generation.",
+          "keywords": [
+            "SiC negative gate voltage",
+            "dv/dt immunity",
+            "Miller effect"
+          ]
+        },
+        {
+          "question": "What is the recommended PCB layout for SiC MOSFET modules?",
+          "answer": "Recommended PCB layout for Starpower SiC modules: (1) Gate loop - minimize inductance with short (<20mm), wide (>2mm) traces. Use dedicated gate return (Kelvin source). Target <10nH gate loop inductance. (2) Power loop - minimize DC bus loop area with laminated busbars or parallel planes. Target <50nH power loop inductance. (3) Decoupling - place 100nF-1μF ceramic capacitors within 10mm of module terminals. Use multiple vias to ground plane. (4) Gate driver - place within 25mm of module with direct connection to gate and Kelvin source pins. (5) Shielding - use ground planes and shielding for EMI control. (6) Thermal - use thermal vias under module mounting area. Starpower provides detailed layout examples in application notes.",
+          "decisionGuide": "Contact our FAE team for PCB layout review and optimization.",
+          "keywords": [
+            "SiC PCB layout",
+            "gate loop inductance",
+            "Kelvin source"
+          ]
+        },
+        {
+          "question": "How do I protect SiC MOSFETs from overcurrent faults?",
+          "answer": "SiC MOSFET overcurrent protection requires fast response (<2μs): (1) Detection methods: (a) Desaturation detection - monitor VDS during on-state; >7V indicates fault. Response time <1μs. (b) Shunt resistor - use low-inductance shunt with fast comparator. Response time <500ns. (2) Soft turn-off - gradual gate discharge (10-20μs) to prevent overvoltage spikes. (3) Gate clamping - active Miller clamp maintains negative voltage during fault. (4) Current limiting - implement cycle-by-cycle current limiting in control loop. (5) Fuse protection - semiconductor fuse for catastrophic failure. Key differences from IGBT: SiC has 2-5μs tSC vs 10μs for IGBT, requiring faster protection. SiC's fast switching actually helps by quickly limiting fault current once detected.",
+          "decisionGuide": "Contact our FAE team for protection circuit design and component selection.",
+          "keywords": [
+            "SiC overcurrent protection",
+            "desaturation detection",
+            "short-circuit protection"
+          ]
+        },
+        {
+          "question": "What EMI considerations are important for SiC designs?",
+          "answer": "EMI considerations for SiC MOSFET designs: (1) High dv/dt - SiC generates dv/dt >50V/ns, creating high-frequency EMI up to 100MHz+. (2) Common mode currents - high dv/dt drives currents through parasitic capacitances to ground. (3) Mitigation strategies: (a) Slow down switching with higher gate resistance (trade-off: higher losses). (b) Use common mode chokes on input/output lines. (c) Implement proper shielding and grounding. (d) Use snubber circuits to reduce voltage overshoot. (e) Filter design - LC filters with cutoff <1MHz for conducted EMI. (4) Layout - minimize loop areas, use ground planes, separate power and signal grounds. (5) Testing - plan for 30-50% more filtering than equivalent IGBT design. Starpower provides EMI test data and mitigation guidelines.",
+          "decisionGuide": "Contact our FAE team for EMI analysis and filter design support.",
+          "keywords": [
+            "SiC EMI",
+            "dv/dt EMI",
+            "EMI mitigation"
+          ]
+        }
+      ],
+      "relatedArticles": [
+        "how-to-select-starpower-igbt",
+        "starpower-thermal-design-guide",
+        "starpower-troubleshooting-guide"
+      ],
+      "slug": "how-to-select-starpower-sic"
+    },
+    {
+      "id": "starpower-thermal-design-guide",
+      "title": "Thermal Design and Heatsink Selection Guide",
+      "summary": "Comprehensive guide to thermal management for Starpower IGBT and SiC modules including heatsink selection, TIM recommendations, and cooling system design",
+      "category": "Design Guide",
+      "author": {
+        "name": "LiTong FAE Team",
+        "title": "Field Application Engineer",
+        "image": "/assets/authors/fae-team.jpg"
+      },
+      "publishDate": "2026-03-05",
+      "readTime": "18 min",
+      "tags": [
+        "thermal design",
+        "heatsink selection",
+        "cooling system",
+        "TIM"
+      ],
+      "contentSections": [
+        {
+          "heading": "Thermal Design Fundamentals",
+          "content": "Proper thermal design is essential for reliable operation of power modules. This guide covers the fundamentals of thermal management including heat transfer mechanisms, thermal resistance networks, and temperature limitations."
+        },
+        {
+          "heading": "Power Loss Calculation",
+          "content": "Accurate power loss calculation is the foundation of thermal design. Calculate conduction losses based on voltage drop and current, and switching losses based on switching energy and frequency. Consider temperature effects on parameters."
+        },
+        {
+          "heading": "Heatsink Selection",
+          "content": "Heatsink selection involves determining the required thermal resistance based on power dissipation, ambient temperature, and maximum allowable junction temperature. Consider heatsink material, fin geometry, and airflow for forced convection designs."
+        },
+        {
+          "heading": "Thermal Interface Materials",
+          "content": "Thermal interface materials (TIM) fill microscopic air gaps between module and heatsink. Select TIM based on thermal conductivity, thickness, compliance, and long-term reliability. Proper application is critical for performance."
+        },
+        {
+          "heading": "Cooling System Design",
+          "content": "Cooling system options include natural convection, forced air, and liquid cooling. Select based on power level, ambient conditions, and system constraints. Design for worst-case conditions with appropriate safety margins."
+        },
+        {
+          "heading": "Temperature Monitoring and Protection",
+          "content": "Implement temperature monitoring using NTC thermistors integrated in modules. Use temperature data for protection, thermal management, and diagnostics. Plan for overtemperature protection with appropriate thresholds."
+        }
+      ],
+      "faeInsights": {
+        "overview": "Thermal design is often the most overlooked aspect of power electronics design. Here are practical insights:",
+        "keyPoints": [
+          "Most field failures are thermal-related, not electrical",
+          "Thermal interface material can be 20-30% of total thermal resistance",
+          "Natural convection is rarely sufficient for modules >50A",
+          "Heatsink orientation affects performance significantly",
+          "Dust accumulation can reduce cooling performance by 30-50% over time",
+          "Always measure case temperature in prototype - don't rely only on calculations"
+        ],
+        "recommendations": [
+          "Use high-performance TIM (thermal conductivity >3W/mK)",
+          "Plan for 40-50°C ambient for industrial applications",
+          "Implement temperature monitoring on every design",
+          "Consider dust filters for harsh environments",
+          "Use thermal simulation to optimize design before prototyping"
+        ],
+        "commonIssues": [
+          "Insufficient mounting pressure - TIM not properly compressed",
+          "Uneven mounting - module not flat against heatsink",
+          "Inadequate airflow - hot air recirculation in enclosure",
+          "Wrong TIM type - phase change vs grease vs pad",
+          "Ignoring altitude - reduced air density at high altitude"
+        ]
+      },
+      "customerCases": [
+        {
+          "company": "CoolPower Systems",
+          "industry": "Power Electronics",
+          "challenge": "Overheating issues in 150kW inverter despite adequate heatsink sizing",
+          "solution": "Discovered poor TIM application and uneven mounting pressure; redesigned mounting",
+          "results": "Junction temperature reduced by 25°C, resolved thermal issues",
+          "quote": "Proper TIM application and mounting procedures made the difference between failure and reliable operation."
+        }
+      ],
+      "faqs": [
+        {
+          "question": "How do I calculate the required heatsink thermal resistance?",
+          "answer": "Calculate required heatsink thermal resistance using: RthSA = (Tj_max - Ta) / Ploss - RthJC - RthCS, where: Tj_max = maximum junction temperature (125-150°C for IGBT, 150-175°C for SiC), Ta = ambient temperature, Ploss = total power dissipation, RthJC = junction-to-case thermal resistance (from datasheet), RthCS = case-to-heatsink thermal resistance (typically 0.1-0.3K/W with TIM). Example: GD100HFL120C2S at 100A, 175W loss, Tj_max=125°C, Ta=40°C, RthJC=0.35K/W, RthCS=0.1K/W: RthSA = (125-40)/175 - 0.35 - 0.1 = 0.486 - 0.45 = 0.036K/W. This requires excellent cooling (liquid cooling or very large forced air heatsink). For practical designs, limit Tj to 100-110°C for long-term reliability.",
+          "decisionGuide": "Contact our FAE team for thermal calculations and heatsink selection.",
+          "keywords": [
+            "heatsink thermal resistance",
+            "thermal calculation",
+            "RthSA"
+          ]
+        },
+        {
+          "question": "What type of thermal interface material should I use?",
+          "answer": "TIM selection for Starpower modules: (1) Thermal grease (paste): Best thermal performance (0.05-0.1K·cm²/W), requires proper application (thin, uniform layer). Best for high-performance applications. (2) Phase change materials: Good performance (0.1-0.2K·cm²/W), easy application, reliable long-term. Good balance of performance and ease. (3) Thermal pads: Moderate performance (0.2-0.5K·cm²/W), easiest application, good for production. (4) Gap fillers: For uneven surfaces or large gaps. For Starpower modules, we recommend: High-performance applications - thermal grease (e.g., Shin-Etsu X-23-7762). General industrial - phase change (e.g., Honeywell PCM45F). Production environments - high-performance pad (thermal conductivity >5W/mK). Apply TIM per manufacturer guidelines - typically 0.1-0.2mm thickness.",
+          "decisionGuide": "Contact our FAE team for TIM recommendations and application guidelines.",
+          "keywords": [
+            "thermal interface material",
+            "TIM selection",
+            "thermal grease"
+          ]
+        },
+        {
+          "question": "How do I design a liquid cooling system for high-power modules?",
+          "answer": "Liquid cooling design for Starpower high-power modules: (1) Cold plate design: Use copper or aluminum with optimized channel geometry. Target thermal resistance <0.05K/W. (2) Flow rate: Typically 2-4 L/min per kW of heat dissipation. Higher flow improves heat transfer but increases pump power. (3) Coolant: Deionized water with corrosion inhibitors, or glycol/water mix for freeze protection. (4) Temperature rise: Design for 5-10°C temperature rise through cold plate. (5) Pressure drop: Balance between heat transfer and pump requirements; typically 0.2-0.5 bar. (6) Materials: Ensure compatibility between cold plate material and coolant; avoid galvanic corrosion. (7) Monitoring: Implement flow and temperature monitoring for protection. Example: 500W module with 0.05K/W cold plate, 25°C inlet: Tcase = 25 + 500 × 0.05 = 50°C, Tj = 50 + 500 × 0.35 = 225°C (too high). Need better cooling or lower power.",
+          "decisionGuide": "Contact our FAE team for liquid cooling system design and optimization.",
+          "keywords": [
+            "liquid cooling",
+            "cold plate design",
+            "water cooling"
+          ]
+        },
+        {
+          "question": "What mounting torque should I use for Starpower modules?",
+          "answer": "Mounting torque for Starpower modules: (1) 34mm modules: 2.5-3.0 N·m (22-27 lbf·in). Use M4 screws. (2) 62mm modules: 4.0-5.0 N·m (35-44 lbf·in). Use M5 screws. (3) EasyPACK/EasyPIM: 0.8-1.2 N·m (7-10.5 lbf·in). Use M3 screws. (4) General guidelines: Use torque wrench for consistent mounting. Apply torque in stages (50%, then 100%). Use proper thread engagement (1.5x screw diameter minimum). Use washers to distribute load. Follow cross-pattern for multiple screws. Overtorquing can damage module package or strip threads. Undertorquing results in high thermal resistance. Retorque after thermal cycling (24 hours operation). Starpower provides detailed mounting instructions in datasheets. Use specified torque for optimal thermal performance and reliability.",
+          "decisionGuide": "Contact our FAE team for mounting procedures and hardware recommendations.",
+          "keywords": [
+            "mounting torque",
+            "module mounting",
+            "heatsink attachment"
+          ]
+        }
+      ],
+      "relatedArticles": [
+        "how-to-select-starpower-igbt",
+        "how-to-select-starpower-sic",
+        "starpower-troubleshooting-guide"
+      ],
+      "slug": "starpower-thermal-design-guide"
+    },
+    {
+      "id": "starpower-troubleshooting-guide",
+      "title": "Troubleshooting Common Issues with Power Modules",
+      "summary": "Diagnostic guide for common problems in power module applications including overheating, gate drive issues, EMI, and protection faults",
+      "category": "Troubleshooting",
+      "author": {
+        "name": "LiTong FAE Team",
+        "title": "Field Application Engineer",
+        "image": "/assets/authors/fae-team.jpg"
+      },
+      "publishDate": "2026-03-01",
+      "readTime": "12 min",
+      "tags": [
+        "troubleshooting",
+        "fault diagnosis",
+        "failure analysis",
+        "debugging"
+      ],
+      "contentSections": [
+        {
+          "heading": "Introduction to Troubleshooting",
+          "content": "This guide provides systematic approaches to diagnosing and resolving common issues in power module applications. Proper troubleshooting requires understanding of circuit operation, measurement techniques, and failure modes."
+        },
+        {
+          "heading": "Overheating Issues",
+          "content": "Overheating is the most common field failure mode. Check thermal interface, heatsink mounting, cooling system operation, and power dissipation calculations. Measure case temperature and compare to expected values."
+        },
+        {
+          "heading": "Gate Drive Problems",
+          "content": "Gate drive issues manifest as excessive switching losses, EMI, or device failure. Verify gate voltage levels, rise/fall times, and waveform quality. Check for oscillations, ringing, and proper negative voltage for SiC devices."
+        },
+        {
+          "heading": "EMI and Noise Issues",
+          "content": "EMI problems can cause control circuit malfunction and regulatory compliance failures. Identify noise sources, check layout, verify filtering, and measure emissions. Common sources include high dv/dt switching and parasitic inductance."
+        },
+        {
+          "heading": "Protection Circuit Faults",
+          "content": "Protection circuits may nuisance trip or fail to protect. Verify protection thresholds, response times, and coordination between different protection functions. Test protection circuits under controlled fault conditions."
+        },
+        {
+          "heading": "Module Failure Analysis",
+          "content": "When modules fail, perform failure analysis to determine root cause. Visual inspection, electrical testing, and decapsulation can reveal failure mechanisms. Common causes include overvoltage, overcurrent, overheating, and manufacturing defects."
+        }
+      ],
+      "faeInsights": {
+        "overview": "After troubleshooting hundreds of field issues, here are the most common problems and solutions:",
+        "keyPoints": [
+          "80% of field failures are thermal-related - always check temperatures first",
+          "Gate drive issues are #2 cause - use scope to verify waveforms",
+          "Many 'module failures' are actually application circuit problems",
+          "Parasitic inductance is often underestimated - measure if possible",
+          "Protection circuits often misconfigured - verify settings",
+          "Documentation of test conditions is critical for remote troubleshooting"
+        ],
+        "recommendations": [
+          "Always measure case temperature during debugging",
+          "Use differential probes for high-side gate drive measurements",
+          "Check power supply voltages and ripple under load",
+          "Verify control signals with scope, not just multimeter",
+          "Document all test conditions and measurements"
+        ],
+        "commonIssues": [
+          "Gate oscillations: Insufficient damping or long gate traces",
+          "Overheating: Poor TIM application or inadequate cooling",
+          "EMI: Poor layout or insufficient filtering",
+          "Nuisance trips: Incorrect protection thresholds",
+          "Uneven current sharing: Asymmetrical layout in parallel modules"
+        ]
+      },
+      "customerCases": [
+        {
+          "company": "IndustrialDrives Co.",
+          "industry": "Industrial Automation",
+          "challenge": "Intermittent module failures in 100kW drive, suspected module quality issue",
+          "solution": "Analysis revealed gate oscillations due to long gate traces; redesigned PCB layout",
+          "results": "Eliminated failures, improved reliability, avoided costly module replacement",
+          "quote": "The troubleshooting guide helped us identify the real cause and avoid unnecessary module changes."
+        }
+      ],
+      "faqs": [
+        {
+          "question": "My module is running hot - what should I check?",
+          "answer": "Troubleshooting overheating in Starpower modules: (1) Verify power dissipation - measure actual VCE(sat)/VF and switching losses; compare to calculations. (2) Check thermal interface - ensure proper TIM application (thin, uniform layer, no air bubbles). (3) Verify mounting - check mounting torque, flatness, and contact area. (4) Measure temperatures - use IR camera or thermocouple on case; compare to expected Tcase = Ta + Ploss × (RthSA + RthCS). (5) Check cooling system - verify fan operation, airflow direction, air filters, and ambient temperature. (6) Inspect for degradation - TIM dries out over time; reapply if necessary. (7) Check for overload - verify actual load current vs rated current. Common fixes: Reapply TIM with proper technique, clean heatsink fins, replace fan, reduce switching frequency, or upgrade cooling system.",
+          "decisionGuide": "Contact our FAE team for thermal troubleshooting and failure analysis.",
+          "keywords": [
+            "overheating troubleshooting",
+            "thermal issues",
+            "high temperature"
+          ]
+        },
+        {
+          "question": "How do I diagnose gate drive problems?",
+          "answer": "Diagnosing gate drive issues in Starpower modules: (1) Voltage levels - verify +15V/-8V for IGBT or +18V/-3V for SiC with oscilloscope (not just multimeter). (2) Waveform quality - check for clean edges without excessive ringing or oscillations. (3) Rise/fall times - measure and compare to datasheet; IGBT typically 100-500ns, SiC 20-100ns. (4) Ringing - look for voltage overshoot >20% of gate voltage; indicates high inductance. (5) Miller plateau - verify proper plateau duration during switching. (6) Negative voltage - confirm negative turn-off voltage is present for entire off period. (7) Propagation delay - verify driver delay is consistent and within spec. Common problems: Insufficient gate resistor damping, long gate traces (>50mm), missing negative voltage (SiC), inadequate driver current capability, ground bounce. Use differential probe for high-side measurements.",
+          "decisionGuide": "Contact our FAE team for gate drive troubleshooting and waveform analysis.",
+          "keywords": [
+            "gate drive troubleshooting",
+            "switching waveform",
+            "gate oscillation"
+          ]
+        },
+        {
+          "question": "My protection circuit is tripping unexpectedly - how to debug?",
+          "answer": "Debugging nuisance trips in protection circuits: (1) Overcurrent trips - verify threshold is set correctly (typically 150-200% rated current). Check for noise on current sense signal; add filtering if needed. Verify current sensor calibration. (2) Desaturation trips - check blanking time (typically 1-2μs for IGBT, <1μs for SiC). Verify desat threshold (typically 7-9V). Check for noise coupling to desat circuit. (3) Overtemperature trips - verify NTC calibration and threshold setting. Check for loose connections in temperature sensing circuit. (4) Timing issues - ensure protection response time is appropriate for device tSC. (5) Coordination - verify multiple protection functions don't conflict. (6) Testing - use controlled fault injection to verify protection works correctly when needed. Common causes: Noise pickup on sense lines, incorrect threshold settings, inadequate filtering, ground loops.",
+          "decisionGuide": "Contact our FAE team for protection circuit debugging and optimization.",
+          "keywords": [
+            "nuisance trip",
+            "protection debugging",
+            "false triggering"
+          ]
+        },
+        {
+          "question": "How do I identify the root cause of a failed module?",
+          "answer": "Failure analysis for Starpower modules: (1) Visual inspection - look for burn marks, cracks, discoloration, or deformation. Check for arcing signs. (2) Electrical testing - measure gate threshold, breakdown voltage, and leakage currents. Compare to datasheet. (3) History review - examine operating conditions, fault records, and environmental factors prior to failure. (4) Common failure modes: (a) Overvoltage - damage near chip edges, gate oxide rupture. (b) Overcurrent - melted bond wires, metallization damage. (c) Overheating - discoloration, solder reflow. (d) ESD - gate oxide damage. (5) Decapsulation - remove package to inspect die (destructive). Look for hot spots, cracks, or contamination. (6) Report findings - document failure mode, operating conditions, and root cause. Starpower provides failure analysis support for warranty claims and field failures.",
+          "decisionGuide": "Contact our FAE team for failure analysis support and RMA process.",
+          "keywords": [
+            "failure analysis",
+            "module failure",
+            "root cause analysis"
+          ]
+        }
+      ],
+      "relatedArticles": [
+        "how-to-select-starpower-igbt",
+        "how-to-select-starpower-sic",
+        "starpower-thermal-design-guide"
+      ],
+      "slug": "starpower-troubleshooting-guide"
+    }
+  ]
+}

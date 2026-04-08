@@ -1,0 +1,564 @@
+{
+  "seoTitle": "Mitsubishi Electric Technical Support | Application Notes, FAQs, Design Resources | LiTong",
+  "seoDescription": "Mitsubishi Electric technical support resources including application notes, selection guides, FAQs, and design resources for IGBT modules, DIPIPMs, IPMs, and SiC MOSFETs.",
+  "seoKeywords": [
+    "Mitsubishi support",
+    "Mitsubishi technical support",
+    "Mitsubishi application note",
+    "Mitsubishi FAQ",
+    "mitsubishi distributor",
+    "mitsubishi authorized distributor",
+    "mitsubishi 选型",
+    "mitsubishi 选型指南"
+  ],
+  "categories": [
+    {
+      "id": "application-notes",
+      "name": "Application Notes",
+      "description": "Detailed technical application notes for Mitsubishi power semiconductor products"
+    },
+    {
+      "id": "selection-guides",
+      "name": "Selection Guides",
+      "description": "Product selection guides to help choose the right Mitsubishi product"
+    },
+    {
+      "id": "design-resources",
+      "name": "Design Resources",
+      "description": "Design resources including reference designs and simulation models"
+    },
+    {
+      "id": "technical-articles",
+      "name": "Technical Articles",
+      "description": "Technical articles on power electronics design and applications"
+    }
+  ],
+  "articles": [
+    {
+      "id": "igbt-module-selection",
+      "title": "IGBT Module Selection Guide",
+      "category": "selection-guides",
+      "author": {
+        "name": "Mitsubishi FAE Team",
+        "title": "Senior Application Engineer"
+      },
+      "publishDate": "2026-03-15",
+      "shortDescription": "Comprehensive guide for selecting the right Mitsubishi IGBT module for your application",
+      "tags": [
+        "IGBT",
+        "Selection Guide",
+        "Power Module"
+      ],
+      "content": "Selecting the right IGBT module is critical for power electronics design success. This guide provides a systematic approach to IGBT module selection based on application requirements, electrical specifications, and thermal considerations.",
+      "sections": [
+        {
+          "heading": "Understanding Voltage Rating Requirements",
+          "content": "The voltage rating of an IGBT module must accommodate the maximum DC bus voltage with adequate safety margin. For 380V AC input systems, the DC bus voltage is approximately 540V, requiring a 600V or 1200V IGBT module. For 480V AC systems, the DC bus reaches 680V, making 1200V modules necessary. Always include a 15-20% safety margin above the maximum expected DC bus voltage to account for voltage transients and regeneration conditions."
+        },
+        {
+          "heading": "Current Rating Selection",
+          "content": "Current rating selection involves calculating the RMS current under worst-case operating conditions. For motor drive applications, consider the motor rated current, overload requirements (typically 150% for 60 seconds), and thermal derating at high ambient temperatures. The module's current rating should exceed the calculated RMS current by at least 20% to ensure reliable operation and adequate lifespan."
+        },
+        {
+          "heading": "Switching Frequency Considerations",
+          "content": "Switching frequency selection involves trade-offs between efficiency, audible noise, and magnetic component size. Lower frequencies (2-5kHz) provide lower switching losses and higher efficiency but require larger magnetics and produce more audible noise. Higher frequencies (10-20kHz) enable compact designs with reduced audible noise but increase switching losses. Mitsubishi's NX series with 7th generation CSTBT technology is optimized for 2-15kHz operation."
+        },
+        {
+          "heading": "Package and Thermal Design",
+          "content": "Package selection must consider thermal management requirements, mounting constraints, and isolation requirements. Standard packages like the CM series offer proven reliability and wide availability. Thermal design must ensure the junction temperature remains within specified limits under all operating conditions. Calculate thermal resistance from junction to ambient and verify adequate heatsinking."
+        }
+      ],
+      "relatedProducts": [
+        {
+          "partNumber": "CM300DX-24S1",
+          "link": "/mitsubishi/products/cm300dx-24s1.html"
+        },
+        {
+          "partNumber": "CM600HU-12F",
+          "link": "/mitsubishi/products/cm600hu-12f.html"
+        }
+      ],
+      "relatedArticles": [
+        "article-1",
+        "article-2",
+        "article-3"
+      ],
+      "faqs": [
+        {
+          "question": "How do I determine the required voltage rating for my IGBT module?",
+          "answer": "To determine voltage rating: (1) Calculate maximum DC bus voltage: Vdc = Vac × √2 for rectifier-fed systems. (2) Add safety margin: 15-20% above maximum expected voltage. (3) Consider regeneration: Voltage can rise 10-20% during braking. (4) Account for transients: Add margin for voltage spikes from switching. (5) Example: 380V AC system → 540V DC → 650V with margin → Select 1200V module. (6) Standard ratings: 600V for 200V AC, 1200V for 380-480V AC, 1700V for 690V AC systems.",
+          "decisionGuide": "Always use 1200V modules for 380-480V AC systems; 600V only for 200V AC.",
+          "keywords": [
+            "voltage rating",
+            "DC bus voltage",
+            "safety margin"
+          ]
+        },
+        {
+          "question": "What is the difference between NX series and standard series IGBT modules?",
+          "answer": "NX series vs standard series: (1) Technology - NX uses 7th generation CSTBT; Standard uses 6th generation. (2) Efficiency - NX has 10-15% lower losses. (3) Switching speed - NX switches faster with better softness. (4) Applications - NX for high-efficiency drives; Standard for cost-sensitive. (5) Price - NX 15-20% higher cost. (6) Availability - Both widely available. (7) Package - Same mechanical dimensions. Choose NX for premium efficiency; Standard for cost optimization.",
+          "decisionGuide": "Choose NX for high-efficiency applications; Standard for cost-sensitive designs.",
+          "keywords": [
+            "NX series",
+            "standard series",
+            "CSTBT",
+            "efficiency comparison"
+          ]
+        },
+        {
+          "question": "How do I calculate power losses in an IGBT module?",
+          "answer": "Power loss calculation: (1) Conduction loss: Pcond = Vce(sat) × Ic × duty cycle. (2) Switching loss: Psw = (Eon + Eoff) × fsw. (3) Diode loss: Pd = Vf × If × duty + Err × fsw. (4) Example at 200A, 8kHz: Pcond = 1.7V × 200A × 0.8 = 272W, Psw = 60mJ × 8kHz = 480W, Total = 752W. (5) Use datasheet values at operating temperature. (6) Include temperature derating. (7) Verify against thermal limits.",
+          "decisionGuide": "Calculate losses at worst-case conditions; design thermal management accordingly.",
+          "keywords": [
+            "power loss",
+            "conduction loss",
+            "switching loss",
+            "thermal calculation"
+          ]
+        },
+        {
+          "question": "What gate drive voltage should I use for Mitsubishi IGBT modules?",
+          "answer": "Gate drive voltage recommendations: (1) Turn-on voltage: +15V ± 0.5V for full conduction. (2) Turn-off voltage: -5V to -8V for reliable turn-off. (3) Gate resistance: 2.2Ω to 10Ω depending on speed requirements. (4) Power: ~2-4W per IGBT at 8kHz. (5) Isolation: >2500Vrms required. (6) Use isolated DC-DC converters. (7) Include Miller clamp for high dv/dt. The +15V/-8V combination provides optimal performance and reliability.",
+          "decisionGuide": "Use +15V/-8V for industrial applications; adjust gate resistance for EMI control.",
+          "keywords": [
+            "gate drive",
+            "gate voltage",
+            "gate resistance",
+            "isolation"
+          ]
+        },
+        {
+          "question": "How do I select the right heatsink for my IGBT module?",
+          "answer": "Heatsink selection process: (1) Calculate total losses at operating point. (2) Determine maximum allowable junction temperature (typically 150°C). (3) Calculate required thermal resistance: Rth(s-a) = (Tjmax - Ta)/P - Rth(j-c) - Rth(c-s). (4) Select heatsink with adequate Rth(s-a). (5) Consider airflow: Natural convection, forced air, or liquid cooling. (6) Include thermal interface material resistance. (7) Verify with thermal simulation. For high-power modules, liquid cooling often provides best performance.",
+          "decisionGuide": "Calculate required thermal resistance; choose cooling method based on power density.",
+          "keywords": [
+            "heatsink",
+            "thermal resistance",
+            "cooling",
+            "thermal design"
+          ]
+        },
+        {
+          "question": "Can I parallel IGBT modules for higher current?",
+          "answer": "Paralleling IGBT modules: (1) Static sharing: Match Vce(sat) from same production lot. (2) Dynamic sharing: Symmetric layout with equal inductance. (3) Gate drive: Common driver with individual gate resistors. (4) Current imbalance: Expect 10-15% variation. (5) Derating: Use 80% of combined rating. (6) Layout: Short, wide connections between modules. (7) Testing: Verify current sharing under load. With proper design, paralleled modules can achieve 2-3x individual current capability.",
+          "decisionGuide": "Use matched modules; implement symmetric layout; verify current sharing.",
+          "keywords": [
+            "paralleling",
+            "current sharing",
+            "parallel operation"
+          ]
+        }
+      ],
+      "slug": "igbt-module-selection",
+      "faeInsights": {
+        "author": "FAE Team",
+        "content": "This article provides valuable technical information.",
+        "highlight": "Key technical insights"
+      },
+      "customerCases": [
+        {
+          "customer": "Customer",
+          "industry": "Industry",
+          "challenge": "Technical challenge",
+          "solution": "Applied solution",
+          "results": "Successful outcome"
+        }
+      ],
+      "summary": "Technical article about IGBT Module Selection Guide with practical guidance and best practices."
+    },
+    {
+      "id": "dipipm-application-guide",
+      "title": "DIPIPM Application Design Guide",
+      "category": "application-notes",
+      "author": {
+        "name": "Mitsubishi FAE Team",
+        "title": "Senior Application Engineer"
+      },
+      "publishDate": "2026-03-10",
+      "shortDescription": "Complete design guide for Mitsubishi DIPIPM applications in home appliances",
+      "tags": [
+        "DIPIPM",
+        "Application Note",
+        "Motor Control"
+      ],
+      "content": "Mitsubishi DIPIPMs are the industry-leading intelligent power modules for home appliance motor control. This application guide covers all aspects of DIPIPM-based design including circuit design, PCB layout, thermal management, and protection implementation.",
+      "sections": [
+        {
+          "heading": "DIPIPM Basics and Advantages",
+          "content": "DIPIPM (Dual-In-Line Package Intelligent Power Module) integrates six IGBTs, freewheeling diodes, high-voltage integrated circuits (HVIC), bootstrap diodes, and protection functions in a compact package. This high integration reduces external component count by approximately 70% compared to discrete solutions, significantly reducing design time and system cost."
+        },
+        {
+          "heading": "Bootstrap Circuit Design",
+          "content": "The bootstrap circuit provides the high-side gate drive supply without requiring an isolated power supply. The bootstrap capacitor charges through the internal bootstrap diode when the low-side IGBT is on. Proper capacitor sizing is critical to ensure adequate gate drive voltage under all operating conditions."
+        },
+        {
+          "heading": "Control Interface Design",
+          "content": "DIPIPM control interface uses logic-level inputs compatible with 3.3V and 5V microcontrollers. The built-in HVIC provides electrical isolation between the control and power circuits. Control signals include high-side and low-side inputs for each phase, plus fault output for protection monitoring."
+        }
+      ],
+      "relatedProducts": [
+        {
+          "partNumber": "PS219A4-ASTX",
+          "link": "/mitsubishi/products/ps219a4-astx.html"
+        },
+        {
+          "partNumber": "PS22A7A-ASTX",
+          "link": "/mitsubishi/products/ps22a7a-astx.html"
+        }
+      ],
+      "relatedArticles": [
+        "article-1",
+        "article-2",
+        "article-3"
+      ],
+      "faqs": [
+        {
+          "question": "What are the main advantages of using DIPIPM over discrete IGBTs?",
+          "answer": "DIPIPM advantages: (1) Integration - 70% fewer external components. (2) Design time - Faster time-to-market. (3) Cost - Lower total system cost. (4) Reliability - Factory-tested, proven in 100M+ units. (5) Protection - Built-in UVLO, OT, FO. (6) Size - Compact DIP package. (7) Support - Extensive application support. DIPIPM is the proven choice for appliance motor control.",
+          "decisionGuide": "Use DIPIPM for appliances up to 2.2kW; discrete for higher power or special requirements.",
+          "keywords": [
+            "DIPIPM advantages",
+            "integration",
+            "appliance design"
+          ]
+        },
+        {
+          "question": "How do I calculate the bootstrap capacitor value?",
+          "answer": "Bootstrap capacitor calculation: (1) Formula: Cboot > 2×(2Qg + Iq/fsw + Qls)/Vripple. (2) Qg: Total gate charge of high-side IGBT. (3) Iq: Quiescent current of HVIC. (4) fsw: Switching frequency. (5) Qls: Charge required per switching cycle. (6) Vripple: Allowed voltage ripple (typically 1V). (7) Typical value: 10-47μF, 25V rating. Use low-ESR ceramic or electrolytic capacitor.",
+          "decisionGuide": "Use 22μF typical; calculate for specific application requirements.",
+          "keywords": [
+            "bootstrap capacitor",
+            "bootstrap calculation",
+            "HVIC supply"
+          ]
+        },
+        {
+          "question": "What protection functions are built into DIPIPM?",
+          "answer": "DIPIPM protection features: (1) UVLO - Undervoltage lockout disables output below 10.5V. (2) OT - Overtemperature shutdown at 145°C. (3) FO - Fault output indicates protection activation. (4) SC - Short-circuit protection with soft turn-off. (5) Interlock - Prevents shoot-through. (6) Input filter - 1μs noise filter. These protections operate automatically without external circuitry.",
+          "decisionGuide": "All protections active by default; monitor FO pin for fault detection.",
+          "keywords": [
+            "protection",
+            "UVLO",
+            "overtemperature",
+            "fault output"
+          ]
+        },
+        {
+          "question": "How do I interface DIPIPM with my microcontroller?",
+          "answer": "MCU interface: (1) Control inputs - 6 pins (HIN/LIN per phase). (2) Logic level - 3.3V or 5V compatible. (3) Input current - 1mA typical. (4) Pull-down - Built-in, no external needed. (5) Dead time - Add 2-5μs in software. (6) FO output - Open-drain, use 10kΩ pull-up. (7) VFO - Connect to MCU VCC. Interface requires only 6 GPIO pins and one pull-up resistor.",
+          "decisionGuide": "Connect directly to MCU; add software dead time; use pull-up on FO.",
+          "keywords": [
+            "MCU interface",
+            "control inputs",
+            "microcontroller"
+          ]
+        },
+        {
+          "question": "What is the maximum motor power for DIPIPM applications?",
+          "answer": "DIPIPM power capability: (1) Super Mini - Up to 1.5kW with 20A modules. (2) Large DIPIPM+ - Up to 2.2kW with 30A modules. (3) Voltage - 600V for 220V AC systems. (4) Current - Continuous rating at 25°C ambient. (5) Overload - 150% for 60 seconds typical. (6) Applications - Air conditioners, refrigerators, washing machines. (7) Limitations - Not suitable for industrial drives above 2.2kW.",
+          "decisionGuide": "Use DIPIPM for appliances up to 2.2kW; IGBT modules for higher power.",
+          "keywords": [
+            "power rating",
+            "motor power",
+            "appliance power"
+          ]
+        },
+        {
+          "question": "How do I troubleshoot DIPIPM fault conditions?",
+          "answer": "DIPIPM troubleshooting: (1) Check FO pin - Low indicates fault condition. (2) UVLO fault - Check 15V supply voltage and decoupling. (3) OT fault - Verify heatsinking and airflow. (4) SC fault - Check for motor short or wiring error. (5) Input signals - Verify dead time and signal integrity. (6) Bootstrap - Check capacitor value and charging. (7) Reset - Cycle power or toggle reset pin. Most faults can be diagnosed by monitoring FO and supply voltages.",
+          "decisionGuide": "Monitor FO pin; check supply voltages; verify thermal design.",
+          "keywords": [
+            "troubleshooting",
+            "fault diagnosis",
+            "FO pin"
+          ]
+        }
+      ],
+      "slug": "dipipm-application-guide",
+      "faeInsights": {
+        "author": "FAE Team",
+        "content": "This article provides valuable technical information.",
+        "highlight": "Key technical insights"
+      },
+      "customerCases": [
+        {
+          "customer": "Customer",
+          "industry": "Industry",
+          "challenge": "Technical challenge",
+          "solution": "Applied solution",
+          "results": "Successful outcome"
+        }
+      ],
+      "summary": "Technical article about DIPIPM Application Design Guide with practical guidance and best practices."
+    },
+    {
+      "id": "thermal-design-guide",
+      "title": "Thermal Design Guide for Power Modules",
+      "category": "design-resources",
+      "author": {
+        "name": "Mitsubishi FAE Team",
+        "title": "Senior Application Engineer"
+      },
+      "publishDate": "2026-03-05",
+      "shortDescription": "Comprehensive thermal design guidelines for Mitsubishi power modules",
+      "tags": [
+        "Thermal Design",
+        "Heatsink",
+        "Power Module"
+      ],
+      "content": "Proper thermal design is essential for reliable operation of power semiconductor modules. This guide covers thermal resistance calculations, heatsink selection, thermal interface materials, and thermal management strategies for Mitsubishi IGBT modules, IPMs, and SiC MOSFETs.",
+      "sections": [
+        {
+          "heading": "Understanding Thermal Resistance",
+          "content": "Thermal resistance represents the temperature rise per unit of power dissipation, analogous to electrical resistance. The total thermal resistance from junction to ambient consists of junction-to-case (Rth(j-c)), case-to-heatsink (Rth(c-s)), and heatsink-to-ambient (Rth(s-a)) resistances in series. Understanding these components is essential for accurate thermal design."
+        },
+        {
+          "heading": "Power Loss Calculation",
+          "content": "Accurate power loss calculation is the foundation of thermal design. Losses consist of conduction losses (dependent on current and on-state voltage drop) and switching losses (dependent on switching energy and frequency). These losses vary with operating conditions including current, voltage, temperature, and switching frequency."
+        },
+        {
+          "heading": "Heatsink Selection and Design",
+          "content": "Heatsink selection involves calculating the required thermal resistance based on maximum allowable junction temperature, ambient temperature, and total power dissipation. Various cooling methods are available including natural convection, forced air cooling, and liquid cooling, each with different trade-offs between performance, cost, and complexity."
+        }
+      ],
+      "relatedProducts": [
+        {
+          "partNumber": "CM300DX-24S1",
+          "link": "/mitsubishi/products/cm300dx-24s1.html"
+        },
+        {
+          "partNumber": "BSM120DNO12C",
+          "link": "/mitsubishi/products/bsm120dno12c.html"
+        }
+      ],
+      "relatedArticles": [
+        "article-1",
+        "article-2",
+        "article-3"
+      ],
+      "faqs": [
+        {
+          "question": "What is the thermal resistance chain in a power module?",
+          "answer": "Thermal resistance chain: (1) Rth(j-c) - Junction to case, fixed by module design. (2) Rth(c-s) - Case to heatsink, depends on interface material. (3) Rth(s-a) - Heatsink to ambient, depends on heatsink design. (4) Total: Rth(j-a) = Rth(j-c) + Rth(c-s) + Rth(s-a). (5) Temperature rise: ΔT = P × Rth. (6) Junction temp: Tj = Ta + ΔT. (7) Design goal: Keep Tj below maximum rating under all conditions.",
+          "decisionGuide": "Minimize each thermal resistance; Rth(s-a) is usually the dominant term.",
+          "keywords": [
+            "thermal resistance",
+            "Rth",
+            "thermal chain",
+            "junction temperature"
+          ]
+        },
+        {
+          "question": "How do I select the right thermal interface material?",
+          "answer": "Thermal interface material selection: (1) Thermal grease - Best performance, 0.1-0.5°C·cm²/W. (2) Thermal pads - Easier assembly, 0.5-3°C·cm²/W. (3) Phase change - Good compromise, 0.2-0.5°C·cm²/W. (4) Application - Grease for high power, pads for ease of use. (5) Thickness - Thinner is better for grease. (6) Pressure - Higher pressure improves contact. (7) Long-term stability - Consider pump-out and dry-out. For IGBT modules, thermal grease typically provides best performance.",
+          "decisionGuide": "Use thermal grease for best performance; phase change for easier assembly.",
+          "keywords": [
+            "thermal interface",
+            "thermal grease",
+            "thermal pad",
+            "TIM"
+          ]
+        },
+        {
+          "question": "What cooling methods are available for power modules?",
+          "answer": "Cooling methods comparison: (1) Natural convection - Simple, no noise, limited to <50W. (2) Forced air - Moderate cost, good for 50-500W. (3) Liquid cooling - Best performance, 500W+, compact. (4) Heat pipes - Excellent for concentrated heat. (5) Vapor chamber - Uniform temperature distribution. (6) Selection criteria - Power density, ambient temperature, noise, cost. (7) Hybrid - Combine methods for specific needs. For industrial drives, forced air or liquid cooling are most common.",
+          "decisionGuide": "Choose based on power density; forced air for most applications; liquid for high power.",
+          "keywords": [
+            "cooling",
+            "heatsink",
+            "liquid cooling",
+            "forced air"
+          ]
+        },
+        {
+          "question": "How do I calculate the required heatsink size?",
+          "answer": "Heatsink calculation: (1) Determine total power loss P. (2) Set maximum Tj and ambient Ta. (3) Calculate allowed ΔT = Tjmax - Ta. (4) Calculate required Rth(j-a) = ΔT/P. (5) Subtract Rth(j-c) and Rth(c-s) to get required Rth(s-a). (6) Select heatsink with Rth(s-a) less than calculated. (7) Include safety margin (typically 20%). Example: P=500W, Tjmax=150°C, Ta=50°C, Rth(j-c)=0.08, Rth(c-s)=0.1 → Rth(s-a) < 0.12°C/W required.",
+          "decisionGuide": "Calculate required Rth(s-a); select heatsink with adequate margin.",
+          "keywords": [
+            "heatsink sizing",
+            "thermal calculation",
+            "Rth calculation"
+          ]
+        },
+        {
+          "question": "What is the effect of altitude on thermal performance?",
+          "answer": "Altitude effects on cooling: (1) Air density - Decreases with altitude. (2) Natural convection - Rth increases ~10% per 1000m. (3) Forced air - Rth increases ~5% per 1000m. (4) Liquid cooling - Minimal altitude effect. (5) Derating - May need to reduce current at high altitude. (6) Example: At 3000m, natural convection Rth increases ~30%. (7) Design consideration - Account for maximum operating altitude. For high-altitude applications, liquid cooling is preferred.",
+          "decisionGuide": "Derate for altitude above 1000m; consider liquid cooling for high altitude.",
+          "keywords": [
+            "altitude",
+            "high altitude",
+            "air density",
+            "derating"
+          ]
+        },
+        {
+          "question": "How do I verify my thermal design?",
+          "answer": "Thermal verification methods: (1) Temperature measurement - Thermocouples on case and heatsink. (2) Infrared camera - Visual temperature distribution. (3) NTC monitoring - Use built-in temperature sensors. (4) Thermal simulation - CFD or thermal modeling software. (5) Overload testing - Verify under worst-case conditions. (6) Long-term monitoring - Track temperature trends. (7) Validation - Compare measured vs calculated temperatures. Good correlation validates the design methodology.",
+          "decisionGuide": "Use multiple verification methods; validate with actual measurements.",
+          "keywords": [
+            "thermal verification",
+            "temperature measurement",
+            "thermal testing"
+          ]
+        }
+      ],
+      "slug": "thermal-design-guide",
+      "faeInsights": {
+        "author": "FAE Team",
+        "content": "This article provides valuable technical information.",
+        "highlight": "Key technical insights"
+      },
+      "customerCases": [
+        {
+          "customer": "Customer",
+          "industry": "Industry",
+          "challenge": "Technical challenge",
+          "solution": "Applied solution",
+          "results": "Successful outcome"
+        }
+      ],
+      "summary": "Technical article about Thermal Design Guide for Power Modules with practical guidance and best practices."
+    },
+    {
+      "id": "sic-mosfet-design-guide",
+      "title": "SiC MOSFET Design Guide",
+      "category": "technical-articles",
+      "author": {
+        "name": "Mitsubishi FAE Team",
+        "title": "Senior Application Engineer"
+      },
+      "publishDate": "2026-03-01",
+      "shortDescription": "Design guidelines for implementing Mitsubishi SiC MOSFETs in high-efficiency power converters",
+      "tags": [
+        "SiC",
+        "MOSFET",
+        "Design Guide"
+      ],
+      "content": "Silicon Carbide (SiC) MOSFETs offer significant advantages over traditional silicon IGBTs including higher efficiency, faster switching speeds, and better high-temperature performance. This design guide covers gate drive requirements, PCB layout considerations, protection strategies, and application-specific recommendations for Mitsubishi SiC MOSFET modules.",
+      "sections": [
+        {
+          "heading": "SiC Technology Advantages",
+          "content": "SiC MOSFETs provide several key advantages: 70-90% lower switching losses compared to IGBTs, enabling higher switching frequencies up to 100kHz; unipolar device characteristics resulting in no tail current and faster switching; positive temperature coefficient of on-resistance enabling easy parallel operation; and higher junction temperature capability up to 200°C for improved reliability."
+        },
+        {
+          "heading": "Gate Drive Requirements",
+          "content": "SiC MOSFETs require different gate drive conditions than IGBTs. Recommended gate voltage is +18V for turn-on and -3V to -5V for turn-off. The higher turn-on voltage ensures lowest on-resistance, while negative turn-off voltage prevents false turn-on due to high dv/dt. Gate resistance values are typically lower than IGBTs, in the range of 2-10 ohms."
+        },
+        {
+          "heading": "PCB Layout Considerations",
+          "content": "The fast switching speed of SiC MOSFETs makes PCB layout critical. Minimize parasitic inductance in the gate loop and power loop to prevent voltage overshoot and ringing. Use low-ESR decoupling capacitors placed close to the module terminals. Implement proper grounding and shielding techniques to manage EMI."
+        }
+      ],
+      "relatedProducts": [
+        {
+          "partNumber": "BSM120DNO12C",
+          "link": "/mitsubishi/products/bsm120dno12c.html"
+        },
+        {
+          "partNumber": "BSM80DNO12C",
+          "link": "/mitsubishi/products/bsm80dno12c.html"
+        }
+      ],
+      "relatedArticles": [
+        "article-1",
+        "article-2",
+        "article-3"
+      ],
+      "faqs": [
+        {
+          "question": "What are the key differences between SiC MOSFET and IGBT gate drive?",
+          "answer": "Gate drive differences: (1) Voltage - SiC: +18V/-5V vs IGBT: +15V/-8V. (2) Resistance - SiC: 2-10Ω vs IGBT: 5-20Ω. (3) Current - SiC requires higher peak current for fast switching. (4) dv/dt - SiC generates higher dv/dt, needs careful layout. (5) Miller effect - Less problematic in SiC. (6) Dead time - Can be shorter with SiC (100-200ns). (7) Driver selection - Use SiC-optimized drivers. These differences require dedicated gate driver design for SiC.",
+          "decisionGuide": "Use dedicated SiC gate drivers; follow recommended voltage levels.",
+          "keywords": [
+            "SiC gate drive",
+            "gate voltage",
+            "IGBT comparison"
+          ]
+        },
+        {
+          "question": "How does SiC switching frequency affect system design?",
+          "answer": "SiC frequency impact: (1) Magnetics - Higher frequency enables smaller inductors and transformers. (2) Capacitors - Lower capacitance requirements. (3) EMI - Higher frequency requires better filtering. (4) Efficiency - Switching losses increase with frequency but remain lower than IGBT. (5) Thermal - Lower losses reduce cooling requirements. (6) Cost - Smaller magnetics offset higher semiconductor cost. (7) Sweet spot - 20-50kHz for most applications. SiC enables significant system size reduction through higher frequency operation.",
+          "decisionGuide": "Optimize frequency for magnetic size vs efficiency trade-off; 20-50kHz typical.",
+          "keywords": [
+            "switching frequency",
+            "magnetics",
+            "SiC frequency"
+          ]
+        },
+        {
+          "question": "What are the body diode characteristics of SiC MOSFETs?",
+          "answer": "SiC body diode characteristics: (1) Forward voltage - Higher than Si diode (3-4V vs 1V). (2) Reverse recovery - Extremely fast, Qrr ~100x lower than Si. (3) Switching loss - Negligible reverse recovery loss. (4) Reliability - No degradation from forward conduction. (5) Applications - Can replace external SiC Schottky in many cases. (6) Limitations - Higher conduction loss than SiC Schottky. (7) Recommendation - Use body diode for freewheeling; external Schottky for highest efficiency. The fast recovery is a major advantage over IGBT antiparallel diodes.",
+          "decisionGuide": "Body diode suitable for most applications; add external Schottky for highest efficiency.",
+          "keywords": [
+            "body diode",
+            "reverse recovery",
+            "SiC diode"
+          ]
+        },
+        {
+          "question": "How do I protect SiC MOSFETs from overcurrent and short-circuit?",
+          "answer": "SiC protection strategies: (1) Desaturation detection - Monitor Vds during on-state. (2) Response time - Must be <2μs for SiC (faster than IGBT). (3) Soft turn-off - Prevent voltage overshoot during fault. (4) Gate clamping - Prevent overvoltage on gate. (5) dv/dt limiting - May need snubber for high dv/dt. (6) Overvoltage - Active clamping or TVS protection. (7) Temperature - Monitor with built-in NTC. SiC's fast switching requires faster protection response than IGBT.",
+          "decisionGuide": "Implement fast desaturation detection; use soft turn-off; protect gate from overvoltage.",
+          "keywords": [
+            "protection",
+            "short-circuit",
+            "desaturation",
+            "overcurrent"
+          ]
+        },
+        {
+          "question": "What are the layout critical parameters for SiC designs?",
+          "answer": "Critical layout parameters: (1) Gate loop inductance - Keep <10nH for stable switching. (2) Power loop inductance - Minimize to reduce voltage overshoot. (3) decoupling - Place high-frequency capacitors at module terminals. (4) Grounding - Separate power and control grounds. (5) Shielding - Use ground planes under switching nodes. (6) Clearance - Adequate spacing for high dv/dt. (7) Symmetry - Symmetric layout for paralleled devices. Use simulation to verify layout before prototyping.",
+          "decisionGuide": "Minimize all parasitic inductances; use simulation to verify layout.",
+          "keywords": [
+            "layout",
+            "parasitic inductance",
+            "PCB design",
+            "gate loop"
+          ]
+        },
+        {
+          "question": "How does SiC performance vary with temperature?",
+          "answer": "SiC temperature characteristics: (1) Rds(on) - Increases ~0.5%/°C (positive tempco). (2) At 150°C - Rds(on) ~1.5x value at 25°C. (3) Switching - Minimal change with temperature. (4) Threshold voltage - Decreases ~2mV/°C. (5) Body diode - Vf increases with temperature. (6) Reliability - Excellent high-temperature performance. (7) Comparison - Much more stable than IGBT across temperature. Design for maximum junction temperature considering Rds(on) increase.",
+          "decisionGuide": "Account for Rds(on) increase at high temperature; design thermal management accordingly.",
+          "keywords": [
+            "temperature",
+            "Rds(on)",
+            "thermal performance",
+            "high temperature"
+          ]
+        }
+      ],
+      "slug": "sic-mosfet-design-guide",
+      "faeInsights": {
+        "author": "FAE Team",
+        "content": "This article provides valuable technical information.",
+        "highlight": "Key technical insights"
+      },
+      "customerCases": [
+        {
+          "customer": "Customer",
+          "industry": "Industry",
+          "challenge": "Technical challenge",
+          "solution": "Applied solution",
+          "results": "Successful outcome"
+        }
+      ],
+      "summary": "Technical article about SiC MOSFET Design Guide with practical guidance and best practices."
+    }
+  ],
+  "faqs": [
+    {
+      "question": "How do I get technical support for mitsubishi products?",
+      "answer": "You can contact our technical support team via email, phone, or through our website. Our FAEs are available to help with product selection, application questions, and troubleshooting."
+    },
+    {
+      "question": "Where can I find datasheets and technical documentation?",
+      "answer": "All datasheets, application notes, and technical documentation are available on our website. You can also contact us for specific documents or additional information."
+    },
+    {
+      "question": "Do you offer evaluation kits?",
+      "answer": "Yes, evaluation kits are available for most products. Contact our sales team to request evaluation kits for your project."
+    }
+  ]
+}

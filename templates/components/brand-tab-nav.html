@@ -1,0 +1,27 @@
+<!-- templates/components/brand-tab-nav.html -->
+<nav class="brand-tab-nav" aria-label="Brand navigation">
+  <div class="container">
+    <ul class="tab-list">
+      <li>
+        <a href="/<%= brand.name.toLowerCase() %>/" class="tab-item<%= page === 'about' ? ' active' : '' %>">
+          About Brand
+        </a>
+      </li>
+      <li>
+        <a href="/<%= brand.name.toLowerCase() %>/products/" class="tab-item<%= page === 'products' || page === 'category' || page === 'product-detail' ? ' active' : '' %>">
+          Products
+        </a>
+      </li>
+      <li>
+        <a href="/<%= brand.name.toLowerCase() %>/solutions/" class="tab-item<%= page === 'solutions' || page === 'solution-detail' ? ' active' : '' %>">
+          Solutions
+        </a>
+      </li>
+      <li>
+        <a href="/<%= brand.name.toLowerCase() %>/support/" class="tab-item<%= page === 'support' || page === 'support-detail' ? ' active' : '' %>">
+          Support
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>

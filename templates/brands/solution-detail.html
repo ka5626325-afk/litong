@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= solution.title %> | <%= brand.displayName %> Solution</title>
+  <meta name="description" content="<%= solution.description %>">
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "<%= solution.title %>",
+    "description": "<%= solution.description %>"
+  }
+  </script>
+  
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="/assets/css/navbar.css">
+  <link rel="stylesheet" href="/assets/css/footer.css">
+  <link rel="stylesheet" href="/assets/css/breadcrumb.css">
+  <link rel="stylesheet" href="/assets/css/brand-tab-nav.css">
+  <link rel="stylesheet" href="/assets/css/floating-contact.css">
+  
+  <style>
+    .solution-detail { padding: var(--space-16) 0; }
+    .solution-header { text-align: center; margin-bottom: var(--space-12); }
+    .solution-header h1 { font-size: 2.5rem; color: var(--primary-blue); margin-bottom: var(--space-4); }
+    .solution-diagram { background: linear-gradient(135deg, var(--primary-blue), var(--primary-blue-dark)); height: 300px; border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center; color: #ffffff; font-size: 4rem; margin-bottom: var(--space-12); }
+
+    .solution-layout { display: grid; grid-template-columns: 1fr 300px; gap: var(--space-12); }
+    .solution-content { max-width: 900px; }
+    .solution-content h2 { font-size: 1.75rem; margin: var(--space-8) 0 var(--space-4); padding-left: 16px; border-left: 4px solid var(--primary-blue); }
+    .solution-content p { line-height: 1.8; color: var(--text-medium); margin-bottom: var(--space-4); }
+
+    .advantages-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-4); margin: var(--space-6) 0; }
+    .advantage-item { background: var(--bg-light); padding: var(--space-4); border-radius: var(--radius-md); display: flex; align-items: center; gap: var(--space-3); }
+    .advantage-item::before { content: '✓'; color: var(--success-green); font-weight: bold; font-size: 1.25rem; }
+
+    .bom-table { width: 100%; border-collapse: collapse; margin: var(--space-6) 0; }
+    .bom-table th { background: #f5f5f5; font-weight: 600; padding: 12px 16px; text-align: left; border: 1px solid var(--border-light); }
+    .bom-table td { padding: 12px 16px; border: 1px solid var(--border-light); }
+    .bom-table tr:nth-child(even) { background: #fafafa; }
+    .bom-table a { color: var(--primary-blue); text-decoration: none; }
+    .bom-table a:hover { text-decoration: underline; }
+
+    .specs-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-4); margin: var(--space-6) 0; }
+    .spec-item { background: var(--bg-light); padding: var(--space-4); border-radius: var(--radius-md); }
+    .spec-label { font-size: 0.875rem; color: var(--text-light); margin-bottom: var(--space-1); }
+    .spec-value { font-size: 1.125rem; font-weight: 600; color: var(--text-dark); }
+
+    .sidebar { position: sticky; top: 100px; height: fit-content; }
+    .toc { background: var(--bg-light); padding: var(--space-4); border-radius: var(--radius-md); margin-bottom: var(--space-6); }
+    .toc h4 { margin: 0 0 var(--space-3); font-size: 1rem; }
+    .toc ul { list-style: none; padding: 0; margin: 0; }
+    .toc li { margin-bottom: var(--space-2); }
+    .toc a { color: var(--text-medium); font-size: 0.875rem; text-decoration: none; }
+    .toc a:hover { color: var(--primary-blue); }
+
+    .cta-section { background: var(--cta-orange); color: #ffffff; text-align: center; padding: var(--space-12) 0; margin-top: var(--space-16); }
+    .cta-section h2 { font-size: 2rem; margin-bottom: var(--space-4); }
+    .cta-section .btn-primary { background: #ffffff; color: var(--cta-orange); }
+
+    @media (max-width: 1023px) { .solution-layout { grid-template-columns: 1fr; } .sidebar { position: static; } .advantages-list, .specs-grid { grid-template-columns: 1fr; } }
+    @media (max-width: 767px) { .solution-diagram { height: 200px; font-size: 2rem; } }
+  </style>
+</head>
+<body>
+  <!--#include virtual="/templates/components/navbar.html" -->
+  <!--#include virtual="/templates/components/breadcrumb.html" -->
+  <!--#include virtual="/templates/components/brand-tab-nav.html" -->
+  
+  <main>
+    <section class="solution-detail">
+      <div class="container">
+        <div class="solution-layout">
+          <div class="solution-content">
+            <div class="solution-header">
+              <h1><%= solution.title %></h1>
+              <p style="color: var(--text-medium); font-size: 1.125rem;"><%= solution.industry %> Application</p>
+            </div>
+
+            <div class="solution-diagram">
+              <% if (solution.id === 'railway-traction' || solution.id.includes('rail') || solution.id.includes('traction')) { %>
+                <!-- Railway/Traction Icon -->
+                <svg viewBox="0 0 200 120" width="200" height="120" fill="currentColor">
+                  <!-- Train body -->
+                  <rect x="20" y="40" width="140" height="40" rx="8"/>
+                  <!-- Train front window -->
+                  <rect x="130" y="48" width="20" height="16" rx="2" fill="rgba(255,255,255,0.3)"/>
+                  <!-- Side windows -->
+                  <rect x="35" y="48" width="20" height="12" rx="2" fill="rgba(255,255,255,0.3)"/>
+                  <rect x="65" y="48" width="20" height="12" rx="2" fill="rgba(255,255,255,0.3)"/>
+                  <rect x="95" y="48" width="20" height="12" rx="2" fill="rgba(255,255,255,0.3)"/>
+                  <!-- Wheels -->
+                  <circle cx="45" cy="88" r="10"/>
+                  <circle cx="135" cy="88" r="10"/>
+                  <!-- Track -->
+                  <rect x="10" y="95" width="160" height="4"/>
+                  <rect x="10" y="105" width="160" height="4"/>
+                  <!-- Speed lines -->
+                  <rect x="170" y="50" width="25" height="3" rx="1"/>
+                  <rect x="175" y="60" width="20" height="3" rx="1"/>
+                  <rect x="165" y="70" width="30" height="3" rx="1"/>
+                </svg>
+              <% } else if (solution.id === 'renewable-energy' || solution.id.includes('solar') || solution.id.includes('wind')) { %>
+                <!-- Renewable Energy Icon -->
+                <svg viewBox="0 0 200 120" width="200" height="120" fill="currentColor">
+                  <!-- Sun -->
+                  <circle cx="35" cy="35" r="18"/>
+                  <!-- Sun rays -->
+                  <rect x="32" y="5" width="6" height="10" rx="3"/>
+                  <rect x="32" y="55" width="6" height="10" rx="3"/>
+                  <rect x="5" y="32" width="10" height="6" rx="3"/>
+                  <rect x="55" y="32" width="10" height="6" rx="3"/>
+                  <!-- Wind turbine -->
+                  <rect x="95" y="70" width="4" height="40"/>
+                  <circle cx="97" cy="70" r="6"/>
+                  <!-- Turbine blades -->
+                  <ellipse cx="97" cy="45" rx="4" ry="20"/>
+                  <ellipse cx="77" cy="80" rx="4" ry="20" transform="rotate(-120 77 80)"/>
+                  <ellipse cx="117" cy="80" rx="4" ry="20" transform="rotate(120 117 80)"/>
+                  <!-- Second turbine -->
+                  <rect x="145" y="75" width="3" height="35"/>
+                  <circle cx="146.5" cy="75" r="4"/>
+                  <ellipse cx="146.5" cy="58" rx="3" ry="14"/>
+                  <ellipse cx="130" cy="85" rx="3" ry="14" transform="rotate(-120 130 85)"/>
+                  <ellipse cx="163" cy="85" rx="3" ry="14" transform="rotate(120 163 85)"/>
+                  <!-- Ground -->
+                  <rect x="10" y="105" width="180" height="8" rx="2"/>
+                </svg>
+              <% } else if (solution.id.includes('industrial') || solution.id.includes('automation')) { %>
+                <!-- Industrial/Factory Icon -->
+                <svg viewBox="0 0 200 120" width="200" height="120" fill="currentColor">
+                  <!-- Factory building -->
+                  <rect x="30" y="50" width="80" height="55"/>
+                  <!-- Roof -->
+                  <polygon points="30,50 70,20 110,50"/>
+                  <!-- Windows -->
+                  <rect x="40" y="60" width="15" height="15" fill="rgba(255,255,255,0.3)"/>
+                  <rect x="65" y="60" width="15" height="15" fill="rgba(255,255,255,0.3)"/>
+                  <rect x="90" y="60" width="15" height="15" fill="rgba(255,255,255,0.3)"/>
+                  <!-- Door -->
+                  <rect x="50" y="85" width="20" height="20"/>
+                  <!-- Smokestack -->
+                  <rect x="120" y="35" width="12" height="70"/>
+                  <rect x="115" y="30" width="22" height="8" rx="2"/>
+                  <!-- Smoke -->
+                  <circle cx="126" cy="22" r="6" opacity="0.7"/>
+                  <circle cx="132" cy="15" r="5" opacity="0.5"/>
+                  <circle cx="138" cy="8" r="4" opacity="0.3"/>
+                  <!-- Gear symbol -->
+                  <circle cx="165" cy="75" r="18"/>
+                  <circle cx="165" cy="75" r="8" fill="var(--primary-blue-dark)"/>
+                  <rect x="163" y="52" width="4" height="10"/>
+                  <rect x="163" y="88" width="4" height="10"/>
+                  <rect x="142" y="73" width="10" height="4"/>
+                  <rect x="178" y="73" width="10" height="4"/>
+                </svg>
+              <% } else if (solution.id.includes('ev') || solution.id.includes('mobility') || solution.id.includes('electric')) { %>
+                <!-- Electric Vehicle Icon -->
+                <svg viewBox="0 0 200 120" width="200" height="120" fill="currentColor">
+                  <!-- Car body -->
+                  <path d="M30 70 L40 55 L80 50 L120 50 L150 55 L165 70 L165 85 L30 85 Z"/>
+                  <!-- Car top -->
+                  <path d="M50 55 L65 40 L115 40 L135 55" fill="none" stroke="currentColor" stroke-width="3"/>
+                  <!-- Windows -->
+                  <rect x="70" y="45" width="20" height="12" rx="2" fill="rgba(255,255,255,0.3)"/>
+                  <rect x="95" y="45" width="20" height="12" rx="2" fill="rgba(255,255,255,0.3)"/>
+                  <!-- Wheels -->
+                  <circle cx="55" cy="88" r="12"/>
+                  <circle cx="140" cy="88" r="12"/>
+                  <!-- Lightning bolt -->
+                  <polygon points="175,35 165,55 175,55 165,75 185,50 175,50 185,35" fill="#ffc107"/>
+                  <!-- Charging port indicator -->
+                  <circle cx="155" cy="70" r="4" fill="#ffc107"/>
+                  <!-- Ground line -->
+                  <rect x="20" y="100" width="160" height="3" rx="1"/>
+                </svg>
+              <% } else { %>
+                <!-- Default Icon -->
+                <svg viewBox="0 0 200 120" width="200" height="120" fill="currentColor">
+                  <!-- Circuit board pattern -->
+                  <rect x="30" y="30" width="60" height="60" rx="4"/>
+                  <rect x="110" y="30" width="60" height="60" rx="4"/>
+                  <!-- Connection lines -->
+                  <rect x="90" y="55" width="20" height="4"/>
+                  <!-- Chip pins -->
+                  <rect x="25" y="40" width="5" height="4"/>
+                  <rect x="25" y="55" width="5" height="4"/>
+                  <rect x="25" y="70" width="5" height="4"/>
+                  <rect x="90" y="40" width="5" height="4"/>
+                  <rect x="90" y="70" width="5" height="4"/>
+                  <rect x="170" y="40" width="5" height="4"/>
+                  <rect x="170" y="55" width="5" height="4"/>
+                  <rect x="170" y="70" width="5" height="4"/>
+                  <!-- Center chip -->
+                  <rect x="85" y="50" width="30" height="20" fill="rgba(255,255,255,0.3)"/>
+                </svg>
+              <% } %>
+            </div>
+
+            <h2>Description</h2>
+            <p><%= solution.description %></p>
+
+            <h2>Core Advantages</h2>
+            <div class="advantages-list">
+              <% solution.coreAdvantages.forEach(function(adv) { %>
+                <div class="advantage-item" style="flex-direction: column; align-items: flex-start;">
+                  <strong style="color: var(--primary-blue); margin-bottom: var(--space-1);"><%= adv.title %></strong>
+                  <span style="font-size: 0.875rem; color: var(--text-medium);"><%= adv.description %></span>
+                </div>
+              <% }); %>
+            </div>
+
+            <h2>Recommended Bill of Materials (BOM)</h2>
+            <table class="bom-table">
+              <thead>
+                <tr>
+                  <th>Item</th>
+                  <th>Part Number</th>
+                  <th>Description</th>
+                  <th>Quantity</th>
+                  <th>Datasheet</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% solution.bomList.forEach(function(item, idx) { %>
+                  <tr>
+                    <td><%= idx + 1 %></td>
+                    <td><a href="<%= item.link %>"><%= item.partNumber %></a></td>
+                    <td><%= item.description %></td>
+                    <td><%= item.quantity %></td>
+                    <td><a href="#">📄 Download</a></td>
+                  </tr>
+                <% }); %>
+              </tbody>
+            </table>
+
+            <h2>Applications</h2>
+            <div class="advantages-list">
+              <% solution.applications.forEach(function(app) { %>
+                <div class="advantage-item"><%= app %></div>
+              <% }); %>
+            </div>
+
+            <h2>Technical Specifications</h2>
+            <div class="specs-grid">
+              <% Object.keys(solution.technicalSpecs).forEach(function(key) { %>
+                <div class="spec-item">
+                  <div class="spec-label"><%= key.replace(/([A-Z])/g, ' $1').trim() %></div>
+                  <div class="spec-value"><%= solution.technicalSpecs[key] %></div>
+                </div>
+              <% }); %>
+            </div>
+
+            <% if (solution.customerCases && solution.customerCases.length > 0) { %>
+            <h2 id="customer-cases">Customer Success Stories</h2>
+            <% solution.customerCases.forEach(function(caseStudy) { %>
+            <div class="customer-case" style="background: var(--bg-light); padding: var(--space-6); border-radius: var(--radius-lg); margin-bottom: var(--space-6);">
+              <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: var(--space-4);">
+                <div>
+                  <h3 style="margin: 0 0 var(--space-2); color: var(--primary-blue);"><%= caseStudy.customer || caseStudy.customerName %></h3>
+                  <p style="margin: 0; color: var(--text-light); font-size: 0.875rem;"><%= caseStudy.industry %> | <%= caseStudy.application %></p>
+                </div>
+              </div>
+              
+              <div style="margin-bottom: var(--space-4);">
+                <h4 style="font-size: 1rem; margin-bottom: var(--space-2);">Challenge</h4>
+                <p style="color: var(--text-medium); line-height: 1.6;"><%= caseStudy.challenge %></p>
+              </div>
+              
+              <div style="margin-bottom: var(--space-4);">
+                <h4 style="font-size: 1rem; margin-bottom: var(--space-2);">Solution</h4>
+                <p style="color: var(--text-medium); line-height: 1.6;"><%= caseStudy.solution %></p>
+              </div>
+              
+              <div style="background: white; padding: var(--space-4); border-radius: var(--radius-md);">
+                <h4 style="font-size: 1rem; margin-bottom: var(--space-3);">Results</h4>
+                <% if (Array.isArray(caseStudy.results)) { %>
+                <ul style="margin: 0; padding-left: var(--space-5); color: var(--text-medium);">
+                  <% caseStudy.results.forEach(function(result) { %>
+                  <li style="margin-bottom: var(--space-2);"><%= result %></li>
+                  <% }); %>
+                </ul>
+                <% } else { %>
+                <p style="color: var(--text-medium); line-height: 1.6;"><%= caseStudy.results %></p>
+                <% } %>
+                <% if (caseStudy.quote) { %>
+                <blockquote style="margin: var(--space-4) 0 0; padding: var(--space-4); border-left: 4px solid var(--primary-blue); background: var(--bg-light); font-style: italic; color: var(--text-medium);">
+                  "<%= caseStudy.quote %>"
+                  <% if (caseStudy.contact) { %>
+                  <footer style="margin-top: var(--space-2); font-size: 0.875rem; color: var(--text-light); font-style: normal;">— <%= caseStudy.contact %></footer>
+                  <% } %>
+                </blockquote>
+                <% } %>
+              </div>
+            </div>
+            <% }); %>
+            <% } %>
+
+            <% if (solution.faeInsights) { %>
+            <% var faeAuthor = typeof solution.faeInsights.author === 'object' ? solution.faeInsights.author.name : solution.faeInsights.author; %>
+            <% var faeTitle = typeof solution.faeInsights.author === 'object' ? solution.faeInsights.author.title : solution.faeInsights.title; %>
+            <% var faeExperience = typeof solution.faeInsights.author === 'object' ? solution.faeInsights.author.experience : solution.faeInsights.experience; %>
+            <h2 id="fae-insights">FAE Expert Insights</h2>
+            <div class="fae-insights" style="background: linear-gradient(135deg, var(--primary-blue-light), #e3f2fd); padding: var(--space-6); border-radius: var(--radius-lg); margin-bottom: var(--space-8);">
+              <div style="display: flex; align-items: center; gap: var(--space-4); margin-bottom: var(--space-4);">
+                <div style="width: 60px; height: 60px; background: var(--primary-blue); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem; font-weight: bold;">
+                  <%= faeAuthor ? faeAuthor.charAt(0) : 'F' %>
+                </div>
+                <div>
+                  <h3 style="margin: 0; color: var(--primary-blue);"><%= faeAuthor || 'FAE Expert' %></h3>
+                  <p style="margin: 0; color: var(--text-light); font-size: 0.875rem;"><%= faeTitle || 'Field Application Engineer' %></p>
+                  <% if (faeExperience) { %>
+                  <p style="margin: var(--space-1) 0 0; color: var(--text-light); font-size: 0.75rem;"><%= faeExperience %></p>
+                  <% } %>
+                </div>
+              </div>
+
+              <div style="background: white; padding: var(--space-5); border-radius: var(--radius-md); margin-bottom: var(--space-4);">
+                <h4 style="margin: 0 0 var(--space-3); color: var(--primary-blue);">Professional Insights</h4>
+                <p style="margin: 0; color: var(--text-medium); line-height: 1.8;"><%= solution.faeInsights.content || solution.faeInsights.insight %></p>
+              </div>
+              
+              <% if (solution.faeInsights.keyTakeaways && solution.faeInsights.keyTakeaways.length > 0) { %>
+              <div style="background: white; padding: var(--space-5); border-radius: var(--radius-md); margin-bottom: var(--space-4);">
+                <h4 style="margin: 0 0 var(--space-3); color: var(--primary-blue);">Key Takeaways</h4>
+                <ul style="margin: 0; padding-left: var(--space-5); color: var(--text-medium);">
+                  <% solution.faeInsights.keyTakeaways.forEach(function(takeaway) { %>
+                  <li style="margin-bottom: var(--space-2);"><%= takeaway %></li>
+                  <% }); %>
+                </ul>
+              </div>
+              <% } %>
+              
+              <% if (solution.faeInsights.recommendations && solution.faeInsights.recommendations.length > 0) { %>
+              <div style="background: white; padding: var(--space-5); border-radius: var(--radius-md); margin-bottom: var(--space-4);">
+                <h4 style="margin: 0 0 var(--space-3); color: var(--primary-blue);">Recommendations</h4>
+                <ul style="margin: 0; padding-left: var(--space-5); color: var(--text-medium);">
+                  <% solution.faeInsights.recommendations.forEach(function(rec) { %>
+                  <li style="margin-bottom: var(--space-2);"><%= rec %></li>
+                  <% }); %>
+                </ul>
+              </div>
+              <% } %>
+              
+              <% if (solution.faeInsights.decisionFramework) { %>
+              <div style="background: white; padding: var(--space-5); border-radius: var(--radius-md);">
+                <h4 style="margin: 0 0 var(--space-3); color: var(--primary-blue);">Decision Framework</h4>
+                <p style="margin: 0; color: var(--text-medium); line-height: 1.8;"><%= solution.faeInsights.decisionFramework %></p>
+              </div>
+              <% } %>
+            </div>
+            <% } %>
+
+            <div class="cta-section" style="border-radius: var(--radius-lg);">
+              <h2>Ready to Implement This Solution?</h2>
+              <p style="margin-bottom: var(--space-8); opacity: 0.9;">Contact our FAE team for design support and quotes</p>
+              <a href="/about/contact/" class="btn-primary btn-large">Contact Us Now</a>
+            </div>
+          </div>
+
+          <aside class="sidebar">
+            <div class="toc">
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a href="#description">Description</a></li>
+                <li><a href="#core-advantages">Core Advantages</a></li>
+                <li><a href="#bom">Bill of Materials</a></li>
+                <li><a href="#applications">Applications</a></li>
+                <li><a href="#specifications">Specifications</a></li>
+                <% if (solution.customerCases && solution.customerCases.length > 0) { %>
+                <li><a href="#customer-cases">Customer Success Stories</a></li>
+                <% } %>
+                <% if (solution.faeInsights) { %>
+                <li><a href="#fae-insights">FAE Expert Insights</a></li>
+                <% } %>
+              </ul>
+            </div>
+            <div class="toc">
+              <h4>Other Solutions</h4>
+              <ul>
+                <% solutions.forEach(function(sol) { %>
+                  <li><a href="/<%= brand.name.toLowerCase() %>/solutions/<%= sol.id %>.html"><%= sol.title %></a></li>
+                <% }); %>
+              </ul>
+            </div>
+            <div class="toc">
+              <h4>Need Help?</h4>
+              <p style="font-size: 0.875rem; color: var(--text-medium);">Contact our FAE team for technical support</p>
+              <a href="/about/contact/" class="btn-primary" style="display: block; text-align: center; margin-top: var(--space-3);">Ask FAE</a>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <% if (solution.faqs && solution.faqs.length > 0) { %>
+    <section class="faq-section" style="padding: var(--space-12) 0; background: var(--bg-light);">
+      <div class="container">
+        <h2 style="text-align: center; margin-bottom: var(--space-8);">Frequently Asked Questions</h2>
+        <% solution.faqs.forEach(function(faq) { %>
+        <details class="faq-item" style="border: 1px solid var(--border-light); border-radius: var(--radius-md); margin-bottom: var(--space-4); overflow: hidden; background: white;">
+          <summary style="padding: 16px; cursor: pointer; font-weight: 500; background: white; list-style: none;"><%= faq.question %></summary>
+          <div class="faq-answer" style="padding: 16px; color: var(--text-medium); line-height: 1.6;">
+            <% faq.answer.split('; ').forEach(function(paragraph) { %>
+              <% if (paragraph.trim()) { %>
+              <p style="margin-bottom: var(--space-3);"><%= paragraph.trim() %></p>
+              <% } %>
+            <% }); %>
+            <p style="margin-top: var(--space-4); padding-top: var(--space-3); border-top: 1px solid var(--border-light); font-weight: 500; color: var(--primary-blue);"><%= faq.decisionGuide %></p>
+          </div>
+        </details>
+        <% }); %>
+      </div>
+    </section>
+    <% } %>
+  </main>
+  
+  <!--#include virtual="/templates/components/footer.html" -->
+  <!--#include virtual="/templates/components/floating-contact.html" -->
+  <script src="/assets/js/navbar.js"></script>
+</body>
+</html>

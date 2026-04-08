@@ -1,0 +1,494 @@
+{
+  "articles": [
+    {
+      "id": "sic-mosfet-selection-guide",
+      "title": "How to Select PineSemi SiC MOSFETs for Your Application",
+      "category": "Product Selection",
+      "author": {
+        "name": "Dr. Zhang Wei",
+        "title": "Principal FAE - Power Electronics",
+        "experience": "15 years",
+        "expertise": ["SiC MOSFETs", "Power conversion", "Gate drive design"]
+      },
+      "publishDate": "2026-03-15",
+      "lastUpdated": "2026-03-15",
+      "summary": "Comprehensive guide for selecting the right PineSemi SiC MOSFET based on voltage rating, current requirements, switching frequency, and application type.",
+      "content": [
+        "Selecting the right SiC MOSFET is critical for achieving optimal performance in power conversion applications. This guide provides a systematic approach to selecting PineSemi SiC MOSFETs based on your specific requirements.",
+        "",
+        "## Understanding Voltage Rating Requirements",
+        "",
+        "The first step in SiC MOSFET selection is determining the required voltage rating. For 400V DC bus applications (typical for onboard chargers and industrial drives), a 650V device provides adequate margin. For 800V EV battery systems, 1200V devices are required. Always include at least 20% voltage margin above the maximum expected DC bus voltage to account for voltage spikes and transients.",
+        "",
+        "## Current Rating and On-Resistance Selection",
+        "",
+        "Current rating selection involves calculating the RMS current in your application and selecting a device with adequate margin. The on-resistance (Rds(on)) directly impacts conduction losses - lower Rds(on) means lower conduction losses but higher device cost. For thermal design, use the maximum Rds(on) at your operating junction temperature, not the 25°C specification.",
+        "",
+        "## Switching Frequency Considerations",
+        "",
+        "SiC MOSFETs excel at high switching frequencies. For applications below 50kHz, standard gate drive designs work well. Above 50kHz, pay special attention to gate drive power requirements and switching losses. The Kelvin-source package becomes increasingly important at high frequencies to minimize source inductance effects.",
+        "",
+        "## Package Selection Guidelines",
+        "",
+        "Package selection impacts thermal performance, switching characteristics, and ease of layout. The TO-247-4 Kelvin-source package is recommended for high-current applications (>30A) and high-frequency operation (>50kHz). Standard TO-247 packages are suitable for lower current and frequency applications. Surface mount packages (TO-263, TO-252) are available for compact designs.",
+        "",
+        "## Application-Specific Recommendations",
+        "",
+        "**EV Onboard Chargers**: Use 650V devices with Rds(on) of 20-60mΩ depending on power level. Target switching frequencies of 50-100kHz for compact magnetics.",
+        "",
+        "**EV Traction Inverters**: Use 1200V devices with Kelvin-source packages. Parallel devices for high-current applications above 100kW.",
+        "",
+        "**Solar Inverters**: 650V devices work well for residential applications. Use 1200V devices for commercial systems with higher DC bus voltages.",
+        "",
+        "**Industrial Motor Drives**: Select devices based on motor power and DC bus voltage. IGBTs may be more cost-effective for frequencies below 20kHz."
+      ],
+      "relatedArticles": [
+        "igbt-module-selection-guide",
+        "gate-drive-design-guide",
+        "thermal-design-guide"
+      ],
+      "faeInsights": {
+        "insight": "In my 15 years of supporting power electronics designs, I've found that proper SiC MOSFET selection is the foundation of a successful design. The most common mistake I see is selecting devices based solely on voltage and current ratings without considering switching frequency and thermal constraints. For EV applications, the Kelvin-source package is almost always worth the small premium - the 15-20% reduction in switching losses pays for itself quickly in reduced cooling requirements. I always recommend using the online loss calculators to compare different devices under your specific operating conditions before making a final selection.",
+        "logic": "The SiC MOSFET selection process follows this sequence: First, determine the voltage rating based on your DC bus voltage with 20% margin. Second, calculate the RMS current and select Rds(on) based on acceptable conduction losses and thermal constraints. Third, determine if the Kelvin-source package is needed based on current level and switching frequency. Fourth, evaluate switching losses at your operating frequency to ensure total losses are manageable. Fifth, consider parallel operation if single devices cannot meet current requirements.",
+        "keyTakeaways": [
+          "Always include 20% voltage margin above maximum DC bus voltage",
+          "Use Rds(on) at operating temperature, not 25°C specification",
+          "Kelvin-source package is recommended for currents above 30A or frequencies above 50kHz",
+          "Calculate total losses (conduction + switching) for thermal design",
+          "Consider parallel operation for high-current applications"
+        ],
+        "commonPitfalls": [
+          "Selecting devices based on 25°C Rds(on) without temperature derating",
+          "Ignoring switching losses at high frequencies",
+          "Not using Kelvin-source package for high-current applications",
+          "Insufficient voltage margin for voltage spikes",
+          "Poor thermal design leading to overheating"
+        ],
+        "bestPractices": [
+          "Use online loss calculators to compare devices",
+          "Design thermal management for worst-case conditions",
+          "Include voltage margin for switching transients",
+          "Test multiple device options in prototype builds",
+          "Consult FAE for application-specific recommendations"
+        ],
+        "troubleshootingTips": [
+          "If device runs hot, check if Rds(on) was properly derated for temperature",
+          "High switching losses may indicate insufficient gate drive voltage",
+          "Gate oscillations can be resolved with proper layout or increased gate resistance"
+        ]
+      },
+      "customerCases": [
+        {
+          "customerName": "EV Charging Equipment Manufacturer",
+          "industry": "Electric Vehicles",
+          "application": "22kW onboard charger design",
+          "problem": "Customer selected 60mΩ device based on current rating alone, resulting in excessive heating at full load",
+          "diagnosis": "Analysis showed conduction losses were 45W per device, exceeding thermal design limits. Switching at 70kHz added another 25W.",
+          "solution": "Upgraded to 35mΩ device with better thermal management. Implemented Kelvin-source package for improved switching.",
+          "results": "Total losses reduced to 45W, junction temperature dropped from 165°C to 125°C, efficiency improved by 0.8%"
+        }
+      ],
+      "faqs": [
+        {
+          "question": "How do I calculate the required voltage rating for my application?",
+          "answer": "Voltage rating calculation: Determine maximum DC bus voltage under worst-case conditions; Add 20% margin for voltage spikes and transients; Round up to nearest standard voltage rating. Examples: 400V bus → 650V device; 700V bus → 1200V device; 800V EV battery → 1200V device. Considerations: Higher voltage devices have higher Rds(on) for same die size; Don't oversize voltage rating unnecessarily; Account for regenerative braking voltage rise in EV applications; Include margin for line transients in grid-connected applications. PineSemi offers 650V and 1200V devices to cover most applications.",
+          "decisionGuide": "Contact us for voltage rating recommendations for your specific application.",
+          "keywords": ["voltage rating", "voltage margin", "device selection"]
+        },
+        {
+          "question": "What Rds(on) should I select for my current level?",
+          "answer": "Rds(on) selection guidelines: Calculate maximum RMS current in your application; Target conduction losses of 1-2% of output power; Use Rds(on) at maximum junction temperature (typically 1.5x 25°C value); Consider switching losses in total loss budget. Examples: 10A RMS, 400V: 60mΩ device (24W conduction losses); 30A RMS, 400V: 35mΩ device (52W conduction losses); 50A RMS, 800V: 25mΩ device (83W conduction losses). Trade-offs: Lower Rds(on) reduces conduction losses but increases cost; Higher Rds(on) is cheaper but runs hotter; Balance conduction and switching losses for optimal total loss.",
+          "decisionGuide": "Contact us for loss calculations and device recommendations for your specific requirements.",
+          "keywords": ["Rds(on) selection", "conduction losses", "device sizing"]
+        },
+        {
+          "question": "When is the Kelvin-source package necessary?",
+          "answer": "Kelvin-source package benefits and when to use it: Current level: Recommended for applications above 30A; Essential for applications above 50A. Switching frequency: Beneficial above 20kHz; Essential above 50kHz. Benefits: Eliminates source inductance from gate loop; Reduces switching losses by 10-20%; Improves switching speed and control; Reduces voltage overshoot. Cost: Typically 10-15% premium over standard package; ROI justified by efficiency improvement and reduced cooling. Applications requiring Kelvin-source: EV traction inverters, high-power DC-DC, high-frequency converters. Standard package acceptable for: Lower current applications, lower frequency operation, cost-sensitive designs.",
+          "decisionGuide": "Contact us for package selection guidance based on your application requirements.",
+          "keywords": ["Kelvin source", "TO-247-4", "package selection"]
+        },
+        {
+          "question": "How do I determine if I need to parallel devices?",
+          "answer": "Parallel device considerations: Current requirements: Single device limit is typically 100-150A; Parallel 2-4 devices for higher currents. Benefits: Higher total current capability; Better thermal distribution; Design flexibility. Challenges: Current sharing must be managed; Layout symmetry is critical; Gate drive complexity increases. Guidelines: Try to use largest single device first; Parallel only if single device insufficient; Use devices from same production lot; Implement symmetrical layout with equal trace lengths. Alternative to paralleling: Use lower Rds(on) devices; Consider module packages for very high currents; Evaluate if power requirements can be reduced.",
+          "decisionGuide": "Contact us for paralleling guidelines and layout recommendations.",
+          "keywords": ["parallel devices", "current sharing", "high current design"]
+        },
+        {
+          "question": "What is the maximum switching frequency for PineSemi SiC MOSFETs?",
+          "answer": "Maximum switching frequencies: Practical limit: 100-200kHz for most applications; Limited by gate drive power and switching losses; Higher frequencies possible with optimization. Typical operating frequencies: EV onboard chargers: 50-100kHz; Traction inverters: 10-20kHz; Solar inverters: 20-50kHz; DC-DC converters: 100-500kHz. Limitations: Gate drive power increases with frequency; Switching losses increase linearly with frequency; EMI becomes more challenging at high frequencies; Magnetic core losses may limit practical frequency. Optimization for high frequency: Use Kelvin-source package; Optimize gate drive for fast switching; Minimize gate loop inductance; Use appropriate gate resistance for EMI control.",
+          "decisionGuide": "Contact us for switching frequency optimization for your application.",
+          "keywords": ["switching frequency", "maximum frequency", "high frequency operation"]
+        },
+        {
+          "question": "How do SiC MOSFETs compare to superjunction MOSFETs?",
+          "answer": "SiC vs superjunction MOSFET comparison: Efficiency: SiC has 50-80% lower switching losses; SiC has lower Rds(on) temperature coefficient; SiC enables higher frequency operation. Cost: SiC is 2-3x more expensive than superjunction; SiC cost justified by system-level savings (cooling, magnetics). Performance: SiC operates at higher temperatures (175°C vs 150°C); SiC has better thermal conductivity; SiC has zero reverse recovery. Applications: Superjunction suitable for <50kHz, cost-sensitive; SiC preferred for >50kHz, high-efficiency, high-temperature. Decision factors: Operating frequency, efficiency requirements, thermal constraints, total system cost. Transition point: Typically 20-50kHz where SiC advantages justify cost premium.",
+          "decisionGuide": "Contact us for detailed comparison and cost-benefit analysis for your application.",
+          "keywords": ["SiC vs superjunction", "MOSFET comparison", "technology selection"]
+        }
+      ]
+    },
+    {
+      "id": "gate-drive-design-guide",
+      "title": "Gate Drive Design Guide for PineSemi SiC MOSFETs",
+      "category": "Technical Support",
+      "author": {
+        "name": "Li Ming",
+        "title": "Senior FAE - Gate Drive Systems",
+        "experience": "12 years",
+        "expertise": ["Gate drive design", "SiC applications", "Power electronics"]
+      },
+      "publishDate": "2026-03-10",
+      "lastUpdated": "2026-03-10",
+      "summary": "Comprehensive guide for designing gate drive circuits for PineSemi SiC MOSFETs, including voltage levels, gate resistance selection, and protection features.",
+      "content": [
+        "Proper gate drive design is essential for achieving optimal performance from SiC MOSFETs. This guide covers the key considerations for designing gate drive circuits for PineSemi devices.",
+        "",
+        "## Gate Voltage Requirements",
+        "",
+        "PineSemi SiC MOSFETs require specific gate voltage levels for optimal performance: Turn-on voltage should be +18V to +20V to ensure lowest on-resistance; Turn-off voltage of -3V to -5V provides noise immunity and prevents false turn-on. The negative gate voltage is particularly important in noisy environments and high dv/dt applications.",
+        "",
+        "## Gate Resistance Selection",
+        "",
+        "Gate resistance controls switching speed and EMI. Lower resistance enables faster switching but increases EMI and voltage overshoot. Typical values range from 5Ω to 20Ω depending on application requirements. For high-current applications, use lower resistance (5-10Ω). For EMI-sensitive applications, use higher resistance (15-20Ω).",
+        "",
+        "## Gate Driver Power Requirements",
+        "",
+        "Calculate gate driver power based on gate charge, switching frequency, and gate voltage swing. The driver must provide sufficient peak current for fast switching. For high-frequency applications, gate driver power can be significant and must be considered in thermal design.",
+        "",
+        "## Isolation and Protection",
+        "",
+        "Gate drivers for high-voltage applications require isolation. Common isolation methods include optocouplers, magnetic isolation, and capacitive isolation. Protection features such as desaturation detection, undervoltage lockout, and soft shutdown are essential for reliable operation.",
+        "",
+        "## Layout Considerations",
+        "",
+        "Proper PCB layout is critical for gate drive performance: Minimize gate loop inductance by keeping traces short; Use Kelvin connection for gate drive when available; Place gate driver close to the power device; Use appropriate decoupling capacitors near the driver."
+      ],
+      "relatedArticles": [
+        "sic-mosfet-selection-guide",
+        "thermal-design-guide",
+        "protection-design-guide"
+      ],
+      "faeInsights": {
+        "insight": "Gate drive design is where many SiC designs succeed or fail. The most common issue I see is insufficient gate voltage - many designers use +15V because that's what they used for silicon MOSFETs, but SiC devices need +18V to +20V for full enhancement. The negative gate voltage is also frequently overlooked, leading to false turn-on issues in noisy environments. For the Kelvin-source package, make sure to use the Kelvin connection properly - don't connect it to the power source pin. I've seen designs where the Kelvin pin was left floating or connected incorrectly, negating all the benefits. Take the time to get the gate drive right - it pays dividends in performance and reliability.",
+        "logic": "Gate drive design follows these principles: First, determine the required gate voltage levels based on device specifications and noise environment. Second, calculate gate driver power requirements based on switching frequency. Third, select gate resistance to balance switching speed and EMI. Fourth, choose isolation method appropriate for voltage level and safety requirements. Fifth, implement comprehensive protection features. Sixth, optimize layout to minimize parasitic inductance.",
+        "keyTakeaways": [
+          "Use +18V to +20V for turn-on, -3V to -5V for turn-off",
+          "Select gate resistance based on switching speed and EMI requirements",
+          "Ensure gate driver can provide sufficient peak current",
+          "Use proper isolation for high-voltage applications",
+          "Minimize gate loop inductance in PCB layout"
+        ],
+        "commonPitfalls": [
+          "Using +15V gate voltage instead of +18V to +20V",
+          "Not using negative gate voltage for turn-off",
+          "Insufficient gate driver current capability",
+          "Incorrect Kelvin-source connection",
+          "Poor layout causing gate oscillations"
+        ],
+        "bestPractices": [
+          "Always use negative gate voltage for high dv/dt applications",
+          "Implement desaturation detection for overcurrent protection",
+          "Use soft shutdown to prevent voltage overshoot during faults",
+          "Place gate driver as close as possible to power device",
+          "Use separate gate resistors for turn-on and turn-off if needed"
+        ],
+        "troubleshootingTips": [
+          "Slow switching often indicates insufficient gate drive voltage or current",
+          "Gate oscillations can be fixed by increasing gate resistance or improving layout",
+          "False turn-on issues are usually resolved by implementing negative gate voltage"
+        ]
+      },
+      "customerCases": [
+        {
+          "customerName": "Industrial Drive Manufacturer",
+          "industry": "Industrial Automation",
+          "application": "50kW servo drive with SiC MOSFETs",
+          "problem": "Experiencing false turn-on and shoot-through failures in high dv/dt environment",
+          "diagnosis": "Analysis revealed insufficient negative gate voltage (-1V) and slow gate drive causing noise susceptibility.",
+          "solution": "Redesigned gate drive with -5V turn-off voltage and faster driver (4A vs 2A). Added 10Ω gate resistor.",
+          "results": "Eliminated false turn-on issues, improved switching speed by 30%, reduced EMI by 15dB"
+        }
+      ],
+      "faqs": [
+        {
+          "question": "What is the recommended gate voltage for PineSemi SiC MOSFETs?",
+          "answer": "Recommended gate voltages: Turn-on: +18V to +20V for lowest Rds(on); Turn-off: -3V to -5V for noise immunity; Gate threshold: 2.5-3.5V at 25°C (decreases with temperature). Why +18V to +20V: Device is fully enhanced at +15V, but +18V to +20V provides margin and lowest on-resistance; Rds(on) is 10-15% lower at +20V vs +15V. Why negative voltage: Prevents false turn-on from dv/dt coupling; Essential in noisy environments; Recommended for all applications above 400V. Gate voltage tolerance: Devices can withstand ±25V absolute maximum; Stay within recommended range for reliable operation.",
+          "decisionGuide": "Contact us for gate voltage recommendations for your specific application.",
+          "keywords": ["gate voltage", "Vgs", "gate drive levels"]
+        },
+        {
+          "question": "How do I select the gate resistance value?",
+          "answer": "Gate resistance selection criteria: Switching speed: Lower Rg = faster switching = lower switching losses; EMI: Higher Rg = slower switching = lower EMI; Voltage overshoot: Higher Rg reduces overshoot but increases losses. Typical values: Low EMI priority: 15-20Ω; Balanced: 10Ω; High frequency/low loss: 5-8Ω. Selection process: Start with 10Ω for initial testing; Measure switching waveforms and EMI; Adjust based on results - decrease for better efficiency, increase for better EMI. Separate Rgon/Rgoff: Use lower Rgon for fast turn-on; Use higher Rgoff to control voltage overshoot; Implement with diode and resistor network.",
+          "decisionGuide": "Contact us for gate resistance recommendations and switching optimization.",
+          "keywords": ["gate resistance", "Rg", "switching speed"]
+        },
+        {
+          "question": "How much gate driver current do I need?",
+          "answer": "Gate driver current calculation: Peak current: Ipeak = Vgs / Rg (Ohm's law); Example: 20V / 10Ω = 2A peak; Select driver with at least 2x calculated current for margin. Average current: Iavg = Qg x fsw; Example: 100nC x 50kHz = 5mA average; Add margin for driver IC consumption. Driver selection: Minimum 2A for small devices (TO-247); 4-6A for large devices (high current); 8A+ for parallel devices or very fast switching. Power dissipation: Pdrv = Qg x Vgs x fsw; Example: 100nC x 20V x 50kHz = 100mW; Consider in driver thermal design.",
+          "decisionGuide": "Contact us for gate driver selection based on your switching requirements.",
+          "keywords": ["gate driver current", "peak current", "driver power"]
+        },
+        {
+          "question": "What isolation method should I use for high-voltage applications?",
+          "answer": "Isolation method comparison: Optocouplers: Mature technology, good isolation, moderate speed (1-5μs delay); Magnetic: Fast (50-100ns), high CMTI, good for high frequency; Capacitive: Fast, integrated, cost-effective, moderate isolation. Selection guidelines: <5kHz switching: Optocoupler acceptable; 5-50kHz: Magnetic or capacitive preferred; >50kHz: Magnetic isolation recommended; >1000V working voltage: Reinforced isolation required. CMTI (Common Mode Transient Immunity): Critical for SiC applications with high dv/dt; Select driver with >50kV/μs CMTI; Magnetic and capacitive drivers typically have better CMTI. Recommended drivers: UCC21520 (TI), ADuM4135 (ADI), 1EDI60N12AF (Infineon).",
+          "decisionGuide": "Contact us for gate driver recommendations for your voltage and frequency requirements.",
+          "keywords": ["isolation", "gate driver isolation", "CMTI"]
+        },
+        {
+          "question": "How do I implement desaturation protection?",
+          "answer": "Desaturation protection implementation: Principle: Monitor Vce/Vds during conduction; Normal: Vce(sat) = 1-3V; Fault: Vce rises to desat threshold (6-8V). Circuit: Use desat diode (high voltage rating); Connect to IGBT collector/MOSFET drain; Compare to reference voltage; Trigger shutdown when threshold exceeded. Timing requirements: Detection time: < 2μs; Shutdown time: < 1μs; Total: < 10μs for IGBT, < 3μs for SiC. Soft shutdown: Gradual gate voltage reduction; Prevents voltage overshoot; Implemented in advanced gate drivers. Recommended drivers with desat: 1EDI60N12AF (Infineon), ACPL-332J (Broadcom), UCC21520 (TI).",
+          "decisionGuide": "Contact us for desaturation protection design guidelines and recommended drivers.",
+          "keywords": ["desaturation protection", "overcurrent protection", "short circuit protection"]
+        },
+        {
+          "question": "What layout considerations are important for gate drive?",
+          "answer": "Gate drive layout best practices: Gate loop minimization: Keep gate drive traces as short as possible; Minimize loop area between gate and source connections; Use Kelvin connection when available. Decoupling: Place ceramic capacitors (100nF-1μF) close to driver; Use low-ESR capacitors for high-frequency decoupling; Consider additional bulk capacitance for driver power. Grounding: Separate power ground and signal ground; Connect at single point near driver; Avoid ground loops. High voltage clearance: Maintain adequate creepage and clearance; Use slotting or barriers if needed; Follow safety standards (IEC 60950, UL 508). PCB stackup: Use 4-layer board with dedicated ground plane; Place gate drive on top layer near devices; Route high-voltage traces on internal layers.",
+          "decisionGuide": "Contact us for layout review and design guidelines.",
+          "keywords": ["gate drive layout", "PCB design", "minimize inductance"]
+        }
+      ]
+    },
+    {
+      "id": "thermal-design-guide",
+      "title": "Thermal Design Guide for Power Semiconductor Applications",
+      "category": "Technical Support",
+      "author": {
+        "name": "Wang Hao",
+        "title": "Senior FAE - Thermal Management",
+        "experience": "10 years",
+        "expertise": ["Thermal design", "Heatsinking", "Power modules"]
+      },
+      "publishDate": "2026-03-05",
+      "lastUpdated": "2026-03-05",
+      "summary": "Comprehensive guide for thermal design of power semiconductor applications, including loss calculation, heatsink selection, and thermal interface materials.",
+      "content": [
+        "Proper thermal design is critical for reliable operation of power semiconductors. This guide covers thermal design principles and practical implementation for PineSemi devices.",
+        "",
+        "## Understanding Thermal Resistance",
+        "",
+        "Thermal design is based on the concept of thermal resistance, analogous to electrical resistance. Heat flows from the device junction to ambient through a series of thermal resistances: junction-to-case (Rth(j-c)), case-to-heatsink (Rth(c-s)), and heatsink-to-ambient (Rth(s-a)). The total thermal resistance determines the temperature rise for a given power dissipation.",
+        "",
+        "## Loss Calculation",
+        "",
+        "Accurate loss calculation is the foundation of thermal design. For SiC MOSFETs, calculate both conduction losses (based on Rds(on) and current) and switching losses (based on switching energy and frequency). Use datasheet values at operating temperature, not 25°C values. For IGBTs, include conduction losses, switching losses, and diode losses.",
+        "",
+        "## Heatsink Selection",
+        "",
+        "Heatsink selection involves calculating the required thermal resistance and selecting an appropriate heatsink. Natural convection heatsinks are simpler but larger; forced air cooling enables smaller heatsinks but adds complexity and noise. Liquid cooling provides the highest performance for high-power applications.",
+        "",
+        "## Thermal Interface Materials",
+        "",
+        "Thermal interface materials (TIM) fill microscopic air gaps between the device and heatsink. Thermal grease provides the best performance but is messy; thermal pads are cleaner but have higher thermal resistance; phase-change materials offer good performance with easy assembly.",
+        "",
+        "## Temperature Monitoring",
+        "",
+        "Temperature monitoring enables protection and performance optimization. NTC thermistors provide simple temperature sensing; integrated temperature sensors in modules offer direct junction temperature monitoring; thermal modeling can predict temperatures under various operating conditions."
+      ],
+      "relatedArticles": [
+        "sic-mosfet-selection-guide",
+        "gate-drive-design-guide",
+        "igbt-module-selection-guide"
+      ],
+      "faeInsights": {
+        "insight": "Thermal design is often underestimated in power electronics. I've seen many designs fail because the thermal design was based on datasheet values at 25°C without considering real operating conditions. The key is to design for worst-case conditions: maximum ambient temperature, maximum load, and end-of-life device characteristics. For SiC devices, remember that while they're more efficient than silicon, they still generate significant heat that must be removed. The thermal interface material is critical - a poor TIM can add 0.5-1.0 K/W, which can be 50% of the total thermal resistance. Always use high-quality thermal grease or pads, and ensure proper mounting pressure. For high-power applications, consider using thermal simulation tools to optimize the design.",
+        "logic": "Thermal design follows this process: First, calculate total device losses at worst-case operating conditions. Second, determine maximum allowable junction temperature based on reliability requirements. Third, calculate required thermal resistance from junction to ambient. Fourth, select heatsink with appropriate thermal resistance. Fifth, choose thermal interface material with low thermal resistance. Sixth, implement temperature monitoring for protection. Seventh, validate design through testing under worst-case conditions.",
+        "keyTakeaways": [
+          "Design for worst-case operating conditions, not typical conditions",
+          "Use device parameters at operating temperature, not 25°C",
+          "Thermal interface material is critical - don't skimp on quality",
+          "Include safety margin in thermal design (20-30%)",
+          "Implement temperature monitoring for protection"
+        ],
+        "commonPitfalls": [
+          "Using 25°C datasheet values for thermal calculations",
+          "Ignoring switching losses in total loss calculation",
+          "Poor thermal interface material or mounting",
+          "Insufficient heatsink thermal capacity",
+          "Not designing for worst-case ambient temperature"
+        ],
+        "bestPractices": [
+          "Calculate losses at maximum operating temperature",
+          "Use high-quality thermal interface materials (3+ W/mK)",
+          "Ensure proper mounting torque and flatness",
+          "Implement temperature monitoring with appropriate thresholds",
+          "Validate thermal design through testing"
+        ],
+        "troubleshootingTips": [
+          "If device runs hot, check thermal interface and mounting first",
+          "Higher than expected temperature often indicates higher losses than calculated",
+          "Uneven temperature distribution may indicate poor thermal contact"
+        ]
+      },
+      "customerCases": [
+        {
+          "customerName": "Solar Inverter Manufacturer",
+          "industry": "Renewable Energy",
+          "application": "20kW commercial solar inverter",
+          "problem": "IGBT modules overheating in outdoor cabinet during summer, reaching 160°C junction temperature",
+          "diagnosis": "Thermal analysis showed insufficient heatsink capacity and poor thermal interface material (1.5 K/W contact resistance).",
+          "solution": "Upgraded to larger heatsink with forced air cooling and high-performance thermal grease (0.1 K/W contact resistance).",
+          "results": "Junction temperature reduced to 125°C, inverter can operate at 50°C ambient, improved reliability and lifetime"
+        }
+      ],
+      "faqs": [
+        {
+          "question": "How do I calculate total thermal resistance?",
+          "answer": "Total thermal resistance calculation: Rth(j-a) = Rth(j-c) + Rth(c-s) + Rth(s-a); Where: Rth(j-c) = junction-to-case (from datasheet); Rth(c-s) = case-to-heatsink (thermal interface); Rth(s-a) = heatsink-to-ambient (heatsink spec). Temperature calculation: Tj = Ta + (Ploss x Rth(j-a)); Example: Ta=50°C, Ploss=100W, Rth(j-c)=0.5, Rth(c-s)=0.1, Rth(s-a)=0.5; Tj = 50 + (100 x 1.1) = 160°C. Design margin: Target Tj < 125°C for 150°C rated devices; Provides 25°C margin for variations; Improves long-term reliability.",
+          "decisionGuide": "Contact us for thermal calculations and heatsink selection assistance.",
+          "keywords": ["thermal resistance", "Rth", "temperature calculation"]
+        },
+        {
+          "question": "What thermal interface material should I use?",
+          "answer": "Thermal interface material options: Thermal grease: Best performance (0.05-0.1 K/W); Messy application, can pump out over time; Recommended for high-power applications. Thermal pads: Clean application, easy to handle; Higher resistance (0.2-0.5 K/W); Good for medium power. Phase change: Good performance (0.1-0.2 K/W); Solid at room temperature, flows at operating temp; Good for automated assembly. Selection guidelines: High power (>500W): Use high-performance grease; Medium power (100-500W): Phase change or high-quality pad; Low power (<100W): Standard pad acceptable. Thermal conductivity: Target 3+ W/mK for high power; 1-3 W/mK acceptable for lower power; Thickness 0.1-0.2mm typical.",
+          "decisionGuide": "Contact us for thermal interface material recommendations for your application.",
+          "keywords": ["thermal interface", "TIM", "thermal grease", "thermal pad"]
+        },
+        {
+          "question": "How do I select the right heatsink?",
+          "answer": "Heatsink selection process: Calculate required Rth(s-a): Rth(s-a) = (Tj_max - Ta) / Ploss - Rth(j-c) - Rth(c-s); Example: Tj_max=125°C, Ta=50°C, Ploss=200W, Rth(j-c)=0.4, Rth(c-s)=0.1; Rth(s-a) = (125-50)/200 - 0.4 - 0.1 = 0.375 - 0.5 = -0.125 (impossible - need better solution). Options if calculation fails: Reduce Tj_max target; Improve cooling (forced air/liquid); Reduce losses; Parallel devices to distribute heat. Heatsink types: Natural convection: Large, silent, low cost; Forced air: Smaller, noisy, higher performance; Liquid cooling: Compact, highest performance, complex. Selection factors: Available space, ambient conditions, noise requirements, cost constraints.",
+          "decisionGuide": "Contact us for heatsink selection and thermal design support.",
+          "keywords": ["heatsink selection", "thermal design", "cooling"]
+        },
+        {
+          "question": "What is the proper mounting procedure for power devices?",
+          "answer": "Power device mounting procedure: Preparation: Clean heatsink surface (alcohol wipe); Ensure flatness < 0.05mm; Apply thermal interface material evenly. Mounting: Place device on heatsink; Install screws in cross-pattern; Torque to specification (typically 0.5-1.0 Nm for TO-247, 2-3 Nm for modules); Don't overtighten - can damage device. Verification: Check for even TIM spread when removing; Measure case temperature during operation; Verify temperature is within design limits. Important considerations: Use spring washers for consistent pressure; Allow TIM to spread during first thermal cycles; Retorque after initial temperature cycling; Follow manufacturer torque specifications exactly.",
+          "decisionGuide": "Contact us for mounting guidelines and torque specifications.",
+          "keywords": ["mounting procedure", "thermal mounting", "heatsink attachment"]
+        },
+        {
+          "question": "How do I implement temperature monitoring?",
+          "answer": "Temperature monitoring methods: NTC thermistor: Simple, low cost, placed on heatsink near device; Requires calibration to estimate junction temperature; Good for protection and monitoring. Integrated sensor: Some modules have built-in temperature sensor; Direct measurement of device temperature; More accurate than external sensors. Thermal modeling: Calculate junction temperature from case temperature; Tj = Tcase + (Ploss x Rth(j-c)); Provides real-time junction temperature estimation. Implementation: Place NTC close to power device; Use voltage divider with precision resistor; Connect to ADC for monitoring; Set appropriate alarm and shutdown thresholds. Thresholds: Warning: 10-15°C below Tj_max; Shutdown: 5-10°C below Tj_max; Hysteresis to prevent oscillation.",
+          "decisionGuide": "Contact us for temperature monitoring design and threshold recommendations.",
+          "keywords": ["temperature monitoring", "NTC thermistor", "thermal protection"]
+        },
+        {
+          "question": "What is the effect of altitude on thermal design?",
+          "answer": "Altitude effects on thermal management: Air density decreases with altitude; Natural convection reduced by ~20% at 3000m; Forced air cooling less affected but still degraded. Design considerations: Derate heatsink performance for altitude; Increase heatsink size or airflow for high-altitude applications; Consider sealed systems with liquid cooling for extreme altitudes. Standards: Many standards require operation up to 2000m or 3000m; Medical equipment often requires 3000m+ capability; Military/aerospace may require 5000m+. Mitigation strategies: Increase heatsink thermal margin by 20-30%; Use higher airflow fans with speed control; Implement temperature-based derating at high altitude; Consider hermetic sealing for extreme environments.",
+          "decisionGuide": "Contact us for high-altitude thermal design guidelines.",
+          "keywords": ["altitude derating", "high altitude", "thermal derating"]
+        }
+      ]
+    },
+    {
+      "id": "igbt-module-selection-guide",
+      "title": "How to Select PineSemi IGBT Modules for Industrial Applications",
+      "category": "Product Selection",
+      "author": {
+        "name": "Chen Jun",
+        "title": "Senior FAE - Industrial Drives",
+        "experience": "14 years",
+        "expertise": ["IGBT modules", "Motor drives", "Industrial inverters"]
+      },
+      "publishDate": "2026-03-01",
+      "lastUpdated": "2026-03-01",
+      "summary": "Comprehensive guide for selecting PineSemi IGBT modules for motor drives, inverters, and industrial power conversion applications.",
+      "content": [
+        "IGBT modules remain the workhorse of industrial power electronics, offering excellent cost-performance for applications up to several hundred kilowatts. This guide provides systematic selection criteria for PineSemi IGBT modules.",
+        "",
+        "## Voltage Rating Selection",
+        "",
+        "IGBT module voltage rating depends on the DC bus voltage of your application. For 380-460V AC input (rectified to ~650V DC), 1200V modules are typically used. For 200-240V AC input, 600V modules are appropriate. Always include adequate voltage margin - typically 2x the DC bus voltage for 1200V modules and 2.5x for 600V modules.",
+        "",
+        "## Current Rating and Loss Calculation",
+        "",
+        "Current rating selection requires calculating the RMS current and considering overload requirements. Motor drives typically require 150% overload capability for 1 minute. Calculate both conduction losses (based on Vce(sat)) and switching losses (based on switching energy and frequency). Total losses determine thermal design requirements.",
+        "",
+        "## Switching Frequency Considerations",
+        "",
+        "IGBTs are optimized for switching frequencies of 2-20kHz. Higher frequencies increase switching losses significantly. For motor drives, 4-16kHz is typical, balancing audible noise (above 16kHz is inaudible) with efficiency. For high-frequency applications (>20kHz), consider SiC MOSFETs instead.",
+        "",
+        "## Package and Mounting",
+        "",
+        "PineSemi offers standard industrial packages including 34mm, 62mm, and custom modules. Package selection depends on current rating, thermal requirements, and mechanical constraints. Standard packages enable second sourcing and proven reliability.",
+        "",
+        "## Protection and Reliability",
+        "",
+        "IGBT modules include integrated temperature sensors and can be protected using desaturation detection. Soft switching characteristics and 10μs short-circuit withstand time provide robust protection. Design for 20-year service life in industrial applications."
+      ],
+      "relatedArticles": [
+        "sic-mosfet-selection-guide",
+        "thermal-design-guide",
+        "gate-drive-design-guide"
+      ],
+      "faeInsights": {
+        "insight": "IGBT module selection is about balancing performance, cost, and reliability. For industrial motor drives, IGBTs often provide better value than SiC, especially at lower switching frequencies. The key is proper loss calculation - many designers underestimate switching losses at higher frequencies. I always recommend calculating losses at the actual operating temperature, not 25°C, as Vce(sat) can increase by 30-40% at 125°C. For thermal design, don't forget the diode losses - in some applications like braking choppers, diode losses can dominate. The integrated NTC sensor is valuable for protection - use it to implement temperature-based current derating for improved reliability.",
+        "logic": "IGBT module selection process: First, determine voltage rating based on AC input voltage and rectified DC bus. Second, calculate RMS current requirements including overload capability. Third, estimate losses at operating conditions (temperature, frequency). Fourth, select module with appropriate current rating and thermal performance. Fifth, design gate drive with proper protection features. Sixth, implement thermal management based on calculated losses.",
+        "keyTakeaways": [
+          "Use 1200V modules for 380-460V AC, 600V for 200-240V AC",
+          "Design for 150% overload capability in motor drive applications",
+          "Calculate losses at operating temperature, not 25°C",
+          "IGBTs are optimal for 2-20kHz switching frequency",
+          "Use integrated temperature sensors for protection"
+        ],
+        "commonPitfalls": [
+          "Insufficient voltage margin for voltage spikes",
+          "Not accounting for temperature derating of current rating",
+          "Underestimating switching losses at higher frequencies",
+          "Poor thermal interface or mounting",
+          "Inadequate protection features"
+        ],
+        "bestPractices": [
+          "Calculate losses at worst-case operating conditions",
+          "Include 150% overload capability for motor drives",
+          "Use desaturation detection for overcurrent protection",
+          "Implement temperature monitoring and derating",
+          "Follow proper mounting procedures for thermal performance"
+        ],
+        "troubleshootingTips": [
+          "Overheating often indicates underestimated losses or poor thermal design",
+          "High switching losses may require lower frequency or different device",
+          "EMI issues can often be resolved with gate resistance adjustment"
+        ]
+      },
+      "customerCases": [
+        {
+          "customerName": "Industrial Automation Company",
+          "industry": "Industrial Drives",
+          "application": "75kW variable frequency drive",
+          "problem": "Existing drive overheating at full load with 8kHz switching frequency",
+          "diagnosis": "Analysis showed switching losses were 40% higher than expected due to high frequency operation.",
+          "solution": "Optimized switching frequency to 6kHz and improved thermal interface material.",
+          "results": "Temperature reduced by 25°C, efficiency improved by 0.5%, passed full-load testing"
+        }
+      ],
+      "faqs": [
+        {
+          "question": "What voltage rating IGBT module do I need for my application?",
+          "answer": "Voltage rating selection: 380-460V AC input: Use 1200V modules (rectified to ~650V DC); 200-240V AC input: Use 600V modules (rectified to ~325V DC); Higher voltage applications: Use 1700V modules. Voltage margin: Minimum 2x DC bus voltage for 1200V modules; Minimum 2.5x for 600V modules; Accounts for voltage spikes and transients. Examples: 400V DC bus → 1200V module; 300V DC bus → 600V or 1200V module; 600V DC bus → 1200V module (tight margin). Considerations: Higher voltage modules have higher Vce(sat); Don't oversize unnecessarily; Account for regenerative braking voltage rise.",
+          "decisionGuide": "Contact us for voltage rating recommendations for your specific application.",
+          "keywords": ["voltage rating", "IGBT voltage", "module selection"]
+        },
+        {
+          "question": "How do I calculate losses in IGBT modules?",
+          "answer": "IGBT loss calculation: Conduction losses: Pcond = Vce(sat) x Ic x duty cycle; Use Vce(sat) at operating temperature (typically 1.5x 25°C value); Account for current waveform (RMS vs average). Switching losses: Psw = (Eon + Eoff) x fsw; Use switching energy at operating voltage/current; Linear interpolation for intermediate values. Diode losses: Pdiode = Vf x If x duty cycle + Err x fsw; Include both conduction and recovery losses. Total losses: Ptotal = Pcond + Psw + Pdiode. Example calculation: 50A RMS, 400V DC, 8kHz, 125°C; Pcond = 1.8V x 50A x 0.8 = 72W; Psw = (3mJ + 4mJ) x 8kHz = 56W; Pdiode = 1.5V x 30A x 0.2 + 2mJ x 8kHz = 25W; Total = 153W per module.",
+          "decisionGuide": "Contact us for loss calculation tools and application-specific analysis.",
+          "keywords": ["loss calculation", "conduction losses", "switching losses"]
+        },
+        {
+          "question": "What switching frequency should I use for motor drives?",
+          "answer": "Switching frequency selection for motor drives: Audible noise: Below 16kHz is audible (may be objectionable); Above 16kHz is inaudible (preferred for quiet operation). Efficiency: Lower frequency = lower switching losses = higher efficiency; Higher frequency = higher losses but smoother current. Motor performance: Higher frequency reduces current ripple and torque ripple; Improves motor performance at low speeds. Typical frequencies: General purpose drives: 4-8kHz; High-performance drives: 8-16kHz; Servo drives: 10-20kHz; HVAC drives: 2-6kHz (efficiency priority). Trade-offs: 4kHz: High efficiency, audible noise, higher ripple; 8kHz: Good balance of efficiency and noise; 16kHz: Quiet, lower efficiency, better motor performance.",
+          "decisionGuide": "Contact us for switching frequency optimization for your motor drive application.",
+          "keywords": ["switching frequency", "motor drive frequency", "audible noise"]
+        },
+        {
+          "question": "How do I implement short-circuit protection for IGBT modules?",
+          "answer": "Short-circuit protection methods: Desaturation detection: Monitor Vce during conduction; Normal: Vce(sat) = 1.5-2.5V; Fault: Vce rises to supply voltage; Trigger shutdown when Vce > 6-8V. Current sensing: Use shunt resistors or current transformers; Compare to threshold and shutdown if exceeded; Slower than desaturation but more accurate. Timing requirements: Detection: < 2μs; Shutdown: < 1μs after detection; Total: < 10μs (within IGBT 10μs capability). Soft shutdown: Gradual gate voltage reduction; Prevents voltage overshoot; Implemented in advanced gate drivers. Recommended gate drivers: 1EDI60N12AF (Infineon), ACPL-332J (Broadcom), UCC21520 (TI) with desaturation protection.",
+          "decisionGuide": "Contact us for protection design guidelines and recommended gate drivers.",
+          "keywords": ["short circuit protection", "desaturation detection", "overcurrent protection"]
+        },
+        {
+          "question": "What is the expected lifetime of IGBT modules?",
+          "answer": "IGBT module lifetime factors: Power cycling: Number of temperature cycles affects bond wire life; ΔTj of 50°C: typically 100,000+ cycles; ΔTj of 80°C: typically 30,000+ cycles. Thermal cycling: Expansion mismatch causes stress; 50,000+ cycles -40°C to +125°C typical. Operating temperature: Lower Tj = longer life (Arrhenius relationship); 10°C reduction doubles lifetime. Typical lifetime: 20 years at moderate conditions (Tj<125°C); 10-15 years at demanding conditions (Tj<140°C, frequent cycling). Accelerated testing: Temperature cycling, power cycling, HTRB per IEC 60747-9; PineSemi modules meet industrial reliability standards. Improvement strategies: Reduce temperature swings; Improve thermal design; Implement temperature-based derating.",
+          "decisionGuide": "Contact us for reliability data and lifetime prediction for your operating conditions.",
+          "keywords": ["IGBT lifetime", "reliability", "power cycling", "module life"]
+        },
+        {
+          "question": "When should I choose IGBT over SiC MOSFET?",
+          "answer": "IGBT vs SiC selection criteria: Choose IGBT when: Switching frequency < 20kHz; Cost is primary concern; High current capability needed (>200A); Short-circuit withstand critical; Mature ecosystem preferred. Choose SiC when: Switching frequency > 20kHz; Efficiency is critical; High-temperature operation; Compact size required; Total cost of ownership justifies premium. Cost comparison: IGBT: 2-3x lower cost per amp; SiC: Higher device cost but system savings (cooling, magnetics). Performance: IGBT: Lower conduction losses at high current, mature technology; SiC: Lower switching losses, higher frequency, better high-temp performance. Transition point: Typically 15-25kHz where SiC advantages justify cost; Lower for high-power applications where cooling savings are significant.",
+          "decisionGuide": "Contact us for detailed comparison and selection guidance for your application.",
+          "keywords": ["IGBT vs SiC", "technology selection", "cost comparison"]
+        }
+      ]
+    }
+  ]
+}

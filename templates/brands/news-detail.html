@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= article.title %> | <%= brand.displayName %> News</title>
+  <meta name="description" content="<%= article.summary %>">
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "NewsArticle",
+    "headline": "<%= article.title %>",
+    "datePublished": "<%= article.publishDate %>",
+    "author": { "@type": "Organization", "name": "<%= article.author %>" }
+  }
+  </script>
+  
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="/assets/css/navbar.css">
+  <link rel="stylesheet" href="/assets/css/footer.css">
+  <link rel="stylesheet" href="/assets/css/breadcrumb.css">
+  <link rel="stylesheet" href="/assets/css/brand-tab-nav.css">
+  <link rel="stylesheet" href="/assets/css/floating-contact.css">
+  
+  <style>
+    .news-detail { padding: var(--space-16) 0; }
+    .news-header {
+      background: linear-gradient(135deg, var(--primary-blue), var(--primary-blue-dark));
+      color: #ffffff;
+      padding: var(--space-16) 0;
+      text-align: center;
+      margin-bottom: var(--space-12);
+    }
+    .news-category-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.2);
+      padding: 6px 16px;
+      border-radius: var(--radius-full);
+      font-size: 0.875rem;
+      font-weight: 600;
+      margin-bottom: var(--space-4);
+    }
+    .news-title { font-size: 2.5rem; margin-bottom: var(--space-4); }
+    .news-meta { display: flex; justify-content: center; gap: var(--space-6); font-size: 0.875rem; opacity: 0.9; }
+    
+    .news-content { max-width: 800px; margin: 0 auto; line-height: 1.8; color: var(--text-medium); }
+    .news-content h2 { font-size: 1.75rem; margin: var(--space-8) 0 var(--space-4); color: var(--text-dark); }
+    .news-content p { margin-bottom: var(--space-4); }
+    
+    .share-buttons { display: flex; gap: var(--space-2); justify-content: center; margin: var(--space-12) 0; padding-top: var(--space-6); border-top: 1px solid var(--border-light); }
+    .share-btn {
+      width: 44px; height: 44px;
+      border-radius: var(--radius-full);
+      background: var(--bg-light);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--text-medium);
+      transition: all 0.2s ease-out;
+    }
+    .share-btn:hover { background: var(--primary-blue); color: #ffffff; transform: translateY(-2px); }
+    
+    .recommended { margin-top: var(--space-12); padding-top: var(--space-8); border-top: 1px solid var(--border-light); }
+    .recommended-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-6); }
+    .news-card {
+      background: #ffffff; border-radius: var(--radius-lg);
+      overflow: hidden; box-shadow: var(--shadow-md);
+      text-decoration: none; color: inherit;
+    }
+    .news-card:hover { box-shadow: var(--shadow-xl); }
+    .news-card-image { height: 150px; background: var(--bg-gray); display: flex; align-items: center; justify-content: center; color: var(--text-light); }
+    .news-card-content { padding: var(--space-4); }
+    .news-card-category { color: var(--primary-blue); font-size: 0.75rem; font-weight: 600; text-transform: uppercase; }
+    .news-card h4 { font-size: 1rem; margin: var(--space-2) 0; }
+    .news-card p { font-size: 0.875rem; color: var(--text-medium); margin: 0; }
+    
+    @media (max-width: 1023px) { .recommended-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 767px) { .recommended-grid { grid-template-columns: 1fr; } .news-title { font-size: 2rem; } }
+  </style>
+</head>
+<body>
+  <!--#include virtual="/templates/components/navbar.html" -->
+  <!--#include virtual="/templates/components/breadcrumb.html" -->
+  <!--#include virtual="/templates/components/brand-tab-nav.html" -->
+  
+  <main>
+    <section class="news-detail">
+      <div class="news-header">
+        <div class="container">
+          <span class="news-category-badge"><%= article.category %></span>
+          <h1 class="news-title"><%= article.title %></h1>
+          <div class="news-meta">
+            <span>By <%= article.author %></span>
+            <span>•</span>
+            <span><%= article.publishDate %></span>
+            <span>•</span>
+            <span>Source: <%= article.source %></span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="container">
+        <div class="news-content">
+          <p><strong><%= article.summary %></strong></p>
+          <%- article.content %>
+        </div>
+        
+        <div class="share-buttons">
+          <a href="#" class="share-btn" aria-label="Share on LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+          </a>
+          <a href="#" class="share-btn" aria-label="Share on Twitter">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg>
+          </a>
+          <a href="#" class="share-btn" aria-label="Share via Email">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          </a>
+        </div>
+        
+        <div class="recommended">
+          <h3 style="text-align: center; font-size: 1.75rem; margin-bottom: var(--space-8);">Recommended Reading</h3>
+          <div class="recommended-grid">
+            <% if (typeof news !== 'undefined' && news.articles && news.articles.length > 0) { %>
+              <% news.articles.slice(0, 3).forEach(function(item) { %>
+                <a href="/<%= brand.name.toLowerCase() %>/news/<%= item.id %>.html" class="news-card">
+                  <div class="news-card-image">
+                    <svg viewBox="0 0 200 150" width="100%" height="100%" aria-hidden="true">
+                      <rect fill="#f0f0f0" width="200" height="150"/>
+                      <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-size="14" fill="#999999"><%= item.category %></text>
+                    </svg>
+                  </div>
+                  <div class="news-card-content">
+                    <div class="news-card-category"><%= item.category %></div>
+                    <h4><%= item.title.substring(0, 50) %>...</h4>
+                    <p><%= item.summary.substring(0, 80) %>...</p>
+                  </div>
+                </a>
+              <% }); %>
+            <% } %>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <!--#include virtual="/templates/components/footer.html" -->
+  <!--#include virtual="/templates/components/floating-contact.html" -->
+  <script src="/assets/js/navbar.js"></script>
+</body>
+</html>

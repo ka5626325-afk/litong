@@ -1,0 +1,295 @@
+{
+  "articles": [
+    {
+      "id": "nexus-fpga-getting-started",
+      "title": "Getting Started with Lattice Nexus Platform FPGAs",
+      "category": "Getting Started",
+      "summary": "A comprehensive guide to begin developing with Lattice Nexus Platform FPGAs including CertusPro-NX and Certus-NX families. Covers software installation, first project creation, and basic implementation flow.",
+      "content": "# Getting Started with Lattice Nexus Platform FPGAs\n\n## Overview\n\nThe Lattice Nexus Platform represents a breakthrough in low-power FPGA technology, built on 28nm FD-SOI process technology. This guide will walk you through the essential steps to start your first Nexus FPGA project.\n\n## Prerequisites\n\nBefore starting, ensure you have:\n- Lattice Radiant design software installed\n- A supported Lattice development board\n- Basic understanding of digital logic design\n\n## Step 1: Install Lattice Radiant\n\n1. Download Lattice Radiant from the Lattice Semiconductor website\n2. Run the installer and select your target device families\n3. Activate your license (free licenses available for certain devices)\n\n## Step 2: Create Your First Project\n\n1. Open Lattice Radiant\n2. Select File → New → Project\n3. Choose your target device (e.g., LFD2NX-40 or LFD4NX-100)\n4. Select your preferred HDL (VHDL or Verilog)\n\n## Step 3: Design Entry\n\nCreate a simple design to test your setup:\n\n```verilog\nmodule blink_led (\n    input wire clk,\n    output wire led\n);\n    reg [24:0] counter;\n    always @(posedge clk)\n        counter <= counter + 1;\n    assign led = counter[24];\nendmodule\n```\n\n## Step 4: Synthesis and Implementation\n\n1. Run Synthesis to convert HDL to gate-level netlist\n2. Run Map to fit design into FPGA resources\n3. Run Place and Route for physical implementation\n4. Generate Bitstream for device programming\n\n## Step 5: Program the Device\n\n1. Connect your development board via USB\n2. Open Programmer tool in Radiant\n3. Load the generated bitstream file\n4. Program the FPGA\n\n## Next Steps\n\n- Explore IP Catalog for pre-built cores\n- Learn about power optimization features\n- Study the FD-SOI technology advantages\n- Review application notes for your specific use case",
+      "tags": [
+        "Nexus",
+        "CertusPro-NX",
+        "Certus-NX",
+        "Getting Started",
+        "Radiant"
+      ],
+      "author": {
+        "name": "Lattice Technical Team",
+        "title": "Technical Specialist",
+        "bio": "Experienced FPGA applications engineer with expertise in Lattice solutions.",
+        "image": "/images/authors/default.jpg"
+      },
+      "publishedAt": "2024-01-15",
+      "updatedAt": "2024-03-20",
+      "readTime": "15 min",
+      "relatedProducts": [
+        "LFD2NX-40",
+        "LFD4NX-100"
+      ],
+      "slug": "nexus-fpga-getting-started",
+      "publishDate": "2024-01-15",
+      "relatedArticles": [
+        {
+          "id": "sensai-ai-implementation",
+          "title": "Implementing AI/ML with Lattice sensAI"
+        },
+        {
+          "id": "hardware-security-implementation",
+          "title": "Implementing Hardware Security with Lattice FPGAs"
+        }
+      ],
+      "faeInsights": {
+        "keyPoints": "This article covers essential concepts for Lattice FPGA development.",
+        "practicalTips": "Follow the step-by-step instructions and use the provided example designs.",
+        "commonQuestions": "Contact our FAE team for clarification on any topics covered in this guide."
+      },
+      "customerCases": [
+        {
+          "customer": "Industrial Automation Company",
+          "application": "Control system implementation",
+          "feedback": "The guide helped us get started quickly with Lattice FPGAs."
+        }
+      ],
+      "faqs": [
+        {
+          "question": "Where can I find additional resources?",
+          "answer": "Additional resources are available on the Lattice website and through our technical support team."
+        },
+        {
+          "question": "How do I contact technical support?",
+          "answer": "Contact our FAE team through the support portal or email for technical assistance."
+        }
+      ]
+    },
+    {
+      "id": "sensai-ai-implementation",
+      "title": "Implementing AI/ML with Lattice sensAI",
+      "category": "Application Guide",
+      "summary": "Learn how to deploy neural network models on Lattice FPGAs using the sensAI solution stack. Covers model conversion, optimization, and deployment for edge AI applications.",
+      "content": "# Implementing AI/ML with Lattice sensAI\n\n## Introduction\n\nLattice sensAI provides a complete solution stack for implementing AI/ML inference on low-power FPGAs. This guide demonstrates how to convert and deploy a neural network model.\n\n## sensAI Components\n\n1. **Neural Network Compiler**: Converts trained models to FPGA-optimized implementations\n2. **IP Cores**: Pre-optimized acceleration engines\n3. **Reference Designs**: Complete working examples\n\n## Model Preparation\n\n### Supported Frameworks\n- TensorFlow\n- PyTorch\n- ONNX\n- Caffe\n\n### Model Requirements\n- Quantized to 8-bit weights and activations\n- Fixed input dimensions\n- Supported layer types: Conv2D, Dense, MaxPool, ReLU, etc.\n\n## Implementation Steps\n\n### Step 1: Model Conversion\n\nUse sensAI Studio to import and optimize your model:\n\n1. Launch sensAI Studio\n2. Import your trained model\n3. Configure quantization settings\n4. Run optimization\n5. Export FPGA-compatible model\n\n### Step 2: Generate FPGA Design\n\n```python\n# Example: Generate inference engine\nfrom sensai import ModelCompiler\n\ncompiler = ModelCompiler()\ncompiler.load_model('my_model.onnx')\ncompiler.set_target_device('LFD2NX-40')\ncompiler.compile()\ncompiler.generate_ip_core('my_model_ip')\n```\n\n### Step 3: Integrate with Your Design\n\n1. Add the generated IP core to your Radiant project\n2. Connect input/output interfaces\n3. Add pre/post-processing logic\n\n### Step 4: Power Optimization\n\n- Use dynamic frequency scaling\n- Implement clock gating\n- Leverage FD-SOI body biasing\n\n## Performance Benchmarks\n\n| Model | Device | FPS | Power (mW) |\n|-------|--------|-----|------------|\n| MobileNet v2 | LFD2NX-40 | 30 | 150 |\n| ResNet-18 | LFD4NX-100 | 15 | 280 |\n| Tiny YOLO | LFD4NX-100 | 25 | 320 |\n\n## Best Practices\n\n1. Start with reference designs\n2. Profile model layer by layer\n3. Optimize memory access patterns\n4. Use batch processing when possible",
+      "tags": [
+        "sensAI",
+        "AI",
+        "Machine Learning",
+        "Neural Network",
+        "Edge AI"
+      ],
+      "author": {
+        "name": "Lattice AI Solutions Team",
+        "title": "Technical Specialist",
+        "bio": "Experienced FPGA applications engineer with expertise in Lattice solutions.",
+        "image": "/images/authors/default.jpg"
+      },
+      "publishedAt": "2024-02-10",
+      "updatedAt": "2024-03-15",
+      "readTime": "20 min",
+      "relatedProducts": [
+        "LFD2NX-40",
+        "LFD4NX-100",
+        "LCE4X-100"
+      ],
+      "slug": "sensai-ai-implementation",
+      "publishDate": "2024-02-10",
+      "relatedArticles": [
+        {
+          "id": "sensai-ai-implementation",
+          "title": "Implementing AI/ML with Lattice sensAI"
+        },
+        {
+          "id": "hardware-security-implementation",
+          "title": "Implementing Hardware Security with Lattice FPGAs"
+        }
+      ],
+      "faeInsights": {
+        "keyPoints": "This article covers essential concepts for Lattice FPGA development.",
+        "practicalTips": "Follow the step-by-step instructions and use the provided example designs.",
+        "commonQuestions": "Contact our FAE team for clarification on any topics covered in this guide."
+      },
+      "customerCases": [
+        {
+          "customer": "Industrial Automation Company",
+          "application": "Control system implementation",
+          "feedback": "The guide helped us get started quickly with Lattice FPGAs."
+        }
+      ],
+      "faqs": [
+        {
+          "question": "Where can I find additional resources?",
+          "answer": "Additional resources are available on the Lattice website and through our technical support team."
+        },
+        {
+          "question": "How do I contact technical support?",
+          "answer": "Contact our FAE team through the support portal or email for technical assistance."
+        }
+      ]
+    },
+    {
+      "id": "hardware-security-implementation",
+      "title": "Implementing Hardware Security with Lattice FPGAs",
+      "category": "Security Guide",
+      "summary": "Comprehensive guide to implementing hardware root of trust, secure boot, and platform firmware resiliency using Lattice security features and Sentry solution stack.",
+      "content": "# Implementing Hardware Security with Lattice FPGAs\n\n## Security Overview\n\nLattice FPGAs provide comprehensive hardware security features essential for protecting modern electronic systems against evolving cyber threats.\n\n## Key Security Features\n\n### 1. Physically Unclonable Function (PUF)\n- Unique device fingerprint for each FPGA\n- Used for secure key generation and storage\n- Tamper-resistant by physical design\n\n### 2. Hardware Cryptographic Engines\n- AES-256 encryption/decryption\n- SHA-256 hashing\n- ECDSA signature verification\n- True random number generator\n\n### 3. Secure Boot\n- Authenticated firmware loading\n- Chain of trust verification\n- Anti-rollback protection\n\n## Platform Firmware Resiliency (PFR)\n\n### Implementation Steps\n\n1. **Design the Root of Trust**\n   - Configure PUF for device identity\n   - Set up secure key storage\n   - Define security policies\n\n2. **Implement Secure Boot Chain**\n   ```\n   Boot ROM → Bootloader → Application Firmware\n      ↓           ↓              ↓\n   Verify    Verify         Verify\n   ```\n\n3. **Add Runtime Protection**\n   - SPI flash monitoring\n   - Firmware integrity checking\n   - Real-time attack detection\n\n## Lattice Sentry Stack\n\nSentry provides pre-validated security solutions:\n\n### Components\n- **Sentry Reference Design**: Complete PFR implementation\n- **Security IP Cores**: Crypto accelerators, secure controllers\n- **Software Stack**: Secure boot manager, update utilities\n\n### Quick Start\n\n1. Install Lattice Sentry software\n2. Load reference design for your application\n3. Customize security policies\n4. Generate programming files\n\n## Security Certifications\n\nLattice security solutions support compliance with:\n- NIST SP 800-193 (Platform Firmware Resiliency)\n- Common Criteria (selected products)\n- FIPS 140-2 (cryptographic modules)\n\n## Best Practices\n\n1. Use hardware root of trust for all security operations\n2. Implement defense in depth with multiple security layers\n3. Secure the supply chain with device provisioning\n4. Plan for secure field updates\n5. Monitor and log security events",
+      "tags": [
+        "Security",
+        "PFR",
+        "Root of Trust",
+        "Secure Boot",
+        "Cryptography"
+      ],
+      "author": {
+        "name": "Lattice Security Team",
+        "title": "Technical Specialist",
+        "bio": "Experienced FPGA applications engineer with expertise in Lattice solutions.",
+        "image": "/images/authors/default.jpg"
+      },
+      "publishedAt": "2024-01-28",
+      "updatedAt": "2024-03-10",
+      "readTime": "25 min",
+      "relatedProducts": [
+        "LFD4NX-100",
+        "LCMXO5-1200"
+      ],
+      "slug": "hardware-security-implementation",
+      "publishDate": "2024-01-28",
+      "relatedArticles": [
+        {
+          "id": "sensai-ai-implementation",
+          "title": "Implementing AI/ML with Lattice sensAI"
+        },
+        {
+          "id": "hardware-security-implementation",
+          "title": "Implementing Hardware Security with Lattice FPGAs"
+        }
+      ],
+      "faeInsights": {
+        "keyPoints": "This article covers essential concepts for Lattice FPGA development.",
+        "practicalTips": "Follow the step-by-step instructions and use the provided example designs.",
+        "commonQuestions": "Contact our FAE team for clarification on any topics covered in this guide."
+      },
+      "customerCases": [
+        {
+          "customer": "Industrial Automation Company",
+          "application": "Control system implementation",
+          "feedback": "The guide helped us get started quickly with Lattice FPGAs."
+        }
+      ],
+      "faqs": [
+        {
+          "question": "Where can I find additional resources?",
+          "answer": "Additional resources are available on the Lattice website and through our technical support team."
+        },
+        {
+          "question": "How do I contact technical support?",
+          "answer": "Contact our FAE team through the support portal or email for technical assistance."
+        }
+      ]
+    },
+    {
+      "id": "mipi-camera-interface-design",
+      "title": "Designing MIPI Camera Interfaces with CrossLink-NX",
+      "category": "Interface Design",
+      "summary": "Technical guide for implementing MIPI CSI-2 camera interfaces using CrossLink-NX FPGAs. Covers D-PHY configuration, data lane optimization, and image signal processing integration.",
+      "content": "# Designing MIPI Camera Interfaces with CrossLink-NX\n\n## Introduction\n\nCrossLink-NX FPGAs are specifically designed for MIPI D-PHY connectivity, making them ideal for camera and display interface applications. This guide covers the complete design flow.\n\n## CrossLink-NX MIPI Capabilities\n\n### D-PHY Support\n- Up to 4 data lanes + 1 clock lane\n- 1.5 Gbps per lane (6 Gbps total)\n- Programmable HS and LP modes\n- Built-in deskew and alignment\n\n### Protocol Support\n- MIPI CSI-2 (Camera Serial Interface)\n- MIPI DSI (Display Serial Interface)\n- Custom D-PHY based protocols\n\n## Design Architecture\n\n### Basic Camera Interface\n```\nCamera Sensor → D-PHY RX → CSI-2 Decoder → Data Processing → Output\n```\n\n### Multi-Camera Aggregation\n```\nCamera 1 → D-PHY →\nCamera 2 → D-PHY →  CrossLink-NX  → Aggregated Output\nCamera 3 → D-PHY →\nCamera 4 → D-PHY →\n```\n\n## Implementation Steps\n\n### Step 1: D-PHY Configuration\n\n1. Open Lattice Radiant IP Catalog\n2. Select MIPI D-PHY IP\n3. Configure parameters:\n   - Number of data lanes (1-4)\n   - Data rate (up to 1.5 Gbps)\n   - Reference clock frequency\n\n### Step 2: CSI-2 Protocol Layer\n\nConfigure CSI-2 receiver:\n- Virtual channel mapping\n- Data type handling (RAW, RGB, YUV)\n- Error detection and correction\n\n### Step 3: Image Processing Pipeline\n\nCommon processing blocks:\n- Debayering (for RAW sensors)\n- Color space conversion\n- Resolution scaling\n- Frame buffering\n\n### Step 4: Output Interface\n\nOptions include:\n- Parallel CMOS output\n- Converted MIPI stream\n- Standard video (HDMI, DisplayPort)\n\n## Power Optimization\n\n### Techniques\n1. Dynamic lane switching\n2. Clock gating during blanking\n3. LP mode for control periods\n4. Selective power down\n\n### Power Consumption Example\n| Configuration | Active Power | Standby Power |\n|--------------|--------------|---------------|\n| 1 lane, 1 Gbps | 85 mW | 12 mW |\n| 4 lanes, 1.5 Gbps | 220 mW | 15 mW |\n\n## Reference Designs\n\nLattice provides complete reference designs for:\n- Single camera interface\n- Dual camera aggregation\n- Camera-to-display bridge\n- Image pre-processing\n\n## Troubleshooting\n\n### Common Issues\n\n1. **Lane Alignment Errors**\n   - Check D-PHY deskew settings\n   - Verify clock stability\n\n2. **CSI-2 Packet Errors**\n   - Validate ECC checksums\n   - Check virtual channel configuration\n\n3. **Timing Violations**\n   - Review timing constraints\n   - Optimize pipeline stages",
+      "tags": [
+        "MIPI",
+        "CSI-2",
+        "CrossLink-NX",
+        "Camera Interface",
+        "D-PHY"
+      ],
+      "author": {
+        "name": "Lattice Interface Solutions Team",
+        "title": "Technical Specialist",
+        "bio": "Experienced FPGA applications engineer with expertise in Lattice solutions.",
+        "image": "/images/authors/default.jpg"
+      },
+      "publishedAt": "2024-02-20",
+      "updatedAt": "2024-03-25",
+      "readTime": "18 min",
+      "relatedProducts": [
+        "LCE4X-100"
+      ],
+      "slug": "mipi-camera-interface-design",
+      "publishDate": "2024-02-20",
+      "relatedArticles": [
+        {
+          "id": "sensai-ai-implementation",
+          "title": "Implementing AI/ML with Lattice sensAI"
+        },
+        {
+          "id": "hardware-security-implementation",
+          "title": "Implementing Hardware Security with Lattice FPGAs"
+        }
+      ],
+      "faeInsights": {
+        "keyPoints": "This article covers essential concepts for Lattice FPGA development.",
+        "practicalTips": "Follow the step-by-step instructions and use the provided example designs.",
+        "commonQuestions": "Contact our FAE team for clarification on any topics covered in this guide."
+      },
+      "customerCases": [
+        {
+          "customer": "Industrial Automation Company",
+          "application": "Control system implementation",
+          "feedback": "The guide helped us get started quickly with Lattice FPGAs."
+        }
+      ],
+      "faqs": [
+        {
+          "question": "Where can I find additional resources?",
+          "answer": "Additional resources are available on the Lattice website and through our technical support team."
+        },
+        {
+          "question": "How do I contact technical support?",
+          "answer": "Contact our FAE team through the support portal or email for technical assistance."
+        }
+      ]
+    }
+  ],
+  "seoTitle": "Lattice Technical Support - FPGA Guides and Documentation | LiTong",
+  "seoDescription": "Access Lattice FPGA technical support resources: getting started guides, AI implementation tutorials, security documentation, and MIPI interface design. Expert support from authorized distributor.",
+  "seoKeywords": [
+    "Lattice support",
+    "Lattice documentation",
+    "FPGA guides",
+    "Lattice tutorials",
+    "sensAI guide",
+    "security implementation",
+    "MIPI design",
+    "technical support"
+  ],
+  "faqs": [
+    {
+      "question": "What technical resources are available for Lattice FPGAs?",
+      "answer": "Lattice provides comprehensive technical resources including datasheets, application notes, reference designs, user guides, and software documentation. As an authorized distributor, we supplement these with additional application guides, design examples, and direct technical support from our FAE team. Resources cover all aspects of Lattice FPGA development from getting started to advanced topics like AI implementation and security.",
+      "decisionGuide": "Access comprehensive technical resources and expert support for Lattice FPGA development.",
+      "keywords": [
+        "technical resources",
+        "documentation",
+        "application notes",
+        "reference designs"
+      ]
+    },
+    {
+      "question": "How do I get started with Lattice FPGA development?",
+      "answer": "Getting started with Lattice FPGAs involves downloading the appropriate design software (Radiant for Nexus devices, Diamond for MachXO), acquiring a development kit for your target device, and working through the getting started guide. Our technical articles provide step-by-step instructions for first-time users. The FAE team is available to help with tool installation, first project creation, and troubleshooting.",
+      "decisionGuide": "Start with development kit and getting started guide for rapid learning.",
+      "keywords": [
+        "getting started",
+        "development kit",
+        "first project",
+        "software download"
+      ]
+    },
+    {
+      "question": "What support is available for complex designs?",
+      "answer": "For complex designs, we provide comprehensive support including architecture consultation, design review, timing closure assistance, and optimization guidance. Our FAE team has extensive experience with Lattice devices and can help with challenging aspects like high-speed interfaces, power optimization, and resource utilization. We also offer reference designs that demonstrate best practices for common applications.",
+      "decisionGuide": "Leverage FAE expertise and reference designs for complex design challenges.",
+      "keywords": [
+        "design support",
+        "FAE assistance",
+        "design review",
+        "optimization"
+      ]
+    }
+  ]
+}

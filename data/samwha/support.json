@@ -1,0 +1,670 @@
+{
+  "seoTitle": "Samwha Technical Support | Capacitor Selection Guides, Application Notes",
+  "seoDescription": "Access Samwha technical resources including capacitor selection guides, application notes, FAQs, and design tools. Expert FAE support available.",
+  "seoKeywords": [
+    "Samwha technical support distributor",
+    "Samwha capacitor selection guide",
+    "Samwha application notes",
+    "capacitor design tools selection"
+  ],
+  "faqs": [
+    {
+      "question": "What technical resources does Samwha provide?",
+      "answer": "Samwha provides comprehensive technical resources: Selection Guides - Detailed guides for aluminum electrolytic, solid polymer, film, and automotive capacitors. Include selection criteria, parameter explanations, and application recommendations. Application Notes - Technical papers on specific topics including lifetime calculation, ripple current derating, thermal management, and reliability. Spice Models - Simulation models for circuit design and analysis. Available for major capacitor series. FAQs - Extensive FAQ database covering common questions about capacitor selection, application, and reliability. Design Tools - Online calculators for lifetime prediction, ripple current capability, and parameter conversion. Video Tutorials - Training videos on capacitor basics, selection, and application. All resources are available through our website or by contacting our technical support team.",
+      "decisionGuide": "Browse our technical resources or contact our FAE team for specific application support.",
+      "keywords": [
+        "Samwha technical resources",
+        "capacitor design tools"
+      ]
+    },
+    {
+      "question": "How can I contact Samwha FAE for technical support?",
+      "answer": "You can contact our FAE team through multiple channels: Email - Send technical questions to technical.support@example.com. Typical response time is 24 hours. Phone - Call our technical hotline at +1-555-0100 during business hours (8 AM - 6 PM EST). Online Form - Submit technical questions through our website contact form. Live Chat - Available on our website during business hours for quick questions. On-Site Support - For critical projects, our FAEs can visit your facility for hands-on support. When contacting us, please provide: Application description (power supply, inverter, etc.), Operating conditions (voltage, current, temperature), Specific questions or issues, Timeline for your project. Our FAE team has an average of 15+ years experience in capacitor applications across automotive, industrial, and consumer electronics.",
+      "decisionGuide": "Contact our FAE team for application-specific capacitor selection and design support.",
+      "keywords": [
+        "Samwha FAE contact",
+        "technical support"
+      ]
+    },
+    {
+      "question": "Does Samwha provide Spice models for circuit simulation?",
+      "answer": "Yes, Samwha provides Spice models for major capacitor series: Available Models - Aluminum electrolytic capacitors (WH, WL, WD series), Solid polymer capacitors (PH, PK series), Film capacitors (MPP, MPET series). Model Types - Basic RLC model for frequency response simulation, Advanced behavioral model including temperature and DC bias effects, Thermal model for temperature rise calculations. Model Parameters - ESR vs frequency and temperature, ESL (equivalent series inductance), Capacitance vs temperature and DC bias, Leakage current vs temperature. How to Request - Contact our technical support with your specific part numbers. Models are provided as subcircuit files compatible with major Spice simulators (LTspice, PSpice, Multisim). Limitations - Models are representative of typical production units. For critical applications, verify with actual component measurements.",
+      "decisionGuide": "Contact technical support to request Spice models for your specific capacitor part numbers.",
+      "keywords": [
+        "Samwha Spice models",
+        "capacitor simulation"
+      ]
+    },
+    {
+      "question": "What information should I provide for capacitor selection assistance?",
+      "answer": "To receive accurate capacitor selection assistance, please provide: Application Information - Circuit type (power supply, inverter, DC-DC converter, etc.), Function (input filter, output filter, DC-link, decoupling), Operating frequency and switching topology. Electrical Parameters - Operating voltage (nominal and maximum), Ripple current (RMS and frequency), Required capacitance or allowed voltage ripple, Inrush current and surge voltage conditions. Environmental Conditions - Ambient temperature range, Cooling method (natural convection, forced air, heat sink), Altitude if above 2000m, Vibration and shock requirements. Reliability Requirements - Required service life, Acceptable failure rate, Certification requirements (AEC-Q200, UL, etc.). Physical Constraints - Available PCB area and height, Mounting orientation, Weight limitations. With this information, our FAE team can recommend optimal capacitor series and part numbers for your application.",
+      "decisionGuide": "Provide detailed application information for accurate capacitor selection recommendations.",
+      "keywords": [
+        "capacitor selection assistance",
+        "capacitor specification"
+      ]
+    },
+    {
+      "question": "Where can I find Samwha capacitor datasheets?",
+      "answer": "Datasheets for all Samwha capacitor series are available on our website in the product section. You can also contact our sales team to request specific datasheets. All datasheets include electrical characteristics, mechanical dimensions, and reliability data.",
+      "decisionGuide": "Visit our product pages or contact sales for datasheets.",
+      "keywords": [
+        "datasheet",
+        "specifications",
+        "technical documentation"
+      ]
+    },
+    {
+      "question": "Does Samwha offer sample capacitors for evaluation?",
+      "answer": "Yes, we offer evaluation samples for qualified customers. Sample requests can be submitted through our website or by contacting our sales team. Typical sample delivery time is 1-2 weeks. We also offer sample kits for popular series.",
+      "decisionGuide": "Submit sample request through website or contact sales.",
+      "keywords": [
+        "samples",
+        "evaluation",
+        "sample kit"
+      ]
+    },
+    {
+      "question": "What is Samwha's quality policy?",
+      "answer": "Samwha is committed to delivering high-quality capacitors that meet or exceed customer expectations. Our quality management system is certified to ISO 9001 and IATF 16949 (automotive). All capacitors undergo 100% electrical testing and visual inspection before shipment.",
+      "decisionGuide": "Request quality certifications for your quality management system.",
+      "keywords": [
+        "quality policy",
+        "ISO 9001",
+        "IATF 16949"
+      ]
+    },
+    {
+      "question": "How can I request a quote for Samwha capacitors?",
+      "answer": "Quote requests can be submitted through our website contact form, by email to sales@example.com, or by calling our sales team. Please provide part numbers, quantities, and delivery requirements for accurate quoting.",
+      "decisionGuide": "Submit quote request with part numbers and quantities.",
+      "keywords": [
+        "quote",
+        "pricing",
+        "RFQ"
+      ]
+    }
+  ],
+  "articles": [
+    {
+      "id": "aluminum-electrolytic-selection-guide",
+      "title": "Aluminum Electrolytic Capacitor Selection Guide",
+      "summary": "Comprehensive guide to selecting aluminum electrolytic capacitors for power supply and industrial applications",
+      "content": "## Aluminum Electrolytic Capacitor Selection Guide\n\n### Introduction\n\nAluminum electrolytic capacitors are widely used in power supplies, motor drives, and industrial equipment due to their high capacitance density and cost-effectiveness. This guide covers key selection parameters and best practices.\n\n### Key Selection Parameters\n\n#### 1. Capacitance and Voltage Rating\n\n**Capacitance Selection:**\n- Calculate required capacitance based on allowable voltage ripple\n- For input filtering: C = I_ripple / (2 × π × f × V_ripple)\n- For output filtering: C = I_load × duty_cycle / (f × V_ripple)\n- Include 20% tolerance in calculations\n\n**Voltage Derating:**\n- Standard applications: 80% derating (use 80% of rated voltage)\n- High-reliability applications: 70% derating\n- Automotive applications: 60-70% derating\n\n**Example:** For 24V power supply, use 35V rated capacitor (69% derating)\n\n#### 2. Temperature Rating\n\n**Temperature Range Selection:**\n- Standard industrial: 85°C rated\n- High-temperature: 105°C or 125°C rated\n- Automotive under-hood: 125°C or 150°C rated\n\n**Design Margin:**\n- Keep case temperature 20-30°C below rated temperature\n- Account for self-heating from ripple current (typically 5-15°C)\n\n#### 3. Lifetime Requirements\n\n**Lifetime Calculation:**\nUse Arrhenius equation: L2 = L1 × 2^((T1-T2)/10)\n\nWhere:\n- L1 = Rated lifetime at temperature T1\n- L2 = Expected lifetime at operating temperature T2\n- Temperature in °C\n\n**Example:** 10,000 hour capacitor at 105°C, operating at 75°C:\nL2 = 10,000 × 2^((105-75)/10) = 10,000 × 8 = 80,000 hours\n\n**Ripple Current Effect:**\n- Operating below rated ripple current extends lifetime\n- Factor of 1.5x at 50% rated ripple current\n\n#### 4. Ripple Current Capability\n\n**Ripple Current Calculation:**\n- Measure or calculate RMS ripple current in application\n- Select capacitor with ripple rating > actual ripple current\n- Consider frequency - ratings vary with frequency\n\n**Multiple Capacitors:**\n- Parallel capacitors to increase total ripple capability\n- Ripple current adds directly in parallel\n- ESR reduces proportionally\n\n#### 5. Physical Size and Mounting\n\n**Case Size Selection:**\n- Larger case size = higher ripple current capability\n- Consider PCB space and height constraints\n- Ensure adequate spacing for heat dissipation\n\n**Mounting Types:**\n- Radial lead: General purpose, PCB mounting\n- Snap-in: Power supplies, higher capacitance\n- Screw terminal: High capacitance, energy storage\n\n### Application-Specific Recommendations\n\n#### Switching Power Supplies\n\n**Input Filter:**\n- Voltage rating: 1.5× maximum input voltage\n- Capacitance: Based on hold-up time requirements\n- Series: WH or WL for high reliability\n\n**Output Filter:**\n- Low ESR critical for output ripple\n- Consider polymer capacitors for high-frequency ripple\n- Multiple capacitors in parallel for high current\n\n#### Motor Drive Inverters\n\n**DC-Link:**\n- Film capacitors preferred for long life\n- Electrolytic for cost-sensitive applications\n- High ripple current capability required\n\n**Bus Capacitors:**\n- Large capacitance for energy storage\n- Long-life series (WL) for 10+ year life\n\n### Design Checklist\n\n- [ ] Voltage rating with appropriate derating\n- [ ] Capacitance calculated with tolerance\n- [ ] Temperature rating with 20-30°C margin\n- [ ] Ripple current capability verified\n- [ ] Lifetime calculated for application\n- [ ] Physical size fits PCB constraints\n- [ ] Mounting type appropriate for application\n- [ ] Certification requirements (AEC-Q200, UL, etc.)\n\n### Common Mistakes to Avoid\n\n1. **Insufficient voltage derating** - Reduces lifetime and reliability\n2. **Ignoring temperature rise** - Self-heating can exceed ratings\n3. **Wrong frequency assumption** - Ripple ratings vary with frequency\n4. **Overlooking lifetime** - Capacitors wear out, plan for replacement\n5. **Inadequate spacing** - Heat buildup reduces lifetime\n\n### Contact Support\n\nFor application-specific capacitor selection assistance, contact our FAE team:\n- Email: technical.support@example.com\n- Phone: +1-555-0100",
+      "category": "Selection Guides",
+      "tags": [
+        "aluminum electrolytic",
+        "selection guide",
+        "power supply"
+      ],
+      "author": {
+        "name": "David Park",
+        "title": "Senior FAE - Industrial Power",
+        "email": "david.park@example.com",
+        "image": "/assets/team/david-park.jpg"
+      },
+      "publishedDate": "2024-01-15",
+      "updatedDate": "2024-06-20",
+      "readTime": "15 min",
+      "difficulty": "Intermediate",
+      "faqs": [
+        {
+          "question": "How do I calculate the required capacitance for my power supply?",
+          "answer": "For output filter capacitors in buck converters: C = (I_load × duty_cycle) / (f_sw × V_ripple). Where I_load is maximum load current, duty_cycle is switch duty cycle, f_sw is switching frequency, V_ripple is allowable output ripple voltage. For example, 5A load, 50% duty cycle, 100kHz switching, 50mV ripple: C = (5 × 0.5) / (100,000 × 0.05) = 500µF. Include 20% tolerance and consider using multiple capacitors in parallel for high ripple current applications.",
+          "decisionGuide": "Use the formula C = I×D/(f×Vripple) for buck converters. Contact FAE for other topologies.",
+          "keywords": [
+            "capacitance calculation",
+            "output filter design"
+          ]
+        },
+        {
+          "question": "What is the recommended voltage derating for industrial applications?",
+          "answer": "For industrial applications, we recommend 80% voltage derating (operate at 80% of rated voltage). This provides: Improved reliability through reduced dielectric stress, Extended lifetime (approximately 2x compared to 100% voltage), Margin for voltage transients and spikes, Consistent with industry best practices. For high-reliability or safety-critical applications, use 70% derating. For automotive, use 60-70% derating to handle load dump transients. Example: For 24V nominal, 30V maximum system voltage, use 50V rated capacitor (60% derating at 30V).",
+          "decisionGuide": "Use 80% derating for standard industrial, 70% for high-reliability, 60% for automotive.",
+          "keywords": [
+            "voltage derating",
+            "capacitor reliability"
+          ]
+        },
+        {
+          "question": "Where can I find more information about this topic?",
+          "answer": "Additional information is available in our other technical guides and application notes. Contact our FAE team for specific questions or application support.",
+          "decisionGuide": "Browse our technical resources or contact FAE team.",
+          "keywords": [
+            "resources",
+            "information",
+            "support"
+          ]
+        },
+        {
+          "question": "Can I request a training session on this topic?",
+          "answer": "Yes, we offer technical training sessions for customers. Contact our training coordinator to schedule a session for your engineering team.",
+          "decisionGuide": "Contact training coordinator to schedule a session.",
+          "keywords": [
+            "training",
+            "education",
+            "webinar"
+          ]
+        },
+        {
+          "question": "Where can I find more information about this topic?",
+          "answer": "Additional information is available in our other technical guides, application notes, and datasheets. You can also contact our FAE team for specific questions or application support.",
+          "decisionGuide": "Browse our technical resources or contact FAE team for more information.",
+          "keywords": [
+            "resources",
+            "information",
+            "support"
+          ]
+        }
+      ],
+      "faeInsights": {
+        "summary": "The most common issue I see is insufficient voltage derating. Many designers use 100V capacitors on 90V circuits, which severely limits lifetime. Always use at least 80% derating. The second most common issue is ignoring temperature rise from ripple current. Measure case temperature during full-load operation - I've seen cases where ripple current caused 20°C self-heating, reducing lifetime by 75%.",
+        "recommendations": [
+          "Use 80% voltage derating minimum",
+          "Measure case temperature during full-load operation",
+          "Include 20% tolerance in capacitance calculations",
+          "Consider lifetime requirements early in design"
+        ],
+        "contactInfo": {
+          "name": "David Park",
+          "title": "Senior FAE - Industrial Power",
+          "email": "industrial.fae@example.com",
+          "phone": "+1-555-0101"
+        },
+        "author": "David Park",
+        "content": "Based on my extensive experience with aluminum electrolytic capacitor selection, I've found that proper capacitor selection is critical for reliable system performance. The most common mistake I see is insufficient derating - whether voltage, temperature, or ripple current. Always design with adequate margins to ensure long-term reliability. Key insights: 1) Temperature is the primary lifetime driver, 2) Voltage derating significantly improves reliability, 3) Ripple current causes self-heating that must be accounted for, 4) Always measure actual operating conditions during validation testing. Contact our FAE team for application-specific guidance.",
+        "keyTakeaways": [
+          "Proper derating is essential for reliable operation",
+          "Temperature is the primary lifetime driver",
+          "Always measure actual operating conditions",
+          "Contact FAE team for application-specific recommendations"
+        ]
+      },
+      "relatedProducts": [
+        {
+          "name": "WH Series High-Temp Capacitors",
+          "link": "/samwha/products/aluminum-electrolytic.html"
+        },
+        {
+          "name": "WL Series Long-Life Capacitors",
+          "link": "/samwha/products/aluminum-electrolytic.html"
+        }
+      ],
+      "customerCases": [
+        {
+          "title": "Power Supply Capacitor Optimization",
+          "industry": "Industrial Electronics",
+          "challenge": "Customer's 500W power supply had excessive output ripple and capacitor heating. Original design used underrated capacitors with insufficient ripple current capability.",
+          "solution": "Recalculated capacitance requirements and selected WL series capacitors with 2x ripple current margin. Implemented 80% voltage derating and improved thermal design.",
+          "result": "Output ripple reduced by 60%. Capacitor temperature reduced from 95°C to 75°C, extending expected lifetime from 5 years to 18 years.",
+          "quote": "The selection guide helped us understand the importance of ripple current rating and temperature. Our power supply is now much more reliable.",
+          "author": "Power Supply Design Engineer",
+          "feedback": "Customer was very satisfied with the technical support and the improved reliability of their application."
+        }
+      ],
+      "downloads": [
+        {
+          "title": "Capacitor Lifetime Calculator (Excel)",
+          "url": "#",
+          "type": "Spreadsheet",
+          "size": "245 KB"
+        },
+        {
+          "title": "Aluminum Electrolytic Capacitor Datasheet",
+          "url": "#",
+          "type": "PDF",
+          "size": "1.2 MB"
+        }
+      ],
+      "slug": "aluminum-electrolytic-selection-guide",
+      "publishDate": "2024-01-15",
+      "relatedArticles": [
+        {
+          "title": "Solid Polymer Capacitor Selection Guide",
+          "link": "/samwha/support/solid-polymer-selection-guide.html"
+        },
+        {
+          "title": "Film Capacitor Selection Guide",
+          "link": "/samwha/support/film-capacitor-selection-guide.html"
+        },
+        {
+          "title": "Automotive Capacitor Selection Guide",
+          "link": "/samwha/support/automotive-capacitor-selection-guide.html"
+        }
+      ]
+    },
+    {
+      "id": "solid-polymer-selection-guide",
+      "title": "Solid Polymer Capacitor Selection Guide",
+      "summary": "Guide to selecting solid polymer capacitors for high-frequency DC-DC converters and CPU power applications",
+      "content": "## Solid Polymer Capacitor Selection Guide\n\n### Introduction\n\nSolid polymer capacitors offer ultra-low ESR and excellent high-frequency performance, making them ideal for DC-DC converters, CPU power supplies, and high-frequency filtering applications.\n\n### Advantages of Solid Polymer Capacitors\n\n**Ultra-Low ESR:**\n- 5-25mΩ typical vs 50-500mΩ for electrolytics\n- Reduces output ripple voltage by 10-100x\n- Minimizes power dissipation and heating\n\n**High Ripple Current:**\n- 2-5x higher ripple current than electrolytics\n- Reduced number of capacitors needed\n- Lower total cost for high-current applications\n\n**Extended Lifetime:**\n- No electrolyte to dry out\n- Stable ESR over lifetime\n- 10-20 year service life typical\n\n**High Frequency Performance:**\n- Low impedance at frequencies above 100kHz\n- Ideal for modern high-frequency DC-DC converters\n- Better transient response\n\n### Selection Parameters\n\n#### 1. Voltage Rating\n\n**Available Ratings:**\n- 2.5V to 125V DC\n- Most common: 6.3V, 10V, 16V, 25V, 35V\n\n**Derating Recommendation:**\n- Use 80% derating for general applications\n- Use 70% derating for high-reliability applications\n- Surge rating: 1.15x to 1.2x rated voltage\n\n#### 2. Capacitance Selection\n\n**DC-DC Output Filter:**\nC = ΔI_load / (2 × π × f_co × ΔV_out)\n\nWhere:\n- ΔI_load = load transient current\n- f_co = converter crossover frequency\n- ΔV_out = allowable voltage deviation\n\n**CPU VRM Applications:**\n- Use multiple capacitors in parallel\n- Distribute across CPU socket\n- Typical: 100-1000µF total per phase\n\n#### 3. ESR Requirements\n\n**Output Ripple Calculation:**\nV_ripple = I_ripple × ESR\n\n**Example:**\n- I_ripple = 3A RMS\n- ESR = 10mΩ\n- V_ripple = 3 × 0.01 = 30mV\n\n**Target ESR by Application:**\n- CPU VRM: <10mΩ per capacitor\n- General DC-DC: <20mΩ\n- High-current: <5mΩ (use multiple parallel)\n\n#### 4. Ripple Current Capability\n\n**Parallel Configuration:**\n- Total ripple current = sum of individual ratings\n- ESR reduces proportionally\n- Two capacitors: 2× ripple, ½ ESR\n\n**Thermal Considerations:**\n- P = I² × ESR (power dissipation)\n- Keep case temperature below 90°C\n- Provide adequate cooling\n\n### Application Guidelines\n\n#### CPU Power Supplies (VRM)\n\n**Typical Configuration:**\n- 4-8 capacitors in parallel per phase\n- Mix of 100µF and 220µF values\n- Distribute around CPU socket\n- Keep traces short and wide\n\n**Key Considerations:**\n- Low ESR critical for transient response\n- Use multiple capacitors for current sharing\n- Place closest to CPU power pins\n\n#### DC-DC Converters\n\n**Output Filter Design:**\n- Calculate required capacitance based on ripple\n- Select ESR for target output ripple\n- Verify ripple current rating\n\n**Hybrid Configuration:**\n- Polymer capacitors for high-frequency ripple\n- Electrolytic capacitors for bulk capacitance\n- Cost-effective for high-capacitance needs\n\n### Design Checklist\n\n- [ ] Voltage rating with 80% derating\n- [ ] Capacitance calculated for ripple/transient\n- [ ] ESR verified for output ripple target\n- [ ] Ripple current rating adequate\n- [ ] Thermal design for case temperature <90°C\n- [ ] Parallel configuration if needed\n- [ ] Placement optimized for low inductance\n\n### Common Applications\n\n**Recommended for:**\n- CPU/GPU power supplies\n- High-frequency DC-DC converters (>200kHz)\n- Low-voltage high-current applications\n- Long-life applications\n\n**Not Recommended for:**\n- High-voltage applications (>125V)\n- Very large capacitance needs (>1000µF)\n- Cost-sensitive high-capacitance applications\n\n### Contact Support\n\nFor polymer capacitor selection assistance, contact our FAE team:\n- Email: technical.support@example.com\n- Phone: +1-555-0100",
+      "category": "Selection Guides",
+      "tags": [
+        "solid polymer",
+        "selection guide",
+        "DC-DC converter"
+      ],
+      "author": {
+        "name": "Michael Lee",
+        "title": "Senior FAE - Digital Power",
+        "email": "michael.lee@example.com",
+        "image": "/assets/team/michael-lee.jpg"
+      },
+      "publishedDate": "2024-02-10",
+      "updatedDate": "2024-07-15",
+      "readTime": "12 min",
+      "difficulty": "Intermediate",
+      "faqs": [
+        {
+          "question": "When should I use polymer capacitors vs electrolytic capacitors?",
+          "answer": "Use polymer capacitors when: ESR below 20mΩ is required, Operating frequency above 200kHz, Long service life (10+ years) needed, High ripple current density required, Output ripple must be minimized. Use electrolytic capacitors when: Voltage above 125V required, Very large capacitance needed (>1000µF), Cost is primary concern, Low-frequency filtering (<50kHz). For many applications, a hybrid approach works best: polymer capacitors for high-frequency ripple filtering close to the load, electrolytic capacitors for bulk capacitance and energy storage.",
+          "decisionGuide": "Use polymer for high-frequency, low-ESR applications. Use electrolytic for high-voltage, high-capacitance, cost-sensitive applications.",
+          "keywords": [
+            "polymer vs electrolytic",
+            "capacitor selection"
+          ]
+        },
+        {
+          "question": "Where can I find more information about this topic?",
+          "answer": "Additional information is available in our other technical guides and application notes. Contact our FAE team for specific questions or application support.",
+          "decisionGuide": "Browse our technical resources or contact FAE team.",
+          "keywords": [
+            "resources",
+            "information",
+            "support"
+          ]
+        },
+        {
+          "question": "Can I request a training session on this topic?",
+          "answer": "Yes, we offer technical training sessions for customers. Contact our training coordinator to schedule a session for your engineering team.",
+          "decisionGuide": "Contact training coordinator to schedule a session.",
+          "keywords": [
+            "training",
+            "education",
+            "webinar"
+          ]
+        },
+        {
+          "question": "Where can I find more information about this topic?",
+          "answer": "Additional information is available in our other technical guides, application notes, and datasheets. You can also contact our FAE team for specific questions or application support.",
+          "decisionGuide": "Browse our technical resources or contact FAE team for more information.",
+          "keywords": [
+            "resources",
+            "information",
+            "support"
+          ]
+        },
+        {
+          "question": "Can I request a training session on this topic?",
+          "answer": "Yes, we offer technical training sessions and webinars for customers. Contact our training coordinator to schedule a session for your engineering team or to register for upcoming webinars.",
+          "decisionGuide": "Contact training coordinator to schedule a session or register for webinars.",
+          "keywords": [
+            "training",
+            "webinar",
+            "education"
+          ]
+        }
+      ],
+      "faeInsights": {
+        "summary": "Polymer capacitors are essential for modern CPU VRM designs. The ultra-low ESR (5-10mΩ) is critical for meeting tight voltage regulation requirements during load transients. I always recommend polymer over electrolytic for any DC-DC converter switching above 200kHz. The key design consideration is thermal management - while polymer capacitors handle high ripple current well, they still dissipate power (P = I² × ESR). Keep case temperature below 90°C for maximum lifetime.",
+        "recommendations": [
+          "Use polymer capacitors for CPU VRM and high-frequency DC-DC",
+          "Keep case temperature below 90°C",
+          "Use multiple capacitors in parallel for high current",
+          "Place capacitors closest to load for best transient response"
+        ],
+        "contactInfo": {
+          "name": "Michael Lee",
+          "title": "Senior FAE - Digital Power",
+          "email": "digital.fae@example.com",
+          "phone": "+1-555-0102"
+        },
+        "author": "Michael Lee",
+        "content": "Based on my extensive experience with solid polymer capacitor selection, I've found that proper capacitor selection is critical for reliable system performance. The most common mistake I see is insufficient derating - whether voltage, temperature, or ripple current. Always design with adequate margins to ensure long-term reliability. Key insights: 1) Temperature is the primary lifetime driver, 2) Voltage derating significantly improves reliability, 3) Ripple current causes self-heating that must be accounted for, 4) Always measure actual operating conditions during validation testing. Contact our FAE team for application-specific guidance.",
+        "keyTakeaways": [
+          "Proper derating is essential for reliable operation",
+          "Temperature is the primary lifetime driver",
+          "Always measure actual operating conditions",
+          "Contact FAE team for application-specific recommendations"
+        ]
+      },
+      "relatedProducts": [
+        {
+          "name": "PH Series Polymer Capacitors",
+          "link": "/samwha/products/solid-polymer.html"
+        },
+        {
+          "name": "PK Series Compact Polymer",
+          "link": "/samwha/products/solid-polymer.html"
+        }
+      ],
+      "downloads": [
+        {
+          "title": "Polymer Capacitor Spice Models",
+          "url": "#",
+          "type": "ZIP",
+          "size": "3.5 MB"
+        }
+      ],
+      "slug": "solid-polymer-selection-guide",
+      "publishDate": "2024-02-10",
+      "relatedArticles": [
+        {
+          "title": "Aluminum Electrolytic Capacitor Selection Guide",
+          "link": "/samwha/support/aluminum-electrolytic-selection-guide.html"
+        },
+        {
+          "title": "Film Capacitor Selection Guide",
+          "link": "/samwha/support/film-capacitor-selection-guide.html"
+        },
+        {
+          "title": "Automotive Capacitor Selection Guide",
+          "link": "/samwha/support/automotive-capacitor-selection-guide.html"
+        }
+      ],
+      "customerCases": [
+        {
+          "title": "Application Success Story",
+          "industry": "General Electronics",
+          "challenge": "Customer needed guidance on capacitor selection for their specific application.",
+          "solution": "Our FAE team provided detailed recommendations and application support.",
+          "result": "Customer successfully implemented the solution and achieved desired performance.",
+          "quote": "The technical support was excellent and helped us optimize our design.",
+          "author": "Design Engineer",
+          "feedback": "Customer was very satisfied with the technical support and the improved reliability of their application."
+        }
+      ]
+    },
+    {
+      "id": "film-capacitor-selection-guide",
+      "title": "Film Capacitor Selection Guide",
+      "summary": "Guide to selecting metallized film capacitors for DC-link, filtering, and power electronics applications",
+      "content": "## Film Capacitor Selection Guide\n\n### Introduction\n\nMetallized film capacitors offer high reliability, long lifetime, and excellent frequency characteristics for power electronics applications including DC-link filtering, power factor correction, and snubber circuits.\n\n### Types of Film Capacitors\n\n#### Polypropylene (PP) Capacitors\n\n**Characteristics:**\n- Lowest dielectric losses (tan δ < 0.001)\n- Excellent frequency response\n- High insulation resistance\n- Stable capacitance over temperature\n- Self-healing properties\n\n**Applications:**\n- DC-link filtering in inverters\n- Power factor correction\n- High-frequency resonant circuits\n- IGBT snubbers\n\n#### Polyester (PET) Capacitors\n\n**Characteristics:**\n- Higher dielectric constant (smaller size)\n- Higher losses than polypropylene\n- Lower cost\n- Good volumetric efficiency\n- Self-healing properties\n\n**Applications:**\n- General-purpose filtering\n- Coupling and bypass\n- Motor run capacitors\n- Lighting ballasts\n\n### Selection Parameters\n\n#### 1. Capacitance and Voltage\n\n**DC-Link Applications:**\n- Calculate based on allowable DC bus ripple\n- C = I_ripple / (8 × f_switch × V_ripple)\n- Typical: 1-5µF per kW of inverter power\n\n**Voltage Rating:**\n- DC voltage: Use 20% derating minimum\n- AC voltage: Match to application RMS voltage\n- Peak voltage: Must exceed maximum expected peak\n\n#### 2. Current Capability\n\n**RMS Current:**\n- Film capacitors handle high ripple current\n- Check datasheet for RMS current rating\n- Temperature derating applies\n\n**Pulse Current:**\n- Important for snubber applications\n- Check peak current and dv/dt ratings\n\n#### 3. Frequency Considerations\n\n**ESL (Equivalent Series Inductance):**\n- Limits high-frequency performance\n- Typical: 10-50nH for leaded capacitors\n- Lower for box-type with bus bar connections\n\n**Self-Resonant Frequency:**\n- f_sr = 1 / (2π × √(L × C))\n- Operate well below self-resonant frequency\n\n### Application Guidelines\n\n#### DC-Link Filtering\n\n**Capacitor Selection:**\n- Polypropylene preferred for low losses\n- Calculate capacitance for ripple requirement\n- Verify RMS current capability\n- Consider parallel connection for high power\n\n**Typical Values:**\n- 400V DC bus: 10-50µF\n- 700V DC bus: 5-20µF\n- 1000V DC bus: 3-10µF\n\n#### Snubber Applications\n\n**Selection Criteria:**\n- Low inductance (<20nH)\n- High pulse current capability\n- Polypropylene dielectric\n- Appropriate voltage rating\n\n**Typical Circuit:**\n- Capacitor in series with resistor\n- Across IGBT or diode\n- Limits voltage spike during turn-off\n\n#### Power Factor Correction\n\n**Capacitor Requirements:**\n- AC voltage rating for line voltage\n- High ripple current capability\n- Long lifetime (100,000+ hours)\n- Polypropylene preferred\n\n### Design Checklist\n\n- [ ] Capacitance calculated for application\n- [ ] Voltage rating with 20% derating\n- [ ] RMS current capability verified\n- [ ] Frequency range appropriate\n- [ ] Temperature range adequate\n- [ ] Physical size fits constraints\n- [ ] Safety requirements (X/Y capacitors)\n\n### Advantages Over Electrolytic\n\n**Lifetime:**\n- Film: 100,000-200,000 hours\n- Electrolytic: 10,000-15,000 hours\n- No wear-out mechanism\n\n**Ripple Current:**\n- Film: 5-10x higher capability\n- Lower ESR and ESL\n- Better high-frequency performance\n\n**Reliability:**\n- Self-healing properties\n- No electrolyte to dry out\n- Predictable aging\n\n### Cost Considerations\n\n**Initial Cost:**\n- Film capacitors 2-5x more expensive per µF\n- Higher cost justified by longer life\n\n**Total Cost of Ownership:**\n- Reduced maintenance\n- No replacement costs\n- Lower downtime\n\n### Contact Support\n\nFor film capacitor selection assistance, contact our FAE team:\n- Email: technical.support@example.com\n- Phone: +1-555-0100",
+      "category": "Selection Guides",
+      "tags": [
+        "film capacitor",
+        "selection guide",
+        "DC-link"
+      ],
+      "author": {
+        "name": "Robert Zhang",
+        "title": "Senior FAE - Motor Drives",
+        "email": "robert.zhang@example.com",
+        "image": "/assets/team/robert-zhang.jpg"
+      },
+      "publishedDate": "2024-03-05",
+      "updatedDate": "2024-08-10",
+      "readTime": "14 min",
+      "difficulty": "Advanced",
+      "faqs": [
+        {
+          "question": "When should I use film capacitors instead of electrolytic capacitors for DC-link?",
+          "answer": "Use film capacitors for DC-link when: Application requires 10+ year service life, High ripple current (5A+ for small capacitors), High-frequency switching (>10kHz), Maintenance access is difficult or costly, Reliability is critical. Film capacitors last 10-20x longer than electrolytics and handle much higher ripple current. The higher initial cost (2-5x) is offset by elimination of replacement costs and downtime. For solar inverters, motor drives, and UPS systems with 10+ year design life, film capacitors are the preferred choice. Use electrolytics for cost-sensitive applications with shorter expected life or easy maintenance access.",
+          "decisionGuide": "Use film capacitors for DC-link in long-life applications (10+ years). Use electrolytics for cost-sensitive, shorter-life applications.",
+          "keywords": [
+            "film vs electrolytic DC-link",
+            "DC-link capacitor selection"
+          ]
+        },
+        {
+          "question": "Where can I find more information about this topic?",
+          "answer": "Additional information is available in our other technical guides and application notes. Contact our FAE team for specific questions or application support.",
+          "decisionGuide": "Browse our technical resources or contact FAE team.",
+          "keywords": [
+            "resources",
+            "information",
+            "support"
+          ]
+        },
+        {
+          "question": "Can I request a training session on this topic?",
+          "answer": "Yes, we offer technical training sessions for customers. Contact our training coordinator to schedule a session for your engineering team.",
+          "decisionGuide": "Contact training coordinator to schedule a session.",
+          "keywords": [
+            "training",
+            "education",
+            "webinar"
+          ]
+        },
+        {
+          "question": "Where can I find more information about this topic?",
+          "answer": "Additional information is available in our other technical guides, application notes, and datasheets. You can also contact our FAE team for specific questions or application support.",
+          "decisionGuide": "Browse our technical resources or contact FAE team for more information.",
+          "keywords": [
+            "resources",
+            "information",
+            "support"
+          ]
+        },
+        {
+          "question": "Can I request a training session on this topic?",
+          "answer": "Yes, we offer technical training sessions and webinars for customers. Contact our training coordinator to schedule a session for your engineering team or to register for upcoming webinars.",
+          "decisionGuide": "Contact training coordinator to schedule a session or register for webinars.",
+          "keywords": [
+            "training",
+            "webinar",
+            "education"
+          ]
+        }
+      ],
+      "faeInsights": {
+        "summary": "Film capacitors are the best choice for inverter DC-link applications requiring long life. The self-healing property is a major reliability advantage - I've never seen a catastrophic failure, only gradual capacitance decrease over decades. For high-power inverters (50kW+), we typically use 4-8 film capacitors in parallel. The key design consideration is ESL - use short, wide bus bar connections to minimize inductance. For thermal design, film capacitors are forgiving but I still recommend keeping case temperature below 85°C for 30-year life.",
+        "recommendations": [
+          "Use film capacitors for DC-link in 10+ year life applications",
+          "Use short, wide bus bar connections to minimize ESL",
+          "Parallel multiple capacitors for high-power inverters",
+          "Keep case temperature below 85°C for maximum lifetime"
+        ],
+        "contactInfo": {
+          "name": "Robert Zhang",
+          "title": "Senior FAE - Motor Drives",
+          "email": "motor.fae@example.com",
+          "phone": "+1-555-0103"
+        },
+        "author": "Robert Zhang",
+        "content": "Based on my extensive experience with film capacitor selection, I've found that proper capacitor selection is critical for reliable system performance. The most common mistake I see is insufficient derating - whether voltage, temperature, or ripple current. Always design with adequate margins to ensure long-term reliability. Key insights: 1) Temperature is the primary lifetime driver, 2) Voltage derating significantly improves reliability, 3) Ripple current causes self-heating that must be accounted for, 4) Always measure actual operating conditions during validation testing. Contact our FAE team for application-specific guidance.",
+        "keyTakeaways": [
+          "Proper derating is essential for reliable operation",
+          "Temperature is the primary lifetime driver",
+          "Always measure actual operating conditions",
+          "Contact FAE team for application-specific recommendations"
+        ]
+      },
+      "relatedProducts": [
+        {
+          "name": "MPP Series Polypropylene Capacitors",
+          "link": "/samwha/products/film-capacitors.html"
+        },
+        {
+          "name": "MPET Series Polyester Capacitors",
+          "link": "/samwha/products/film-capacitors.html"
+        }
+      ],
+      "downloads": [
+        {
+          "title": "Film Capacitor Application Note",
+          "url": "#",
+          "type": "PDF",
+          "size": "2.8 MB"
+        }
+      ],
+      "slug": "film-capacitor-selection-guide",
+      "publishDate": "2024-03-05",
+      "relatedArticles": [
+        {
+          "title": "Aluminum Electrolytic Capacitor Selection Guide",
+          "link": "/samwha/support/aluminum-electrolytic-selection-guide.html"
+        },
+        {
+          "title": "Solid Polymer Capacitor Selection Guide",
+          "link": "/samwha/support/solid-polymer-selection-guide.html"
+        },
+        {
+          "title": "Automotive Capacitor Selection Guide",
+          "link": "/samwha/support/automotive-capacitor-selection-guide.html"
+        }
+      ],
+      "customerCases": [
+        {
+          "title": "Application Success Story",
+          "industry": "General Electronics",
+          "challenge": "Customer needed guidance on capacitor selection for their specific application.",
+          "solution": "Our FAE team provided detailed recommendations and application support.",
+          "result": "Customer successfully implemented the solution and achieved desired performance.",
+          "quote": "The technical support was excellent and helped us optimize our design.",
+          "author": "Design Engineer",
+          "feedback": "Customer was very satisfied with the technical support and the improved reliability of their application."
+        }
+      ]
+    },
+    {
+      "id": "automotive-capacitor-selection-guide",
+      "title": "Automotive Capacitor Selection Guide",
+      "summary": "Guide to selecting AEC-Q200 qualified capacitors for automotive electronics applications",
+      "content": "## Automotive Capacitor Selection Guide\n\n### Introduction\n\nAutomotive capacitors must meet stringent reliability requirements including AEC-Q200 qualification, wide temperature ranges, and 15+ year vehicle lifetime. This guide covers selection criteria for automotive applications.\n\n### Automotive Requirements\n\n#### AEC-Q200 Qualification\n\n**Required Testing:**\n- Temperature cycling (-40°C to +125°C or +150°C)\n- Mechanical shock (100G)\n- Vibration (5-2000Hz)\n- High temperature storage (1000 hours)\n- Humidity bias (85°C/85% RH)\n\n**Why It Matters:**\n- Ensures reliability in harsh automotive environment\n- Required by automotive OEMs\n- Reduces field failure risk\n\n#### Temperature Ratings\n\n**125°C Rated:**\n- Standard automotive grade\n- Suitable for most applications\n- Interior electronics\n- LED drivers in moderate locations\n\n**150°C Rated:**\n- High-temperature grade\n- Extreme under-hood locations\n- Near engines or exhaust systems\n- 48V mild-hybrid systems\n\n### Selection Parameters\n\n#### 1. Temperature Rating Selection\n\n**Design Margin:**\n- Select rating 20-30°C above maximum ambient\n- Account for self-heating (5-15°C typical)\n- Consider worst-case conditions\n\n**Example:**\n- Maximum ambient: 100°C\n- Self-heating: 10°C\n- Required rating: 125°C minimum\n- Recommended: 150°C for margin\n\n#### 2. Voltage Derating\n\n**Automotive Systems:**\n- 12V systems: Use 35V or 50V capacitors\n- 48V systems: Use 100V capacitors\n- Load dump: Up to 79V transient (ISO 16750-2)\n\n**Derating Guidelines:**\n- Standard: 70% derating\n- Safety-critical: 60% derating\n- High-temp: Additional 10% derating\n\n#### 3. Lifetime Requirements\n\n**Vehicle Life:**\n- Target: 15 years minimum\n- Calculate using Arrhenius equation\n- Design for case temperature 25-30°C below rating\n\n**Example Calculation:**\n- Rated: 8,000 hours at 125°C\n- Operating: 95°C case temperature\n- Expected life: 64,000 hours (20+ years automotive use)\n\n### Application Guidelines\n\n#### Engine Control Units (ECUs)\n\n**Requirements:**\n- 125°C or 150°C rating\n- AEC-Q200 qualified\n- Long lifetime (15+ years)\n- PPAP documentation\n\n**Typical Capacitors:**\n- WA series for general applications\n- WH-A series for high-temperature locations\n\n#### LED Driver Applications\n\n**Challenges:**\n- High ambient temperature (under-hood)\n- Long vehicle lifetime\n- Safety-critical (lighting)\n\n**Recommendations:**\n- 150°C rated capacitors\n- 50% voltage derating\n- Thermal management (heat sinks)\n\n#### 48V Mild-Hybrid Systems\n\n**Requirements:**\n- 100V rating for 48V bus\n- High ripple current capability\n- 150°C rating for power density\n\n**Design Considerations:**\n- Parallel capacitors for ripple current\n- Thermal analysis critical\n- AEC-Q200 qualification required\n\n### Design Checklist\n\n- [ ] AEC-Q200 qualification verified\n- [ ] Temperature rating with 20-30°C margin\n- [ ] Voltage derating 60-70% for automotive\n- [ ] Lifetime calculated for 15-year vehicle life\n- [ ] PPAP documentation available\n- [ ] Traceability requirements met\n- [ ] Load dump protection considered\n\n### Common Mistakes\n\n1. **Using industrial-grade capacitors** - Always use AEC-Q200 qualified\n2. **Insufficient temperature margin** - Under-hood temps exceed 125°C\n3. **Ignoring load dump** - 79V transients damage underrated capacitors\n4. **Inadequate voltage derating** - Reduces lifetime and reliability\n5. **Missing PPAP documentation** - Delays production approval\n\n### Certification Requirements\n\n**IATF 16949:**\n- Automotive quality management\n- Required for automotive production\n\n**AEC-Q200:**\n- Component-level qualification\n- Required by all automotive OEMs\n\n**PPAP:**\n- Production part approval\n- Level 3 typical for capacitors\n\n### Cost Considerations\n\n**Automotive vs Industrial:**\n- Automotive grade: 20-40% premium\n- Justified by qualification and reliability\n- Field failure costs far exceed premium\n\n### Contact Support\n\nFor automotive capacitor selection assistance, contact our FAE team:\n- Email: automotive.fae@example.com\n- Phone: +1-555-0100",
+      "category": "Selection Guides",
+      "tags": [
+        "automotive",
+        "AEC-Q200",
+        "selection guide"
+      ],
+      "author": {
+        "name": "Thomas Park",
+        "title": "Senior FAE - Automotive Electronics",
+        "email": "thomas.park@example.com",
+        "image": "/assets/team/thomas-park.jpg"
+      },
+      "publishedDate": "2024-04-20",
+      "updatedDate": "2024-09-15",
+      "readTime": "16 min",
+      "difficulty": "Advanced",
+      "faqs": [
+        {
+          "question": "What is the difference between AEC-Q200 and standard industrial capacitors?",
+          "answer": "AEC-Q200 capacitors differ from standard industrial capacitors in: Qualification Testing - AEC-Q200 requires temperature cycling, shock, vibration, humidity bias testing that industrial capacitors don't undergo. Manufacturing - Automotive capacitors are made in IATF 16949 certified facilities with additional process controls. Screening - 100% electrical testing and visual inspection vs sampling for industrial. Materials - Enhanced materials for wider temperature ranges. Documentation - Full PPAP support and qualification reports. Traceability - Complete lot traceability for automotive production. Cost - 20-40% premium due to additional testing. For automotive applications, always use AEC-Q200 qualified parts. The premium is small compared to cost of field failures.",
+          "decisionGuide": "Always use AEC-Q200 qualified capacitors for automotive. The additional cost ensures reliability and safety.",
+          "keywords": [
+            "AEC-Q200 vs industrial",
+            "automotive capacitor qualification"
+          ]
+        },
+        {
+          "question": "Where can I find more information about this topic?",
+          "answer": "Additional information is available in our other technical guides and application notes. Contact our FAE team for specific questions or application support.",
+          "decisionGuide": "Browse our technical resources or contact FAE team.",
+          "keywords": [
+            "resources",
+            "information",
+            "support"
+          ]
+        },
+        {
+          "question": "Can I request a training session on this topic?",
+          "answer": "Yes, we offer technical training sessions for customers. Contact our training coordinator to schedule a session for your engineering team.",
+          "decisionGuide": "Contact training coordinator to schedule a session.",
+          "keywords": [
+            "training",
+            "education",
+            "webinar"
+          ]
+        },
+        {
+          "question": "Where can I find more information about this topic?",
+          "answer": "Additional information is available in our other technical guides, application notes, and datasheets. You can also contact our FAE team for specific questions or application support.",
+          "decisionGuide": "Browse our technical resources or contact FAE team for more information.",
+          "keywords": [
+            "resources",
+            "information",
+            "support"
+          ]
+        },
+        {
+          "question": "Can I request a training session on this topic?",
+          "answer": "Yes, we offer technical training sessions and webinars for customers. Contact our training coordinator to schedule a session for your engineering team or to register for upcoming webinars.",
+          "decisionGuide": "Contact training coordinator to schedule a session or register for webinars.",
+          "keywords": [
+            "training",
+            "webinar",
+            "education"
+          ]
+        }
+      ],
+      "faeInsights": {
+        "summary": "The most critical factor in automotive capacitor selection is temperature. I've seen too many failures from using 125°C capacitors in 130°C+ locations. Always do thorough thermal analysis and measure actual case temperature during worst-case operation. For 48V hybrid systems, the combination of high voltage ripple and extreme temperatures makes 150°C rated capacitors essential. Don't compromise on AEC-Q200 qualification - automotive OEMs require it and field failures are extremely expensive.",
+        "recommendations": [
+          "Always use AEC-Q200 qualified capacitors for automotive",
+          "Use 150°C rated capacitors for extreme under-hood locations",
+          "Perform thorough thermal analysis and measurement",
+          "Use 60-70% voltage derating for automotive",
+          "Request PPAP Level 3 for all production parts"
+        ],
+        "contactInfo": {
+          "name": "Thomas Park",
+          "title": "Senior FAE - Automotive Electronics",
+          "email": "automotive.fae@example.com",
+          "phone": "+1-555-0100"
+        },
+        "author": "Thomas Park",
+        "content": "Based on my extensive experience with automotive capacitor selection, I've found that proper capacitor selection is critical for reliable system performance. The most common mistake I see is insufficient derating - whether voltage, temperature, or ripple current. Always design with adequate margins to ensure long-term reliability. Key insights: 1) Temperature is the primary lifetime driver, 2) Voltage derating significantly improves reliability, 3) Ripple current causes self-heating that must be accounted for, 4) Always measure actual operating conditions during validation testing. Contact our FAE team for application-specific guidance.",
+        "keyTakeaways": [
+          "Proper derating is essential for reliable operation",
+          "Temperature is the primary lifetime driver",
+          "Always measure actual operating conditions",
+          "Contact FAE team for application-specific recommendations"
+        ]
+      },
+      "relatedProducts": [
+        {
+          "name": "WA Series Automotive Capacitors",
+          "link": "/samwha/products/automotive-capacitors.html"
+        },
+        {
+          "name": "WH-A Series High-Temp Capacitors",
+          "link": "/samwha/products/automotive-capacitors.html"
+        }
+      ],
+      "downloads": [
+        {
+          "title": "AEC-Q200 Qualification Summary",
+          "url": "#",
+          "type": "PDF",
+          "size": "1.5 MB"
+        },
+        {
+          "title": "PPAP Documentation Template",
+          "url": "#",
+          "type": "PDF",
+          "size": "850 KB"
+        }
+      ],
+      "slug": "automotive-capacitor-selection-guide",
+      "publishDate": "2024-04-20",
+      "relatedArticles": [
+        {
+          "title": "Aluminum Electrolytic Capacitor Selection Guide",
+          "link": "/samwha/support/aluminum-electrolytic-selection-guide.html"
+        },
+        {
+          "title": "Solid Polymer Capacitor Selection Guide",
+          "link": "/samwha/support/solid-polymer-selection-guide.html"
+        },
+        {
+          "title": "Film Capacitor Selection Guide",
+          "link": "/samwha/support/film-capacitor-selection-guide.html"
+        }
+      ],
+      "customerCases": [
+        {
+          "title": "Application Success Story",
+          "industry": "General Electronics",
+          "challenge": "Customer needed guidance on capacitor selection for their specific application.",
+          "solution": "Our FAE team provided detailed recommendations and application support.",
+          "result": "Customer successfully implemented the solution and achieved desired performance.",
+          "quote": "The technical support was excellent and helped us optimize our design.",
+          "author": "Design Engineer",
+          "feedback": "Customer was very satisfied with the technical support and the improved reliability of their application."
+        }
+      ]
+    }
+  ]
+}

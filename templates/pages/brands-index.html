@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>All Brands | Electronic Component Distributors | LiTong</title>
+  <meta name="description" content="Browse all authorized electronic component brands at LiTong Electronics. Infineon, Semikron, ST, and more.">
+  <meta name="keywords" content="electronic components, brands, distributors, Infineon, Semikron, ST">
+  
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="/assets/css/navbar.css">
+  <link rel="stylesheet" href="/assets/css/footer.css">
+  <link rel="stylesheet" href="/assets/css/breadcrumb.css">
+  <link rel="stylesheet" href="/assets/css/floating-contact.css">
+  
+  <style>
+    .brands-page { padding: var(--space-16) 0; }
+    .section-title { text-align: center; font-size: 2.5rem; margin-bottom: var(--space-4); }
+    .section-subtitle { text-align: center; color: var(--text-medium); font-size: 1.125rem; margin-bottom: var(--space-12); }
+    
+    .brands-filter { display: flex; justify-content: center; gap: var(--space-2); margin-bottom: var(--space-8); flex-wrap: wrap; }
+    .filter-btn {
+      padding: 8px 20px;
+      border-radius: var(--radius-full);
+      background: var(--bg-light);
+      color: var(--text-medium);
+      border: none;
+      cursor: pointer;
+      font-size: 0.875rem;
+      transition: all 0.2s ease-out;
+    }
+    .filter-btn:hover, .filter-btn.active { background: var(--primary-blue); color: #ffffff; }
+    
+    .brands-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-6); }
+    
+    .brand-card {
+      background: #ffffff;
+      border-radius: var(--radius-lg);
+      padding: var(--space-6);
+      text-align: center;
+      box-shadow: var(--shadow-md);
+      transition: all 0.3s ease-out;
+      text-decoration: none;
+      color: inherit;
+    }
+    .brand-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-xl); }
+    .brand-logo { height: 80px; margin-bottom: var(--space-4); }
+    .brand-card h3 { font-size: 1.25rem; color: var(--primary-blue); margin-bottom: var(--space-2); }
+    .brand-card p { color: var(--text-medium); font-size: 0.875rem; margin-bottom: var(--space-4); }
+    .brand-products { font-size: 0.75rem; color: var(--text-light); }
+    
+    @media (max-width: 1023px) { .brands-grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 767px) { .brands-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px) { .brands-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <!-- 导航栏 -->
+  <!--#include virtual="/templates/components/navbar.html" -->
+
+  <!-- 面包屑导航 -->
+  <!--#include virtual="/templates/components/breadcrumb.html" -->
+  
+  <main>
+    <section class="brands-page">
+      <div class="container">
+        <h1 class="section-title">All Brands</h1>
+        <p class="section-subtitle">Browse our comprehensive portfolio of electronic component manufacturers</p>
+        
+        <div class="brands-filter">
+          <button class="filter-btn active" data-category="all">All</button>
+          <button class="filter-btn" data-category="power">Power Semiconductors</button>
+          <button class="filter-btn" data-category="mcu">MCU & Processors</button>
+          <button class="filter-btn" data-category="sensor">Sensors</button>
+          <button class="filter-btn" data-category="passive">Passive Components</button>
+        </div>
+
+        <div class="brands-grid">
+          <a href="/infineon/" class="brand-card" data-category="power">
+            <svg class="brand-logo" viewBox="0 0 200 80"><rect fill="#f0f0f0" width="200" height="80"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-size="20" font-weight="bold" fill="#0072ce">Infineon</text></svg>
+            <h3>Infineon</h3>
+            <p>Power systems, IoT, automotive solutions</p>
+            <div class="brand-products">IGBT, MOSFET, MCU, Sensors</div>
+          </a>
+          <a href="/semikron/" class="brand-card" data-category="power">
+            <svg class="brand-logo" viewBox="0 0 200 80"><rect fill="#f0f0f0" width="200" height="80"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-size="20" font-weight="bold" fill="#333">Semikron</text></svg>
+            <h3>Semikron</h3>
+            <p>Power electronics and semiconductors</p>
+            <div class="brand-products">IGBT Modules, Diodes</div>
+          </a>
+          <a href="/st/" class="brand-card" data-category="mcu">
+            <svg class="brand-logo" viewBox="0 0 200 80"><rect fill="#f0f0f0" width="200" height="80"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-size="20" font-weight="bold" fill="#032C4A">ST</text></svg>
+            <h3>STMicroelectronics</h3>
+            <p>Global semiconductor leader</p>
+            <div class="brand-products">MCU, Sensors, Power ICs</div>
+          </a>
+          <a href="/crmicro/" class="brand-card" data-category="power">
+            <svg class="brand-logo" viewBox="0 0 200 80"><rect fill="#f0f0f0" width="200" height="80"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-size="20" font-weight="bold" fill="#B71C1C">CR Micro</text></svg>
+            <h3>CR Micro</h3>
+            <p>Power semiconductor solutions</p>
+            <div class="brand-products">IGBT, FRD, TVS</div>
+          </a>
+          <a href="/crrc/" class="brand-card" data-category="power">
+            <svg class="brand-logo" viewBox="0 0 200 80"><rect fill="#f0f0f0" width="200" height="80"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-size="20" font-weight="bold" fill="#1976D2">CRRC</text></svg>
+            <h3>CRRC</h3>
+            <p>Rail transit power devices</p>
+            <div class="brand-products">IGBT for Rail</div>
+          </a>
+          <a href="/macmic/" class="brand-card" data-category="power">
+            <svg class="brand-logo" viewBox="0 0 200 80"><rect fill="#f0f0f0" width="200" height="80"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-size="20" font-weight="bold" fill="#388E3C">Macmic</text></svg>
+            <h3>Macmic</h3>
+            <p>Power semiconductor manufacturer</p>
+            <div class="brand-products">IGBT, MOSFET</div>
+          </a>
+          <a href="/starpower/" class="brand-card" data-category="power">
+            <svg class="brand-logo" viewBox="0 0 200 80"><rect fill="#f0f0f0" width="200" height="80"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-size="20" font-weight="bold" fill="#F57C00">StarPower</text></svg>
+            <h3>StarPower</h3>
+            <p>IGBT module specialist</p>
+            <div class="brand-products">IGBT Modules</div>
+          </a>
+          <a href="/byd/" class="brand-card" data-category="power">
+            <svg class="brand-logo" viewBox="0 0 200 80"><rect fill="#f0f0f0" width="200" height="80"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-size="20" font-weight="bold" fill="#D32F2F">BYD</text></svg>
+            <h3>BYD</h3>
+            <p>EV and power electronics</p>
+            <div class="brand-products">IGBT, SiC Modules</div>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    // Brand filter Tab functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const filterBtns = document.querySelectorAll('.brands-filter .filter-btn');
+      const brandCards = document.querySelectorAll('.brands-grid .brand-card');
+
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+          // Remove active state from all buttons
+          filterBtns.forEach(b => b.classList.remove('active'));
+          // Add active state to clicked button
+          this.classList.add('active');
+
+          const category = this.dataset.category;
+
+          // Filter brand cards
+          brandCards.forEach(card => {
+            if (category === 'all' || card.dataset.category === category) {
+              card.style.display = 'block';
+            } else {
+              card.style.display = 'none';
+            }
+          });
+        });
+      });
+    });
+  </script>
+  
+  <!-- 页脚 -->
+  <!--#include virtual="/templates/components/footer.html" -->
+
+  <!-- 悬浮联系方式 -->
+  <!--#include virtual="/templates/components/floating-contact.html" -->
+
+  <script src="/assets/js/navbar.js"></script>
+</body>
+</html>

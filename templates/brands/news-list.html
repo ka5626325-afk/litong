@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= brand.displayName %> News | Latest Updates</title>
+  <meta name="description" content="Latest news and updates about <%= brand.name %> products and industry trends.">
+  
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="/assets/css/navbar.css">
+  <link rel="stylesheet" href="/assets/css/footer.css">
+  <link rel="stylesheet" href="/assets/css/breadcrumb.css">
+  <link rel="stylesheet" href="/assets/css/brand-tab-nav.css">
+  <link rel="stylesheet" href="/assets/css/floating-contact.css">
+  
+  <style>
+    .news-list-page { padding: var(--space-16) 0; }
+    .section-title { text-align: center; font-size: 2.5rem; margin-bottom: var(--space-12); }
+    
+    .news-filter { display: flex; justify-content: center; gap: var(--space-2); margin-bottom: var(--space-8); }
+    .filter-tab {
+      padding: 12px 24px;
+      background: var(--bg-light);
+      border: none;
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      font-weight: 500;
+      transition: all 0.2s ease-out;
+    }
+    .filter-tab:hover, .filter-tab.active { background: var(--primary-blue); color: #ffffff; }
+    
+    .news-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-6); }
+    
+    .news-card {
+      background: #ffffff;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      transition: all 0.3s ease-out;
+      text-decoration: none;
+      color: inherit;
+    }
+    .news-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-xl); }
+    .news-image { height: 200px; background: var(--bg-gray); display: flex; align-items: center; justify-content: center; color: var(--text-light); }
+    .news-content { padding: var(--space-6); }
+    .news-category { color: var(--primary-blue); font-size: 0.75rem; font-weight: 600; text-transform: uppercase; margin-bottom: var(--space-2); }
+    .news-card h3 { font-size: 1.25rem; margin-bottom: var(--space-2); }
+    .news-meta { display: flex; gap: var(--space-4); font-size: 0.875rem; color: var(--text-light); margin-bottom: var(--space-3); }
+    .news-card p { color: var(--text-medium); font-size: 0.875rem; margin: 0; }
+    
+    @media (max-width: 1023px) { .news-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 767px) { .news-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <!--#include virtual="/templates/components/navbar.html" -->
+  <!--#include virtual="/templates/components/breadcrumb.html" -->
+  <!--#include virtual="/templates/components/brand-tab-nav.html" -->
+  
+  <main>
+    <section class="news-list-page">
+      <div class="container">
+        <h2 class="section-title"><%= brand.displayName %> News</h2>
+        
+        <div class="news-filter">
+          <button class="filter-tab active">All News</button>
+          <button class="filter-tab">Company News</button>
+          <button class="filter-tab">Industry Trends</button>
+        </div>
+        
+        <div class="news-grid">
+          <% news.articles.forEach(function(article) { %>
+            <a href="/<%= brand.name.toLowerCase() %>/news/<%= article.id %>.html" class="news-card">
+              <div class="news-image">
+                <svg viewBox="0 0 400 200" width="100%" height="100%" aria-hidden="true">
+                  <rect fill="#f0f0f0" width="400" height="200"/>
+                  <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-size="16" fill="#999999"><%= article.category %></text>
+                </svg>
+              </div>
+              <div class="news-content">
+                <div class="news-category"><%= article.category %></div>
+                <h3><%= article.title %></h3>
+                <div class="news-meta">
+                  <span><%= article.author %></span>
+                  <span>•</span>
+                  <span><%= article.publishDate %></span>
+                </div>
+                <p><%= article.summary.substring(0, 120) %>...</p>
+              </div>
+            </a>
+          <% }); %>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <!--#include virtual="/templates/components/footer.html" -->
+  <!--#include virtual="/templates/components/floating-contact.html" -->
+  <script src="/assets/js/navbar.js"></script>
+</body>
+</html>

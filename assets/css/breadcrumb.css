@@ -1,0 +1,78 @@
+/* 面包屑导航样式 */
+.breadcrumb {
+  padding: var(--space-4) 0;
+  background: var(--bg-light);
+  border-bottom: 1px solid var(--border-light);
+}
+
+.breadcrumb ol {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+}
+
+.breadcrumb li {
+  display: flex;
+  align-items: center;
+  font-size: 0.875rem;
+  color: var(--text-medium);
+}
+
+.breadcrumb li:not(:last-child)::after {
+  content: '/';
+  margin: 0 var(--space-2);
+  color: var(--text-light);
+}
+
+.breadcrumb a {
+  color: var(--primary-blue);
+  text-decoration: none;
+  transition: color 0.2s ease-out;
+  display: flex;
+  align-items: center;
+}
+
+.breadcrumb a:hover {
+  text-decoration: underline;
+  color: var(--primary-blue-dark);
+}
+
+.breadcrumb li[aria-current="page"] {
+  color: var(--text-dark);
+  font-weight: 500;
+}
+
+.breadcrumb svg {
+  margin-right: var(--space-1);
+}
+
+.breadcrumb-home {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+}
+
+.breadcrumb-home svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* 移动端适配 */
+@media (max-width: 767px) {
+  .breadcrumb {
+    padding: var(--space-3) 0;
+  }
+  
+  .breadcrumb li {
+    font-size: 0.75rem;
+  }
+  
+  .breadcrumb li:not(:last-child)::after {
+    margin: 0 var(--space-1);
+  }
+}

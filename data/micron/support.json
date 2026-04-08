@@ -1,0 +1,102 @@
+{
+  "articles": [
+    {
+      "id": "micron-dram-selection-guide",
+      "title": "How to Select Micron DRAM Memory for Your Application",
+      "category": "Product Selection",
+      "author": {
+        "name": "Michael Zhang",
+        "title": "Principal FAE - Memory Products",
+        "experience": "18 years",
+        "expertise": ["DDR Interface Design", "Signal Integrity", "Server Architecture"]
+      },
+      "publishDate": "2026-03-15",
+      "lastUpdated": "2026-03-15",
+      "summary": "Comprehensive guide for selecting Micron DRAM memory including DDR4, DDR5, and LPDDR products for various applications.",
+      "tags": ["DRAM", "Memory Selection", "DDR4", "DDR5", "Design Guide"],
+      "content": "# How to Select Micron DRAM Memory for Your Application\n\n## Introduction\n\nSelecting the right DRAM memory is critical for system performance and reliability. This guide provides a systematic approach to choosing Micron DRAM solutions.\n\n## Understanding DRAM Types\n\n### DDR4 SDRAM\n**Best for:** Current generation servers, PCs, and embedded systems\n**Key Features:**\n- Speeds: 2133-3200 MT/s\n- Voltage: 1.2V\n- Mature ecosystem with broad platform support\n- Cost-effective for most applications\n\n### DDR5 SDRAM\n**Best for:** Next-generation servers, high-performance computing\n**Key Features:**\n- Speeds: 4800-6400 MT/s\n- Voltage: 1.1V\n- On-die ECC for improved reliability\n- Dual-channel architecture\n\n### LPDDR5\n**Best for:** Mobile devices, automotive, battery-powered systems\n**Key Features:**\n- Ultra-low power consumption\n- Speeds up to 6400 MT/s\n- Voltage: 0.5V/0.95V\n- Advanced power management\n\n## Selection Criteria\n\n### Performance Requirements\n| Application | Recommended | Speed |\n|-------------|-------------|-------|\n| General computing | DDR4 | 2666-3200 MT/s |\n| Data center servers | DDR5 | 4800-6400 MT/s |\n| Mobile devices | LPDDR5 | 5500-6400 MT/s |\n| Automotive ADAS | LPDDR5 | 6400 MT/s |\n\n### Power Consumption\n| Type | Active Power | Standby Power |\n|------|--------------|---------------|\n| DDR4 | Higher | Moderate |\n| DDR5 | Moderate | Lower |\n| LPDDR5 | Lowest | Very Low |\n\n## Step-by-Step Selection Process\n\n### Step 1: Define Application Requirements\n\n**Performance Needs:**\n- Required memory bandwidth\n- Latency sensitivity\n- Real-time constraints\n\n**Environmental:**\n- Operating temperature range\n- Power budget\n- Form factor constraints\n\n### Step 2: Calculate Memory Capacity\n\nConsider:\n- Application memory footprint\n- OS requirements\n- Future expansion needs\n- Multi-channel configurations\n\n### Step 3: Select Memory Type\n\nBased on:\n- Platform compatibility\n- Performance requirements\n- Power constraints\n- Cost considerations\n\n### Step 4: Choose Specific Product\n\nUse Micron's part number decoder:\n- Density (4Gb, 8Gb, 16Gb, etc.)\n- Organization (x4, x8, x16)\n- Speed grade\n- Temperature range\n- Package type\n\n## Common Mistakes to Avoid\n\n1. **Underspecifying bandwidth** - Always include headroom\n2. **Ignoring thermal requirements** - Consider self-heating\n3. **Overlooking power constraints** - Especially for battery applications\n4. **Insufficient margin** - Plan for future growth\n\n## Conclusion\n\nProper DRAM selection requires balancing performance, power, cost, and reliability. Contact our FAE team for application-specific recommendations.",
+      "relatedArticles": [
+        "micron-nand-selection-guide",
+        "micron-automotive-guide"
+      ],
+      "faeInsights": {
+        "insight": "The most common mistake I see is selecting memory based solely on capacity while ignoring bandwidth requirements. For modern processors, memory bandwidth is often the bottleneck. Always calculate your bandwidth needs based on the number of cores and their memory access patterns. Another critical factor is thermal design - high-density DRAM can generate significant heat that affects reliability. I always recommend thermal simulation early in the design phase.",
+        "logic": "DRAM selection follows: First, determine bandwidth requirements based on CPU/application needs. Second, calculate capacity requirements with growth margin. Third, select memory type based on platform and power constraints. Fourth, choose specific product based on environmental requirements. Finally, validate with signal integrity and thermal analysis.",
+        "keyTakeaways": [
+          "Calculate bandwidth requirements, not just capacity",
+          "Consider thermal design early in the process",
+          "Plan for future platform upgrades",
+          "Validate with simulation before PCB layout",
+          "Include adequate margin for reliability"
+        ],
+        "commonPitfalls": [
+          "Selecting memory based only on capacity",
+          "Ignoring memory bandwidth requirements",
+          "Inadequate thermal design",
+          "Not planning for future upgrades"
+        ],
+        "bestPractices": [
+          "Use Micron's simulation models for validation",
+          "Implement temperature monitoring",
+          "Follow layout guidelines carefully",
+          "Plan for signal integrity analysis"
+        ],
+        "troubleshootingTips": [
+          "If experiencing errors, check signal integrity first",
+          "Thermal issues often manifest as intermittent errors",
+          "Power supply noise can cause memory failures",
+          "Check refresh rates at high temperatures"
+        ]
+      },
+      "customerCases": [
+        {
+          "customerName": "TechSystems Inc",
+          "industry": "Industrial Computing",
+          "application": "Edge Computing Gateway",
+          "problem": "Customer's edge gateway was experiencing memory errors in high-temperature industrial environments, causing system crashes.",
+          "diagnosis": "Analysis revealed consumer-grade memory was used in an application requiring industrial temperature range. The memory was failing above 70°C ambient.",
+          "solution": "We recommended switching to Micron's industrial-grade DDR4 with -40°C to +95°C rating. Improved thermal design with better airflow was also implemented.",
+          "results": "Memory errors eliminated. System operated reliably up to 85°C ambient. Customer achieved 99.9% uptime in harsh industrial environment."
+        }
+      ],
+      "faqs": [
+        {
+          "question": "How do I calculate memory bandwidth requirements?",
+          "answer": "Memory bandwidth is calculated as: Speed (MT/s) × Bus Width (bytes) × Number of Channels. For example, DDR4-3200 in dual-channel mode: 3200 × 8 × 2 = 51.2 GB/s theoretical. Actual usable bandwidth is typically 70-80% of theoretical due to protocol overhead. Consider your application's memory access pattern - random access achieves lower bandwidth than sequential. For multi-core processors, divide total bandwidth by core count to estimate per-core bandwidth.",
+          "decisionGuide": "Calculate theoretical bandwidth and apply 70-80% efficiency factor. Contact us for workload-specific bandwidth analysis.",
+          "keywords": ["memory bandwidth calculation", "DRAM bandwidth", "system performance"]
+        },
+        {
+          "question": "What is the difference between x4, x8, and x16 DRAM devices?",
+          "answer": "The 'x' number indicates the data width of the DRAM device. x4 devices are 4 bits wide, typically used in servers with ECC for maximum capacity. x8 devices are 8 bits wide, common in desktop and laptop modules. x16 devices are 16 bits wide, used in mobile and cost-sensitive applications. For ECC support, x4 or x8 devices are required as ECC needs byte-level granularity. x16 devices cannot support traditional side-band ECC but work with on-die ECC in DDR5.",
+          "decisionGuide": "Use x4 for maximum server capacity with ECC. Use x8 for general purpose with ECC. Use x16 for mobile and cost-sensitive applications.",
+          "keywords": ["DRAM organization", "x4 x8 x16", "ECC support"]
+        },
+        {
+          "question": "How does temperature affect DRAM performance and reliability?",
+          "answer": "Temperature affects DRAM in several ways: Higher temperatures increase leakage current, requiring more frequent refresh cycles. Above 85°C, refresh rates must double to maintain data integrity. High temperatures accelerate electromigration, reducing long-term reliability. Performance may degrade at temperature extremes due to timing parameter variations. Industrial and automotive-grade devices are characterized and tested across wider temperature ranges. Always include temperature sensors for monitoring and implement thermal management in high-density designs.",
+          "decisionGuide": "For temperatures above 70°C, specify industrial grade. Implement temperature monitoring and thermal management.",
+          "keywords": ["DRAM temperature effects", "thermal management", "memory reliability"]
+        },
+        {
+          "question": "What are the key PCB layout considerations for DDR4/DDR5?",
+          "answer": "High-speed memory interfaces require careful PCB design: Use controlled impedance traces (40Ω single-ended, 80Ω differential). Match trace lengths within byte groups (±25 mils). Minimize via usage and keep stubs short. Provide solid ground reference planes. Place decoupling capacitors close to each device. Route address/command signals in a fly-by topology for DDR3/DDR4. For DDR5, follow dual-channel routing guidelines. Power delivery network must have low impedance. Use simulation to verify signal integrity before fabrication.",
+          "decisionGuide": "Follow Micron's layout guidelines closely. Use simulation tools for validation. Contact our FAE team for layout review.",
+          "keywords": ["DDR4 PCB layout", "DDR5 routing", "signal integrity"]
+        },
+        {
+          "question": "How do I choose between registered (RDIMM) and unbuffered (UDIMM) memory?",
+          "answer": "UDIMM connects DRAM chips directly to the memory controller, suitable for client systems with 1-2 DIMMs per channel. RDIMM includes a register chip that buffers address and command signals, enabling more DIMMs per channel (typically up to 2-3) for higher capacity. RDIMM adds one clock cycle of latency but enables larger memory configurations. Choose UDIMM for cost-sensitive client applications. Choose RDIMM for servers requiring high capacity. LRDIMM adds data buffering for maximum capacity configurations.",
+          "decisionGuide": "For servers, use RDIMM for capacity up to 1TB, LRDIMM for higher. For clients, UDIMM is typically sufficient.",
+          "keywords": ["RDIMM vs UDIMM", "server memory", "memory module types"]
+        },
+        {
+          "question": "What is memory rank and how does it affect system design?",
+          "answer": "A rank is a 64-bit wide (72-bit with ECC) data block that can be accessed independently. A DIMM can contain single rank (1R), dual rank (2R), quad rank (4R), or octal rank (8R). Multi-rank DIMMs increase capacity without adding DIMM slots but share the same command/address bus. All ranks on a channel share bandwidth. Dual-rank DIMMs can offer better performance through rank interleaving. However, more ranks increase electrical load on the memory controller. Check your platform's maximum rank support per channel.",
+          "decisionGuide": "Use dual-rank DIMMs for best capacity/performance balance. Verify platform rank limitations before specifying.",
+          "keywords": ["memory rank", "dual rank DIMM", "memory capacity"]
+        }
+      ]
+    }
+  ]
+}

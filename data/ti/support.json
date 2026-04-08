@@ -1,0 +1,369 @@
+{
+  "articles": [
+    {
+      "id": "ti-power-selection-guide",
+      "title": "How to Select Texas Instruments Power Management ICs",
+      "category": "Product Selection",
+      "author": {
+        "name": "Michael Chen",
+        "title": "Senior FAE - Power Management",
+        "experience": "12 years",
+        "expertise": ["Power Management", "DC-DC Converters", "LDO Design"]
+      },
+      "publishDate": "2026-03-15",
+      "lastUpdated": "2026-03-15",
+      "summary": "Comprehensive guide for selecting the right TI power management ICs for your application, covering DC-DC converters, LDOs, and power modules.",
+      "content": "# How to Select Texas Instruments Power Management ICs\n\n## Introduction\n\nSelecting the right power management IC is critical for system reliability, efficiency, and cost. This guide provides a systematic approach to choosing TI power management solutions.\n\n## Step 1: Define Your Power Requirements\n\n### Input Specifications\n- Input voltage range (min, max, nominal)\n- Input source type (battery, AC adapter, bus voltage)\n- Input current limitations\n- Transient requirements (hot-plug, load dump)\n\n### Output Specifications\n- Output voltage(s) required\n- Output current (steady-state and peak)\n- Load transient response requirements\n- Output ripple and noise specifications\n\n### System Requirements\n- Efficiency targets (light load and full load)\n- Operating temperature range\n- Size constraints\n- EMI/EMC requirements\n- Cost targets\n\n## Step 2: Choose Converter Topology\n\n### Buck (Step-Down) Converters\n**When to use:**\n- Input voltage > Output voltage\n- High efficiency required\n- Medium to high current (>1A)\n\n**TI Recommendations:**\n- TPS54331: 3A, cost-effective industrial\n- TPS62827: 2A, ultra-small solution\n- LM53635: 3.5A, automotive grade\n\n### Boost (Step-Up) Converters\n**When to use:**\n- Input voltage < Output voltage\n- Battery applications requiring higher voltage\n- LED driving\n\n**TI Recommendations:**\n- TPS61022: 8A switch, high power\n- TPS61235: 6A, high efficiency\n\n### Buck-Boost Converters\n**When to use:**\n- Input voltage can be above or below output\n- Battery applications with wide voltage range\n\n**TI Recommendations:**\n- TPS63020: 3A, single inductor\n- LM5176: 4-switch buck-boost\n\n### LDO Regulators\n**When to use:**\n- Low noise requirements\n- Small voltage dropout\n- Simple, cost-sensitive designs\n\n**TI Recommendations:**\n- TPS7A47: Ultra-low noise, high PSRR\n- LM317: Adjustable, classic design\n- TPS7A16: Ultra-low IQ for battery\n\n## Step 3: Evaluate Key Parameters\n\n### Efficiency Considerations\n- Switching regulators: 85-95% typical\n- LDOs: Efficiency = Vout/Vin (can be low for large dropout)\n- Consider light-load efficiency for battery apps\n- Look for Eco-mode or PFM features\n\n### Thermal Design\n- Calculate power dissipation: Pd = (Vin-Vout) × Iout for LDOs\n- Check thermal resistance (θJA)\n- Ensure max junction temperature not exceeded\n- Plan for adequate copper area/heatsinking\n\n### Size and Integration\n- Integrated MOSFETs reduce component count\n- Higher switching frequency enables smaller inductors\n- Module solutions for fastest time-to-market\n\n## Step 4: Use TI Design Tools\n\n### WEBENCH Power Designer\n- Complete power supply design and simulation\n- Component selection and optimization\n- Thermal analysis\n- BOM cost estimation\n\n### Power Stage Designer\n- Calculate component values\n- Estimate losses and efficiency\n- Select optimal switching frequency\n\n## Step 5: Validate Your Design\n\n### Bench Testing Checklist\n- Efficiency across load range\n- Load transient response\n- Line transient response\n- Start-up behavior\n- Thermal performance\n- EMI measurements\n\n### Common Issues and Solutions\n- Output ripple too high: Increase output capacitance or use better capacitors\n- Poor transient response: Adjust compensation network\n- Thermal issues: Improve layout, add heatsinking, or reduce switching frequency\n\n## Conclusion\n\nProper power management IC selection requires systematic analysis of requirements and careful evaluation of trade-offs. TI's extensive portfolio and design tools simplify this process.",
+      "relatedArticles": [
+        "ti-processor-selection-guide",
+        "ti-analog-selection-guide",
+        "ti-sensor-selection-guide"
+      ],
+      "faeInsights": {
+        "author": "Michael Chen",
+        "title": "Senior FAE - Power Management",
+        "content": "Over my 12 years supporting power designs, I've learned that the most common mistake is not properly characterizing the load profile. Many designers specify only maximum current, but the light-load behavior is equally important for battery life and efficiency. I always recommend creating a load profile graph showing current vs time before selecting any power IC. Another critical factor often overlooked is the transient response - modern processors and FPGAs can have load steps exceeding 10A/µs, which many power supplies cannot handle without significant output capacitance. Use TI's load transient tool to validate your design. Finally, don't underestimate thermal design - even 'simple' 3A converters can dissipate significant power at high input voltages. Power selection follows a hierarchy: First, determine if you need switching or linear regulation based on efficiency requirements and noise sensitivity. Second, select topology based on input-output voltage relationship. Third, size the converter based on current requirements with 20-30% margin. Fourth, evaluate thermal performance under worst-case conditions. Fifth, verify transient response meets load requirements.",
+        "keyTakeaways": [
+          "Characterize complete load profile, not just maximum current",
+          "Consider light-load efficiency for battery-powered applications",
+          "Plan thermal design early - calculate worst-case dissipation",
+          "Validate transient response with actual load characteristics",
+          "Use WEBENCH to explore trade-offs between efficiency, size, and cost"
+        ],
+        "decisionFramework": {
+          "title": "Power Management Selection Decision Framework",
+          "steps": [
+            "Determine switching vs linear regulation based on efficiency and noise requirements",
+            "Select topology based on input-output voltage relationship",
+            "Size converter based on current requirements with 20-30% margin",
+            "Evaluate thermal performance under worst-case conditions",
+            "Verify transient response meets load requirements using simulation tools"
+          ]
+        }
+      },
+      "customerCases": [
+        {
+          "customerName": "Industrial Automation Ltd",
+          "industry": "Industrial Control",
+          "application": "24V Industrial Power Supply",
+          "problem": "Customer's existing power supply suffered from poor load regulation and overheating when driving multiple motor drives from a 48V bus.",
+          "diagnosis": "Analysis revealed the LDO-based design was dissipating 72W at 3A load (48V to 24V dropout). The thermal design was inadequate for this power level.",
+          "solution": "We redesigned using TPS54331 buck converter, reducing dissipation to under 5W. Implemented proper PCB layout with thermal vias and copper pours.",
+          "results": "Efficiency improved from 50% to 94%. Operating temperature reduced by 45C. System reliability improved dramatically with MTBF increasing from 20,000 to over 100,000 hours."
+        }
+      ],
+      "faqs": [
+        {
+          "question": "How do I choose between synchronous and non-synchronous buck converters?",
+          "answer": "Synchronous buck converters use a MOSFET instead of a diode for the low-side switch, improving efficiency especially at low output voltages and high currents. Choose synchronous for applications >2A or where efficiency is critical. Non-synchronous is simpler and lower cost for light loads (<1A) or high output voltages where diode losses are acceptable. TI's TPS54331 is synchronous and achieves 95% efficiency, while non-synchronous alternatives like LM2596 are simpler but less efficient (88% typical).",
+          "decisionGuide": "Use synchronous for high current or battery applications. Use non-synchronous for simple, cost-sensitive designs with light loads.",
+          "keywords": ["synchronous vs non-synchronous", "buck converter selection", "power efficiency"]
+        },
+        {
+          "question": "What is the difference between voltage mode and current mode control?",
+          "answer": "Voltage mode control uses a single feedback loop comparing output voltage to reference. It's simple but requires complex compensation for stability. Current mode control adds an inner current loop, providing inherent cycle-by-cycle current limiting and easier compensation (no double pole from inductor). Current mode is preferred for most modern designs as it offers better transient response and current limiting. TI's C2000 controllers support both modes, with current mode being the default for most applications.",
+          "decisionGuide": "Use current mode for most applications due to better performance and protection. Use voltage mode only for specific multi-phase or interleaved applications.",
+          "keywords": ["voltage mode vs current mode", "control loop design", "power supply stability"]
+        },
+        {
+          "question": "How do I calculate the right inductor value for my buck converter?",
+          "answer": "Inductor value determines ripple current: L = (Vin - Vout) × D / (ΔIL × fsw). Typically target 20-40% ripple current relative to output current. For a 12V to 5V, 3A converter at 570kHz with 30% ripple: L = (12-5) × 0.42 / (0.9 × 570000) = 5.7µH. Use standard value 6.8µH. Larger inductors reduce ripple but increase size and cost. Smaller inductors increase ripple but allow faster transient response. Always verify inductor saturation current exceeds peak current (Iout + ΔIL/2) with margin.",
+          "decisionGuide": "Calculate based on 30% ripple current, then verify saturation rating and size constraints. Contact us for inductor recommendations.",
+          "keywords": ["inductor calculation", "buck converter design", "ripple current"]
+        },
+        {
+          "question": "What causes output voltage overshoot during startup?",
+          "answer": "Output overshoot during startup is typically caused by insufficient soft-start time or improper compensation. The soft-start capacitor sets the ramp rate of the output voltage. If too fast, the error amplifier saturates and overshoots. Solution: Increase soft-start capacitor value to extend ramp time (typically 2-10ms). Another cause is excessive output capacitance combined with high bandwidth - the converter charges the capacitors too quickly. Add a preload resistor or reduce loop bandwidth. Some TI devices like TPS54331 have adjustable soft-start - use this feature to control startup behavior.",
+          "decisionGuide": "Increase soft-start time if overshoot occurs. Check compensation network if overshoot persists with slow soft-start.",
+          "keywords": ["startup overshoot", "soft-start design", "power supply startup"]
+        },
+        {
+          "question": "How do I reduce EMI in switching power supplies?",
+          "answer": "EMI reduction requires systematic approach at multiple levels. Input filtering: Add common-mode choke and X/Y capacitors at input. Layout: Minimize high di/dt loops (input cap to switch node), use ground planes, separate power and control grounds at single point. Shielding: Use shielded inductors. Snubbers: Add RC snubbers across rectifiers to damp ringing. Spread spectrum: Some TI devices support frequency dithering to spread EMI spectrum. Switching frequency: Lower frequencies reduce EMI but increase component size. Always test early with spectrum analyzer - fixing EMI late is costly.",
+          "decisionGuide": "Implement proper input filtering and layout from the start. Use snubbers if ringing is observed. Contact our EMI specialists for design reviews.",
+          "keywords": ["switching power EMI", "EMC design", "noise reduction"]
+        },
+        {
+          "question": "What is the difference between DCM and CCM operation?",
+          "answer": "DCM (Discontinuous Conduction Mode) occurs when inductor current reaches zero during off-time, typical at light loads. CCM (Continuous Conduction Mode) maintains continuous inductor current. DCM has higher ripple and different dynamics but better light-load efficiency. CCM provides lower ripple and better transient response but can have right-half-plane zero issues in boost converters. Most modern converters operate in CCM at heavy loads and automatically transition to DCM or PFM at light loads for efficiency. TI's Eco-mode automatically manages this transition.",
+          "decisionGuide": "Let the converter automatically manage mode transitions. For critical applications, force CCM if consistent dynamics are required across load range.",
+          "keywords": ["DCM vs CCM", "conduction modes", "light load efficiency"]
+        }
+      ]
+    },
+    {
+      "id": "ti-processor-selection-guide",
+      "title": "Guide to Selecting TI Embedded Processors and Microcontrollers",
+      "category": "Product Selection",
+      "author": {
+        "name": "David Park",
+        "title": "Senior FAE - Embedded Systems",
+        "experience": "15 years",
+        "expertise": ["Microcontrollers", "Digital Signal Processing", "Real-time Control"]
+      },
+      "publishDate": "2026-03-10",
+      "lastUpdated": "2026-03-10",
+      "summary": "Comprehensive guide for selecting the right TI microcontroller or DSP for your embedded application, covering MSP430, C2000, and ARM-based processors.",
+      "content": "# Guide to Selecting TI Embedded Processors and Microcontrollers\n\n## Introduction\n\nTexas Instruments offers a broad portfolio of embedded processors optimized for different applications. This guide helps you navigate the selection process.\n\n## Understanding TI Processor Families\n\n### MSP430 - Ultra-Low-Power MCUs\n**Best for:** Battery-powered devices, sensors, portable medical\n**Key Features:**\n- Active power: 100-200 µA/MHz\n- Standby with RTC: <1 µA\n- FRAM options with unlimited writes\n- 16-bit RISC architecture\n- Integrated analog peripherals\n\n**When to Choose:**\n- Battery life is critical\n- Cost-sensitive consumer applications\n- Data logging with frequent writes\n- Simple control tasks\n\n### C2000 - Real-Time Control MCUs\n**Best for:** Motor control, digital power, industrial drives\n**Key Features:**\n- 32-bit C28x core up to 200 MHz\n- Dual-core options for parallel processing\n- CLA coprocessor for control loops\n- High-resolution PWM (150 ps)\n- Fast ADCs (3.5 MSPS)\n\n**When to Choose:**\n- Real-time control requirements\n- Motor or power conversion\n- Complex mathematical processing\n- Sub-microsecond response needed\n\n### Sitara - ARM-based Processors\n**Best for:** Embedded Linux, networking, HMI\n**Key Features:**\n- ARM Cortex-A cores\n- DDR memory support\n- Graphics acceleration\n- Rich connectivity (Ethernet, USB, PCIe)\n- Linux and RTOS support\n\n**When to Choose:**\n- Need for operating system\n- Network connectivity\n- Human-machine interface\n- High processing performance\n\n## Selection Criteria\n\n### Processing Performance\n| Application | Recommended | MIPS/MHz |\n|-------------|-------------|----------|\n| Sensor reading | MSP430 | 16 MHz |\n| Motor control | C2000 | 200 MHz |\n| Audio processing | C5000/C6000 | 300+ MHz |\n| Video processing | Sitara | 1+ GHz |\n\n### Power Consumption\n| Mode | MSP430FR5x | C2000 | Sitara |\n|------|------------|-------|--------|\n| Active | 100 µA/MHz | 25 mA@100MHz | 500mA@1GHz |\n| Sleep | 1 µA | 1 mA | 10 mA |\n| Deep sleep | 0.1 µA | 10 µA | 1 mA |\n\n### Memory Requirements\n- **Code size:** Estimate using compiler output, add 30% margin\n- **RAM:** Stack + heap + global variables + buffer space\n- **FRAM:** Consider for data logging (unlimited writes)\n- **External memory:** Sitara supports DDR for large applications\n\n## Step-by-Step Selection Process\n\n### Step 1: Define Application Requirements\n\n**Performance Needs:**\n- What is the control loop frequency?\n- How much processing per sample?\n- Real-time constraints?\n\n**I/O Requirements:**\n- Number of ADC channels needed\n- PWM channels and resolution\n- Communication interfaces (SPI, I2C, UART, CAN, Ethernet)\n- GPIO count\n\n**Environmental:**\n- Operating temperature range\n- Vibration/shock requirements\n- EMC/EMI compliance\n\n### Step 2: Calculate Processing Budget\n\nExample for motor control:\n- Control loop: 20 kHz (50 µs period)\n- ADC sampling: 10 µs\n- Control algorithm: 20 µs\n- Communication: 5 µs\n- Margin: 15 µs\n- Total: 50 µs → 50% CPU load at 100 MHz\n\n### Step 3: Evaluate Development Ecosystem\n\n**MSP430:**\n- Energia (Arduino-compatible)\n- Code Composer Studio\n- Grace graphical configurator\n- EnergyTrace for power profiling\n\n**C2000:**\n- Code Composer Studio\n- ControlSUITE libraries\n- MotorWare for motor control\n- Digital Power SDK\n\n**Sitara:**\n- Linux SDK\n- Processor SDK\n- Code Composer Studio\n- Third-party RTOS support\n\n### Step 4: Prototype and Validate\n\n**Use LaunchPad Evaluation Boards:**\n- Low-cost ($10-30)\n- Integrated debugger\n- BoosterPack ecosystem\n- Quick start examples\n\n**Key Validation Tests:**\n- Performance benchmarking\n- Power consumption measurement\n- Temperature testing\n- EMC pre-compliance\n\n## Family-Specific Selection Guides\n\n### MSP430 Selection\n\n| Series | Best For | Key Features |\n|--------|----------|--------------|\n| FR2xx/FR4xx | Cost-sensitive | Basic ultra-low-power |\n| FR5xx/FR6xx | Data logging | FRAM, LCD driver |\n| i2xx | Measurement | 24-bit Sigma-Delta ADC |\n| L1xx | Entry level | Lowest cost |\n\n### C2000 Selection\n\n| Series | Best For | Key Features |\n|--------|----------|--------------|\n| F2800x | Cost-sensitive | Entry-level control |\n| F2833x | General control | Floating-point, 150 MHz |\n| F2837xD | High performance | Dual-core, 200 MHz |\n| F2838xD | Connectivity | Dual-core + EtherCAT |\n\n## Common Mistakes to Avoid\n\n1. **Underspecifying performance** - Always include 30% headroom\n2. **Ignoring power consumption** - Consider all operating modes\n3. **Overlooking development tools** - Poor tools increase time-to-market\n4. **Insufficient memory** - Account for future firmware updates\n5. **Not planning for debugging** - Include JTAG/SWD access in layout\n\n## Conclusion\n\nProper processor selection requires balancing performance, power, cost, and ecosystem. Start with LaunchPad boards for evaluation before committing to custom hardware.",
+      "relatedArticles": [
+        "ti-power-selection-guide",
+        "ti-analog-selection-guide",
+        "ti-sensor-selection-guide"
+      ],
+      "faeInsights": {
+        "author": "David Park",
+        "title": "Senior FAE - Embedded Systems",
+        "content": "After 15 years supporting embedded designs, I've seen too many projects fail due to poor processor selection. The most common mistake is focusing only on peak performance while ignoring real-world constraints. For battery applications, I've seen designers choose ARM processors when MSP430 would have extended battery life by 10x. Conversely, I've seen MSP430s struggle in motor control where C2000's CLA coprocessor would have been perfect. My rule of thumb: if you need sub-millisecond response with any complexity, use C2000. If battery life is measured in months or years, use MSP430 with FRAM. If you need networking or an OS, use Sitara. Another critical factor is the development ecosystem - TI's libraries (MotorWare, ControlSUITE) can save months of development time. Don't underestimate the value of reference designs that match your application.",
+        "keyTakeaways": [
+          "Use C2000 for real-time control requiring sub-millisecond response",
+          "Use MSP430 with FRAM for battery-powered data logging",
+          "Use Sitara when you need an operating system or networking",
+          "Always include 30% performance headroom in calculations",
+          "Evaluate with LaunchPad boards before custom hardware design"
+        ],
+        "decisionFramework": {
+          "title": "Processor Selection Decision Framework",
+          "steps": [
+            "Determine if operating system is required - if yes, choose Sitara",
+            "Assess real-time requirements - sub-millisecond response needs C2000",
+            "Evaluate power budget - battery applications favor MSP430 with FRAM",
+            "Consider processing complexity - simple tasks use MSP430, complex math use C2000",
+            "Validate selection with evaluation boards before custom hardware"
+          ]
+        }
+      },
+      "customerCases": [
+        {
+          "customerName": "Smart Agriculture Systems",
+          "industry": "Agricultural Technology",
+          "application": "Wireless Soil Monitoring Node",
+          "problem": "Customer's soil monitoring system using ARM Cortex-M4 achieved only 3-month battery life instead of required 2-year target. The processor consumed too much power in sleep modes.",
+          "diagnosis": "Analysis showed the ARM processor's lowest sleep mode consumed 15µA, and wake-up time was slow, causing long active periods for sensor readings.",
+          "solution": "We migrated to MSP430FR5969 with FRAM. The standby current dropped to 1µA, and fast FRAM writes reduced active time. Implemented aggressive duty cycling with 0.1% duty factor.",
+          "results": "Battery life extended to 3+ years on a single CR2032 coin cell. The FRAM eliminated external EEPROM and its high write current. System cost reduced by 20% due to fewer components."
+        }
+      ],
+      "faqs": [
+        {
+          "question": "How do I decide between MSP430 and C2000 for my application?",
+          "answer": "Choose MSP430 for ultra-low-power applications where battery life is critical and processing requirements are modest (sensor reading, simple control). MSP430 active current is ~100µA/MHz vs 250µA/MHz for C2000. Choose C2000 for real-time control requiring fast response (motor control, digital power), complex mathematical operations (FFT, matrix math), or high-speed sampling (>100kHz). C2000 has 32-bit FPU, CLA coprocessor, and high-resolution PWM that MSP430 lacks. If you need both low power and high performance, consider using MSP430 for housekeeping and C2000 for real-time tasks in a dual-processor architecture.",
+          "decisionGuide": "Use MSP430 for battery-powered sensor applications. Use C2000 for real-time control and complex processing. Contact us for dual-processor architecture guidance.",
+          "keywords": ["MSP430 vs C2000", "microcontroller selection", "low power vs performance"]
+        },
+        {
+          "question": "What is the CLA coprocessor and when should I use it?",
+          "answer": "The Control Law Accelerator (CLA) is an independent 32-bit floating-point processor integrated in C2000 devices. It runs at the same speed as the main CPU (up to 200MHz) and has direct access to ADCs and PWMs. Use CLA for time-critical control loops that must run at high frequency without interruption. The CLA can execute control algorithms in parallel with the main CPU, effectively doubling processing capability. Typical applications include motor current loops (10-20kHz), digital power control (50-200kHz), and fast sensor processing. The CLA uses the same C compiler as the main CPU, simplifying development.",
+          "decisionGuide": "Use CLA for control loops requiring >5kHz update rate or when main CPU is heavily loaded with communication and diagnostics.",
+          "keywords": ["CLA coprocessor", "control law accelerator", "C2000 parallel processing"]
+        },
+        {
+          "question": "How do I estimate code size and RAM requirements?",
+          "answer": "Code size estimation: Start with reference designs closest to your application. Add margins: 30% for application code, 50% for libraries if using extensive math functions. RAM estimation: Stack (1-4KB depending on call depth) + Heap (if using dynamic allocation, 1-2KB) + Global variables + Buffers (2x largest message size). For C2000 with ControlSUITE, typical motor control uses 50-100KB flash and 8-16KB RAM. For MSP430 with DriverLib, simple sensor apps use 8-16KB flash and 1-2KB RAM. Always use the compiler's code size optimization and check map file for actual usage.",
+          "decisionGuide": "Use reference designs as baseline, add 30-50% margin for customization. Contact our FAE team for memory estimation assistance.",
+          "keywords": ["code size estimation", "RAM requirements", "memory planning"]
+        },
+        {
+          "question": "What debugging capabilities are available for TI processors?",
+          "answer": "All TI processors support JTAG debugging through Code Composer Studio. C2000 and MSP430 include advanced features: Real-time mode allows debugging without stopping the CPU (critical for motor control). EnergyTrace on MSP430 provides power profiling correlated with code execution. Data breakpoints trigger on memory access. Trace capabilities on higher-end C2000 devices show program flow. Flash breakpoints allow unlimited breakpoints in flash memory. For production debugging, consider using UART or CAN for printf-style debugging. Always include test points for critical signals and JTAG access in your PCB layout.",
+          "decisionGuide": "Use real-time debugging for control applications. Use EnergyTrace for power optimization. Include JTAG access in all board designs.",
+          "keywords": ["JTAG debugging", "real-time debugging", "Code Composer Studio"]
+        },
+        {
+          "question": "How do I migrate from one TI processor family to another?",
+          "answer": "Migration requires planning across hardware and software. Hardware: Check pin compatibility (some C2000 devices are pin-compatible), voltage levels, and peripheral differences. Software: Peripheral register maps differ between families - use DriverLib or HAL for abstraction. Algorithm code in C typically ports with minimal changes. Assembly code requires rewriting. TI provides migration guides for common transitions (e.g., F28335 to F28379D). Plan for: peripheral reconfiguration, interrupt handling differences, memory map changes, and timing adjustments. Budget 2-4 weeks for migration of a moderately complex application.",
+          "decisionGuide": "Use DriverLib for peripheral abstraction. Review migration guides. Plan for hardware and software validation.",
+          "keywords": ["processor migration", "code porting", "TI microcontroller upgrade"]
+        },
+        {
+          "question": "What is the difference between C2000 and ARM Cortex-M for motor control?",
+          "answer": "C2000 is optimized for real-time control with specialized peripherals: high-resolution PWM (150ps), fast ADCs with simultaneous sampling, and CLA coprocessor. ARM Cortex-M (like STM32) is general-purpose with broader ecosystem. C2000 advantages: Better control peripherals, deterministic response, specialized libraries (MotorWare, InstaSPIN). ARM advantages: Larger ecosystem, more software libraries, lower cost for some variants. For simple motor control, ARM may suffice. For high-performance servo drives, digital power, or complex multi-axis systems, C2000's specialized features provide significant advantages. Many customers use both: ARM for HMI/networking, C2000 for real-time control.",
+          "decisionGuide": "Use C2000 for demanding control applications. Use ARM for general-purpose with rich ecosystem. Consider dual-processor for complex systems.",
+          "keywords": ["C2000 vs ARM", "motor control processor", "real-time control comparison"]
+        }
+      ]
+    },
+    {
+      "id": "ti-analog-selection-guide",
+      "title": "Selecting TI Analog ICs: Amplifiers, ADCs, and References",
+      "category": "Product Selection",
+      "author": {
+        "name": "Robert Zhang",
+        "title": "Senior FAE - Precision Analog",
+        "experience": "14 years",
+        "expertise": ["Operational Amplifiers", "Data Converters", "Sensor Signal Conditioning"]
+      },
+      "publishDate": "2026-03-05",
+      "lastUpdated": "2026-03-05",
+      "summary": "Comprehensive guide for selecting TI analog components including op-amps, instrumentation amplifiers, ADCs, DACs, and voltage references for precision measurement applications.",
+      "content": "# Selecting TI Analog ICs: Amplifiers, ADCs, and References\n\n## Introduction\n\nAnalog signal conditioning is critical for accurate sensor measurements. This guide covers selection of TI's precision analog portfolio.\n\n## Operational Amplifier Selection\n\n### Key Parameters\n\n**Input Offset Voltage (Vos):**\n- Precision: <100 µV (OPA2192, OPAx189)\n- General purpose: 0.5-5 mV (LM358, LM324)\n- Impact: Creates DC error in output = Vos × Gain\n\n**Bandwidth (GBW):**\n- Low speed: <1 MHz for DC/slow signals\n- Medium: 1-50 MHz for general purpose\n- High speed: >100 MHz for fast signals\n\n**Noise:**\n- Voltage noise: 3-20 nV/√Hz typical\n- Current noise: Important for high-impedance sources\n- 1/f noise: Critical for DC measurements\n\n### Amplifier Categories\n\n#### Precision Amplifiers\n**Best for:** Sensor conditioning, measurement, test equipment\n**Top Picks:**\n- OPA2192: 5 µV offset, 36V supply, EMI-hardened\n- OPA189: 3 µV offset, 14 MHz, low noise\n- INA333: Instrumentation amp, 25 µV offset\n\n#### Low-Power Amplifiers\n**Best for:** Battery-powered, portable devices\n**Top Picks:**\n- OPA333: 17 µA, precision\n- LPV511: 0.4 µA, nanopower\n- TLV9002: 60 µA, low cost\n\n#### High-Speed Amplifiers\n**Best for:** Communications, video, data acquisition\n**Top Picks:**\n- OPA695: 1.4 GHz, current feedback\n- THS3091: 210 MHz, high output current\n\n## Data Converter Selection\n\n### ADC Selection Criteria\n\n**Resolution:**\n- 8-12 bit: General monitoring, simple controls\n- 14-16 bit: Precision measurements, sensors\n- 18-24 bit: Test equipment, scientific instruments\n\n**Sampling Rate:**\n- <1 kSPS: Temperature, pressure monitoring\n- 1-100 kSPS: Audio, vibration analysis\n- >1 MSPS: Communications, fast control\n\n**Architecture:**\n- SAR ADC: Fast, good for multiplexing, medium resolution\n- Delta-Sigma: High resolution, integrated filtering\n- Pipeline: Very high speed, communications\n\n### TI ADC Portfolio\n\n| Device | Resolution | Speed | Best For |\n|--------|------------|-------|----------|\n| ADS1115 | 16-bit | 860 SPS | Sensor monitoring, I2C |\n| ADS131M04 | 24-bit | 32 kSPS | Energy metering, 3-phase |\n| ADS42JB69 | 16-bit | 250 MSPS | Communications |\n| ADS124S08 | 24-bit | 4 kSPS | RTD measurement |\n\n### DAC Selection\n\n**Voltage Output DACs:**\n- DAC8551: 16-bit, low power, SPI\n- DAC8830: 16-bit, ultra-low glitch\n\n**Current Output DACs:**\n- DAC161S997: 16-bit, 4-20mA loop\n\n## Voltage Reference Selection\n\n### Key Specifications\n
+**Initial Accuracy:**\n- 0.05%: High precision (REF5025)\n- 0.1%: Good precision (REF2033)\n- 1%: General purpose (TL431)\n\n**Temperature Drift:**\n- <5 ppm/C: Ultra-precision\n- 5-25 ppm/C: Precision\n- >25 ppm/C: General purpose\n\n**Noise:**\n- Low noise: <10 µVpp (0.1-10 Hz)\n- Critical for high-resolution ADCs\n\n### Top References\n\n| Device | Accuracy | Drift | Best For |\n|--------|----------|-------|----------|\n| REF5025 | 0.05% | 3 ppm/C | 16-bit ADCs |\n| REF2033 | 0.1% | 25 ppm/C | General purpose |\n| REF3325 | 0.15% | 30 ppm/C | Low power |\n\n## Signal Chain Design\n\n### Sensor Conditioning Example\n\n**Bridge Sensor (Load Cell, Pressure):**\n1. Instrumentation amplifier (INA333) for differential to single-ended\n2. Low-pass filter for noise reduction\n3. Level shift if bipolar output needed\n4. 16-bit ADC (ADS1115) with PGA\n\n**Thermocouple:**\n1. Cold junction compensation (TMP117)\n2. Precision amplifier (OPA2192) for gain\n3. 24-bit ADC for high resolution\n4. Digital filtering for noise reduction\n\n### Error Budget Analysis\n\nExample for 16-bit system targeting 0.01% accuracy:\n- Reference error: 0.05% (REF5025)\n- Amplifier offset: 0.003% (OPA2192 at gain 10)\n- ADC INL: 0.006% (ADS1115)\n- Noise: 0.002% (with filtering)\n- Total: ~0.06% (within budget)\n\n## Layout Considerations\n\n### Critical Guidelines\n- Separate analog and digital grounds\n- Use star grounding at ADC\n- Place decoupling capacitors close to ICs\n- Guard rings around sensitive inputs\n- Minimize trace lengths for high-impedance nodes\n\n## Conclusion\n\nSuccessful analog design requires careful component selection and attention to layout. Use TI's TINA-TI for simulation and WEBENCH for design optimization.",
+      "relatedArticles": [
+        "ti-power-selection-guide",
+        "ti-processor-selection-guide",
+        "ti-sensor-selection-guide"
+      ],
+      "faeInsights": {
+        "author": "Robert Zhang",
+        "title": "Senior FAE - Precision Analog",
+        "content": "Precision analog design is as much about understanding error sources as it is about selecting components. In my 14 years of supporting analog designs, I've seen engineers focus on ADC resolution while ignoring reference drift, or select ultra-low offset op-amps but use high-drift resistors. The key insight is that total accuracy is the sum of all error sources - reference, amplifier, resistors, noise, and layout. I always recommend creating a detailed error budget spreadsheet before selecting any components. Another common mistake is ignoring 1/f noise in DC measurements - that 'low noise' op-amp may have 10x higher noise at 0.1Hz than at 1kHz. For thermocouple measurements, I've seen designs fail because engineers didn't account for thermal EMFs in the PCB layout. Always remember: analog design is about managing imperfection, not eliminating it.",
+        "keyTakeaways": [
+          "Create detailed error budget before selecting components",
+          "Consider temperature drift, not just initial accuracy",
+          "Use instrumentation amplifiers for bridge sensors",
+          "Match reference accuracy to ADC resolution",
+          "Plan layout carefully - guard rings and grounding are critical"
+        ],
+        "decisionFramework": {
+          "title": "Analog Signal Chain Design Decision Framework",
+          "steps": [
+            "Define system accuracy requirement and error budget allocation",
+            "Select components meeting individual error allocations",
+            "Verify design with simulation tools like TINA-TI",
+            "Plan PCB layout with proper grounding and guard rings",
+            "Validate with prototype measuring actual performance across temperature"
+          ]
+        }
+      },
+      "customerCases": [
+        {
+          "customerName": "Precision Scales Inc",
+          "industry": "Industrial Measurement",
+          "application": "High-Precision Weighing System",
+          "problem": "Customer's 24-bit weighing system showed 50 LSB noise (equivalent to 0.05g error) when targeting 0.001g resolution. The noise was random and temperature-dependent.",
+          "diagnosis": "Investigation revealed multiple issues: reference voltage had high 1/f noise, PCB layout created thermal EMFs between amplifier and ADC, and insufficient filtering allowed 60Hz pickup.",
+          "solution": "Redesigned with REF5025 low-noise reference, OPA2192 precision amplifier, and optimized PCB layout with guard rings and thermal management. Added 10Hz RC filter before ADC.",
+          "results": "Noise reduced to 2 LSB (0.002g), meeting specification. Temperature drift improved from 50 ppm/C to 3 ppm/C. System passed NTEP certification for legal-for-trade scales."
+        }
+      ],
+      "faqs": [
+        {
+          "question": "How do I calculate total error in a signal chain?",
+          "answer": "Total error is the root-sum-square (RSS) of individual error sources: Total_Error = sqrt(Vos_error² + Gain_error² + Noise_error² + Drift_error² + ...). For example, with amplifier offset 50µV, gain error 0.1%, and reference error 0.05% in a 2.5V range system: Offset contribution = 50µV/2.5V = 0.002%, Gain contribution = 0.1%, Reference contribution = 0.05%. RSS total = sqrt(0.002² + 0.1² + 0.05²) = 0.112%. Add margin for temperature drift and aging. For worst-case analysis, sum absolute values instead of RSS. Always verify with actual measurements across temperature.",
+          "decisionGuide": "Create error budget spreadsheet with all sources. Use RSS for statistical analysis, sum for worst-case. Contact us for error budget templates.",
+          "keywords": ["error budget calculation", "signal chain accuracy", "total error analysis"]
+        },
+        {
+          "question": "What is the difference between instrumentation amplifier and difference amplifier?",
+          "answer": "Instrumentation amplifiers (INA) have buffered inputs with high impedance (>1GΩ), making them ideal for bridge sensors and high-impedance sources. They provide precise gain set by a single resistor. Difference amplifiers have resistive input dividers with lower input impedance (typically 10k-100kΩ), suitable for low-impedance sources or where input protection is needed. INAs like INA333 offer better CMRR (100dB vs 80dB) and lower offset (25µV vs 200µV) but cost more. Use INAs for precision sensor conditioning. Use difference amplifiers for current sensing or cost-sensitive applications with low-impedance sources.",
+          "decisionGuide": "Use INA for high-impedance sensors (bridges, photodiodes). Use difference amplifier for current sensing or low-impedance sources.",
+          "keywords": ["INA vs difference amp", "instrumentation amplifier selection", "sensor conditioning"]
+        },
+        {
+          "question": "How do I select the right ADC resolution for my application?",
+          "answer": "ADC resolution determines the smallest detectable change: 1 LSB = Vref / 2^n. For a sensor with 10mV output range using 16-bit ADC with 2.5V reference: 1 LSB = 2.5V/65536 = 38µV. Resolution relative to signal = 38µV/10mV = 0.38%. If you need 0.1% measurement accuracy, 16-bit may be insufficient due to noise. Practical rule: Effective resolution is typically 2-4 bits less than stated resolution due to noise. For 0.01% accuracy target, use 18-bit or higher ADC, or implement averaging. Consider dynamic range requirements - if measuring 1mV to 10V, you need >80dB dynamic range requiring 16+ bits.",
+          "decisionGuide": "Calculate required LSB size based on minimum signal change. Add 2-4 bits for noise margin. Use delta-sigma for highest resolution.",
+          "keywords": ["ADC resolution selection", "effective resolution", "ENOB calculation"]
+        },
+        {
+          "question": "What causes ADC code flicker and how do I fix it?",
+          "answer": "Code flicker (LSB toggling) is caused by noise near transition points. Sources: reference noise, input signal noise, ground bounce, or digital crosstalk. Solutions: Add RC filter at ADC input (typically 100Ω + 1µF for 1.6kHz BW). Use low-noise reference (REF5025 instead of internal reference). Implement digital averaging in software (average 4-16 samples). Ensure solid ground plane and separate analog/digital grounds. Check for digital signals routed near analog inputs. For delta-sigma ADCs, increase oversampling ratio. If flicker persists, increase hysteresis in software (require 2-3 LSB change before updating output).",
+          "decisionGuide": "Implement input filtering first. Use external precision reference. Add digital averaging. Check layout for noise coupling.",
+          "keywords": ["ADC noise reduction", "code flicker fix", "ADC input filtering"]
+        },
+        {
+          "question": "How do I minimize offset drift in precision amplifiers?",
+          "answer": "Offset drift is caused by temperature changes affecting input transistors. Minimize by: 1) Select amplifier with low drift specification (OPA2192: 0.2µV/C). 2) Maintain constant die temperature - avoid heat sources near amplifier, use thermal isolation. 3) Use chopper-stabilized amplifiers (OPA333, OPA189) which internally correct offset - achieving <0.01µV/C drift. 4) Implement temperature compensation in software using external temp sensor. 5) Use differential signaling to cancel common-mode thermal effects. For highest precision, chopper amplifiers are preferred despite higher noise, as their drift is negligible compared to precision amplifiers.",
+          "decisionGuide": "Use chopper-stabilized amplifiers for lowest drift. Implement thermal management to minimize temperature variations.",
+          "keywords": ["offset drift minimization", "chopper amplifier", "precision op-amp drift"]
+        },
+        {
+          "question": "What is the importance of voltage reference in ADC accuracy?",
+          "answer": "The voltage reference directly impacts ADC accuracy because ADC output code = (Vin/Vref) × 2^n. Reference errors translate directly to measurement errors. A 0.1% reference error causes 0.1% full-scale error regardless of ADC resolution. For 16-bit ADCs, internal references typically have 0.5-1% accuracy and 50-100ppm/C drift, limiting system accuracy. External precision references (REF5025: 0.05%, 3ppm/C) can improve accuracy by 10x. Reference noise also affects ADC noise - high reference noise can reduce ENOB by several bits. For high-resolution ADCs (>16 bits), external reference is mandatory for achieving specified performance.",
+          "decisionGuide": "Use external precision reference for >14-bit ADCs. Match reference accuracy to system error budget. Contact us for reference selection guidance.",
+          "keywords": ["voltage reference importance", "ADC reference accuracy", "precision reference selection"]
+        }
+      ]
+    },
+    {
+      "id": "ti-sensor-selection-guide",
+      "title": "Guide to Selecting TI Sensors for Temperature and Current Measurement",
+      "category": "Product Selection",
+      "author": {
+        "name": "Jennifer Liu",
+        "title": "Senior FAE - Sensor Applications",
+        "experience": "11 years",
+        "expertise": ["Temperature Sensing", "Current Sensing", "Signal Conditioning"]
+      },
+      "publishDate": "2026-03-01",
+      "lastUpdated": "2026-03-01",
+      "summary": "Comprehensive guide for selecting and using TI temperature sensors, current sensors, and environmental sensors for industrial, automotive, and consumer applications.",
+      "content": "# Guide to Selecting TI Sensors for Temperature and Current Measurement\n\n## Introduction\n\nSensors are the interface between the physical world and electronic systems. This guide covers TI's sensor portfolio and selection criteria.\n\n## Temperature Sensors\n\n### Types of Temperature Sensors\n\n#### Digital Temperature Sensors\n**Best for:** PCBs, ambient monitoring, battery-powered devices\n**Advantages:** Digital output, calibrated, easy to use\n**Trade-offs:** Limited accuracy compared to RTDs, local measurement only\n\n**TI Portfolio:**\n- TMP117: ±0.1C accuracy, -55C to +155C, I2C\n- TMP102: ±2C accuracy, low cost, SOT563\n- TMP75: ±1C accuracy, industry-standard pinout\n\n#### Analog Temperature Sensors\n**Best for:** Simple applications, voltage output preferred\n**Advantages:** Linear output, no digital interface needed\n**Trade-offs:** Lower accuracy, requires ADC\n\n**TI Portfolio:**\n- LM35: 10mV/C, no calibration needed\n- LM335: 10mV/K, adjustable\n- TMP36: 10mV/C, wide range\n\n#### Thermocouples\n**Best for:** High temperatures, industrial applications\n**Advantages:** Very wide range (-200C to +1800C), rugged\n**Trade-offs:** Requires cold junction compensation, low output voltage\n\n**Signal Conditioning:**\n- ADS1115: 16-bit ADC with PGA\n- OPA2192: Precision amplifier for gain\n- TMP117: Cold junction compensation\n\n### Temperature Sensor Selection Criteria\n\n| Parameter | Consumer | Industrial | Medical/Scientific |\n|-----------|----------|------------|-------------------|\n| Accuracy | ±2C | ±0.5C | ±0.1C |\n| Range | -20 to +85C | -40 to +125C | -55 to +155C |\n| Interface | I2C/SMBus | I2C/Analog | I2C/RTD |\n| Cost | Low | Medium | High |\n\n## Current Sensors\n\n### Current Sensing Methods\n\n#### Shunt Resistor with Amplifier\n**Best for:** Low to medium currents (<50A), high accuracy\n**Advantages:** Low cost, high accuracy, wide bandwidth\n**Trade-offs:** Insertion loss, no isolation\n\n**TI Solutions:**\n- INA219: I2C output, 26V common-mode\n- INA226: 16-bit, 36V range, ±10µV offset\n- INA333: Low-side or high-side, precision\n\n#### Hall-Effect Sensors\n**Best for:** High currents (>50A), isolation required\n**Advantages:** Galvanic isolation, no insertion loss\n**Trade-offs:** Lower accuracy, susceptible to magnetic fields\n\n**TI Solutions:**\n- DRV5055: Linear Hall sensor\n- TMCS1100: Isolated Hall sensor\n\n#### Current Transformers\n**Best for:** AC current measurement\n**Advantages:** High isolation, no power consumption\n**Trade-offs:** AC only, saturation limits\n\n### Current Sensor Selection Guide\n\n| Current Range | Method | TI Device | Accuracy |\n|---------------|--------|-----------|----------|\n| <1A | Shunt + INA | INA333 | ±0.1% |\n| 1-10A | Integrated | INA219 | ±1% |\n| 10-50A | Shunt + INA | INA226 | ±0.5% |\n| >50A | Hall | TMCS1100 | ±1% |\n\n## Environmental Sensors\n\n### Humidity Sensors\n**TI Solutions:**\n- HDC1080: ±2% RH accuracy, I2C, low power\n- HDC2010: ±1.5% RH, integrated heater\n\n### Gas Sensors\n**TI Solutions:**\n- LMP90100: AFE for chemical sensors\n- TIA for electrochemical sensors\n\n## Application-Specific Guidance\n\n### Motor Temperature Monitoring\n**Requirements:**\n- Isolation from high voltage\n- Fast response for protection\n- Reliable in harsh environment\n\n**Solution:**\n- TMP117 with digital isolator\n- Or analog sensor (TMP235) with isolated ADC\n\n### Battery Current Monitoring\n**Requirements:**\n- Bidirectional measurement\n- High accuracy at low currents\n- Low power consumption\n\n**Solution:**\n- INA226 with 16-bit resolution\n- Shunt resistor optimized for range\n\n### Industrial Process Control\n**Requirements:**\n- 4-20mA loop compatibility\n- High accuracy\n- EMI immunity\n\n**Solution:**\n- TMP117 for local temperature\n- RTD with ADS124S08 for remote\n- 4-20mA transmitter (XTR300)\n\n## Design Considerations\n\n### Self-Heating\nAll sensors dissipate power, causing self-heating:\n- Digital sensors: 50-500 µW typical\n- Calculate temperature rise: ΔT = P × θJA\n- Minimize by using low-power modes\n\n### Thermal Response Time\nFactors affecting response:\n- Package thermal mass\n- Thermal contact to measured object\n- Airflow for ambient sensors\n\n### PCB Layout for Sensors\n- Place away from heat sources\n- Use thermal vias for good contact\n- Guard rings for high-impedance nodes\n- Separate analog and digital grounds\n\n## Calibration and Compensation\n\n### Temperature Calibration\n- Single-point: Offset correction\n- Two-point: Offset and gain\n- Multi-point: Non-linearity correction\n\n### Cold Junction Compensation\nFor thermocouples:\n- Measure junction temperature with TMP117\n- Calculate thermocouple voltage\n- Add cold junction voltage\n- Convert to temperature using NIST tables\n\n## Conclusion\n\nProper sensor selection requires understanding the application requirements and environmental conditions. TI's portfolio covers a wide range of applications from consumer to industrial.",
+      "relatedArticles": [
+        "ti-power-selection-guide",
+        "ti-processor-selection-guide",
+        "ti-analog-selection-guide"
+      ],
+      "faeInsights": {
+        "author": "Jennifer Liu",
+        "title": "Senior FAE - Sensor Applications",
+        "content": "Sensor selection is often more about the environment than the specification. In my 11 years supporting sensor applications, I've seen perfectly good sensors fail because of installation issues. For temperature sensors, thermal contact is everything - a ±0.1C sensor becomes useless if the thermal resistance to the measured object is high. I always recommend using thermal interface material and maximizing contact area. For current sensing, PCB layout is critical - I've seen 10% errors just from poor Kelvin connections to shunt resistors. Another common issue is EMI - high-side current sensors are especially susceptible to common-mode transients. Always include proper filtering and follow layout guidelines. For digital sensors, I2C bus capacitance is often overlooked - long cables can cause communication failures. Use bus extenders or lower pull-up values for long runs.",
+        "keyTakeaways": [
+          "Thermal contact quality is as important as sensor accuracy",
+          "Use Kelvin connections for current shunt sensing",
+          "Consider self-heating in high-accuracy applications",
+          "Plan for EMI filtering in industrial environments",
+          "Validate with actual installation, not just bench testing"
+        ],
+        "decisionFramework": {
+          "title": "Sensor Selection and Implementation Decision Framework",
+          "steps": [
+            "Define measurement range and accuracy requirements",
+            "Consider environmental factors - temperature, humidity, EMI, vibration",
+            "Select sensor type based on range, accuracy, and interface preferences",
+            "Design mechanical installation for optimal thermal or magnetic coupling",
+            "Implement signal conditioning, filtering, and calibration strategy"
+          ]
+        }
+      },
+      "customerCases": [
+        {
+          "customerName": "EV Charging Systems",
+          "industry": "Electric Vehicle Infrastructure",
+          "application": "High-Voltage DC Current Monitoring",
+          "problem": "Customer's EV charger current monitoring showed 5% error and drift over temperature. The system used a simple shunt resistor with differential amplifier, but common-mode transients caused measurement errors.",
+          "diagnosis": "Analysis revealed the 800V common-mode voltage exceeded the amplifier's CMR, and lack of isolation created safety issues. PCB layout had long traces picking up switching noise.",
+          "solution": "Redesigned with AMC1300 isolated amplifier providing 5kV isolation and high CMR. Implemented proper Kelvin connection to shunt. Added RC filter for noise reduction.",
+          "results": "Accuracy improved to 0.5% across temperature. System passed 5kV isolation test. Measurement remained stable during switching transients. Design certified for automotive use."
+        }
+      ],
+      "faqs": [
+        {
+          "question": "How do I choose between local and remote temperature sensing?",
+          "answer": "Local sensors (TMP117, TMP102) measure their own die temperature, suitable for ambient monitoring or when placed near the heat source. They're simple, low-cost, and require no additional components. Remote sensors use an external transistor (CPU thermal diode or discrete 2N3904) connected via two wires, enabling monitoring of hot spots distant from the sensor IC. Remote sensing is essential for monitoring processors, power FETs, or other heat sources where the sensor cannot be placed nearby. Some devices like TMP461 support both local and remote channels. Use local sensors for PCB or ambient temperature. Use remote sensors for processor or power component monitoring where placement flexibility is needed.",
+          "decisionGuide": "Use local sensors for ambient/PCB monitoring. Use remote sensors for CPU or distant heat sources. Contact us for remote sensor interface designs.",
+          "keywords": ["local vs remote sensor", "temperature monitoring", "thermal diode"]
+        },
+        {
+          "question": "What is the best way to measure high-side current in a high-voltage system?",
+          "answer": "High-side current sensing above 60V requires isolation for safety. Options: 1) Isolated amplifiers (AMC1300, AMC3330) provide precision isolation with ±50µV offset, best for accuracy. 2) Hall-effect sensors (TMCS1100) provide contactless measurement with built-in isolation, simpler but less accurate (±1%). 3) Current transformers for AC only. For DC systems, isolated amplifiers are preferred for accuracy. The AMC1300 has 5kV isolation rating and can handle common-mode transients common in motor drives and power supplies. Always use Kelvin connections to shunt resistors and implement proper filtering. For systems >1000V, consider fiber optic isolation.",
+          "decisionGuide": "Use isolated amplifiers (AMC1300) for precision. Use Hall sensors for simpler, lower accuracy applications. Contact us for high-voltage current sensing designs.",
+          "keywords": ["high-side current sensing", "isolated amplifier", "high voltage monitoring"]
+        },
+        {
+          "question": "How do I minimize errors in thermocouple measurements?",
+          "answer": "Thermocouple accuracy depends on multiple factors: 1) Cold junction compensation - use precision sensor (TMP117) mounted at connection terminals with good thermal contact. 2) Wire homogeneity - avoid temperature gradients in wire runs. 3) Noise pickup - use twisted pair shielded cable, add RC filters. 4) Reference accuracy - use precision ADC (16+ bits) with stable reference. 5) Linearization - use proper polynomial or lookup table for thermocouple type. Typical errors: ±0.5C from CJC, ±0.2C from wire, ±0.1C from ADC. Total achievable accuracy is ±1-2C with careful design. For highest accuracy, use Type T or Type K thermocouples with ice-point reference.",
+          "decisionGuide": "Use precision CJC sensor with good thermal contact. Implement proper shielding and filtering. Use 16-bit or higher ADC.",
+          "keywords": ["thermocouple accuracy", "cold junction compensation", "thermocouple design"]
+        },
+        {
+          "question": "What causes drift in temperature sensor readings over time?",
+          "answer": "Temperature sensor drift is typically caused by: 1) Reference drift in digital sensors - internal bandgap references can drift 10-50ppm/year. 2) Package stress relaxation - causes offset shifts in first 1000 hours. 3) Contamination - moisture or chemicals affecting sensor element. 4) Thermal cycling - repeated temperature swings cause hysteresis. TMP117 has excellent long-term stability (<0.005C/year) due to advanced CMOS design. To minimize drift: use hermetically sealed sensors for harsh environments, implement temperature cycling during burn-in, and consider periodic calibration for critical applications. For medical/scientific applications, annual calibration against traceable reference is recommended.",
+          "decisionGuide": "Select sensors with specified long-term drift. Implement burn-in for critical applications. Plan calibration schedule based on accuracy requirements.",
+          "keywords": ["temperature sensor drift", "long-term stability", "sensor aging"]
+        },
+        {
+          "question": "How do I calculate the shunt resistor for current sensing?",
+          "answer": "Shunt resistor value is calculated from: R = Vsense_max / I_max. Select Vsense based on amplifier input range and power dissipation. For INA219 with 80mV full-scale measuring 10A: R = 0.08V/10A = 8mΩ. Power dissipation P = I²×R = 100×0.008 = 0.8W - use 1W or 2W resistor for margin. Trade-offs: Lower R reduces power loss but decreases signal-to-noise. Higher R improves SNR but increases power dissipation and voltage drop. For battery applications, minimize R to preserve capacity. For precision applications, use 4-wire Kelvin-connected resistors (CSS2H-2512R-8mF). Always verify resistor's temperature coefficient - use <50ppm/C for precision, <200ppm/C for general purpose.",
+          "decisionGuide": "Balance power dissipation against signal level. Use 4-wire Kelvin connection. Select appropriate power rating with margin.",
+          "keywords": ["shunt resistor calculation", "current sense resistor", "Kelvin connection"]
+        },
+        {
+          "question": "What is the best sensor for battery temperature monitoring?",
+          "answer": "Battery temperature monitoring requires: 1) Accuracy - ±1C or better for Li-ion safety. 2) Fast response - detect thermal runaway quickly. 3) Low power - minimize battery drain. 4) Small size - fit in battery pack. TMP117 is ideal with ±0.1C accuracy, 15.5ms conversion time, and 3.5µA average current at 1Hz sampling. Place sensor on PCB near battery cells with good thermal contact to cell tabs. For large packs, use multiple sensors (TMP117 has 4 I2C address options). Implement alert thresholds for overtemperature protection. For automotive, ensure AEC-Q100 qualification. Alternative: NTC thermistor for lowest cost, but requires calibration and has non-linear response.",
+          "decisionGuide": "Use TMP117 for precision and low power. Use NTC for cost-sensitive applications. Implement multiple sensors for large battery packs.",
+          "keywords": ["battery temperature sensor", "Li-ion monitoring", "TMP117 battery"]
+        }
+      ]
+    }
+  ]
+}

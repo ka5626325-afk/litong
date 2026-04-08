@@ -1,0 +1,172 @@
+请为 [品牌名] 创建首次发布的完整品牌数据（MVP版本）：
+
+## 发布要求
+1. 产品分类：创建全部产品分类，每类发布2个核心产品
+2. 解决方案：发布1-2个典型应用场景方案
+3. 技术支持：每类发布2篇核心主题文章
+
+## 品牌信息
+- 品牌名称：[品牌名]
+- 品牌类型：[功率半导体/轨道交通/MCU等]
+- 主要产品：[IGBT模块/牵引系统/MCU等]
+- 目标应用：[汽车/工业/铁路等]
+
+## 数据规范
+严格按照 docs/BRAND_DATA_COMPLETE_GUIDE.md 规范：
+- brand.json 字段要求（第3部分3.2节）
+- products.json 字段要求（第3部分3.3节）
+- solutions.json 字段要求（第3部分3.4节）
+- support.json 字段要求（第3部分3.5节）
+- 替代料号电气参数要求（第4部分）
+
+## 输出文件
+请生成以下4个文件的完整JSON数据：
+
+=== brand.json ===
+完整品牌信息，包含：
+- 基本信息（name, displayName, description, longDescription）
+- coreProducts（3-5个，带关键词）
+- industries（3-5个，带关键词）
+- certifications（2-3个）
+- SEO元数据
+- FAQs（3-5个）
+
+=== products.json ===
+所有产品分类，每类2个产品，每个产品包含：
+- 基本信息（partNumber, name, shortDescription）
+- descriptionParagraphs（3段，每段100字符内）
+- faeReview（author, content 200-300字, highlight）
+- alternativeParts（≥2个，满足电气参数≥要求）
+- companionParts（≥3个）
+- 分类级别 selectionGuide
+
+=== solutions.json ===
+1-2个解决方案，每个包含：
+- 基本信息（id, name, description, features, applications）
+- keyComponents（关键器件列表）
+- customerCases（≥1个，challenge/solution/results）
+- faeInsights（author, insight 300-500字, logic, keyTakeaways等）
+
+=== support.json ===
+每类2篇文章，每篇包含：
+- 基本信息（id, title, category, author, publishDate）
+- summary（100-150字）
+- content（Markdown格式）
+- relatedArticles（≥3个）
+- faeInsights（insight, logic, keyTakeaways, commonPitfalls, bestPractices, troubleshootingTips）
+- customerCases（≥1个）
+
+## 质量要求
+- [ ] 所有内容原创，不要复制现有品牌
+- [ ] 自然地融入SEO关键词（品牌名+distributor/代理商/选型）
+- [ ] 替代料号电压/电流≥被替代型号，参数接近
+- [ ] FAE点评有主观色彩，体现专业经验
+- [ ] 内容体现品牌差异化特点
+
+## 参考示例
+可参考以下品牌的完整数据：
+- data/infineon/ - 功率半导体（汽车/工业）
+- data/semikron/ - 功率半导体（工业驱动）
+- data/crrc/ - 轨道交通
+
+请开始生成 [品牌名] 的首次发布数据。
+
+
+
+
+
+
+
+==================================
+请为 [品牌名] 创建第 [N] 轮更新内容：
+
+## 更新范围
+- 更新类别：[具体类别，如 IGBT模块]
+- 新增产品：2个
+- 新增文章：2篇（与产品类别对应）
+
+## 已有内容参考
+[附上已有产品的简要信息，用于保持风格一致]
+
+## 更新要求
+1. 保持与已有内容的风格一致
+2. 产品参数与已有产品形成系列（电压相同，电流递增）
+3. 文章主题与已有文章互补，不重复
+4. 自然地融入SEO关键词
+5. 替代料号要参考已有产品，形成完整的替代关系网
+
+## 数据规范
+严格按照 docs/BRAND_DATA_COMPLETE_GUIDE.md 规范
+
+## 输出格式
+只输出新增内容，格式如下：
+
+=== 新增产品1 ===
+{
+  "partNumber": "型号",
+  "name": "名称",
+  "shortDescription": "80-120字符",
+  "descriptionParagraphs": ["第1段", "第2段", "第3段"],
+  "faeReview": {
+    "author": "姓名",
+    "title": "职位",
+    "content": "200-300字点评",
+    "highlight": "核心观点"
+  },
+  "alternativeParts": [
+    {
+      "partNumber": "替代型号",
+      "specifications": {"voltage": "...", "current": "..."},
+      "comparison": {
+        "voltage": "1200V = 1200V (相同)",
+        "current": "450A > 300A (+50%)"
+      },
+      "reason": "替代原因",
+      "useCase": "适用场景"
+    }
+  ],
+  "companionParts": [...]
+}
+
+=== 新增产品2 ===
+[同上格式]
+
+=== 新增文章1 ===
+{
+  "id": "文章ID",
+  "title": "标题",
+  "category": "分类",
+  "author": {"name": "...", "title": "...", "experience": "...", "expertise": [...]},
+  "publishDate": "2026-04-09",
+  "summary": "100-150字摘要",
+  "content": "文章内容（Markdown）",
+  "relatedArticles": ["已有文章ID1", "已有文章ID2", "已有文章ID3"],
+  "faeInsights": {
+    "insight": "300-500字见解",
+    "logic": "200-300字决策逻辑",
+    "keyTakeaways": ["要点1", "要点2", "要点3"],
+    "commonPitfalls": ["误区1", "误区2"],
+    "bestPractices": ["实践1", "实践2", "实践3"],
+    "troubleshootingTips": ["技巧1", "技巧2"]
+  },
+  "customerCases": [{
+    "customerName": "...",
+    "industry": "...",
+    "application": "...",
+    "problem": "...",
+    "diagnosis": "...",
+    "solution": "...",
+    "results": "..."
+  }]
+}
+
+=== 新增文章2 ===
+[同上格式]
+
+## 注意事项
+- 不要重复已有内容
+- 替代料号要与已有产品形成合理的替代关系
+- 配套料号要与品牌生态系统一致
+- 文章主题要补充已有内容的空白
+
+请生成 [品牌名] 第 [N] 轮更新内容。

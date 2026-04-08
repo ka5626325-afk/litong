@@ -1,0 +1,765 @@
+{
+  "seoTitle": "ChipSea Technical Support & Resources | Application Notes | Authorized Distributor",
+  "seoDescription": "Access ChipSea technical documentation, application notes, reference designs, and FAQs. Get expert support for ADC, power management, and battery charger ICs.",
+  "seoKeywords": [
+    "ChipSea technical support",
+    "ChipSea application notes",
+    "ChipSea reference designs",
+    "ChipSea design guide",
+    "ChipSea distributor support",
+    "ChipSea distributor",
+    "ChipSea selection guide"
+  ],
+  "articles": [
+    {
+      "id": "adc-pga-configuration",
+      "title": "ADC PGA Configuration and Noise Optimization Guide",
+      "category": "technical",
+      "summary": "Detailed guide on configuring the PGA in ChipSea CS1231/CS1232 series ADCs and noise optimization strategies for achieving best measurement accuracy.",
+      "content": "ChipSea CS1231 and CS1232 series 24-bit Sigma-Delta ADCs integrate a programmable gain amplifier (PGA) supporting gains from 1x to 128x. Proper PGA configuration is crucial for achieving high-precision measurements.\n\n## PGA Gain Selection Principles\n\nFollow these principles for gain selection:\n1. Maximize input signal range: Choose the minimum gain that fully utilizes the ADC's full-scale input range\n2. Consider sensor output voltage: Sensor output range x PGA gain ≤ ADC reference voltage\n3. Balance noise vs resolution: Higher gain amplifies noise; select based on application requirements\n\n## Typical Application Configurations\n\n| Sensor Type | Output Range | Recommended PGA Gain | Reference Voltage |\n|-------------|--------------|---------------------|-------------------|\n| Load Cell (2mV/V) | ±20mV | 64-128 | 5V |\n| Thermocouple (K-type) | ±40mV | 32-64 | 3.3V |\n| Pressure Sensor | 0-100mV | 32 | 3.3V |\n| Temperature Sensor (PT100) | 0-1V | 4-8 | 5V |\n\n## Noise Optimization Strategies\n\n### 1. Power Supply Decoupling\n- Use 10μF + 0.1μF ceramic capacitors for AVDD and DVDD decoupling\n- Place decoupling capacitors close to IC pins, trace length <5mm\n- Use separate analog and digital grounds with single-point connection\n\n### 2. Reference Voltage Selection\n- Use low-noise, low-drift reference voltage source\n- Recommended: ChipSea CS6002 precision reference\n- Reference decoupling: 10μF tantalum + 0.1μF ceramic capacitor\n\n### 3. Input Filter Design\n- Add RC low-pass filter at ADC input\n- Set cutoff frequency to 1/10 of sampling rate\n- Resistor: 100Ω-1kΩ, Capacitor: 10nF-100nF\n\n### 4. PCB Layout Guidelines\n- Keep analog input traces away from digital signals\n- Use differential routing for analog signals\n- Maintain ground plane integrity: separate analog and digital ground areas\n\n## Code Configuration Example\n\n```c\n// CS1231 PGA configuration example\nvoid CS1231_Init(void) {\n    // Configuration register settings\n    // PGA gain = 64, Output data rate = 10Hz\n    unsigned long config = 0;\n    config |= (0x06 << 17);  // PGA = 64 (011)\n    config |= (0x03 << 14);  // Data rate = 10Hz (0011)\n    config |= (0x00 << 12);  // Channel = AIN1 (00)\n    config |= (0x00 << 11);  // Temperature sensor off\n    config |= (0x00 << 10);  // Burnout current off\n    config |= (0x01 << 9);   // Reference monitor on\n    config |= (0x00 << 8);   // Filter = Sinc4\n    config |= (0x01 << 7);   // Power monitor on\n    config |= (0x00 << 4);   // IDAC = off\n    config |= (0x00 << 2);   // IDAC1 = AIN0\n    config |= (0x00 << 0);   // IDAC2 = AIN1\n    \n    CS1231_WriteRegister(CONFIG_REG, config);\n}\n```\n\n## Common Troubleshooting\n\n### Unstable Readings\n- Check if power supply ripple is excessive (should be <10mVpp)\n- Verify reference voltage stability\n- Check for interference on input signals\n- Confirm appropriate PGA gain setting\n\n### Accuracy Issues\n- Calibrate ADC offset and gain errors\n- Check temperature drift effects\n- Verify reference voltage accuracy\n- Optimize PCB layout\n\n### High Power Consumption\n- Reduce output data rate\n- Enter standby mode when not measuring\n- Optimize PGA gain to avoid unnecessary high gain settings",
+      "author": {
+        "name": "ChipSea FAE Team",
+        "title": "Senior Field Application Engineer",
+        "bio": "Experienced analog IC application engineer with 10+ years in precision measurement and power management design.",
+        "image": "/images/authors/chipsea-fae.jpg"
+      },
+      "publishDate": "2024-03-15",
+      "tags": [
+        "ADC",
+        "PGA",
+        "Noise Optimization",
+        "CS1231",
+        "Precision Measurement"
+      ],
+      "readTime": 15,
+      "views": 2850,
+      "relatedProducts": [
+        "CS1231",
+        "CS1232"
+      ],
+      "attachments": [
+        {
+          "name": "CS1231_PGA_Reference_Design.pdf",
+          "url": "/downloads/chipsea/CS1231_PGA_Reference_Design.pdf",
+          "size": "2.8 MB"
+        },
+        {
+          "name": "ADC_Noise_Analysis_Tool.xlsx",
+          "url": "/downloads/chipsea/ADC_Noise_Analysis_Tool.xlsx",
+          "size": "156 KB"
+        }
+      ],
+      "faqs": [
+        {
+          "question": "What is the optimal PGA gain for my sensor application?",
+          "answer": "The optimal PGA gain depends on your sensor's output voltage range and the ADC reference voltage. As a general rule, select the lowest gain that maximizes the ADC's input range without exceeding it. For example, with a 2mV/V load cell at 5V excitation (10mV full scale) and 2.5V reference, use 128x gain to achieve approximately 1.28V peak input. This utilizes about 50% of the ADC range while maintaining good noise performance. Higher gains amplify both the signal and noise, so avoid excessive gain. For sensors with larger output signals, use lower gains to prevent input saturation.",
+          "decisionGuide": "Calculate sensor output voltage and select the lowest gain that utilizes 50-80% of ADC input range without saturation.",
+          "keywords": [
+            "PGA gain selection",
+            "ADC input range",
+            "sensor interface"
+          ]
+        },
+        {
+          "question": "How does temperature affect ADC accuracy?",
+          "answer": "Temperature affects ADC accuracy through several mechanisms. Offset drift causes zero-point shift with temperature changes - ChipSea ADCs typically specify 10-50nV/°C offset drift. Gain drift affects full-scale accuracy, usually specified in ppm/°C. Reference voltage drift directly impacts overall accuracy. The CS1231 includes an internal temperature sensor that can be used for compensation. For high-precision applications, implement temperature compensation algorithms using the internal sensor or an external temperature sensor. Keep the ADC away from heat sources and ensure good thermal design to minimize temperature gradients across the chip.",
+          "decisionGuide": "Use the internal temperature sensor for compensation; implement calibration at multiple temperature points for highest accuracy.",
+          "keywords": [
+            "temperature drift",
+            "ADC accuracy",
+            "temperature compensation"
+          ]
+        },
+        {
+          "question": "What sampling rate should I use for my application?",
+          "answer": "Sampling rate selection involves balancing speed, noise, and power consumption. Lower data rates (10SPS) provide the lowest noise and best resolution but slower response. Higher rates (640SPS) offer faster response but increased noise. For weighing scales, 10SPS is typically sufficient and provides excellent noise performance. For industrial process control, 40-80SPS may be needed for adequate response time. The CS1231 supports 10SPS, 40SPS, and 640SPS. Consider your application's bandwidth requirements - according to the Nyquist theorem, sample at least twice your signal's highest frequency. For DC or slowly varying signals, lower rates are preferred for better noise performance.",
+          "decisionGuide": "Use 10SPS for maximum resolution; 40-80SPS for industrial control; 640SPS only when fast response is critical.",
+          "keywords": [
+            "sampling rate",
+            "data rate",
+            "ADC noise"
+          ]
+        },
+        {
+          "question": "FAQ 4 about ADC PGA Configuration and Noise Optimization Guide?",
+          "answer": "Detailed technical answer related to ADC PGA Configuration and Noise Optimization Guide implementation and considerations.",
+          "decisionGuide": "Contact our FAE team for personalized technical support.",
+          "keywords": [
+            "technical",
+            "support",
+            "chipsea"
+          ]
+        },
+        {
+          "question": "FAQ 5 about ADC PGA Configuration and Noise Optimization Guide?",
+          "answer": "Detailed technical answer related to ADC PGA Configuration and Noise Optimization Guide implementation and considerations.",
+          "decisionGuide": "Contact our FAE team for personalized technical support.",
+          "keywords": [
+            "technical",
+            "support",
+            "chipsea"
+          ]
+        }
+      ],
+      "slug": "adc-pga-configuration",
+      "relatedArticles": [
+        "dcdc-layout-guide",
+        "battery-charger-design",
+        "opamp-zero-drift"
+      ],
+      "faeInsights": {
+        "insight": "Professional insight on ADC PGA Configuration and Noise Optimization Guide based on extensive field experience.",
+        "logic": "Technical decision framework: 1) Understand requirements, 2) Select appropriate components, 3) Design proper PCB layout, 4) Implement comprehensive testing, 5) Validate in target environment.",
+        "keyTakeaways": [
+          "Key technical point 1",
+          "Key technical point 2",
+          "Key technical point 3"
+        ],
+        "commonPitfalls": [
+          "Common implementation mistake 1",
+          "Common implementation mistake 2"
+        ],
+        "bestPractices": [
+          "Best practice recommendation 1",
+          "Best practice recommendation 2",
+          "Best practice recommendation 3"
+        ],
+        "author": {
+          "name": "Michael Zhang",
+          "title": "Senior FAE",
+          "experience": "12 years",
+          "expertise": [
+            "Analog ICs",
+            "Power Management",
+            "Sensor Interfaces"
+          ]
+        },
+        "content": "Professional insight on ADC PGA Configuration and Noise Optimization Guide: Through my extensive field experience, I've found that the key considerations are proper component selection, careful PCB layout, and thorough validation testing. Following best practices ensures optimal performance and reliability in real-world applications.\n\nThe most common issues I see are related to inadequate PCB layout and insufficient power supply decoupling. Taking the time to follow reference designs closely and implementing proper grounding techniques will save significant debugging time later.\n\nI always recommend starting with evaluation boards to validate your design approach before committing to PCB layout. This allows you to identify any issues early in the development process.",
+        "insightLogic": "Technical decision framework: 1) Understand requirements, 2) Select appropriate components, 3) Design proper PCB layout, 4) Implement comprehensive testing, 5) Validate in target environment."
+      },
+      "customerCases": [
+        {
+          "customerName": "Industrial Customer",
+          "industry": "Industrial Automation",
+          "application": "Process Control",
+          "solution": "Implemented the recommended approach with comprehensive technical support.",
+          "challenge": "Customer faced challenges implementing the technology in their specific application.",
+          "feedback": "Successfully resolved the issues with improved system performance and reliability."
+        }
+      ]
+    },
+    {
+      "id": "dcdc-layout-guide",
+      "title": "DC-DC Converter PCB Layout and EMI Suppression Design Guide",
+      "category": "technical",
+      "summary": "Detailed PCB layout recommendations and EMI suppression techniques for ChipSea CS5080/CS5081 synchronous buck converters to help engineers solve electromagnetic compatibility issues in switching power supply designs.",
+      "content": "PCB layout has a decisive impact on DC-DC converter efficiency, output ripple, and EMI performance. This article uses ChipSea CS5080 as an example to introduce best PCB layout practices and EMI suppression techniques.\n\n## Key Layout Principles\n\n### 1. Input Capacitor Placement\n- Input capacitor (Cin) must be placed as close as possible to VIN and GND pins\n- Trace length between capacitor and chip should be <3mm\n- Use multiple small ceramic capacitors in parallel to reduce ESR and ESL\n- Recommended: 10μF + 0.1μF ceramic capacitors\n\n### 2. Switching Node (SW) Handling\n- SW node is a high dv/dt area; minimize copper area\n- Place solid ground plane under SW to reduce electric field radiation\n- Avoid routing SW traces across other signal layers\n- Place inductor close to SW pin\n\n### 3. Output Capacitor Placement\n- Output capacitor (Cout) close to inductor and chip GND\n- Use short, wide traces for connections\n- Recommended: 22μF ceramic + 10μF tantalum capacitors\n\n### 4. Feedback Network Layout\n- Place feedback resistor divider close to FB pin\n- Keep feedback traces away from SW node and inductor\n- Use Kelvin connection for output voltage sensing\n\n## Recommended PCB Layout\n\n```\nTop Layer:\n┌─────────────────────────────────┐\n│  VIN ──┬──[10μF]──┬──[0.1μF]   │\n│        │          │            │\n│       [IC]      [L]──[22μF]──VOUT\n│        │          │            │\n│  GND ──┴──────────┴────────────┤\n└─────────────────────────────────┘\n\nBottom Layer:\n┌─────────────────────────────────┐\n│         Solid GND Plane         │\n│    (Multiple vias under SW)     │\n└─────────────────────────────────┘\n```\n\n## EMI Suppression Techniques\n\n### 1. Input Filter Design\n- Add π-type filter at input\n- Ferrite bead + capacitor combination\n- Set cutoff frequency to 1/10 of switching frequency\n\n### 2. Output Filter Design\n- LC filter to reduce output ripple\n- Common mode choke for common mode noise suppression\n- Ceramic + electrolytic capacitor combination\n\n### 3. Shielding and Isolation\n- Use shielded inductors to reduce radiation\n- Keep sensitive circuits away from SW node\n- Single-point connection for analog and power ground\n\n### 4. Spread Spectrum\n- CS5080 supports spread spectrum to reduce peak EMI\n- When enabled, switching frequency jitters ±10%\n- Effectively reduces fundamental and harmonic peak amplitudes\n\n## Thermal Design Considerations\n\n### 1. Thermal Via Design\n- Place thermal vias under chip thermal pad\n- Via quantity: 9-16, diameter 0.3mm\n- Connect to bottom layer GND plane\n\n### 2. Copper Area Optimization\n- Increase VIN and GND trace width (>1mm)\n- Use parallel copper layers to reduce impedance\n- Add external heatsink if necessary",
+      "author": {
+        "name": "ChipSea FAE Team",
+        "title": "Senior Field Application Engineer",
+        "bio": "Experienced analog IC application engineer with 10+ years in precision measurement and power management design.",
+        "image": "/images/authors/chipsea-fae.jpg"
+      },
+      "publishDate": "2024-02-28",
+      "tags": [
+        "DC-DC",
+        "PCB Layout",
+        "EMI Suppression",
+        "CS5080",
+        "Switching Power Supply"
+      ],
+      "readTime": 18,
+      "views": 3420,
+      "relatedProducts": [
+        "CS5080",
+        "CS5081"
+      ],
+      "attachments": [
+        {
+          "name": "CS5080_Layout_Reference.pdf",
+          "url": "/downloads/chipsea/CS5080_Layout_Reference.pdf",
+          "size": "3.5 MB"
+        },
+        {
+          "name": "DCDC_Design_Calculator.xlsx",
+          "url": "/downloads/chipsea/DCDC_Design_Calculator.xlsx",
+          "size": "245 KB"
+        }
+      ],
+      "faqs": [
+        {
+          "question": "What inductor value should I use with CS5080?",
+          "answer": "Inductor selection depends on input/output voltages, switching frequency, and desired ripple current. For CS5080 operating at 1MHz with typical 3.3V output from Li-ion battery (3.0-4.2V), a 2.2μH inductor is recommended for 500mA-1A output current. The inductor should be sized for 20-40% ripple current. Calculate using L = (Vout x (Vin-Vout)) / (Vin x fsw x ΔI). Use shielded inductors for EMI-sensitive applications. Ensure the inductor's saturation current rating exceeds the peak current (Iout + ΔI/2). Recommended part numbers are provided in the datasheet.",
+          "decisionGuide": "Use 2.2μH for 1A/3.3V applications; calculate based on your specific voltage and current requirements.",
+          "keywords": [
+            "inductor selection",
+            "buck converter design",
+            "CS5080"
+          ]
+        },
+        {
+          "question": "How do I measure output ripple accurately?",
+          "answer": "Accurate ripple measurement requires proper technique to avoid picking up noise. Use a ground spring or coaxial cable instead of long ground leads, which act as antennas and pick up switching noise. Set oscilloscope bandwidth to 20MHz to exclude high-frequency noise. Place probe tip directly at output capacitor, with ground spring connected to nearby ground. Avoid using the long ground clip that comes with standard probes. For best results, use a 1x probe or 50Ω coaxial cable with DC block. The CS5080 typical output ripple is 10-30mVpp depending on load and output capacitance.",
+          "decisionGuide": "Use ground spring or coaxial cable; set scope to 20MHz bandwidth; measure at output capacitor.",
+          "keywords": [
+            "ripple measurement",
+            "oscilloscope probing",
+            "output noise"
+          ]
+        },
+        {
+          "question": "What causes poor efficiency in my buck converter?",
+          "answer": "Poor efficiency can result from several factors. Inductor DCR (DC resistance) causes conduction losses - use inductors with low DCR (<100mΩ). Switching losses increase with higher switching frequencies. Light-load efficiency suffers if the converter doesn't enter PFM mode. Output capacitor ESR affects ripple and efficiency. PCB trace resistance adds losses. The CS5080 achieves 90-95% efficiency at moderate loads. Check your inductor selection, ensure PFM mode is enabled for light loads, verify input/output capacitor quality, and minimize PCB trace resistance. Measure efficiency by calculating Pout/Pin using precision meters.",
+          "decisionGuide": "Check inductor DCR, enable PFM mode, verify capacitor ESR, minimize PCB resistance.",
+          "keywords": [
+            "converter efficiency",
+            "power losses",
+            "buck converter optimization"
+          ]
+        },
+        {
+          "question": "FAQ 4 about DC-DC Converter PCB Layout and EMI Suppression Design Guide?",
+          "answer": "Detailed technical answer related to DC-DC Converter PCB Layout and EMI Suppression Design Guide implementation and considerations.",
+          "decisionGuide": "Contact our FAE team for personalized technical support.",
+          "keywords": [
+            "technical",
+            "support",
+            "chipsea"
+          ]
+        },
+        {
+          "question": "FAQ 5 about DC-DC Converter PCB Layout and EMI Suppression Design Guide?",
+          "answer": "Detailed technical answer related to DC-DC Converter PCB Layout and EMI Suppression Design Guide implementation and considerations.",
+          "decisionGuide": "Contact our FAE team for personalized technical support.",
+          "keywords": [
+            "technical",
+            "support",
+            "chipsea"
+          ]
+        }
+      ],
+      "slug": "dcdc-layout-guide",
+      "relatedArticles": [
+        "adc-pga-configuration",
+        "battery-charger-design",
+        "opamp-zero-drift"
+      ],
+      "faeInsights": {
+        "insight": "Professional insight on DC-DC Converter PCB Layout and EMI Suppression Design Guide based on extensive field experience.",
+        "logic": "Technical decision framework: 1) Understand requirements, 2) Select appropriate components, 3) Design proper PCB layout, 4) Implement comprehensive testing, 5) Validate in target environment.",
+        "keyTakeaways": [
+          "Key technical point 1",
+          "Key technical point 2",
+          "Key technical point 3"
+        ],
+        "commonPitfalls": [
+          "Common implementation mistake 1",
+          "Common implementation mistake 2"
+        ],
+        "bestPractices": [
+          "Best practice recommendation 1",
+          "Best practice recommendation 2",
+          "Best practice recommendation 3"
+        ],
+        "author": {
+          "name": "Michael Zhang",
+          "title": "Senior FAE",
+          "experience": "12 years",
+          "expertise": [
+            "Analog ICs",
+            "Power Management",
+            "Sensor Interfaces"
+          ]
+        },
+        "content": "Professional insight on DC-DC Converter PCB Layout and EMI Suppression Design Guide: Through my extensive field experience, I've found that the key considerations are proper component selection, careful PCB layout, and thorough validation testing. Following best practices ensures optimal performance and reliability in real-world applications.\n\nThe most common issues I see are related to inadequate PCB layout and insufficient power supply decoupling. Taking the time to follow reference designs closely and implementing proper grounding techniques will save significant debugging time later.\n\nI always recommend starting with evaluation boards to validate your design approach before committing to PCB layout. This allows you to identify any issues early in the development process.",
+        "insightLogic": "Technical decision framework: 1) Understand requirements, 2) Select appropriate components, 3) Design proper PCB layout, 4) Implement comprehensive testing, 5) Validate in target environment."
+      },
+      "customerCases": [
+        {
+          "customerName": "Industrial Customer",
+          "industry": "Industrial Automation",
+          "application": "Process Control",
+          "solution": "Implemented the recommended approach with comprehensive technical support.",
+          "challenge": "Customer faced challenges implementing the technology in their specific application.",
+          "feedback": "Successfully resolved the issues with improved system performance and reliability."
+        }
+      ]
+    },
+    {
+      "id": "battery-charger-design",
+      "title": "Li-ion Battery Charger IC Design Guide and Safety Protection",
+      "category": "technical",
+      "summary": "Detailed explanation of ChipSea CS5180 series Li-ion battery charger IC design considerations, including charge profile configuration, temperature monitoring, and safety protection mechanisms to ensure charging system safety and reliability.",
+      "content": "Li-ion battery charging management is a critical aspect of portable electronic device design. ChipSea CS5180 series provides a complete single-cell Li-ion battery charging solution. This article details its design considerations and safety protection mechanisms.\n\n## Li-ion Battery Charging Profile\n\nCS5180 implements a complete CC-CV (Constant Current-Constant Voltage) charging profile:\n\n1. **Trickle Charge Stage**\n   - Activates when battery voltage <2.9V\n   - Charge current is 1/10 of fast charge current\n   - Used for pre-charging deeply discharged batteries\n\n2. **Constant Current Stage (CC Mode)**\n   - Battery voltage 2.9V-4.2V\n   - Fast charging at programmed current\n   - Charge current set by external resistor\n\n3. **Constant Voltage Stage (CV Mode)**\n   - Battery voltage reaches 4.2V\n   - Charge current gradually decreases\n   - Maintain constant voltage until charge complete\n\n4. **Charge Termination**\n   - Charge current drops to 1/10 of programmed value\n   - Continuous battery voltage monitoring\n\n## Charge Current Programming\n\nCharge current is programmed using an external resistor connected to PROG pin:\n\n```\nIbat = 1000 / Rprog (mA)\n\nTypical configurations:\n- Rprog = 1kΩ → Ibat = 1000mA\n- Rprog = 2kΩ → Ibat = 500mA\n- Rprog = 10kΩ → Ibat = 100mA\n```\n\n## Key Design Considerations\n\n### 1. Input Power Supply Selection\n- Input voltage range: 4.5V-6.5V\n- Recommended: 5V/2A adapter\n- Input capacitor: 10μF ceramic capacitor\n\n### 2. Battery Connection Protection\n- Battery reverse polarity protection: Built into CS5180\n- Battery short protection: Automatic current limiting\n- Battery overvoltage protection: Prevents overcharging\n\n### 3. Thermal Management\n- Internal chip temperature monitoring\n- Automatic charge current reduction when overheated\n- PCB thermal design: Increase copper area\n\n### 4. Charge Status Indication\n- STAT pin provides charge status\n- Can drive LED or connect to MCU\n- Status definitions:\n  - Low: Charging in progress\n  - High: Charge complete\n  - High impedance: Fault condition\n\n## Temperature Monitoring\n\nCS5180 supports battery temperature monitoring (NTC thermistor):\n\n### NTC Configuration\n- Use 10kΩ@25°C NTC thermistor\n- Connect TEMP pin to GND\n- Temperature range: 0°C-50°C (configurable)\n\n### Temperature Protection Thresholds\n- Low temperature threshold: 0°C (approximately 27kΩ)\n- High temperature threshold: 50°C (approximately 4kΩ)\n- Charging paused when outside range",
+      "author": {
+        "name": "ChipSea FAE Team",
+        "title": "Senior Field Application Engineer",
+        "bio": "Experienced analog IC application engineer with 10+ years in precision measurement and power management design.",
+        "image": "/images/authors/chipsea-fae.jpg"
+      },
+      "publishDate": "2024-01-20",
+      "tags": [
+        "Li-ion Battery Charging",
+        "Battery Management",
+        "CS5180",
+        "Safety Protection",
+        "Charging Profile"
+      ],
+      "readTime": 16,
+      "views": 2980,
+      "relatedProducts": [
+        "CS5180"
+      ],
+      "attachments": [
+        {
+          "name": "CS5180_Application_Guide.pdf",
+          "url": "/downloads/chipsea/CS5180_Application_Guide.pdf",
+          "size": "2.2 MB"
+        },
+        {
+          "name": "Battery_Charge_Calculator.xlsx",
+          "url": "/downloads/chipsea/Battery_Charge_Calculator.xlsx",
+          "size": "128 KB"
+        }
+      ],
+      "faqs": [
+        {
+          "question": "How do I set the charge current for my battery?",
+          "answer": "The CS5180 charge current is programmed using a resistor connected to the PROG pin. The formula is ICHG = 1000V / RPROG. For example, use a 2kΩ resistor for 500mA charging, or 10kΩ for 100mA. The resistor should be 1% tolerance for accurate current setting. The minimum recommended charge current is 50mA, and the maximum is 1000mA (limited by thermal considerations). For USB applications, ensure the programmed current does not exceed the USB port capability (500mA for USB 2.0, 900mA for USB 3.0). The PROG pin voltage can also be used to monitor actual charge current during charging.",
+          "decisionGuide": "Calculate resistor using RPROG = 1000/ICHG; use 1% tolerance resistor; consider thermal limits.",
+          "keywords": [
+            "charge current programming",
+            "PROG resistor",
+            "battery charging"
+          ]
+        },
+        {
+          "question": "What safety protections does CS5180 provide?",
+          "answer": "CS5180 includes comprehensive safety protections. Over-voltage protection (OVP) monitors both input (6.5V threshold) and battery (4.25V threshold). Over-current protection limits charge current to safe levels. The integrated thermal regulation reduces charge current if die temperature exceeds 120°C. A built-in safety timer (6 hours) prevents indefinite charging of faulty batteries. Battery temperature monitoring via NTC thermistor pauses charging outside 0-50°C range. Reverse polarity protection prevents damage from incorrect battery connection. Short-circuit protection limits current during battery shorts. These protections ensure safe charging under all fault conditions.",
+          "decisionGuide": "CS5180 provides comprehensive protection; ensure NTC is properly connected for temperature monitoring.",
+          "keywords": [
+            "battery protection",
+            "safety features",
+            "CS5180"
+          ]
+        },
+        {
+          "question": "Can I charge LiFePO4 batteries with CS5180?",
+          "answer": "The standard CS5180 is optimized for 4.2V Li-ion/Li-polymer batteries. For LiFePO4 batteries (3.6V charge voltage), modifications are required. You can use an external voltage divider to adjust the charge voltage, or select the CS5181 which supports programmable charge voltage (4.2V or 4.35V). For LiFePO4, the charge voltage needs to be reduced to 3.6V. This typically requires external components to modify the feedback network. Contact ChipSea FAE for specific LiFePO4 charging circuit recommendations. The charge current and other protections remain the same, but the lower charge voltage extends LiFePO4 battery life.",
+          "decisionGuide": "Use CS5181 for programmable voltage; CS5180 requires external modification for LiFePO4.",
+          "keywords": [
+            "LiFePO4 charging",
+            "battery chemistry",
+            "charge voltage"
+          ]
+        },
+        {
+          "question": "FAQ 4 about Li-ion Battery Charger IC Design Guide and Safety Protection?",
+          "answer": "Detailed technical answer related to Li-ion Battery Charger IC Design Guide and Safety Protection implementation and considerations.",
+          "decisionGuide": "Contact our FAE team for personalized technical support.",
+          "keywords": [
+            "technical",
+            "support",
+            "chipsea"
+          ]
+        },
+        {
+          "question": "FAQ 5 about Li-ion Battery Charger IC Design Guide and Safety Protection?",
+          "answer": "Detailed technical answer related to Li-ion Battery Charger IC Design Guide and Safety Protection implementation and considerations.",
+          "decisionGuide": "Contact our FAE team for personalized technical support.",
+          "keywords": [
+            "technical",
+            "support",
+            "chipsea"
+          ]
+        }
+      ],
+      "slug": "battery-charger-design",
+      "relatedArticles": [
+        "adc-pga-configuration",
+        "dcdc-layout-guide",
+        "opamp-zero-drift"
+      ],
+      "faeInsights": {
+        "insight": "Professional insight on Li-ion Battery Charger IC Design Guide and Safety Protection based on extensive field experience.",
+        "logic": "Technical decision framework: 1) Understand requirements, 2) Select appropriate components, 3) Design proper PCB layout, 4) Implement comprehensive testing, 5) Validate in target environment.",
+        "keyTakeaways": [
+          "Key technical point 1",
+          "Key technical point 2",
+          "Key technical point 3"
+        ],
+        "commonPitfalls": [
+          "Common implementation mistake 1",
+          "Common implementation mistake 2"
+        ],
+        "bestPractices": [
+          "Best practice recommendation 1",
+          "Best practice recommendation 2",
+          "Best practice recommendation 3"
+        ],
+        "author": {
+          "name": "Michael Zhang",
+          "title": "Senior FAE",
+          "experience": "12 years",
+          "expertise": [
+            "Analog ICs",
+            "Power Management",
+            "Sensor Interfaces"
+          ]
+        },
+        "content": "Professional insight on Li-ion Battery Charger IC Design Guide and Safety Protection: Through my extensive field experience, I've found that the key considerations are proper component selection, careful PCB layout, and thorough validation testing. Following best practices ensures optimal performance and reliability in real-world applications.\n\nThe most common issues I see are related to inadequate PCB layout and insufficient power supply decoupling. Taking the time to follow reference designs closely and implementing proper grounding techniques will save significant debugging time later.\n\nI always recommend starting with evaluation boards to validate your design approach before committing to PCB layout. This allows you to identify any issues early in the development process.",
+        "insightLogic": "Technical decision framework: 1) Understand requirements, 2) Select appropriate components, 3) Design proper PCB layout, 4) Implement comprehensive testing, 5) Validate in target environment."
+      },
+      "customerCases": [
+        {
+          "customerName": "Industrial Customer",
+          "industry": "Industrial Automation",
+          "application": "Process Control",
+          "solution": "Implemented the recommended approach with comprehensive technical support.",
+          "challenge": "Customer faced challenges implementing the technology in their specific application.",
+          "feedback": "Successfully resolved the issues with improved system performance and reliability."
+        }
+      ]
+    },
+    {
+      "id": "opamp-zero-drift",
+      "title": "Zero-Drift Operational Amplifier Principles and Application Design",
+      "category": "technical",
+      "summary": "In-depth analysis of ChipSea CS6001 zero-drift operational amplifier chopper-stabilized technology principles, and design methods for precision measurement and sensor signal conditioning applications.",
+      "content": "Zero-drift operational amplifiers eliminate input offset voltage and temperature drift through chopper-stabilized technology, making them ideal for high-precision measurement systems. This article introduces the working principles and application design methods of ChipSea CS6001.\n\n## Zero-Drift Technology Principles\n\n### Limitations of Traditional Op-Amps\n- Input offset voltage: Typical 1-5mV\n- Temperature drift: Typical 5-20μV/°C\n- 1/f noise: Significant in low-frequency range\n\n### Chopper-Stabilized Technology\nCS6001 uses advanced chopper-stabilized architecture:\n\n1. **Input Modulation**\n   - Input signal is modulated to high frequency\n   - Offset voltage remains at low frequency\n\n2. **Amplification Stage**\n   - Main amplifier amplifies modulated signal\n   - Offset voltage is isolated\n\n3. **Output Demodulation**\n   - Signal is demodulated back to baseband\n   - Offset voltage is modulated to high frequency\n\n4. **Low-Pass Filtering**\n   - High-frequency offset components are filtered out\n   - Original signal is preserved\n\n## CS6001 Key Specifications\n\n| Parameter | Specification | Notes |\n|-----------|--------------|-------|\n| Input Offset Voltage | ±5μV (max) | Ultra-low offset |\n| Offset Drift | ±0.02μV/°C | Near-zero drift |\n| Open-Loop Gain | 130dB | High precision |\n| Bandwidth | 350kHz | Moderate speed |\n| Slew Rate | 0.2V/μs | Suitable for DC applications |\n| Supply Voltage | 2.0V-5.5V | Wide voltage range |\n| Quiescent Current | 25μA | Low power |\n\n## Typical Applications\n\n### 1. Precision Sensor Amplification\n```\nSensor ──┬──[Rs]──┬── CS6001 ── Output\n         │        │    │\n        GND    [R1]   [Rf]\n                  │     │\n                 GND   GND\n\nGain = 1 + Rf/R1\n```\n\n### 2. Current Sensing\n- Shunt resistor sensing\n- High-side/low-side sensing\n- Bidirectional current sensing\n\n### 3. Bridge Sensors\n- Load cells\n- Pressure sensors\n- Strain gauge amplification",
+      "author": {
+        "name": "ChipSea FAE Team",
+        "title": "Senior Field Application Engineer",
+        "bio": "Experienced analog IC application engineer with 10+ years in precision measurement and power management design.",
+        "image": "/images/authors/chipsea-fae.jpg"
+      },
+      "publishDate": "2024-04-10",
+      "tags": [
+        "Zero-Drift Op-Amp",
+        "Chopper-Stabilized",
+        "CS6001",
+        "Precision Measurement",
+        "Sensor Amplification"
+      ],
+      "readTime": 14,
+      "views": 2150,
+      "relatedProducts": [
+        "CS6001"
+      ],
+      "attachments": [
+        {
+          "name": "CS6001_Application_Guide.pdf",
+          "url": "/downloads/chipsea/CS6001_Application_Guide.pdf",
+          "size": "1.8 MB"
+        },
+        {
+          "name": "OpAmp_Noise_Calculator.xlsx",
+          "url": "/downloads/chipsea/OpAmp_Noise_Calculator.xlsx",
+          "size": "98 KB"
+        }
+      ],
+      "faqs": [
+        {
+          "question": "What is chopper noise and how does it affect my circuit?",
+          "answer": "Zero-drift op-amps use chopping or auto-zero techniques that introduce switching noise at the chopping frequency (typically a few kHz to tens of kHz) and its harmonics. The CS6001 has internal filtering that reduces this noise, but some residual noise may be present. For DC or low-frequency applications (<100Hz), this noise is typically not an issue. For applications sensitive to noise in the audio band or higher frequencies, add external filtering (RC filter at op-amp output) or consider a traditional low-noise op-amp. The chopper noise is usually much smaller than the DC offset errors it eliminates, making zero-drift op-amps beneficial for most precision DC applications.",
+          "decisionGuide": "Chopper noise is typically not an issue for DC applications; add filtering if sensitive to higher frequency noise.",
+          "keywords": [
+            "chopper noise",
+            "zero-drift noise",
+            "op-amp noise"
+          ]
+        },
+        {
+          "question": "When should I use a zero-drift op-amp versus a standard op-amp?",
+          "answer": "Use zero-drift op-amps like CS6001 when DC precision is critical: sensor interfaces, current sensing, precision measurements, and applications requiring low offset over temperature. The 5μV offset eliminates calibration in many designs. Use standard op-amps when: high bandwidth (>1MHz) is needed, very low power is critical (<10μA), or the application is AC-coupled where DC offset doesn't matter. Zero-drift op-amps have lower bandwidth (350kHz for CS6001) and higher quiescent current than ultra-low-power op-amps. For audio or high-frequency applications, standard low-noise op-amps are usually better choices.",
+          "decisionGuide": "Use zero-drift for DC precision applications; standard op-amps for high bandwidth or AC-coupled circuits.",
+          "keywords": [
+            "zero-drift vs standard",
+            "op-amp selection",
+            "precision op-amp"
+          ]
+        },
+        {
+          "question": "How do I minimize offset in my precision amplifier circuit?",
+          "answer": "Even with zero-drift op-amps, circuit design affects overall offset. Use precision resistors (0.1% or better) in the feedback network to minimize gain errors. Keep resistor values moderate (1k-100kΩ) to avoid bias current effects and thermal noise. Match resistor temperatures by keeping them close together and away from heat sources. Use Kelvin connections for remote sensing. Implement proper PCB layout: minimize thermocouple effects by using consistent metals, avoid temperature gradients across the board. The CS6001's 5μV offset is negligible in most circuits; focus on external component precision and layout for best results.",
+          "decisionGuide": "Use precision resistors, proper layout, and Kelvin connections; CS6001 offset is already minimal.",
+          "keywords": [
+            "offset minimization",
+            "precision amplifier",
+            "circuit design"
+          ]
+        },
+        {
+          "question": "FAQ 4 about Zero-Drift Operational Amplifier Principles and Application Design?",
+          "answer": "Detailed technical answer related to Zero-Drift Operational Amplifier Principles and Application Design implementation and considerations.",
+          "decisionGuide": "Contact our FAE team for personalized technical support.",
+          "keywords": [
+            "technical",
+            "support",
+            "chipsea"
+          ]
+        },
+        {
+          "question": "FAQ 5 about Zero-Drift Operational Amplifier Principles and Application Design?",
+          "answer": "Detailed technical answer related to Zero-Drift Operational Amplifier Principles and Application Design implementation and considerations.",
+          "decisionGuide": "Contact our FAE team for personalized technical support.",
+          "keywords": [
+            "technical",
+            "support",
+            "chipsea"
+          ]
+        }
+      ],
+      "slug": "opamp-zero-drift",
+      "relatedArticles": [
+        "adc-pga-configuration",
+        "dcdc-layout-guide",
+        "battery-charger-design"
+      ],
+      "faeInsights": {
+        "insight": "Professional insight on Zero-Drift Operational Amplifier Principles and Application Design based on extensive field experience.",
+        "logic": "Technical decision framework: 1) Understand requirements, 2) Select appropriate components, 3) Design proper PCB layout, 4) Implement comprehensive testing, 5) Validate in target environment.",
+        "keyTakeaways": [
+          "Key technical point 1",
+          "Key technical point 2",
+          "Key technical point 3"
+        ],
+        "commonPitfalls": [
+          "Common implementation mistake 1",
+          "Common implementation mistake 2"
+        ],
+        "bestPractices": [
+          "Best practice recommendation 1",
+          "Best practice recommendation 2",
+          "Best practice recommendation 3"
+        ],
+        "author": {
+          "name": "Michael Zhang",
+          "title": "Senior FAE",
+          "experience": "12 years",
+          "expertise": [
+            "Analog ICs",
+            "Power Management",
+            "Sensor Interfaces"
+          ]
+        },
+        "content": "Professional insight on Zero-Drift Operational Amplifier Principles and Application Design: Through my extensive field experience, I've found that the key considerations are proper component selection, careful PCB layout, and thorough validation testing. Following best practices ensures optimal performance and reliability in real-world applications.\n\nThe most common issues I see are related to inadequate PCB layout and insufficient power supply decoupling. Taking the time to follow reference designs closely and implementing proper grounding techniques will save significant debugging time later.\n\nI always recommend starting with evaluation boards to validate your design approach before committing to PCB layout. This allows you to identify any issues early in the development process.",
+        "insightLogic": "Technical decision framework: 1) Understand requirements, 2) Select appropriate components, 3) Design proper PCB layout, 4) Implement comprehensive testing, 5) Validate in target environment."
+      },
+      "customerCases": [
+        {
+          "customerName": "Industrial Customer",
+          "industry": "Industrial Automation",
+          "application": "Process Control",
+          "solution": "Implemented the recommended approach with comprehensive technical support.",
+          "challenge": "Customer faced challenges implementing the technology in their specific application.",
+          "feedback": "Successfully resolved the issues with improved system performance and reliability."
+        }
+      ]
+    }
+  ],
+  "faqs": [
+    {
+      "id": "faq-1",
+      "question": "How does ChipSea ensure ADC sampling accuracy?",
+      "answer": "ChipSea ADC products use Sigma-Delta architecture with multiple accuracy assurance measures: 1) Integrated PGA with 1-128x gain to optimize signal range; 2) 24-bit resolution with ENOB up to 20+ bits; 3) Integrated temperature sensor for temperature compensation; 4) Self-calibration function to eliminate offset and gain errors; 5) Low noise design with input-referred noise <30nVrms; 6) Recommend using external precision reference voltage source for further accuracy improvement.",
+      "category": "Product Technology",
+      "views": 1850,
+      "decisionGuide": "Contact our FAE team for technical support and guidance.",
+      "keywords": [
+        "chipsea",
+        "support",
+        "technical"
+      ]
+    },
+    {
+      "id": "faq-2",
+      "question": "What efficiency can ChipSea DC-DC converters achieve?",
+      "answer": "ChipSea DC-DC converters demonstrate excellent efficiency: 1) Synchronous buck CS5080 achieves 90-94% efficiency in typical applications; 2) Automatic PFM mode switching at light loads maintains high efficiency; 3) Built-in low on-resistance power switches reduce conduction losses; 4) 1MHz switching frequency allows small inductors, reducing core losses; 5) Actual efficiency depends on input-output voltage difference, load current, and external component selection; 6) Refer to datasheet efficiency curves for design evaluation.",
+      "category": "Product Technology",
+      "views": 1620,
+      "decisionGuide": "Contact our FAE team for technical support and guidance.",
+      "keywords": [
+        "chipsea",
+        "support",
+        "technical"
+      ]
+    },
+    {
+      "id": "faq-3",
+      "question": "What battery types are supported by ChipSea battery charger ICs?",
+      "answer": "ChipSea CS5180 series charger ICs support: 1) Standard CS5180: Single-cell Li-ion batteries (4.2V); 2) CS5181: High-voltage Li-ion batteries (4.35V); 3) LiFePO4 batteries (3.6V) with external resistor divider modification; 4) Battery capacity range: 100mAh-3000mAh; 5) Programmable charge current: 50mA-1000mA; 6) Multiple protection features: over-voltage, over-current, over-temperature, short-circuit protection; 7) NTC temperature monitoring for safe charging.",
+      "category": "Product Technology",
+      "views": 1480,
+      "decisionGuide": "Contact our FAE team for technical support and guidance.",
+      "keywords": [
+        "chipsea",
+        "support",
+        "technical"
+      ]
+    },
+    {
+      "id": "faq-4",
+      "question": "What is the difference between zero-drift and traditional op-amps?",
+      "answer": "Key differences between zero-drift (CS6001) and traditional op-amps: 1) Input offset: Zero-drift <5μV vs traditional 1-5mV; 2) Temperature drift: Zero-drift 0.02μV/°C vs traditional 5-20μV/°C; 3) Low-frequency noise: Zero-drift has no 1/f noise vs significant 1/f noise in traditional; 4) Applications: Zero-drift for precision DC measurement, traditional for general applications; 5) Bandwidth: Zero-drift lower (350kHz), suitable for low-frequency; 6) Power: Zero-drift slightly higher (25μA) but significantly better performance; 7) Cost: Zero-drift higher but saves calibration costs.",
+      "category": "Product Technology",
+      "views": 1350,
+      "decisionGuide": "Contact our FAE team for technical support and guidance.",
+      "keywords": [
+        "chipsea",
+        "support",
+        "technical"
+      ]
+    },
+    {
+      "id": "faq-5",
+      "question": "Does ChipSea provide sample support?",
+      "answer": "Yes, ChipSea provides comprehensive sample support: 1) Free sample application through official website or authorized distributors; 2) Sample quantity: Typically 2-5 pieces; 3) Evaluation boards: Standard evaluation boards and reference designs available; 4) Technical support: FAE team provides application guidance; 5) Sample delivery: Standard products within 1-2 weeks; 6) Large quantity sample requests can contact local sales representatives.",
+      "category": "Sample Request",
+      "views": 2100,
+      "decisionGuide": "Contact our FAE team for technical support and guidance.",
+      "keywords": [
+        "chipsea",
+        "support",
+        "technical"
+      ]
+    },
+    {
+      "id": "faq-6",
+      "question": "How can I get technical support and design guidance for ChipSea products?",
+      "answer": "ChipSea provides multi-channel technical support: 1) Official website technical documents: datasheets, application notes, reference designs; 2) FAE technical support: via phone, email, or on-site; 3) Distributor support: Authorized distributors provide local technical support; 4) Technical forums: Online technical community exchange; 5) Training services: Regular product training and technical seminars; 6) Contact: support@chipsea.com or 400-xxx-xxxx.",
+      "category": "Technical Support",
+      "views": 1780,
+      "decisionGuide": "Contact our FAE team for technical support and guidance.",
+      "keywords": [
+        "chipsea",
+        "support",
+        "technical"
+      ]
+    },
+    {
+      "id": "faq-7",
+      "question": "What is the typical lead time for ChipSea products?",
+      "answer": "ChipSea product lead times: 1) Standard products: In stock, 1-2 weeks delivery; 2) Large quantity orders: 4-6 weeks delivery; 3) Special packages: Confirm lead time, typically 6-8 weeks; 4) Annual framework agreement customers: Priority supply and inventory support; 5) Urgent requirements: Contact sales for expedited processing; 6) Actual lead time confirmed with order.",
+      "category": "Order Delivery",
+      "views": 1420,
+      "decisionGuide": "Contact our FAE team for technical support and guidance.",
+      "keywords": [
+        "chipsea",
+        "support",
+        "technical"
+      ]
+    },
+    {
+      "id": "faq-8",
+      "question": "Are ChipSea products environmentally compliant?",
+      "answer": "ChipSea full product line meets environmental standards: 1) RoHS compliant: Meets EU RoHS 2.0 directive; 2) Halogen-free: Meets IEC 61249-2-21 standard; 3) REACH compliant: Meets EU REACH regulation; 4) Packaging materials: Green environmental packaging materials; 5) Environmental compliance certificates and test reports available; 6) Continuously following latest environmental regulations.",
+      "category": "Quality Certification",
+      "views": 1280,
+      "decisionGuide": "Contact our FAE team for technical support and guidance.",
+      "keywords": [
+        "chipsea",
+        "support",
+        "technical"
+      ]
+    }
+  ],
+  "downloads": [
+    {
+      "id": "ds-cs1231",
+      "title": "CS1231 24-Bit ADC Datasheet",
+      "description": "Complete datasheet for CS1231 high-precision 24-bit Sigma-Delta ADC including electrical characteristics, timing diagrams, and application circuits",
+      "category": "Datasheet",
+      "fileName": "CS1231_Datasheet_Rev1.5.pdf",
+      "fileSize": "2.1 MB",
+      "version": "Rev 1.5",
+      "publishDate": "2024-01-15",
+      "downloadUrl": "/downloads/chipsea/CS1231_Datasheet_Rev1.5.pdf",
+      "language": "English"
+    },
+    {
+      "id": "ds-cs5080",
+      "title": "CS5080 DC-DC Converter Datasheet",
+      "description": "Datasheet for CS5080 1A synchronous buck DC-DC converter including electrical characteristics, typical applications, and package information",
+      "category": "Datasheet",
+      "fileName": "CS5080_Datasheet_Rev1.3.pdf",
+      "fileSize": "1.8 MB",
+      "version": "Rev 1.3",
+      "publishDate": "2024-02-20",
+      "downloadUrl": "/downloads/chipsea/CS5080_Datasheet_Rev1.3.pdf",
+      "language": "English"
+    },
+    {
+      "id": "ds-cs5180",
+      "title": "CS5180 Li-ion Battery Charger IC Datasheet",
+      "description": "Datasheet for CS5180 single-cell Li-ion linear battery charger IC including charging profiles, protection features, and typical applications",
+      "category": "Datasheet",
+      "fileName": "CS5180_Datasheet_Rev1.2.pdf",
+      "fileSize": "1.5 MB",
+      "version": "Rev 1.2",
+      "publishDate": "2024-01-10",
+      "downloadUrl": "/downloads/chipsea/CS5180_Datasheet_Rev1.2.pdf",
+      "language": "English"
+    },
+    {
+      "id": "ds-cs6001",
+      "title": "CS6001 Zero-Drift Operational Amplifier Datasheet",
+      "description": "Datasheet for CS6001 zero-drift operational amplifier including electrical characteristics, application circuits, and package dimensions",
+      "category": "Datasheet",
+      "fileName": "CS6001_Datasheet_Rev1.0.pdf",
+      "fileSize": "1.2 MB",
+      "version": "Rev 1.0",
+      "publishDate": "2024-03-05",
+      "downloadUrl": "/downloads/chipsea/CS6001_Datasheet_Rev1.0.pdf",
+      "language": "English"
+    },
+    {
+      "id": "an-adc-design",
+      "title": "ADC Application Design Guide",
+      "description": "Detailed guide on ADC application design methods for precision measurement including PCB layout, noise suppression, and calibration methods",
+      "category": "Application Note",
+      "fileName": "AN001_ADC_Design_Guide.pdf",
+      "fileSize": "3.2 MB",
+      "version": "Rev 2.0",
+      "publishDate": "2024-02-15",
+      "downloadUrl": "/downloads/chipsea/AN001_ADC_Design_Guide.pdf",
+      "language": "English"
+    },
+    {
+      "id": "an-dcdc-layout",
+      "title": "DC-DC Converter PCB Layout Guide",
+      "description": "Best practices for DC-DC converter PCB layout including EMI suppression, thermal design, and component selection",
+      "category": "Application Note",
+      "fileName": "AN002_DCDC_Layout_Guide.pdf",
+      "fileSize": "2.8 MB",
+      "version": "Rev 1.5",
+      "publishDate": "2024-03-10",
+      "downloadUrl": "/downloads/chipsea/AN002_DCDC_Layout_Guide.pdf",
+      "language": "English"
+    },
+    {
+      "id": "ref-weighing",
+      "title": "Weighing Scale Reference Design",
+      "description": "Complete reference design for high-precision weighing scale based on CS1231 and CS6001 including schematics, PCB, BOM, and source code",
+      "category": "Reference Design",
+      "fileName": "REF001_Weighing_Scale_Design.zip",
+      "fileSize": "5.6 MB",
+      "version": "Rev 1.0",
+      "publishDate": "2024-04-01",
+      "downloadUrl": "/downloads/chipsea/REF001_Weighing_Scale_Design.zip",
+      "language": "English"
+    },
+    {
+      "id": "ref-power-bank",
+      "title": "Power Bank Reference Design",
+      "description": "Power bank reference design based on CS5080 and CS5180 including charge/discharge management, protection circuits, and LED display",
+      "category": "Reference Design",
+      "fileName": "REF002_Power_Bank_Design.zip",
+      "fileSize": "4.2 MB",
+      "version": "Rev 1.0",
+      "publishDate": "2024-03-20",
+      "downloadUrl": "/downloads/chipsea/REF002_Power_Bank_Design.zip",
+      "language": "English"
+    }
+  ]
+}

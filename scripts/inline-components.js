@@ -1,0 +1,53 @@
+/**
+ * 内联组件脚本 - 将 SSI include 替换为实际内容
+ */
+const fs = require('fs');
+const path = require('path');
+
+const rootDir = path.join(__dirname, '..');
+const componentsDir = path.join(rootDir, 'templates', 'components');
+
+// 读取所有组件
+const components = {};
+['navbar', 'footer', 'breadcrumb', 'floating-contact', 'brand-tab-nav'].forEach(name => {
+  const filePath = path.join(componentsDir, `${name}.html`);
+  if (fs.existsSync(filePath)) {
+    components[name] = fs.readFileSync(filePath, 'utf8');
+  }
+});
+
+// 处理 HTML 文件
+function processFile(filePath) {
+  if (!fs.existsSync(filePath)) return;
+  
+  let content = fs.readFileSync(filePath, 'utf8');
+  
+  // 替换所有 include 语句
+  Object.keys(components).forEach(name => {
+    const regex = new RegExp(`<!--#include virtual="/templates/components/${name}.html" -->`, 'g');
+    content = content.replace(regex, components[name]);
+  });
+  
+  fs.writeFileSync(filePath, content, 'utf8');
+  console.log(`✓ Processed: ${path.relative(rootDir, filePath)}`);
+}
+
+// 处理所有 HTML 文件
+function processDirectory(dir) {
+  const files = fs.readdirSync(dir);
+  
+  files.forEach(file => {
+    const filePath = path.join(dir, file);
+    const stat = fs.statSync(filePath);
+    
+    if (stat.isDirectory()) {
+      processDirectory(filePath);
+    } else if (file.endsWith('.html')) {
+      processFile(filePath);
+    }
+  });
+}
+
+console.log('Inlining components...\n');
+processDirectory(rootDir);
+console.log('\n✓ Component inlining complete!');

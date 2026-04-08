@@ -1,0 +1,302 @@
+{
+  "solutions": [
+    {
+      "id": "ev-traction-inverter",
+      "title": "EV Traction Inverter Solution",
+      "slug": "ev-traction-inverter",
+      "description": "Complete power semiconductor solution for electric vehicle traction inverters using PineSemi SiC MOSFETs and gate drivers.",
+      "longDescription": "PineSemi's EV traction inverter solution provides a complete power semiconductor portfolio for electric vehicle main drive systems. The solution leverages advanced 1200V SiC MOSFETs to achieve industry-leading efficiency and power density. Key components include high-current SiC MOSFETs in Kelvin-source packages for optimal switching performance, isolated gate drivers with comprehensive protection features, and high-voltage SiC Schottky diodes for rectification. The solution supports inverter power ratings from 50kW to 300kW, suitable for passenger vehicles, commercial vehicles, and electric buses. With AEC-Q101 qualified components and comprehensive technical support, PineSemi enables rapid development of high-performance traction inverters.",
+      "benefits": [
+        "Up to 98.5% inverter efficiency",
+        "50% reduction in switching losses vs IGBT",
+        "Compact design with high power density",
+        "Automotive-grade reliability (AEC-Q101)",
+        "Comprehensive technical support and reference designs"
+      ],
+      "coreAdvantages": [
+        {
+          "title": "Ultra-High Efficiency",
+          "description": "SiC MOSFETs enable inverter efficiencies up to 98.5%, extending vehicle range by 5-10% compared to silicon IGBT solutions.",
+          "data": "98.5% peak efficiency"
+        },
+        {
+          "title": "High Power Density",
+          "description": "Fast switching enables smaller magnetics and heatsinks, reducing inverter size and weight by 30-40%.",
+          "data": "30-40% size reduction"
+        },
+        {
+          "title": "Automotive Qualified",
+          "description": "All components are AEC-Q101 qualified with full PPAP documentation support for automotive production.",
+          "data": "AEC-Q101 Grade 0"
+        }
+      ],
+      "bomList": [
+        {
+          "category": "Power Switches",
+          "items": [
+            {
+              "partNumber": "PSM2-120R040",
+              "description": "1200V 40mΩ SiC MOSFET for phase legs",
+              "quantity": "12 per inverter"
+            },
+            {
+              "partNumber": "PSM2-120R025",
+              "description": "1200V 25mΩ SiC MOSFET for high-power variants",
+              "quantity": "12 per inverter"
+            }
+          ]
+        },
+        {
+          "category": "Gate Drivers",
+          "items": [
+            {
+              "partNumber": "PGD-25A",
+              "description": "Isolated gate driver with desaturation protection",
+              "quantity": "6 per inverter"
+            }
+          ]
+        },
+        {
+          "category": "Rectification",
+          "items": [
+            {
+              "partNumber": "PSD2-120H040",
+              "description": "1200V SiC Schottky diode for auxiliary circuits",
+              "quantity": "As required"
+            }
+          ]
+        }
+      ],
+      "technicalSpecs": {
+        "Power Range": "50kW - 300kW",
+        "DC Bus Voltage": "400V - 800V",
+        "Switching Frequency": "10kHz - 20kHz",
+        "Peak Efficiency": "98.5%",
+        "Operating Temperature": "-40°C to +85°C ambient"
+      },
+      "customerCases": [
+        {
+          "customerName": "Leading EV Manufacturer",
+          "industry": "Automotive",
+          "application": "150kW traction inverter for SUV",
+          "problem": "Need high-efficiency inverter with compact size for new EV platform",
+          "solution": "Designed 150kW inverter using PSM2-120R040 SiC MOSFETs with 20kHz switching",
+          "results": "Achieved 98.2% efficiency, 35% size reduction vs previous IGBT design, passed all automotive qualification tests"
+        },
+        {
+          "customerName": "Commercial Vehicle OEM",
+          "industry": "Commercial Vehicles",
+          "application": "200kW traction inverter for electric bus",
+          "problem": "Required high-reliability inverter for demanding bus application with extended warranty",
+          "solution": "Implemented 200kW inverter with PSM2-120R025 and comprehensive protection features",
+          "results": "99.1% reliability over 500,000 km testing, 8-year warranty achieved, 15% range improvement"
+        }
+      ],
+      "faeInsights": {
+        "insight": "Having supported numerous EV traction inverter designs, I've found that SiC technology truly shines in this application. The key to success is proper gate drive design and PCB layout. The Kelvin-source package is a game-changer - it reduces switching losses by 15-20% compared to standard packages. For 800V systems, the 1200V SiC MOSFETs provide excellent margin. I always recommend using negative gate voltage (-3V to -5V) for noise immunity, especially in the noisy automotive environment. Thermal management is critical - while SiC devices are more efficient, they still generate heat that must be removed. The integrated NTC sensors in our devices enable precise thermal monitoring for protection algorithms.",
+        "logic": "The EV traction inverter design process follows these steps: First, determine power rating and DC bus voltage to select appropriate MOSFET current and voltage ratings. Second, calculate losses at worst-case operating conditions to design thermal management. Third, design gate drive with proper isolation, protection, and negative voltage. Fourth, optimize PCB layout to minimize parasitic inductance. Fifth, implement comprehensive protection including overcurrent, short-circuit, and overtemperature. Sixth, validate through extensive testing including thermal cycling and power cycling.",
+        "keyTakeaways": [
+          "Use Kelvin-source packages for high-current applications",
+          "Implement negative gate voltage for noise immunity",
+          "Pay careful attention to PCB layout to minimize parasitic inductance",
+          "Design adequate thermal management for continuous operation",
+          "Implement comprehensive protection with fast response times"
+        ],
+        "commonPitfalls": [
+          "Insufficient gate drive current leading to slow switching",
+          "Poor PCB layout causing excessive voltage overshoot",
+          "Inadequate thermal design leading to overheating",
+          "Missing protection features resulting in device failure",
+          "Not using negative gate voltage causing false turn-on"
+        ],
+        "bestPractices": [
+          "Use isolated gate drivers with desaturation protection",
+          "Implement soft shutdown for fault conditions",
+          "Place ceramic capacitors close to devices for decoupling",
+          "Use laminated busbars to minimize DC link inductance",
+          "Implement temperature monitoring with NTC sensors"
+        ],
+        "troubleshootingTips": [
+          "If experiencing gate oscillations, increase gate resistance or improve layout",
+          "High switching losses often indicate insufficient gate drive voltage",
+          "EMI issues can be resolved by optimizing switching speed and adding filters"
+        ]
+      },
+      "faqs": [
+        {
+          "question": "What is the recommended gate drive voltage for traction inverter applications?",
+          "answer": "For EV traction inverters using PineSemi SiC MOSFETs: Turn-on voltage: +18V to +20V ensures lowest Rds(on) and fastest switching; Turn-off voltage: -3V to -5V provides noise immunity and prevents false turn-on; Gate resistance: 5-10Ω for high-current applications to control switching speed and EMI. The negative gate voltage is particularly important in the noisy automotive environment. Gate drivers should provide at least 4A source/sink current for fast switching of large die devices. Always use Kelvin-source connection when available to eliminate source inductance effects.",
+          "decisionGuide": "Contact us for gate driver recommendations and reference designs for your specific inverter power rating.",
+          "keywords": ["gate drive voltage", "traction inverter", "SiC gate drive"]
+        },
+        {
+          "question": "How do I size the heatsink for a traction inverter?",
+          "answer": "Heatsink sizing procedure for traction inverters: Calculate total losses - conduction losses + switching losses at worst-case conditions; For 150kW inverter at 800V: approximately 2-3kW total losses; Determine thermal resistance requirement: Rth(s-a) = (Tj_max - Ta) / Ploss; Example: 150°C max junction, 85°C ambient, 2500W losses: Rth = (150-85)/2500 = 0.026 K/W; Select heatsink with adequate margin (typically 20-30%); Consider liquid cooling for high-power inverters (>100kW). Thermal interface material: Use high-performance thermal grease (3-5 W/mK) or phase-change materials. PineSemi provides thermal models and simulation support for heatsink design.",
+          "decisionGuide": "Contact our FAE team for thermal design support and heatsink recommendations.",
+          "keywords": ["heatsink sizing", "thermal design", "inverter cooling"]
+        },
+        {
+          "question": "What protection features are essential for traction inverters?",
+          "answer": "Essential protection features for EV traction inverters: Overcurrent protection - desaturation detection with < 2μs response time; Short-circuit protection - fast shutdown within 10μs to protect devices; Overvoltage protection - prevent DC bus overvoltage from regenerative braking; Undervoltage protection - disable operation if DC bus drops below minimum; Overtemperature protection - monitor device and heatsink temperatures; Gate fault protection - detect gate drive failures; Phase overcurrent - individual phase current monitoring. Additional protections: Rotor lock detection, over-speed protection, insulation monitoring. All protections should be implemented with appropriate fault handling and reporting to vehicle control system.",
+          "decisionGuide": "Contact us for protection design guidelines and recommended protection circuits.",
+          "keywords": ["inverter protection", "overcurrent protection", "fault protection"]
+        },
+        {
+          "question": "Can PineSemi devices handle the high dv/dt in traction inverters?",
+          "answer": "Yes, PineSemi SiC MOSFETs are designed to handle high dv/dt conditions: dv/dt capability: > 50V/ns for all PineSemi SiC MOSFETs; Typical traction inverter dv/dt: 10-30V/ns depending on gate resistance; High dv/dt can cause: Common-mode noise, motor bearing currents, EMI issues. Mitigation strategies: Use appropriate gate resistance to control switching speed; Implement common-mode filters on motor cables; Use shielded cables with proper grounding; Consider using dv/dt filters for sensitive motors; Follow good PCB layout practices to minimize parasitic coupling. PineSemi devices are tested for high dv/dt ruggedness. The Kelvin-source package also helps by reducing gate loop inductance.",
+          "decisionGuide": "Contact us for EMI design guidelines and dv/dt management strategies.",
+          "keywords": ["dv/dt", "switching speed", "EMI design", "motor protection"]
+        },
+        {
+          "question": "What is the expected lifetime of PineSemi devices in traction inverter applications?",
+          "answer": "Expected lifetime for PineSemi SiC MOSFETs in traction inverters: Power cycling: 100,000+ cycles with ΔTj = 50°C; Thermal cycling: 50,000+ cycles -55°C to +150°C; Operating life: 15+ years at typical automotive conditions; FIT rate: < 100 FIT (failures per billion hours). Factors affecting lifetime: Junction temperature - lower is better (target < 125°C average); Temperature swings - minimize thermal cycling amplitude; Voltage stress - maintain adequate voltage margin (typically 20%); Mechanical stress - ensure proper mounting and thermal interface. Accelerated testing: All devices undergo rigorous qualification per AEC-Q101; Power cycling tests validate bond wire integrity; HTRB tests validate long-term voltage endurance. PineSemi provides reliability data and lifetime prediction models.",
+          "decisionGuide": "Contact us for reliability data and lifetime prediction for your specific operating conditions.",
+          "keywords": ["device lifetime", "reliability", "power cycling", "automotive reliability"]
+        }
+      ]
+    },
+    {
+      "id": "solar-inverter-solution",
+      "title": "Solar Inverter Solution",
+      "slug": "solar-inverter-solution",
+      "description": "High-efficiency power semiconductor solution for residential and commercial solar inverters using PineSemi SiC and IGBT products.",
+      "longDescription": "PineSemi's solar inverter solution delivers industry-leading efficiency and reliability for photovoltaic power conversion. The solution combines SiC MOSFETs and Schottky diodes for boost stages with IGBT modules for inverter bridges, providing optimal cost-performance balance. Key features include high-efficiency boost converters using SiC devices, robust IGBT modules for grid-tie inverters, and comprehensive protection for reliable grid operation. The solution supports power ratings from 3kW residential to 150kW commercial systems, with both single-phase and three-phase configurations available. PineSemi's products are designed for 25-year service life with minimal degradation.",
+      "benefits": [
+        "Up to 99% CEC weighted efficiency",
+        "Reduced cooling requirements",
+        "25-year design life",
+        "Grid code compliance",
+        "Cost-optimized solution"
+      ],
+      "coreAdvantages": [
+        {
+          "title": "Maximum Energy Harvest",
+          "description": "High-efficiency power conversion minimizes energy losses, maximizing ROI for solar installations.",
+          "data": "99% CEC efficiency"
+        },
+        {
+          "title": "Long Service Life",
+          "description": "Robust design and high-quality components ensure 25-year service life with minimal degradation.",
+          "data": "25-year warranty"
+        },
+        {
+          "title": "Cost Optimization",
+          "description": "Optimal mix of SiC and IGBT devices provides best cost-performance ratio for each power level.",
+          "data": "Optimized BOM cost"
+        }
+      ],
+      "bomList": [
+        {
+          "category": "Boost Stage (SiC)",
+          "items": [
+            {
+              "partNumber": "PSM1-65R035",
+              "description": "650V SiC MOSFET for boost switch",
+              "quantity": "1-2 per MPPT"
+            },
+            {
+              "partNumber": "PSD1-65H060",
+              "description": "650V SiC Schottky diode for boost rectifier",
+              "quantity": "1 per MPPT"
+            }
+          ]
+        },
+        {
+          "category": "Inverter Bridge",
+          "items": [
+            {
+              "partNumber": "PIM-50A-6",
+              "description": "50A IGBT module for 3-6kW inverters",
+              "quantity": "1 per inverter"
+            },
+            {
+              "partNumber": "PIM-75A-6",
+              "description": "75A IGBT module for 6-15kW inverters",
+              "quantity": "1 per inverter"
+            }
+          ]
+        }
+      ],
+      "technicalSpecs": {
+        "Power Range": "3kW - 150kW",
+        "Input Voltage": "200V - 1000V DC",
+        "Output Voltage": "230V/400V AC",
+        "Switching Frequency": "16kHz - 50kHz",
+        "CEC Efficiency": "Up to 99%",
+        "MPPT Efficiency": "99.9%"
+      },
+      "customerCases": [
+        {
+          "customerName": "Solar Inverter Manufacturer",
+          "industry": "Renewable Energy",
+          "application": "10kW residential solar inverter",
+          "problem": "Need high-efficiency, cost-competitive inverter for residential market",
+          "solution": "Designed 10kW inverter with SiC boost and IGBT bridge using PineSemi devices",
+          "results": "98.8% CEC efficiency, 25-year warranty achieved, 15% lower BOM cost than previous design"
+        }
+      ],
+      "faeInsights": {
+        "insight": "For solar inverters, the key is balancing efficiency and cost. For boost stages, SiC devices are essential - the efficiency gain from zero diode recovery easily justifies the cost. For the inverter bridge, IGBTs often provide better value, especially at lower switching frequencies. I typically recommend SiC for boost stages above 5kW and IGBTs for the bridge up to 20kHz. Above 20kHz, SiC becomes necessary for the bridge as well. MPPT efficiency is critical - use high-quality current sensing and fast MPPT algorithms. Thermal design must account for outdoor operation with ambient temperatures up to 60°C.",
+        "logic": "Solar inverter design optimization: First, select boost stage devices based on panel voltage and current - SiC is almost always justified for the boost diode. Second, choose inverter bridge technology based on power level and switching frequency - IGBT for <20kHz, SiC for >20kHz. Third, design thermal management for worst-case outdoor conditions. Fourth, implement comprehensive grid protection and monitoring. Fifth, optimize MPPT algorithm for maximum energy harvest.",
+        "keyTakeaways": [
+          "Use SiC for boost stages to maximize efficiency",
+          "Select bridge technology based on switching frequency and power level",
+          "Design for outdoor operating conditions",
+          "Implement fast and accurate MPPT",
+          "Ensure grid code compliance with proper protection"
+        ],
+        "commonPitfalls": [
+          "Using silicon diodes in boost stage causing high switching losses",
+          "Inadequate thermal design for outdoor operation",
+          "Slow MPPT algorithm reducing energy harvest",
+          "Insufficient grid protection causing safety issues",
+          "Poor EMI design failing grid compliance tests"
+        ],
+        "bestPractices": [
+          "Use SiC Schottky diodes for all boost applications",
+          "Implement temperature-compensated MPPT",
+          "Design for 60°C ambient with adequate margin",
+          "Use high-quality film capacitors for DC link",
+          "Implement comprehensive grid monitoring and protection"
+        ],
+        "troubleshootingTips": [
+          "Low efficiency often indicates boost diode recovery losses - switch to SiC",
+          "Overheating may be due to insufficient heatsinking or high switching losses",
+          "MPPT instability can be resolved by adjusting algorithm parameters"
+        ]
+      },
+      "faqs": [
+        {
+          "question": "Should I use SiC or IGBT for the inverter bridge in solar applications?",
+          "answer": "The choice depends on power level and switching frequency: For 3-10kW residential inverters at 16-20kHz: IGBT provides best cost-performance; For 10-20kW commercial inverters at 20-30kHz: Either IGBT or SiC depending on efficiency targets; For >20kW or >30kHz: SiC is recommended for efficiency. Cost comparison: IGBT modules are 2-3x lower cost than SiC equivalents; Efficiency difference: SiC provides 0.5-1% higher efficiency at same frequency; Magnetic size: Higher frequency with SiC enables 30-50% smaller magnetics. Recommendation: Use SiC for boost stage (essential), IGBT for bridge in most residential applications, evaluate SiC for bridge in commercial applications based on efficiency requirements and total cost.",
+          "decisionGuide": "Contact us for detailed cost-benefit analysis for your specific inverter design.",
+          "keywords": ["SiC vs IGBT", "inverter bridge", "solar inverter design"]
+        },
+        {
+          "question": "What switching frequency is optimal for solar inverters?",
+          "answer": "Optimal switching frequencies for solar inverters: Residential (3-10kW): 16-20kHz to stay above audible range; Commercial (10-50kW): 20-30kHz for efficiency and size balance; Large commercial (>50kW): 30-50kHz with SiC for maximum power density. Trade-offs: Lower frequency (16kHz): Higher efficiency, larger magnetics, audible noise possible; Higher frequency (50kHz): Smaller magnetics, lower efficiency, higher switching losses. Sweet spot for IGBT: 16-20kHz; Sweet spot for SiC: 30-50kHz. Grid requirements: Some grid codes specify maximum harmonic content which may influence frequency selection. PineSemi provides loss models to optimize frequency selection.",
+          "decisionGuide": "Contact us for switching frequency optimization based on your efficiency and size targets.",
+          "keywords": ["switching frequency", "solar inverter", "frequency selection"]
+        },
+        {
+          "question": "How do I ensure 25-year lifetime for solar inverter components?",
+          "answer": "Ensuring 25-year lifetime for solar inverters: Component selection: Use industrial-grade or automotive-grade components; Select capacitors with 100,000+ hour lifetime at operating temperature; Use power semiconductors with adequate voltage and current margins. Thermal design: Keep junction temperatures below 125°C under worst-case conditions; Use high-quality thermal interface materials; Design for 60°C ambient with margin. Protection: Implement comprehensive overvoltage, overcurrent, and overtemperature protection; Use surge protection devices for lightning protection; Monitor component health and degradation. Maintenance: Design for easy capacitor replacement if needed; Implement remote monitoring for predictive maintenance. PineSemi devices are designed and tested for long-term reliability.",
+          "decisionGuide": "Contact us for reliability design guidelines and component selection for 25-year life.",
+          "keywords": ["25-year lifetime", "reliability design", "solar inverter reliability"]
+        },
+        {
+          "question": "What are the key considerations for MPPT design?",
+          "answer": "MPPT design considerations: Algorithm selection: Perturb and Observe (P&O) - simple, widely used; Incremental Conductance (IncCond) - more accurate, faster response; Temperature-compensated MPPT for improved accuracy. Update rate: 0.5-2Hz typical for steady-state; Faster tracking (10-100Hz) for dynamic conditions. Current sensing: Use high-accuracy current sensors (0.5% or better); Minimize noise in voltage and current measurements. Multiple MPPTs: Independent MPPT for each string improves energy harvest; Use isolated DC-DC or multi-phase boost for multiple MPPTs. Efficiency: MPPT efficiency should be >99.5%; Fast transient response to changing irradiance. PineSemi devices enable high-efficiency power conversion for maximum energy harvest.",
+          "decisionGuide": "Contact us for MPPT design guidelines and power stage recommendations.",
+          "keywords": ["MPPT design", "maximum power point tracking", "solar optimization"]
+        },
+        {
+          "question": "How do I meet grid code requirements with PineSemi devices?",
+          "answer": "Meeting grid code requirements: Voltage and frequency: Inverter must disconnect if grid voltage or frequency outside specified limits; Use fast detection (< 100ms) and disconnection; PineSemi devices support fast switching for quick response. Anti-islanding: Implement active or passive anti-islanding protection; Use frequency shift or voltage shift methods; Test per IEEE 1547 or local grid code. Power quality: THD < 5% for current, < 3% for voltage; Use proper filtering and PWM techniques; PineSemi devices enable low-distortion output. Reactive power: Support power factor adjustment (typically 0.9 leading to 0.9 lagging); Implement VAR support if required by grid code. Ride-through: Support low voltage ride-through (LVRT) as required; Maintain operation during voltage dips. PineSemi provides application notes for grid-tie inverter design.",
+          "decisionGuide": "Contact us for grid code compliance support and design guidelines.",
+          "keywords": ["grid code", "anti-islanding", "grid compliance", "power quality"]
+        }
+      ]
+    }
+  ]
+}

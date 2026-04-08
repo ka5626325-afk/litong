@@ -1,0 +1,492 @@
+{
+  "solutions": [
+    {
+      "id": "motor-drive-solution",
+      "title": "DriverSolution",
+      "description": "NCE IGBT MOSFET High Performance Driver ,  ,  Driver AutomationApplication",
+      "image": "/images/nce/solutions/motor-drive.jpg",
+      "heroImage": "/images/nce/solutions/motor-drive-hero.jpg",
+      "icon": "⚡",
+      "industry": "Automation",
+      "applications": [
+        "变频器",
+        "Driver",
+        "CNC",
+        "工业机器人"
+      ],
+      "products": [
+        "NCE20N60",
+        "NCE15N120",
+        "NCEP60T20",
+        "NCEIPM20"
+      ],
+      "technicalSpecs": [
+        {
+          "label": "InputVoltage",
+          "value": "380V AC ±15%"
+        },
+        {
+          "label": "OutputCurrent",
+          "value": "10A - 200A"
+        },
+        {
+          "label": "Frequency",
+          "value": "2kHz - 20kHz"
+        },
+        {
+          "label": "Efficiency",
+          "value": "≥ 96%"
+        },
+        {
+          "label": "保护等级",
+          "value": "IP54"
+        },
+        {
+          "label": "Temperature",
+          "value": "-25°C ~ +60°C"
+        }
+      ],
+      "bomList": [
+        {
+          "designator": "Q1-Q6",
+          "partNumber": "NCE15N120",
+          "description": "1200V 15A IGBT",
+          "quantity": 6
+        },
+        {
+          "designator": "Q7-Q12",
+          "partNumber": "NCE20N60",
+          "description": "600V 20A IGBT",
+          "quantity": 6
+        },
+        {
+          "designator": "D1-D6",
+          "partNumber": "NCEP60T20",
+          "description": "200V 60A MOSFET",
+          "quantity": 6
+        },
+        {
+          "designator": "U1",
+          "partNumber": "NCEIPM20",
+          "description": "Power",
+          "quantity": 1
+        },
+        {
+          "designator": "C1-C3",
+          "partNumber": "Capacitance 1000 F/450V",
+          "description": "DC Capacitance",
+          "quantity": 3
+        },
+        {
+          "designator": "R1-R6",
+          "partNumber": "Resistance 10m",
+          "description": "Current",
+          "quantity": 6
+        }
+      ],
+      "coreAdvantages": [
+        {
+          "title": "Performance",
+          "description": "Optimized for best performance"
+        },
+        {
+          "title": "Reliability",
+          "description": "Designed for long-term operation"
+        },
+        {
+          "title": "Support",
+          "description": "Full technical support provided"
+        },
+        {
+          "title": "Integration",
+          "description": "Easy system integration"
+        },
+        {
+          "title": "Quality",
+          "description": "High-quality components"
+        }
+      ],
+      "designGuide": {
+        "overview": ",  AC Application. Design , EMI Driver Optimize.",
+        "keyConsiderations": [
+          "Design,  Thermal Resistance 0.5 C/W",
+          "IGBT DriverResistance 10-22 ,  Speed EMI",
+          "DC Capacitance ESR Capacitance,  1000 F/kW",
+          "Current ,  Secure Accuracy"
+        ],
+        "referenceDesigns": [
+          {
+            "name": "5.5kW ReferenceDesign",
+            "file": "/downloads/nce/motor-drive-5kw-ref.zip",
+            "description": "5.5kW Design ,  , PCB BOM"
+          },
+          {
+            "name": "Driver ReferenceDesign",
+            "file": "/downloads/nce/servo-drive-ref.zip",
+            "description": "Accuracy Driver , Support Algorithm"
+          }
+        ]
+      },
+      "faqs": [
+        {
+          "question": "IGBT DriverResistance?",
+          "answer": "DriverResistance Speed EMIBetween .  NCE15N120, Recommended Resistance 10-22 .  Resistance Speed,  ,  EMI VoltageSpike;  Resistance EMI,  .  15 Start,  Test Adjust.",
+          "decisionGuide": "Efficiency EMIRequirement ,  10-15 ;  EMIYes ,  18-22 ;  ApplicationRecommended15 .",
+          "keywords": [
+            "Resistance",
+            "IGBTDriver",
+            "Speed",
+            "EMI"
+          ]
+        },
+        {
+          "question": "Driver DesignYes Requirement?",
+          "answer": "DesignYes Driver .  NCE IGBT ,  Thermal Resistance 0.5 C/W,  ( ,  100 m).  EnvironmentTemperature40 C,  , IGBTJunction Temperature 125 C.  20% Temperature ,  PowerApplication.",
+          "decisionGuide": "5kW ; 5-15kW ; 15kW .  TestVerification.",
+          "keywords": [
+            "Design",
+            "散热器",
+            "Thermal Resistance",
+            "Junction Temperature"
+          ]
+        },
+        {
+          "question": "IPM Power Yes Advantage?",
+          "answer": "NCEIPM20 Power Integration IGBT, Driver ,  Yes Advantage: 1) Design,  Period50% ; 2)IntegrationDriver ,  Reliability; 3)Optimize ,  Inductance,  EMI ; 4)Standard Package,  Maintenance Upgrade.  Power DriverApplication.",
+          "decisionGuide": ",  Design ,  IPM ;  Customize PowerApplication,  IGBT .",
+          "keywords": [
+            "IPM",
+            "Power",
+            "IntegrationDriver",
+            "Reliability"
+          ]
+        },
+        {
+          "question": "Driver EMI ?",
+          "answer": "EMI : 1)OptimizePCB ,  Power ,  Inductance; 2) ,  ; 3) IGBT Between RC ; 4) DriverResistance,  Speed; 5) Input EMI .  CISPR 11 Class AStandard EMITest.",
+          "decisionGuide": "Environment CISPR 11 Class A;  EMI Application Class BStandard;  EMCEngineering .",
+          "keywords": [
+            "EMI",
+            "电磁干扰",
+            "EMC",
+            "滤波器"
+          ]
+        },
+        {
+          "question": "Resistance Selection?",
+          "answer": "Resistance Energy. Selection : 1) DC Voltage Current , R = Vdc / Ib; 2)Power ,  Power 10-20%; 3) Resistance Power Force.  380V ,  50-100 , Power500W-2kW. NCE Support ,  Application Configure.",
+          "decisionGuide": "Application PowerResistance;  Application Power;  Resistance .",
+          "keywords": [
+            "Resistance",
+            "能耗制动",
+            "Energy",
+            "制动单元"
+          ]
+        },
+        {
+          "question": "Driver Support Algorithm?",
+          "answer": "Hardware Support Algorithm: 1)V/f ,  Application, Implementation ; 2) (FOC),  Dynamic ; 3) (DTC),  Speed ,  High Performance Application. NCEPower Feature(<100ns) Algorithm .  Application .",
+          "decisionGuide": "Application V/f ;  ; High Performance Application DTC .",
+          "keywords": [
+            "Algorithm",
+            "矢量控制",
+            "FOC",
+            "V/f"
+          ]
+        }
+      ],
+      "slug": "motor-drive-solution",
+      "longDescription": "NCE IGBT MOSFET High Performance Driver ,  ,  Driver AutomationApplication This solution provides comprehensive support and guidance for your application needs.",
+      "benefits": [
+        "High performance and reliability",
+        "Comprehensive technical support",
+        "Easy integration and deployment",
+        "Cost-effective solution"
+      ],
+      "customerCases": [
+        {
+          "customer": "Industrial Customer",
+          "industry": "Industrial",
+          "challenge": "Needed reliable solution",
+          "solution": "Implemented our solution",
+          "results": "Achieved expected performance"
+        },
+        {
+          "customer": "Commercial Customer",
+          "industry": "Commercial",
+          "challenge": "Cost-sensitive application",
+          "solution": "Optimized solution design",
+          "results": "Met cost targets"
+        }
+      ],
+      "faeInsights": {
+        "author": "FAE Team",
+        "content": "This solution provides excellent performance for target applications.",
+        "keyTakeaways": [
+          "Follow design guidelines",
+          "Consider environmental factors"
+        ]
+      }
+    },
+    {
+      "id": "ev-charging-solution",
+      "title": "Solution",
+      "description": "NCE GaN SiCTechnology Efficient , Support Application,  Efficiency 98%",
+      "image": "/images/nce/solutions/ev-charging.jpg",
+      "heroImage": "/images/nce/solutions/ev-charging-hero.jpg",
+      "icon": "🔋",
+      "industry": "新能源汽车",
+      "applications": [
+        "DC",
+        "家用充电桩",
+        "换电站",
+        "V2GApplication"
+      ],
+      "products": [
+        "NCE650G10",
+        "NCE650G30",
+        "NCE65T540",
+        "NCEPIM50"
+      ],
+      "technicalSpecs": [
+        {
+          "label": "InputVoltage",
+          "value": "380V AC ±20%"
+        },
+        {
+          "label": "OutputVoltage",
+          "value": "200V - 750V DC"
+        },
+        {
+          "label": "OutputPower",
+          "value": "30kW - 480kW"
+        },
+        {
+          "label": "Efficiency",
+          "value": "≥ 98%"
+        },
+        {
+          "label": "Power",
+          "value": "≥ 0.99"
+        },
+        {
+          "label": "冷却方式",
+          "value": "强制风冷/液冷"
+        }
+      ],
+      "bomList": [
+        {
+          "designator": "Q1-Q4",
+          "partNumber": "NCE650G10",
+          "description": "650V GaN HEMT",
+          "quantity": 4
+        },
+        {
+          "designator": "Q5-Q8",
+          "partNumber": "NCE650G30",
+          "description": "IntegrationGaNPowerIC",
+          "quantity": 4
+        },
+        {
+          "designator": "Q9-Q12",
+          "partNumber": "NCE65T540",
+          "description": "650V MOSFET",
+          "quantity": 4
+        },
+        {
+          "designator": "U1",
+          "partNumber": "NCEPIM50",
+          "description": "1200V PIM",
+          "quantity": 1
+        },
+        {
+          "designator": "T1",
+          "partNumber": "高频变压器",
+          "description": "LLC",
+          "quantity": 1
+        },
+        {
+          "designator": "L1",
+          "partNumber": "Inductance 50 H",
+          "description": "LLC Inductance",
+          "quantity": 1
+        }
+      ],
+      "coreAdvantages": [
+        {
+          "title": "Performance",
+          "description": "Optimized for best performance"
+        },
+        {
+          "title": "Reliability",
+          "description": "Designed for long-term operation"
+        },
+        {
+          "title": "Support",
+          "description": "Full technical support provided"
+        },
+        {
+          "title": "Integration",
+          "description": "Easy system integration"
+        },
+        {
+          "title": "Quality",
+          "description": "High-quality components"
+        }
+      ],
+      "designGuide": {
+        "overview": "Architecture:  PFCImplementationPower ,  LLC Implementation DC/DC . GaN Feature Volume .",
+        "keyConsiderations": [
+          "PFC Frequency 65-100kHz,  GaN Efficiency",
+          "LLC Design,  Height",
+          "DC Voltage 750V ,  GaN Secure",
+          ", Support Current"
+        ],
+        "referenceDesigns": [
+          {
+            "name": "30kWDC",
+            "file": "/downloads/nce/ev-charger-30kw-ref.zip",
+            "description": "30kW Design, Efficiency98.2%, Power 3.2kW/L"
+          },
+          {
+            "name": "120kW",
+            "file": "/downloads/nce/ev-charger-120kw-ref.zip",
+            "description": "120kW , Support Power"
+          }
+        ]
+      },
+      "faqs": [
+        {
+          "question": "GaN Si MOSFETYes Advantage?",
+          "answer": "NCE GaN MOSFET Yes Advantage: 1) Resistance(Rds(on)),  ; 2) ReverseRestore ,  Application; 3) Speed( / <10ns),  ; 4) (>100kHz)EfficiencyAdvantage .  30kW ,  GaN Efficiency 2-3%, Power 50% .",
+          "decisionGuide": "Efficiency Power Application GaN;  Power Requirement Application MOSFET.",
+          "keywords": [
+            "GaN",
+            "氮化镓",
+            "高频",
+            "Efficiency",
+            "Power"
+          ]
+        },
+        {
+          "question": "PFC DesignYes ?",
+          "answer": "PFC Yes , Design : 1) (CCM) None , Efficiency 99%; 2) GaN ,  SiC ; 3)InductanceDesign CurrentRipple , Recommended ; 4) Design Steady State Dynamic . NCE650G10 PFCApplication.",
+          "decisionGuide": "30kW PFC; 30kW ;  Efficiency None PFC.",
+          "keywords": [
+            "PFC",
+            "Power",
+            "图腾柱",
+            "None"
+          ]
+        },
+        {
+          "question": "LLC DesignNote Yes ?",
+          "answer": "LLC Yes DC/DC : 1) Frequency 100-150kHz,  GaN Advantage; 2) ,  Height ,  Efficiency; 3) Inductance Integration ,  ; 4) ,  ZVSImplementation. NCE GaN OutputCapacitanceYes ZVSImplementation,  Scope Efficiency.",
+          "decisionGuide": "Application LLC;  Application Buck-Boost ;  PowerApplication LLC Design.",
+          "keywords": [
+            "LLC",
+            "谐振变换器",
+            "ZVS",
+            "平面变压器"
+          ]
+        },
+        {
+          "question": "充电桩如何满足不同车型的充电需求?",
+          "answer": "NCE Support200V-750V VoltageOutput, Compatible : 1) LLC Implementation Voltage ; 2)SupportCCS Combo, CHAdeMO, GB/T Standard; 3) BMS ,  DynamicAdjustOutput; 4) DesignSupportPower ,  .  Approved Compatible Test.",
+          "decisionGuide": "Total Support Standard;  Scenario Standard;  SupportCCS GB/TStandard.",
+          "keywords": [
+            "Standard",
+            "CCS",
+            "CHAdeMO",
+            "GB/T",
+            "Voltage"
+          ]
+        },
+        {
+          "question": "充电桩的冷却方案如何选择?",
+          "answer": "Power Reliability: 1)30kW , Design ; 2)30-120kW ,  Temperature ; 3)120kW Recommended , Power 5kW/L ; 4)GaN ,  ,  Design. NCE ReferenceDesign.",
+          "decisionGuide": "Power Requirement ;  ;  Application IP Design.",
+          "keywords": [
+            "冷却方案",
+            "液冷",
+            "风冷",
+            "Power",
+            "IP"
+          ]
+        },
+        {
+          "question": "EMCDesignYes Requirement?",
+          "answer": "Power Force , EMCDesign Important: 1) GB/T 18487.2 CISPR 11 Class BStandard; 2)Input EMI ,  Total ; 3)Power YCapacitance ,  ; 4) Design,  ; 5) ,  .  EMC ,  10-15dB .",
+          "decisionGuide": "Total Class BStandard;  Class A;  EMC Test,  .",
+          "keywords": [
+            "EMC",
+            "Compatible",
+            "EMI",
+            "GB/T 18487",
+            "屏蔽"
+          ]
+        }
+      ],
+      "slug": "ev-charging-solution",
+      "longDescription": "NCE GaN SiCTechnology Efficient , Support Application,  Efficiency 98% This solution provides comprehensive support and guidance for your application needs.",
+      "benefits": [
+        "High performance and reliability",
+        "Comprehensive technical support",
+        "Easy integration and deployment",
+        "Cost-effective solution"
+      ],
+      "customerCases": [
+        {
+          "customer": "Industrial Customer",
+          "industry": "Industrial",
+          "challenge": "Needed reliable solution",
+          "solution": "Implemented our solution",
+          "results": "Achieved expected performance"
+        },
+        {
+          "customer": "Commercial Customer",
+          "industry": "Commercial",
+          "challenge": "Cost-sensitive application",
+          "solution": "Optimized solution design",
+          "results": "Met cost targets"
+        }
+      ],
+      "faeInsights": {
+        "author": "FAE Team",
+        "content": "This solution provides excellent performance for target applications.",
+        "keyTakeaways": [
+          "Follow design guidelines",
+          "Consider environmental factors"
+        ]
+      }
+    }
+  ],
+  "seoTitle": "nce Solutions - Application Guides | Technical Support",
+  "seoDescription": "Explore nce application solutions. Get technical support, BOM recommendations, and design guidance from our expert team.",
+  "seoKeywords": [
+    "nce distributor",
+    "nce 选型",
+    "nce products",
+    "nce authorized distributor",
+    "nce technical support",
+    "nce datasheet",
+    "nce pricing",
+    "nce inventory",
+    "nce samples",
+    "nce evaluation kit"
+  ],
+  "faqs": [
+    {
+      "question": "What applications are nce solutions suitable for?",
+      "answer": "Our nce solutions cover a wide range of applications including automotive, industrial, consumer electronics, and telecommunications. Contact our technical team for application-specific guidance."
+    },
+    {
+      "question": "Do you provide design support for these solutions?",
+      "answer": "Yes, our FAE team provides comprehensive design support including schematic review, PCB layout guidance, and troubleshooting assistance."
+    },
+    {
+      "question": "Can I customize these solutions for my specific needs?",
+      "answer": "Absolutely. We can help customize these reference designs to meet your specific requirements. Contact our engineering team to discuss your project."
+    }
+  ]
+}

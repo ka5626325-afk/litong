@@ -1,0 +1,252 @@
+{
+  "seoTitle": "Rohm Technical Support | Application Notes, Design Tools | LiTong",
+  "seoDescription": "Access Rohm technical support resources including application notes, reference designs, simulation models, and FAE support for SiC and power designs.",
+  "seoKeywords": [
+    "Rohm support",
+    "SiC application notes",
+    "design tools",
+    "reference designs",
+    "Selection",
+    "rohm distributor",
+    "rohm authorized distributor",
+    "rohm 选型",
+    "rohm 选型指南"
+  ],
+  "faqs": [
+    {
+      "question": "What technical support resources does Rohm provide?",
+      "answer": "Rohm provides comprehensive technical support resources: Application notes covering device selection, gate drive design, thermal management, and PCB layout; Reference designs with complete schematics, BOMs, and layout files for EV, solar, and industrial applications; Simulation models including SPICE models for circuit simulation; Evaluation kits for device testing and validation; Online design tools such as loss calculators and thermal simulators; Technical documentation with datasheets, reliability reports, and qualification data; FAE support through LiTong's global field application engineering team.",
+      "decisionGuide": "Browse our support articles below or contact LiTong FAE team for personalized technical assistance.",
+      "keywords": [
+        "technical support",
+        "application notes",
+        "design resources",
+        "Selection"
+      ]
+    },
+    {
+      "question": "How can I get FAE support for my Rohm design?",
+      "answer": "Rohm FAE support through LiTong: (1) Contact - Reach out to LiTong sales or FAE team. (2) Design review - Schematic and layout review services. (3) Troubleshooting - Debug assistance for prototype issues. (4) Optimization - Performance optimization recommendations. (5) Training - Technical workshops and webinars. (6) Custom solutions - Application-specific recommendations. (7) Response time - Typically 24-48 hours for technical inquiries. LiTong's FAE team has extensive Rohm SiC design experience.",
+      "decisionGuide": "Contact LiTong FAE team early in your design cycle for best results.",
+      "keywords": [
+        "FAE support",
+        "field application engineer",
+        "design assistance"
+      ]
+    },
+    {
+      "question": "What design tools are available for Rohm SiC devices?",
+      "answer": "Rohm design tools available: (1) SPICE models - Accurate device simulation models. (2) Reference designs - Complete working designs for common applications. (3) Evaluation kits - Hardware for device evaluation. (4) Thermal calculator - Junction temperature estimation. (5) Gate drive calculator - Optimal gate resistor selection. (6) Loss calculator - Conduction and switching losses. (7) Application notes - Comprehensive design guides. These tools accelerate design and optimization.",
+      "decisionGuide": "Start with SPICE models for simulation; use reference designs for hardware development.",
+      "keywords": [
+        "design tools",
+        "SPICE models",
+        "simulation",
+        "thermal calculator"
+      ]
+    }
+  ],
+  "articles": [
+    {
+      "id": "sic-mosfet-selection",
+      "title": "Rohm SiC MOSFET Selection Guide",
+      "slug": "sic-mosfet-selection",
+      "category": "Technical Guide",
+      "description": "Comprehensive guide for selecting the right Rohm SiC MOSFET for your application.",
+      "summary": "Learn how to select the optimal Rohm SiC MOSFET for your power converter design based on voltage, current, and application requirements.",
+      "author": {
+        "name": "LiTong FAE Team",
+        "title": "Field Application Engineer"
+      },
+      "publishDate": "2024-03-15",
+      "tags": [
+        "SiC",
+        "MOSFET",
+        "Selection Guide",
+        "Rohm",
+        "Selection"
+      ],
+      "content": [
+        "Selecting the right Rohm SiC MOSFET is critical for achieving optimal performance in your power converter design. This guide covers key selection criteria including voltage rating, current rating, on-resistance, and package options.",
+        "Voltage Rating Selection: Choose a voltage rating at least 1.3 times the maximum DC bus voltage in your application. For 400V EV systems, select 650V devices. For 800V systems, select 1200V devices. Consider voltage spikes during switching and include appropriate margin.",
+        "Current Rating Selection: The continuous drain current rating should be at least 1.5 times the RMS current in your application. Consider both continuous and peak current requirements. Remember that current capability decreases at high temperatures.",
+        "On-Resistance Considerations: Rohm offers industry-leading low Rds(on) options. Lower Rds(on) reduces conduction losses but typically comes at higher cost. Calculate total losses to optimize for your operating conditions.",
+        "Package Selection: TO-247 packages are suitable for discrete designs up to 100A. For higher currents or integrated designs, consider power modules. Kelvin source packages (TO-247-4L) enable faster switching and reduced losses."
+      ],
+      "faeInsights": {
+        "author": "Michael Chen",
+        "title": "Senior FAE",
+        "content": "For most EV applications, I recommend starting with the SCT3022AL (650V) or SCT3080KL (1200V) depending on your battery voltage. The Kelvin source connection is essential for high-speed switching. Always use the thermal calculator to verify junction temperature."
+      },
+      "customerCases": [
+        {
+          "customer": "EV Manufacturer",
+          "application": "Traction Inverter",
+          "result": "98.5% efficiency achieved with SCT3022AL"
+        }
+      ],
+      "relatedArticles": [
+        "gate-drive-design",
+        "thermal-management",
+        "pcb-layout"
+      ],
+      "downloads": [
+        {
+          "title": "SiC MOSFET Selection Guide PDF",
+          "url": "/downloads/rohm/sic-mosfet-selection-guide.pdf"
+        },
+        {
+          "title": "SCT Series Datasheet",
+          "url": "/downloads/rohm/sct-series-datasheet.pdf"
+        }
+      ]
+    },
+    {
+      "id": "gate-drive-design",
+      "title": "SiC MOSFET Gate Drive Design",
+      "slug": "gate-drive-design",
+      "category": "Application Note",
+      "description": "Detailed application note on gate drive design for Rohm SiC MOSFETs.",
+      "summary": "Master gate drive design for Rohm SiC MOSFETs with this comprehensive guide.",
+      "author": {
+        "name": "LiTong FAE Team",
+        "title": "Field Application Engineer"
+      },
+      "publishDate": "2024-03-10",
+      "tags": [
+        "Gate Drive",
+        "SiC",
+        "MOSFET",
+        "Design"
+      ],
+      "content": [
+        "Proper gate drive design is essential for maximizing Rohm SiC MOSFET performance. This application note covers gate voltage requirements, gate resistor selection, and protection circuit design.",
+        "Gate Voltage Requirements: Rohm SiC MOSFETs typically require +18V for turn-on and 0V for turn-off. The recommended gate voltage is +18V/0V for optimal performance. Rohm devices are designed for easy drive with standard gate drivers.",
+        "Gate Resistor Selection: The gate resistor (Rg) controls switching speed and EMI. Typical values range from 2Ω to 10Ω. Lower values enable faster switching but increase EMI and voltage overshoot. Higher values reduce EMI but increase switching losses.",
+        "Gate Driver Selection: Use isolated gate drivers with at least 2500Vrms isolation. Peak output current should be 5A minimum. Include features such as desaturation detection for robust protection.",
+        "PCB Layout Considerations: Minimize gate loop inductance by placing the gate driver close to the MOSFET. Use Kelvin source connection (TO-247-4L) to eliminate source inductance from the gate loop."
+      ],
+      "faeInsights": {
+        "author": "David Wang",
+        "title": "Senior FAE",
+        "content": "Rohm SiC MOSFETs are designed for easy gate drive. Unlike some competitors, Rohm devices work well with standard 15-18V drivers without negative bias. Start with 5Ω gate resistor and adjust based on your switching waveforms."
+      },
+      "customerCases": [
+        {
+          "customer": "Industrial Drive Manufacturer",
+          "application": "Motor Drive",
+          "result": "Clean switching with minimal ringing"
+        }
+      ],
+      "relatedArticles": [
+        "sic-mosfet-selection",
+        "thermal-management",
+        "pcb-layout"
+      ],
+      "downloads": [
+        {
+          "title": "Gate Drive Design Guide",
+          "url": "/downloads/rohm/gate-drive-design-guide.pdf"
+        }
+      ]
+    },
+    {
+      "id": "thermal-management",
+      "title": "SiC Device Thermal Management",
+      "slug": "thermal-management",
+      "category": "Application Note",
+      "description": "Comprehensive guide on thermal management for Rohm SiC MOSFETs.",
+      "summary": "Optimize thermal design for Rohm SiC devices with this guide.",
+      "author": {
+        "name": "LiTong FAE Team",
+        "title": "Field Application Engineer"
+      },
+      "publishDate": "2024-03-05",
+      "tags": [
+        "Thermal",
+        "SiC",
+        "Heatsink",
+        "Cooling"
+      ],
+      "content": [
+        "Effective thermal management is crucial for maximizing the performance and reliability of Rohm SiC power devices. This guide covers thermal resistance calculations, heatsink selection, and cooling system design.",
+        "Thermal Resistance Model: The thermal path from junction to ambient consists of Rth(j-c) - junction to case, Rth(c-s) - case to heatsink, and Rth(s-a) - heatsink to ambient.",
+        "Junction Temperature Calculation: Tj = Ta + Ploss × Rth(j-a), where Ta is ambient temperature and Ploss is total device losses. Keep Tj below the maximum rating (175°C) with adequate margin.",
+        "Heatsink Selection: Select a heatsink with adequate thermal performance for your application. Consider natural convection, forced air, or liquid cooling based on power level.",
+        "Thermal Interface Materials: Use high-performance thermal interface materials between the device case and heatsink. Phase-change materials can significantly reduce Rth(c-s)."
+      ],
+      "faeInsights": {
+        "author": "Li Wei",
+        "title": "FAE",
+        "content": "For high-power applications, I recommend using phase-change thermal interface material for best performance. Always calculate worst-case junction temperature at maximum ambient and load conditions."
+      },
+      "customerCases": [
+        {
+          "customer": "Solar Inverter Company",
+          "application": "100kW Inverter",
+          "result": "Tj maintained below 125°C at full load"
+        }
+      ],
+      "relatedArticles": [
+        "sic-mosfet-selection",
+        "gate-drive-design",
+        "pcb-layout"
+      ],
+      "downloads": [
+        {
+          "title": "Thermal Management Guide",
+          "url": "/downloads/rohm/thermal-management-guide.pdf"
+        }
+      ]
+    },
+    {
+      "id": "pcb-layout",
+      "title": "SiC PCB Layout Guidelines",
+      "slug": "pcb-layout",
+      "category": "Design Guide",
+      "description": "Best practices for PCB layout when using Rohm SiC MOSFETs.",
+      "summary": "Master PCB layout for Rohm SiC designs with these guidelines.",
+      "author": {
+        "name": "LiTong FAE Team",
+        "title": "Field Application Engineer"
+      },
+      "publishDate": "2024-02-28",
+      "tags": [
+        "PCB Layout",
+        "SiC",
+        "Design",
+        "Guidelines"
+      ],
+      "content": [
+        "Proper PCB layout is critical for achieving the full performance benefits of Rohm SiC power devices. This guide covers layout techniques to minimize parasitic inductance.",
+        "Minimizing Parasitic Inductance: Parasitic inductance in power loops causes voltage overshoot during switching. Minimize the area of the power loop by placing components close together.",
+        "Gate Loop Design: The gate drive loop must have minimal inductance for clean switching. Place the gate driver as close as possible to the MOSFET. Use Kelvin source connection to eliminate source inductance from the gate loop.",
+        "Thermal Considerations: Use adequate copper area for heat spreading from device terminals. Implement thermal vias under device pads to conduct heat to inner layers.",
+        "EMI and Safety: Minimize loop areas to reduce EMI radiation. Maintain adequate creepage and clearance distances for the voltage rating."
+      ],
+      "faeInsights": {
+        "author": "Zhang Ming",
+        "title": "FAE",
+        "content": "The Kelvin source connection is critical for Rohm SiC MOSFETs. Route the gate return separately from the power source connection directly to the Kelvin pin. This can improve switching speed by 30% or more."
+      },
+      "customerCases": [
+        {
+          "customer": "EV Charger Manufacturer",
+          "application": "22kW OBC",
+          "result": "Clean waveforms with minimal overshoot"
+        }
+      ],
+      "relatedArticles": [
+        "sic-mosfet-selection",
+        "gate-drive-design",
+        "thermal-management"
+      ],
+      "downloads": [
+        {
+          "title": "PCB Layout Guidelines",
+          "url": "/downloads/rohm/pcb-layout-guidelines.pdf"
+        }
+      ]
+    }
+  ]
+}

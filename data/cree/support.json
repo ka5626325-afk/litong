@@ -1,0 +1,521 @@
+{
+  "seoTitle": "Cree Wolfspeed Technical Support | Application Notes, Design Tools | LiTong",
+  "seoDescription": "Access Cree Wolfspeed technical support resources including application notes, reference designs, simulation models, and FAE support for SiC and GaN designs.",
+  "seoKeywords": [
+    "Wolfspeed support",
+    "SiC application notes",
+    "GaN design tools",
+    "reference designs",
+    "FAE support",
+    "cree distributor",
+    "cree authorized distributor",
+    "cree 选型",
+    "cree 选型指南"
+  ],
+  "faqs": [
+    {
+      "question": "What technical support resources does Wolfspeed provide?",
+      "answer": "Wolfspeed provides comprehensive technical support resources: Application notes covering device selection, gate drive design, thermal management, and PCB layout; Reference designs with complete schematics, BOMs, and layout files for EV, renewable energy, and industrial applications; Simulation models including SPICE models for circuit simulation; Evaluation kits for device testing and validation; Online design tools such as loss calculators and thermal simulators; Technical documentation with datasheets, reliability reports, and qualification data; FAE support through LiTong's global field application engineering team. These resources help engineers successfully implement SiC and GaN designs.",
+      "decisionGuide": "Browse our support articles below or contact LiTong FAE team for personalized technical assistance.",
+      "keywords": [
+        "technical support",
+        "application notes",
+        "design resources"
+      ]
+    },
+    {
+      "question": "How can I get FAE support for my Wolfspeed design?",
+      "answer": "Wolfspeed FAE support through LiTong: (1) Contact - Reach out to LiTong sales or FAE team. (2) Design review - Schematic and layout review services. (3) Troubleshooting - Debug assistance for prototype issues. (4) Optimization - Performance optimization recommendations. (5) Training - Technical workshops and webinars. (6) Custom solutions - Application-specific recommendations. (7) Response time - Typically 24-48 hours for technical inquiries. LiTong's FAE team has extensive SiC and GaN design experience.",
+      "decisionGuide": "Contact LiTong FAE team early in your design cycle for best results.",
+      "keywords": [
+        "FAE support",
+        "field application engineer",
+        "design assistance"
+      ]
+    },
+    {
+      "question": "What design tools are available for Wolfspeed SiC devices?",
+      "answer": "Wolfspeed design tools available: (1) SpeedFit - Online loss and thermal calculator. (2) SPICE models - Accurate device simulation models. (3) Reference designs - Complete working designs for common applications. (4) Evaluation kits - Hardware for device evaluation. (5) Thermal calculator - Junction temperature estimation. (6) Gate drive calculator - Optimal gate resistor selection. (7) Application simulator - System-level performance prediction. These tools accelerate design and optimization.",
+      "decisionGuide": "Start with SpeedFit calculator for initial design; use SPICE models for detailed simulation.",
+      "keywords": [
+        "design tools",
+        "SpeedFit",
+        "SPICE models",
+        "simulation"
+      ]
+    }
+  ],
+  "articles": [
+    {
+      "id": "sic-mosfet-selection",
+      "title": "SiC MOSFET Selection Guide",
+      "category": "Technical Guide",
+      "description": "Comprehensive guide for selecting the right SiC MOSFET for your application, including voltage rating, current rating, and package selection criteria.",
+      "summary": "Learn how to select the optimal SiC MOSFET for your power converter design based on voltage, current, and thermal requirements.",
+      "author": {
+        "name": "LiTong FAE Team",
+        "title": "Field Application Engineer"
+      },
+      "publishDate": "2024-03-15",
+      "tags": [
+        "SiC",
+        "MOSFET",
+        "Selection Guide",
+        "Design"
+      ],
+      "content": [
+        "Selecting the right SiC MOSFET is critical for achieving optimal performance in your power converter design. This guide covers key selection criteria including voltage rating, current rating, on-resistance, and package options.",
+        "Voltage Rating Selection: Choose a voltage rating at least 1.3 times the maximum DC bus voltage in your application. For 800V EV systems, select 1200V devices. For 400V systems, 650V or 900V devices may be suitable. Consider voltage spikes during switching and include appropriate margin.",
+        "Current Rating Selection: The continuous drain current rating should be at least 1.5 times the RMS current in your application. Consider both continuous and peak current requirements. Remember that current capability decreases at high temperatures.",
+        "On-Resistance Considerations: Lower Rds(on) reduces conduction losses but typically comes at higher cost. Calculate total losses (conduction + switching) to optimize for your operating conditions. Wolfspeed's industry-leading Rds(on) enables highest efficiency designs.",
+        "Package Selection: TO-247 packages are suitable for discrete designs up to 100A. For higher currents or integrated designs, consider power modules. Kelvin source packages (TO-247-4) enable faster switching and reduced losses."
+      ],
+      "faqs": [
+        {
+          "question": "How do I determine the right voltage rating for my SiC MOSFET?",
+          "answer": "SiC MOSFET voltage rating selection: (1) Normal operating voltage - Device VDS rating > 1.3 × Vdc max. (2) Transient spikes - Account for switching overshoot. (3) 400V systems - Use 650V or 900V devices. (4) 800V systems - Use 1200V devices. (5) Margin - Include 20-30% safety margin. (6) Derating - Consider altitude and temperature derating. (7) Standards - Meet relevant safety standards. Proper voltage selection ensures reliable operation.",
+          "decisionGuide": "Use 1.3× safety margin on maximum DC voltage; include additional margin for switching spikes.",
+          "keywords": [
+            "voltage rating",
+            "selection",
+            "safety margin"
+          ]
+        },
+        {
+          "question": "What factors should I consider when selecting Rds(on)?",
+          "answer": "Rds(on) selection factors: (1) Conduction loss - Pcond = I² × Rds(on). (2) Cost - Lower Rds(on) costs more. (3) Temperature - Rds(on) increases at high Tj. (4) Total loss - Balance conduction vs switching losses. (5) Cooling - Lower Rds(on) reduces cooling needs. (6) Efficiency target - Select based on efficiency requirements. (7) Budget - Balance performance vs cost. Optimize for total system performance, not just device cost.",
+          "decisionGuide": "Calculate total losses at operating conditions; select Rds(on) for optimal efficiency vs cost trade-off.",
+          "keywords": [
+            "Rds(on)",
+            "conduction loss",
+            "selection"
+          ]
+        },
+        {
+          "question": "When should I choose a module vs discrete devices?",
+          "answer": "Module vs discrete selection: (1) Power level - Modules for >150kW, discrete for <150kW. (2) Volume - Modules for high-volume production. (3) Integration - Modules reduce design complexity. (4) Performance - Modules have lower inductance. (5) Cost - Modules lower system cost at high volume. (6) Flexibility - Discrete offers more design flexibility. (7) Time-to-market - Modules accelerate development. Choose based on power level, volume, and development timeline.",
+          "decisionGuide": "Use discrete for prototyping and low volume; modules for high-volume production >150kW.",
+          "keywords": [
+            "module",
+            "discrete",
+            "selection",
+            "power level"
+          ]
+        },
+        {
+          "question": "What is the benefit of Kelvin source connection?",
+          "answer": "Kelvin source benefits: (1) Separate paths - Power and gate return separated. (2) Inductance - Eliminates source inductance from gate loop. (3) Switching speed - Faster turn-on and turn-off. (4) Losses - Reduced switching losses. (5) EMI - Cleaner switching waveforms. (6) Frequency - Enables higher switching frequency. (7) Design - Use 4-pin TO-247 package. Kelvin connection is essential for high-speed SiC switching.",
+          "decisionGuide": "Always use Kelvin source for switching >50kHz or when minimizing switching losses.",
+          "keywords": [
+            "Kelvin source",
+            "TO-247-4",
+            "switching performance"
+          ]
+        },
+        {
+          "question": "How does temperature affect SiC MOSFET selection?",
+          "answer": "Temperature considerations: (1) Rds(on) increase - Typically 15-20% at 175°C vs 25°C. (2) Current derating - Current capability decreases at high Tj. (3) Thermal design - Size cooling for worst-case conditions. (4) Reliability - Higher Tj reduces lifetime. (5) Automotive - Design for 150°C maximum. (6) Industrial - 175°C may be acceptable. (7) Margin - Include temperature margin in selection. Account for temperature in all design calculations.",
+          "decisionGuide": "Design for maximum junction temperature; use 175°C Rds(on) for loss calculations.",
+          "keywords": [
+            "temperature",
+            "thermal design",
+            "reliability"
+          ]
+        },
+        {
+          "question": "What are the key differences between Wolfspeed SiC generations?",
+          "answer": "Wolfspeed SiC generations: (1) Gen 1 - Original commercial SiC MOSFETs. (2) Gen 2 - Improved Rds(on) and reliability. (3) Gen 3 (C3M) - Current generation with planar technology. (4) Rds(on) - Each generation reduces specific Rds(on). (5) Reliability - Continuous improvement in ruggedness. (6) Portfolio - Expanding voltage and current options. (7) Recommendation - Use latest generation for new designs. Gen 3 C3M series offers best performance and value.",
+          "decisionGuide": "Use C3M Gen 3 devices for new designs; best performance, reliability, and cost.",
+          "keywords": [
+            "SiC generations",
+            "C3M",
+            "technology"
+          ]
+        }
+      ],
+      "relatedArticles": [
+        "gate-drive-design",
+        "thermal-management",
+        "pcb-layout"
+      ],
+      "downloads": [
+        {
+          "title": "SiC MOSFET Selection Guide PDF",
+          "url": "/downloads/cree/sic-mosfet-selection-guide.pdf"
+        },
+        {
+          "title": "C3M Series Datasheet",
+          "url": "/downloads/cree/c3m-series-datasheet.pdf"
+        }
+      ],
+      "slug": "sic-mosfet-selection",
+      "faeInsights": {
+        "author": "FAE Team",
+        "content": "This article provides valuable technical information.",
+        "highlight": "Key technical insights"
+      },
+      "customerCases": [
+        {
+          "customer": "Customer",
+          "industry": "Industry",
+          "challenge": "Technical challenge",
+          "solution": "Applied solution",
+          "results": "Successful outcome"
+        }
+      ]
+    },
+    {
+      "id": "gate-drive-design",
+      "title": "SiC MOSFET Gate Drive Design",
+      "category": "Application Note",
+      "description": "Detailed application note on gate drive design for SiC MOSFETs, including voltage levels, gate resistors, and protection circuits.",
+      "summary": "Master gate drive design for SiC MOSFETs with this comprehensive guide covering voltage requirements, resistor selection, and protection.",
+      "author": {
+        "name": "LiTong FAE Team",
+        "title": "Field Application Engineer"
+      },
+      "publishDate": "2024-03-10",
+      "tags": [
+        "Gate Drive",
+        "SiC",
+        "MOSFET",
+        "Design"
+      ],
+      "content": [
+        "Proper gate drive design is essential for maximizing SiC MOSFET performance and ensuring reliable operation. This application note covers gate voltage requirements, gate resistor selection, and protection circuit design.",
+        "Gate Voltage Requirements: Wolfspeed SiC MOSFETs typically require +15V to +18V for turn-on and -3V to -5V for turn-off. The recommended gate voltage is +18V/-5V for optimal performance. Never exceed the maximum gate voltage rating of +25V/-10V to prevent device damage.",
+        "Gate Resistor Selection: The gate resistor (Rg) controls switching speed and EMI. Typical values range from 2Ω to 10Ω. Lower values enable faster switching but increase EMI and voltage overshoot. Higher values reduce EMI but increase switching losses. Optimize Rg for your specific application requirements.",
+        "Gate Driver Selection: Use isolated gate drivers with at least 2500Vrms isolation. Peak output current should be 5A minimum, with 10A preferred for fast switching. Include features such as desaturation detection, soft shutdown, and Miller clamp for robust protection.",
+        "PCB Layout Considerations: Minimize gate loop inductance by placing the gate driver close to the MOSFET. Use Kelvin source connection (TO-247-4 package) to eliminate source inductance from the gate loop. Keep gate traces short and wide to reduce inductance."
+      ],
+      "faqs": [
+        {
+          "question": "What gate voltage should I use for Wolfspeed SiC MOSFETs?",
+          "answer": "Recommended gate voltage: (1) Turn-on - +15V to +18V (+18V recommended). (2) Turn-off - -3V to -5V (-5V recommended). (3) Threshold - 2.5V typical. (4) Maximum - Never exceed +25V/-10V. (5) Benefits - Higher Vgs reduces Rds(on). (6) Negative bias - Improves noise immunity and turn-off speed. (7) Driver - Select driver with appropriate output voltage. +18V/-5V provides optimal performance and noise margin.",
+          "decisionGuide": "Use +18V/-5V gate drive for optimal performance; never exceed absolute maximum ratings.",
+          "keywords": [
+            "gate voltage",
+            "Vgs",
+            "gate drive"
+          ]
+        },
+        {
+          "question": "How do I select the optimal gate resistor value?",
+          "answer": "Gate resistor selection: (1) Switching speed - Lower Rg = faster switching. (2) EMI - Higher Rg = lower EMI. (3) Overshoot - Lower Rg may increase voltage spikes. (4) Losses - Lower Rg reduces switching losses. (5) Typical range - 2Ω to 10Ω for SiC. (6) Start value - 5Ω typical starting point. (7) Optimization - Tune based on switching waveforms. Balance switching speed, EMI, and voltage overshoot.",
+          "decisionGuide": "Start with 5Ω; reduce for faster switching or increase for lower EMI based on testing.",
+          "keywords": [
+            "gate resistor",
+            "Rg",
+            "switching speed"
+          ]
+        },
+        {
+          "question": "What protection features should my gate driver include?",
+          "answer": "Essential gate driver protection: (1) Desaturation detection - Detects short-circuit conditions. (2) Soft shutdown - Controlled turn-off during faults. (3) Miller clamp - Prevents false turn-on from dv/dt. (4) UVLO - Under-voltage lockout protection. (5) Isolation - 2500Vrms minimum for safety. (6) Overcurrent - Fast current detection and shutdown. (7) Temperature - Overtemperature protection. These features ensure reliable SiC operation.",
+          "decisionGuide": "Use gate drivers with desaturation detection, soft shutdown, and Miller clamp for robust protection.",
+          "keywords": [
+            "protection",
+            "desaturation",
+            "soft shutdown"
+          ]
+        },
+        {
+          "question": "How do I calculate gate drive power requirements?",
+          "answer": "Gate drive power calculation: (1) Gate charge - Qg from datasheet (e.g., 70nC). (2) Frequency - Switching frequency (e.g., 50kHz). (3) Voltage - Gate drive voltage swing (e.g., 23V for +18V/-5V). (4) Formula - P = Qg × V × fsw. (5) Example - 70nC × 23V × 50kHz = 80mW. (6) Driver capacity - Ensure driver can supply required power. (7) Margin - Include 50% margin for reliability. Calculate for each MOSFET in your design.",
+          "decisionGuide": "Calculate P = Qg × V × fsw; ensure gate driver has adequate power capacity with margin.",
+          "keywords": [
+            "gate drive power",
+            "Qg",
+            "calculation"
+          ]
+        },
+        {
+          "question": "What is Miller effect and how do I prevent false turn-on?",
+          "answer": "Miller effect and prevention: (1) Cause - High dv/dt couples through Cgd to gate. (2) Effect - Can cause false turn-on during turn-off. (3) Miller clamp - Active clamp to hold gate low. (4) Negative bias - -5V offset improves immunity. (5) Layout - Minimize gate loop inductance. (6) Capacitor - Small capacitor from gate to source can help. (7) Driver - Use drivers with built-in Miller clamp. Miller clamp is essential for high-dv/dt SiC switching.",
+          "decisionGuide": "Use gate drivers with Miller clamp and negative turn-off voltage to prevent false turn-on.",
+          "keywords": [
+            "Miller effect",
+            "false turn-on",
+            "Miller clamp"
+          ]
+        },
+        {
+          "question": "Can I use standard MOSFET gate drivers for SiC devices?",
+          "answer": "Standard drivers vs SiC-optimized: (1) Voltage - Standard drivers may not support +18V/-5V. (2) Current - SiC needs higher peak current (5-10A). (3) Speed - SiC drivers optimized for fast switching. (4) Protection - SiC drivers include desaturation detection. (5) Isolation - Higher isolation often needed. (6) Compatibility - Some standard drivers work but not optimal. (7) Recommendation - Use SiC-optimized drivers for best results. SiC-specific drivers provide best performance and protection.",
+          "decisionGuide": "Use SiC-optimized gate drivers for best performance; verify voltage and current capability.",
+          "keywords": [
+            "gate driver",
+            "standard MOSFET",
+            "SiC optimized"
+          ]
+        }
+      ],
+      "relatedArticles": [
+        "sic-mosfet-selection",
+        "thermal-management",
+        "pcb-layout"
+      ],
+      "downloads": [
+        {
+          "title": "Gate Drive Design Guide",
+          "url": "/downloads/cree/gate-drive-design-guide.pdf"
+        },
+        {
+          "title": "Gate Driver Selection Guide",
+          "url": "/downloads/cree/gate-driver-selection-guide.pdf"
+        }
+      ],
+      "slug": "gate-drive-design",
+      "faeInsights": {
+        "author": "FAE Team",
+        "content": "This article provides valuable technical information.",
+        "highlight": "Key technical insights"
+      },
+      "customerCases": [
+        {
+          "customer": "Customer",
+          "industry": "Industry",
+          "challenge": "Technical challenge",
+          "solution": "Applied solution",
+          "results": "Successful outcome"
+        }
+      ]
+    },
+    {
+      "id": "thermal-management",
+      "title": "SiC Device Thermal Management",
+      "category": "Application Note",
+      "description": "Comprehensive guide on thermal management for SiC MOSFETs and diodes, including heatsink selection, thermal interface materials, and cooling system design.",
+      "summary": "Optimize thermal design for SiC devices with this guide covering heatsink selection, TIM selection, and junction temperature calculations.",
+      "author": {
+        "name": "LiTong FAE Team",
+        "title": "Field Application Engineer"
+      },
+      "publishDate": "2024-03-05",
+      "tags": [
+        "Thermal",
+        "SiC",
+        "Heatsink",
+        "Cooling"
+      ],
+      "content": [
+        "Effective thermal management is crucial for maximizing the performance and reliability of SiC power devices. This guide covers thermal resistance calculations, heatsink selection, and cooling system design.",
+        "Thermal Resistance Model: The thermal path from junction to ambient consists of Rth(j-c) - junction to case, Rth(c-s) - case to heatsink, and Rth(s-a) - heatsink to ambient. Total thermal resistance Rth(j-a) = Rth(j-c) + Rth(c-s) + Rth(s-a).",
+        "Junction Temperature Calculation: Tj = Ta + Ploss × Rth(j-a), where Ta is ambient temperature and Ploss is total device losses. Keep Tj below the maximum rating (typically 175°C) with adequate margin. For automotive applications, design for Tj < 150°C.",
+        "Heatsink Selection: Select a heatsink with adequate thermal performance (low Rth(s-a)) for your application. Consider natural convection, forced air, or liquid cooling based on power level and space constraints. Thermal simulation can help optimize heatsink design.",
+        "Thermal Interface Materials: Use high-performance thermal interface materials (TIM) between the device case and heatsink. Phase-change materials, thermal greases, or gap pads can significantly reduce Rth(c-s). Proper application is essential for optimal thermal performance."
+      ],
+      "faqs": [
+        {
+          "question": "How do I calculate the junction temperature of a SiC MOSFET?",
+          "answer": "Junction temperature calculation: (1) Formula - Tj = Ta + Ploss × Rth(j-a). (2) Ambient - Measure or specify Ta. (3) Losses - Calculate total conduction + switching losses. (4) Thermal resistance - Sum Rth(j-c) + Rth(c-s) + Rth(s-a). (5) Example - Ta=50°C, Ploss=100W, Rth(j-a)=1.5°C/W: Tj=200°C. (6) Margin - Keep Tj below maximum with margin. (7) Measurement - Use NTC or thermocouple for verification. Accurate Tj calculation ensures reliable operation.",
+          "decisionGuide": "Calculate Tj for worst-case conditions; design with margin below maximum rating.",
+          "keywords": [
+            "junction temperature",
+            "Tj",
+            "thermal calculation"
+          ]
+        },
+        {
+          "question": "What thermal interface material should I use?",
+          "answer": "TIM selection: (1) Thermal grease - Good performance, requires careful application. (2) Phase-change - Excellent performance, easy application. (3) Gap pads - Good for uneven surfaces, easier assembly. (4) Performance - Target <0.5°C/W thermal resistance. (5) Application - Thin, uniform layer for grease/pads. (6) Long-term - Consider pump-out and dry-out. (7) Cost - Balance performance vs cost. Phase-change materials offer best balance of performance and ease of use.",
+          "decisionGuide": "Use phase-change material for best performance; gap pads for easier assembly.",
+          "keywords": [
+            "thermal interface",
+            "TIM",
+            "phase change",
+            "thermal grease"
+          ]
+        },
+        {
+          "question": "When should I use liquid cooling vs air cooling?",
+          "answer": "Liquid vs air cooling: (1) Power level - Liquid for >5kW, air for <5kW. (2) Power density - Liquid for high density. (3) Size - Liquid enables smaller systems. (4) Cost - Air cooling lower cost. (5) Complexity - Liquid more complex. (6) Maintenance - Liquid requires maintenance. (7) Applications - EV traction typically liquid; industrial may use air. Choose based on power, size, and cost constraints.",
+          "decisionGuide": "Use air cooling for <5kW; liquid cooling for >5kW or high power density.",
+          "keywords": [
+            "liquid cooling",
+            "air cooling",
+            "thermal management"
+          ]
+        },
+        {
+          "question": "How do I measure actual device temperature?",
+          "answer": "Temperature measurement methods: (1) NTC sensor - Built into many modules. (2) Thermocouple - Attach to case or heatsink. (3) IR camera - Non-contact surface measurement. (4) TSEP - Temperature sensitive electrical parameter. (5) Placement - Close to heat source for accuracy. (6) Calibration - Calibrate sensors for accuracy. (7) Monitoring - Continuous monitoring for protection. Multiple methods provide best accuracy and redundancy.",
+          "decisionGuide": "Use NTC for modules; thermocouple or IR for discrete devices; verify with calculations.",
+          "keywords": [
+            "temperature measurement",
+            "NTC",
+            "thermocouple"
+          ]
+        },
+        {
+          "question": "What is the impact of altitude on thermal performance?",
+          "answer": "Altitude effects on cooling: (1) Air density - Decreases with altitude. (2) Convection - Reduced at high altitude. (3) Derating - May need to derate above 2000m. (4) Forced air - Fans less effective at altitude. (5) Liquid cooling - Less affected by altitude. (6) Design - Increase heatsink size or airflow at altitude. (7) Standards - Check relevant altitude derating standards. Consider altitude in thermal design for aerospace or mountain applications.",
+          "decisionGuide": "Derate air-cooled systems 10-20% above 2000m; liquid cooling less affected.",
+          "keywords": [
+            "altitude",
+            "derating",
+            "air density"
+          ]
+        },
+        {
+          "question": "How does Rds(on) temperature coefficient affect thermal design?",
+          "answer": "Rds(on) tempco impact: (1) Positive coefficient - Rds(on) increases with temperature. (2) SiC advantage - Much lower tempco than silicon. (3) At 175°C - Typically 15-20% higher than 25°C. (4) Conduction loss - Increases at high temperature. (5) Thermal runaway - Less risk than silicon due to low tempco. (6) Design - Use 175°C Rds(on) for worst-case. (7) Parallel - Low tempco enables good current sharing. SiC's low tempco simplifies thermal design.",
+          "decisionGuide": "Use high-temperature Rds(on) for loss calculations; SiC's low tempco is advantageous.",
+          "keywords": [
+            "Rds(on)",
+            "temperature coefficient",
+            "tempco"
+          ]
+        }
+      ],
+      "relatedArticles": [
+        "sic-mosfet-selection",
+        "gate-drive-design",
+        "pcb-layout"
+      ],
+      "downloads": [
+        {
+          "title": "Thermal Management Guide",
+          "url": "/downloads/cree/thermal-management-guide.pdf"
+        },
+        {
+          "title": "Heatsink Selection Guide",
+          "url": "/downloads/cree/heatsink-selection-guide.pdf"
+        }
+      ],
+      "slug": "thermal-management",
+      "faeInsights": {
+        "author": "FAE Team",
+        "content": "This article provides valuable technical information.",
+        "highlight": "Key technical insights"
+      },
+      "customerCases": [
+        {
+          "customer": "Customer",
+          "industry": "Industry",
+          "challenge": "Technical challenge",
+          "solution": "Applied solution",
+          "results": "Successful outcome"
+        }
+      ]
+    },
+    {
+      "id": "pcb-layout",
+      "title": "SiC PCB Layout Guidelines",
+      "category": "Design Guide",
+      "description": "Best practices for PCB layout when using SiC MOSFETs and diodes, including minimizing parasitic inductance and optimizing thermal performance.",
+      "summary": "Master PCB layout for SiC designs with guidelines on minimizing parasitic inductance, gate routing, and thermal management.",
+      "author": {
+        "name": "LiTong FAE Team",
+        "title": "Field Application Engineer"
+      },
+      "publishDate": "2024-02-28",
+      "tags": [
+        "PCB Layout",
+        "SiC",
+        "Design",
+        "Guidelines"
+      ],
+      "content": [
+        "Proper PCB layout is critical for achieving the full performance benefits of SiC power devices. This guide covers layout techniques to minimize parasitic inductance, optimize thermal performance, and ensure reliable operation.",
+        "Minimizing Parasitic Inductance: Parasitic inductance in power loops causes voltage overshoot and ringing during switching. Minimize the area of the power loop (drain-source loop) by placing components close together. Use wide, short traces for power connections. Consider using copper pours or planes for low-inductance paths.",
+        "Gate Loop Design: The gate drive loop must have minimal inductance for clean switching. Place the gate driver as close as possible to the MOSFET gate and source pins. Use Kelvin source connection (TO-247-4) to eliminate source inductance from the gate loop. Keep gate traces short and wide.",
+        "Thermal Considerations: Use adequate copper area for heat spreading from device terminals. Implement thermal vias under device pads to conduct heat to inner layers. For high-power applications, use thick copper (2oz or 4oz) to improve thermal performance. Consider the thermal path from device to heatsink.",
+        "EMI and Safety: Minimize loop areas to reduce EMI radiation. Maintain adequate creepage and clearance distances for the voltage rating. Use proper grounding techniques with separate power and signal grounds. Follow relevant safety standards for your application."
+      ],
+      "faqs": [
+        {
+          "question": "How do I minimize parasitic inductance in the power loop?",
+          "answer": "Power loop inductance reduction: (1) Minimize area - Keep drain-source loop small. (2) Placement - Place switch, diode, and capacitor close. (3) Traces - Short, wide traces or copper pours. (4) Planes - Use power and ground planes. (5) Decoupling - Place capacitors at device terminals. (6) Loop area - Target <10nH for high-speed switching. (7) Measurement - Use impedance analyzer to verify. Low inductance is critical for clean SiC switching.",
+          "decisionGuide": "Minimize power loop area; use copper planes; place decoupling capacitors close to devices.",
+          "keywords": [
+            "parasitic inductance",
+            "power loop",
+            "layout"
+          ]
+        },
+        {
+          "question": "What is the best way to route gate drive signals?",
+          "answer": "Gate routing best practices: (1) Kelvin source - Use separate gate return pin. (2) Length - Keep traces as short as possible. (3) Width - Use adequate width for low inductance. (4) Isolation - Keep away from high dv/dt nodes. (5) Shielding - Ground plane under gate traces. (6) Termination - Minimize stubs and vias. (7) Symmetry - Equal length for paralleled devices. Proper gate routing ensures clean switching.",
+          "decisionGuide": "Use Kelvin connection; keep gate traces short and away from power traces.",
+          "keywords": [
+            "gate routing",
+            "Kelvin source",
+            "layout"
+          ]
+        },
+        {
+          "question": "How much copper area do I need for thermal management?",
+          "answer": "Copper area guidelines: (1) Heat spreading - More copper improves spreading. (2) Thickness - 2oz or 4oz for high power. (3) Area - Minimum 100mm² for TO-220, 400mm² for TO-247. (4) Thermal vias - Under device pads for conduction. (5) Balance - Copper weight vs board cost. (6) Connection - Direct connection to device terminals. (7) Simulation - Use thermal simulation for optimization. Adequate copper is essential for thermal performance.",
+          "decisionGuide": "Use 2oz copper minimum; maximize area under device terminals; add thermal vias.",
+          "keywords": [
+            "copper area",
+            "thermal vias",
+            "heat spreading"
+          ]
+        },
+        {
+          "question": "What clearance and creepage distances are required?",
+          "answer": "Clearance and creepage: (1) Standards - IEC 60664, UL 840. (2) Voltage - Based on working voltage. (3) Pollution - Degree affects creepage. (4) Material - CTI affects creepage. (5) 650V - Typical 2.5mm clearance, 5mm creepage. (6) 1200V - Typical 5mm clearance, 10mm creepage. (7) Design - Use slotting for increased creepage. Meet relevant safety standards for your application and market.",
+          "decisionGuide": "Follow IEC 60664 for clearance/creepage; use slotting to increase creepage if needed.",
+          "keywords": [
+            "clearance",
+            "creepage",
+            "safety",
+            "isolation"
+          ]
+        },
+        {
+          "question": "How should I handle grounding in SiC designs?",
+          "answer": "Grounding best practices: (1) Separation - Separate power and signal grounds. (2) Connection - Single point connection between grounds. (3) Gate return - Connect to Kelvin source, not power ground. (4) Noise - Keep sensitive signals away from switching nodes. (5) Planes - Use ground planes for low impedance. (6) Current - Minimize ground loop currents. (7) Shielding - Ground planes reduce EMI. Proper grounding prevents noise and ensures reliable operation.",
+          "decisionGuide": "Separate power and signal grounds; single point connection; gate return to Kelvin source.",
+          "keywords": [
+            "grounding",
+            "ground plane",
+            "noise"
+          ]
+        },
+        {
+          "question": "What are common PCB layout mistakes with SiC devices?",
+          "answer": "Common layout mistakes: (1) Long gate traces - High inductance causes ringing. (2) No Kelvin source - Limits switching performance. (3) Large power loops - Excessive voltage overshoot. (4) Insufficient copper - Poor thermal performance. (5) Poor decoupling - Capacitors too far from devices. (6) Ground issues - Noisy ground connections. (7) Clearance - Inadequate spacing for voltage. Avoid these mistakes for optimal SiC performance.",
+          "decisionGuide": "Use Kelvin source; minimize loop areas; place decoupling close; follow clearance rules.",
+          "keywords": [
+            "layout mistakes",
+            "common errors",
+            "best practices"
+          ]
+        }
+      ],
+      "relatedArticles": [
+        "sic-mosfet-selection",
+        "gate-drive-design",
+        "thermal-management"
+      ],
+      "downloads": [
+        {
+          "title": "PCB Layout Guidelines",
+          "url": "/downloads/cree/pcb-layout-guidelines.pdf"
+        },
+        {
+          "title": "Reference PCB Designs",
+          "url": "/downloads/cree/reference-pcb-designs.zip"
+        }
+      ],
+      "slug": "pcb-layout",
+      "faeInsights": {
+        "author": "FAE Team",
+        "content": "This article provides valuable technical information.",
+        "highlight": "Key technical insights"
+      },
+      "customerCases": [
+        {
+          "customer": "Customer",
+          "industry": "Industry",
+          "challenge": "Technical challenge",
+          "solution": "Applied solution",
+          "results": "Successful outcome"
+        }
+      ]
+    }
+  ]
+}

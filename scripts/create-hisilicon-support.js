@@ -1,0 +1,369 @@
+const fs = require('fs');
+const path = require('path');
+
+const supportData = {
+  "articles": [
+    {
+      "id": "mobile-processor-selection",
+      "title": "HiSilicon Mobile Processor Selection Guide",
+      "summary": "Comprehensive guide for selecting the right Kirin mobile processor for your smartphone or tablet application",
+      "category": "Product Selection",
+      "tags": ["Kirin", "Mobile Processors", "Selection Guide", "Smartphone"],
+      "author": "Michael Chen",
+      "publishDate": "2024-01-15",
+      "lastUpdated": "2024-01-15",
+      "readTime": "15 min",
+      "content": "This comprehensive guide helps you select the optimal HiSilicon Kirin mobile processor for your device...",
+      "sections": [
+        {
+          "heading": "Understanding Kirin Processor Families",
+          "content": "HiSilicon offers Kirin processors across three tiers: Flagship (9000 series) for premium devices, Mid-range (800 series) for mainstream smartphones, and Entry-level (700 series) for budget devices. Each tier balances performance, features, and cost..."
+        },
+        {
+          "heading": "Key Selection Criteria",
+          "content": "When selecting a Kirin processor, consider: 1) Performance requirements - CPU, GPU, and NPU needs; 2) Display support - resolution and refresh rate; 3) Camera capabilities - ISP performance for your camera configuration; 4) 5G requirements - band support and carrier compatibility; 5) Power budget - thermal constraints and battery capacity; 6) Cost targets - processor cost vs. device positioning..."
+        },
+        {
+          "heading": "Performance Comparison",
+          "content": "Kirin 9000 delivers flagship performance with 3.13GHz CPU, 24-core GPU, and 15 TOPS NPU. Kirin 820 provides excellent mid-range performance with 2.36GHz CPU, 6-core GPU, and 4 TOPS NPU. Both offer integrated 5G modems..."
+        },
+        {
+          "heading": "5G Considerations",
+          "content": "All modern Kirin processors include integrated 5G modems supporting SA/NSA dual-mode. Verify band support matches your target markets: n1/n3/n28 for Asia, n41/n77/n78 for global, n79 for China..."
+        },
+        {
+          "heading": "Development Support",
+          "content": "HiSilicon provides comprehensive development tools including BSP, SDK, and reference designs. LiTong offers technical support throughout your development cycle..."
+        }
+      ],
+      "faeInsights": {
+        "author": "Michael Chen",
+        "title": "Senior FAE - Mobile Applications",
+        "content": "In my experience supporting mobile designs, the key to successful Kirin processor selection is understanding your device's primary use cases. For camera-centric devices, prioritize ISP capabilities and NPU performance. For gaming phones, focus on GPU performance and thermal design. For general-purpose smartphones, the mid-range Kirin 820 often provides the best value. Always validate your thermal solution early - the 5nm Kirin 9000 can sustain high performance with proper cooling, but throttling will occur if the thermal design is inadequate. I recommend starting with the reference design and customizing based on your specific requirements.",
+        "highlight": "Match processor selection to primary use case - camera, gaming, or general purpose"
+      },
+      "customerCases": [
+        {
+          "customerName": "Premium Smartphone OEM",
+          "industry": "Consumer Electronics",
+          "challenge": "Needed flagship processor for camera-focused smartphone with advanced AI photography features",
+          "solution": "Selected Kirin 9000 with its powerful quad-core ISP and 15 TOPS NPU",
+          "results": "Achieved DXOMARK top-3 camera score with industry-leading night mode performance"
+        }
+      ],
+      "relatedArticles": [
+        {
+          "id": "ai-accelerator-selection",
+          "title": "AI Accelerator Selection Guide",
+          "link": "/hisilicon/support/ai-accelerator-selection.html"
+        },
+        {
+          "id": "thermal-design-guide",
+          "title": "Mobile Processor Thermal Design",
+          "link": "/hisilicon/support/thermal-design-guide.html"
+        }
+      ],
+      "faqs": [
+        {
+          "question": "What is the difference between Kirin 9000 and 9000E?",
+          "answer": "Kirin 9000E is a cost-optimized variant with 22-core GPU (vs 24-core) and single-core NPU delivering 10 TOPS (vs dual-core 15 TOPS). CPU and 5G modem are identical. Choose 9000E for premium devices where maximum AI performance is not critical, saving cost while maintaining excellent user experience.",
+          "decisionGuide": "Choose Kirin 9000 for AI-intensive applications; choose 9000E for cost-optimized premium devices.",
+          "keywords": ["Kirin 9000E", "processor comparison", "cost optimization"]
+        },
+        {
+          "question": "How do I estimate battery life with Kirin processors?",
+          "answer": "Battery life depends on usage patterns and battery capacity. For a 4500mAh battery: Kirin 9000 provides 8-10 hours screen-on time for typical usage; Kirin 820 provides 10-12 hours due to lower power consumption. Heavy gaming reduces this by 30-40%. The integrated 5G modem improves efficiency compared to discrete solutions. Use HiSilicon's power estimation tools for your specific use case.",
+          "decisionGuide": "Size battery capacity based on target usage time and processor power characteristics.",
+          "keywords": ["battery life", "power consumption", "usage patterns"]
+        },
+        {
+          "question": "What thermal solution is required for Kirin 9000?",
+          "answer": "Kirin 9000 requires effective thermal management: Vapor chamber or heat pipe recommended for sustained performance; Graphite sheets and thermal gel for heat spreading; Keep junction temperature below 85°C for optimal performance. Gaming phones should use larger vapor chambers (4000+ mm²). Mid-range devices can use simpler graphite-based solutions. Always validate thermal performance with your specific enclosure design.",
+          "decisionGuide": "Design vapor chamber cooling for flagship gaming phones; graphite solutions suffice for mainstream devices.",
+          "keywords": ["thermal solution", "vapor chamber", "junction temperature"]
+        }
+      ]
+    },
+    {
+      "id": "ai-accelerator-selection",
+      "title": "HiSilicon AI Accelerator Selection Guide",
+      "summary": "Guide for selecting between Ascend 310 edge AI and Ascend 910 data center processors for your AI workload",
+      "category": "Product Selection",
+      "tags": ["Ascend", "AI Accelerators", "Selection Guide", "Machine Learning"],
+      "author": "Dr. Robert Zhang",
+      "publishDate": "2024-01-10",
+      "lastUpdated": "2024-01-10",
+      "readTime": "20 min",
+      "content": "This guide helps you navigate HiSilicon's Ascend AI accelerator portfolio...",
+      "sections": [
+        {
+          "heading": "Ascend Product Overview",
+          "content": "HiSilicon offers two primary Ascend AI accelerators: Ascend 310 for edge AI inference and Ascend 910 for data center training and inference. Both use the Da Vinci architecture but target different deployment scenarios..."
+        },
+        {
+          "heading": "Edge AI with Ascend 310",
+          "content": "Ascend 310 delivers 16 TOPS INT8 performance at just 8W, making it ideal for edge devices. It supports 16-channel video decoding and is perfect for smart cameras, robots, and IoT gateways..."
+        },
+        {
+          "heading": "Data Center AI with Ascend 910",
+          "content": "Ascend 910 provides 256 TFLOPS FP16 for training and 512 TOPS INT8 for inference. With HBM2 memory and 100Gbps interconnect, it's designed for large-scale AI clusters..."
+        },
+        {
+          "heading": "Software Ecosystem",
+          "content": "Both accelerators use the CANN software stack supporting TensorFlow, PyTorch, and MindSpore. Model conversion tools simplify migration from GPU-based training..."
+        },
+        {
+          "heading": "Performance Benchmarks",
+          "content": "ResNet-50 inference: Ascend 310 achieves 2ms latency at batch=1; Ascend 910 processes 100,000+ images/second. BERT training: Ascend 910 delivers competitive throughput with 20-30% better power efficiency than GPUs..."
+        }
+      ],
+      "faeInsights": {
+        "author": "Dr. Robert Zhang",
+        "title": "Principal FAE - Data Center AI",
+        "content": "The most common question I receive is 'Should I use Ascend 310 or 910?' The answer depends entirely on your deployment location and latency requirements. For sub-20ms latency requirements, you need Ascend 310 at the edge. For training or high-throughput batch inference, Ascend 910 in the data center is the right choice. Many customers use both - training in the cloud on Ascend 910, then deploying optimized models to Ascend 310 edge devices. The unified Da Vinci architecture ensures model compatibility. When sizing Ascend 910 clusters, don't just look at TOPS - the HBM2 bandwidth (1.2 TB/s) is often the differentiating factor for large models.",
+        "highlight": "Use Ascend 310 for edge inference (<20ms latency); Ascend 910 for training and high-throughput inference"
+      },
+      "customerCases": [
+        {
+          "customerName": "Video Analytics Provider",
+          "industry": "Security",
+          "challenge": "Needed to process 10,000 camera feeds with real-time object detection",
+          "solution": "Deployed Ascend 310 edge nodes with Ascend 910 cluster for model training",
+          "results": "Achieved 50ms end-to-end latency with 95% detection accuracy"
+        }
+      ],
+      "relatedArticles": [
+        {
+          "id": "mobile-processor-selection",
+          "title": "Mobile Processor Selection Guide",
+          "link": "/hisilicon/support/mobile-processor-selection.html"
+        },
+        {
+          "id": "cann-migration-guide",
+          "title": "CANN Migration Guide",
+          "link": "/hisilicon/support/cann-migration-guide.html"
+        }
+      ],
+      "faqs": [
+        {
+          "question": "How do I migrate my TensorFlow models to Ascend?",
+          "answer": "Migration involves: 1) Export your TensorFlow model to ONNX or SavedModel format; 2) Use CANN's ATC (Ascend Tensor Compiler) to convert to Ascend format; 3) Optimize using profiling tools; 4) Deploy using CANN runtime. Simple models convert in hours; complex models with custom ops may take 1-2 weeks. CANN provides automatic operator mapping for standard TensorFlow ops.",
+          "decisionGuide": "Start with model conversion tools; contact FAE for complex models with custom operators.",
+          "keywords": ["TensorFlow migration", "CANN", "model conversion"]
+        },
+        {
+          "question": "What is the TOPS-per-watt of Ascend processors?",
+          "answer": "Ascend 310 achieves 2 TOPS/W (16 TOPS at 8W), among the best in the industry for edge AI. Ascend 910 achieves approximately 0.83 TFLOPS/W for FP16 (256 TFLOPS at 310W), competitive with data center GPUs. The power efficiency makes Ascend attractive for both edge battery-powered devices and large data center deployments where power costs are significant.",
+          "decisionGuide": "Both Ascend processors offer excellent power efficiency - 310 for edge, 910 for data center.",
+          "keywords": ["power efficiency", "TOPS-per-watt", "performance-per-watt"]
+        },
+        {
+          "question": "Can Ascend 910 be used for inference as well as training?",
+          "answer": "Yes, Ascend 910 excels at both: Training - 256 TFLOPS FP16 for model training; Inference - 512 TOPS INT8 for high-throughput inference. Many customers use Ascend 910 for both, simplifying their AI infrastructure. For pure inference at lower cost, consider Ascend 310 for edge or multiple Ascend 310 cards for data center inference.",
+          "decisionGuide": "Use Ascend 910 for combined training/inference; use Ascend 310 for cost-optimized inference.",
+          "keywords": ["training", "inference", "workload flexibility"]
+        }
+      ]
+    },
+    {
+      "id": "server-processor-selection",
+      "title": "HiSilicon Server Processor Selection Guide",
+      "summary": "Guide for selecting Kunpeng ARM server processors for cloud computing, big data, and enterprise applications",
+      "category": "Product Selection",
+      "tags": ["Kunpeng", "Server Processors", "ARM Server", "Cloud Computing"],
+      "author": "James Liu",
+      "publishDate": "2024-01-05",
+      "lastUpdated": "2024-01-05",
+      "readTime": "18 min",
+      "content": "This guide helps you evaluate and select HiSilicon Kunpeng server processors...",
+      "sections": [
+        {
+          "heading": "Kunpeng Architecture Overview",
+          "content": "Kunpeng processors are based on ARMv8.2 architecture, offering high core density and excellent power efficiency. The Kunpeng 920 series provides up to 64 cores per socket with 8-channel DDR4 memory..."
+        },
+        {
+          "heading": "48-Core vs 64-Core Selection",
+          "content": "The 48-core Kunpeng 920-4826 offers 75% of the performance at lower cost and power (150W vs 180W). Choose 48-core for mainstream applications; 64-core for maximum density virtualization and big data workloads..."
+        },
+        {
+          "heading": "Software Ecosystem Compatibility",
+          "content": "Kunpeng supports major Linux distributions (CentOS, Ubuntu, openEuler), cloud platforms (OpenStack, Kubernetes), and databases (MySQL, PostgreSQL, MongoDB). Most open-source software runs natively on ARM..."
+        },
+        {
+          "heading": "Migration from x86",
+          "content": "Migration considerations: 1) Assess software compatibility; 2) Plan for recompilation of C/C++ applications; 3) Java/Python/Go apps typically run without changes; 4) Validate performance with benchmarks; 5) Plan gradual migration with hybrid deployments..."
+        },
+        {
+          "heading": "TCO Analysis",
+          "content": "Kunpeng servers typically offer 20-30% better performance-per-watt than x86 alternatives. Lower power consumption reduces data center cooling costs. Higher core density reduces server count for scale-out workloads..."
+        }
+      ],
+      "faeInsights": {
+        "author": "James Liu",
+        "title": "Senior FAE - Enterprise Computing",
+        "content": "I've helped dozens of customers migrate to Kunpeng servers, and the key success factor is thorough compatibility testing upfront. Most open-source software (Linux, Kubernetes, MySQL) runs flawlessly on Kunpeng. The challenges usually come from proprietary software compiled only for x86. My recommendation: start with a pilot deployment of non-critical workloads to validate your software stack. The 48-core Kunpeng is often the sweet spot - it handles most workloads well at a compelling price point. For virtualization, the 64-core really shines - you can pack 2-4x more VMs per server than typical x86 configurations. Don't forget to factor in the power savings - at scale, the reduced electricity and cooling costs are significant.",
+        "highlight": "Start with 48-core for pilot deployments; use 64-core for high-density virtualization"
+      },
+      "customerCases": [
+        {
+          "customerName": "Cloud Service Provider",
+          "industry": "Cloud Computing",
+          "challenge": "Needed cost-effective servers for container platform with high VM density",
+          "solution": "Deployed dual-socket Kunpeng 920-6426 servers with 128 cores per node",
+          "results": "Achieved 40% better VM density than x86 with 25% lower power consumption"
+        }
+      ],
+      "relatedArticles": [
+        {
+          "id": "ai-accelerator-selection",
+          "title": "AI Accelerator Selection Guide",
+          "link": "/hisilicon/support/ai-accelerator-selection.html"
+        },
+        {
+          "id": "arm-migration-guide",
+          "title": "ARM Server Migration Guide",
+          "link": "/hisilicon/support/arm-migration-guide.html"
+        }
+      ],
+      "faqs": [
+        {
+          "question": "What software runs on Kunpeng servers?",
+          "answer": "Kunpeng supports: Operating systems - CentOS, Ubuntu, openEuler, Kylin OS; Cloud platforms - OpenStack, Kubernetes, Docker; Databases - MySQL, PostgreSQL, MongoDB, Redis; Big data - Hadoop, Spark, Flink; Web servers - Nginx, Apache. Most open-source software has native ARM support. Proprietary software may need ARM versions.",
+          "decisionGuide": "Verify your software stack compatibility. Most modern open-source software runs natively on Kunpeng.",
+          "keywords": ["software support", "ARM compatibility", "operating systems"]
+        },
+        {
+          "question": "How does Kunpeng compare to Intel Xeon?",
+          "answer": "Kunpeng advantages: 20-30% better performance-per-watt, higher core density (64 vs typical 32-40), lower cost per core. Xeon advantages: Broader software ecosystem, higher single-thread performance, mature enterprise support. For cloud-native, containerized workloads, Kunpeng is very competitive. For legacy enterprise apps, evaluate carefully.",
+          "decisionGuide": "Choose Kunpeng for cloud, big data, and scale-out; choose Xeon for legacy enterprise applications.",
+          "keywords": ["Kunpeng vs Xeon", "performance comparison", "workload optimization"]
+        },
+        {
+          "question": "What is the memory capacity of Kunpeng servers?",
+          "answer": "Kunpeng 920 supports up to 4TB per socket (8 channels x 512GB). Dual-socket servers can have 8TB total. Memory bandwidth is 192 GB/s (8 channels DDR4-2933), 33% more than typical 6-channel x86 processors. This high bandwidth benefits memory-intensive applications like in-memory databases and big data processing.",
+          "decisionGuide": "Leverage high memory bandwidth for data-intensive applications. Standard RDIMM and LRDIMM supported.",
+          "keywords": ["memory capacity", "DDR4-2933", "memory bandwidth"]
+        }
+      ]
+    },
+    {
+      "id": "connectivity-selection",
+      "title": "HiSilicon 5G Connectivity Selection Guide",
+      "summary": "Guide for selecting Balong 5G modems for mobile devices, IoT applications, and industrial connectivity",
+      "category": "Product Selection",
+      "tags": ["Balong", "5G Modem", "Connectivity", "IoT"],
+      "author": "Kevin Zhang",
+      "publishDate": "2024-01-01",
+      "lastUpdated": "2024-01-01",
+      "readTime": "12 min",
+      "content": "This guide helps you select the right Balong 5G modem for your connectivity requirements...",
+      "sections": [
+        {
+          "heading": "Balong Product Portfolio",
+          "content": "HiSilicon offers Balong modems for different applications: Balong 5000 - flagship 5G modem integrated in Kirin 9000 or available discrete; Balong 711 - cost-optimized 5G for IoT with lower power and industrial temperature..."
+        },
+        {
+          "heading": "5G Technology Basics",
+          "content": "Understanding 5G modes: SA (Standalone) - native 5G core, lower latency; NSA (Non-Standalone) - uses 4G core, faster deployment. Sub-6GHz provides coverage; mmWave provides capacity in dense areas..."
+        },
+        {
+          "heading": "Integrated vs Discrete Modems",
+          "content": "Integrated modems (in Kirin SoCs) offer lower power and smaller size. Discrete modems provide flexibility to pair with any application processor. Choose integrated for smartphones; discrete for IoT and industrial..."
+        },
+        {
+          "heading": "Carrier Certification",
+          "content": "Balong modems are certified for global deployment: FCC (North America), CE (Europe), GCF (Global), and major carrier certifications. Verify specific band support for your target markets..."
+        },
+        {
+          "heading": "IoT Considerations",
+          "content": "For IoT applications, consider: Power consumption - Balong 711 optimized for battery life; Temperature range - industrial -40°C to +85°C; Form factor - M.2 or LGA modules available; Features - NB-IoT and LTE-M support for LPWAN..."
+        }
+      ],
+      "faeInsights": {
+        "author": "Kevin Zhang",
+        "title": "FAE - Wireless Connectivity",
+        "content": "When selecting a Balong modem, the first question I ask is 'What is your target market?' Different regions use different 5G bands, and band support is critical. For global devices, you need n1/n3/n28/n41/n77/n78/n79 coverage. For North America only, n71 (T-Mobile 600MHz) might be important. The second question is about power budget. For battery-powered IoT, the Balong 711 is purpose-built with 30% lower power than smartphone modems. For industrial applications, the temperature rating is crucial - many competing solutions only support commercial temperatures (0-70°C), while Balong 711 supports -40 to +85°C. Don't forget to plan your RF design early - the antenna and front-end module selection affects performance as much as the modem itself.",
+        "highlight": "Verify 5G band support for your target markets; choose Balong 711 for IoT and industrial applications"
+      },
+      "customerCases": [
+        {
+          "customerName": "Industrial IoT Manufacturer",
+          "industry": "Industrial Automation",
+          "challenge": "Needed reliable 5G connectivity for outdoor industrial sensors in harsh environments",
+          "solution": "Selected Balong 711 with industrial temperature rating and low power consumption",
+          "results": "Achieved 99.9% connectivity uptime with 5-year battery life in -30°C to +60°C operation"
+        }
+      ],
+      "relatedArticles": [
+        {
+          "id": "mobile-processor-selection",
+          "title": "Mobile Processor Selection Guide",
+          "link": "/hisilicon/support/mobile-processor-selection.html"
+        },
+        {
+          "id": "rf-design-guide",
+          "title": "5G RF Design Guide",
+          "link": "/hisilicon/support/rf-design-guide.html"
+        }
+      ],
+      "faqs": [
+        {
+          "question": "What 5G bands does Balong support?",
+          "answer": "Balong 5000 supports: Sub-6GHz - n1, n3, n28, n41, n77, n78, n79; mmWave - select variants support n257, n260, n261. Balong 711 supports key sub-6GHz bands: n1, n3, n28, n41, n77, n78. Verify specific carrier requirements for your target markets.",
+          "decisionGuide": "Select modem variant with band support matching your target carriers and regions.",
+          "keywords": ["5G bands", "sub-6GHz", "mmWave", "carrier support"]
+        },
+        {
+          "question": "What is the power consumption of Balong modems?",
+          "answer": "Balong 5000 (active): 500-800mW during data transfer, 20-30mW idle. Balong 711 (optimized for IoT): 300-500mW active, <1mW in sleep mode. Power consumption varies with signal strength and data rate. The integrated version in Kirin processors achieves 20-30% lower power due to optimized power management.",
+          "decisionGuide": "Use Balong 711 for battery-powered IoT; integrated modem for smartphones.",
+          "keywords": ["power consumption", "battery life", "IoT optimization"]
+        },
+        {
+          "question": "Does Balong support global carrier certification?",
+          "answer": "Yes, Balong modems hold comprehensive certifications: Global - GCF; North America - FCC, PTCRB, Verizon, AT&T, T-Mobile; Europe - CE, major carriers; Asia - CCC, TELEC, KC. Certification status is regularly updated. Contact LiTong for current certification documentation.",
+          "decisionGuide": "Balong modems are ready for global deployment. Verify latest certification status for specific carriers.",
+          "keywords": ["carrier certification", "FCC", "PTCRB", "global deployment"]
+        }
+      ]
+    }
+  ],
+  "faqs": [
+    {
+      "question": "How do I get technical support for HiSilicon products?",
+      "answer": "LiTong provides comprehensive technical support for HiSilicon products: Phone support - available during business hours for urgent issues; Email support - typical response within 24 hours; Online resources - technical documentation, application notes, FAQs; FAE consultation - scheduled calls with Field Application Engineers for design reviews; Training - webinars and workshops on HiSilicon products. Premium support with 24/7 availability and dedicated TAM is available for enterprise customers.",
+      "decisionGuide": "Contact our support team through your account manager or submit a ticket through the support portal.",
+      "keywords": ["technical support", "FAE", "customer service"]
+    },
+    {
+      "question": "Where can I find HiSilicon development tools?",
+      "answer": "HiSilicon development tools are available through LiTong: SDKs and BSPs - available for download with NDA; Reference designs - schematics, PCB layouts, BOMs; Evaluation boards - available for purchase; Documentation - datasheets, user manuals, application notes; Training materials - videos, tutorials, best practices. Contact your LiTong sales representative to access development resources and set up a support agreement.",
+      "decisionGuide": "Contact LiTong sales to establish a support agreement and access development tools.",
+      "keywords": ["development tools", "SDK", "BSP", "reference design"]
+    },
+    {
+      "question": "What training is available for HiSilicon products?",
+      "answer": "LiTong offers various training options: Online webinars - product overviews and technical deep-dives; In-person workshops - hands-on training with development kits; Custom training - tailored to your specific application and team needs; Certification programs - for engineers seeking HiSilicon expertise; Documentation - comprehensive technical library. Training covers product architecture, software development, hardware design, and optimization techniques.",
+      "decisionGuide": "Contact our training coordinator to discuss your team's training needs and schedule sessions.",
+      "keywords": ["training", "workshops", "certification", "technical education"]
+    },
+    {
+      "question": "How do I report a technical issue or bug?",
+      "answer": "To report technical issues: 1) Gather information - part number, software version, issue description, steps to reproduce; 2) Check documentation - verify against datasheets and errata; 3) Contact support - submit ticket through support portal or email; 4) Provide logs - include error messages, register dumps, test results; 5) Work with FAE - our engineers will help diagnose and resolve. For critical production issues, use phone support for immediate assistance.",
+      "decisionGuide": "Use the support portal for non-urgent issues; call phone support for production-critical problems.",
+      "keywords": ["bug report", "technical issue", "troubleshooting"]
+    },
+    {
+      "question": "Are there reference designs available?",
+      "answer": "Yes, HiSilicon provides reference designs for all major product families: Mobile - smartphone reference designs with Kirin processors; AI - accelerator card designs for Ascend 310/910; Server - motherboard designs for Kunpeng processors; IoT - module designs for Balong connectivity. Reference designs include: Schematics - complete circuit diagrams; PCB layouts - optimized for signal integrity; BOMs - bill of materials with recommended components; Documentation - design guides and application notes. These can significantly accelerate your product development.",
+      "decisionGuide": "Contact LiTong to request reference designs for your specific application.",
+      "keywords": ["reference design", "schematics", "PCB layout", "BOM"]
+    }
+  ]
+};
+
+const dataDir = path.join(__dirname, '..', 'data', 'hisilicon');
+const supportFile = path.join(dataDir, 'support.json');
+
+fs.writeFileSync(supportFile, JSON.stringify(supportData, null, 2));
+console.log('Created support.json with 4 articles');

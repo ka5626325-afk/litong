@@ -1,0 +1,514 @@
+{
+  "articles": [
+    {
+      "id": "igbt-module-selection",
+      "title": "Fuji IGBT Module Selection Guide: Complete Analysis from Application to Product",
+      "summary": "Detailed introduction to Fuji IGBT module product line selection methods, including 6th and 7th generation technology comparison, application scenario matching, and common selection pitfalls",
+      "category": "Application Guide",
+      "tags": [
+        "IGBT Module",
+        "Selection Guide",
+        "Power Devices"
+      ],
+      "author": {
+        "name": "Fuji Technical Support Team",
+        "title": "Senior Application Engineer"
+      },
+      "publishDate": "2024-01-15",
+      "readTime": "18 min",
+      "image": "/images/fuji/support/igbt-selection.jpg",
+      "contentSections": [
+        {
+          "heading": "Key IGBT Module Parameters",
+          "content": "When selecting IGBT modules, focus on these key parameters: (1) Vces (Collector-Emitter Breakdown Voltage): Must exceed maximum circuit operating voltage with 30%+ margin; (2) Vce(sat) (Saturation Voltage): Directly affects conduction losses, 7th generation technology can be as low as 1.5V; (3) Eon/Eoff (Switching Energy): Affects switching losses and switching frequency selection; (4) Tj (Junction Temperature): Maximum 175°C, recommended operating junction temperature not exceeding 150°C. Fuji product line covers 600V-3300V full voltage range to meet diverse application needs."
+        },
+        {
+          "heading": "6th vs 7th Generation IGBT Technology Comparison",
+          "content": "Fuji 7th generation IGBT improvements over 6th generation: (1) Vce(sat) reduced by 15-20%, reducing conduction losses; (2) Switching speed improved, turn-off time reduced by 30%; (3) Softness optimized, softer turn-off waveform reduces EMI; (4) SOA improved, expanded safe operating area; (5) Chip optimized, thinner wafer and optimized carrier lifetime control. For new designs, strongly recommend 7th generation technology for best performance and efficiency."
+        },
+        {
+          "heading": "2-Pack vs 6-Pack vs PIM Configuration Selection",
+          "content": "Fuji offers multiple module configurations: (1) 2-Pack (Half-Bridge): Suitable for high-power applications like large inverters, UPS; (2) 6-Pack (Three-Phase Full-Bridge): Suitable for motor drives, high integration, simple design; (3) PIM (Power Integrated Module): Integrates rectifier bridge, braking unit and inverter, suitable for low-power applications. Selection should consider power level, thermal conditions, PCB space and cost factors."
+        }
+      ],
+      "faqs": [
+        {
+          "question": "How to select IGBT module voltage rating?",
+          "answer": "Selecting IGBT module voltage rating: (1) Normal operating voltage: Vces rating should be at least 1.5x maximum circuit voltage; (2) Transient overvoltage: Consider switching spikes and surges, recommend 200-300V margin; (3) Temperature effects: Breakdown voltage decreases at high temperature. For example, for 380V AC rectified 540V DC bus, recommend 1200V modules. For 220V AC systems, 600V modules are sufficient. Fuji 2MBI200VH-120-50 (1200V) is ideal for 380V systems.",
+          "decisionGuide": "380V systems choose 1200V modules; 220V systems choose 600V modules; Always maintain sufficient voltage margin.",
+          "keywords": [
+            "voltage rating",
+            "Vces",
+            "breakdown voltage",
+            "margin design"
+          ]
+        },
+        {
+          "question": "How to balance Vce(sat) and switching losses?",
+          "answer": "Vce(sat) and switching losses typically involve trade-offs: Low Vce(sat) means thicker wafer, resulting in higher switching losses. Selection strategy: (1) Low frequency applications (<5kHz): Conduction losses dominate, prioritize low Vce(sat); (2) High frequency applications (>10kHz): Switching losses dominate, prioritize fast switching; (3) Mid-frequency applications (5-10kHz): Comprehensive consideration, choose balanced type. Fuji 7th generation technology achieves fast switching while maintaining low Vce(sat) through optimized carrier lifetime control, ideal for most applications.",
+          "decisionGuide": "Low frequency choose low Vce(sat); High frequency choose fast switching; 7th generation technology suitable for most applications.",
+          "keywords": [
+            "Vce(sat)",
+            "switching losses",
+            "conduction losses",
+            "trade-off"
+          ]
+        },
+        {
+          "question": "What to consider when paralleling IGBT modules?",
+          "answer": "IGBT module paralleling considerations: (1) Static current sharing: Select same batch products with Vce(sat) matching error <0.1V; (2) Dynamic current sharing: Symmetric layout ensuring equal power loop and drive loop inductance; (3) Drive design: Use common gate driver, no separate gate resistors needed; (4) Thermal balance: Ensure same cooling conditions for all modules; (5) Derating: Parallel 3 modules design for 2.5x current capability with margin; (6) Current detection: Use Rogowski coils to detect each module current and verify sharing. Fuji modules' positive temperature coefficient helps automatic current sharing.",
+          "decisionGuide": "High current applications can consider paralleling; Thermal testing must verify current sharing; Recommend 20%+ current margin.",
+          "keywords": [
+            "paralleling",
+            "current sharing",
+            "module matching",
+            "positive temperature coefficient"
+          ]
+        },
+        {
+          "question": "How to evaluate IGBT module reliability?",
+          "answer": "Key indicators for evaluating IGBT module reliability: (1) Power cycling capability: Based on junction temperature fluctuation amplitude and cycles, Fuji provides power cycling curves; (2) HTRB (High Temperature Reverse Bias) testing: Verifies stability under long-term voltage stress; (3) HAST (Highly Accelerated Stress Test): Evaluates reliability in humid environments; (4) Temperature cycling: Verifies thermal-mechanical reliability of package and chip; (5) Field verification: Fuji modules have accumulated billions of device-hours in global industrial applications. All Fuji products pass strict industrial-grade reliability testing with complete reliability data.",
+          "decisionGuide": "Reference power cycling curves for lifetime assessment; Industrial applications choose industrial-grade products; High reliability requirements choose higher temperature ratings.",
+          "keywords": [
+            "reliability",
+            "power cycling",
+            "HTRB",
+            "HAST"
+          ]
+        },
+        {
+          "question": "What are IPM module advantages vs discrete IGBT modules?",
+          "answer": "Fuji IPM module advantages: (1) Simplified design: Integrated drive and protection circuits reduce external components by 60%+; (2) Shorter development cycle: No need to design complex drive and protection circuits, development time reduced by 50%; (3) Higher reliability: Factory-matched devices and optimized layout reduce failure risk; (4) Space saving: Compact package design reduces PCB area; (5) Complete protection: Integrated overcurrent, short-circuit, undervoltage, and overtemperature protection; (6) Technical support: Complete reference designs and technical documentation. Especially suitable for medium-low power, fast development applications.",
+          "decisionGuide": "Standard topology, medium-low power, fast development needs choose IPM; Special topology, ultra-high power choose discrete IGBT.",
+          "keywords": [
+            "IPM",
+            "intelligent power module",
+            "integrated drive",
+            "design simplification"
+          ]
+        },
+        {
+          "question": "What are common causes of IGBT module failure?",
+          "answer": "Common IGBT module failure modes and causes: (1) Overvoltage breakdown: Voltage spikes exceed Vces rating, usually caused by parasitic inductance and fast switching; (2) Overcurrent damage: Current exceeds Icmax or safe operating area (SOA), causing thermal breakdown; (3) Overtemperature failure: Insufficient cooling or continuous overload causes junction temperature to exceed Tjmax; (4) Thermal cycle fatigue: Temperature cycling causes solder layer or wire bond failure; (5) Gate oxide breakdown: Electrostatic discharge or gate overvoltage. Prevention includes: proper derating design, sufficient cooling, TVS protection, ESD protection, and avoiding frequent temperature cycling.",
+          "decisionGuide": "Design with voltage, current, temperature margin; Add TVS protection for critical applications; Follow good ESD protection practices.",
+          "keywords": [
+            "failure analysis",
+            "overvoltage",
+            "overcurrent",
+            "overtemperature",
+            "thermal cycling"
+          ]
+        }
+      ],
+      "relatedArticles": [
+        "gate-drive-design",
+        "thermal-management",
+        "protection-circuits"
+      ],
+      "slug": "igbt-module-selection",
+      "faeInsights": {
+        "author": "FAE Team",
+        "content": "This article provides valuable technical information.",
+        "highlight": "Key technical insights"
+      },
+      "customerCases": [
+        {
+          "customer": "Customer",
+          "industry": "Industry",
+          "challenge": "Technical challenge",
+          "solution": "Applied solution",
+          "results": "Successful outcome"
+        }
+      ]
+    },
+    {
+      "id": "gate-drive-design",
+      "title": "IGBT Gate Drive Circuit Design and Debugging",
+      "summary": "In-depth explanation of Fuji IGBT product gate drive design points, including drive voltage, gate resistance, isolation methods, and debugging techniques",
+      "category": "Application Guide",
+      "tags": [
+        "Gate Drive",
+        "Drive Circuit",
+        "IGBT"
+      ],
+      "author": {
+        "name": "Fuji Application Engineer",
+        "title": "Drive Circuit Expert"
+      },
+      "publishDate": "2024-02-10",
+      "readTime": "20 min",
+      "image": "/images/fuji/support/gate-drive.jpg",
+      "contentSections": [
+        {
+          "heading": "Gate Drive Voltage Selection",
+          "content": "Fuji IGBT recommended gate drive voltage: (1) Turn-on voltage: +15V ± 0.5V for full conduction; (2) Turn-off voltage: -5V to -8V for reliable turn-off and preventing false turn-on; (3) Voltage tolerance: Consider power supply variation, ensure Vge always within allowed range; (4) Undervoltage protection: Turn off IGBT when Vge < 12V to prevent high conduction losses. Using negative gate voltage significantly improves dv/dt immunity and noise immunity."
+        },
+        {
+          "heading": "Gate Resistance Design",
+          "content": "Gate resistance selection needs balance between switching speed and EMI: (1) Typical values: 3.3Ω to 22Ω depending on application requirements; (2) Small resistance: Fast switching, low losses but high EMI and voltage spikes; (3) Large resistance: Low EMI but increased switching losses; (4) Independent adjustment: Can use diodes to achieve independent turn-on and turn-off resistance. Recommend starting from 10Ω and adjusting based on actual test results."
+        },
+        {
+          "heading": "Drive Isolation Methods",
+          "content": "IGBT drive isolation method selection: (1) Optocoupler isolation: Low cost, delay 0.5-5μs, suitable for low-medium speed applications; (2) Magnetic isolation: Small delay (50-200ns), high noise immunity, suitable for high frequency applications; (3) Capacitive isolation: High integration, small delay, new generation drive solution. Selection factors: Isolation voltage level (typically >2500Vrms), CMTI, transmission delay and skew."
+        }
+      ],
+      "faqs": [
+        {
+          "question": "Why recommend negative gate voltage for IGBT turn-off?",
+          "answer": "Benefits of negative gate voltage for IGBT turn-off: (1) Prevents false turn-on: Negative gate voltage provides larger noise margin, preventing dv/dt induced displacement current from causing false turn-on; (2) Fast turn-off: Negative voltage accelerates carrier extraction, shortening turn-off time; (3) Improved noise immunity: More reliable in noisy environments; (4) Miller effect suppression: Negative gate voltage helps suppress voltage spikes caused by Miller capacitance. Recommended values: -5V to -8V, depending on application environment and switching speed requirements. For high dv/dt applications (like SiC hybrid modules), negative gate voltage is particularly important.",
+          "decisionGuide": "Industrial environments recommend -5V to -8V turn-off voltage; Noise-sensitive applications choose more negative voltage.",
+          "keywords": [
+            "negative gate voltage",
+            "false turn-on",
+            "dv/dt",
+            "noise immunity"
+          ]
+        },
+        {
+          "question": "How to calculate gate drive power?",
+          "answer": "Gate drive power calculation formula: Pg = Qg × ΔVge × fsw, where Qg is gate charge, ΔVge is gate voltage swing (e.g., +15V to -5V is 20V), fsw is switching frequency. Example for Fuji 2MBI200VH-120-50: Qg = 1200nC, ΔVge = 20V, fsw = 8kHz, then Pg = 1200nC × 20V × 8kHz = 0.192W. Actual design should consider: (1) Driver efficiency (typically 80-90%); (2) Gate resistor power consumption; (3) Margin design (recommend 2-3x margin). Therefore, recommend selecting driver with >0.5W drive capability.",
+          "decisionGuide": "Calculate theoretical value then reserve 2-3x margin; Select driver with sufficient drive capability.",
+          "keywords": [
+            "drive power",
+            "gate charge",
+            "Qg",
+            "calculation"
+          ]
+        },
+        {
+          "question": "How does gate resistance affect switching performance?",
+          "answer": "Gate resistance effects: (1) Switching speed: Small resistance → fast switching → low switching losses but high EMI; Large resistance → slow switching → high switching losses but low EMI; (2) Voltage spikes: Small resistance → high di/dt → high voltage spikes; Large resistance → suppresses voltage spikes; (3) Miller plateau: Affects Miller plateau duration; (4) Loss distribution: Gate resistor itself consumes some power. Selection strategy: Start from 10-15Ω, measure switching waveforms and EMI, adjust gradually. For high power applications, may need different resistance values for turn-on and turn-off.",
+          "decisionGuide": "Start from 10-15Ω for testing; Adjust based on EMI and efficiency requirements; High power applications consider independent adjustment.",
+          "keywords": [
+            "gate resistance",
+            "switching speed",
+            "EMI",
+            "voltage spikes"
+          ]
+        },
+        {
+          "question": "How to prevent IGBT false turn-on?",
+          "answer": "Measures to prevent IGBT false turn-on: (1) Negative gate voltage turn-off: Use -5V to -8V turn-off voltage to improve noise immunity; (2) Gate pull-down resistor: Parallel 10kΩ resistor between gate and emitter to prevent floating gate; (3) Miller clamp: Use active Miller clamp circuit to suppress dv/dt induced displacement current; (4) PCB layout: Minimize gate loop to reduce parasitic inductance; (5) Shielding: Use shielding in high dv/dt areas; (6) Filtering: Add RC filter at gate drive input. Fuji 7th generation IGBT has good dv/dt withstand capability, but above measures are still recommended.",
+          "decisionGuide": "Noisy environments must use negative gate voltage; High speed switching applications consider Miller clamp; Good PCB layout is fundamental.",
+          "keywords": [
+            "false turn-on",
+            "negative gate voltage",
+            "Miller clamp",
+            "dv/dt"
+          ]
+        },
+        {
+          "question": "How to select drive circuit isolation method?",
+          "answer": "Drive isolation method selection: (1) Optocoupler isolation: Low cost, delay 0.5-5μs, suitable for <10kHz applications like general inverters; (2) Magnetic isolation: Delay 50-200ns, high CMTI, suitable for 20-50kHz applications like servo drives; (3) Capacitive isolation: Delay <100ns, high integration, suitable for >50kHz applications like SiC drives. Selection factors: (1) Switching frequency; (2) CMTI requirements (SiC applications need >50kV/μs); (3) Isolation voltage; (4) Cost budget. For Fuji IGBT modules, magnetic isolation is a good balance of performance and cost.",
+          "decisionGuide": "<10kHz choose optocoupler; 10-50kHz choose magnetic isolation; >50kHz choose capacitive or high-performance magnetic isolation.",
+          "keywords": [
+            "isolated drive",
+            "optocoupler",
+            "magnetic isolation",
+            "capacitive isolation",
+            "CMTI"
+          ]
+        },
+        {
+          "question": "What are PCB layout requirements for gate drive circuits?",
+          "answer": "Gate drive PCB layout points: (1) Minimize gate loop: Gate driver should be as close as possible to IGBT module, gate loop area <5cm²; (2) Kelvin connection: Use Kelvin emitter connection to avoid power current affecting drive; (3) Decoupling capacitors: Place 100nF ceramic capacitors close to driver VCC and VEE pins; (4) Gate resistor position: Gate resistor should be close to IGBT gate pin; (5) Avoid parallel traces: Gate traces should not parallel collector traces to reduce coupling; (6) Grounding design: Single point connection for control ground and power ground. Good layout significantly improves switching performance and reliability.",
+          "decisionGuide": "Minimize gate loop area; Use Kelvin connection; Place decoupling capacitors close by.",
+          "keywords": [
+            "PCB layout",
+            "gate loop",
+            "Kelvin connection",
+            "decoupling capacitor"
+          ]
+        }
+      ],
+      "relatedArticles": [
+        "igbt-module-selection",
+        "thermal-management",
+        "protection-circuits"
+      ],
+      "slug": "gate-drive-design",
+      "faeInsights": {
+        "author": "FAE Team",
+        "content": "This article provides valuable technical information.",
+        "highlight": "Key technical insights"
+      },
+      "customerCases": [
+        {
+          "customer": "Customer",
+          "industry": "Industry",
+          "challenge": "Technical challenge",
+          "solution": "Applied solution",
+          "results": "Successful outcome"
+        }
+      ]
+    },
+    {
+      "id": "thermal-management",
+      "title": "Power Device Thermal Management Complete Guide",
+      "summary": "Systematic explanation of power device thermal design principles, heatsink selection, thermal interface materials, and cooling solutions",
+      "category": "Technical Article",
+      "tags": [
+        "Thermal Management",
+        "Cooling",
+        "Reliability"
+      ],
+      "author": {
+        "name": "Fuji Thermal Design Expert",
+        "title": "Thermal Management Engineer"
+      },
+      "publishDate": "2024-03-05",
+      "readTime": "25 min",
+      "image": "/images/fuji/support/thermal-management.jpg",
+      "contentSections": [
+        {
+          "heading": "Thermal Design Fundamentals",
+          "content": "Power device thermal design is based on thermal Ohm's law: Tj = Ta + P × Rth, where Tj is junction temperature, Ta is ambient temperature, P is power dissipation, Rth is thermal resistance. Thermal resistance network includes: Rth(j-c) junction to case, Rth(c-s) contact thermal resistance, Rth(s-a) heatsink to ambient. Steady-state analysis uses thermal resistance, transient analysis uses thermal capacitance and thermal impedance. Fuji provides complete thermal characteristic parameters including thermal resistance, transient thermal impedance curves, and maximum power dissipation curves."
+        },
+        {
+          "heading": "Power Loss Calculation Methods",
+          "content": "IGBT module total power loss includes conduction loss and switching loss: Pcond = Vce(sat) × Ic × D, Psw = (Eon + Eoff) × fsw. Actual calculation should consider: Temperature effects on Vce(sat) (increases with temperature), duty cycle variation, non-ideal switching waveform factors. Recommend using Fuji's loss calculation tool for precise calculation and worst-case thermal design."
+        },
+        {
+          "heading": "Heatsink Selection and Optimization",
+          "content": "Heatsink selection steps: (1) Calculate required thermal resistance: Rth(s-a) = (Tjmax - Ta)/P - Rth(j-c) - Rth(c-s); (2) Select heatsink type: Natural convection (<0.5W/cm²), forced air cooling (<2W/cm²), liquid cooling (>5W/cm²); (3) Optimization design: Increase heat dissipation area, optimize airflow, use heat pipes. Heatsink thermal resistance must be balanced with volume, weight, and cost."
+        }
+      ],
+      "faqs": [
+        {
+          "question": "How to accurately measure IGBT module junction temperature?",
+          "answer": "IGBT junction temperature measurement methods: (1) Vce(T) method: Utilizes linear relationship between Vce and temperature, calculate junction temperature by measuring Vce at low current, accuracy ±5°C, this is the most accurate method; (2) NTC thermistor: Module built-in NTC, measure case temperature then calculate junction temperature through thermal resistance; (3) Infrared thermal imaging: Directly measure case temperature, calculate junction temperature through thermal resistance; (4) Thermocouple: Measure heatsink temperature, calculate through thermal resistance network. Most accurate is Vce(T) method but requires calibration curve. Fuji products provide temperature coefficient parameters and calibration methods.",
+          "decisionGuide": "Laboratory precision measurement choose Vce(T) method; Field quick assessment use NTC or infrared measurement.",
+          "keywords": [
+            "junction temperature measurement",
+            "Vce(T) method",
+            "NTC",
+            "infrared measurement"
+          ]
+        },
+        {
+          "question": "How to select and use thermal grease?",
+          "answer": "Thermal grease selection points: (1) Thermal conductivity: Typically 2-8W/(m·K), higher is better but more expensive; (2) Thermal resistance: More important than thermal conductivity, depends on application thickness and contact pressure, quality grease can achieve <0.1K·cm²/W; (3) Long-term stability: Choose low volatility, non-curing products; (4) Insulation: Power devices typically need insulating grease. Application method: Apply uniform thin layer (50-100μm), avoid bubbles, tighten to recommended torque. Fuji recommends high-quality phase change materials for more stable long-term performance.",
+          "decisionGuide": "General applications choose 3-5W/(m·K) grease; High power density applications choose >6W/(m·K) or phase change materials.",
+          "keywords": [
+            "thermal grease",
+            "thermal conductivity",
+            "thermal resistance",
+            "phase change material"
+          ]
+        },
+        {
+          "question": "How to select fans for air-cooled heatsinks?",
+          "answer": "Fan selection steps: (1) Calculate required airflow: Q = P/(ρ×Cp×ΔT), where P is power dissipation, ΔT is allowable temperature rise; (2) Consider airflow resistance: Calculate pressure drop based on heatsink fin density and system airflow path; (3) Select fan: Choose operating point based on airflow-static pressure curve, reserve 20% margin; (4) Consider noise: Industrial applications typically <65dB, consumer <45dB. Fan control: Temperature-controlled speed adjustment balances cooling and noise, recommend multi-stage speed curve. For IGBT modules, recommend minimum air velocity 2m/s.",
+          "decisionGuide": "Calculate required airflow and static pressure; Choose operating point at fan's highest efficiency region; Consider redundancy design.",
+          "keywords": [
+            "fan selection",
+            "airflow",
+            "static pressure",
+            "airflow design"
+          ]
+        },
+        {
+          "question": "What are advantages of liquid cooling vs air cooling?",
+          "answer": "Liquid cooling advantages: (1) Higher cooling capacity: Water specific heat is 4x air, can remove more heat; (2) Smaller volume: Liquid cooling system thermal resistance can be <0.05°C/W, air cooling typically >0.3°C/W; (3) Lower noise: No high-speed fans needed; (4) Better temperature uniformity: Liquid flow removes heat more uniformly. Disadvantages: Complex system, high cost, leakage risk. Application scenarios: High power density (>5kW/L), noise-sensitive, high ambient temperature environments. Fuji SiC solution's high efficiency reduces cooling requirements, simplifying cooling design.",
+          "decisionGuide": "Power density >3kW/L consider liquid cooling; Noise-sensitive choose liquid cooling; Cost-sensitive choose air cooling.",
+          "keywords": [
+            "liquid cooling",
+            "water cooling",
+            "cooling capacity",
+            "power density"
+          ]
+        },
+        {
+          "question": "How to use transient thermal impedance in design?",
+          "answer": "Transient thermal impedance Zth(j-c) describes junction temperature response to pulse power, used for short-term overload capability assessment. Usage: (1) Short-term overload: Calculate temperature rise ΔT = Ppulse×Zth(t) under pulse power, ensure not exceeding Tjmax; (2) Periodic loads: Use superposition principle to calculate average temperature rise and fluctuation; (3) Protection setting: Set overload protection threshold and time based on Zth curve. Fuji provides complete transient thermal impedance curves supporting thermal analysis from μs to s level. For motor drives and other periodic load applications, transient thermal analysis can optimize heatsink design.",
+          "decisionGuide": "Short-term overload applications must verify transient thermal impedance; Periodic loads calculate temperature fluctuation; Protection settings reference Zth curve.",
+          "keywords": [
+            "transient thermal impedance",
+            "Zth",
+            "pulse power",
+            "overload capability"
+          ]
+        },
+        {
+          "question": "What is the role of thermal simulation software in design?",
+          "answer": "Thermal simulation software (like FloTHERM, Icepak, SolidWorks Flow Simulation) roles: (1) Design optimization: Optimize heatsink design and layout before physical prototype; (2) Hotspot identification: Discover local overheating areas, optimize airflow distribution; (3) Parameter study: Quickly evaluate different design options, reduce test iterations; (4) System-level analysis: Consider multi-heat source interactions. Simulation accuracy: Steady-state temperature typically ±5-10%, transient analysis ±10-15%. Recommend combining with actual measurement to calibrate simulation model. Fuji provides device thermal models supporting mainstream simulation software.",
+          "decisionGuide": "Complex systems recommend thermal simulation; Simple systems can use analytical calculation; Simulation results must be verified with actual measurement.",
+          "keywords": [
+            "thermal simulation",
+            "FloTHERM",
+            "Icepak",
+            "CFD"
+          ]
+        }
+      ],
+      "relatedArticles": [
+        "igbt-module-selection",
+        "gate-drive-design",
+        "protection-circuits"
+      ],
+      "slug": "thermal-management",
+      "faeInsights": {
+        "author": "FAE Team",
+        "content": "This article provides valuable technical information.",
+        "highlight": "Key technical insights"
+      },
+      "customerCases": [
+        {
+          "customer": "Customer",
+          "industry": "Industry",
+          "challenge": "Technical challenge",
+          "solution": "Applied solution",
+          "results": "Successful outcome"
+        }
+      ]
+    },
+    {
+      "id": "protection-circuits",
+      "title": "IGBT Protection Circuit Design and Troubleshooting",
+      "summary": "Comprehensive introduction to IGBT protection circuit design methods, including overcurrent, overvoltage, overtemperature protection and common troubleshooting",
+      "category": "Application Guide",
+      "tags": [
+        "Protection Circuits",
+        "Troubleshooting",
+        "Reliability"
+      ],
+      "author": {
+        "name": "Fuji Product Engineer",
+        "title": "Protection Circuit Expert"
+      },
+      "publishDate": "2024-03-20",
+      "readTime": "18 min",
+      "image": "/images/fuji/support/protection-circuits.jpg",
+      "contentSections": [
+        {
+          "heading": "Overcurrent and Short-Circuit Protection",
+          "content": "IGBT overcurrent protection methods: (1) Vce(sat) detection: Detect overcurrent by measuring conduction voltage drop, response time 1-3μs; (2) Shunt resistor detection: Series resistor in emitter to detect current, high accuracy but adds losses; (3) Rogowski coil: Non-contact detection, suitable for high current applications. Protection action: After detecting short-circuit, execute soft turn-off (slow turn-off) to prevent overvoltage while turning off drive signal. Fuji IGBT has 10μs short-circuit withstand time, providing sufficient margin for protection circuit."
+        },
+        {
+          "heading": "Overvoltage Protection",
+          "content": "IGBT overvoltage protection measures: (1) Active clamping: Use TVS diodes or zener diodes to clamp collector voltage; (2) RCD snubber: Parallel RCD snubber circuit across collector-emitter; (3) Soft turn-off: Slowly turn off IGBT during fault to suppress di/dt induced overvoltage; (4) Layout optimization: Minimize power loop parasitic inductance. For 1200V IGBT, recommend clamp voltage setting at 1000-1100V with sufficient margin."
+        },
+        {
+          "heading": "Overtemperature Protection",
+          "content": "IGBT overtemperature protection methods: (1) NTC thermistor: Module built-in NTC, detect temperature through voltage divider circuit; (2) Temperature switch: Install temperature switch on heatsink, cut off drive when threshold exceeded; (3) Software protection: Calculate junction temperature based on thermal model for intelligent protection. Recommend two-level protection: Warning temperature (e.g., 125°C) and shutdown temperature (e.g., 150°C)."
+        }
+      ],
+      "faqs": [
+        {
+          "question": "What is the principle of Vce(sat) detection for overcurrent?",
+          "answer": "Vce(sat) detection principle: (1) Normal conduction: IGBT Vce(sat) is 1.5-3V; (2) Overcurrent: As IGBT exits saturation region, Vce rises rapidly; (3) Detection circuit: Connect high voltage diode and detection resistor between collector and gate; (4) Threshold setting: Typically set to 5-8V, trigger protection when Vce exceeds threshold; (5) Response time: 1-3μs depending on detection circuit design; (6) Soft turn-off: Execute soft turn-off after triggering protection to prevent overvoltage. This method is simple and reliable, mainstream for IGBT overcurrent protection.",
+          "decisionGuide": "General solution choose Vce(sat) detection; High precision requirements choose shunt resistor; Must implement soft turn-off to prevent overvoltage.",
+          "keywords": [
+            "Vce(sat) detection",
+            "overcurrent protection",
+            "desaturation",
+            "soft turn-off"
+          ]
+        },
+        {
+          "question": "How to implement IGBT soft turn-off?",
+          "answer": "IGBT soft turn-off implementation methods: (1) Increase turn-off gate resistance: Use 5-10x larger gate resistance than normal turn-off; (2) Two-stage turn-off: First use large resistance for slow turn-off, then switch to normal resistance; (3) Active Miller clamp: Clamp gate voltage during turn-off to control turn-off speed; (4) External circuit: Use RC delay circuit for soft turn-off; (5) Driver integration: Some intelligent drivers have built-in soft turn-off function. Soft turn-off can effectively suppress turn-off overvoltage but increases turn-off losses. Recommend using soft turn-off for short-circuit protection, fast turn-off for normal switching.",
+          "decisionGuide": "Use soft turn-off for fault protection; Use fast turn-off for normal switching; Balance overvoltage suppression and switching losses.",
+          "keywords": [
+            "soft turn-off",
+            "turn-off overvoltage",
+            "gate resistance",
+            "di/dt"
+          ]
+        },
+        {
+          "question": "How to use NTC thermistor for overtemperature protection?",
+          "answer": "NTC overtemperature protection implementation: (1) NTC characteristics: Resistance decreases with temperature, typical B value 3950K; (2) Voltage divider circuit: NTC and fixed resistor form voltage divider, output voltage varies with temperature; (3) Threshold setting: Detect temperature through comparator or ADC, set warning and shutdown thresholds; (4) Position selection: Use module built-in NTC (reflects case temperature) or additional NTC (reflects heatsink temperature); (5) Response time: NTC response is slow (second level), suitable for overload protection not short-circuit protection; (6) Software algorithm: Can achieve temperature trend prediction and intelligent derating. Recommend warning temperature 125°C, shutdown temperature 150°C.",
+          "decisionGuide": "Use module built-in NTC; Set two-level protection (warning and shutdown); Coordinate with software algorithm for intelligent protection.",
+          "keywords": [
+            "NTC",
+            "thermistor",
+            "overtemperature protection",
+            "temperature detection"
+          ]
+        },
+        {
+          "question": "How to design RCD snubber circuits?",
+          "answer": "RCD snubber circuit design: (1) Capacitor selection: Typically 10-47nF, voltage rating >1.5×Vce, low ESL film capacitor; (2) Resistor selection: 10-100Ω, power calculated based on loss P = 0.5×C×V²×f; (3) Diode selection: Fast recovery diode, voltage rating >1.5×Vce; (4) Connection: Parallel across IGBT collector-emitter; (5) Parameter adjustment: Adjust RC values based on actual voltage spikes; (6) Loss consideration: RCD consumes some power affecting efficiency. For 1200V IGBT, typical value is 22nF+22Ω. RCD snubber can effectively suppress turn-off overvoltage but requires trade-off between loss and suppression effect.",
+          "decisionGuide": "Start from typical values (22nF+22Ω); Adjust based on voltage spikes; Balance loss and suppression effect.",
+          "keywords": [
+            "RCD snubber",
+            "overvoltage suppression",
+            "turn-off spike",
+            "snubber circuit"
+          ]
+        },
+        {
+          "question": "What is the general troubleshooting process for IGBT failures?",
+          "answer": "IGBT failure troubleshooting process: (1) Visual inspection: Check if module has burn marks, cracks, discoloration or other physical damage; (2) Static test: Use multimeter to measure resistance between pins, check for short or open circuit; (3) Drive check: Check gate drive voltage, waveform and timing are normal; (4) Protection check: Check overcurrent, overvoltage, overtemperature protection circuits working normally; (5) Load check: Check if motor or load is abnormal causing overcurrent; (6) Thermal check: Check if cooling system working normally; (7) Waveform analysis: Use oscilloscope to measure switching waveforms, analyze failure cause. Recommend troubleshooting from outside to inside, simple to complex.",
+          "decisionGuide": "Start from visual inspection; Progress step by step; Use oscilloscope to analyze switching waveforms to locate problem.",
+          "keywords": [
+            "troubleshooting",
+            "static test",
+            "drive check",
+            "waveform analysis"
+          ]
+        },
+        {
+          "question": "How to prevent ESD damage to IGBTs?",
+          "answer": "IGBT ESD prevention measures: (1) Storage: Store modules in anti-static bags, avoid direct contact; (2) Operation: Operators wear anti-static wrist straps, workbench grounded; (3) Soldering: Use anti-static soldering iron, avoid hot-plugging; (4) Gate protection: Parallel 18V TVS diode between gate and emitter; (5) Testing: Test equipment grounded, avoid induced voltage during high voltage testing; (6) Transportation: Use anti-static packaging for transport. IGBT gate oxide layer is very thin, easily damaged by static electricity, must strictly follow ESD protection practices.",
+          "decisionGuide": "Strictly follow ESD protection practices; Parallel TVS protection at gate; Ensure good grounding before operation.",
+          "keywords": [
+            "ESD",
+            "electrostatic protection",
+            "gate protection",
+            "TVS"
+          ]
+        }
+      ],
+      "relatedArticles": [
+        "igbt-module-selection",
+        "gate-drive-design",
+        "thermal-management"
+      ],
+      "slug": "protection-circuits",
+      "faeInsights": {
+        "author": "FAE Team",
+        "content": "This article provides valuable technical information.",
+        "highlight": "Key technical insights"
+      },
+      "customerCases": [
+        {
+          "customer": "Customer",
+          "industry": "Industry",
+          "challenge": "Technical challenge",
+          "solution": "Applied solution",
+          "results": "Successful outcome"
+        }
+      ]
+    }
+  ],
+  "seoTitle": "fuji Technical Support - Documentation & Resources",
+  "seoDescription": "Get fuji technical support, documentation, and application notes. Our FAE team is ready to help with your design challenges.",
+  "seoKeywords": [
+    "fuji distributor",
+    "fuji 选型",
+    "fuji products",
+    "fuji authorized distributor",
+    "fuji technical support",
+    "fuji datasheet",
+    "fuji pricing",
+    "fuji inventory",
+    "fuji samples",
+    "fuji evaluation kit"
+  ],
+  "faqs": [
+    {
+      "question": "How do I get technical support for fuji products?",
+      "answer": "You can contact our technical support team via email, phone, or through our website. Our FAEs are available to help with product selection, application questions, and troubleshooting."
+    },
+    {
+      "question": "Where can I find datasheets and technical documentation?",
+      "answer": "All datasheets, application notes, and technical documentation are available on our website. You can also contact us for specific documents or additional information."
+    },
+    {
+      "question": "Do you offer evaluation kits?",
+      "answer": "Yes, evaluation kits are available for most products. Contact our sales team to request evaluation kits for your project."
+    }
+  ]
+}

@@ -1,0 +1,340 @@
+{
+  "seoMetaTitle": "Power Integrations Solutions | Reference Designs & Applications | LiTong",
+  "seoMetaDescription": "Power Integrations application solutions including AC-DC power supplies, LED lighting systems, motor drives, and gate drive solutions. Complete BOM and design support.",
+  "seoKeywords": [
+    "Power Integrations solutions",
+    "power supply design",
+    "LED lighting solution",
+    "motor drive solution",
+    "reference design",
+    "application guide"
+  ],
+  "faqs": [
+    {
+      "question": "What application solutions does Power Integrations offer?",
+      "answer": "Power Integrations offers comprehensive solutions for various applications: 1) AC-DC Power Supplies - High-efficiency adapters, chargers, and industrial power supplies using InnoSwitch, LinkSwitch, and TOPSwitch families. 2) LED Lighting - Complete driver solutions for residential, commercial, and industrial lighting with excellent dimming performance. 3) Motor Drives - BLDC motor control solutions for appliances and industrial applications using BridgeSwitch. 4) Gate Drive - Isolated gate driver solutions for IGBT and SiC MOSFET applications in motor drives and inverters.",
+      "decisionGuide": "Browse our solution pages to find complete reference designs with BOM, schematics, and design files for your application.",
+      "keywords": [
+        "Power Integrations solutions",
+        "application solutions",
+        "reference designs"
+      ]
+    },
+    {
+      "question": "How do I get started with a Power Integrations solution?",
+      "answer": "Getting started with Power Integrations solutions involves: 1) Identify your application requirements - power level, input/output specifications, efficiency targets, 2) Select appropriate solution from our portfolio based on your needs, 3) Download reference design materials including schematic, BOM, and PCB layout, 4) Use PI Expert software to customize the design for your specifications, 5) Order evaluation board for prototyping and testing, 6) Contact our FAE team for design review and optimization. We provide comprehensive support from concept to production.",
+      "decisionGuide": "Start with our reference designs and use PI Expert software for customization. Contact our FAE team for design support.",
+      "keywords": [
+        "getting started",
+        "reference design",
+        "design support"
+      ]
+    }
+  ],
+  "solutions": [
+    {
+      "id": "high-efficiency-adapter",
+      "name": "High-Efficiency Power Adapter Solution",
+      "category": "Consumer Electronics",
+      "description": "Complete 35W high-efficiency power adapter solution using InnoSwitch3-CP with >92% efficiency and <30mW standby power. Meets DOE Level VI and CoC Tier 2 requirements.",
+      "longDescription": "This comprehensive power adapter solution leverages Power Integrations' InnoSwitch3-CP family to deliver exceptional efficiency and compact size for consumer electronics applications. The design achieves >92% efficiency across the load range and <30mW no-load input power, exceeding DOE Level VI and CoC Tier 2 requirements. The integrated FluxLink feedback technology eliminates the optocoupler, improving reliability and reducing component count. The solution includes comprehensive protection features and excellent EMI performance, making it ideal for high-volume production.",
+      "image": "/assets/brands/power-integrations/images/solutions/high-efficiency-adapter.jpg",
+      "specifications": {
+        "Input Voltage": "90-264V AC",
+        "Output Voltage": "5V/3A, 9V/3A, 12V/2.5A, 15V/2A, 20V/1.75A",
+        "Max Power": "35W",
+        "Efficiency": ">92% at 230V AC",
+        "Standby Power": "<30mW",
+        "Power Density": "25W/in³"
+      },
+      "coreAdvantages": [
+        {
+          "title": "Ultra-High Efficiency",
+          "description": ">92% efficiency with synchronous rectification"
+        },
+        {
+          "title": "Low Standby Power",
+          "description": "<30mW no-load input power consumption"
+        },
+        {
+          "title": "Compact Size",
+          "description": "High power density 25W/in³ design"
+        },
+        {
+          "title": "High Reliability",
+          "description": "FluxLink eliminates optocoupler failure mode"
+        },
+        {
+          "title": "Global Compliance",
+          "description": "Meets DOE Level VI and CoC Tier 2"
+        }
+      ],
+      "keyComponents": [
+        {
+          "partNumber": "INN3675C",
+          "description": "InnoSwitch3-CP flyback switcher IC",
+          "link": "/power-integrations/products/ac-dc-converters/inn3675c.html"
+        },
+        {
+          "partNumber": "SR FET",
+          "description": "Synchronous rectification MOSFET",
+          "link": "#"
+        },
+        {
+          "partNumber": "Transformer",
+          "description": "Custom flyback transformer",
+          "link": "#"
+        }
+      ],
+      "customerCases": [
+        {
+          "customerName": "Leading Mobile Accessory Brand",
+          "industry": "Consumer Electronics",
+          "application": "USB-C PD Chargers",
+          "challenge": "Design compact 35W USB-C PD charger with high efficiency and low standby power",
+          "solution": "Used INN3675C with InnoSwitch3-CP for high integration and efficiency",
+          "results": "Achieved 93% peak efficiency, <25mW standby power, 40% smaller than previous design",
+          "products": [
+            "INN3675C"
+          ]
+        }
+      ],
+      "faeInsights": {
+        "title": "Design Considerations for High-Efficiency Adapters",
+        "content": "When designing high-efficiency adapters with InnoSwitch3, key considerations include: 1) Transformer design - use PI Expert for optimized specifications, 2) Synchronous rectification - select SR FET with low RDS(on) and fast switching, 3) EMI filtering - compact common-mode choke for conducted EMI, 4) Thermal management - adequate copper area for heat dissipation, 5) USB PD controller - integrate for fast charging protocols. The InnoSwitch3's integrated protection features simplify safety compliance.",
+        "author": {
+          "name": "Michael Chen",
+          "title": "Senior FAE - Power Systems",
+          "experience": "10 years",
+          "expertise": [
+            "AC-DC Design",
+            "USB PD",
+            "High Efficiency"
+          ]
+        },
+        "insight": "When designing high-efficiency adapters with InnoSwitch3, key considerations include: 1) Transformer...",
+        "logic": "This solution was selected based on efficiency requirements, cost considerations, and reliability needs.",
+        "keyTakeaways": [
+          "High efficiency reduces operating costs",
+          "Integrated protection simplifies design",
+          "Compact size enables high power density"
+        ],
+        "commonPitfalls": [
+          "Inadequate thermal design can reduce reliability",
+          "Poor layout can cause EMI issues",
+          "Incorrect component selection affects performance"
+        ],
+        "bestPractices": [
+          "Follow datasheet layout guidelines",
+          "Use PI Expert for optimized design",
+          "Verify thermal performance under max load"
+        ]
+      },
+      "bomList": [
+        {
+          "designator": "U1",
+          "partNumber": "INN3675C",
+          "description": "Main controller IC",
+          "quantity": 1,
+          "link": "/power-integrations/products/ac-dc-converters/inn3675c.html"
+        },
+        {
+          "designator": "T1",
+          "partNumber": "Custom",
+          "description": "Transformer",
+          "quantity": 1,
+          "link": "#"
+        }
+      ],
+      "technicalSpecs": {
+        "Input Voltage": "90-264V AC",
+        "Output Power": "35W",
+        "Efficiency": ">92% at 230V AC",
+        "Operating Temperature": "-40°C to +85°C",
+        "Protection": "OVP, OCP, OTP, Short Circuit"
+      },
+      "faqs": [
+        {
+          "question": "What is the typical efficiency of the High-Efficiency Power Adapter Solution?",
+          "answer": "The High-Efficiency Power Adapter Solution achieves typical efficiency of >92% at 230V AC under normal operating conditions. The high efficiency reduces thermal dissipation and improves reliability.",
+          "decisionGuide": "Contact our FAE team for detailed efficiency curves and thermal design guidance.",
+          "keywords": [
+            "efficiency",
+            "power loss",
+            "thermal"
+          ]
+        },
+        {
+          "question": "What protection features are included in the High-Efficiency Power Adapter Solution?",
+          "answer": "The High-Efficiency Power Adapter Solution includes comprehensive protection features including overvoltage protection (OVP), overcurrent protection (OCP), overtemperature protection (OTP), and short-circuit protection. These protections ensure safe operation under abnormal conditions.",
+          "decisionGuide": "All protection features are integrated and require no additional external components.",
+          "keywords": [
+            "protection",
+            "safety",
+            "OVP",
+            "OCP",
+            "OTP"
+          ]
+        }
+      ],
+      "applications": [
+        "Mobile Chargers",
+        "USB-C PD Adapters",
+        "Laptop Power",
+        "Consumer Electronics"
+      ]
+    },
+    {
+      "id": "led-commercial-lighting",
+      "name": "Commercial LED Lighting Driver Solution",
+      "category": "LED Lighting",
+      "description": "Complete 25W commercial LED driver solution using LinkSwitch-PH with >0.95 power factor, <15% THD, and 0-10V/PWM dimming for intelligent lighting systems.",
+      "longDescription": "This commercial LED lighting solution utilizes Power Integrations' LinkSwitch-PH family to deliver high-performance lighting with excellent power quality. The single-stage design achieves >0.95 power factor and <15% THD, meeting IEC 61000-3-2 Class C requirements. The solution supports both 0-10V analog and PWM dimming interfaces, making it compatible with various lighting control systems. With >90% efficiency and comprehensive protection features, this solution is ideal for commercial and industrial lighting applications.",
+      "image": "/assets/brands/power-integrations/images/solutions/led-commercial-lighting.jpg",
+      "specifications": {
+        "Input Voltage": "90-305V AC",
+        "Output Power": "25W",
+        "Output Current": "350-700mA",
+        "Power Factor": ">0.95",
+        "THD": "<15%",
+        "Dimming": "0-10V, PWM, 1-100%"
+      },
+      "coreAdvantages": [
+        {
+          "title": "High Power Factor",
+          "description": ">0.95 PF meets IEC 61000-3-2 requirements"
+        },
+        {
+          "title": "Low THD",
+          "description": "<15% total harmonic distortion"
+        },
+        {
+          "title": "Flexible Dimming",
+          "description": "0-10V and PWM dimming interfaces"
+        },
+        {
+          "title": "Single-Stage Design",
+          "description": "Reduced component count and cost"
+        },
+        {
+          "title": "High Efficiency",
+          "description": ">90% efficiency reduces heat"
+        }
+      ],
+      "keyComponents": [
+        {
+          "partNumber": "LNK418LG",
+          "description": "LinkSwitch-PH LED driver IC",
+          "link": "/power-integrations/products/led-drivers/lnk418lg.html"
+        },
+        {
+          "partNumber": "PFC Inductor",
+          "description": "Critical conduction mode inductor",
+          "link": "#"
+        },
+        {
+          "partNumber": "Dimming Interface",
+          "description": "0-10V/PWM dimming circuit",
+          "link": "#"
+        }
+      ],
+      "customerCases": [
+        {
+          "customerName": "Commercial Lighting Manufacturer",
+          "industry": "LED Lighting",
+          "application": "Panel Lights and Downlights",
+          "challenge": "Design 25W LED driver with high PF, low THD, and 0-10V dimming for commercial buildings",
+          "solution": "Used LNK418LG with LinkSwitch-PH for single-stage high-PF design",
+          "results": "Achieved 0.96 PF, 12% THD, smooth 1-100% dimming, 30% cost reduction vs two-stage design",
+          "products": [
+            "LNK418LG"
+          ]
+        }
+      ],
+      "faeInsights": {
+        "title": "Designing High-PF LED Drivers with LinkSwitch-PH",
+        "content": "Key design considerations for LinkSwitch-PH LED drivers: 1) Inductor selection - critical for CRM operation and PF performance, 2) Input capacitor - balance between PF and ripple, 3) Dimming circuit - proper isolation and filtering for noise immunity, 4) Thermal design - adequate heatsinking for high ambient temperatures, 5) EMI compliance - proper filtering for conducted emissions. The single-stage design significantly reduces BOM cost while maintaining excellent power quality.",
+        "author": {
+          "name": "James Zhang",
+          "title": "Senior FAE - Commercial Lighting",
+          "experience": "8 years",
+          "expertise": [
+            "LED Drivers",
+            "PFC Design",
+            "Dimming Control"
+          ]
+        },
+        "insight": "Key design considerations for LinkSwitch-PH LED drivers: 1) Inductor selection - critical for CRM op...",
+        "logic": "This solution was selected based on efficiency requirements, cost considerations, and reliability needs.",
+        "keyTakeaways": [
+          "High efficiency reduces operating costs",
+          "Integrated protection simplifies design",
+          "Compact size enables high power density"
+        ],
+        "commonPitfalls": [
+          "Inadequate thermal design can reduce reliability",
+          "Poor layout can cause EMI issues",
+          "Incorrect component selection affects performance"
+        ],
+        "bestPractices": [
+          "Follow datasheet layout guidelines",
+          "Use PI Expert for optimized design",
+          "Verify thermal performance under max load"
+        ]
+      },
+      "bomList": [
+        {
+          "designator": "U1",
+          "partNumber": "LNK418LG",
+          "description": "Main controller IC",
+          "quantity": 1,
+          "link": "/power-integrations/products/led-drivers/lnk418lg.html"
+        },
+        {
+          "designator": "T1",
+          "partNumber": "Custom",
+          "description": "Transformer",
+          "quantity": 1,
+          "link": "#"
+        }
+      ],
+      "technicalSpecs": {
+        "Input Voltage": "90-305V AC",
+        "Output Power": "25W",
+        "Efficiency": ">90%",
+        "Operating Temperature": "-40°C to +85°C",
+        "Protection": "OVP, OCP, OTP, Short Circuit"
+      },
+      "faqs": [
+        {
+          "question": "What is the typical efficiency of the Commercial LED Lighting Driver Solution?",
+          "answer": "The Commercial LED Lighting Driver Solution achieves typical efficiency of >90% under normal operating conditions. The high efficiency reduces thermal dissipation and improves reliability.",
+          "decisionGuide": "Contact our FAE team for detailed efficiency curves and thermal design guidance.",
+          "keywords": [
+            "efficiency",
+            "power loss",
+            "thermal"
+          ]
+        },
+        {
+          "question": "What protection features are included in the Commercial LED Lighting Driver Solution?",
+          "answer": "The Commercial LED Lighting Driver Solution includes comprehensive protection features including overvoltage protection (OVP), overcurrent protection (OCP), overtemperature protection (OTP), and short-circuit protection. These protections ensure safe operation under abnormal conditions.",
+          "decisionGuide": "All protection features are integrated and require no additional external components.",
+          "keywords": [
+            "protection",
+            "safety",
+            "OVP",
+            "OCP",
+            "OTP"
+          ]
+        }
+      ],
+      "applications": [
+        "Panel Lights",
+        "Downlights",
+        "Street Lighting",
+        "High-bay Lighting"
+      ]
+    }
+  ]
+}

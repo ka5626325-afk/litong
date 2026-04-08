@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>All Brands | Electronic Component Distributors | LiTong</title>
+  <meta name="description" content="Browse all authorized electronic component brands at LiTong Electronics. Infineon, Semikron, ST, and more.">
+  <meta name="keywords" content="electronic components, brands, distributors, Infineon, Semikron, ST">
+  
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="/assets/css/navbar.css">
+  <link rel="stylesheet" href="/assets/css/footer.css">
+  <link rel="stylesheet" href="/assets/css/breadcrumb.css">
+  <link rel="stylesheet" href="/assets/css/floating-contact.css">
+  
+  <style>
+    .brands-page { padding: var(--space-16) 0; }
+    .section-title { text-align: center; font-size: 2.5rem; margin-bottom: var(--space-4); }
+    .section-subtitle { text-align: center; color: var(--text-medium); font-size: 1.125rem; margin-bottom: var(--space-12); }
+    
+    .brands-filter { display: flex; justify-content: center; gap: var(--space-2); margin-bottom: var(--space-8); flex-wrap: wrap; }
+    .filter-btn {
+      padding: 8px 20px;
+      border-radius: var(--radius-full);
+      background: var(--bg-light);
+      color: var(--text-medium);
+      border: none;
+      cursor: pointer;
+      font-size: 0.875rem;
+      transition: all 0.2s ease-out;
+    }
+    .filter-btn:hover, .filter-btn.active { background: var(--primary-blue); color: #ffffff; }
+    
+    .brands-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-6); }
+    
+    .brand-card {
+      background: #ffffff;
+      border-radius: var(--radius-lg);
+      padding: var(--space-6);
+      text-align: center;
+      box-shadow: var(--shadow-md);
+      transition: all 0.3s ease-out;
+      text-decoration: none;
+      color: inherit;
+    }
+    .brand-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-xl); }
+    .brand-logo { height: 80px; margin-bottom: var(--space-4); }
+    .brand-card h3 { font-size: 1.25rem; color: var(--primary-blue); margin-bottom: var(--space-2); }
+    .brand-card p { color: var(--text-medium); font-size: 0.875rem; margin-bottom: var(--space-4); }
+    .brand-products { font-size: 0.75rem; color: var(--text-light); }
+    
+    @media (max-width: 1023px) { .brands-grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 767px) { .brands-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px) { .brands-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <!-- templates/components/navbar.html -->
+<header class="navbar" id="navbar">
+  <div class="container">
+    <div class="navbar-brand">
+      <a href="/" class="logo-link">
+        <img src="/assets/images/logo.svg" alt="LiTong Electronics" class="logo">
+        <span class="brand-tagline">Top 8 Electronic Component Distributor in China</span>
+      </a>
+    </div>
+    
+    <nav class="navbar-menu" id="navbar-menu">
+      <a href="/" class="nav-item">Home</a>
+      <a href="/brands/" class="nav-item">Brands</a>
+      <a href="/news/" class="nav-item">News</a>
+      <a href="/about/" class="nav-item">About Us</a>
+    </nav>
+    
+    <button class="navbar-toggle" id="navbar-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <span class="hamburger"></span>
+    </button>
+  </div>
+</header>
+
+  <!-- templates/components/breadcrumb.html -->
+<nav aria-label="Breadcrumb" class="breadcrumb">
+  <div class="container">
+    <ol>
+      <li>
+        <a href="/">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" width="16" height="16">
+            <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+          </svg>
+          <span class="sr-only">Home</span>
+        </a>
+      </li>
+      <li><a href="/brands/">Brands</a></li>
+      <li><a href="/infineon/">Infineon</a></li>
+      <li aria-current="page">Products</li>
+    </ol>
+  </div>
+</nav>
+
+  
+  <main>
+    <section class="brands-page">
+      <div class="container">
+        <h1 class="section-title">All Brands</h1>
+        <p class="section-subtitle">Browse our comprehensive portfolio of electronic component manufacturers</p>
+        
+        <div class="brands-filter">
+          <button class="filter-btn active" data-category="all">All</button>
+          <button class="filter-btn" data-category="power">Power Semiconductors</button>
+          <button class="filter-btn" data-category="mcu">MCU & Processors</button>
+          <button class="filter-btn" data-category="sensor">Sensors</button>
+          <button class="filter-btn" data-category="passive">Passive Components</button>
+        </div>
+
+        <div class="brands-grid">
+          <a href="/infineon/" class="brand-card" data-category="power">
+            <svg class="brand-logo" viewBox="0 0 200 80"><rect fill="#f0f0f0" width="200" height="80"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-size="20" font-weight="bold" fill="#0072ce">Infineon</text></svg>
+            <h3>Infineon</h3>
+            <p>Power systems, IoT, automotive solutions</p>
+            <div class="brand-products">IGBT, MOSFET, MCU, Sensors</div>
+          </a>
+          <a href="/semikron/" class="brand-card" data-category="power">
+            <svg class="brand-logo" viewBox="0 0 200 80"><rect fill="#f0f0f0" width="200" height="80"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-size="20" font-weight="bold" fill="#333">Semikron</text></svg>
+            <h3>Semikron</h3>
+            <p>Power electronics and semiconductors</p>
+            <div class="brand-products">IGBT Modules, Diodes</div>
+          </a>
+          <a href="/st/" class="brand-card" data-category="mcu">
+            <svg class="brand-logo" viewBox="0 0 200 80"><rect fill="#f0f0f0" width="200" height="80"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-size="20" font-weight="bold" fill="#032C4A">ST</text></svg>
+            <h3>STMicroelectronics</h3>
+            <p>Global semiconductor leader</p>
+            <div class="brand-products">MCU, Sensors, Power ICs</div>
+          </a>
+          <a href="/crmicro/" class="brand-card" data-category="power">
+            <svg class="brand-logo" viewBox="0 0 200 80"><rect fill="#f0f0f0" width="200" height="80"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-size="20" font-weight="bold" fill="#B71C1C">CR Micro</text></svg>
+            <h3>CR Micro</h3>
+            <p>Power semiconductor solutions</p>
+            <div class="brand-products">IGBT, FRD, TVS</div>
+          </a>
+          <a href="/crrc/" class="brand-card" data-category="power">
+            <svg class="brand-logo" viewBox="0 0 200 80"><rect fill="#f0f0f0" width="200" height="80"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-size="20" font-weight="bold" fill="#1976D2">CRRC</text></svg>
+            <h3>CRRC</h3>
+            <p>Rail transit power devices</p>
+            <div class="brand-products">IGBT for Rail</div>
+          </a>
+          <a href="/macmic/" class="brand-card" data-category="power">
+            <svg class="brand-logo" viewBox="0 0 200 80"><rect fill="#f0f0f0" width="200" height="80"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-size="20" font-weight="bold" fill="#388E3C">Macmic</text></svg>
+            <h3>Macmic</h3>
+            <p>Power semiconductor manufacturer</p>
+            <div class="brand-products">IGBT, MOSFET</div>
+          </a>
+          <a href="/starpower/" class="brand-card" data-category="power">
+            <svg class="brand-logo" viewBox="0 0 200 80"><rect fill="#f0f0f0" width="200" height="80"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-size="20" font-weight="bold" fill="#F57C00">StarPower</text></svg>
+            <h3>StarPower</h3>
+            <p>IGBT module specialist</p>
+            <div class="brand-products">IGBT Modules</div>
+          </a>
+          <a href="/byd/" class="brand-card" data-category="power">
+            <svg class="brand-logo" viewBox="0 0 200 80"><rect fill="#f0f0f0" width="200" height="80"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-size="20" font-weight="bold" fill="#D32F2F">BYD</text></svg>
+            <h3>BYD</h3>
+            <p>EV and power electronics</p>
+            <div class="brand-products">IGBT, SiC Modules</div>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    // Brand filter Tab functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const filterBtns = document.querySelectorAll('.brands-filter .filter-btn');
+      const brandCards = document.querySelectorAll('.brands-grid .brand-card');
+
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+          // Remove active state from all buttons
+          filterBtns.forEach(b => b.classList.remove('active'));
+          // Add active state to clicked button
+          this.classList.add('active');
+
+          const category = this.dataset.category;
+
+          // Filter brand cards
+          brandCards.forEach(card => {
+            if (category === 'all' || card.dataset.category === category) {
+              card.style.display = 'block';
+            } else {
+              card.style.display = 'none';
+            }
+          });
+        });
+      });
+    });
+  </script>
+  
+  <!-- templates/components/footer.html -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <!-- About Section -->
+      <div class="footer-section">
+        <h4 class="footer-title">About LiTong</h4>
+        <p class="footer-description">
+          Leading electronic components distributor with over 20 years of experience.
+          We provide genuine products, technical support, and competitive pricing.
+        </p>
+      </div>
+      
+      <!-- Quick Links Section -->
+      <div class="footer-section">
+        <h4 class="footer-title">Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="/brands/">Brands</a></li>
+          <li><a href="/news/">News</a></li>
+          <li><a href="/about/">About Us</a></li>
+          <li><a href="/about/contact/">Contact</a></li>
+        </ul>
+      </div>
+      
+      <!-- Contact Info Section -->
+      <div class="footer-section">
+        <h4 class="footer-title">Contact Info</h4>
+        <ul class="footer-contact">
+          <li>Email: info@elec-distributor.com</li>
+          <li>WhatsApp: +86 15013702378</li>
+          <li>WeChat: +86 18612518271</li>
+        </ul>
+      </div>
+      
+      <!-- Social Links Section -->
+      <div class="footer-section">
+        <h4 class="footer-title">Follow Us</h4>
+        <div class="social-links">
+          <a href="#" aria-label="LinkedIn" class="social-link">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+            </svg>
+          </a>
+          <a href="#" aria-label="Twitter" class="social-link">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Footer Bottom -->
+    <div class="footer-bottom">
+      <p class="copyright">&copy; 2026 LiTong Electronics. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+  <!-- templates/components/floating-contact.html -->
+<div class="floating-contact">
+  <a href="https://wa.me/8615013702378" class="floating-btn whatsapp" aria-label="WhatsApp" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+    </svg>
+  </a>
+  <a href="weixin://dl/chat?18612518271" class="floating-btn wechat" aria-label="WeChat">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M8.5 14.5A2.5 2.5 0 0011 12c0-1.38-.5-2-1-3-.5-1-.5-2 1-3a2.5 2.5 0 015 0c0 .5-.5 1-1 2 .5 0 1 .5 1 1a2.5 2.5 0 01-2.5 2.5c-.5 0-1-.5-1-1l-.5.5c.5 1 1.5 2 3 2a4.5 4.5 0 004.5-4.5c0-2.485-2.015-4.5-4.5-4.5S10 6.515 10 9c0 .5.5 1 1 1-.5 1-1.5 2-3 2a2.5 2.5 0 010-5c.5 0 1 .5 1 1 .5 0 1-.5 1-1a4.5 4.5 0 00-9 0c0 2.485 2.015 4.5 4.5 4.5z"/>
+    </svg>
+  </a>
+</div>
+
+  <script src="/assets/js/navbar.js"></script>
+</body>
+</html>

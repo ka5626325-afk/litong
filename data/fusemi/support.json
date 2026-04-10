@@ -1,0 +1,145 @@
+{
+  "seoTitle": "Fusemi (Senwei) Technical Support | IGBT, MOSFET, SiC Selection Guides",
+  "seoDescription": "Access Fusemi technical support resources including IGBT module selection guides, MOSFET application notes, and SiC device guidance.",
+  "seoKeywords": [
+    "Fusemi support",
+    "IGBT selection guide",
+    "MOSFET application",
+    "SiC device guide",
+    "FAE support"
+  ],
+  "faqs": [
+    {
+      "question": "How do I get technical support for Fusemi products?",
+      "answer": "LiTong provides comprehensive technical support: 1) Direct FAE support for device selection and application design; 2) Technical documentation including datasheets and application notes; 3) Email support with 24-hour response; 4) Phone support for urgent issues; 5) On-site support for large projects.",
+      "decisionGuide": "Contact our FAE team for device selection and application support.",
+      "keywords": ["technical support", "FAE contact"]
+    },
+    {
+      "question": "What technical resources are available?",
+      "answer": "Available resources: 1) Datasheets with electrical characteristics; 2) Selection guides for different applications; 3) Application notes for specific topologies; 4) Thermal design guidelines; 5) Gate drive recommendations; 6) Protection design guides.",
+      "decisionGuide": "Browse our technical library or contact our FAE for specific resources.",
+      "keywords": ["technical resources", "documentation"]
+    }
+  ],
+  "articles": [
+    {
+      "id": "igbt-module-selection",
+      "title": "IGBT Module Selection Guide",
+      "category": "Selection Guide",
+      "tags": ["IGBT", "Module Selection", "Motor Drive", "Power Electronics"],
+      "author": {
+        "name": "Dr. James Liu",
+        "title": "Principal FAE - Power Electronics",
+        "experience": "18 years",
+        "expertise": ["IGBT", "Power Electronics", "Motor Drives"]
+      },
+      "publishDate": "2026-03-15",
+      "lastUpdated": "2026-03-15",
+      "summary": "Comprehensive guide for selecting IGBT modules based on voltage, current, switching frequency, and thermal requirements.",
+      "contentSections": [
+        {
+          "heading": "Introduction",
+          "content": "IGBT module selection is critical for reliable power electronics design. This guide covers key parameters and selection criteria."
+        },
+        {
+          "heading": "Voltage Rating Selection",
+          "content": "Select IGBT voltage rating 2-3x maximum DC link voltage. For 400V AC systems, use 1200V IGBT. For 690V AC, use 1700V IGBT."
+        },
+        {
+          "heading": "Current Rating Sizing",
+          "content": "Size current rating with 1.5-2x margin for overload capability. Consider RMS current, peak current, and thermal limitations."
+        }
+      ],
+      "relatedArticles": ["mosfet-selection", "sic-device-selection"],
+      "faeInsights": {
+        "insight": "Always verify thermal performance under worst-case conditions. Short-circuit withstand is critical for motor drive applications.",
+        "keyTakeaways": ["Voltage margin 2-3x", "Current margin 1.5-2x", "Verify thermal design"]
+      },
+      "faqs": [
+        {
+          "question": "What is VCE(sat)?",
+          "answer": "VCE(sat) is the collector-emitter saturation voltage when IGBT is fully on. Lower VCE(sat) means lower conduction losses.",
+          "decisionGuide": "Compare VCE(sat) for conduction loss calculation.",
+          "keywords": ["VCE(sat)", "conduction loss"]
+        }
+      ]
+    },
+    {
+      "id": "mosfet-selection",
+      "title": "Power MOSFET Selection Guide",
+      "category": "Selection Guide",
+      "tags": ["MOSFET", "Power MOSFET", "Switching", "RDS(on)"],
+      "author": {
+        "name": "Dr. Steven Wang",
+        "title": "Senior FAE - Power Supply",
+        "experience": "15 years",
+        "expertise": ["MOSFET", "Power Supply", "Synchronous Rectification"]
+      },
+      "publishDate": "2026-03-20",
+      "lastUpdated": "2026-03-20",
+      "summary": "Guide for selecting power MOSFETs based on voltage, RDS(on), switching characteristics, and thermal requirements.",
+      "contentSections": [
+        {
+          "heading": "Introduction",
+          "content": "MOSFET selection balances conduction losses, switching losses, and cost. This guide provides selection criteria."
+        },
+        {
+          "heading": "RDS(on) Selection",
+          "content": "Lower RDS(on) reduces conduction losses but increases cost and gate charge. Select based on efficiency requirements and thermal budget."
+        }
+      ],
+      "relatedArticles": ["igbt-module-selection"],
+      "faeInsights": {
+        "insight": "RDS(on) doubles from 25°C to 125°C. Always calculate losses at operating temperature.",
+        "keyTakeaways": ["Consider temperature effects", "Balance conduction and switching losses"]
+      },
+      "faqs": [
+        {
+          "question": "What is Qg?",
+          "answer": "Qg is total gate charge. Lower Qg enables faster switching and lower gate drive losses.",
+          "decisionGuide": "Select lower Qg for high-frequency applications.",
+          "keywords": ["gate charge", "Qg"]
+        }
+      ]
+    },
+    {
+      "id": "sic-device-selection",
+      "title": "SiC Device Selection Guide",
+      "category": "Selection Guide",
+      "tags": ["SiC", "Silicon Carbide", "Wide Bandgap", "High Efficiency"],
+      "author": {
+        "name": "Dr. Michael Chen",
+        "title": "Senior FAE - EV Power Systems",
+        "experience": "15 years",
+        "expertise": ["SiC", "EV", "High Efficiency"]
+      },
+      "publishDate": "2026-03-25",
+      "lastUpdated": "2026-03-25",
+      "summary": "Guide for selecting SiC MOSFETs and diodes for high-efficiency power conversion applications.",
+      "contentSections": [
+        {
+          "heading": "Introduction",
+          "content": "SiC devices offer significant advantages over silicon for high-voltage, high-frequency, and high-temperature applications."
+        },
+        {
+          "heading": "Gate Drive Requirements",
+          "content": "SiC MOSFETs typically require 0V/18V or -3V/18V gate drive. Use dedicated SiC gate drivers for optimal performance."
+        }
+      ],
+      "relatedArticles": ["igbt-module-selection", "mosfet-selection"],
+      "faeInsights": {
+        "insight": "SiC enables higher efficiency and reduced cooling. Gate drive design is critical for optimal performance.",
+        "keyTakeaways": ["Use proper gate drive", "Design for high switching frequency"]
+      },
+      "faqs": [
+        {
+          "question": "What gate voltage for SiC MOSFET?",
+          "answer": "Typically 0V/18V or -3V/18V. Never exceed 20V positive or -5V negative.",
+          "decisionGuide": "Use recommended gate voltage from datasheet.",
+          "keywords": ["SiC gate drive", "gate voltage"]
+        }
+      ]
+    }
+  ]
+}

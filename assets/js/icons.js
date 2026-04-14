@@ -1,5 +1,5 @@
 /**
- * LiTong Electronics - Unified SVG Icon Library
+ * BeiLuo Electronics - Unified SVG Icon Library
  * All icons use consistent 24x24 viewBox for uniformity
  */
 

@@ -1,0 +1,634 @@
+{
+  "seoTitle": "JoulWatt Technical Support | Design Resources | BeiLuo Electronics",
+  "seoDescription": "Get comprehensive technical support for JoulWatt power management ICs. Access datasheets, application notes, reference designs, and FAE support for AC-DC, DC-DC, LDO, and gate driver products.",
+  "seoKeywords": [
+    "JoulWatt support",
+    "technical support",
+    "design resources",
+    "application notes",
+    "reference designs",
+    "FAE support",
+    "JoulWatt distributor",
+    "power management guide",
+    "JoulWatt selection guide"
+  ],
+  "faqs": [
+    {
+      "question": "How do I get technical support for JoulWatt products?",
+      "answer": "Technical support is available through BeiLuo Electronics FAE team. We provide schematic review, PCB layout guidance, power analysis, and troubleshooting support. Contact us via email, phone, or through our website contact form. For complex projects, we can schedule technical meetings with our FAE engineers.",
+      "decisionGuide": "Contact our FAE team early in your design cycle for optimal component selection and power architecture guidance.",
+      "keywords": [
+        "technical support",
+        "FAE",
+        "design assistance",
+        "troubleshooting"
+      ]
+    },
+    {
+      "question": "Where can I find JoulWatt datasheets and application notes?",
+      "answer": "Datasheets and application notes are available on the BeiLuo Electronics website in the JoulWatt brand section. Each product page includes the datasheet, recommended PCB layout, and application notes. Contact our FAE team if you need additional documentation or specific application guidance.",
+      "decisionGuide": "Download datasheets from product pages; contact FAE for additional application-specific documentation.",
+      "keywords": [
+        "datasheet",
+        "application notes",
+        "documentation",
+        "downloads"
+      ]
+    },
+    {
+      "question": "What design tools are available for JoulWatt products?",
+      "answer": "We provide reference designs, evaluation boards, and design calculators for power analysis. Our FAE team can assist with power architecture selection, thermal analysis, and EMI optimization. Sample kits are available for prototyping and evaluation.",
+      "decisionGuide": "Request evaluation boards and reference designs; use our power calculators for initial analysis.",
+      "keywords": [
+        "design tools",
+        "reference designs",
+        "evaluation boards",
+        "calculators"
+      ]
+    },
+    {
+      "question": "How do I select the right JoulWatt product for my application?",
+      "answer": "Product selection depends on your specific requirements: AC-DC for offline power, DC-DC for voltage conversion, LDO for post-regulation, gate drivers for MOSFET control. Consider voltage ranges, current requirements, efficiency needs, and package constraints. Our FAE team can guide you through the selection process.",
+      "decisionGuide": "Contact FAE for selection guidance; consider voltage, current, efficiency, and application requirements.",
+      "keywords": [
+        "product selection",
+        "selection guide",
+        "application requirements",
+        "design guide"
+      ]
+    },
+    {
+      "question": "What is the typical lead time for JoulWatt products?",
+      "answer": "JoulWatt maintains good inventory levels for standard products with typical lead times of 4-6 weeks. For high-volume orders or specific scheduling requirements, please contact BeiLuo Electronics for current availability and lead time confirmation.",
+      "decisionGuide": "Plan for 4-6 week lead time; contact us for large volume requirements or specific delivery schedules.",
+      "keywords": [
+        "lead time",
+        "delivery",
+        "inventory",
+        "availability"
+      ]
+    },
+    {
+      "question": "Does JoulWatt offer automotive-qualified products?",
+      "answer": "Yes, JoulWatt offers AEC-Q100 qualified products for automotive applications. These products are tested and qualified for automotive temperature ranges and reliability requirements. Contact us for the automotive grade variants of specific products.",
+      "decisionGuide": "AEC-Q100 qualified products available; specify automotive grade when ordering.",
+      "keywords": [
+        "automotive",
+        "AEC-Q100",
+        "qualified",
+        "automotive grade"
+      ]
+    },
+    {
+      "question": "What quality certifications do JoulWatt products have?",
+      "answer": "JoulWatt products are manufactured in ISO 9001, ISO 14001, and IATF 16949 certified facilities. Products undergo rigorous testing including burn-in, temperature cycling, and electrical characterization. Contact us for specific qualification reports or reliability data.",
+      "decisionGuide": "ISO 9001/14001 and IATF 16949 certified manufacturing; contact us for qualification reports.",
+      "keywords": [
+        "quality",
+        "certification",
+        "ISO 9001",
+        "IATF 16949",
+        "reliability"
+      ]
+    },
+    {
+      "question": "How can I request samples for prototyping?",
+      "answer": "Samples are available through BeiLuo Electronics. Contact our sales team with your company information, project details, and required sample quantities. We typically ship evaluation samples within 1-2 business days for qualified projects.",
+      "decisionGuide": "Contact sales with project details; samples typically ship within 1-2 business days.",
+      "keywords": [
+        "samples",
+        "prototyping",
+        "evaluation",
+        "sample request"
+      ]
+    }
+  ],
+  "articles": [
+    {
+      "id": "ac-dc-selection-guide",
+      "title": "How to Select AC-DC Converters for Offline Power Supplies",
+      "slug": "ac-dc-selection-guide",
+      "category": "Design Guide",
+      "author": {
+        "name": "Dr. Michael Chen",
+        "title": "Senior FAE - Power Systems",
+        "experience": "15 years",
+        "expertise": [
+          "AC-DC Design",
+          "Offline Power",
+          "EMC Compliance"
+        ]
+      },
+      "publishDate": "2025-11-15",
+      "lastUpdated": "2025-11-15",
+      "summary": "Comprehensive guide to selecting AC-DC converters for offline power supplies, covering topology selection, power level considerations, and efficiency optimization.",
+      "contentSections": [
+        {
+          "heading": "AC-DC Topology Selection",
+          "content": "Selecting the right AC-DC topology depends on power level and application requirements:\\n\\n**Flyback Converters**: Best for low to medium power (5W-150W). Simple, low cost, and inherently isolated. JoulWatt JW1763B and JW1550 are excellent flyback controllers.\\n\\n**Forward Converters**: Suitable for medium power (100W-300W). Better efficiency than flyback at higher power levels but require output inductors.\\n\\n**LLC Resonant Converters**: Ideal for high power (>200W) requiring high efficiency. More complex but achieves 95%+ efficiency.\\n\\n**PFC + LLC**: Required for high power (>75W) to meet harmonic current regulations. Two-stage approach with power factor correction front end."
+        },
+        {
+          "heading": "Key Selection Parameters",
+          "content": "**Input Voltage Range**: Universal input (85-265VAC) for worldwide operation or fixed range for regional products.\\n\\n**Output Power**: Select topology based on power level. Consider thermal management requirements.\\n\\n**Efficiency Requirements**: Higher efficiency reduces heat generation and operating costs. Synchronous rectification can improve efficiency by 3-5%.\\n\\n**EMC Requirements**: Industrial and automotive applications have strict EMC requirements. Quasi-resonant operation and frequency dithering help reduce EMI.\\n\\n**Safety Standards**: Ensure the design meets applicable safety standards (UL, EN, IEC) for your target markets."
+        }
+      ],
+      "relatedArticles": [
+        "dc-dc-selection-guide",
+        "emc-design-guide",
+        "transformer-design-guide"
+      ],
+      "faeInsights": {
+        "insight": "The most common mistake I see in AC-DC design is inadequate input filtering for EMC compliance. Many designers focus on the converter IC but neglect the front-end EMI filter. For industrial applications, plan for at least two stages of filtering - common mode and differential mode. Another critical factor is transformer design - undersized transformers overheat and saturate, while oversized transformers waste space and cost. I always recommend using the manufacturer's reference transformer design as a starting point. For high-volume products, invest in proper thermal testing at maximum ambient temperature with actual load conditions.",
+        "logic": "AC-DC design follows this systematic approach: 1) Determine power level and select appropriate topology, 2) Choose controller IC with required features, 3) Design transformer with proper margin, 4) Implement adequate input filtering for EMC, 5) Verify thermal performance under worst-case conditions, 6) Test for compliance with safety and EMC standards.",
+        "keyTakeaways": [
+          "Select topology based on power level and efficiency requirements",
+          "Implement adequate input filtering for EMC compliance",
+          "Use manufacturer reference designs for transformer",
+          "Verify thermal performance at maximum ambient temperature",
+          "Plan for safety agency certifications early in design"
+        ],
+        "commonPitfalls": [
+          "Inadequate input filtering causing EMC failures",
+          "Undersized transformer leading to overheating",
+          "Insufficient creepage/clearance for safety isolation",
+          "Poor PCB layout causing excessive EMI",
+          "Missing hold-up time requirements"
+        ],
+        "bestPractices": [
+          "Use two-stage EMI filter for industrial applications",
+          "Follow manufacturer transformer design guidelines",
+          "Implement proper snubber circuits to reduce ringing",
+          "Use shielded transformers for reduced EMI",
+          "Test thermal performance with actual load profiles"
+        ]
+      },
+      "customerCases": [
+        {
+          "customerName": "IndustrialPower Solutions",
+          "industry": "Industrial Equipment",
+          "challenge": "Needed to select appropriate AC-DC topology for 60W industrial power supply with strict EMC requirements",
+          "solution": "Applied selection methodology from this guide, chose quasi-resonant flyback with JW1550 controller",
+          "results": "Achieved 89% efficiency and passed CISPR 32 Class B with 6dB margin"
+        }
+      ],
+      "faqs": [
+        {
+          "question": "What topology should I use for a 50W power supply?",
+          "answer": "For 50W, a quasi-resonant flyback converter is the best choice. It offers good efficiency, low cost, and simple design. The JoulWatt JW1550 is ideal for this power level with its valley switching and active burst mode. Alternative topologies like forward converters are overkill at this power level.",
+          "decisionGuide": "Quasi-resonant flyback for 50W; JW1550 controller recommended.",
+          "keywords": [
+            "topology",
+            "50W",
+            "flyback",
+            "selection"
+          ]
+        },
+        {
+          "question": "What is the difference between QR and fixed-frequency PWM?",
+          "answer": "Quasi-resonant (QR) converters switch at the valley of drain voltage ringing, reducing switching losses and EMI. Fixed-frequency PWM operates at constant frequency with hard switching. QR offers better efficiency and lower EMI but has variable frequency. Fixed-frequency is simpler for filter design but has higher switching losses.",
+          "decisionGuide": "QR for efficiency and EMI; fixed-frequency for simple filter design.",
+          "keywords": [
+            "quasi-resonant",
+            "QR",
+            "PWM",
+            "comparison"
+          ]
+        },
+        {
+          "question": "How do I meet EMC requirements for AC-DC supplies?",
+          "answer": "To meet EMC requirements: 1) Use proper input filtering with common mode and differential mode chokes, 2) Minimize switching loops on PCB, 3) Use quasi-resonant operation or frequency dithering, 4) Implement proper grounding, 5) Use shielded transformers if needed, 6) Add snubber circuits. Plan for EMC testing early and allow margin for production variations.",
+          "decisionGuide": "Two-stage filtering, small switching loops, and QR operation most effective for EMC.",
+          "keywords": [
+            "EMC",
+            "EMI",
+            "filtering",
+            "compliance"
+          ]
+        },
+        {
+          "question": "When do I need power factor correction (PFC)?",
+          "answer": "PFC is required for products >75W in most regions to meet harmonic current regulations (IEC 61000-3-2). It may also be required for lower power products in some applications or regions. PFC front end adds complexity and cost but improves power quality and enables higher power designs.",
+          "decisionGuide": "PFC required for >75W; consider for lower power in sensitive applications.",
+          "keywords": [
+            "PFC",
+            "power factor correction",
+            "harmonic",
+            "regulations"
+          ]
+        },
+        {
+          "question": "What safety standards apply to AC-DC power supplies?",
+          "answer": "Common safety standards include UL/EN/IEC 62368-1 for IT equipment, IEC 61558 for transformers, and IEC 60335 for appliances. Requirements include isolation barriers, creepage/clearance distances, protection against electric shock, and thermal limits. Third-party certification is typically required for commercial products.",
+          "decisionGuide": "IEC 62368-1 most common for IT; verify requirements for your target markets.",
+          "keywords": [
+            "safety",
+            "standards",
+            "IEC 62368",
+            "certification"
+          ]
+        }
+      ],
+      "tags": [
+        "JoulWatt",
+        "AC-DC",
+        "Design Guide",
+        "Technical Article"
+      ]
+    },
+    {
+      "id": "dc-dc-selection-guide",
+      "title": "DC-DC Converter Selection for Industrial and Automotive Applications",
+      "slug": "dc-dc-selection-guide",
+      "category": "Design Guide",
+      "author": {
+        "name": "David Liu",
+        "title": "Senior FAE - Industrial Power",
+        "experience": "12 years",
+        "expertise": [
+          "DC-DC Converters",
+          "Industrial Power",
+          "Automotive Power"
+        ]
+      },
+      "publishDate": "2025-11-10",
+      "lastUpdated": "2025-11-10",
+      "summary": "Comprehensive guide to selecting DC-DC converters for industrial and automotive applications, covering voltage range, current capability, and protection requirements.",
+      "contentSections": [
+        {
+          "heading": "Voltage Range Selection",
+          "content": "Input voltage range is critical for DC-DC converter selection:\\n\\n**Industrial Applications**: Standard 12V or 24V systems require converters with adequate margin for transients. JoulWatt JW5359 supports 4.5V-40V, handling 24V systems with margin.\\n\\n**Automotive Applications**: Must handle load dump (up to 40V), cold crank (down to 4.5V), and double battery jump start (up to 28V). Wide input range converters like JW5359 are essential.\\n\\n**Computing Applications**: Typically 12V input with tight regulation requirements. Point-of-load converters need high efficiency and fast transient response.\\n\\nAlways include margin for worst-case transients and tolerances."
+        },
+        {
+          "heading": "Current and Thermal Considerations",
+          "content": "**Current Rating**: Select converters with 20-30% current margin above maximum load. Consider both continuous and peak currents.\\n\\n**Thermal Management**: High-current converters require proper thermal design. Use exposed pad packages with good PCB copper area and thermal vias. Forced airflow may be needed at high ambient temperatures.\\n\\n**Efficiency**: Higher efficiency reduces heat generation. Synchronous converters like JW5359 achieve 95% efficiency. Calculate power dissipation for thermal design.\\n\\n**Switching Frequency**: Higher frequencies allow smaller components but increase switching losses. 500kHz-1MHz offers good balance for most applications."
+        }
+      ],
+      "relatedArticles": [
+        "ac-dc-selection-guide",
+        "automotive-power-design",
+        "thermal-design-guide"
+      ],
+      "faeInsights": {
+        "insight": "For automotive applications, the input voltage range is the most critical parameter. I've seen designs fail because they couldn't handle load dump or cold crank conditions. The JW5359's 4.5V-40V range eliminates these issues. Another critical factor is transient response - processors and FPGAs have fast load steps that can cause voltage undershoot. I always recommend measuring actual transient response with an oscilloscope, not just relying on datasheet specs. For thermal design, don't underestimate the power dissipation at high input voltages - conduction losses increase with input voltage.",
+        "logic": "DC-DC selection for industrial/automotive: 1) Verify input voltage range covers all transients, 2) Select current rating with adequate margin, 3) Calculate thermal requirements including worst-case conditions, 4) Verify transient response meets load requirements, 5) Ensure protection features meet application needs.",
+        "keyTakeaways": [
+          "Wide input range essential for automotive applications",
+          "Include 20-30% current margin for reliability",
+          "Calculate thermal design for worst-case conditions",
+          "Measure actual transient response with scope",
+          "Verify protection features meet safety requirements"
+        ],
+        "commonPitfalls": [
+          "Insufficient input voltage range for automotive transients",
+          "Inadequate current margin leading to overheating",
+          "Poor thermal design causing thermal shutdown",
+          "Insufficient transient response for processor loads",
+          "Missing protection features for safety"
+        ],
+        "bestPractices": [
+          "Use wide input range converters for automotive (4.5V-40V)",
+          "Include current margin and verify with temperature testing",
+          "Use exposed pad packages with proper thermal vias",
+          "Measure transient response with actual load steps",
+          "Implement proper input and output filtering"
+        ]
+      },
+      "customerCases": [
+        {
+          "customerName": "AutoElectronics Co",
+          "industry": "Automotive",
+          "challenge": "Needed DC-DC converter for automotive infotainment system with load dump and cold crank requirements",
+          "solution": "Selected JW5359 with 4.5V-40V input range and implemented proper protection",
+          "results": "Successfully passed all automotive transient tests including load dump to 40V and cold crank to 4.5V"
+        }
+      ],
+      "faqs": [
+        {
+          "question": "What input voltage range do I need for automotive applications?",
+          "answer": "Automotive applications need 4.5V-40V minimum to handle cold crank (4.5V), normal operation (12V-14V), and load dump (40V). Some applications may see transients up to 60V. The JW5359's 4.5V-40V range handles most automotive requirements without additional protection.",
+          "decisionGuide": "4.5V-40V minimum for automotive; JW5359 covers most requirements.",
+          "keywords": [
+            "automotive",
+            "input voltage",
+            "load dump",
+            "cold crank"
+          ]
+        },
+        {
+          "question": "How do I calculate thermal requirements?",
+          "answer": "Calculate power dissipation: Ploss = Pout × (1/efficiency - 1). For example, 5V at 3A = 15W output. At 95% efficiency, Ploss = 15W × (1/0.95 - 1) = 0.79W. Then calculate temperature rise: T rise = Ploss × Rth. With Rth = 30°C/W, T rise = 24°C. Ensure junction temperature stays below maximum rating at highest ambient.",
+          "decisionGuide": "Calculate Ploss from efficiency; use thermal resistance to find temperature rise.",
+          "keywords": [
+            "thermal",
+            "power dissipation",
+            "efficiency",
+            "temperature"
+          ]
+        },
+        {
+          "question": "What switching frequency should I select?",
+          "answer": "Switching frequency selection involves trade-offs: 200-500kHz for best efficiency and lowest EMI; 500kHz-1MHz for good balance; 1-2MHz for smallest component size. For automotive, 500kHz-1MHz is typical. Higher frequencies allow smaller inductors but increase switching losses and EMI.",
+          "decisionGuide": "500kHz-1MHz typical for automotive; lower for efficiency, higher for size.",
+          "keywords": [
+            "switching frequency",
+            "efficiency",
+            "EMI",
+            "component size"
+          ]
+        },
+        {
+          "question": "How do I ensure good transient response?",
+          "answer": "For good transient response: 1) Select converter with fast current mode control, 2) Use sufficient output capacitance (ceramic + bulk), 3) Minimize ESL with proper capacitor placement, 4) Optimize compensation network, 5) Measure actual response with scope. Target <5% voltage deviation for <50% load steps.",
+          "decisionGuide": "Fast control mode, sufficient capacitance, and proper compensation essential.",
+          "keywords": [
+            "transient response",
+            "load step",
+            "output capacitance",
+            "compensation"
+          ]
+        },
+        {
+          "question": "What protection features are important for industrial applications?",
+          "answer": "Important protections: Over-current protection (OCP) for short circuits, Over-voltage protection (OVP) for load protection, Under-voltage lockout (UVLO) for proper startup, Thermal shutdown for overtemperature, and Input UVLO for valid input. JoulWatt converters include comprehensive protection.",
+          "decisionGuide": "OCP, OVP, UVLO, and thermal shutdown essential for industrial reliability.",
+          "keywords": [
+            "protection",
+            "OCP",
+            "OVP",
+            "UVLO",
+            "industrial"
+          ]
+        }
+      ],
+      "tags": [
+        "JoulWatt",
+        "DC-DC",
+        "Design Guide",
+        "Technical Article"
+      ]
+    },
+    {
+      "id": "gate-driver-selection-guide",
+      "title": "Gate Driver Selection and Design for Power MOSFETs",
+      "slug": "gate-driver-selection-guide",
+      "category": "Design Guide",
+      "author": {
+        "name": "Kevin Chen",
+        "title": "Senior FAE - Power Electronics",
+        "experience": "10 years",
+        "expertise": [
+          "Gate Drivers",
+          "MOSFET Switching",
+          "Power Conversion"
+        ]
+      },
+      "publishDate": "2025-11-05",
+      "lastUpdated": "2025-11-05",
+      "summary": "Complete guide to selecting and designing with gate drivers for power MOSFET applications, covering drive current, speed, and protection.",
+      "contentSections": [
+        {
+          "heading": "Gate Driver Selection Criteria",
+          "content": "Selecting the right gate driver involves several key factors:\\n\\n**Drive Current**: Peak source/sink current determines switching speed. Higher current (2-10A) provides faster switching but may cause ringing. Calculate required current based on gate charge and desired switching time: I = Qg / t.\\n\\n**Voltage Rating**: Gate drive voltage must match MOSFET requirements. Standard MOSFETs need 10-12V; logic-level need 5V. Ensure driver supply voltage is compatible.\\n\\n**Propagation Delay**: Critical for high-frequency applications and synchronous timing. Lower delay (10-50ns) enables higher switching frequencies.\\n\\n**Topology**: Low-side drivers for single MOSFETs, half-bridge drivers for buck converters and motor drives, full-bridge for H-bridge applications."
+        },
+        {
+          "heading": "Design Considerations",
+          "content": "**Gate Resistor Selection**: Gate resistor controls switching speed and ringing. Typical values 2-20Ω. Lower values for faster switching, higher for reduced EMI. Use different values for turn-on and turn-off if split output available.\\n\\n**Layout**: Minimize gate loop inductance by placing driver close to MOSFET, using short wide traces, and proper ground return.\\n\\n**Bootstrap Supply**: For high-side drivers, size bootstrap capacitor based on gate charge and switching frequency. Use fast recovery or Schottky bootstrap diode.\\n\\n**Protection**: UVLO ensures proper gate voltage. Shoot-through protection prevents half-bridge shorts."
+        }
+      ],
+      "relatedArticles": [
+        "mosfet-selection-guide",
+        "switching-loss-optimization",
+        "emc-design-guide"
+      ],
+      "faeInsights": {
+        "insight": "The most common gate drive issue I see is excessive gate ringing caused by high loop inductance. Always place the gate driver as close as possible to the MOSFET - within 10mm if feasible. Use a ground plane under the gate drive circuit and keep the gate loop area minimal. Another critical factor is gate resistor selection - too low causes ringing and EMI, too high causes excessive switching losses. I typically start with 5-10Ω and optimize based on oscilloscope measurements. For half-bridge drivers, proper dead time setting is crucial. Measure the switching waveforms and set minimum dead time without shoot-through.",
+        "logic": "Gate driver design follows these principles: 1) Select drive current based on gate charge and speed requirements, 2) Place driver close to MOSFET to minimize loop inductance, 3) Optimize gate resistor for switching speed vs EMI, 4) Design proper bootstrap supply for high-side drivers, 5) Implement adequate protection and dead time.",
+        "keyTakeaways": [
+          "Place gate driver close to MOSFET (<10mm) to minimize inductance",
+          "Select drive current based on gate charge and required switching time",
+          "Optimize gate resistor (5-10Ω typical) for speed vs EMI trade-off",
+          "Size bootstrap capacitor properly for high-side drivers",
+          "Set minimum dead time without shoot-through for half-bridge"
+        ],
+        "commonPitfalls": [
+          "Excessive gate loop inductance causing ringing",
+          "Insufficient drive current for fast switching",
+          "Inadequate gate resistor causing oscillations",
+          "Undersized bootstrap capacitor for high-side",
+          "Insufficient dead time causing shoot-through"
+        ],
+        "bestPractices": [
+          "Place driver within 10mm of MOSFET gate",
+          "Use ground plane under gate drive circuit",
+          "Start with 5-10Ω gate resistor and optimize",
+          "Size bootstrap cap at 10× gate charge / voltage",
+          "Measure switching waveforms to verify design"
+        ]
+      },
+      "customerCases": [
+        {
+          "customerName": "MotorDrive Systems",
+          "industry": "Industrial Automation",
+          "challenge": "Needed gate driver for high-frequency motor drive with fast switching and low EMI requirements",
+          "solution": "Implemented JW5116 with optimized gate resistor and layout following this guide",
+          "results": "Achieved clean switching waveforms with minimal ringing, passed EMC testing"
+        }
+      ],
+      "faqs": [
+        {
+          "question": "How much gate drive current do I need?",
+          "answer": "Calculate required current: I = Qg / t, where Qg is total gate charge and t is desired switching time. For example, with 50nC gate charge and 50ns switching time: I = 50nC / 50ns = 1A. Use driver with 2-3× this current for margin. JW5116 with 4A drive handles most applications.",
+          "decisionGuide": "I = Qg/t; use 2-3× margin; 4A drive sufficient for most MOSFETs.",
+          "keywords": [
+            "gate drive current",
+            "gate charge",
+            "switching time",
+            "calculation"
+          ]
+        },
+        {
+          "question": "What gate resistor value should I use?",
+          "answer": "Start with 5-10Ω and optimize based on measurements. Lower values (2-5Ω) for faster switching but more ringing. Higher values (10-20Ω) for reduced EMI but slower switching. If driver has split output, use different values for turn-on (higher) and turn-off (lower). Measure gate waveform with oscilloscope.",
+          "decisionGuide": "Start 5-10Ω; lower for speed, higher for EMI; measure and optimize.",
+          "keywords": [
+            "gate resistor",
+            "switching speed",
+            "EMI",
+            "optimization"
+          ]
+        },
+        {
+          "question": "How do I minimize gate drive loop inductance?",
+          "answer": "Minimize loop inductance: 1) Place driver close to MOSFET (<10mm), 2) Use short wide traces (10-20 mil), 3) Minimize loop area between driver output, resistor, and gate, 4) Use ground plane return path, 5) Consider Kelvin connection for source. Proper layout is critical for clean switching.",
+          "decisionGuide": "Close placement, short traces, minimal loop area essential.",
+          "keywords": [
+            "loop inductance",
+            "layout",
+            "parasitic",
+            "minimize"
+          ]
+        },
+        {
+          "question": "What is Miller effect and how does it affect switching?",
+          "answer": "Miller effect is the feedback of drain voltage transition to gate through Cgd capacitance. During switching, this causes a plateau in gate voltage (Miller plateau) where gate current charges Cgd instead of Cgs. This slows switching and increases switching losses. Higher gate drive current helps overcome Miller effect.",
+          "decisionGuide": "Miller plateau slows switching; higher drive current helps overcome it.",
+          "keywords": [
+            "Miller effect",
+            "Cgd",
+            "plateau",
+            "switching loss"
+          ]
+        },
+        {
+          "question": "When should I use a gate drive transformer?",
+          "answer": "Use gate drive transformers when galvanic isolation is required between control and power circuits. Common in offline converters, motor drives with safety requirements, and high-voltage applications. Transformers provide isolation and can drive high-side without bootstrap. For non-isolated applications, direct drive or bootstrap is simpler.",
+          "decisionGuide": "Transformers for isolation; direct drive or bootstrap for non-isolated.",
+          "keywords": [
+            "gate drive transformer",
+            "isolation",
+            "bootstrap",
+            "high-side"
+          ]
+        }
+      ],
+      "tags": [
+        "JoulWatt",
+        "Gate Driver",
+        "Design Guide",
+        "Technical Article"
+      ]
+    },
+    {
+      "id": "emc-design-guide",
+      "title": "EMC Design Guidelines for Switching Power Supplies",
+      "slug": "emc-design-guide",
+      "category": "Application Note",
+      "author": {
+        "name": "Robert Zhang",
+        "title": "Senior FAE - EMC Design",
+        "experience": "14 years",
+        "expertise": [
+          "EMC Design",
+          "EMI Reduction",
+          "Compliance Testing"
+        ]
+      },
+      "publishDate": "2025-10-28",
+      "lastUpdated": "2025-10-28",
+      "summary": "Practical guidelines for designing switching power supplies that meet EMC requirements, covering conducted and radiated emissions.",
+      "contentSections": [
+        {
+          "heading": "Conducted Emissions Reduction",
+          "content": "Conducted emissions are noise currents flowing through power lines:\\n\\n**Input Filtering**: Use two-stage filter with common mode choke and differential mode capacitors. X capacitors (line-line) and Y capacitors (line-ground) are required. Typical values: 0.1-0.47μF X cap, 2200pF-4700pF Y caps.\\n\\n**Switching Noise Reduction**: Quasi-resonant operation reduces switching losses and EMI. Frequency dithering spreads energy across wider band. Soft switching eliminates hard switching transients.\\n\\n**Snubber Circuits**: RC snubbers across primary winding and rectifier diodes reduce ringing. Typical values: 100pF-1nF capacitor with 10-100Ω resistor.\\n\\n**Layout**: Minimize switching loop area on PCB. Keep high di/dt traces short and away from sensitive circuits."
+        },
+        {
+          "heading": "Radiated Emissions Control",
+          "content": "Radiated emissions are electromagnetic waves from switching circuits:\\n\\n**Transformer Design**: Use shielded transformers with proper termination. Split primary windings with shield layer between. Ferrite core selection affects radiation.\\n\\n**PCB Layout**: Use ground planes to reduce radiation. Keep switching nodes away from board edges. Minimize loop areas for high-frequency currents.\\n\\n**Enclosure Design**: Metal enclosures provide shielding. Ensure proper grounding of enclosure. Use shielded cables with proper termination.\\n\\n**Component Selection**: Shielded inductors reduce magnetic radiation. Soft-recovery diodes reduce high-frequency noise."
+        }
+      ],
+      "relatedArticles": [
+        "ac-dc-selection-guide",
+        "dc-dc-selection-guide",
+        "pcb-layout-guide"
+      ],
+      "faeInsights": {
+        "insight": "EMC issues are best addressed at the design stage, not as an afterthought. The most effective EMC reduction techniques are: 1) Proper input filtering - I always use at least two stages for industrial applications, 2) Small switching loops - this is critical for both conducted and radiated EMI, 3) Shielded transformers - can provide 10-20dB reduction, 4) Frequency dithering - spreads energy and reduces peaks. For troubleshooting EMC failures, use near-field probes to identify noise sources. Common culprits are transformer, switching loops, and output diodes. Fix the source rather than just adding more filtering.",
+        "logic": "EMC design approach: 1) Prevent noise generation through good topology and switching, 2) Contain noise with proper layout and shielding, 3) Filter remaining noise at input/output, 4) Verify with pre-compliance testing, 5) Iterate design based on test results. Address EMC from the beginning of design, not as afterthought.",
+        "keyTakeaways": [
+          "Address EMC at design stage, not after testing",
+          "Use two-stage input filter for industrial applications",
+          "Minimize switching loop area on PCB",
+          "Use shielded transformers for significant reduction",
+          "Identify and fix noise sources rather than just filtering"
+        ],
+        "commonPitfalls": [
+          "Inadequate input filtering causing conducted failures",
+          "Large switching loops causing radiated emissions",
+          "Unshielded transformers acting as antennas",
+          "Poor grounding causing common mode noise",
+          "Trying to fix EMC with filters instead of proper design"
+        ],
+        "bestPractices": [
+          "Use two-stage common mode + differential filter",
+          "Minimize switching loop area in layout",
+          "Use shielded transformers with proper termination",
+          "Implement frequency dithering if available",
+          "Test early with near-field probes to identify sources"
+        ]
+      },
+      "customerCases": [
+        {
+          "customerName": "MedicalPower Inc",
+          "industry": "Medical Equipment",
+          "challenge": "Power supply failed EMC testing for medical equipment with strict emissions limits",
+          "solution": "Redesigned following EMC guidelines - added shielding, improved filtering, minimized loops",
+          "results": "Reduced emissions by 15dB, passed medical EMC standards with margin"
+        }
+      ],
+      "faqs": [
+        {
+          "question": "What is the difference between common mode and differential mode noise?",
+          "answer": "Differential mode noise flows between line and neutral in opposite directions. Common mode noise flows in the same direction on both lines to ground. Differential mode is filtered with X capacitors and differential inductors. Common mode requires Y capacitors and common mode chokes. Both must be addressed for EMC compliance.",
+          "decisionGuide": "Differential: line-neutral; Common: both lines to ground; Both need filtering.",
+          "keywords": [
+            "common mode",
+            "differential mode",
+            "noise",
+            "filtering"
+          ]
+        },
+        {
+          "question": "How do I select common mode choke values?",
+          "answer": "Common mode choke inductance depends on frequency range to filter. For conducted emissions (150kHz-30MHz), 1-10mH is typical. Higher inductance provides better low-frequency filtering but may cause saturation. Current rating must exceed maximum operating current. Consider impedance vs frequency characteristics.",
+          "decisionGuide": "1-10mH typical; higher for low frequency; check current rating and saturation.",
+          "keywords": [
+            "common mode choke",
+            "inductance",
+            "filtering",
+            "saturation"
+          ]
+        },
+        {
+          "question": "What is frequency dithering and how does it help?",
+          "answer": "Frequency dithering modulates switching frequency over a small range (typically ±5-10%). This spreads switching energy across a wider frequency band, reducing peak emissions at any single frequency. Can provide 3-6dB reduction in peak emissions. JoulWatt controllers with dithering help meet EMC requirements.",
+          "decisionGuide": "Dithering spreads energy, reduces peaks; 3-6dB improvement possible.",
+          "keywords": [
+            "frequency dithering",
+            "spread spectrum",
+            "EMI reduction",
+            "modulation"
+          ]
+        },
+        {
+          "question": "How do I troubleshoot EMC failures?",
+          "answer": "Troubleshooting approach: 1) Use near-field probes to identify noise sources, 2) Check transformer for radiation, 3) Examine switching loops for large di/dt areas, 4) Verify input filter is adequate, 5) Check grounding for common mode issues. Fix the source of noise rather than just adding filtering. Common sources: transformer, switching loops, rectifier diodes.",
+          "decisionGuide": "Use near-field probes; identify sources; fix at source; common: transformer, loops, diodes.",
+          "keywords": [
+            "troubleshooting",
+            "EMC",
+            "near-field probe",
+            "noise source"
+          ]
+        },
+        {
+          "question": "What is the difference between CISPR and FCC standards?",
+          "answer": "CISPR (International) and FCC (US) both regulate electromagnetic emissions. CISPR 22/32 covers IT/multimedia equipment with quasi-peak and average limits. FCC Part 15 covers digital devices with similar limits. CISPR is widely adopted internationally; FCC is US-specific. Limits are similar but test methods and bands differ slightly.",
+          "decisionGuide": "CISPR for international, FCC for US; limits similar but test methods differ.",
+          "keywords": [
+            "CISPR",
+            "FCC",
+            "standards",
+            "emissions",
+            "compliance"
+          ]
+        }
+      ],
+      "tags": [
+        "JoulWatt",
+        "EMC",
+        "EMI",
+        "Application Note"
+      ]
+    }
+  ]
+}

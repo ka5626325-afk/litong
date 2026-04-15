@@ -1,0 +1,535 @@
+{
+  "seoTitle": "Lowpowersemi Power Management Solutions | Battery Charging DC-DC | BeiLuo Electronics",
+  "seoDescription": "Explore Lowpowersemi power management solutions for IoT devices, portable electronics, and battery-powered systems. Complete reference designs with BOM and technical specifications.",
+  "seoKeywords": [
+    "Lowpowersemi solutions",
+    "power management solution",
+    "battery charging system",
+    "IoT power solution",
+    "portable electronics power",
+    "Lowpowersemi distributor",
+    "Lowpowersemi selection guide"
+  ],
+  "solutions": [
+    {
+      "id": "iot-sensor-power",
+      "title": "IoT Sensor Node Power Management Solution",
+      "slug": "iot-sensor-power",
+      "category": "IoT Applications",
+      "summary": "Complete power management solution for battery-powered IoT sensor nodes featuring ultra-low power consumption and extended battery life.",
+      "description": "This solution provides a complete power management system for IoT sensor nodes powered by a single Li-ion battery. It includes battery charging, efficient voltage regulation, and power distribution with ultra-low standby current to maximize battery life.",
+      "image": "/assets/brands/lowpowersemi/iot-sensor-solution.jpg",
+      "coreAdvantages": [
+        "Ultra-low 1μA standby current extends battery life to years",
+        "High-efficiency DC-DC conversion minimizes power loss",
+        "Integrated battery charging with safety protections",
+        "Programmable power sequencing for sensor activation",
+        "Compact design fits space-constrained IoT devices"
+      ],
+      "applications": [
+        "IoT sensor networks",
+        "Environmental monitoring",
+        "Smart agriculture",
+        "Industrial automation",
+        "Smart home devices"
+      ],
+      "technicalSpecs": {
+        "Input Voltage": "4.5V - 6.5V (USB/Adapter)",
+        "Battery Type": "Single-cell Li-ion/Li-Polymer",
+        "System Voltage": "3.3V regulated",
+        "Max Output Current": "2A peak",
+        "Standby Current": "<5μA total",
+        "Charging Current": "Up to 800mA",
+        "Efficiency": "Up to 95% (buck mode)",
+        "Operating Temperature": "-40°C to +85°C"
+      },
+      "components": [
+        {
+          "partNumber": "LP4054",
+          "category": "Battery Charger",
+          "function": "Li-ion battery charging with automatic termination"
+        },
+        {
+          "partNumber": "LP6235",
+          "category": "DC-DC Converter",
+          "function": "High-efficiency buck converter for system power"
+        },
+        {
+          "partNumber": "LP3990-33",
+          "category": "LDO Regulator",
+          "function": "Ultra-low IQ LDO for always-on standby power"
+        },
+        {
+          "partNumber": "LP5240",
+          "category": "Load Switch",
+          "function": "Power gating for sensor subsystems"
+        }
+      ],
+      "bomList": [
+        {
+          "quantity": "1",
+          "partNumber": "LP4054",
+          "description": "Li-ion Battery Charger",
+          "supplier": "Lowpowersemi"
+        },
+        {
+          "quantity": "1",
+          "partNumber": "LP6235",
+          "description": "Synchronous Buck Converter",
+          "supplier": "Lowpowersemi"
+        },
+        {
+          "quantity": "1",
+          "partNumber": "LP3990-33",
+          "description": "Ultra-Low IQ LDO",
+          "supplier": "Lowpowersemi"
+        },
+        {
+          "quantity": "2",
+          "partNumber": "LP5240",
+          "description": "Load Switch",
+          "supplier": "Lowpowersemi"
+        },
+        {
+          "quantity": "1",
+          "partNumber": "2.2μH",
+          "description": "Inductor, 2.2μH, 3A, DCR<50mΩ",
+          "supplier": "Various"
+        },
+        {
+          "quantity": "4",
+          "partNumber": "10μF",
+          "description": "Ceramic Capacitor, 10μF, 10V, X5R",
+          "supplier": "Various"
+        },
+        {
+          "quantity": "2",
+          "partNumber": "4.7μF",
+          "description": "Ceramic Capacitor, 4.7μF, 10V, X5R",
+          "supplier": "Various"
+        },
+        {
+          "quantity": "1",
+          "partNumber": "2kΩ",
+          "description": "Resistor, 2kΩ, 1%, 0603",
+          "supplier": "Various"
+        }
+      ],
+      "customerCases": [
+        {
+          "customerName": "SmartAgri Technologies",
+          "industry": "Agriculture IoT",
+          "application": "Soil moisture sensor network",
+          "challenge": "Required ultra-low power solution for battery-powered soil sensors deployed in remote agricultural fields with 2+ year battery life requirement.",
+          "solution": "Implemented complete Lowpowersemi power management solution with LP4054 charger, LP6235 buck converter, and LP3990 LDO for sub-5μA standby current.",
+          "results": "Achieved 3+ year battery life on single 18650 cell, exceeding customer requirements. System operates reliably in outdoor conditions with temperature extremes."
+        },
+        {
+          "customerName": "EnviroMonitor Systems",
+          "industry": "Environmental Monitoring",
+          "application": "Air quality monitoring stations",
+          "challenge": "Needed power solution for distributed air quality sensors with solar charging and extended battery backup for cloudy days.",
+          "solution": "Designed solar-powered system using LP4054 for battery management, LP6235 for efficient voltage conversion, and LP5240 load switches for sensor power gating.",
+          "results": "System achieves 7+ days battery backup, solar charging maintains battery at optimal levels. Deployed 500+ units across city infrastructure."
+        }
+      ],
+      "faeInsights": {
+        "author": {
+          "name": "Dr. Zhang Wei",
+          "title": "Senior FAE - Power Management",
+          "experience": "12 years",
+          "expertise": [
+            "Battery Management",
+            "IoT Power",
+            "Low Power Design"
+          ]
+        },
+        "insight": "This IoT sensor power solution is designed around the principle of minimizing quiescent current during standby while maintaining high efficiency during active operation. The key insight is using the LP3990 LDO for the always-on microcontroller and LP6235 buck converter for high-current sensor bursts. The LP5240 load switches enable complete power gating of unused sensors, reducing standby current to sub-5μA levels. In my experience with agricultural IoT deployments, this architecture consistently achieves 2-3 year battery life on single Li-ion cells.",
+        "logic": "The design follows this power management strategy: 1) LP4054 charges the battery safely with automatic termination, 2) LP6235 provides high-efficiency conversion during active sensor readings, 3) LP3990 maintains ultra-low power for always-on circuits, 4) LP5240 switches completely remove power from unused sensors. This tiered approach optimizes for both active efficiency and standby power.",
+        "keyTakeaways": [
+          "Use tiered power architecture with different regulators for different load profiles",
+          "Power gating unused subsystems is critical for achieving sub-5μA standby",
+          "High-efficiency DC-DC for active loads, ultra-low IQ LDO for always-on circuits",
+          "Proper battery charging extends both battery life and cycle count"
+        ],
+        "commonPitfalls": [
+          "Using a single regulator for all loads results in poor efficiency across operating modes",
+          "Forgetting to power gate sensors leads to excessive standby current",
+          "Inadequate input capacitance causes voltage droop during wireless transmission bursts",
+          "Poor PCB layout increases noise coupling to sensitive analog sensors"
+        ],
+        "bestPractices": [
+          "Implement power gating for all non-essential subsystems",
+          "Size input capacitors for peak wireless transmission currents",
+          "Use short, wide traces for high-current paths",
+          "Place decoupling capacitors close to each IC power pin",
+          "Test actual battery life under real-world duty cycles"
+        ]
+      },
+      "faqs": [
+        {
+          "question": "What battery life can I expect with this solution?",
+          "answer": "Battery life depends on your duty cycle and sensor power requirements. For typical IoT sensors with 1-minute sampling intervals and cellular transmission, expect 2-3 years on a single 18650 Li-ion cell (2000mAh). With lower power radios like LoRa or longer intervals, 5+ years is achievable.",
+          "decisionGuide": "Calculate based on your specific duty cycle; 2-3 years typical for cellular IoT, 5+ years for LoRa.",
+          "keywords": [
+            "battery life",
+            "power budget",
+            "duty cycle",
+            "Li-ion"
+          ]
+        },
+        {
+          "question": "Can I use a different battery chemistry?",
+          "answer": "The LP4054 is designed for single-cell Li-ion/Li-Polymer batteries (4.2V charge voltage). For other chemistries like LiFePO4 (3.6V), you would need a different charger IC. The rest of the solution (LP6235, LP3990, LP5240) works with any battery chemistry providing appropriate voltage ranges.",
+          "decisionGuide": "LP4054 for Li-ion/Li-Poly only; select different charger for other chemistries.",
+          "keywords": [
+            "battery chemistry",
+            "Li-ion",
+            "Li-Polymer",
+            "LiFePO4"
+          ]
+        },
+        {
+          "question": "How do I calculate the power budget for my application?",
+          "answer": "Calculate average current consumption: (Active Current × Active Time + Sleep Current × Sleep Time) / Total Period. For example: (100mA × 10s + 5μA × 590s) / 600s = 1.67mA average. Then divide battery capacity by average current for estimated life: 2000mAh / 1.67mA = 1200 hours = 50 days.",
+          "decisionGuide": "Calculate time-weighted average current; divide battery capacity by average current for life estimate.",
+          "keywords": [
+            "power budget",
+            "average current",
+            "calculation",
+            "battery life"
+          ]
+        },
+        {
+          "question": "Can this solution support solar charging?",
+          "answer": "Yes, this solution works well with solar charging. Connect the solar panel to the input of LP4054 through a voltage regulation circuit if needed. The LP4054 will manage the battery charging from the solar input. Ensure the solar panel voltage stays within LP4054's 4.5V-6.5V input range.",
+          "decisionGuide": "Yes, compatible with solar; ensure panel voltage within 4.5V-6.5V range or add regulation.",
+          "keywords": [
+            "solar charging",
+            "solar panel",
+            "renewable energy",
+            "battery charging"
+          ]
+        },
+        {
+          "question": "What is the maximum sensor current this solution can support?",
+          "answer": "The LP6235 buck converter can deliver up to 2A peak current, which is sufficient for most sensor applications including high-power wireless transmission bursts. For continuous high-current loads, ensure proper thermal management as sustained 2A operation may require heat sinking.",
+          "decisionGuide": "2A peak sufficient for most sensors; verify thermal design for continuous high-current operation.",
+          "keywords": [
+            "current capability",
+            "2A",
+            "peak current",
+            "thermal management"
+          ]
+        },
+        {
+          "question": "How do I minimize EMI from the DC-DC converter?",
+          "answer": "To minimize EMI from LP6235: 1) Keep switching loop (input cap, inductor, output cap) as small as possible, 2) Use shielded inductor, 3) Place input capacitor close to IC, 4) Use ground plane under the converter, 5) Keep sensitive analog traces away from switching node. These practices keep EMI well within regulatory limits.",
+          "decisionGuide": "Follow recommended PCB layout; use shielded inductor; keep switching loop small.",
+          "keywords": [
+            "EMI",
+            "EMC",
+            "noise reduction",
+            "PCB layout"
+          ]
+        }
+      ],
+      "longDescription": "This solution provides a complete power management system for IoT sensor nodes powered by a single Li-ion battery. It includes battery charging, efficient voltage regulation, and power distribution with ultra-low standby current to maximize battery life. This comprehensive solution includes complete BOM, technical specifications, and design guidelines for rapid product development.",
+      "benefits": [
+        "Extended battery life with ultra-low power design",
+        "High efficiency conversion minimizes heat generation",
+        "Compact solution fits space-constrained applications",
+        "Complete reference design accelerates time to market"
+      ]
+    },
+    {
+      "id": "portable-device-power",
+      "title": "Portable Device Power Management Solution",
+      "slug": "portable-device-power",
+      "category": "Consumer Electronics",
+      "summary": "High-efficiency power management solution for portable consumer electronics with USB charging and multiple regulated rails.",
+      "description": "This comprehensive power management solution is designed for portable consumer electronics such as handheld devices, portable media players, and wearable products. It features USB charging, efficient multi-rail power conversion, and intelligent power distribution.",
+      "image": "/assets/brands/lowpowersemi/portable-device-solution.jpg",
+      "coreAdvantages": [
+        "USB-compliant charging with power path management",
+        "Multiple regulated voltage rails from single input",
+        "High efficiency up to 95% minimizes heat generation",
+        "Intelligent power sequencing prevents brownouts",
+        "Compact solution fits slim portable designs"
+      ],
+      "applications": [
+        "Smartphones and tablets",
+        "Portable media players",
+        "Wearable electronics",
+        "Handheld gaming devices",
+        "Bluetooth speakers"
+      ],
+      "technicalSpecs": {
+        "Input Voltage": "4.5V - 6.5V (USB/5V Adapter)",
+        "Battery Type": "Single-cell Li-ion/Li-Polymer",
+        "System Rails": "3.3V, 1.8V, 1.2V",
+        "Max System Current": "2A",
+        "Charge Current": "Up to 1A",
+        "Buck Efficiency": "Up to 95%",
+        "LDO PSRR": "80dB @ 1kHz",
+        "Operating Temperature": "-40°C to +85°C"
+      },
+      "components": [
+        {
+          "partNumber": "LP4056",
+          "category": "Battery Charger",
+          "function": "Power path charger with simultaneous charge and system power"
+        },
+        {
+          "partNumber": "LP6235",
+          "category": "DC-DC Converter",
+          "function": "Main buck converter for 3.3V system rail"
+        },
+        {
+          "partNumber": "LP5907-33",
+          "category": "LDO Regulator",
+          "function": "High PSRR LDO for noise-sensitive analog circuits"
+        },
+        {
+          "partNumber": "LP5241",
+          "category": "Load Switch",
+          "function": "Slew-rate controlled load switching for subsystems"
+        }
+      ],
+      "bomList": [
+        {
+          "quantity": "1",
+          "partNumber": "LP4056",
+          "description": "Power Path Battery Charger",
+          "supplier": "Lowpowersemi"
+        },
+        {
+          "quantity": "1",
+          "partNumber": "LP6235",
+          "description": "Synchronous Buck Converter",
+          "supplier": "Lowpowersemi"
+        },
+        {
+          "quantity": "1",
+          "partNumber": "LP5907-33",
+          "description": "High PSRR LDO",
+          "supplier": "Lowpowersemi"
+        },
+        {
+          "quantity": "3",
+          "partNumber": "LP5241",
+          "description": "Load Switch with Slew Control",
+          "supplier": "Lowpowersemi"
+        },
+        {
+          "quantity": "1",
+          "partNumber": "2.2μH",
+          "description": "Inductor, 2.2μH, 3A, Shielded",
+          "supplier": "Various"
+        },
+        {
+          "quantity": "6",
+          "partNumber": "10μF",
+          "description": "Ceramic Capacitor, 10μF, 10V, X5R",
+          "supplier": "Various"
+        },
+        {
+          "quantity": "2",
+          "partNumber": "2.2μF",
+          "description": "Ceramic Capacitor, 2.2μF, 10V, X5R",
+          "supplier": "Various"
+        },
+        {
+          "quantity": "1",
+          "partNumber": "1kΩ",
+          "description": "Resistor, 1kΩ, 1%, 0603",
+          "supplier": "Various"
+        }
+      ],
+      "customerCases": [
+        {
+          "customerName": "AudioTech Innovations",
+          "industry": "Consumer Electronics",
+          "application": "Portable Bluetooth speaker",
+          "challenge": "Needed power solution for portable speaker with USB charging, minimal heat generation, and clean power for audio circuits.",
+          "solution": "Implemented Lowpowersemi solution with LP4056 power path charger, LP6235 buck converter, and LP5907 LDO for audio power with high PSRR.",
+          "results": "Speaker operates 12+ hours on single charge, minimal heat generation, clean audio without power supply noise. Passed all EMI certifications."
+        },
+        {
+          "customerName": "HealthWear Devices",
+          "industry": "Wearable Electronics",
+          "application": "Fitness tracking smartwatch",
+          "challenge": "Required ultra-compact power solution with multiple voltage rails, USB charging, and sub-10μA standby for sleep mode.",
+          "solution": "Designed compact power system using LP4056 with power path, LP6235 for main rail, LP5907 for sensor power, and LP5241 for load switching.",
+          "results": "Smartwatch achieves 7-day battery life with 24/7 heart rate monitoring. Power solution fits in 15mm × 20mm area."
+        }
+      ],
+      "faeInsights": {
+        "author": {
+          "name": "Li Ming",
+          "title": "Senior FAE - Consumer Electronics",
+          "experience": "10 years",
+          "expertise": [
+            "Portable Power",
+            "USB Charging",
+            "Audio Power"
+          ]
+        },
+        "insight": "This portable device power solution leverages power path architecture to enable simultaneous charging and operation - a must-have for modern consumer devices. The LP4056's power path management eliminates the charge-discharge cycling that reduces battery life. For audio applications, the LP5907's 80dB PSRR is critical for preventing power supply noise from coupling into sensitive audio circuits. I've seen this solution deliver excellent results in Bluetooth speakers, portable media players, and wearable devices.",
+        "logic": "The design strategy focuses on: 1) LP4056 power path for simultaneous charge and operation, 2) LP6235 high-efficiency buck for main system rail minimizing heat, 3) LP5907 high PSRR LDO for noise-sensitive audio/analog circuits, 4) LP5241 slew-controlled switches for inrush current management. This architecture optimizes for user experience - device works while charging, runs cool, and delivers clean audio.",
+        "keyTakeaways": [
+          "Power path architecture enables simultaneous charging and operation",
+          "High PSRR LDO essential for noise-sensitive audio circuits",
+          "Slew-controlled load switching prevents voltage droop during turn-on",
+          "High-efficiency conversion minimizes heat generation in compact devices"
+        ],
+        "commonPitfalls": [
+          "Using non-power-path charger forces device to run from battery while charging",
+          "Insufficient input capacitance causes USB voltage collapse during connection",
+          "Poor layout couples switching noise into audio circuits",
+          "Inadequate thermal design causes overheating in compact enclosures"
+        ],
+        "bestPractices": [
+          "Always use power path charger for devices that operate while charging",
+          "Size USB input capacitance for inrush current compliance",
+          "Keep high-PSRR LDO away from switching converters",
+          "Use shielded inductor for EMI-sensitive applications",
+          "Implement proper thermal vias and copper area for heat dissipation"
+        ]
+      },
+      "faqs": [
+        {
+          "question": "What is power path management and why do I need it?",
+          "answer": "Power path management allows the system to operate directly from input power while charging the battery. Without it, the system must run from the battery while charging, causing charge/discharge cycles that reduce battery life. Power path also enables instant-on operation when plugged in, even with a dead battery.",
+          "decisionGuide": "Use power path for any device that operates while charging; essential for good user experience.",
+          "keywords": [
+            "power path",
+            "simultaneous operation",
+            "battery life",
+            "user experience"
+          ]
+        },
+        {
+          "question": "Can I charge from USB and operate the device simultaneously?",
+          "answer": "Yes, the LP4056 power path charger supports simultaneous charging and system operation. When USB is connected, the system runs from USB power while charging the battery. If system load exceeds USB capacity, the battery supplements the power. When USB is disconnected, the system seamlessly switches to battery power.",
+          "decisionGuide": "Yes, simultaneous operation fully supported; seamless switchover between USB and battery power.",
+          "keywords": [
+            "USB charging",
+            "simultaneous operation",
+            "power path",
+            "seamless switchover"
+          ]
+        },
+        {
+          "question": "How do I prevent audio noise from the DC-DC converter?",
+          "answer": "To prevent switching noise coupling into audio: 1) Use LP5907 high PSRR LDO for audio power supply, 2) Keep switching converter away from audio circuits, 3) Use separate ground planes with single point connection, 4) Place LDO close to audio codec, 5) Use shielded inductor. The 80dB PSRR of LP5907 effectively rejects switching noise.",
+          "decisionGuide": "Use high PSRR LDO for audio power; physical separation and proper grounding essential.",
+          "keywords": [
+            "audio noise",
+            "PSRR",
+            "switching noise",
+            "audio quality"
+          ]
+        },
+        {
+          "question": "What is the maximum charging current from USB?",
+          "answer": "Standard USB 2.0 ports provide 500mA maximum. USB 3.0 ports provide 900mA. The LP4056 supports programmable input current limits of 100mA, 500mA, and higher for adapters. For USB compliance, use 100mM for unconfigured USB and 500mA for configured USB ports.",
+          "decisionGuide": "Limit to 500mA for USB 2.0, 900mA for USB 3.0; higher currents only with AC adapters.",
+          "keywords": [
+            "USB charging",
+            "500mA",
+            "USB 2.0",
+            "current limit"
+          ]
+        },
+        {
+          "question": "How do I manage inrush current when plugging into USB?",
+          "answer": "The LP5241 load switches with slew rate control manage inrush current when powering subsystems. The programmable turn-on time (100μs to 10ms) limits the current surge when charging capacitive loads. This prevents USB voltage droop and ensures compliance with USB inrush current specifications.",
+          "decisionGuide": "Use LP5241 slew-controlled switches; set appropriate turn-on time for your load capacitance.",
+          "keywords": [
+            "inrush current",
+            "USB compliance",
+            "slew rate",
+            "LP5241"
+          ]
+        },
+        {
+          "question": "Can this solution support quick charging?",
+          "answer": "The LP4056 supports standard charging up to 1A charge current. For quick charging protocols like Qualcomm Quick Charge or USB Power Delivery, you would need additional protocol controller ICs. The power path architecture of LP4056 works well with external quick charge controllers.",
+          "decisionGuide": "Standard 1A charging; add external controller for quick charge protocols.",
+          "keywords": [
+            "quick charge",
+            "fast charging",
+            "USB PD",
+            "Qualcomm QC"
+          ]
+        }
+      ],
+      "longDescription": "This comprehensive power management solution is designed for portable consumer electronics such as handheld devices, portable media players, and wearable products. It features USB charging, efficient multi-rail power conversion, and intelligent power distribution. This comprehensive solution includes complete BOM, technical specifications, and design guidelines for rapid product development.",
+      "benefits": [
+        "Extended battery life with ultra-low power design",
+        "High efficiency conversion minimizes heat generation",
+        "Compact solution fits space-constrained applications",
+        "Complete reference design accelerates time to market"
+      ]
+    }
+  ],
+  "faqs": [
+    {
+      "question": "What power management solutions does Lowpowersemi offer?",
+      "answer": "Lowpowersemi offers complete power management solutions for IoT devices, portable electronics, and battery-powered systems. These solutions include battery charging, efficient voltage regulation, power distribution, and load management. Reference designs with complete BOM and technical specifications are available.",
+      "decisionGuide": "Choose from IoT sensor power solutions or portable device power solutions based on your application requirements.",
+      "keywords": [
+        "power management",
+        "solutions",
+        "IoT",
+        "portable",
+        "reference design"
+      ]
+    },
+    {
+      "question": "How do I select the right power management solution?",
+      "answer": "Selecting the right power management solution depends on your application requirements: battery type and capacity, system voltage rails, current requirements, operating time between charges, and physical size constraints. Our IoT sensor solution is optimized for ultra-low standby current, while the portable device solution focuses on high efficiency and simultaneous charging/operation.",
+      "decisionGuide": "IoT solution for sensor nodes requiring long battery life; portable solution for consumer electronics requiring high power and USB charging.",
+      "keywords": [
+        "solution selection",
+        "power architecture",
+        "battery life",
+        "application requirements"
+      ]
+    },
+    {
+      "question": "What battery life can I expect with these solutions?",
+      "answer": "Battery life depends on your specific duty cycle and power requirements. For typical IoT sensors with 10-minute sampling intervals, expect 2-3 years on a single 18650 Li-ion cell. For portable devices with continuous operation, 8-12 hours of active use is typical. Accurate battery life prediction requires power budget calculation based on your actual operating profile.",
+      "decisionGuide": "2-3 years for IoT sensors; 8-12 hours for portable devices; calculate based on your specific power profile.",
+      "keywords": [
+        "battery life",
+        "power budget",
+        "IoT sensor",
+        "portable device"
+      ]
+    },
+    {
+      "question": "Do the solutions include complete BOM and documentation?",
+      "answer": "Yes, each solution includes a complete Bill of Materials (BOM) with part numbers and suppliers, technical specifications, reference schematics, and PCB layout guidelines. Our FAE team can provide additional design support including power budget analysis and thermal simulations.",
+      "decisionGuide": "Complete documentation provided; contact FAE for additional design support and customization.",
+      "keywords": [
+        "BOM",
+        "documentation",
+        "reference design",
+        "technical support"
+      ]
+    },
+    {
+      "question": "Can these solutions be customized for my application?",
+      "answer": "Yes, the solutions can be customized for specific application requirements. Our FAE team can help modify the power architecture, adjust voltage rails, optimize for different battery chemistries, or scale current capabilities. Contact BeiLuo Electronics with your specific requirements for customization support.",
+      "decisionGuide": "Solutions customizable; contact FAE with your specific requirements for optimization.",
+      "keywords": [
+        "customization",
+        "application specific",
+        "design support",
+        "FAE"
+      ]
+    }
+  ]
+}

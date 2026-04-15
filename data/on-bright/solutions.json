@@ -1,0 +1,233 @@
+{
+  "seoTitle": "On-Bright Power Management Solutions | Reference Designs | BeiLuo Electronics",
+  "seoDescription": "Explore On-Bright power management solutions for adapters, LED lighting, and industrial power supplies. Complete reference designs with BOM and technical specifications.",
+  "seoKeywords": ["On-Bright solutions", "power supply reference design", "adapter design", "LED driver solution", "On-Bright distributor"],
+  "solutions": [
+    {
+      "id": "12v-5a-adapter",
+      "title": "12V 5A High-Efficiency Adapter Solution",
+      "description": "Complete 60W adapter design using OB2273 QR controller with high efficiency and low standby power",
+      "category": "Power Adapter",
+      "image": "/assets/brands/on-bright/solutions/12v-adapter.jpg",
+      "applications": ["Notebook Adapters", "LCD Monitor Power", "Industrial Equipment"],
+      "technicalSpecs": {
+        "Input Voltage": "90V - 264V AC",
+        "Output Voltage": "12V DC",
+        "Output Current": "5A",
+        "Output Power": "60W",
+        "Efficiency": "> 90% at full load",
+        "Standby Power": "< 0.1W",
+        "Operating Temperature": "0°C to +40°C (ambient)"
+      },
+      "coreAdvantages": [
+        "High efficiency >90% at full load through QR operation",
+        "Low standby power <0.1W meeting DoE Level VI",
+        "Compact design with reduced EMI filtering",
+        "Comprehensive protection features built-in",
+        "Cost-effective BOM with high integration"
+      ],
+      "bomList": [
+        {
+          "partNumber": "OB2273",
+          "description": "QR flyback controller with built-in HV startup",
+          "quantity": 1,
+          "link": "/brands/on-bright/products/acdc/ob2273/"
+        },
+        {
+          "partNumber": "OB2203",
+          "description": "Synchronous rectifier controller for 12V output",
+          "quantity": 1,
+          "link": "/brands/on-bright/products/sr/ob2203/"
+        },
+        {
+          "partNumber": "Power MOSFET 600V 10A",
+          "description": "Primary side switching MOSFET",
+          "quantity": 1,
+          "link": "/brands/on-bright/products/mosfet/600v10a/"
+        }
+      ],
+      "customerCases": [
+        {
+          "company": "PowerTech Electronics Co.",
+          "industry": "Power Supply Manufacturing",
+          "challenge": "Needed a cost-effective 60W adapter design meeting DoE Level VI efficiency requirements",
+          "solution": "Implemented OB2273-based QR flyback design with synchronous rectification",
+          "results": "Achieved 91% efficiency at full load, 75mW standby power, 15% cost reduction vs previous design"
+        },
+        {
+          "company": "LED Lighting Systems Ltd.",
+          "industry": "LED Lighting",
+          "challenge": "Required reliable power supply for 60W LED panel lights with high efficiency",
+          "solution": "Adapted 12V 5A adapter design for LED driver application",
+          "results": "Passed all safety certifications, production volume over 100K units with <0.5% failure rate"
+        }
+      ],
+      "faeInsights": {
+        "content": "This 12V 5A adapter solution leverages the OB2273's quasi-resonant operation to achieve excellent efficiency and EMI performance. The key design considerations are transformer design for proper valley detection and SR timing optimization. I recommend using a PQ26/20 or similar core for the transformer with careful attention to winding layout for low leakage inductance. The synchronous rectifier (OB2203) significantly improves efficiency at 12V output - expect 3-4% improvement over diode rectification. For EMI, the QR operation reduces conducted emissions significantly; a simple common-mode choke with X2 capacitors is usually sufficient. Pay attention to the PCB layout - keep the MOSFET drain node away from sensitive control circuits and use adequate copper area for thermal management.",
+        "author": "Senior FAE - Adapter Applications",
+        "date": "2025-11-15"
+      },
+      "faqs": [
+        {
+          "question": "What efficiency can be achieved with this adapter design?",
+          "answer": "The reference design achieves >90% efficiency at full load (60W) and maintains high efficiency (>85%) down to 25% load. Standby power is <0.1W, meeting DoE Level VI and CoC Tier 2 requirements.",
+          "decisionGuide": "Efficiency meets all major international standards; actual efficiency depends on component selection and transformer design.",
+          "keywords": ["efficiency", "DoE Level VI", "standby power"]
+        },
+        {
+          "question": "What safety certifications does this design support?",
+          "answer": "The reference design is suitable for UL, CE, CCC, and other major safety certifications. It includes proper creepage and clearance distances, safety-approved components, and meets isolation requirements for reinforced insulation.",
+          "decisionGuide": "Work with certified test labs for official certification; reference design provides good starting point.",
+          "keywords": ["safety certification", "UL", "CE", "CCC"]
+        },
+        {
+          "question": "Can this design be modified for other output voltages?",
+          "answer": "Yes, the design can be adapted for 5V, 9V, 15V, 19V, or 24V outputs by adjusting transformer turns ratio and feedback components. Power level can also be scaled up or down with appropriate component changes.",
+          "decisionGuide": "Contact On-Bright FAE for guidance on voltage/power modifications; reference designs available for common voltages.",
+          "keywords": ["output voltage", "modification", "scalability"]
+        },
+        {
+          "question": "What is the typical BOM cost for this adapter?",
+          "answer": "BOM cost depends on component choices and volume, but typically ranges from $3-5 for the power stage (excluding housing and cables) at moderate volumes. On-Bright's high integration reduces external component count and cost.",
+          "decisionGuide": "Contact BeiLuo Electronics for current pricing; volume discounts available for production quantities.",
+          "keywords": ["BOM cost", "pricing", "volume discount"]
+        },
+        {
+          "question": "How do I optimize EMI performance for this design?",
+          "answer": "The QR operation inherently reduces EMI. Additional optimization includes proper Y capacitor placement, shielded transformer construction if needed, and appropriate input filter design. Follow the PCB layout guidelines in the application note.",
+          "decisionGuide": "Start with reference design EMI filter values; adjust based on pre-compliance testing results.",
+          "keywords": ["EMI", "EMC", "filter design", "QR operation"]
+        }
+      ]
+    },
+    {
+      "id": "led-panel-driver",
+      "title": "36W LED Panel Light Driver Solution",
+      "description": "High-efficiency isolated LED driver using OB2263 with high power factor and low THD",
+      "category": "LED Lighting",
+      "image": "/assets/brands/on-bright/solutions/led-driver.jpg",
+      "applications": ["LED Panel Lights", "LED Downlights", "LED Troffers"],
+      "technicalSpecs": {
+        "Input Voltage": "180V - 264V AC",
+        "Output Voltage": "25-40V DC",
+        "Output Current": "900mA constant current",
+        "Output Power": "36W",
+        "Power Factor": "> 0.9",
+        "THD": "< 20%",
+        "Efficiency": "> 88%"
+      },
+      "coreAdvantages": [
+        "High power factor >0.9 meeting commercial lighting requirements",
+        "Low THD <20% for compliance with IEC61000-3-2",
+        "Isolated design for safety in indoor lighting applications",
+        "Constant current output with tight regulation",
+        "Compact design suitable for slim panel fixtures"
+      ],
+      "bomList": [
+        {
+          "partNumber": "OB2263",
+          "description": "PWM controller for flyback LED driver",
+          "quantity": 1,
+          "link": "/brands/on-bright/products/acdc/ob2263/"
+        },
+        {
+          "partNumber": "OB3338",
+          "description": "Active PFC controller for high power factor",
+          "quantity": 1,
+          "link": "/brands/on-bright/products/pfc/ob3338/"
+        },
+        {
+          "partNumber": "Current Sense Resistors",
+          "description": "Precision resistors for current regulation",
+          "quantity": 2,
+          "link": "/brands/on-bright/products/passive/current-sense/"
+        }
+      ],
+      "customerCases": [
+        {
+          "company": "BrightLED Lighting Co.",
+          "industry": "LED Lighting Manufacturing",
+          "challenge": "Needed cost-effective LED driver for 36W panel lights with high PF and low THD",
+          "solution": "Implemented OB2263-based flyback driver with active PFC front end",
+          "results": "Achieved PF>0.95, THD<15%, efficiency 89%, passed all EMC and safety certifications"
+        },
+        {
+          "company": "GreenLight Solutions",
+          "industry": "Commercial Lighting",
+          "challenge": "Required flicker-free LED driver for office lighting applications",
+          "solution": "Optimized output filter design for low ripple current in OB2263 driver",
+          "results": "Output ripple <3%, no visible flicker, passed IEC TR 61547-1 flicker tests"
+        }
+      ],
+      "faeInsights": {
+        "content": "This LED driver solution addresses the key requirements for commercial lighting: high power factor, low THD, and reliable constant current regulation. The two-stage design (PFC + flyback) ensures compliance with IEC61000-3-2 harmonic limits while maintaining good efficiency. For LED applications, output current regulation is critical - use precision current sense resistors (1% tolerance) and keep the feedback loop compensation stable. The transformer design should minimize leakage inductance to reduce voltage spikes and EMI. For thermal management, ensure adequate copper area for the primary MOSFET and output rectifier. I recommend using an aluminum electrolytic capacitor with high ripple current rating and 105°C temperature rating for the output filter to ensure long lifetime in the enclosed fixture environment.",
+        "author": "Senior FAE - LED Lighting Applications",
+        "date": "2025-10-20"
+      },
+      "faqs": [
+        {
+          "question": "What is the power factor and THD of this LED driver?",
+          "answer": "With the active PFC stage, the design achieves power factor >0.9 and THD <20%, meeting IEC61000-3-2 Class C requirements for lighting equipment. Actual performance depends on line voltage and load conditions.",
+          "decisionGuide": "Verify PF and THD at worst-case conditions; design margin ensures compliance across operating range.",
+          "keywords": ["power factor", "THD", "IEC61000-3-2", "harmonics"]
+        },
+        {
+          "question": "How is constant current regulation achieved?",
+          "answer": "Constant current is achieved through primary-side regulation using current sense resistor and OB2263's internal control loop. The design maintains tight current regulation (<±3%) across input voltage and temperature variations.",
+          "decisionGuide": "Use precision current sense resistors (1% tolerance) for accurate regulation; verify over operating range.",
+          "keywords": ["constant current", "current regulation", "primary-side regulation"]
+        },
+        {
+          "question": "What is the expected lifetime of this LED driver?",
+          "answer": "Driver lifetime depends on capacitor selection and operating temperature. With quality 105°C rated capacitors and proper thermal design, expected lifetime is >50,000 hours at 75°C ambient (L70 lifetime).",
+          "decisionGuide": "Use high-temperature rated capacitors; ensure adequate thermal management for long lifetime.",
+          "keywords": ["lifetime", "reliability", "capacitor", "thermal design"]
+        },
+        {
+          "question": "Can this driver be dimmed?",
+          "answer": "The base design supports 0-10V analog dimming with additional circuitry. PWM dimming and TRIAC dimming are also possible with appropriate interface circuits. Contact On-Bright for specific dimming application support.",
+          "decisionGuide": "Specify dimming requirements when selecting driver; additional circuitry may be needed for specific dimming protocols.",
+          "keywords": ["dimming", "0-10V", "PWM dimming", "TRIAC"]
+        },
+        {
+          "question": "What protections are included in the LED driver?",
+          "answer": "The driver includes LED open-circuit protection, LED short-circuit protection, over-voltage protection, over-temperature protection, and input under-voltage protection. These ensure safe operation under fault conditions.",
+          "decisionGuide": "Verify all required protections for your application; additional protection may be needed for specific requirements.",
+          "keywords": ["protection", "open circuit", "short circuit", "safety"]
+        }
+      ]
+    }
+  ],
+  "faqs": [
+    {
+      "question": "What types of solutions does On-Bright offer?",
+      "answer": "On-Bright provides reference solutions for AC-DC adapters, LED lighting drivers, industrial power supplies, and battery chargers. Each solution includes complete schematics, BOM, PCB layout, and design documentation.",
+      "decisionGuide": "Review available solutions to identify starting points for your application development.",
+      "keywords": ["solutions", "reference designs", "applications"]
+    },
+    {
+      "question": "Can On-Bright solutions be customized?",
+      "answer": "Yes, reference designs can be customized for specific voltage, current, or power requirements. On-Bright FAEs can provide guidance on modifications and optimizations for your specific application.",
+      "decisionGuide": "Engage with FAE team early to discuss customization requirements and feasibility.",
+      "keywords": ["customization", "modification", "support"]
+    },
+    {
+      "question": "What documentation is provided with solutions?",
+      "answer": "Each solution includes detailed documentation: schematic, BOM, PCB layout files, transformer design specifications, test reports, and application notes. This enables quick implementation and certification.",
+      "decisionGuide": "Review complete documentation package before starting your design.",
+      "keywords": ["documentation", "schematics", "BOM", "test reports"]
+    },
+    {
+      "question": "Are evaluation boards available for solutions?",
+      "answer": "Yes, evaluation boards are available for most reference solutions. These can be used for performance evaluation, pre-compliance testing, and as a reference for your own design.",
+      "decisionGuide": "Order evaluation boards to accelerate development and reduce design risk.",
+      "keywords": ["evaluation board", "EVB", "prototyping"]
+    },
+    {
+      "question": "How can I get support for implementing a solution?",
+      "answer": "Technical support is available through BeiLuo Electronics FAE team. Support includes design review, troubleshooting assistance, and optimization recommendations for your specific application.",
+      "decisionGuide": "Establish support relationship early in the project for best results.",
+      "keywords": ["support", "FAE", "design review"]
+    }
+  ]
+}

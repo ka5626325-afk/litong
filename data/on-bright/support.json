@@ -1,0 +1,377 @@
+{
+  "seoTitle": "On-Bright Technical Support | Power Management Design Guides | BeiLuo Electronics",
+  "seoDescription": "Access On-Bright technical documentation, application notes, and design guides for power management ICs. Expert support from authorized distributor.",
+  "seoKeywords": ["On-Bright support", "power management design guide", "On-Bright documentation", "technical support", "application notes"],
+  "articles": [
+    {
+      "id": "acdc-design-guide",
+      "title": "AC-DC Power Supply Design Guide with On-Bright Controllers",
+      "category": "Design Guide",
+      "summary": "Comprehensive guide to designing AC-DC power supplies using On-Bright PWM and QR controllers",
+      "author": {
+        "name": "On-Bright Applications Team",
+        "title": "Senior Applications Engineer",
+        "image": "/assets/images/authors/onbright-apps.jpg"
+      },
+      "slug": "acdc-design-guide",
+      "publishDate": "2025-11-01",
+      "readTime": "20 min",
+      "tags": ["AC-DC", "Power Supply", "Design Guide", "PWM", "QR", "On-Bright"],
+      "contentSections": [
+        {
+          "heading": "Introduction to AC-DC Conversion",
+          "content": "AC-DC power supplies convert alternating current from the mains to regulated direct current for electronic devices. The flyback topology is widely used for power levels up to 100W due to its simplicity, low cost, and ability to provide multiple outputs. On-Bright offers both PWM and quasi-resonant controllers for flyback applications."
+        },
+        {
+          "heading": "Topology Selection",
+          "content": "Select PWM controllers (OB2263) for cost-sensitive applications where standard efficiency is acceptable. Choose QR controllers (OB2273) for high-efficiency requirements where valley switching can reduce switching losses. Consider power level, efficiency targets, EMI requirements, and cost constraints when selecting topology."
+        },
+        {
+          "heading": "Transformer Design",
+          "content": "Transformer design is critical for flyback converter performance. Key parameters include turns ratio, magnetizing inductance, and leakage inductance. The turns ratio determines the voltage conversion and affects MOSFET voltage stress. Magnetizing inductance affects current ripple and operating mode (CCM vs DCM). Minimize leakage inductance to reduce voltage spikes and EMI."
+        },
+        {
+          "heading": "Component Selection",
+          "content": "Select power MOSFET based on voltage rating (typically 600V for universal input), current rating, and RDS(on). Choose output rectifier based on reverse voltage, forward current, and switching speed. Input capacitors should handle the rectified AC voltage with adequate ripple current rating. Output capacitors determine output ripple and transient response."
+        }
+      ],
+      "faeInsights": {
+        "content": "When designing AC-DC supplies with On-Bright controllers, start with the reference designs and modify for your specific requirements. The most common issue I see is improper transformer design - particularly insufficient primary inductance or excessive leakage inductance. For PWM controllers, ensure the design operates in DCM at full load for optimal performance. For QR controllers, verify valley detection is working correctly by monitoring the MOSFET drain voltage. Pay special attention to the current sense circuit - keep the sense resistor close to the controller and use proper Kelvin connection. The compensation network design is also critical for stability; follow the guidelines in the datasheet and verify with load transient testing.",
+        "author": "Senior FAE - Power Supply Design",
+        "date": "2025-11-05"
+      },
+      "customerCases": [
+        {
+          "company": "Power Solutions Inc.",
+          "application": "Adapter Design",
+          "challenge": "Team needed to quickly develop 60W adapter meeting efficiency regulations",
+          "solution": "Followed On-Bright design guide and reference design for OB2273-based adapter",
+          "results": "First-pass design success, passed all efficiency and EMI requirements"
+        }
+      ],
+      "faqs": [
+        {
+          "question": "What is the difference between CCM and DCM operation?",
+          "answer": "In Continuous Conduction Mode (CCM), inductor current never reaches zero during the switching cycle. In Discontinuous Conduction Mode (DCM), inductor current falls to zero before the next cycle begins. DCM is simpler to control and better for low power; CCM offers lower ripple but more complex control.",
+          "decisionGuide": "Use DCM for power levels below 50W and when simplicity is preferred; CCM for higher power and lower ripple requirements.",
+          "keywords": ["CCM", "DCM", "conduction mode", "flyback"]
+        },
+        {
+          "question": "How do I calculate transformer turns ratio?",
+          "answer": "Turns ratio Np/Ns = (Vdc_min * Dmax) / (Vout + Vf), where Vdc_min is minimum DC bus voltage, Dmax is maximum duty cycle (typically 0.45), Vout is output voltage, and Vf is diode forward voltage. Include margin for voltage drops and regulation.",
+          "decisionGuide": "Calculate turns ratio for worst-case conditions; verify with actual prototype testing.",
+          "keywords": ["turns ratio", "transformer design", "calculation"]
+        },
+        {
+          "question": "What MOSFET voltage rating should I select?",
+          "answer": "For universal input (85-265VAC), use 600V or 650V MOSFETs. The drain voltage stress is approximately Vin_max + Vreflected + Vspike. With proper snubber design, 600V rating is usually sufficient for flyback converters up to 100W.",
+          "decisionGuide": "Use 600V MOSFETs for standard applications; 650V or 700V for high-voltage input or margin requirements.",
+          "keywords": ["MOSFET", "voltage rating", "drain voltage"]
+        },
+        {
+          "question": "How do I reduce EMI in flyback converters?",
+          "answer": "Reduce EMI through proper PCB layout (minimize loop areas), input filtering (common-mode choke, X and Y capacitors), soft switching (QR operation), snubber circuits, and shielded transformers if needed. Frequency jittering in On-Bright controllers also helps spread EMI spectrum.",
+          "decisionGuide": "Start with good layout and basic filtering; add additional measures based on EMI testing results.",
+          "keywords": ["EMI", "EMC", "filtering", "layout"]
+        },
+        {
+          "question": "What is the purpose of the snubber circuit?",
+          "answer": "The snubber circuit absorbs energy from transformer leakage inductance, protecting the MOSFET from excessive voltage spikes. It also reduces EMI by damping high-frequency oscillations. RC snubbers are commonly used across the primary winding or MOSFET drain-source.",
+          "decisionGuide": "Size snubber components based on leakage inductance and desired voltage clamping level; minimize power dissipation.",
+          "keywords": ["snubber", "voltage spike", "leakage inductance", "protection"]
+        }
+      ],
+      "relatedArticles": ["qr-operation-guide", "led-driver-design", "emi-optimization"]
+    },
+    {
+      "id": "qr-operation-guide",
+      "title": "Quasi-Resonant Operation and Valley Switching Guide",
+      "category": "Technical Guide",
+      "summary": "Understanding quasi-resonant operation for high-efficiency power supply designs",
+      "author": {
+        "name": "On-Bright Power Applications Team",
+        "title": "Principal Applications Engineer",
+        "image": "/assets/images/authors/onbright-power.jpg"
+      },
+      "slug": "qr-operation-guide",
+      "publishDate": "2025-10-15",
+      "readTime": "18 min",
+      "tags": ["Quasi-Resonant", "QR", "Valley Switching", "High Efficiency", "On-Bright"],
+      "contentSections": [
+        {
+          "heading": "Principles of Quasi-Resonant Operation",
+          "content": "Quasi-resonant flyback converters switch the MOSFET at the minimum drain voltage point (valley) after transformer demagnetization. This valley switching reduces switching losses and EMI by switching when both voltage and current are minimized. The resonant frequency is determined by the primary inductance and MOSFET output capacitance."
+        },
+        {
+          "heading": "Benefits of Valley Switching",
+          "content": "Valley switching provides several benefits: reduced switching losses leading to higher efficiency, lower EMI generation, reduced MOSFET stress, and simplified EMI filtering. At light loads, frequency reduction maintains high efficiency across the entire load range."
+        },
+        {
+          "heading": "Transformer Design for QR",
+          "content": "QR transformer design requires attention to leakage inductance and winding capacitance. Lower leakage inductance provides cleaner valley detection. The auxiliary winding must provide accurate voltage feedback for proper valley detection. Core selection should consider the variable frequency operation."
+        },
+        {
+          "heading": "Frequency Foldback and Light Load Operation",
+          "content": "At light loads, QR controllers reduce switching frequency to minimize losses while maintaining regulation. This frequency foldback extends high efficiency to very light loads, important for meeting modern efficiency standards. The minimum frequency is typically limited to avoid audible noise."
+        }
+      ],
+      "faeInsights": {
+        "content": "QR operation is one of the best techniques for improving flyback efficiency without significant cost increase. The key to successful QR design is proper valley detection - this requires clean voltage feedback from the auxiliary winding. I always recommend using a shielded transformer construction to reduce capacitive coupling and improve valley detection reliability. The frequency foldback behavior should be characterized across line and load to ensure stable operation and avoid audible noise. One common issue is missed valleys at light load - this is usually caused by excessive ringing or poor auxiliary winding coupling. For designs requiring the highest efficiency, consider adding synchronous rectification (OB2203) to the secondary side. This can provide 3-5% efficiency improvement, especially at low output voltages.",
+        "author": "Principal FAE - High Efficiency Power",
+        "date": "2025-10-18"
+      },
+      "customerCases": [
+        {
+          "company": "Efficiency Power Systems",
+          "application": "High-Efficiency Adapter",
+          "challenge": "Needed to achieve >90% efficiency in 65W adapter for notebook application",
+          "solution": "Implemented OB2273 QR controller with synchronous rectification",
+          "results": "Achieved 92% peak efficiency, passed all DoE and CoC requirements"
+        }
+      ],
+      "faqs": [
+        {
+          "question": "What is valley switching and how does it work?",
+          "answer": "Valley switching turns on the MOSFET when the drain voltage reaches its minimum point (valley) during the resonant ring after transformer demagnetization. This minimizes switching losses because switching occurs at minimum voltage and current.",
+          "decisionGuide": "Valley switching is automatic in QR controllers; ensure proper transformer design for reliable valley detection.",
+          "keywords": ["valley switching", "resonant ring", "switching loss"]
+        },
+        {
+          "question": "How does QR compare to traditional PWM in efficiency?",
+          "answer": "QR operation typically provides 2-4% efficiency improvement over PWM at full load due to reduced switching losses. The benefit is greater at light loads where frequency reduction further reduces losses. However, QR requires more careful transformer design.",
+          "decisionGuide": "Use QR for high-efficiency requirements (>88%); PWM is sufficient for standard efficiency requirements and easier to design.",
+          "keywords": ["QR vs PWM", "efficiency comparison", "switching loss"]
+        },
+        {
+          "question": "What causes missed valleys in QR operation?",
+          "answer": "Missed valleys are usually caused by excessive ringing, poor auxiliary winding coupling, or insufficient delay in the valley detection circuit. Ensure clean voltage feedback and proper transformer construction.",
+          "decisionGuide": "Check auxiliary winding polarity and coupling; add small delay capacitor if needed for stable valley detection.",
+          "keywords": ["missed valleys", "valley detection", "ringing"]
+        },
+        {
+          "question": "How do I prevent audible noise in QR converters?",
+          "answer": "Audible noise can occur at light loads when switching frequency enters the audible range. Most QR controllers include minimum frequency clamping to prevent this. Ensure proper PCB layout and transformer construction to minimize mechanical vibration.",
+          "decisionGuide": "Verify minimum frequency clamping is active; check for mechanical resonance in transformer and capacitors.",
+          "keywords": ["audible noise", "frequency clamping", "light load"]
+        },
+        {
+          "question": "Can QR operation be used with synchronous rectification?",
+          "answer": "Yes, QR operation works well with synchronous rectification. The SR controller (like OB2203) replaces the output diode with a MOSFET, reducing conduction losses. This combination provides the highest efficiency for flyback converters.",
+          "decisionGuide": "Add synchronous rectification for highest efficiency requirements; increases complexity but provides significant efficiency gain.",
+          "keywords": ["synchronous rectification", "SR", "efficiency improvement"]
+        }
+      ],
+      "relatedArticles": ["acdc-design-guide", "led-driver-design", "synchronous-rectification"]
+    },
+    {
+      "id": "led-driver-design",
+      "title": "LED Driver Design with On-Bright Controllers",
+      "category": "Application Guide",
+      "summary": "Complete guide to designing LED drivers using On-Bright AC-DC and DC-DC controllers",
+      "author": {
+        "name": "On-Bright LED Applications Team",
+        "title": "LED Applications Engineer",
+        "image": "/assets/images/authors/onbright-led.jpg"
+      },
+      "slug": "led-driver-design",
+      "publishDate": "2025-09-20",
+      "readTime": "22 min",
+      "tags": ["LED Driver", "LED Lighting", "Constant Current", "Power Factor", "On-Bright"],
+      "contentSections": [
+        {
+          "heading": "LED Driver Fundamentals",
+          "content": "LEDs require constant current drive for stable light output and long lifetime. LED drivers must provide regulated current regardless of input voltage variations, LED forward voltage variations, and temperature changes. Key specifications include output current accuracy, current ripple, efficiency, and power factor."
+        },
+        {
+          "heading": "Isolated vs Non-Isolated Topologies",
+          "content": "Isolated flyback drivers use a transformer for safety isolation between input and output, required for most indoor lighting applications. Non-isolated buck or buck-boost drivers are simpler and lower cost but don't provide isolation, suitable for some outdoor or integrated fixtures. Select based on safety requirements and application."
+        },
+        {
+          "heading": "Power Factor Correction",
+          "content": "Commercial LED lighting often requires high power factor (>0.9) and low THD to meet regulations and utility requirements. Active PFC circuits using dedicated PFC controllers (like OB3338) precede the LED driver stage. Two-stage design (PFC + DC-DC) provides best performance but higher cost than single-stage."
+        },
+        {
+          "heading": "Current Regulation Techniques",
+          "content": "Primary-side regulation senses current indirectly through auxiliary winding, eliminating optocoupler and reducing cost. Secondary-side regulation uses current sense resistor and feedback loop for highest accuracy. Choose based on accuracy requirements and cost constraints."
+        }
+      ],
+      "faeInsights": {
+        "content": "LED driver design requires attention to both electrical performance and reliability. Current regulation accuracy is critical - use precision current sense resistors (1% or better) and maintain tight feedback loop control. Output current ripple affects LED flicker and lifetime; keep ripple below 10% for general lighting, below 5% for high-quality applications. Thermal management is crucial - LEDs and driver components must operate within temperature limits for long lifetime. I recommend using 105°C rated aluminum electrolytic capacitors with adequate ripple current rating. For outdoor applications, consider the operating temperature range and humidity protection. The transformer design should minimize leakage inductance to reduce voltage stress and EMI. For dimming applications, verify compatibility with the specific dimmer type (TRIAC, 0-10V, DALI, etc.) as each requires different interface circuits.",
+        "author": "Senior FAE - LED Lighting",
+        "date": "2025-09-25"
+      },
+      "customerCases": [
+        {
+          "company": "BrightLight Manufacturing",
+          "application": "LED Panel Driver",
+          "challenge": "Needed 40W isolated LED driver with high PF and low flicker for commercial lighting",
+          "solution": "Designed two-stage driver with OB3338 PFC and OB2263 flyback controller",
+          "results": "Achieved PF>0.95, flicker-free operation, passed all commercial lighting standards"
+        }
+      ],
+      "faqs": [
+        {
+          "question": "What is the difference between constant voltage and constant current LED drivers?",
+          "answer": "Constant voltage drivers provide fixed output voltage and rely on external current limiting. Constant current drivers regulate output current directly, which is preferred for LED applications as it ensures consistent LED current regardless of forward voltage variations.",
+          "decisionGuide": "Use constant current drivers for LED applications; constant voltage only for LED strips with built-in resistors.",
+          "keywords": ["constant current", "constant voltage", "CC driver", "CV driver"]
+        },
+        {
+          "question": "How much current ripple is acceptable in LED drivers?",
+          "answer": "For general lighting, current ripple should be <10% to avoid visible flicker and ensure long LED lifetime. For high-quality or video applications, <5% ripple is recommended. Excessive ripple reduces LED lifetime and may cause visible flicker.",
+          "decisionGuide": "Design for <10% ripple for general lighting, <5% for high-quality applications; verify with oscilloscope measurement.",
+          "keywords": ["current ripple", "flicker", "LED lifetime"]
+        },
+        {
+          "question": "What is the typical efficiency of LED drivers?",
+          "answer": "LED driver efficiency varies by topology and power level. Isolated flyback drivers typically achieve 85-90% efficiency. Adding active PFC reduces efficiency by 1-2%. Non-isolated buck drivers can achieve 90-95% efficiency.",
+          "decisionGuide": "Target 88%+ efficiency for isolated drivers; 92%+ for non-isolated; consider efficiency vs cost trade-offs.",
+          "keywords": ["efficiency", "power loss", "topology"]
+        },
+        {
+          "question": "How do I achieve high power factor in LED drivers?",
+          "answer": "High power factor requires active PFC circuit (boost converter) before the LED driver stage. The PFC stage shapes input current to follow voltage waveform. Single-stage PFC+driver ICs are available for lower power applications; two-stage designs provide best performance for higher power.",
+          "decisionGuide": "Use two-stage design (PFC + driver) for >25W and high PF requirements; single-stage for cost-sensitive lower power applications.",
+          "keywords": ["power factor", "PFC", "THD", "two-stage"]
+        },
+        {
+          "question": "What protection features are needed for LED drivers?",
+          "answer": "Essential protections include LED open-circuit, LED short-circuit, over-voltage, over-temperature, and input under-voltage. These ensure safe operation under fault conditions and protect both the driver and LEDs.",
+          "decisionGuide": "Implement all basic protections; add additional protection (surge, etc.) based on application requirements.",
+          "keywords": ["protection", "open circuit", "short circuit", "safety"]
+        }
+      ],
+      "relatedArticles": ["acdc-design-guide", "qr-operation-guide", "pfc-design"]
+    },
+    {
+      "id": "emi-optimization",
+      "title": "EMI Optimization for On-Bright Power Supplies",
+      "category": "Application Note",
+      "summary": "Practical techniques for minimizing EMI in power supplies using On-Bright controllers",
+      "author": {
+        "name": "On-Bright EMC Team",
+        "title": "EMC Applications Engineer",
+        "image": "/assets/images/authors/onbright-emc.jpg"
+      },
+      "slug": "emi-optimization",
+      "publishDate": "2025-08-10",
+      "readTime": "25 min",
+      "tags": ["EMI", "EMC", "Noise Reduction", "Filtering", "Layout", "On-Bright"],
+      "contentSections": [
+        {
+          "heading": "Understanding Conducted EMI",
+          "content": "Conducted EMI is unwanted electrical noise that travels through power lines and can interfere with other equipment. In switching power supplies, fast switching transitions generate high-frequency noise that must be filtered. EMI standards like CISPR22/EN55022 and FCC Part 15 set limits on conducted emissions."
+        },
+        {
+          "heading": "Input Filter Design",
+          "content": "The input filter is the first line of defense against conducted EMI. A typical filter includes a common-mode choke, X capacitors across the line, and Y capacitors to ground. The common-mode choke presents high impedance to common-mode noise while allowing differential power flow. X and Y capacitors provide bypass paths for high-frequency noise."
+        },
+        {
+          "heading": "PCB Layout for Low EMI",
+          "content": "Proper PCB layout is essential for minimizing EMI. Minimize loop areas in high-current paths, especially the input capacitor-MOSFET-transformer loop. Keep switching nodes away from sensitive circuits. Use ground planes and proper stitching to reduce noise coupling. Place input filter components close to the input connector."
+        },
+        {
+          "heading": "Snubber and Clamp Circuits",
+          "content": "Snubber circuits damp high-frequency ringing caused by parasitic inductance and capacitance. RC snubbers across the MOSFET or primary winding reduce voltage spikes and associated EMI. RCD clamps protect the MOSFET from excessive voltage while dissipating leakage inductance energy."
+        }
+      ],
+      "faeInsights": {
+        "content": "EMI optimization is often the most challenging aspect of power supply design. I always start with a good PCB layout - this is the foundation of low EMI design. Keep the hot loop (input cap-MOSFET-transformer) as small as possible; this is the primary noise source. The input filter design should be based on the actual noise spectrum, not just guesswork. I recommend doing pre-compliance testing early to identify problem frequencies. On-Bright's QR controllers have a significant advantage for EMI - the valley switching reduces dv/dt and di/dt, which are the primary sources of conducted noise. For difficult EMI issues, consider shielded transformer construction or adding a shield winding. Remember that Y capacitor placement is critical - keep leads short and connect to quiet ground. Sometimes adding a small ferrite bead on the MOSFET gate can help reduce high-frequency ringing.",
+        "author": "Principal FAE - EMC Design",
+        "date": "2025-08-15"
+      },
+      "customerCases": [
+        {
+          "company": "CleanPower Electronics",
+          "application": "Medical Power Supply",
+          "challenge": "Needed to meet stringent medical EMC standards with minimal filter cost",
+          "solution": "Optimized PCB layout and implemented QR controller with careful snubber design",
+          "results": "Passed IEC60601-1-2 EMC requirements with 20% smaller filter than original design"
+        }
+      ],
+      "faqs": [
+        {
+          "question": "What are the main sources of EMI in switching power supplies?",
+          "answer": "Primary EMI sources include fast switching transitions (dv/dt and di/dt), transformer leakage inductance, parasitic capacitance, and reverse recovery of rectifier diodes. The input capacitor-MOSFET-transformer loop is the main noise source.",
+          "decisionGuide": "Identify main noise sources through measurement; focus mitigation efforts on the dominant sources.",
+          "keywords": ["EMI sources", "dv/dt", "di/dt", "switching noise"]
+        },
+        {
+          "question": "How do I select common-mode choke parameters?",
+          "answer": "Common-mode choke inductance is typically 1-10mH for offline power supplies. Higher inductance provides better filtering but increases size and cost. Current rating must exceed maximum input current. Consider core material (ferrite or nanocrystalline) based on frequency range.",
+          "decisionGuide": "Start with 2-4mH for typical applications; adjust based on EMI testing results.",
+          "keywords": ["common-mode choke", "inductance", "filter design"]
+        },
+        {
+          "question": "What is the purpose of X and Y capacitors?",
+          "answer": "X capacitors are connected line-to-line and bypass differential-mode noise. Y capacitors are connected line-to-ground and bypass common-mode noise. Y capacitors must be safety-rated for the application voltage.",
+          "decisionGuide": "Use X2 capacitors for line-to-line; Y1 or Y2 safety-rated capacitors for line-to-ground.",
+          "keywords": ["X capacitor", "Y capacitor", "safety rated", "filtering"]
+        },
+        {
+          "question": "How does QR operation help reduce EMI?",
+          "answer": "Quasi-resonant valley switching reduces EMI by switching at minimum voltage and current points. This reduces dv/dt and di/dt, which are the primary sources of conducted EMI. The softer switching also reduces high-frequency ringing.",
+          "decisionGuide": "Use QR controllers for EMI-critical applications; benefits include reduced filtering requirements.",
+          "keywords": ["QR operation", "valley switching", "EMI reduction"]
+        },
+        {
+          "question": "What shielding techniques can reduce EMI?",
+          "answer": "Transformer shielding using copper foil between primary and secondary reduces capacitive coupling and common-mode noise. PCB shielding cans over sensitive circuits can reduce radiated emissions. Metal enclosure provides overall shielding.",
+          "decisionGuide": "Use transformer shielding for difficult EMI cases; consider cost vs benefit for each technique.",
+          "keywords": ["shielding", "transformer shield", "copper foil", "radiated EMI"]
+        }
+      ],
+      "relatedArticles": ["acdc-design-guide", "qr-operation-guide", "pcb-layout"]
+    }
+  ],
+  "faqs": [
+    {
+      "question": "How do I contact On-Bright technical support?",
+      "answer": "Technical support is available through BeiLuo Electronics FAE team. Submit support requests via email or contact your local sales representative for assistance.",
+      "decisionGuide": "Contact support early for complex design questions; utilize documentation for common issues.",
+      "keywords": ["support", "contact", "FAE"]
+    },
+    {
+      "question": "What documentation is available for On-Bright products?",
+      "answer": "Documentation includes datasheets, application notes, reference designs, and evaluation board manuals. All are available from BeiLuo Electronics upon request.",
+      "decisionGuide": "Review all relevant documentation before starting your design.",
+      "keywords": ["documentation", "datasheet", "application note"]
+    },
+    {
+      "question": "Are training sessions available?",
+      "answer": "On-Bright and BeiLuo Electronics offer training on power supply design, LED driver design, and EMI optimization. Contact us for the training schedule.",
+      "decisionGuide": "Attend training for new design teams to accelerate learning.",
+      "keywords": ["training", "course", "learning"]
+    },
+    {
+      "question": "How do I report a technical issue?",
+      "answer": "Report issues to BeiLuo Electronics support with detailed description, schematic, and test conditions. Include information about the specific On-Bright device and application.",
+      "decisionGuide": "Document issues thoroughly to expedite resolution.",
+      "keywords": ["issue report", "bug", "support"]
+    },
+    {
+      "question": "Can I get on-site support?",
+      "answer": "On-site support is available for major customers and complex projects. Contact your sales representative to arrange FAE visit.",
+      "decisionGuide": "Request on-site support for critical design reviews or troubleshooting.",
+      "keywords": ["on-site", "support", "FAE visit"]
+    },
+    {
+      "question": "What is the response time for support requests?",
+      "answer": "Standard support requests are responded to within 24-48 hours. Priority support is available for production issues.",
+      "decisionGuide": "Mark urgent issues appropriately; provide complete information for faster resolution.",
+      "keywords": ["response time", "SLA", "priority"]
+    },
+    {
+      "question": "Are there user forums or communities?",
+      "answer": "On-Bright maintains technical resources and application notes. Contact BeiLuo Electronics for community resources and user discussions.",
+      "decisionGuide": "Utilize available resources; contact support for specific issues.",
+      "keywords": ["forum", "community", "resources"]
+    },
+    {
+      "question": "How do I request a feature or enhancement?",
+      "answer": "Feature requests can be submitted through BeiLuo Electronics. Include detailed description and business justification.",
+      "decisionGuide": "Submit well-documented requests; consider workarounds while waiting.",
+      "keywords": ["feature request", "enhancement", "roadmap"]
+    }
+  ]
+}

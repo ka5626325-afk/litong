@@ -1,378 +1,732 @@
 {
-  "seoTitle": "Xinzhou Technology Technical Support | Power Management Design Guides | BeiLuo Electronics",
-  "seoDescription": "Access Xinzhou Technology technical documentation, application notes, and design guides for DC-DC converters and LDOs. Expert support from authorized distributor.",
-  "seoKeywords": ["Xinzhou support", "power management design guide", "Xinzhou documentation", "technical support", "application notes"],
-  "articles": [
-    {
-      "id": "dcdc-selection-guide",
-      "title": "DC-DC Converter Selection and Design Guide",
-      "category": "Design Guide",
-      "summary": "Comprehensive guide to selecting and designing DC-DC converters using Xinzhou Technology products",
-      "author": {
-        "name": "Xinzhou Applications Team",
-        "title": "Senior Applications Engineer",
-        "image": "/assets/images/authors/xinzhou-apps.jpg"
-      },
-      "slug": "dcdc-selection-guide",
-      "publishDate": "2025-11-01",
-      "readTime": "20 min",
-      "tags": ["DC-DC", "Converter", "Design Guide", "Selection", "Xinzhou"],
-      "contentSections": [
-        {
-          "heading": "Understanding DC-DC Conversion",
-          "content": "DC-DC converters efficiently convert one DC voltage to another. Buck converters step down voltage, boost converters step up, and buck-boost can do both. Key parameters include input/output voltage ranges, output current, switching frequency, and efficiency requirements."
-        },
-        {
-          "heading": "Selecting the Right Converter",
-          "content": "Choose converters based on input voltage range, output voltage and current requirements, efficiency targets, and size constraints. Consider switching frequency trade-offs: higher frequencies enable smaller components but may reduce efficiency. Xinzhou offers converters from 1MHz to 3MHz for different applications."
-        },
-        {
-          "heading": "Inductor Selection",
-          "content": "Inductor value affects ripple current, transient response, and stability. Calculate inductance using L = (Vout × (Vin - Vout)) / (Vin × fsw × ΔIL). Use inductors with saturation current 1.3x above maximum load current. Higher frequencies allow smaller inductance values."
-        },
-        {
-          "heading": "Input and Output Capacitors",
-          "content": "Input capacitors filter switching current ripple; use 10-22μF ceramic capacitors close to the IC. Output capacitors affect output ripple and transient response; use 22-47μF ceramic with appropriate ESR. X5R or X7R dielectrics are recommended for temperature stability."
-        }
-      ],
-      "faeInsights": {
-        "content": "When designing with Xinzhou DC-DC converters, the most critical factor is proper inductor selection. I always start by calculating the required inductance for 20-30% ripple current, then verify the inductor's saturation current rating. For high-frequency converters like XZ3102, you can use tiny chip inductors, but pay attention to the DCR - higher DCR reduces efficiency. Input capacitor placement is crucial for EMI - place it as close as possible to the VIN and GND pins. For output capacitors, ceramic is usually sufficient, but if you need very low ripple, consider adding a small electrolytic in parallel. The compensation is internal on most Xinzhou converters, which simplifies design, but means you can't adjust loop response. If you have very demanding transient requirements, add more output capacitance. Always verify stability with load transient testing - this is the best way to ensure reliable operation.",
-        "author": "Senior FAE - Power Design",
-        "date": "2025-11-05"
-      },
-      "customerCases": [
-        {
-          "company": "PowerTech Solutions",
-          "application": "Industrial Power Supply",
-          "challenge": "Team needed to design compact 3A buck converter for industrial control system",
-          "solution": "Followed Xinzhou design guide for XZ2105-based converter",
-          "results": "First-pass design success, met all efficiency and ripple specifications"
-        }
-      ],
-      "faqs": [
-        {
-          "question": "How do I calculate inductor value?",
-          "answer": "Use the formula L = (Vout × (Vin - Vout)) / (Vin × fsw × ΔIL), where ΔIL is the desired ripple current (typically 20-30% of output current). Higher switching frequencies allow smaller inductance values.",
-          "decisionGuide": "Start with 30% ripple current for general applications; reduce to 20% for lower output ripple requirements.",
-          "keywords": ["inductor", "calculation", "ripple current"]
-        },
-        {
-          "question": "What capacitor types are recommended?",
-          "answer": "Use ceramic capacitors (X5R or X7R dielectric) for both input and output. Typical values are 10-22μF for input and 22-47μF for output. Ensure voltage ratings exceed maximum operating voltages.",
-          "decisionGuide": "Ceramic capacitors provide best performance; add electrolytic for additional bulk capacitance if needed.",
-          "keywords": ["capacitor", "ceramic", "X5R", "X7R"]
-        },
-        {
-          "question": "How do I set output voltage?",
-          "answer": "For adjustable versions, use a resistor divider from VOUT to FB to GND. VOUT = Vref × (1 + R1/R2), where Vref is typically 0.6V. Use 1% tolerance resistors for accuracy.",
-          "decisionGuide": "Choose resistor values in 10kΩ to 1MΩ range; lower values improve noise immunity but increase quiescent current.",
-          "keywords": ["output voltage", "feedback", "resistor divider"]
-        },
-        {
-          "question": "What affects converter efficiency?",
-          "answer": "Efficiency is affected by switching losses, conduction losses, and inductor losses. Higher switching frequencies increase switching losses but allow smaller components. Use inductors with low DCR for best efficiency.",
-          "decisionGuide": "Optimize for your application: higher frequency for small size, lower frequency for maximum efficiency.",
-          "keywords": ["efficiency", "switching losses", "conduction losses"]
-        },
-        {
-          "question": "How do I ensure stability?",
-          "answer": "Most Xinzhou converters have internal compensation. Ensure stability by using recommended inductor and capacitor values, keeping switching node traces short, and verifying with load transient testing.",
-          "decisionGuide": "Follow reference design values; verify stability with load step testing from 10% to 90% of full load.",
-          "keywords": ["stability", "compensation", "transient response"]
-        }
-      ],
-      "relatedArticles": ["ldo-selection-guide", "pcb-layout-guide", "thermal-design"]
-    },
-    {
-      "id": "ldo-selection-guide",
-      "title": "LDO Regulator Selection and Application Guide",
-      "category": "Design Guide",
-      "summary": "Guide to selecting and applying low-dropout linear regulators for noise-sensitive applications",
-      "author": {
-        "name": "Xinzhou Analog Team",
-        "title": "Analog Applications Engineer",
-        "image": "/assets/images/authors/xinzhou-analog.jpg"
-      },
-      "slug": "ldo-selection-guide",
-      "publishDate": "2025-10-15",
-      "readTime": "18 min",
-      "tags": ["LDO", "Linear Regulator", "Low Noise", "PSRR", "Xinzhou"],
-      "contentSections": [
-        {
-          "heading": "Understanding LDO Regulators",
-          "content": "LDO (Low Dropout) regulators provide clean, stable output voltage with minimal noise. Unlike switching converters, LDOs operate without switching, making them ideal for noise-sensitive applications. Key parameters include dropout voltage, output noise, PSRR, and quiescent current."
-        },
-        {
-          "heading": "Selecting the Right LDO",
-          "content": "Select LDOs based on input-output voltage differential, output current, noise requirements, and PSRR needs. For RF applications, choose ultra-low noise LDOs with high PSRR. For battery applications, consider low-Iq LDOs to maximize battery life."
-        },
-        {
-          "heading": "Input and Output Capacitors",
-          "content": "LDOs require input capacitors for stability and transient response, typically 1-10μF ceramic. Output capacitors affect stability and transient response; values from 1-22μF are typical. Some LDOs have specific ESR requirements for stability."
-        },
-        {
-          "heading": "Noise Reduction Techniques",
-          "content": "For ultra-low noise applications, use bypass capacitors on reference voltage pins, filter resistors in feedback networks, and ferrite beads on output. Place LDO close to the load to minimize noise pickup. Use star grounding for sensitive circuits."
-        }
-      ],
-      "faeInsights": {
-        "content": "LDO selection is all about matching the regulator to your application's noise requirements. For RF circuits, I always recommend Xinzhou's ultra-low noise LDOs like XZ1001 with <10μVrms noise and >70dB PSRR. The dropout voltage is critical - calculate headroom as Vin_min - Vout, and ensure it's greater than the LDO's dropout at your load current. One common mistake is insufficient input capacitance - LDOs need good input bypassing, especially when fed from switching converters. For output capacitors, ceramic is fine, but watch the ESR - some LDOs need minimum ESR for stability. If you're powering sensitive ADCs or RF circuits, add a ferrite bead and capacitor on the output for additional filtering. The PSRR vs frequency curve is important - check that the LDO provides sufficient PSRR at the frequencies where your switching converter generates noise. For battery-powered devices, the quiescent current can significantly impact battery life, so choose low-Iq LDOs for always-on circuits.",
-        "author": "Senior FAE - Analog Applications",
-        "date": "2025-10-18"
-      },
-      "customerCases": [
-        {
-          "company": "RF Solutions Ltd.",
-          "application": "RF Power Supply",
-          "challenge": "Needed ultra-clean power supply for sensitive RF receiver circuit",
-          "solution": "Implemented XZ1001 ultra-low noise LDO with additional filtering",
-          "results": "Achieved <10μV output noise, improved receiver sensitivity by 3dB"
-        }
-      ],
-      "faqs": [
-        {
-          "question": "What is dropout voltage?",
-          "answer": "Dropout voltage is the minimum input-output voltage differential required for the LDO to maintain regulation. It's typically 100-300mV for modern CMOS LDOs, but can be lower for specialized devices.",
-          "decisionGuide": "Ensure Vin_min - Vout > dropout voltage at maximum load current; include margin for temperature variations.",
-          "keywords": ["dropout voltage", "headroom", "regulation"]
-        },
-        {
-          "question": "What is PSRR and why is it important?",
-          "answer": "PSRR (Power Supply Rejection Ratio) measures how well the LDO rejects input voltage variations. High PSRR (>60dB) means the LDO effectively blocks noise from the input, providing clean output voltage for sensitive circuits.",
-          "decisionGuide": "Choose LDOs with high PSRR at frequencies where your input supply has significant noise (typically switching converter frequencies).",
-          "keywords": ["PSRR", "power supply rejection", "noise rejection"]
-        },
-        {
-          "question": "How do I minimize output noise?",
-          "answer": "Use ultra-low noise LDOs, add bypass capacitors on reference pins, use ferrite beads on output, and place LDO close to the load. Filter the input supply if it comes from a switching converter.",
-          "decisionGuide": "For noise-sensitive applications, use LDOs with <20μVrms noise specification and add external filtering as needed.",
-          "keywords": ["output noise", "noise reduction", "filtering"]
-        },
-        {
-          "question": "What output capacitor should I use?",
-          "answer": "Use ceramic capacitors (X5R/X7R) with values from 1-22μF depending on the LDO and application. Some LDOs have specific ESR requirements - check the datasheet for stability requirements.",
-          "decisionGuide": "Start with recommended value from datasheet; larger values improve transient response but may affect stability.",
-          "keywords": ["output capacitor", "ceramic capacitor", "stability"]
-        },
-        {
-          "question": "When should I use an LDO vs a switching converter?",
-          "answer": "Use LDOs for noise-sensitive applications, small voltage drops (Vin close to Vout), and when simplicity is preferred. Use switching converters for high efficiency with large voltage differentials or when stepping up voltage.",
-          "decisionGuide": "LDO for noise-sensitive, low-dropout applications; switching converter for high efficiency and large voltage conversion ratios.",
-          "keywords": ["LDO vs switching", "selection", "trade-offs"]
-        }
-      ],
-      "relatedArticles": ["dcdc-selection-guide", "noise-reduction", "rf-power-design"]
-    },
-    {
-      "id": "pcb-layout-guide",
-      "title": "PCB Layout Guidelines for Xinzhou Power ICs",
-      "category": "Application Note",
-      "summary": "Best practices for PCB layout of DC-DC converters and LDOs to ensure optimal performance",
-      "author": {
-        "name": "Xinzhou Applications Team",
-        "title": "Applications Engineer",
-        "image": "/assets/images/authors/xinzhou-layout.jpg"
-      },
-      "slug": "pcb-layout-guide",
-      "publishDate": "2025-09-20",
-      "readTime": "15 min",
-      "tags": ["PCB Layout", "Design Guidelines", "EMI", "Thermal", "Xinzhou"],
-      "contentSections": [
-        {
-          "heading": "High Current Path Design",
-          "content": "Minimize loop areas in high-current paths to reduce EMI and improve efficiency. The input capacitor to MOSFET to inductor loop is the most critical. Keep these traces short and wide, and place components close together."
-        },
-        {
-          "heading": "Ground Plane Considerations",
-          "content": "Use a solid ground plane under the converter for good thermal dissipation and noise reduction. Connect all ground pins directly to the ground plane with multiple vias. Avoid splitting the ground plane under high-frequency switching circuits."
-        },
-        {
-          "heading": "Switching Node Layout",
-          "content": "The switching node (SW) carries high-frequency, high-current signals. Keep the SW trace short to minimize EMI radiation. Do not route sensitive signals near the SW node. Use adequate copper area for current carrying capacity."
-        },
-        {
-          "heading": "Feedback Network Routing",
-          "content": "Route feedback traces away from switching nodes and inductors to avoid noise coupling. Keep feedback resistors close to the IC feedback pin. Use Kelvin connections for current sensing if applicable."
-        }
-      ],
-      "faeInsights": {
-        "content": "PCB layout can make or break a power supply design. The most important rule is to minimize the hot loop area - that's the path from input capacitor through the high-side switch, inductor, and back to the capacitor. I always place the input capacitor as close as possible to the VIN and GND pins, literally touching if the package allows. For the ground plane, use plenty of vias - especially under the IC's thermal pad. This helps with both electrical performance and thermal dissipation. The switching node is a major EMI source, so keep it away from sensitive circuits and make the trace only as wide as needed for current. One trick for high-frequency converters: use a small copper pour for the SW node rather than a wide trace - this reduces capacitive coupling. For feedback networks, route the trace on a different layer if possible, shielded by ground planes. And always follow the manufacturer's layout guide - they know their ICs best. I've seen designs fail simply because the layout wasn't optimized, and work perfectly after a layout revision.",
-        "author": "Senior FAE - PCB Design",
-        "date": "2025-09-25"
-      },
-      "customerCases": [
-        {
-          "company": "Electronics Manufacturing Co.",
-          "application": "Power Module Production",
-          "challenge": "Experienced EMI issues with initial converter design",
-          "solution": "Redesigned PCB following Xinzhou layout guidelines",
-          "results": "EMI reduced by 15dB, passed CISPR22 Class B on first test"
-        }
-      ],
-      "faqs": [
-        {
-          "question": "How close should input capacitor be to the IC?",
-          "answer": "Place the input capacitor as close as possible to the VIN and GND pins, ideally within 2-3mm. This minimizes parasitic inductance and reduces EMI.",
-          "decisionGuide": "Closer is better; use smallest package capacitor that meets requirements to minimize loop area.",
-          "keywords": ["input capacitor", "placement", "loop area"]
-        },
-        {
-          "question": "How many ground vias are needed?",
-          "answer": "Use multiple ground vias (4-9) under the IC's thermal pad for good electrical and thermal connection. Additional vias around the input capacitor and inductor also help.",
-          "decisionGuide": "More vias improve performance; use as many as practical within available PCB space.",
-          "keywords": ["ground vias", "thermal vias", "ground connection"]
-        },
-        {
-          "question": "Should I use 2-layer or 4-layer PCB?",
-          "answer": "4-layer PCBs provide better performance with dedicated ground and power planes, better EMI characteristics, and improved thermal dissipation. 2-layer can work for simple designs but requires careful layout.",
-          "decisionGuide": "Use 4-layer for best performance; 2-layer acceptable for cost-sensitive, low-power applications with careful layout.",
-          "keywords": ["PCB layers", "4-layer", "2-layer", "ground plane"]
-        },
-        {
-          "question": "How wide should power traces be?",
-          "answer": "Size power traces based on current requirements using standard IPC guidelines. Typical rule: 1oz copper can carry 1A per 10-20 mils width. Use wider traces or copper pours for high current paths.",
-          "decisionGuide": "Calculate trace width based on current and temperature rise requirements; use copper pours for high current distribution.",
-          "keywords": ["trace width", "current capacity", "copper pour"]
-        },
-        {
-          "question": "How do I route sensitive signals near power circuits?",
-          "answer": "Keep sensitive signals away from switching nodes and inductors. Use ground planes for shielding. Route sensitive traces on different layers with ground planes between them and power circuits.",
-          "decisionGuide": "Maximize distance from switching circuits; use ground shielding; consider separate ground zones if necessary.",
-          "keywords": ["sensitive signals", "routing", "shielding", "noise coupling"]
-        }
-      ],
-      "relatedArticles": ["dcdc-selection-guide", "emi-reduction", "thermal-design"]
-    },
-    {
-      "id": "thermal-design",
-      "title": "Thermal Design Guidelines for Power Management ICs",
-      "category": "Application Note",
-      "summary": "Practical thermal management techniques for DC-DC converters and power ICs",
-      "author": {
-        "name": "Xinzhou Thermal Team",
-        "title": "Thermal Applications Engineer",
-        "image": "/assets/images/authors/xinzhou-thermal.jpg"
-      },
-      "slug": "thermal-design",
-      "publishDate": "2025-08-10",
-      "readTime": "18 min",
-      "tags": ["Thermal Design", "Heat Dissipation", "Temperature", "Power IC", "Xinzhou"],
-      "contentSections": [
-        {
-          "heading": "Understanding Power Dissipation",
-          "content": "Power dissipation in DC-DC converters comes from switching losses, conduction losses, and quiescent current. Calculate total dissipation to determine thermal requirements. Higher efficiency means less heat generation."
-        },
-        {
-          "heading": "PCB Thermal Design",
-          "content": "PCB copper area is the primary heat dissipation path for most power ICs. Use large copper pours connected to the IC's thermal pad with multiple vias. Spread heat-generating components across the PCB to avoid hot spots."
-        },
-        {
-          "heading": "Thermal Vias and Planes",
-          "content": "Thermal vias transfer heat from the IC's thermal pad to inner ground planes. Use multiple vias (9-25) with 0.3mm diameter. Connect to large ground planes for heat spreading. Solid planes are more effective than cross-hatched."
-        },
-        {
-          "heading": "Ambient Temperature Considerations",
-          "content": "Ensure the IC junction temperature stays within specified limits at maximum ambient temperature. Calculate temperature rise as Tj = Ta + (Pd × θja). Allow margin for temperature measurement uncertainty and worst-case conditions."
-        }
-      ],
-      "faeInsights": {
-        "content": "Thermal design is often overlooked until there's a problem, but it's critical for reliable operation. The key is to provide a good thermal path from the IC junction to the ambient air. For Xinzhou power ICs, the thermal pad is the main heat exit path - use plenty of thermal vias (I recommend at least 9, preferably 16 or more) connecting to inner ground planes. The ground planes act as heat spreaders, so larger planes are better. For high-power applications, consider using 2oz copper instead of 1oz - this can reduce thermal resistance by 30-40%. Component placement matters too - don't cluster hot components together; spread them out to use more PCB area for heat dissipation. If you're still running hot, consider adding thermal vias to the backside of the PCB and using thermal interface material to a metal enclosure or heatsink. Always measure temperature in the actual application - theoretical calculations are a starting point, but real-world conditions can differ significantly."
-        ,
-        "author": "Senior FAE - Thermal Design",
-        "date": "2025-08-15"
-      },
-      "customerCases": [
-        {
-          "company": "Industrial Power Systems",
-          "application": "Industrial Controller",
-          "challenge": "Converter running hot in enclosed industrial enclosure",
-          "solution": "Improved thermal design with additional thermal vias and copper area",
-          "results": "Temperature reduced by 18°C, meeting reliability requirements"
-        }
-      ],
-      "faqs": [
-        {
-          "question": "How do I calculate junction temperature?",
-          "answer": "Calculate junction temperature using Tj = Ta + (Pd × θja), where Ta is ambient temperature, Pd is power dissipation, and θja is thermal resistance. Keep Tj below the maximum specified in the datasheet (typically 125°C or 150°C).",
-          "decisionGuide": "Calculate for worst-case conditions; include margin for measurement uncertainty and component variations.",
-          "keywords": ["junction temperature", "thermal resistance", "calculation"]
-        },
-        {
-          "question": "How many thermal vias should I use?",
-          "answer": "Use 9-25 thermal vias under the IC's thermal pad, depending on power dissipation. More vias provide better thermal performance. Use 0.3mm diameter vias with 0.5mm pitch for good results.",
-          "decisionGuide": "Use maximum practical number of vias within available space; ensure vias are tented or filled to prevent solder wicking.",
-          "keywords": ["thermal vias", "via count", "thermal pad"]
-        },
-        {
-          "question": "How much copper area is needed for heat dissipation?",
-          "answer": "Copper area requirements depend on power dissipation. As a rule of thumb, provide 20-30 mm² of copper area per watt of dissipation for 1oz copper. Double the area for 2oz copper.",
-          "decisionGuide": "Start with recommended area; measure actual temperature and increase copper area if needed.",
-          "keywords": ["copper area", "heat dissipation", "thermal management"]
-        },
-        {
-          "question": "What is the benefit of 2oz copper?",
-          "answer": "2oz copper provides approximately 40% better thermal conductivity than 1oz copper, significantly improving heat dissipation. It's especially beneficial for high-power applications or when PCB area is limited.",
-          "decisionGuide": "Use 2oz copper for high-power designs or when thermal performance is critical; 1oz is sufficient for lower power applications.",
-          "keywords": ["2oz copper", "copper weight", "thermal conductivity"]
-        },
-        {
-          "question": "How do I measure IC temperature?",
-          "answer": "Measure case temperature with a thermocouple or infrared thermometer, then calculate junction temperature using Tj = Tcase + (Pd × θjc). For more accuracy, use the IC's internal temperature sensor if available.",
-          "decisionGuide": "Measure at maximum load and highest ambient temperature; verify junction temperature stays within limits.",
-          "keywords": ["temperature measurement", "thermocouple", "junction temperature"]
-        }
-      ],
-      "relatedArticles": ["dcdc-selection-guide", "pcb-layout-guide", "efficiency-optimization"]
-    }
+  "seoTitle": "Xinzhou Technology Technical Support | Design Resources | BeiLuo Electronics",
+  "seoDescription": "Get comprehensive technical support for Xinzhou Technology power management ICs. Access datasheets, application notes, reference designs, and FAE support.",
+  "seoKeywords": [
+    "Xinzhou support",
+    "technical support",
+    "design resources",
+    "application notes",
+    "reference designs",
+    "FAE support",
+    "Xinzhou distributor",
+    "Xinzhou selection guide"
   ],
   "faqs": [
     {
-      "question": "How do I contact Xinzhou technical support?",
-      "answer": "Technical support is available through BeiLuo Electronics FAE team. Submit support requests via email or contact your local sales representative.",
-      "decisionGuide": "Contact support for complex design questions; utilize documentation for common issues.",
-      "keywords": ["support", "contact", "FAE"]
+      "question": "How do I get technical support for Xinzhou products?",
+      "answer": "Technical support is available through BeiLuo Electronics FAE team. We provide schematic review, PCB layout guidance, troubleshooting assistance, and design optimization recommendations. Contact us via email or phone for support.",
+      "decisionGuide": "Engage with FAE support early in your design cycle for best results; provide detailed information about your application requirements.",
+      "keywords": [
+        "technical support",
+        "FAE",
+        "design assistance"
+      ]
     },
     {
-      "question": "What documentation is available?",
-      "answer": "Documentation includes datasheets, application notes, reference designs, and evaluation board manuals. All are available from BeiLuo Electronics upon request.",
-      "decisionGuide": "Review all relevant documentation before starting your design.",
-      "keywords": ["documentation", "datasheet", "application note"]
+      "question": "Where can I find Xinzhou product datasheets?",
+      "answer": "Product datasheets are available on the BeiLuo Electronics website for each product. Navigate to the product page and click on the datasheet link. You can also contact our sales team for the latest datasheets and documentation.",
+      "decisionGuide": "Download datasheets from product pages; contact sales for the latest revisions or additional documentation.",
+      "keywords": [
+        "datasheet",
+        "documentation",
+        "product specifications"
+      ]
     },
     {
-      "question": "Are training sessions available?",
-      "answer": "Xinzhou and BeiLuo Electronics offer training on power management design, DC-DC converter design, and LDO applications. Contact us for the training schedule.",
-      "decisionGuide": "Attend training for new design teams to accelerate learning.",
-      "keywords": ["training", "course", "learning"]
+      "question": "Are reference designs available for Xinzhou products?",
+      "answer": "Yes, reference designs are available for common applications including smartphone power systems, IoT devices, and industrial power supplies. Each reference design includes schematics, BOM, PCB layout, and test reports.",
+      "decisionGuide": "Review available reference designs to accelerate your development; use as starting point for your custom design.",
+      "keywords": [
+        "reference designs",
+        "schematics",
+        "BOM",
+        "PCB layout"
+      ]
     },
     {
-      "question": "How do I report a technical issue?",
-      "answer": "Report issues to BeiLuo Electronics support with detailed description, schematic, and test conditions. Include information about the specific Xinzhou device and application.",
-      "decisionGuide": "Document issues thoroughly to expedite resolution.",
-      "keywords": ["issue report", "bug", "support"]
+      "question": "How can I request samples of Xinzhou products?",
+      "answer": "Samples can be requested through BeiLuo Electronics sales team. Provide your company information, project details, and required quantities. We maintain stock of popular products for quick sample delivery.",
+      "decisionGuide": "Request samples early in the design phase; provide project details to help us recommend the best products for your application.",
+      "keywords": [
+        "samples",
+        "sample request",
+        "evaluation"
+      ]
     },
     {
-      "question": "Can I get on-site support?",
-      "answer": "On-site support is available for major customers and complex projects. Contact your sales representative to arrange FAE visit.",
-      "decisionGuide": "Request on-site support for critical design reviews or troubleshooting.",
-      "keywords": ["on-site", "support", "FAE visit"]
+      "question": "What is the typical lead time for Xinzhou products?",
+      "answer": "Standard lead time is 4-8 weeks for production quantities. Popular products are often available from stock for immediate delivery. Contact us for current availability and expedited delivery options. As an authorized Xinzhou distributor, BeiLuo Electronics maintains inventory of popular products to support your production needs.",
+      "decisionGuide": "Plan procurement with standard lead times; contact us for urgent requirements or long-term supply agreements.",
+      "keywords": [
+        "lead time",
+        "delivery",
+        "availability",
+        "stock"
+      ]
     },
     {
-      "question": "What is the response time for support requests?",
-      "answer": "Standard support requests are responded to within 24-48 hours. Priority support is available for production issues.",
-      "decisionGuide": "Mark urgent issues appropriately; provide complete information for faster resolution.",
-      "keywords": ["response time", "SLA", "priority"]
+      "question": "Does Xinzhou provide SPICE models for simulation?",
+      "answer": "SPICE models are available for many Xinzhou products to support circuit simulation and design verification. Contact our FAE team to request models for specific products. These models help you verify your design before building prototypes, saving time and reducing design iterations.",
+      "decisionGuide": "Request SPICE models early in the design phase for simulation and verification; verify model accuracy with actual hardware testing.",
+      "keywords": [
+        "SPICE models",
+        "simulation",
+        "design verification"
+      ]
     },
     {
-      "question": "Are there user forums or communities?",
-      "answer": "Xinzhou provides technical resources through authorized distributors. Contact BeiLuo Electronics for community resources and user discussions.",
-      "decisionGuide": "Utilize available resources; contact support for specific issues.",
-      "keywords": ["forum", "community", "resources"]
+      "question": "How do I select the right Xinzhou product for my application?",
+      "answer": "Product selection depends on your specific requirements: input/output voltage, current, efficiency, size, and cost. Use our online selection guides or contact our FAE team for recommendations based on your application needs.",
+      "decisionGuide": "Use selection guides on our website; contact FAE for complex multi-rail designs or specialized requirements.",
+      "keywords": [
+        "product selection",
+        "selection guide",
+        "application requirements"
+      ]
     },
     {
-      "question": "How do I request a feature or enhancement?",
-      "answer": "Feature requests can be submitted through BeiLuo Electronics. Include detailed description and business justification.",
-      "decisionGuide": "Submit well-documented requests; consider workarounds while waiting.",
-      "keywords": ["feature request", "enhancement", "roadmap"]
+      "question": "What quality certifications do Xinzhou products have?",
+      "answer": "Xinzhou products are qualified for industrial temperature ranges and meet standard reliability requirements. Automotive-grade products are AEC-Q100 qualified. Contact us for specific certification documentation.",
+      "decisionGuide": "Verify certification requirements for your application; specify automotive grade for high-reliability requirements.",
+      "keywords": [
+        "certifications",
+        "AEC-Q100",
+        "quality",
+        "reliability"
+      ]
+    },
+    {
+      "question": "Can I get custom product modifications from Xinzhou?",
+      "answer": "Custom modifications may be available for high-volume applications. Contact our sales team to discuss your specific requirements and feasibility of customizations. Our FAE team can help evaluate your needs and work with Xinzhou to explore customization options.",
+      "decisionGuide": "Discuss custom requirements early in the project; provide detailed specifications and volume forecasts.",
+      "keywords": [
+        "customization",
+        "modifications",
+        "special requirements"
+      ]
+    },
+    {
+      "question": "How do I report a technical issue or product defect?",
+      "answer": "Technical issues can be reported to our FAE team via email or phone. Provide detailed information including product part number, lot code, application conditions, and problem description for fastest resolution.",
+      "decisionGuide": "Report issues promptly with complete information; our FAE team will work with Xinzhou for resolution.",
+      "keywords": [
+        "technical issue",
+        "defect reporting",
+        "problem resolution"
+      ]
+    }
+  ],
+  "articles": [
+    {
+      "id": "dcdc-selection-guide",
+      "title": "How to Select the Right DC-DC Converter for Your Application",
+      "category": "Design Guide",
+      "author": {
+        "name": "Michael Chen",
+        "title": "Senior FAE - Power Management",
+        "experience": "12 years",
+        "expertise": [
+          "DC-DC Converters",
+          "Power Supply Design",
+          "PCB Layout"
+        ]
+      },
+      "publishDate": "2025-11-15",
+      "lastUpdated": "2025-11-15",
+      "summary": "Comprehensive guide to selecting DC-DC converters, covering key parameters, topology selection, and design considerations for optimal power supply performance.",
+      "content": [
+        "Selecting the right DC-DC converter is critical for achieving optimal performance in your power supply design. This guide covers the key parameters and considerations for choosing the best converter for your application.",
+        "",
+        "## Key Selection Parameters",
+        "",
+        "**Input Voltage Range**: Determine the minimum and maximum input voltage your application will encounter. Include margin for voltage transients and tolerances. Common ranges include 2.5V-5.5V for single Li-ion battery applications.",
+        "",
+        "**Output Voltage and Current**: Calculate the required output voltage and maximum load current. Include peak current requirements for transient loads. Consider future expansion needs.",
+        "",
+        "**Efficiency Requirements**: Efficiency impacts thermal performance and battery life. Look for peak efficiency numbers as well as efficiency at your typical operating point. Light-load efficiency is critical for battery-powered applications.",
+        "",
+        "**Switching Frequency**: Higher frequencies enable smaller external components but may reduce efficiency and increase EMI. Xinzhou offers converters from 1MHz to 3MHz to balance size and performance.",
+        "",
+        "**Package Size**: Consider PCB area constraints and height limitations. Xinzhou offers packages as small as 1.5mm x 1.5mm WLCSP for ultra-compact designs.",
+        "",
+        "## Topology Selection",
+        "",
+        "**Buck (Step-Down) Converters**: Use when output voltage is lower than input voltage. Most common for battery-powered applications.",
+        "",
+        "**Boost (Step-Up) Converters**: Use when output voltage must be higher than input voltage. Common for driving LEDs or generating higher voltages from low-voltage sources.",
+        "",
+        "**Buck-Boost Converters**: Use when input voltage can be above or below the output voltage. Ideal for applications with wide input voltage ranges.",
+        "",
+        "## Design Considerations",
+        "",
+        "**Transient Response**: For applications with rapidly changing loads (such as processors), select converters with fast transient response to minimize output voltage deviations.",
+        "",
+        "**EMI Considerations**: Higher switching frequencies require careful PCB layout and filtering. Follow manufacturer layout guidelines closely.",
+        "",
+        "**Thermal Management**: Calculate power dissipation and ensure adequate heat sinking. Higher efficiency reduces thermal challenges.",
+        "",
+        "**Protection Features**: Ensure the converter includes necessary protection features such as overcurrent protection, thermal shutdown, and undervoltage lockout."
+      ],
+      "relatedArticles": [
+        "ldo-selection-guide",
+        "pcb-layout-guide",
+        "thermal-design-guide"
+      ],
+      "faeInsights": {
+        "insight": "The most common mistake I see is selecting a converter based only on peak efficiency. In most applications, the converter operates at partial load most of the time, so efficiency across the entire load range is more important. For battery-powered devices, quiescent current and light-load efficiency are critical - a converter with slightly lower peak efficiency but better light-load performance will often provide longer battery life. Always consider your actual operating conditions when selecting a converter.",
+        "logic": "The selection process should follow this priority: 1) Verify electrical specifications meet requirements, 2) Check efficiency at typical operating points, 3) Ensure package size fits mechanical constraints, 4) Verify protection features are adequate, 5) Consider cost and availability. Don't compromise on electrical specs to save cost - a converter that doesn't meet specifications will cause system failures.",
+        "keyTakeaways": [
+          "Consider efficiency across the full load range, not just peak efficiency",
+          "Light-load efficiency is critical for battery-powered applications",
+          "Higher switching frequency enables smaller components but may increase EMI",
+          "Always include margin in voltage and current ratings",
+          "Follow manufacturer PCB layout guidelines for optimal performance"
+        ],
+        "commonPitfalls": [
+          "Selecting based on peak efficiency only",
+          "Ignoring light-load efficiency for battery applications",
+          "Insufficient margin in voltage/current ratings",
+          "Poor PCB layout causing stability or EMI issues",
+          "Not considering transient response requirements"
+        ],
+        "bestPractices": [
+          "Calculate efficiency at typical operating points",
+          "Include 20-30% margin in current ratings",
+          "Use manufacturer's evaluation board as layout reference",
+          "Test transient response under actual load conditions",
+          "Verify thermal performance at maximum ambient temperature"
+        ]
+      },
+      "customerCases": [
+        {
+          "customerName": "SmartDevice Co.",
+          "industry": "Consumer Electronics",
+          "application": "Smartphone power management",
+          "problem": "Selected converter based on peak efficiency, but battery life was poor due to poor light-load efficiency",
+          "diagnosis": "The converter had excellent 95% peak efficiency but only 70% efficiency at light loads where the device spent most of its time",
+          "solution": "Switched to Xinzhou XZ3102 with automatic power-save mode, maintaining >85% efficiency at light loads",
+          "results": "Battery life improved by 25%, meeting product requirements"
+        }
+      ],
+      "faqs": [
+        {
+          "question": "What is the most important parameter when selecting a DC-DC converter?",
+          "answer": "The most important parameters are input voltage range, output current capability, and efficiency at your typical operating points. Ensure the converter can handle your input voltage range with margin, provide sufficient output current for peak loads, and maintain good efficiency where your application operates most of the time.",
+          "decisionGuide": "Start with electrical specifications, then consider efficiency, size, and cost in that order.",
+          "keywords": [
+            "selection criteria",
+            "key parameters",
+            "design requirements"
+          ]
+        },
+        {
+          "question": "How much margin should I include in current ratings?",
+          "answer": "Include 20-30% margin above your maximum load current for reliable operation. This provides headroom for transient loads, component variations, and temperature effects. For example, if your maximum load is 2A, select a converter rated for at least 2.5-3A.",
+          "decisionGuide": "Use 30% margin for critical applications; 20% may be acceptable for well-defined loads with minimal transients.",
+          "keywords": [
+            "current margin",
+            "derating",
+            "reliability"
+          ]
+        },
+        {
+          "question": "Should I choose the highest switching frequency available?",
+          "answer": "Not necessarily. Higher switching frequencies enable smaller external components but may reduce peak efficiency and increase EMI. Choose the frequency that best balances size, efficiency, and EMI for your specific application. For most portable applications, 2-3MHz offers a good balance.",
+          "decisionGuide": "Use higher frequencies (3MHz) for minimum size; lower frequencies (1-2MHz) for maximum efficiency.",
+          "keywords": [
+            "switching frequency",
+            "trade-offs",
+            "efficiency vs size"
+          ]
+        },
+        {
+          "question": "What protection features are essential?",
+          "answer": "Essential protection features include overcurrent protection (OCP), thermal shutdown (OTP), and undervoltage lockout (UVLO). These protect the converter and system from damage due to faults or abnormal conditions. Additional features like overvoltage protection (OVP) and short-circuit protection provide extra safety.",
+          "decisionGuide": "All Xinzhou converters include basic protections; verify specific features meet your system safety requirements.",
+          "keywords": [
+            "protection features",
+            "OCP",
+            "OTP",
+            "UVLO",
+            "safety"
+          ]
+        },
+        {
+          "question": "How important is PCB layout for DC-DC converters?",
+          "answer": "PCB layout is critical for DC-DC converter performance. Poor layout can cause instability, increased ripple, EMI issues, and reduced efficiency. Key considerations include minimizing high-current loop area, placing input capacitors close to the IC, and providing adequate ground connections.",
+          "decisionGuide": "Follow manufacturer layout guidelines closely; use evaluation board layout as reference for your design.",
+          "keywords": [
+            "PCB layout",
+            "layout guidelines",
+            "EMI",
+            "stability"
+          ]
+        }
+      ],
+      "slug": "dcdc-selection-guide",
+      "tags": [
+        "Xinzhou",
+        "Power Management",
+        "Design Guide",
+        "Technical Article"
+      ]
+    },
+    {
+      "id": "ldo-selection-guide",
+      "title": "Selecting Low-Dropout (LDO) Regulators for Noise-Sensitive Applications",
+      "category": "Design Guide",
+      "author": {
+        "name": "Sarah Liu",
+        "title": "Senior FAE - Analog Power",
+        "experience": "10 years",
+        "expertise": [
+          "LDO Regulators",
+          "Noise Analysis",
+          "RF Power Design"
+        ]
+      },
+      "publishDate": "2025-10-20",
+      "lastUpdated": "2025-10-20",
+      "summary": "Guide to selecting LDO regulators for noise-sensitive applications, covering noise specifications, PSRR, dropout voltage, and stability considerations.",
+      "content": [
+        "Low-dropout (LDO) linear regulators are essential for powering noise-sensitive circuits such as RF transceivers, precision ADCs, and high-performance processors. This guide helps you select the right LDO for your noise-sensitive application.",
+        "",
+        "## Understanding LDO Noise",
+        "",
+        "**Output Noise**: LDOs generate intrinsic noise that can affect sensitive circuits. Xinzhou LDOs feature ultra-low noise (<10μVrms) suitable for the most demanding applications.",
+        "",
+        "**Power Supply Rejection Ratio (PSRR)**: PSRR indicates how well the LDO rejects noise from the input supply. Higher PSRR (measured in dB) means better noise rejection. Xinzhou LDOs offer >70dB PSRR at 1kHz.",
+        "",
+        "**Noise Spectrum**: Noise varies with frequency. RF applications require low noise at high frequencies, while precision analog circuits need low noise at low frequencies.",
+        "",
+        "## Key Selection Parameters",
+        "",
+        "**Dropout Voltage**: The minimum input-to-output voltage difference required for regulation. Lower dropout voltage enables operation with lower input voltages, extending battery life.",
+        "",
+        "**Quiescent Current**: Current consumed by the LDO itself. Critical for battery-powered applications. Xinzhou offers LDOs with <1μA quiescent current.",
+        "",
+        "**Output Current**: Maximum current the LDO can deliver. Include margin for reliable operation.",
+        "",
+        "**Stability**: LDO stability depends on output capacitor ESR. Verify stability with your chosen output capacitor.",
+        "",
+        "## Application-Specific Considerations",
+        "",
+        "**RF Applications**: Require ultra-low noise and high PSRR at RF frequencies. Place LDO close to RF circuit to minimize noise pickup.",
+        "",
+        "**Precision ADCs**: Need low noise at low frequencies and excellent DC accuracy. Reference voltage noise directly affects ADC performance.",
+        "",
+        "**Camera Systems**: Image sensors are sensitive to power supply noise which can appear as image artifacts. Use dedicated LDOs for analog and digital supplies.",
+        "",
+        "## PCB Layout Guidelines",
+        "",
+        "**Input/Output Capacitors**: Place as close as possible to LDO pins. Use low-ESR ceramic capacitors.",
+        "",
+        "**Ground Connections**: Use single-point ground connection or dedicated ground plane to prevent ground bounce.",
+        "",
+        "**Noise Isolation**: Keep LDO output traces away from noisy signals. Use ground shielding if necessary."
+      ],
+      "relatedArticles": [
+        "dcdc-selection-guide",
+        "pcb-layout-guide",
+        "rf-power-design"
+      ],
+      "faeInsights": {
+        "insight": "For noise-sensitive applications, I always recommend measuring the actual noise performance in your system. Datasheet specifications are measured under specific conditions that may differ from your application. Pay special attention to the noise spectrum - some LDOs have excellent low-frequency noise but higher noise at RF frequencies. For RF applications, I typically recommend Xinzhou XZ1001 series which maintains low noise across the entire spectrum. Also, don't forget that the input supply noise matters too - a high-PSRR LDO can't reject noise that's outside its bandwidth.",
+        "logic": "LDO selection for noise-sensitive applications follows this priority: 1) Verify noise specifications meet circuit requirements, 2) Check PSRR at frequencies of concern, 3) Ensure dropout voltage is sufficient for your input voltage range, 4) Verify stability with your output capacitor, 5) Consider quiescent current for battery applications. The input supply quality is equally important - a clean input with moderate PSRR is better than a noisy input with high PSRR.",
+        "keyTakeaways": [
+          "Measure actual noise in your system, not just datasheet specs",
+          "PSRR varies with frequency - check at your frequencies of interest",
+          "Input supply noise is as important as LDO noise performance",
+          "Place LDO close to the load for best noise performance",
+          "Verify stability with your specific output capacitor"
+        ],
+        "commonPitfalls": [
+          "Selecting LDO based on noise spec alone without considering PSRR",
+          "Ignoring input supply noise",
+          "Placing LDO far from the sensitive circuit",
+          "Using inappropriate output capacitors affecting stability",
+          "Not measuring actual noise in the system"
+        ],
+        "bestPractices": [
+          "Measure noise spectrum at critical frequencies",
+          "Use clean input supply or pre-filtering",
+          "Place LDO as close as possible to the load",
+          "Use recommended output capacitor types and values",
+          "Consider dedicated LDOs for each noise-sensitive circuit"
+        ]
+      },
+      "customerCases": [
+        {
+          "customerName": "RF Communications Inc.",
+          "industry": "Telecommunications",
+          "application": "5G base station RF front-end",
+          "problem": "RF performance was degraded due to power supply noise affecting the transceiver",
+          "diagnosis": "The existing LDO had good low-frequency noise specs but poor high-frequency PSRR, allowing switching noise to couple into the RF circuit",
+          "solution": "Replaced with Xinzhou XZ1001 ultra-low noise LDO with >70dB PSRR at 1MHz and added input filtering",
+          "results": "RF sensitivity improved by 3dB, meeting system requirements"
+        }
+      ],
+      "faqs": [
+        {
+          "question": "What PSRR value is good enough for my application?",
+          "answer": "PSRR requirements depend on your application. For general digital circuits, 40-50dB is usually sufficient. For audio applications, 60-70dB is recommended. For RF and precision analog circuits, look for >70dB PSRR at your frequencies of interest. Xinzhou XZ1001 series offers >70dB at 1kHz and >40dB at 1MHz.",
+          "decisionGuide": "Higher PSRR is always better for noise-sensitive applications; specify >70dB for RF and precision analog.",
+          "keywords": [
+            "PSRR",
+            "power supply rejection",
+            "noise sensitivity"
+          ]
+        },
+        {
+          "question": "How does dropout voltage affect battery life?",
+          "answer": "Lower dropout voltage allows the LDO to maintain regulation as the battery voltage drops, extending usable battery life. For example, with a 3.3V output and 200mV dropout, the LDO can regulate down to 3.5V input. With 500mV dropout, regulation fails at 3.8V input, wasting battery capacity.",
+          "decisionGuide": "Choose lowest dropout voltage for battery applications; Xinzhou offers LDOs with <100mV dropout at full load.",
+          "keywords": [
+            "dropout voltage",
+            "battery life",
+            "efficiency"
+          ]
+        },
+        {
+          "question": "What output capacitor should I use with LDOs?",
+          "answer": "Use low-ESR ceramic capacitors (X5R or X7R dielectric) for best performance. Typical values are 1μF to 10μF. Check the LDO datasheet for specific recommendations - some LDOs require minimum ESR for stability. Place the capacitor as close as possible to the output pin.",
+          "decisionGuide": "Start with 4.7μF ceramic capacitor; verify stability if using different values or types.",
+          "keywords": [
+            "output capacitor",
+            "ceramic capacitor",
+            "stability"
+          ]
+        },
+        {
+          "question": "Can I use an LDO after a switching regulator?",
+          "answer": "Yes, using an LDO after a switching regulator (post-regulation) is a common technique to reduce switching noise. The LDO filters out the switching ripple and provides clean power to sensitive circuits. Choose an LDO with high PSRR at the switching frequency of your DC-DC converter.",
+          "decisionGuide": "Use post-regulation for noise-sensitive circuits; select LDO with high PSRR at switching frequency.",
+          "keywords": [
+            "post-regulation",
+            "switching noise",
+            "cascaded regulation"
+          ]
+        },
+        {
+          "question": "How do I minimize noise in my LDO circuit?",
+          "answer": "To minimize noise: 1) Use ultra-low noise LDO like Xinzhou XZ1001, 2) Place LDO close to the load, 3) Use clean input supply or add input filtering, 4) Use adequate output capacitance with low ESR, 5) Keep ground connections clean and short, 6) Shield sensitive traces from noisy signals.",
+          "decisionGuide": "Follow all best practices for lowest noise; measure actual performance in your system.",
+          "keywords": [
+            "noise reduction",
+            "layout",
+            "filtering",
+            "best practices"
+          ]
+        }
+      ],
+      "slug": "ldo-selection-guide",
+      "tags": [
+        "Xinzhou",
+        "Power Management",
+        "Design Guide",
+        "Technical Article"
+      ]
+    },
+    {
+      "id": "pcb-layout-guide",
+      "title": "PCB Layout Best Practices for Power Management ICs",
+      "category": "Design Guide",
+      "author": {
+        "name": "David Wang",
+        "title": "Senior FAE - PCB Design",
+        "experience": "15 years",
+        "expertise": [
+          "PCB Layout",
+          "EMI/EMC",
+          "Thermal Design"
+        ]
+      },
+      "publishDate": "2025-09-10",
+      "lastUpdated": "2025-09-10",
+      "summary": "Comprehensive guide to PCB layout for power management ICs, covering component placement, routing, grounding, and thermal considerations for optimal performance.",
+      "content": [
+        "Proper PCB layout is essential for achieving the performance specified in power management IC datasheets. Poor layout can cause instability, increased noise, EMI issues, and reduced efficiency. This guide covers best practices for laying out power management circuits.",
+        "",
+        "## Component Placement",
+        "",
+        "**Input Capacitors**: Place input capacitors as close as possible to the IC's VIN and GND pins. This minimizes parasitic inductance in the input loop, reducing voltage transients and EMI.",
+        "",
+        "**Output Capacitors**: Position output capacitors close to the output pin and ground. For multiple output capacitors, place the smallest value closest to the IC.",
+        "",
+        "**Inductors**: Place inductors close to the switching node pin. Orient the inductor to minimize coupling to sensitive traces. Shielded inductors reduce EMI.",
+        "",
+        "**Feedback Components**: Place feedback resistors close to the FB pin. Keep feedback traces away from noisy nodes like the switching node.",
+        "",
+        "## Routing Guidelines",
+        "",
+        "**High-Current Paths**: Keep high-current paths short and wide to minimize resistance and inductance. Use multiple vias for layer transitions.",
+        "",
+        "**Switching Node**: The switching node (SW) is the noisiest point in the circuit. Keep the SW trace short and away from sensitive analog circuits. Do not route under the IC.",
+        "",
+        "**Ground Connections**: Use a solid ground plane under the power IC and input/output capacitors. Connect all ground pins directly to the ground plane with multiple vias.",
+        "",
+        "**Feedback Traces**: Route feedback traces away from noisy nodes. Use ground shielding if the trace must pass near noisy areas.",
+        "",
+        "## Thermal Considerations",
+        "",
+        "**Thermal Vias**: Use thermal vias under the IC's thermal pad to transfer heat to inner ground planes. Use multiple vias (9-25) for best thermal performance.",
+        "",
+        "**Copper Area**: Maximize copper area connected to the IC for heat spreading. Use thick copper (2oz or more) for high-current applications.",
+        "",
+        "**Component Spacing**: Spread heat-generating components across the PCB to distribute heat. Avoid clustering hot components together."
+      ],
+      "relatedArticles": [
+        "dcdc-selection-guide",
+        "thermal-design-guide",
+        "emi-mitigation"
+      ],
+      "faeInsights": {
+        "insight": "The majority of power supply problems I encounter are caused by poor PCB layout, not component selection. The most common issues are: insufficient input capacitance placement causing input voltage ringing, long switching node traces creating EMI, and inadequate grounding causing noise coupling. My recommendation is to always start with the manufacturer's evaluation board layout as your reference. Copy the component placement and routing as closely as possible. Pay special attention to the high-current loop - this is the area enclosed by the input capacitor, IC, and inductor. Minimizing this loop area is the single most important thing you can do for good performance.",
+        "logic": "Good PCB layout follows these principles: 1) Minimize high-current loop area to reduce EMI, 2) Place capacitors close to pins to minimize parasitic inductance, 3) Provide adequate ground connections for low impedance, 4) Keep noisy traces away from sensitive circuits, 5) Ensure adequate thermal management. The input capacitor placement is critical - it must be very close to the VIN and GND pins with minimal trace length.",
+        "keyTakeaways": [
+          "Minimize the high-current loop area for reduced EMI",
+          "Place input capacitors as close as possible to IC pins",
+          "Use solid ground plane with multiple vias for grounding",
+          "Keep switching node traces short and away from sensitive circuits",
+          "Use thermal vias under the IC for heat dissipation"
+        ],
+        "commonPitfalls": [
+          "Input capacitors placed far from IC causing input ringing",
+          "Long switching node traces creating EMI issues",
+          "Inadequate grounding causing noise coupling",
+          "Insufficient thermal vias leading to overheating",
+          "Feedback traces routed near noisy nodes"
+        ],
+        "bestPractices": [
+          "Use evaluation board layout as reference",
+          "Minimize high-current loop area",
+          "Place capacitors within 2-3mm of IC pins",
+          "Use multiple vias for ground connections",
+          "Route feedback traces away from switching node"
+        ]
+      },
+      "customerCases": [
+        {
+          "customerName": "Industrial Controls Ltd.",
+          "industry": "Industrial Automation",
+          "application": "Motor drive power supply",
+          "problem": "Power supply was unstable with output voltage ripple exceeding specifications",
+          "diagnosis": "Input capacitors were placed 10mm away from IC with long traces, causing excessive parasitic inductance and input voltage ringing",
+          "solution": "Redesigned layout with input capacitors placed within 2mm of IC pins, added multiple ground vias",
+          "results": "Output ripple reduced by 60%, supply stable under all operating conditions"
+        }
+      ],
+      "faqs": [
+        {
+          "question": "How close should input capacitors be placed to the IC?",
+          "answer": "Input capacitors should be placed as close as possible to the IC, ideally within 2-3mm of the VIN and GND pins. The goal is to minimize the trace length between the capacitor and IC pins to reduce parasitic inductance. Use wide traces and multiple vias for the ground connection.",
+          "decisionGuide": "Place capacitors within 2-3mm; closer is always better for minimizing parasitic inductance.",
+          "keywords": [
+            "input capacitor",
+            "placement",
+            "parasitic inductance"
+          ]
+        },
+        {
+          "question": "How many thermal vias should I use under the IC?",
+          "answer": "Use 9-25 thermal vias under the IC's thermal pad for good heat transfer to inner ground planes. The vias should be 0.3mm diameter with 0.5mm pitch. Fill or tent the vias to prevent solder wicking during assembly. More vias provide better thermal performance but check manufacturing capabilities.",
+          "decisionGuide": "Start with 16 vias in a 4x4 pattern; increase for high-power applications or decrease for space-constrained designs.",
+          "keywords": [
+            "thermal vias",
+            "heat dissipation",
+            "thermal pad"
+          ]
+        },
+        {
+          "question": "Should I use a ground plane or ground traces?",
+          "answer": "Always use a solid ground plane under the power IC and associated components for best performance. Ground planes provide low-impedance return paths and help with heat dissipation. Avoid using thin ground traces which have high impedance and can cause noise coupling.",
+          "decisionGuide": "Use solid ground plane on at least one layer; connect all ground pins directly to plane with multiple vias.",
+          "keywords": [
+            "ground plane",
+            "grounding",
+            "impedance"
+          ]
+        },
+        {
+          "question": "How do I route the feedback trace?",
+          "answer": "Route feedback traces away from noisy nodes like the switching node and inductor. Keep the trace short and use ground shielding if it must pass near noisy areas. Connect the feedback directly at the output capacitor, not at the load, to sense the regulated voltage.",
+          "decisionGuide": "Keep feedback trace short and away from switching node; connect at output capacitor for best regulation.",
+          "keywords": [
+            "feedback trace",
+            "routing",
+            "noise coupling"
+          ]
+        },
+        {
+          "question": "What trace width should I use for power traces?",
+          "answer": "Use wide traces for power paths to minimize resistance and inductance. As a rule of thumb, use 1mm width per ampere of current for 1oz copper. For high-current paths, use even wider traces or multiple parallel traces on different layers. Consider using copper pours for very high currents.",
+          "decisionGuide": "Use 1mm/A as starting point; wider is better for reduced losses and heating.",
+          "keywords": [
+            "trace width",
+            "current capacity",
+            "power traces"
+          ]
+        }
+      ],
+      "slug": "pcb-layout-guide",
+      "tags": [
+        "Xinzhou",
+        "Power Management",
+        "Design Guide",
+        "Technical Article"
+      ]
+    },
+    {
+      "id": "thermal-design-guide",
+      "title": "Thermal Design and Management for Power ICs",
+      "category": "Design Guide",
+      "author": {
+        "name": "Jennifer Zhang",
+        "title": "Senior FAE - Thermal Design",
+        "experience": "11 years",
+        "expertise": [
+          "Thermal Management",
+          "Power Dissipation",
+          "Reliability"
+        ]
+      },
+      "publishDate": "2025-08-15",
+      "lastUpdated": "2025-08-15",
+      "summary": "Guide to thermal design for power management ICs, covering thermal calculations, heat sinking, PCB design for thermal management, and reliability considerations.",
+      "content": [
+        "Thermal management is critical for reliable operation of power management ICs. Excessive temperature reduces efficiency, affects performance, and shortens device lifetime. This guide covers thermal design principles and best practices.",
+        "",
+        "## Understanding Thermal Parameters",
+        "",
+        "**Junction Temperature (Tj)**: The temperature of the semiconductor junction inside the IC. Must not exceed maximum rating (typically 125°C or 150°C).",
+        "",
+        "**Ambient Temperature (Ta)**: The temperature of the surrounding air. Industrial applications typically specify up to 85°C ambient.",
+        "",
+        "**Thermal Resistance (θJA)**: Resistance to heat flow from junction to ambient, measured in °C/W. Lower values indicate better heat dissipation.",
+        "",
+        "**Power Dissipation (Pd)**: Amount of power converted to heat in the IC. Calculated as Pd = (Vin - Vout) × Iout for LDOs, or based on efficiency for DC-DC converters.",
+        "",
+        "## Thermal Calculations",
+        "",
+        "**Junction Temperature Calculation**: Tj = Ta + (Pd × θJA)",
+        "",
+        "Example: For Ta = 50°C, Pd = 0.5W, θJA = 50°C/W: Tj = 50 + (0.5 × 50) = 75°C",
+        "",
+        "**Maximum Power Dissipation**: Pd_max = (Tj_max - Ta) / θJA",
+        "",
+        "Example: For Tj_max = 125°C, Ta = 85°C, θJA = 50°C/W: Pd_max = (125 - 85) / 50 = 0.8W",
+        "",
+        "## PCB Design for Thermal Management",
+        "",
+        "**Copper Area**: Larger copper area connected to the IC provides better heat spreading. Use all available board area for heat dissipation.",
+        "",
+        "**Thermal Vias**: Vias under the IC's thermal pad transfer heat to inner layers. Use multiple vias (9-25) for effective heat transfer.",
+        "",
+        "**Copper Thickness**: Thicker copper (2oz vs 1oz) reduces thermal resistance. Consider 2oz copper for high-power applications.",
+        "",
+        "**Component Placement**: Spread heat-generating components across the PCB. Avoid clustering hot components in one area."
+      ],
+      "relatedArticles": [
+        "pcb-layout-guide",
+        "dcdc-selection-guide",
+        "reliability-guide"
+      ],
+      "faeInsights": {
+        "insight": "Thermal issues are often overlooked in the design phase but become critical in production. I always recommend doing thermal calculations early in the design process. Don't assume that if the electrical specs are met, the thermal performance will be acceptable. The θJA value in the datasheet is measured under specific conditions that may not match your application. Factors like airflow, nearby heat sources, and PCB construction significantly affect actual thermal performance. For critical applications, I recommend thermal testing with thermocouples or thermal cameras to verify junction temperature under worst-case conditions. Remember, every 10°C reduction in junction temperature approximately doubles the device lifetime.",
+        "logic": "Thermal design follows this process: 1) Calculate expected power dissipation under worst-case conditions, 2) Estimate junction temperature using thermal resistance, 3) Ensure Tj stays below maximum rating with margin, 4) Implement thermal management techniques if needed, 5) Verify with actual testing. The goal is to keep Tj at least 20-25°C below maximum rating for reliable long-term operation.",
+        "keyTakeaways": [
+          "Calculate thermal performance early in the design phase",
+          "Keep junction temperature at least 20-25°C below maximum rating",
+          "Use thermal vias and copper area for heat dissipation",
+          "Spread heat-generating components across the PCB",
+          "Verify thermal performance with actual testing"
+        ],
+        "commonPitfalls": [
+          "Ignoring thermal design until problems occur",
+          "Using datasheet θJA without considering actual conditions",
+          "Insufficient copper area for heat dissipation",
+          "Clustering hot components together",
+          "Not testing under worst-case conditions"
+        ],
+        "bestPractices": [
+          "Do thermal calculations during initial design",
+          "Use maximum ambient temperature for calculations",
+          "Include margin in thermal design (20-25°C below Tj_max)",
+          "Use thermal vias under IC thermal pads",
+          "Test with actual hardware under worst-case conditions"
+        ]
+      },
+      "customerCases": [
+        {
+          "customerName": "Automotive Electronics Co.",
+          "industry": "Automotive",
+          "application": "In-vehicle infotainment system",
+          "problem": "Power IC was overheating in hot ambient conditions, causing system shutdown",
+          "diagnosis": "Thermal calculations were not done during design; actual junction temperature exceeded 125°C in 85°C ambient",
+          "solution": "Added thermal vias under IC, increased copper area, and spread components to distribute heat",
+          "results": "Junction temperature reduced to 105°C, system reliable under all conditions"
+        }
+      ],
+      "faqs": [
+        {
+          "question": "How do I calculate the junction temperature of a power IC?",
+          "answer": "Use the formula: Tj = Ta + (Pd × θJA), where Tj is junction temperature, Ta is ambient temperature, Pd is power dissipation, and θJA is thermal resistance from junction to ambient. For DC-DC converters, calculate Pd based on efficiency: Pd = Pout × (1/η - 1), where η is efficiency.",
+          "decisionGuide": "Calculate Tj under worst-case conditions (max ambient, max load); ensure Tj stays 20-25°C below maximum rating.",
+          "keywords": [
+            "junction temperature",
+            "thermal calculation",
+            "power dissipation"
+          ]
+        },
+        {
+          "question": "What is a safe operating temperature for power ICs?",
+          "answer": "A safe operating temperature is typically 20-25°C below the maximum junction temperature rating. For ICs rated at 125°C maximum, aim for Tj < 100°C. For ICs rated at 150°C, aim for Tj < 125°C. This margin ensures reliable long-term operation and accounts for variations in manufacturing and operating conditions.",
+          "decisionGuide": "Design for Tj at least 20°C below maximum rating; use 25°C margin for high-reliability applications.",
+          "keywords": [
+            "safe temperature",
+            "operating temperature",
+            "reliability margin"
+          ]
+        },
+        {
+          "question": "How can I improve thermal performance without a heatsink?",
+          "answer": "Without a heatsink, improve thermal performance by: 1) Increasing copper area connected to the IC, 2) Adding thermal vias under the IC thermal pad, 3) Using thicker copper (2oz), 4) Spreading heat-generating components, 5) Improving airflow if possible, 6) Using a more efficient converter to reduce power dissipation.",
+          "decisionGuide": "Maximize PCB-based thermal management before considering external heatsinks; use more efficient converters to reduce heat generation.",
+          "keywords": [
+            "thermal improvement",
+            "copper area",
+            "thermal vias",
+            "efficiency"
+          ]
+        },
+        {
+          "question": "How does ambient temperature affect power IC performance?",
+          "answer": "Higher ambient temperature reduces the allowable power dissipation and increases junction temperature. For every 10°C increase in ambient, junction temperature increases by the same amount (assuming constant power). This can cause thermal shutdown or reduced reliability. Always design for the maximum expected ambient temperature.",
+          "decisionGuide": "Design for worst-case ambient temperature in your application; include adequate thermal margin.",
+          "keywords": [
+            "ambient temperature",
+            "thermal derating",
+            "worst-case design"
+          ]
+        },
+        {
+          "question": "What are thermal vias and how do they help?",
+          "answer": "Thermal vias are plated through-holes under the IC's thermal pad that transfer heat from the top layer to inner ground planes. They provide a low-resistance thermal path for heat dissipation. Use multiple vias (9-25) with 0.3mm diameter for effective heat transfer. The vias should be filled or tented to prevent solder wicking.",
+          "decisionGuide": "Use thermal vias under all power ICs; more vias provide better heat transfer but check manufacturing capabilities.",
+          "keywords": [
+            "thermal vias",
+            "heat transfer",
+            "thermal pad"
+          ]
+        }
+      ],
+      "slug": "thermal-design-guide",
+      "tags": [
+        "Xinzhou",
+        "Power Management",
+        "Design Guide",
+        "Technical Article"
+      ]
     }
   ]
 }

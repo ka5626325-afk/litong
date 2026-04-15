@@ -1,14 +1,21 @@
 {
   "seoTitle": "Xinzhou Technology Power Management IC Products | DC-DC LDO | BeiLuo Electronics",
   "seoDescription": "Browse Xinzhou Technology power management ICs including DC-DC converters, LDO regulators, and power modules. High-efficiency solutions for consumer, industrial, and automotive applications.",
-  "seoKeywords": ["Xinzhou power IC", "DC-DC converter", "LDO regulator", "power module", "Xinzhou distributor", "Xinzhou selection guide"],
+  "seoKeywords": [
+    "Xinzhou power IC",
+    "DC-DC converter",
+    "LDO regulator",
+    "power module",
+    "Xinzhou distributor",
+    "Xinzhou selection guide"
+  ],
   "categories": [
     {
       "id": "dcdc",
       "name": "DC-DC Converters",
       "slug": "dcdc",
       "description": "High-efficiency buck, boost, and buck-boost converters for point-of-load power conversion",
-      "longDescription": "Xinzhou DC-DC converters deliver industry-leading power density and efficiency for space-constrained applications. Products include synchronous buck converters with switching frequencies up to 3MHz, enabling small external inductors and capacitors. Wide input voltage ranges, fast transient response, and comprehensive protection features make them ideal for smartphones, IoT devices, and industrial equipment.",
+      "longDescription": "Xinzhou DC-DC converters deliver industry-leading power density and efficiency for space-constrained applications. Products include synchronous buck converters with switching frequencies up to 3MHz, enabling small external inductors and capacitors. Wide input voltage ranges, fast transient response, and comprehensive protection features make them ideal for smartphones, IoT devices, and industrial equipment. As an authorized Xinzhou distributor, BeiLuo Electronics provides comprehensive selection guide and technical support for choosing the right DC-DC converter for your application.",
       "image": "/assets/brands/xinzhou/dcdc-category.jpg",
       "series": [
         {
@@ -21,8 +28,14 @@
         }
       ],
       "selectionGuide": "Choose XZ2xxx series for high-current applications up to 3A. Select XZ3xxx series for ultra-compact designs requiring small external components. Consider input voltage range, output current, and switching frequency based on your application requirements.",
-      "selectionGuideLink": "/brands/xinzhou/support/dcdc-selection-guide/",
-      "parameters": ["Input Voltage", "Output Voltage", "Output Current", "Switching Frequency", "Efficiency"],
+      "selectionGuideLink": "/brands/xinzhou/support/",
+      "parameters": [
+        "Input Voltage",
+        "Output Voltage",
+        "Output Current",
+        "Switching Frequency",
+        "Efficiency"
+      ],
       "products": [
         {
           "partNumber": "XZ2105",
@@ -61,25 +74,49 @@
             "Industrial control systems"
           ],
           "faeReview": {
-            "rating": 4.7,
+            "author": "Michael Chen",
+            "title": "Senior FAE - Consumer Electronics",
             "content": "The XZ2105 is an excellent buck converter that I've used in several smartphone power designs. The 2.5MHz switching frequency really makes a difference - you can use a 1μH inductor in a small 2mm x 1.6mm package, saving significant board space. Efficiency is impressive, consistently achieving 93-95% in typical operating conditions. The internal compensation simplifies design - no need to calculate external compensation networks. Transient response is fast enough for most processor loads, though for the most demanding applications you might want to add extra output capacitance. One thing I appreciate is the clean switching waveform with minimal ringing, which helps with EMI. The power-good indicator is useful for sequencing multiple rails. Overall, a solid choice for 3A applications where space is at a premium.",
-            "author": "Senior FAE - Consumer Electronics",
-            "date": "2025-12-15"
+            "highlight": "Excellent 3A buck converter with 2.5MHz frequency for compact designs"
           },
           "alternativeParts": [
             {
               "partNumber": "TPS62130",
               "brand": "Texas Instruments",
               "link": "/brands/ti/products/dcdc/tps62130/",
-              "reason": "Industry-standard 3A buck converter with similar performance",
-              "comparison": "TPS62130 offers similar specs; XZ2105 provides better cost efficiency and smaller package options"
+              "reason": "Industry-standard 3A buck converter with similar performance characteristics",
+              "useCase": "Alternative for designs requiring TI compatibility",
+              "specifications": {
+                "Input Voltage": "3V - 17V",
+                "Output Current": "3A",
+                "Switching Frequency": "2.5MHz",
+                "Efficiency": "Up to 95%"
+              },
+              "comparison": {
+                "Input Voltage": "3V-17V > 2.5V-5.5V (wider range)",
+                "Output Current": "3A = 3A (same)",
+                "Switching Frequency": "2.5MHz = 2.5MHz (same)",
+                "Efficiency": "95% = 95% (same)"
+              }
             },
             {
               "partNumber": "MP2143",
               "brand": "Monolithic Power Systems",
               "link": "/brands/mps/products/dcdc/mp2143/",
-              "reason": "Comparable 3A buck converter from MPS",
-              "comparison": "MP2143 has similar performance; XZ2105 offers competitive pricing with local support"
+              "reason": "Comparable 3A buck converter from MPS with similar features",
+              "useCase": "Alternative for cost-sensitive designs",
+              "specifications": {
+                "Input Voltage": "2.8V - 5.5V",
+                "Output Current": "3A",
+                "Switching Frequency": "1.2MHz",
+                "Efficiency": "Up to 94%"
+              },
+              "comparison": {
+                "Input Voltage": "2.8V-5.5V ≈ 2.5V-5.5V (similar)",
+                "Output Current": "3A = 3A (same)",
+                "Switching Frequency": "1.2MHz < 2.5MHz (lower)",
+                "Efficiency": "94% ≈ 95% (similar)"
+              }
             }
           ],
           "companionParts": [
@@ -107,31 +144,52 @@
               "question": "What is the maximum output current of XZ2105?",
               "answer": "The XZ2105 can deliver up to 3A continuous output current with proper thermal management. The actual maximum current may be limited by thermal considerations depending on ambient temperature and PCB design. Peak current capability is higher for transient loads.",
               "decisionGuide": "Design for 20-30% current margin below maximum rating for reliable operation; ensure adequate PCB copper area for heat dissipation.",
-              "keywords": ["output current", "maximum current", "thermal management"]
+              "keywords": [
+                "output current",
+                "maximum current",
+                "thermal management"
+              ]
             },
             {
               "question": "What inductor value should I use with XZ2105?",
               "answer": "For XZ2105's 2.5MHz switching frequency, a 1.0μH to 1.5μH inductor is recommended. Lower inductance values enable faster transient response but result in higher ripple current. Use inductors with saturation current rating at least 1.3 times the maximum load current.",
               "decisionGuide": "Start with 1.0μH for typical applications; use 0.47μH for fastest transient response or 2.2μH for lowest ripple.",
-              "keywords": ["inductor", "inductance", "switching frequency"]
+              "keywords": [
+                "inductor",
+                "inductance",
+                "switching frequency"
+              ]
             },
             {
               "question": "How do I set the output voltage?",
               "answer": "Output voltage is set using a resistive divider from VOUT to FB pin to GND. The feedback reference voltage is 0.6V. Calculate R1 (top resistor) and R2 (bottom resistor) using: VOUT = 0.6V × (1 + R1/R2). Use 1% tolerance resistors for accurate output voltage.",
               "decisionGuide": "Choose resistor values in the 10kΩ to 1MΩ range; lower values improve noise immunity but increase quiescent current.",
-              "keywords": ["output voltage", "feedback", "resistor divider"]
+              "keywords": [
+                "output voltage",
+                "feedback",
+                "resistor divider"
+              ]
             },
             {
               "question": "What input and output capacitors are recommended?",
               "answer": "For input, use 10μF to 22μF ceramic capacitors with X5R or X7R dielectric rated for the input voltage. For output, use 22μF to 47μF ceramic capacitors. Low ESR is important for stability and ripple performance. Place capacitors close to the IC pins.",
               "decisionGuide": "Use ceramic capacitors with X7R dielectric for best temperature stability; add electrolytic capacitor for additional bulk capacitance if needed.",
-              "keywords": ["input capacitor", "output capacitor", "ceramic capacitor"]
+              "keywords": [
+                "input capacitor",
+                "output capacitor",
+                "ceramic capacitor"
+              ]
             },
             {
               "question": "How do I use the power-good (PG) output?",
               "answer": "The PG output is an open-drain signal that goes high impedance when the output voltage is within regulation. Connect a 100kΩ pull-up resistor to a logic voltage (1.8V, 3.3V, or 5V). PG can be used for power sequencing, reset generation, or monitoring.",
               "decisionGuide": "Use PG for power sequencing in multi-rail systems; connect to processor reset input for power-on reset generation.",
-              "keywords": ["power-good", "PG", "power sequencing", "reset"]
+              "keywords": [
+                "power-good",
+                "PG",
+                "power sequencing",
+                "reset"
+              ]
             }
           ]
         },
@@ -171,25 +229,49 @@
             "Ultra-compact electronics"
           ],
           "faeReview": {
-            "rating": 4.6,
+            "author": "Sarah Liu",
+            "title": "Senior FAE - Wearable Electronics",
             "content": "The XZ3102 is perfect for wearable applications where every fraction of a millimeter counts. The 3MHz frequency allows use of 0402-size inductors, and the WLCSP package is incredibly small. I've used this in smartwatch designs where PCB area is extremely limited. The automatic power-save mode works well - efficiency stays above 85% even at very light loads, which is critical for battery life. The trade-off is slightly lower peak efficiency compared to lower-frequency converters, but for wearables, the size savings are worth it. One tip: the WLCSP package requires careful PCB design - follow the layout guidelines closely for proper solder joint reliability. Also, the higher switching frequency means more attention to input capacitor placement to minimize EMI.",
-            "author": "Senior FAE - Wearable Electronics",
-            "date": "2025-11-20"
+            "highlight": "Ultra-compact 2A converter with 3MHz frequency for wearable designs"
           },
           "alternativeParts": [
             {
               "partNumber": "TPS62203",
               "brand": "Texas Instruments",
               "link": "/brands/ti/products/dcdc/tps62203/",
-              "reason": "Similar ultra-high frequency buck converter",
-              "comparison": "TPS62203 offers similar specs; XZ3102 provides smaller package and competitive cost"
+              "reason": "Similar ultra-high frequency buck converter with comparable specs",
+              "useCase": "Alternative for TI-based designs requiring similar performance",
+              "specifications": {
+                "Input Voltage": "2.3V - 5.5V",
+                "Output Current": "2A",
+                "Switching Frequency": "3MHz",
+                "Efficiency": "Up to 93%"
+              },
+              "comparison": {
+                "Input Voltage": "2.3V-5.5V = 2.3V-5.5V (same)",
+                "Output Current": "2A = 2A (same)",
+                "Switching Frequency": "3MHz = 3MHz (same)",
+                "Efficiency": "93% ≈ 94% (similar)"
+              }
             },
             {
               "partNumber": "MP2147",
               "brand": "Monolithic Power Systems",
               "link": "/brands/mps/products/dcdc/mp2147/",
-              "reason": "Comparable compact buck converter",
-              "comparison": "MP2147 has similar performance; XZ3102 offers higher switching frequency option"
+              "reason": "Comparable compact buck converter from MPS",
+              "useCase": "Cost-effective alternative for compact designs",
+              "specifications": {
+                "Input Voltage": "2.8V - 5.5V",
+                "Output Current": "2A",
+                "Switching Frequency": "2.4MHz",
+                "Efficiency": "Up to 93%"
+              },
+              "comparison": {
+                "Input Voltage": "2.8V-5.5V ≈ 2.3V-5.5V (similar)",
+                "Output Current": "2A = 2A (same)",
+                "Switching Frequency": "2.4MHz < 3MHz (lower)",
+                "Efficiency": "93% ≈ 94% (similar)"
+              }
             }
           ],
           "companionParts": [
@@ -217,31 +299,57 @@
               "question": "What makes XZ3102 suitable for wearable applications?",
               "answer": "XZ3102 features an ultra-small 1.5mm x 1.5mm WLCSP package and 3MHz switching frequency that enables tiny external components. The automatic power-save mode maintains high efficiency at light loads typical of wearable devices. Low quiescent current (<20μA) minimizes battery drain during standby.",
               "decisionGuide": "Use XZ3102 for space-constrained wearable designs; consider XZ2105 for higher current requirements.",
-              "keywords": ["wearable", "WLCSP", "small size", "light load efficiency"]
+              "keywords": [
+                "wearable",
+                "WLCSP",
+                "small size",
+                "light load efficiency"
+              ]
             },
             {
               "question": "What inductor size can be used with XZ3102?",
               "answer": "At 3MHz switching frequency, XZ3102 can use chip inductors as small as 0402 (1.0mm x 1.0mm) with values of 0.47μH to 1.0μH. This enables the smallest possible solution size for space-constrained applications.",
               "decisionGuide": "Use 0.47μH chip inductor for smallest size; verify inductor saturation current rating exceeds maximum load current.",
-              "keywords": ["inductor", "chip inductor", "0402", "solution size"]
+              "keywords": [
+                "inductor",
+                "chip inductor",
+                "0402",
+                "solution size"
+              ]
             },
             {
               "question": "How does the power-save mode work?",
               "answer": "XZ3102 automatically enters power-save mode at light loads, operating in PFM (pulse frequency modulation) to minimize switching losses. As load increases, it seamlessly transitions to PWM mode for full-frequency operation. This maintains high efficiency across the entire load range.",
               "decisionGuide": "Power-save mode is automatic; no external configuration needed. Light load efficiency is optimized for battery-powered applications.",
-              "keywords": ["power-save", "PFM", "PWM", "light load", "efficiency"]
+              "keywords": [
+                "power-save",
+                "PFM",
+                "PWM",
+                "light load",
+                "efficiency"
+              ]
             },
             {
               "question": "What PCB layout considerations are important for XZ3102?",
               "answer": "Due to the high switching frequency and small package, careful PCB layout is essential. Keep input capacitor close to VIN and GND pins, minimize the switching node (SW) trace length, and provide adequate ground plane. Follow the evaluation board layout as a reference.",
               "decisionGuide": "Use 4-layer PCB if possible for better EMI performance; follow manufacturer layout guidelines closely.",
-              "keywords": ["PCB layout", "high frequency", "EMI", "ground plane"]
+              "keywords": [
+                "PCB layout",
+                "high frequency",
+                "EMI",
+                "ground plane"
+              ]
             },
             {
               "question": "Can XZ3102 be used in multi-rail power systems?",
               "answer": "Yes, XZ3102 can be synchronized to an external clock for multi-rail systems requiring precise switching frequency alignment. This prevents beat frequencies and simplifies EMI filtering in systems with multiple switching regulators.",
               "decisionGuide": "Use SYNC feature for multi-rail systems; connect all converters to common clock source for frequency synchronization.",
-              "keywords": ["synchronization", "multi-rail", "SYNC", "clock"]
+              "keywords": [
+                "synchronization",
+                "multi-rail",
+                "SYNC",
+                "clock"
+              ]
             }
           ]
         }
@@ -251,31 +359,1250 @@
           "question": "How do I select between XZ2xxx and XZ3xxx series?",
           "answer": "Choose XZ2xxx series for applications requiring up to 3A output current with good efficiency and moderate switching frequency. Select XZ3xxx series for ultra-compact designs where solution size is critical and output current requirements are 2A or less. Consider efficiency, size, and cost trade-offs.",
           "decisionGuide": "XZ2xxx for high current and efficiency; XZ3xxx for minimum size and light load applications.",
-          "keywords": ["selection", "XZ2xxx", "XZ3xxx", "series comparison"]
+          "keywords": [
+            "selection",
+            "XZ2xxx",
+            "XZ3xxx",
+            "series comparison"
+          ]
         },
         {
           "question": "What input voltage range do Xinzhou DC-DC converters support?",
           "answer": "Xinzhou offers DC-DC converters with various input voltage ranges. The XZ2xxx and XZ3xxx series support 2.3V to 5.5V input, ideal for single Li-ion battery applications. Other families support wider ranges up to 60V for industrial and automotive applications.",
           "decisionGuide": "Select converter based on your input voltage source; verify minimum and maximum input voltage requirements.",
-          "keywords": ["input voltage", "voltage range", "Li-ion battery"]
+          "keywords": [
+            "input voltage",
+            "voltage range",
+            "Li-ion battery"
+          ]
         },
         {
           "question": "Do Xinzhou converters support adjustable output voltage?",
           "answer": "Yes, most Xinzhou DC-DC converters feature adjustable output voltage set by external resistor divider. Some products also offer fixed output voltage options (1.8V, 3.3V, 5V) in smaller packages without external resistors.",
           "decisionGuide": "Use adjustable version for flexibility; fixed voltage version for smallest size and lowest BOM cost.",
-          "keywords": ["output voltage", "adjustable", "fixed voltage"]
+          "keywords": [
+            "output voltage",
+            "adjustable",
+            "fixed voltage"
+          ]
         },
         {
           "question": "What protection features are included?",
           "answer": "Xinzhou DC-DC converters include comprehensive protection: cycle-by-cycle current limit, thermal shutdown, undervoltage lockout (UVLO), and short-circuit protection. Some products also include overvoltage protection and power-good indicators.",
           "decisionGuide": "All basic protections are built-in; verify specific protection features in datasheet for your application requirements.",
-          "keywords": ["protection", "current limit", "thermal shutdown", "UVLO"]
+          "keywords": [
+            "protection",
+            "current limit",
+            "thermal shutdown",
+            "UVLO"
+          ]
         },
         {
           "question": "Are Xinzhou DC-DC converters suitable for automotive applications?",
           "answer": "Yes, Xinzhou offers AEC-Q100 qualified DC-DC converters for automotive applications. These products meet automotive reliability requirements and are suitable for infotainment, ADAS, and body electronics applications.",
           "decisionGuide": "Specify automotive-grade products for in-vehicle applications; verify AEC-Q100 qualification status.",
-          "keywords": ["automotive", "AEC-Q100", "qualified", "automotive grade"]
+          "keywords": [
+            "automotive",
+            "AEC-Q100",
+            "qualified",
+            "automotive grade"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ldo",
+      "name": "LDO Regulators",
+      "slug": "ldo",
+      "description": "Ultra-low noise LDO linear regulators for sensitive analog and RF applications",
+      "longDescription": "Xinzhou LDO regulators provide clean, stable power for noise-sensitive applications such as RF transceivers, precision ADCs, and audio circuits. With ultra-low noise (<10μVrms), high PSRR (>70dB), and low dropout voltage, these LDOs deliver exceptional performance in compact packages. As an authorized Xinzhou distributor, BeiLuo Electronics provides comprehensive selection guide to help you choose the right LDO for your noise-sensitive application.",
+      "image": "/assets/brands/xinzhou/ldo-category.jpg",
+      "series": [
+        {
+          "name": "XZ1xxx Series",
+          "description": "Ultra-low noise LDOs for RF and precision analog applications"
+        },
+        {
+          "name": "XZ2xxx Series",
+          "description": "Low-power LDOs with ultra-low quiescent current for battery applications"
+        }
+      ],
+      "selectionGuide": "Choose XZ1xxx series for noise-sensitive applications requiring ultra-low noise and high PSRR. Select XZ2xxx series for battery-powered applications requiring low quiescent current. Consider dropout voltage, noise, and PSRR requirements.",
+      "selectionGuideLink": "/brands/xinzhou/support/",
+      "parameters": [
+        "Input Voltage",
+        "Output Voltage",
+        "Output Current",
+        "Dropout Voltage",
+        "Noise",
+        "PSRR"
+      ],
+      "products": [
+        {
+          "partNumber": "XZ1001",
+          "name": "XZ1001 Ultra-Low Noise LDO",
+          "category": "LDO Regulators",
+          "shortDescription": "300mA ultra-low noise LDO regulator with 8μVrms noise and 75dB PSRR for sensitive RF and analog applications",
+          "descriptionParagraphs": [
+            "The XZ1001 is an ultra-low noise LDO regulator designed for noise-sensitive applications such as RF transceivers, precision ADCs, and audio circuits. With output noise of only 8μVrms and PSRR of 75dB at 1kHz, it provides exceptionally clean power.",
+            "The device operates from a 2.0V to 5.5V input and delivers up to 300mA output current. It features low dropout voltage of only 150mV at 300mA, making it efficient even with small input-output voltage differentials.",
+            "Available in compact SOT-23 and 1.5mm x 1.5mm DFN packages, the XZ1001 is ideal for space-constrained portable devices. It includes thermal shutdown and current limit protection for reliable operation."
+          ],
+          "specifications": {
+            "Input Voltage": "2.0V - 5.5V",
+            "Output Voltage": "1.2V - 3.3V (fixed/adj)",
+            "Output Current": "300mA",
+            "Dropout Voltage": "150mV @ 300mA",
+            "Output Noise": "8μVrms (10Hz-100kHz)",
+            "PSRR": "75dB @ 1kHz",
+            "Operating Temperature": "-40°C to +85°C",
+            "Package": "SOT-23-5, DFN-6"
+          },
+          "features": [
+            "Ultra-low output noise: 8μVrms",
+            "High PSRR: 75dB at 1kHz",
+            "Low dropout voltage: 150mV at 300mA",
+            "Wide input voltage range: 2.0V to 5.5V",
+            "Thermal shutdown protection",
+            "Current limit protection",
+            "Compact packages available"
+          ],
+          "applications": [
+            "RF transceivers",
+            "Precision ADCs/DACs",
+            "Audio circuits",
+            "Camera sensors",
+            "Portable devices"
+          ],
+          "faeReview": {
+            "author": "David Wang",
+            "title": "Senior FAE - Analog Power",
+            "content": "The XZ1001 is my go-to LDO for noise-sensitive applications. The 8μVrms noise figure is excellent for this class of device, and the 75dB PSRR at 1kHz effectively rejects input ripple. I've used this in RF front-end designs where power supply noise directly impacts receiver sensitivity. One important tip: place the output capacitor as close as possible to the LDO pins - this minimizes noise pickup and ensures stability. The dropout voltage is reasonable at 150mV, but if you need lower dropout, consider the XZ1002 variant. Overall, a solid performer for the price point, especially for consumer electronics where noise performance is critical.",
+            "highlight": "Excellent ultra-low noise LDO with 8μVrms noise for RF applications"
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "TPS7A91",
+              "brand": "Texas Instruments",
+              "link": "/brands/ti/products/ldo/tps7a91/",
+              "reason": "High-performance LDO with similar noise specifications",
+              "useCase": "Alternative for designs requiring TI compatibility",
+              "specifications": {
+                "Input Voltage": "1.4V - 6.5V",
+                "Output Current": "500mA",
+                "Output Noise": "4.7μVrms",
+                "PSRR": "70dB @ 1kHz"
+              },
+              "comparison": {
+                "Input Voltage": "1.4V-6.5V > 2.0V-5.5V (wider)",
+                "Output Current": "500mA > 300mA (higher)",
+                "Output Noise": "4.7μVrms < 8μVrms (lower noise)",
+                "PSRR": "70dB ≈ 75dB (similar)"
+              }
+            },
+            {
+              "partNumber": "ADP1741",
+              "brand": "Analog Devices",
+              "link": "/brands/adi/products/ldo/adp1741/",
+              "reason": "Low noise LDO from Analog Devices with comparable performance",
+              "useCase": "Alternative for precision analog applications",
+              "specifications": {
+                "Input Voltage": "1.6V - 3.6V",
+                "Output Current": "1A",
+                "Output Noise": "9μVrms",
+                "PSRR": "60dB @ 1kHz"
+              },
+              "comparison": {
+                "Input Voltage": "1.6V-3.6V < 2.0V-5.5V (narrower)",
+                "Output Current": "1A > 300mA (higher)",
+                "Output Noise": "9μVrms ≈ 8μVrms (similar)",
+                "PSRR": "60dB < 75dB (lower)"
+              }
+            }
+          ],
+          "companionParts": [
+            {
+              "partNumber": "XZ2105",
+              "category": "DC-DC",
+              "description": "Buck converter for efficient step-down conversion before LDO",
+              "link": "/brands/xinzhou/products/dcdc/xz2105/"
+            },
+            {
+              "partNumber": "XZ1002",
+              "category": "LDO",
+              "description": "Lower current LDO for secondary rails",
+              "link": "/brands/xinzhou/products/ldo/xz1002/"
+            },
+            {
+              "partNumber": "XZ5001",
+              "category": "Battery Charger",
+              "description": "Battery charger for portable applications",
+              "link": "/brands/xinzhou/products/charger/xz5001/"
+            }
+          ],
+          "faqs": [
+            {
+              "question": "What is the output noise of XZ1001?",
+              "answer": "The XZ1001 features ultra-low output noise of 8μVrms over the 10Hz to 100kHz bandwidth. This low noise makes it ideal for powering sensitive RF and analog circuits where power supply noise can degrade performance.",
+              "decisionGuide": "Use XZ1001 for noise-sensitive applications; verify noise specifications meet your circuit requirements.",
+              "keywords": [
+                "output noise",
+                "low noise",
+                "RF applications"
+              ]
+            },
+            {
+              "question": "What is PSRR and why is it important?",
+              "answer": "PSRR (Power Supply Rejection Ratio) measures how well the LDO rejects noise from the input supply. XZ1001 offers 75dB PSRR at 1kHz, meaning it rejects 99.98% of input ripple at this frequency. High PSRR is important when the input supply has ripple (such as from a switching converter).",
+              "decisionGuide": "High PSRR is critical when using LDO after switching converters; XZ1001 provides excellent ripple rejection.",
+              "keywords": [
+                "PSRR",
+                "power supply rejection",
+                "ripple rejection"
+              ]
+            },
+            {
+              "question": "What dropout voltage can I expect?",
+              "answer": "XZ1001 has a typical dropout voltage of 150mV at 300mA load. This means the input voltage must be at least 150mV higher than the output voltage for proper regulation. Dropout voltage decreases at lighter loads.",
+              "decisionGuide": "Ensure input voltage has sufficient headroom above output voltage; consider dropout when battery is near end of discharge.",
+              "keywords": [
+                "dropout voltage",
+                "headroom",
+                "battery applications"
+              ]
+            },
+            {
+              "question": "What output capacitor should I use?",
+              "answer": "XZ1001 is stable with ceramic capacitors of 1μF to 10μF. Use low-ESR ceramic capacitors (X5R or X7R dielectric) for best performance. Place the output capacitor as close as possible to the output pin for optimal noise performance.",
+              "decisionGuide": "Use 4.7μF ceramic capacitor for typical applications; place close to LDO pins for best performance.",
+              "keywords": [
+                "output capacitor",
+                "ceramic capacitor",
+                "stability"
+              ]
+            },
+            {
+              "question": "Can XZ1001 be used after a switching converter?",
+              "answer": "Yes, XZ1001 is ideal for post-regulation after switching converters. Its high PSRR effectively filters switching ripple, providing clean power to sensitive circuits. This cascaded approach combines the efficiency of switching converters with the clean output of LDOs.",
+              "decisionGuide": "Use XZ1001 after buck converter for noise-sensitive circuits; high PSRR provides excellent ripple filtering.",
+              "keywords": [
+                "post-regulation",
+                "switching converter",
+                "cascaded regulation"
+              ]
+            }
+          ]
+        },
+        {
+          "partNumber": "XZ1002",
+          "name": "XZ1002 Low-Iq LDO",
+          "category": "LDO Regulators",
+          "shortDescription": "200mA low-quiescent current LDO with 1μA Iq for extended battery life in portable and IoT applications",
+          "descriptionParagraphs": [
+            "The XZ1002 is a low-power LDO regulator optimized for battery-powered applications. With ultra-low quiescent current of only 1μA, it minimizes battery drain during standby operation, extending battery life in portable devices.",
+            "The device operates from a 2.0V to 5.5V input and delivers up to 200mA output current. It features low dropout voltage and includes enable pin for power management control.",
+            "Available in compact SOT-23 and SC-70 packages, the XZ1002 is ideal for space-constrained battery-powered devices such as IoT sensors, wearables, and remote controls."
+          ],
+          "specifications": {
+            "Input Voltage": "2.0V - 5.5V",
+            "Output Voltage": "1.2V - 3.3V (fixed)",
+            "Output Current": "200mA",
+            "Dropout Voltage": "200mV @ 200mA",
+            "Quiescent Current": "1μA (typical)",
+            "PSRR": "50dB @ 1kHz",
+            "Operating Temperature": "-40°C to +85°C",
+            "Package": "SOT-23-5, SC-70-5"
+          },
+          "features": [
+            "Ultra-low quiescent current: 1μA",
+            "Low dropout voltage: 200mV at 200mA",
+            "Enable pin for power management",
+            "Wide input voltage range",
+            "Thermal shutdown protection",
+            "Current limit protection",
+            "Compact packages"
+          ],
+          "applications": [
+            "IoT sensors",
+            "Wearable devices",
+            "Remote controls",
+            "Battery-powered devices",
+            "Always-on power rails"
+          ],
+          "faeReview": {
+            "author": "Jennifer Zhang",
+            "title": "Senior FAE - Low Power Applications",
+            "content": "The XZ1002 is specifically designed for battery-powered applications where every microamp counts. The 1μA quiescent current is exceptional - I've seen battery life extend by months in IoT sensor applications just by switching to this LDO. The trade-off is higher noise and lower PSRR compared to the XZ1001, but for digital circuits and always-on rails, this is perfectly acceptable. One design tip: use the enable pin aggressively - shut down the LDO when the subsystem isn't needed. The enable pin has very low leakage, so you won't waste current. Also, the dropout voltage is reasonable at 200mV. Overall, an excellent choice for battery-powered designs where standby current dominates battery life.",
+            "highlight": "Ultra-low 1μA quiescent current ideal for battery-powered IoT devices"
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "TPS709",
+              "brand": "Texas Instruments",
+              "link": "/brands/ti/products/ldo/tps709/",
+              "reason": "Low-Iq LDO from TI with similar specifications",
+              "useCase": "Alternative for TI-based battery-powered designs",
+              "specifications": {
+                "Input Voltage": "2.7V - 30V",
+                "Output Current": "150mA",
+                "Quiescent Current": "1μA",
+                "PSRR": "45dB @ 1kHz"
+              },
+              "comparison": {
+                "Input Voltage": "2.7V-30V > 2.0V-5.5V (much wider)",
+                "Output Current": "150mA < 200mA (lower)",
+                "Quiescent Current": "1μA = 1μA (same)",
+                "PSRR": "45dB ≈ 50dB (similar)"
+              }
+            },
+            {
+              "partNumber": "AP2112",
+              "brand": "Diodes Inc",
+              "link": "/brands/diodes/products/ldo/ap2112/",
+              "reason": "Cost-effective low-Iq LDO option",
+              "useCase": "Budget-conscious alternative for basic applications",
+              "specifications": {
+                "Input Voltage": "2.5V - 6V",
+                "Output Current": "600mA",
+                "Quiescent Current": "55μA",
+                "PSRR": "60dB @ 1kHz"
+              },
+              "comparison": {
+                "Input Voltage": "2.5V-6V ≈ 2.0V-5.5V (similar)",
+                "Output Current": "600mA > 200mA (higher)",
+                "Quiescent Current": "55μA > 1μA (much higher)",
+                "PSRR": "60dB > 50dB (better)"
+              }
+            }
+          ],
+          "companionParts": [
+            {
+              "partNumber": "XZ3102",
+              "category": "DC-DC",
+              "description": "Ultra-low power buck converter for main system power",
+              "link": "/brands/xinzhou/products/dcdc/xz3102/"
+            },
+            {
+              "partNumber": "XZ1001",
+              "category": "LDO",
+              "description": "Ultra-low noise LDO for sensitive circuits",
+              "link": "/brands/xinzhou/products/ldo/xz1001/"
+            },
+            {
+              "partNumber": "XZ5002",
+              "category": "Battery Charger",
+              "description": "Low-power battery charger for rechargeable designs",
+              "link": "/brands/xinzhou/products/charger/xz5002/"
+            }
+          ],
+          "faqs": [
+            {
+              "question": "What is the quiescent current of XZ1002?",
+              "answer": "XZ1002 has an ultra-low quiescent current of just 1μA typical. This means the LDO itself consumes only 1 microamp of current when enabled with no load, making it ideal for battery-powered applications where standby current is critical.",
+              "decisionGuide": "Use XZ1002 for always-on rails in battery-powered devices; the 1μA Iq minimizes battery drain during standby.",
+              "keywords": [
+                "quiescent current",
+                "Iq",
+                "low power",
+                "battery life"
+              ]
+            },
+            {
+              "question": "How does XZ1002 extend battery life?",
+              "answer": "XZ1002 extends battery life by consuming only 1μA during standby. In IoT devices that spend most of their time in sleep mode, this low quiescent current can mean the difference between months and years of battery life. For example, with a CR2032 battery, 1μA quiescent current allows 25+ years theoretical standby time.",
+              "decisionGuide": "Calculate total standby current including LDO Iq; XZ1002's 1μA Iq is negligible for most battery applications.",
+              "keywords": [
+                "battery life",
+                "standby current",
+                "IoT applications"
+              ]
+            },
+            {
+              "question": "What is the dropout voltage of XZ1002?",
+              "answer": "XZ1002 has a typical dropout voltage of 200mV at 200mA load. At lighter loads, dropout voltage decreases proportionally. For example, at 100mA load, dropout is approximately 100mV. This allows efficient operation even as the battery voltage decreases.",
+              "decisionGuide": "Ensure sufficient headroom between minimum input voltage and output voltage; consider dropout when battery is near end of discharge.",
+              "keywords": [
+                "dropout voltage",
+                "headroom",
+                "efficiency"
+              ]
+            },
+            {
+              "question": "Can I use the enable pin for power management?",
+              "answer": "Yes, the enable pin allows you to shut down the LDO when not needed, reducing current consumption to less than 100nA. This is useful for powering subsystems that are only active intermittently. The enable pin has very low leakage current, so it won't waste power when disabled.",
+              "decisionGuide": "Use enable pin to power down unused subsystems; connect to microcontroller GPIO for software-controlled power management.",
+              "keywords": [
+                "enable pin",
+                "power management",
+                "shutdown"
+              ]
+            },
+            {
+              "question": "Is XZ1002 suitable for always-on power rails?",
+              "answer": "Yes, XZ1002 is specifically designed for always-on power rails in battery-powered devices. The 1μA quiescent current makes it ideal for powering real-time clocks, standby circuits, and always-on sensors where battery life is critical.",
+              "decisionGuide": "Use XZ1002 for always-on rails; consider XZ1001 if noise performance is more important than quiescent current.",
+              "keywords": [
+                "always-on",
+                "standby",
+                "real-time clock",
+                "RTC"
+              ]
+            }
+          ]
+        }
+      ],
+      "faqs": [
+        {
+          "question": "How do I choose between XZ1001 and XZ1002?",
+          "answer": "Choose XZ1001 for noise-sensitive applications requiring ultra-low noise (8μVrms) and high PSRR (75dB). Select XZ1002 for battery-powered applications where quiescent current (1μA) is more important than noise performance. XZ1001 is ideal for RF and analog circuits, while XZ1002 is perfect for always-on digital rails.",
+          "decisionGuide": "XZ1001 for noise-sensitive RF/analog; XZ1002 for low-power battery applications.",
+          "keywords": [
+            "selection",
+            "XZ1001",
+            "XZ1002",
+            "comparison"
+          ]
+        },
+        {
+          "question": "What is PSRR and why does it matter?",
+          "answer": "PSRR (Power Supply Rejection Ratio) indicates how well an LDO rejects noise from its input supply. Higher PSRR means better filtering of input ripple. XZ1001 offers 75dB PSRR, meaning it rejects 99.98% of input ripple at 1kHz. This is critical when using an LDO after a switching converter.",
+          "decisionGuide": "High PSRR is important for post-regulation; choose XZ1001 for best PSRR performance.",
+          "keywords": [
+            "PSRR",
+            "power supply rejection",
+            "noise filtering"
+          ]
+        },
+        {
+          "question": "What is dropout voltage?",
+          "answer": "Dropout voltage is the minimum input-to-output voltage differential required for the LDO to maintain regulation. XZ1001 has 150mV dropout at 300mA, meaning the input must be at least 150mV higher than the output. Lower dropout allows operation with lower input voltages.",
+          "decisionGuide": "Consider dropout voltage when battery is near end of discharge; ensure sufficient headroom for worst-case conditions.",
+          "keywords": [
+            "dropout voltage",
+            "headroom",
+            "input voltage"
+          ]
+        },
+        {
+          "question": "Can I use ceramic capacitors with Xinzhou LDOs?",
+          "answer": "Yes, Xinzhou LDOs are designed to be stable with ceramic capacitors. Use X5R or X7R dielectric capacitors with values of 1μF to 10μF. Place capacitors close to the LDO pins for best performance. Ceramic capacitors provide low ESR and small size.",
+          "decisionGuide": "Use ceramic capacitors for best performance; place close to LDO pins for stability and noise reduction.",
+          "keywords": [
+            "ceramic capacitor",
+            "output capacitor",
+            "stability"
+          ]
+        },
+        {
+          "question": "Are Xinzhou LDOs suitable for automotive applications?",
+          "answer": "Yes, Xinzhou offers automotive-grade LDOs that are AEC-Q100 qualified. These devices meet automotive reliability requirements and are suitable for infotainment, ADAS, and body electronics applications. Contact BeiLuo Electronics for automotive product availability.",
+          "decisionGuide": "Specify automotive-grade variants for in-vehicle applications; verify AEC-Q100 qualification status.",
+          "keywords": [
+            "automotive",
+            "AEC-Q100",
+            "automotive grade",
+            "qualified"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "modules",
+      "name": "Power Modules",
+      "slug": "modules",
+      "description": "Integrated power modules with inductor for easy system integration",
+      "longDescription": "Xinzhou power modules integrate the DC-DC converter, inductor, and passive components into a single compact package. This simplifies design, reduces time-to-market, and ensures optimal performance with minimal engineering effort. As an authorized Xinzhou distributor, BeiLuo Electronics provides comprehensive selection guide and technical support for power module integration.",
+      "image": "/assets/brands/xinzhou/modules-category.jpg",
+      "series": [
+        {
+          "name": "XZ3xxx Series",
+          "description": "Integrated power modules with built-in inductor"
+        },
+        {
+          "name": "XZ4xxx Series",
+          "description": "High-density power modules for industrial applications"
+        }
+      ],
+      "selectionGuide": "Choose power modules when you need fastest time-to-market and simplified design. Modules include optimized inductor and compensation, eliminating component selection and layout challenges. Ideal for designs without power supply expertise.",
+      "selectionGuideLink": "/brands/xinzhou/support/module-selection-guide/",
+      "parameters": [
+        "Input Voltage",
+        "Output Voltage",
+        "Output Current",
+        "Efficiency",
+        "Package Size"
+      ],
+      "products": [
+        {
+          "partNumber": "XZ3001",
+          "name": "XZ3001 3A Power Module",
+          "category": "Power Modules",
+          "shortDescription": "Fully integrated 3A power module with built-in inductor and compensation for simplified power supply design",
+          "descriptionParagraphs": [
+            "The XZ3001 is a fully integrated power module that includes the DC-DC converter, optimized inductor, and compensation components in a single package. This eliminates the need for external inductor selection and complex compensation design.",
+            "The module delivers up to 3A output current from a 2.5V to 5.5V input. It features high efficiency up to 94% and requires only input and output capacitors for a complete power solution.",
+            "Available in a compact 4mm x 4mm QFN package, the XZ3001 significantly reduces design time and ensures optimal performance. It is ideal for applications where time-to-market is critical or power supply design expertise is limited."
+          ],
+          "specifications": {
+            "Input Voltage": "2.5V - 5.5V",
+            "Output Voltage": "0.8V - 3.3V (adjustable)",
+            "Output Current": "3A",
+            "Efficiency": "Up to 94%",
+            "Switching Frequency": "2MHz",
+            "Operating Temperature": "-40°C to +85°C",
+            "Package": "QFN-16 (4mm x 4mm)"
+          },
+          "features": [
+            "Fully integrated solution with built-in inductor",
+            "No external compensation required",
+            "3A output current capability",
+            "High efficiency up to 94%",
+            "Simple design - only 2 external capacitors needed",
+            "Compact 4mm x 4mm package",
+            "Enable and power-good functions"
+          ],
+          "applications": [
+            "FPGA and processor power",
+            "Industrial equipment",
+            "Test and measurement",
+            "Communication systems",
+            "Rapid prototyping"
+          ],
+          "faeReview": {
+            "author": "Robert Li",
+            "title": "Senior FAE - Power Systems",
+            "content": "The XZ3001 power module is a game-changer for teams without dedicated power supply engineers. The integrated inductor and compensation eliminate the most challenging aspects of DC-DC design. I've recommended this to several customers who needed to get to market quickly, and the results have been excellent. The efficiency is nearly as good as discrete designs, and the thermal performance is surprisingly good thanks to the optimized internal layout. One thing to note: the package is taller than discrete solutions due to the integrated inductor, so verify height constraints in your mechanical design. For rapid prototyping or designs where you want guaranteed performance without extensive validation, this module is an excellent choice.",
+            "highlight": "Fully integrated power module eliminates inductor selection and compensation design"
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "LMZ30602",
+              "brand": "Texas Instruments",
+              "link": "/brands/ti/products/modules/lmz30602/",
+              "reason": "TI power module with similar integrated approach",
+              "useCase": "Alternative for TI-based designs requiring module solution",
+              "specifications": {
+                "Input Voltage": "2.95V - 6V",
+                "Output Current": "6A",
+                "Efficiency": "Up to 96%",
+                "Package": "10.16mm x 9.85mm"
+              },
+              "comparison": {
+                "Input Voltage": "2.95V-6V ≈ 2.5V-5.5V (similar)",
+                "Output Current": "6A > 3A (higher)",
+                "Efficiency": "96% > 94% (higher)",
+                "Package": "10.16x9.85mm > 4x4mm (larger)"
+              }
+            },
+            {
+              "partNumber": "MPM3632",
+              "brand": "Monolithic Power Systems",
+              "link": "/brands/mps/products/modules/mpm3632/",
+              "reason": "Compact power module from MPS",
+              "useCase": "Alternative compact module solution",
+              "specifications": {
+                "Input Voltage": "4.5V - 24V",
+                "Output Current": "3A",
+                "Efficiency": "Up to 95%",
+                "Package": "4mm x 4mm"
+              },
+              "comparison": {
+                "Input Voltage": "4.5V-24V > 2.5V-5.5V (wider)",
+                "Output Current": "3A = 3A (same)",
+                "Efficiency": "95% ≈ 94% (similar)",
+                "Package": "4x4mm = 4x4mm (same)"
+              }
+            }
+          ],
+          "companionParts": [
+            {
+              "partNumber": "XZ1001",
+              "category": "LDO",
+              "description": "Ultra-low noise LDO for post-regulation",
+              "link": "/brands/xinzhou/products/ldo/xz1001/"
+            },
+            {
+              "partNumber": "XZ2105",
+              "category": "DC-DC",
+              "description": "Discrete buck converter for cost-sensitive designs",
+              "link": "/brands/xinzhou/products/dcdc/xz2105/"
+            },
+            {
+              "partNumber": "XZ5001",
+              "category": "Battery Charger",
+              "description": "Battery charger for portable applications",
+              "link": "/brands/xinzhou/products/charger/xz5001/"
+            }
+          ],
+          "faqs": [
+            {
+              "question": "What are the advantages of using a power module?",
+              "answer": "Power modules offer several advantages: 1) Simplified design - no inductor selection or compensation calculation needed, 2) Faster time-to-market - guaranteed performance without extensive validation, 3) Smaller solution size - optimized integration saves board area, 4) Better reliability - factory-tested and optimized design. The trade-off is slightly higher cost compared to discrete solutions.",
+              "decisionGuide": "Use power modules for fastest time-to-market and simplified design; use discrete solutions for cost optimization.",
+              "keywords": [
+                "power module",
+                "advantages",
+                "simplified design",
+                "time-to-market"
+              ]
+            },
+            {
+              "question": "What external components are needed with XZ3001?",
+              "answer": "XZ3001 requires only input and output capacitors for a complete power solution. The inductor and compensation network are integrated inside the module. Typically, a 22μF input capacitor and 22μF output capacitor are sufficient. This significantly reduces BOM complexity compared to discrete designs.",
+              "decisionGuide": "Only 2 capacitors needed; use ceramic capacitors with X5R or X7R dielectric for best performance.",
+              "keywords": [
+                "external components",
+                "BOM",
+                "capacitors",
+                "simplified design"
+              ]
+            },
+            {
+              "question": "How does the efficiency compare to discrete solutions?",
+              "answer": "XZ3001 achieves up to 94% efficiency, which is comparable to well-designed discrete solutions. The integrated inductor is optimized for the converter, ensuring good efficiency. While discrete designs can potentially achieve slightly higher peak efficiency with careful optimization, the module provides guaranteed good efficiency without design effort.",
+              "decisionGuide": "Module efficiency is comparable to discrete; choose module for guaranteed performance without design effort.",
+              "keywords": [
+                "efficiency",
+                "comparison",
+                "discrete solution"
+              ]
+            },
+            {
+              "question": "What is the height of XZ3001 package?",
+              "answer": "XZ3001 is available in a 4mm x 4mm QFN package with a height of 2.5mm. The height is greater than discrete solutions due to the integrated inductor. Verify this meets your mechanical constraints before selecting the module.",
+              "decisionGuide": "Verify 2.5mm height meets your mechanical constraints; consider discrete solution if lower height is required.",
+              "keywords": [
+                "package height",
+                "mechanical constraints",
+                "size"
+              ]
+            },
+            {
+              "question": "Can I adjust the output voltage of XZ3001?",
+              "answer": "Yes, XZ3001 features adjustable output voltage set by external resistor divider. The output can be set from 0.8V to 3.3V. This flexibility allows the same module to be used for various voltage rail requirements in your system.",
+              "decisionGuide": "Use resistor divider to set desired output voltage; calculate values using feedback reference voltage from datasheet.",
+              "keywords": [
+                "output voltage",
+                "adjustable",
+                "resistor divider"
+              ]
+            }
+          ]
+        },
+        {
+          "partNumber": "XZ3002",
+          "name": "XZ3002 2A Compact Power Module",
+          "category": "Power Modules",
+          "shortDescription": "Compact 2A power module with integrated inductor for space-constrained portable and wearable designs",
+          "descriptionParagraphs": [
+            "The XZ3002 is a compact 2A power module designed for space-constrained applications. It integrates the DC-DC converter, inductor, and compensation components in a tiny 3mm x 3mm package.",
+            "The module operates from 2.5V to 5.5V input and delivers up to 2A output current. It features high efficiency and requires only input and output capacitors for operation.",
+            "With its ultra-compact size and simplified design, the XZ3002 is ideal for portable devices, IoT sensors, and wearables where space is at a premium."
+          ],
+          "specifications": {
+            "Input Voltage": "2.5V - 5.5V",
+            "Output Voltage": "1.0V - 3.3V (fixed options)",
+            "Output Current": "2A",
+            "Efficiency": "Up to 93%",
+            "Switching Frequency": "2.5MHz",
+            "Operating Temperature": "-40°C to +85°C",
+            "Package": "QFN-12 (3mm x 3mm)"
+          },
+          "features": [
+            "Ultra-compact 3mm x 3mm package",
+            "Integrated inductor and compensation",
+            "2A output current",
+            "High efficiency up to 93%",
+            "Only 2 external capacitors needed",
+            "Fixed output voltage options available",
+            "Enable function included"
+          ],
+          "applications": [
+            "Portable devices",
+            "IoT sensors",
+            "Wearable electronics",
+            "Battery-powered equipment",
+            "Space-constrained designs"
+          ],
+          "faeReview": {
+            "author": "Lisa Chen",
+            "title": "Senior FAE - Portable Electronics",
+            "content": "The XZ3002 is perfect for applications where space is extremely limited. The 3mm x 3mm package is incredibly small for a complete power solution. I've used this in wearable designs where every square millimeter counts. The fixed voltage options are convenient - no need for external resistors, saving even more space. Efficiency is good at 93%, though slightly lower than the larger XZ3001 due to the smaller inductor. The 2.5MHz switching frequency keeps external components small. One consideration: the smaller package has slightly lower thermal capability, so ensure your maximum load and ambient temperature are within spec. For low-power portable devices, this module is an excellent choice.",
+            "highlight": "Ultra-compact 3mm x 3mm module ideal for space-constrained portable designs"
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "LMZ21700",
+              "brand": "Texas Instruments",
+              "link": "/brands/ti/products/modules/lmz21700/",
+              "reason": "Ultra-small power module from TI",
+              "useCase": "Alternative for TI-based compact designs",
+              "specifications": {
+                "Input Voltage": "3V - 17V",
+                "Output Current": "1A",
+                "Efficiency": "Up to 95%",
+                "Package": "3.5mm x 3.5mm"
+              },
+              "comparison": {
+                "Input Voltage": "3V-17V > 2.5V-5.5V (wider)",
+                "Output Current": "1A < 2A (lower)",
+                "Efficiency": "95% ≈ 93% (similar)",
+                "Package": "3.5x3.5mm > 3x3mm (larger)"
+              }
+            },
+            {
+              "partNumber": "MPM3822",
+              "brand": "Monolithic Power Systems",
+              "link": "/brands/mps/products/modules/mpm3822/",
+              "reason": "Compact synchronous module from MPS",
+              "useCase": "Alternative compact module with similar specs",
+              "specifications": {
+                "Input Voltage": "2.7V - 6V",
+                "Output Current": "2A",
+                "Efficiency": "Up to 94%",
+                "Package": "2.5mm x 2.5mm"
+              },
+              "comparison": {
+                "Input Voltage": "2.7V-6V ≈ 2.5V-5.5V (similar)",
+                "Output Current": "2A = 2A (same)",
+                "Efficiency": "94% ≈ 93% (similar)",
+                "Package": "2.5x2.5mm < 3x3mm (smaller)"
+              }
+            }
+          ],
+          "companionParts": [
+            {
+              "partNumber": "XZ1002",
+              "category": "LDO",
+              "description": "Low-Iq LDO for always-on circuits",
+              "link": "/brands/xinzhou/products/ldo/xz1002/"
+            },
+            {
+              "partNumber": "XZ3102",
+              "category": "DC-DC",
+              "description": "Discrete converter for cost optimization",
+              "link": "/brands/xinzhou/products/dcdc/xz3102/"
+            },
+            {
+              "partNumber": "XZ5002",
+              "category": "Battery Charger",
+              "description": "Compact charger for battery-powered designs",
+              "link": "/brands/xinzhou/products/charger/xz5002/"
+            }
+          ],
+          "faqs": [
+            {
+              "question": "How small is the XZ3002 power module?",
+              "answer": "XZ3002 is available in a tiny 3mm x 3mm QFN package. This ultra-compact size includes the DC-DC converter, inductor, and compensation components. The small size makes it ideal for wearable devices, IoT sensors, and other space-constrained applications.",
+              "decisionGuide": "Use XZ3002 for minimum size requirements; verify height constraints as integrated inductor adds thickness.",
+              "keywords": [
+                "package size",
+                "compact",
+                "3mm x 3mm",
+                "small"
+              ]
+            },
+            {
+              "question": "What is the difference between XZ3001 and XZ3002?",
+              "answer": "XZ3001 is a 3A power module in a 4mm x 4mm package, while XZ3002 is a 2A module in a 3mm x 3mm package. XZ3001 offers higher current capability and slightly better efficiency, while XZ3002 offers smaller size. Choose based on your current requirements and space constraints.",
+              "decisionGuide": "XZ3001 for higher current (3A) and efficiency; XZ3002 for minimum size (3mm x 3mm) with 2A capability.",
+              "keywords": [
+                "comparison",
+                "XZ3001",
+                "XZ3002",
+                "selection"
+              ]
+            },
+            {
+              "question": "Are fixed output voltage versions available?",
+              "answer": "Yes, XZ3002 is available in fixed output voltage versions (1.0V, 1.2V, 1.8V, 3.3V) that don't require external resistors. This saves additional board space and simplifies BOM. Adjustable versions are also available for flexibility.",
+              "decisionGuide": "Use fixed voltage version for smallest size and simplest design; adjustable version for flexibility.",
+              "keywords": [
+                "fixed voltage",
+                "adjustable",
+                "output voltage options"
+              ]
+            },
+            {
+              "question": "What is the thermal performance of XZ3002?",
+              "answer": "XZ3002 has good thermal performance for its size, with thermal resistance of approximately 40°C/W. At 2A output with 5V input and 3.3V output, power dissipation is about 1.7W, resulting in temperature rise of approximately 68°C. Ensure adequate PCB copper area for heat dissipation.",
+              "decisionGuide": "Use adequate PCB copper area for heat dissipation; verify maximum junction temperature is not exceeded at full load.",
+              "keywords": [
+                "thermal performance",
+                "temperature rise",
+                "heat dissipation"
+              ]
+            },
+            {
+              "question": "Can XZ3002 be used in battery-powered applications?",
+              "answer": "Yes, XZ3002 is well-suited for battery-powered applications. The 2.5V to 5.5V input range covers single Li-ion battery operation. The high efficiency (up to 93%) maximizes battery life. The compact size is ideal for portable devices where space and weight are critical.",
+              "decisionGuide": "XZ3002 is excellent for battery-powered designs; verify efficiency at your operating points for battery life calculations.",
+              "keywords": [
+                "battery powered",
+                "portable",
+                "Li-ion",
+                "efficiency"
+              ]
+            }
+          ]
+        }
+      ],
+      "faqs": [
+        {
+          "question": "What are the main advantages of power modules over discrete solutions?",
+          "answer": "Power modules offer simplified design, faster time-to-market, and guaranteed performance. The integrated inductor and compensation eliminate component selection and complex calculations. Modules are factory-tested and optimized, ensuring good performance without extensive validation. The trade-off is slightly higher cost compared to discrete solutions.",
+          "decisionGuide": "Use modules for fastest time-to-market and simplified design; use discrete solutions for cost optimization and maximum flexibility.",
+          "keywords": [
+            "advantages",
+            "simplified design",
+            "time-to-market",
+            "comparison"
+          ]
+        },
+        {
+          "question": "How do I choose between XZ3001 and XZ3002?",
+          "answer": "Choose XZ3001 for higher current requirements (up to 3A) and slightly better efficiency in a 4mm x 4mm package. Select XZ3002 for space-constrained applications requiring up to 2A in a smaller 3mm x 3mm package. Both offer simplified design with integrated inductor.",
+          "decisionGuide": "XZ3001 for 3A applications; XZ3002 for minimum size with 2A capability.",
+          "keywords": [
+            "selection",
+            "XZ3001",
+            "XZ3002",
+            "comparison"
+          ]
+        },
+        {
+          "question": "What external components are required with power modules?",
+          "answer": "Power modules require only input and output capacitors. The inductor, MOSFETs, and compensation are integrated inside the module. Typically, 22μF input and output capacitors are sufficient. This significantly reduces BOM complexity and design effort compared to discrete solutions.",
+          "decisionGuide": "Only 2 capacitors needed; use ceramic capacitors with X5R or X7R dielectric for best performance.",
+          "keywords": [
+            "external components",
+            "BOM",
+            "capacitors",
+            "simplified"
+          ]
+        },
+        {
+          "question": "Are power modules more reliable than discrete designs?",
+          "answer": "Power modules can offer better reliability due to factory optimization and testing. The integrated design eliminates variability from external component selection and placement. However, proper thermal management and PCB layout are still important. Modules are a good choice when design resources are limited.",
+          "decisionGuide": "Modules offer consistent, validated performance; discrete designs offer more flexibility but require more validation.",
+          "keywords": [
+            "reliability",
+            "factory tested",
+            "consistent performance"
+          ]
+        },
+        {
+          "question": "Can I use power modules for high-volume production?",
+          "answer": "Yes, power modules are suitable for high-volume production. While the unit cost is higher than discrete solutions, the reduced design effort and faster time-to-market can offset this. For very high volumes (100k+ units annually), discrete designs may be more cost-effective after amortizing design costs.",
+          "decisionGuide": "Use modules for fast time-to-market; evaluate discrete solutions for very high volume cost optimization.",
+          "keywords": [
+            "high volume",
+            "production",
+            "cost optimization",
+            "time-to-market"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "charger",
+      "name": "Battery Chargers",
+      "slug": "charger",
+      "description": "Li-ion battery charger ICs with protection features for safe charging",
+      "longDescription": "Xinzhou battery chargers provide safe, efficient charging for single-cell Li-ion and Li-polymer batteries. With integrated protection features, programmable charge currents, and compact packages, these chargers are ideal for portable devices. As an authorized Xinzhou distributor, BeiLuo Electronics provides comprehensive selection guide for choosing the right battery charger for your application.",
+      "image": "/assets/brands/xinzhou/charger-category.jpg",
+      "series": [
+        {
+          "name": "XZ5xxx Series",
+          "description": "Linear battery chargers for single-cell Li-ion batteries"
+        },
+        {
+          "name": "XZ6xxx Series",
+          "description": "Fast-charging solutions for high-capacity batteries"
+        }
+      ],
+      "selectionGuide": "Choose XZ5xxx series chargers based on charge current requirements and package size. Higher charge currents require larger packages for thermal management. All chargers include safety features and programmable charge parameters.",
+      "selectionGuideLink": "/brands/xinzhou/support/",
+      "parameters": [
+        "Input Voltage",
+        "Charge Current",
+        "Battery Type",
+        "Package Size",
+        "Safety Features"
+      ],
+      "products": [
+        {
+          "partNumber": "XZ5001",
+          "name": "XZ5001 Single-Cell Li-ion Charger",
+          "category": "Battery Chargers",
+          "shortDescription": "800mA linear Li-ion battery charger with automatic recharge, thermal regulation, and comprehensive safety features",
+          "descriptionParagraphs": [
+            "The XZ5001 is a complete constant-current/constant-voltage linear charger for single-cell lithium-ion batteries. It delivers up to 800mA charge current with no external MOSFET or sense resistor required.",
+            "The device includes automatic recharge, preconditioning for deeply discharged cells, and comprehensive safety features including thermal regulation and battery temperature monitoring. Charge current is programmable via external resistor.",
+            "Available in compact SOT-23-5 and DFN-8 packages, the XZ5001 is ideal for smartphones, portable media players, and other handheld devices."
+          ],
+          "specifications": {
+            "Input Voltage": "4.25V - 6.5V",
+            "Charge Current": "Up to 800mA (programmable)",
+            "Battery Type": "Single-cell Li-ion/Li-poly",
+            "Charge Voltage": "4.2V (±1% accuracy)",
+            "Trickle Charge Current": "100mA",
+            "Operating Temperature": "-40°C to +85°C",
+            "Package": "SOT-23-5, DFN-8"
+          },
+          "features": [
+            "Complete linear charger - no external MOSFET needed",
+            "Up to 800mA programmable charge current",
+            "±1% charge voltage accuracy",
+            "Automatic recharge",
+            "Preconditioning for deeply discharged cells",
+            "Thermal regulation for safe operation",
+            "Battery temperature monitoring",
+            "Charge status output"
+          ],
+          "applications": [
+            "Smartphones",
+            "Portable media players",
+            "Digital cameras",
+            "Handheld instruments",
+            "Bluetooth headsets"
+          ],
+          "faeReview": {
+            "author": "Kevin Wu",
+            "title": "Senior FAE - Battery Management",
+            "content": "The XZ5001 is a solid linear charger that I've used in many portable device designs. The integrated pass element eliminates the need for external MOSFETs, simplifying the design. The 800mA maximum charge current is sufficient for most small battery applications. I particularly like the thermal regulation feature - it automatically reduces charge current if the die temperature gets too high, preventing damage. The charge voltage accuracy of ±1% is good for maximizing battery capacity without overcharging. One tip: use the thermal regulation feature by ensuring good PCB heat sinking - this allows faster charging without overheating. The battery temperature monitoring is also important for safety - always use an NTC thermistor to disable charging at temperature extremes.",
+            "highlight": "Reliable 800mA linear charger with integrated pass element and thermal regulation"
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "MCP73831",
+              "brand": "Microchip",
+              "link": "/brands/microchip/products/charger/mcp73831/",
+              "reason": "Popular linear charger with similar specifications",
+              "useCase": "Alternative for designs requiring Microchip compatibility",
+              "specifications": {
+                "Input Voltage": "3.75V - 6V",
+                "Charge Current": "Up to 500mA",
+                "Charge Voltage": "4.2V",
+                "Package": "SOT-23-5"
+              },
+              "comparison": {
+                "Input Voltage": "3.75V-6V ≈ 4.25V-6.5V (similar)",
+                "Charge Current": "500mA < 800mA (lower)",
+                "Charge Voltage": "4.2V = 4.2V (same)",
+                "Package": "SOT-23-5 = SOT-23-5 (same)"
+              }
+            },
+            {
+              "partNumber": "TP4056",
+              "brand": "NanJing TopPower",
+              "link": "/brands/toppower/products/charger/tp4056/",
+              "reason": "Widely used linear charger with higher current capability",
+              "useCase": "Alternative for higher current charging requirements",
+              "specifications": {
+                "Input Voltage": "4V - 8V",
+                "Charge Current": "Up to 1000mA",
+                "Charge Voltage": "4.2V",
+                "Package": "SOP-8"
+              },
+              "comparison": {
+                "Input Voltage": "4V-8V > 4.25V-6.5V (wider)",
+                "Charge Current": "1000mA > 800mA (higher)",
+                "Charge Voltage": "4.2V = 4.2V (same)",
+                "Package": "SOP-8 > SOT-23-5 (larger)"
+              }
+            }
+          ],
+          "companionParts": [
+            {
+              "partNumber": "XZ2105",
+              "category": "DC-DC",
+              "description": "Buck converter for system power from battery",
+              "link": "/brands/xinzhou/products/dcdc/xz2105/"
+            },
+            {
+              "partNumber": "XZ1001",
+              "category": "LDO",
+              "description": "Low noise LDO for sensitive circuits",
+              "link": "/brands/xinzhou/products/ldo/xz1001/"
+            },
+            {
+              "partNumber": "XZ3001",
+              "category": "Power Module",
+              "description": "Power module for complete system solution",
+              "link": "/brands/xinzhou/products/modules/xz3001/"
+            }
+          ],
+          "faqs": [
+            {
+              "question": "What is the maximum charge current of XZ5001?",
+              "answer": "XZ5001 supports charge currents up to 800mA, programmable via external resistor. The actual charge current is set by the resistor value connected to the PROG pin. Higher currents require better thermal management. For thermal-limited designs, the thermal regulation feature automatically reduces current to maintain safe temperature.",
+              "decisionGuide": "Set charge current based on battery capacity (typically 0.5C to 1C rate); ensure adequate thermal management for higher currents.",
+              "keywords": [
+                "charge current",
+                "programmable",
+                "thermal regulation"
+              ]
+            },
+            {
+              "question": "How do I set the charge current?",
+              "answer": "Charge current is set by a resistor connected between PROG pin and ground. The formula is: ICHARGE = 1000V / RPROG. For example, a 2kΩ resistor sets 500mA charge current. The resistor should be 1% tolerance for accurate current setting.",
+              "decisionGuide": "Calculate RPROG using formula; use 1% tolerance resistor for accuracy; verify thermal capability at selected current.",
+              "keywords": [
+                "charge current",
+                "programming",
+                "PROG resistor"
+              ]
+            },
+            {
+              "question": "What safety features are included?",
+              "answer": "XZ5001 includes comprehensive safety features: thermal regulation to prevent overheating, battery temperature monitoring via NTC thermistor, preconditioning for deeply discharged cells, automatic recharge when battery voltage drops, and reverse leakage protection to prevent battery discharge when input is removed.",
+              "decisionGuide": "Use NTC thermistor for temperature monitoring; thermal regulation protects against overheating; all features are automatic.",
+              "keywords": [
+                "safety features",
+                "thermal regulation",
+                "temperature monitoring"
+              ]
+            },
+            {
+              "question": "What is the charge voltage accuracy?",
+              "answer": "XZ5001 provides ±1% charge voltage accuracy (4.158V to 4.242V). This precise regulation ensures maximum battery capacity is achieved without overcharging, which could damage the battery. The tight accuracy eliminates the need for factory calibration in most applications.",
+              "decisionGuide": "±1% accuracy is suitable for most Li-ion batteries; no calibration needed; ensures safe and complete charging.",
+              "keywords": [
+                "charge voltage",
+                "accuracy",
+                "regulation",
+                "4.2V"
+              ]
+            },
+            {
+              "question": "How does the automatic recharge feature work?",
+              "answer": "After charging completes, XZ5001 monitors battery voltage. If the voltage drops below approximately 4.05V (indicating self-discharge or load), the charger automatically restarts charging. This ensures the battery remains fully charged without manual intervention, important for devices that remain plugged in.",
+              "decisionGuide": "Automatic recharge maintains full battery; feature is automatic; important for devices left connected to charger.",
+              "keywords": [
+                "automatic recharge",
+                "maintenance charge",
+                "battery maintenance"
+              ]
+            }
+          ]
+        },
+        {
+          "partNumber": "XZ5002",
+          "name": "XZ5002 Compact Li-ion Charger",
+          "category": "Battery Chargers",
+          "shortDescription": "500mA compact Li-ion charger with integrated pass element for small battery applications",
+          "descriptionParagraphs": [
+            "The XZ5002 is a compact linear charger designed for small battery applications such as wearables and IoT devices. It delivers up to 500mA charge current in a tiny package.",
+            "The device includes all standard safety features including thermal regulation, automatic recharge, and preconditioning. Charge current is programmable via external resistor.",
+            "Available in ultra-small SC-70 and 1.5mm x 1.5mm DFN packages, the XZ5002 is one of the smallest complete battery chargers available, making it ideal for space-constrained designs."
+          ],
+          "specifications": {
+            "Input Voltage": "4.25V - 6V",
+            "Charge Current": "Up to 500mA (programmable)",
+            "Battery Type": "Single-cell Li-ion/Li-poly",
+            "Charge Voltage": "4.2V (±1% accuracy)",
+            "Trickle Charge Current": "50mA",
+            "Operating Temperature": "-40°C to +85°C",
+            "Package": "SC-70-5, DFN-6 (1.5mm x 1.5mm)"
+          },
+          "features": [
+            "Ultra-compact package options",
+            "Up to 500mA programmable charge current",
+            "±1% charge voltage accuracy",
+            "Automatic recharge",
+            "Preconditioning for deeply discharged cells",
+            "Thermal regulation",
+            "Low reverse leakage current",
+            "Charge status indication"
+          ],
+          "applications": [
+            "Wearable devices",
+            "IoT sensors",
+            "Smart watches",
+            "Fitness trackers",
+            "Small handheld devices"
+          ],
+          "faeReview": {
+            "author": "Amy Zhang",
+            "title": "Senior FAE - Wearable Applications",
+            "content": "The XZ5002 is specifically designed for small battery applications where space is critical. The SC-70 package is tiny, and the 1.5mm x 1.5mm DFN is even smaller. I've used this in smartwatch designs where every millimeter counts. The 500mA maximum current is perfect for the small batteries used in wearables (typically 100-300mAh). The thermal regulation works well - even at 500mA, the small package stays within safe limits with minimal PCB copper. One design tip: the small package has higher thermal resistance, so don't push the current too high unless you have good heat sinking. For typical wearable batteries charging at 0.5C (100-150mA), this charger works perfectly without thermal issues.",
+            "highlight": "Ultra-compact charger ideal for wearable and IoT applications with small batteries"
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "MCP73832",
+              "brand": "Microchip",
+              "link": "/brands/microchip/products/charger/mcp73832/",
+              "reason": "Compact linear charger from Microchip",
+              "useCase": "Alternative for Microchip-compatible designs",
+              "specifications": {
+                "Input Voltage": "3.75V - 6V",
+                "Charge Current": "Up to 500mA",
+                "Charge Voltage": "4.2V",
+                "Package": "SC-70-5"
+              },
+              "comparison": {
+                "Input Voltage": "3.75V-6V ≈ 4.25V-6V (similar)",
+                "Charge Current": "500mA = 500mA (same)",
+                "Charge Voltage": "4.2V = 4.2V (same)",
+                "Package": "SC-70-5 = SC-70-5 (same)"
+              }
+            },
+            {
+              "partNumber": "LTC4054",
+              "brand": "Analog Devices",
+              "link": "/brands/adi/products/charger/ltc4054/",
+              "reason": "Industry-standard compact charger from Linear Technology",
+              "useCase": "Alternative for high-reliability applications",
+              "specifications": {
+                "Input Voltage": "4.25V - 6.5V",
+                "Charge Current": "Up to 800mA",
+                "Charge Voltage": "4.2V",
+                "Package": "SOT-23-5"
+              },
+              "comparison": {
+                "Input Voltage": "4.25V-6.5V ≈ 4.25V-6V (similar)",
+                "Charge Current": "800mA > 500mA (higher)",
+                "Charge Voltage": "4.2V = 4.2V (same)",
+                "Package": "SOT-23-5 > SC-70-5 (larger)"
+              }
+            }
+          ],
+          "companionParts": [
+            {
+              "partNumber": "XZ3102",
+              "category": "DC-DC",
+              "description": "Ultra-compact buck converter for system power",
+              "link": "/brands/xinzhou/products/dcdc/xz3102/"
+            },
+            {
+              "partNumber": "XZ1002",
+              "category": "LDO",
+              "description": "Low-Iq LDO for always-on circuits",
+              "link": "/brands/xinzhou/products/ldo/xz1002/"
+            },
+            {
+              "partNumber": "XZ3002",
+              "category": "Power Module",
+              "description": "Compact power module for complete solution",
+              "link": "/brands/xinzhou/products/modules/xz3002/"
+            }
+          ],
+          "faqs": [
+            {
+              "question": "How small is the XZ5002 package?",
+              "answer": "XZ5002 is available in SC-70-5 (2mm x 1.25mm) and ultra-small DFN-6 (1.5mm x 1.5mm) packages. These compact packages make XZ5002 one of the smallest complete battery chargers available, perfect for space-constrained wearable and IoT applications.",
+              "decisionGuide": "Use DFN package for minimum size; SC-70 for easier assembly; both packages have same electrical performance.",
+              "keywords": [
+                "package size",
+                "compact",
+                "SC-70",
+                "DFN",
+                "small"
+              ]
+            },
+            {
+              "question": "What battery sizes is XZ5002 suitable for?",
+              "answer": "XZ5002 is ideal for small Li-ion batteries typically used in wearables and IoT devices, such as 100mAh to 500mAh capacities. The 500mA maximum charge current supports 0.5C to 1C charging rates for these battery sizes. For larger batteries, consider XZ5001 with higher current capability.",
+              "decisionGuide": "XZ5002 for batteries 100-500mAh; XZ5001 for larger batteries requiring faster charging.",
+              "keywords": [
+                "battery size",
+                "capacity",
+                "wearable",
+                "IoT"
+              ]
+            },
+            {
+              "question": "What is the difference between XZ5001 and XZ5002?",
+              "answer": "XZ5001 supports up to 800mA charge current in SOT-23 and DFN-8 packages, suitable for larger batteries. XZ5002 supports up to 500mA in smaller SC-70 and DFN-6 packages, ideal for space-constrained designs with smaller batteries. Both offer similar features and safety protection.",
+              "decisionGuide": "XZ5001 for higher current (800mA) and larger batteries; XZ5002 for minimum size with 500mA capability.",
+              "keywords": [
+                "comparison",
+                "XZ5001",
+                "XZ5002",
+                "selection"
+              ]
+            },
+            {
+              "question": "Does XZ5002 have thermal regulation?",
+              "answer": "Yes, XZ5002 includes thermal regulation that automatically reduces charge current if the die temperature exceeds safe limits. This protects the charger from overheating, especially important in the small packages with limited heat dissipation. The feature is automatic and requires no external components.",
+              "decisionGuide": "Thermal regulation is automatic; feature protects against overheating; important for small packages.",
+              "keywords": [
+                "thermal regulation",
+                "overheating protection",
+                "safety"
+              ]
+            },
+            {
+              "question": "Can XZ5002 be used in wearable devices?",
+              "answer": "Yes, XZ5002 is specifically designed for wearable devices. The ultra-compact package, 500mA current capability (perfect for small wearable batteries), and low power consumption make it ideal for smartwatches, fitness trackers, and other wearables. The thermal regulation ensures safe operation in compact enclosures.",
+              "decisionGuide": "XZ5002 is excellent for wearables; small size and appropriate current for typical wearable batteries.",
+              "keywords": [
+                "wearable",
+                "smartwatch",
+                "fitness tracker",
+                "portable"
+              ]
+            }
+          ]
+        }
+      ],
+      "faqs": [
+        {
+          "question": "How do I choose the right battery charger for my application?",
+          "answer": "Choose based on battery capacity and charge time requirements. For batteries under 500mAh, XZ5002 with 500mA capability is sufficient. For larger batteries up to 800mAh, XZ5001 provides faster charging. Both offer similar safety features and charge accuracy.",
+          "decisionGuide": "XZ5002 for small batteries (<500mAh) and space-constrained designs; XZ5001 for larger batteries requiring faster charging.",
+          "keywords": [
+            "selection",
+            "battery capacity",
+            "charge time",
+            "comparison"
+          ]
+        },
+        {
+          "question": "What is the recommended charge rate for Li-ion batteries?",
+          "answer": "The recommended charge rate is typically 0.5C to 1C, where C is the battery capacity in mAh. For a 1000mAh battery, 0.5C = 500mA and 1C = 1000mA. Slower charging (0.5C) is gentler on the battery and generates less heat, while faster charging (1C) reduces charge time.",
+          "decisionGuide": "Use 0.5C for gentle charging and longer battery life; 1C for faster charging when time is critical.",
+          "keywords": [
+            "charge rate",
+            "C-rate",
+            "battery charging",
+            "recommendation"
+          ]
+        },
+        {
+          "question": "What safety features are important in battery chargers?",
+          "answer": "Important safety features include: thermal regulation to prevent overheating, battery temperature monitoring to disable charging at temperature extremes, overvoltage protection to prevent overcharging, and reverse leakage protection to prevent battery discharge. All Xinzhou chargers include these essential safety features.",
+          "decisionGuide": "All Xinzhou chargers include comprehensive safety features; use NTC thermistor for temperature monitoring.",
+          "keywords": [
+            "safety features",
+            "thermal regulation",
+            "temperature monitoring",
+            "protection"
+          ]
+        },
+        {
+          "question": "How accurate is the charge voltage regulation?",
+          "answer": "Xinzhou chargers provide ±1% charge voltage accuracy (4.158V to 4.242V for 4.2V setting). This precise regulation ensures maximum battery capacity is achieved without overcharging, which could damage the battery or create safety hazards. The tight accuracy eliminates need for calibration.",
+          "decisionGuide": "±1% accuracy ensures safe and complete charging; no calibration needed; suitable for all Li-ion batteries.",
+          "keywords": [
+            "charge voltage",
+            "accuracy",
+            "regulation",
+            "safety"
+          ]
+        },
+        {
+          "question": "Can I use these chargers for Li-polymer batteries?",
+          "answer": "Yes, Xinzhou chargers are compatible with both Li-ion and Li-polymer batteries. Both battery types use the same charging profile (constant-current followed by constant-voltage) and have the same full-charge voltage (4.2V). The chargers automatically adjust to the battery characteristics.",
+          "decisionGuide": "XZ5001 and XZ5002 work with both Li-ion and Li-polymer batteries; same charging algorithm applies.",
+          "keywords": [
+            "Li-polymer",
+            "Li-po",
+            "compatibility",
+            "battery type"
+          ]
         }
       ]
     }
@@ -283,33 +1610,60 @@
   "faqs": [
     {
       "question": "What types of power management products does Xinzhou Technology offer?",
-      "answer": "Xinzhou Technology offers high-efficiency DC-DC buck/boost converters, ultra-low noise LDO linear regulators, integrated power modules, and Li-ion battery chargers. Their products are designed for consumer electronics, industrial, and automotive applications with emphasis on high power density and small form factors.",
-      "decisionGuide": "Select product category based on your application: DC-DC for efficient step-down conversion, LDO for low-noise regulation, modules for easy integration.",
-      "keywords": ["product range", "power management", "DC-DC", "LDO", "power module"]
+      "answer": "Xinzhou Technology offers high-efficiency DC-DC buck/boost converters, ultra-low noise LDO linear regulators, integrated power modules, and Li-ion battery chargers. Their products are designed for consumer electronics, industrial, and automotive applications with emphasis on high power density and small form factors. As an authorized Xinzhou distributor, BeiLuo Electronics provides comprehensive selection guide and technical support.",
+      "decisionGuide": "Select product category based on your application: DC-DC for efficient step-down conversion, LDO for low-noise regulation, modules for easy integration, chargers for battery management.",
+      "keywords": [
+        "product range",
+        "power management",
+        "DC-DC",
+        "LDO",
+        "power module",
+        "battery charger"
+      ]
     },
     {
       "question": "How does Xinzhou compare to other power IC manufacturers?",
-      "answer": "Xinzhou offers competitive performance with industry-leading power density and small package options. While international vendors may have broader portfolios, Xinzhou excels in compact, high-efficiency solutions with competitive pricing and strong local support in China.",
-      "decisionGuide": "Evaluate Xinzhou for space-constrained, cost-sensitive designs requiring high performance; consider alternatives for specialized applications.",
-      "keywords": ["comparison", "competitive advantage", "power density"]
+      "answer": "Xinzhou offers competitive performance with industry-leading power density and small package options. While international vendors may have broader portfolios, Xinzhou excels in compact, high-efficiency solutions with competitive pricing and strong local support in China. Their products are particularly strong in consumer electronics and portable device applications.",
+      "decisionGuide": "Evaluate Xinzhou for space-constrained, cost-sensitive designs requiring high performance; consider alternatives for specialized applications outside Xinzhou's focus areas.",
+      "keywords": [
+        "comparison",
+        "competitive advantage",
+        "power density",
+        "selection guide"
+      ]
     },
     {
       "question": "What is the quality and reliability of Xinzhou products?",
-      "answer": "Xinzhou products undergo rigorous testing and quality control. They are qualified for industrial temperature ranges (-40°C to +85°C) and meet standard reliability requirements. Automotive-grade products are AEC-Q100 qualified for high-reliability applications.",
-      "decisionGuide": "Specify appropriate temperature grade for your application; automotive grade for high-reliability requirements.",
-      "keywords": ["quality", "reliability", "temperature grade", "AEC-Q100"]
+      "answer": "Xinzhou products undergo rigorous testing and quality control. They are qualified for industrial temperature ranges (-40°C to +85°C) and meet standard reliability requirements. Automotive-grade products are AEC-Q100 qualified for high-reliability applications. All products are backed by BeiLuo Electronics technical support.",
+      "decisionGuide": "Specify appropriate temperature grade for your application; automotive grade for high-reliability requirements; industrial grade for general applications.",
+      "keywords": [
+        "quality",
+        "reliability",
+        "temperature grade",
+        "AEC-Q100"
+      ]
     },
     {
       "question": "Does Xinzhou provide design support?",
-      "answer": "Yes, Xinzhou provides comprehensive design support including datasheets, application notes, reference designs, and evaluation boards. Technical support is available through BeiLuo Electronics FAE team for schematic review, layout guidance, and troubleshooting.",
-      "decisionGuide": "Utilize reference designs as starting points; engage FAE support for complex multi-rail designs.",
-      "keywords": ["design support", "reference designs", "FAE", "technical support"]
+      "answer": "Yes, Xinzhou provides comprehensive design support including datasheets, application notes, reference designs, and evaluation boards. Technical support is available through BeiLuo Electronics FAE team for schematic review, layout guidance, and troubleshooting. Contact us for design assistance.",
+      "decisionGuide": "Utilize reference designs as starting points; engage FAE support for complex multi-rail designs or challenging applications.",
+      "keywords": [
+        "design support",
+        "reference designs",
+        "FAE",
+        "technical support"
+      ]
     },
     {
       "question": "How can I get samples and evaluation boards?",
-      "answer": "Samples and evaluation boards are available through BeiLuo Electronics. Contact our sales team with your specific requirements. We maintain stock of popular products for quick sample delivery and can provide evaluation boards for testing.",
-      "decisionGuide": "Request samples early in the design phase for evaluation; order evaluation boards for reference design validation.",
-      "keywords": ["samples", "evaluation boards", "request"]
+      "answer": "Samples and evaluation boards are available through BeiLuo Electronics. Contact our sales team with your specific requirements. We maintain stock of popular products for quick sample delivery and can provide evaluation boards for testing and validation.",
+      "decisionGuide": "Request samples early in the design phase for evaluation; order evaluation boards for reference design validation and performance testing.",
+      "keywords": [
+        "samples",
+        "evaluation boards",
+        "request",
+        "distributor"
+      ]
     }
   ]
 }

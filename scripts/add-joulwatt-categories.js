@@ -1,0 +1,1131 @@
+const fs = require('fs');
+const path = require('path');
+
+const dataDir = path.join(__dirname, '..', 'data', 'joulwatt');
+const productsPath = path.join(dataDir, 'products.json');
+let products = JSON.parse(fs.readFileSync(productsPath, 'utf8'));
+
+// Additional categories to add
+const additionalCategories = [
+  {
+    "id": "dc-dc",
+    "name": "DC-DC Converters",
+    "slug": "dc-dc",
+    "description": "High-efficiency synchronous buck converters for point-of-load regulation",
+    "longDescription": "JoulWatt DC-DC converters provide high-efficiency synchronous buck conversion for industrial, automotive, and computing applications. These converters support wide input voltage ranges up to 40V, deliver high output currents up to 10A, and achieve efficiencies up to 95%. Features include adjustable switching frequency, external synchronization, and power-good indicators. As an authorized JoulWatt distributor, BeiLuo Electronics provides comprehensive selection guide and technical support.",
+    "image": "/assets/brands/joulwatt/dc-dc-category.jpg",
+    "series": [
+      {
+        "name": "JW535x Series",
+        "description": "High-efficiency synchronous buck converters with wide input range"
+      },
+      {
+        "name": "JW506x Series",
+        "description": "High-current buck converters for industrial applications"
+      }
+    ],
+    "selectionGuide": "Choose JW535x series for general-purpose applications requiring wide input range. Select JW506x series for high-current industrial applications. Consider input voltage range, output current, and switching frequency requirements.",
+    "selectionGuideLink": "/brands/joulwatt/support/dc-dc-selection-guide/",
+    "parameters": ["Input Voltage", "Output Voltage", "Output Current", "Efficiency", "Switching Frequency"],
+    "products": [
+      {
+        "partNumber": "JW5359",
+        "name": "JW5359 Synchronous Buck Converter",
+        "category": "DC-DC Converters",
+        "shortDescription": "High-efficiency synchronous buck converter with 4.5V-40V input and 5A output capability",
+        "descriptionParagraphs": [
+          "The JW5359 is a high-efficiency synchronous buck converter designed for industrial and automotive applications. It operates from a wide 4.5V to 40V input voltage range, making it suitable for 12V and 24V systems. The device can deliver up to 5A continuous output current.",
+          "The converter features peak current mode control with internal compensation, simplifying loop design. The switching frequency is adjustable from 200kHz to 2MHz via an external resistor, allowing optimization between efficiency and component size. Frequency synchronization to an external clock is also supported.",
+          "Protection features include over-current protection, over-voltage protection, thermal shutdown, and input under-voltage lockout. The device is available in a thermally enhanced TSSOP-20 package with exposed pad for improved heat dissipation."
+        ],
+        "specifications": {
+          "Input Voltage Range": "4.5V - 40V",
+          "Output Voltage Range": "0.8V - 36V",
+          "Output Current": "5A max",
+          "Efficiency": "Up to 95%",
+          "Switching Frequency": "200kHz - 2MHz (adjustable)",
+          "Quiescent Current": "2mA",
+          "Load Regulation": "±0.5%",
+          "Operating Temperature": "-40°C to +125°C",
+          "Package": "TSSOP-20 EP"
+        },
+        "features": [
+          "Wide 4.5V to 40V input range",
+          "5A continuous output current",
+          "Up to 95% efficiency",
+          "Adjustable switching frequency",
+          "External frequency synchronization",
+          "Power-good indicator",
+          "Internal soft-start",
+          "Thermally enhanced package"
+        ],
+        "applications": [
+          "Industrial control systems",
+          "Automotive electronics",
+          "Telecom equipment",
+          "Distributed power systems",
+          "Battery-powered systems"
+        ],
+        "faeReview": {
+          "author": "David Liu",
+          "title": "Senior FAE - Industrial Power",
+          "content": "The JW5359 is an excellent choice for industrial and automotive buck applications. The wide 4.5V-40V input range handles both 12V and 24V systems with margin for transients. I've used this part in several industrial designs and consistently achieve 93-95% efficiency at typical loads. The adjustable frequency is a key feature - I typically run at 500kHz for best efficiency or 1MHz when board space is tight. The internal compensation simplifies design, though you may want to add external compensation for specific transient requirements. One implementation tip: the exposed pad must be properly soldered to the ground plane for thermal performance. With good PCB layout, you can get 5A continuous without additional heatsinking. The power-good indicator is useful for sequencing multiple rails. Overall, a solid and reliable buck converter for demanding applications.",
+          "highlight": "Wide input range synchronous buck with high efficiency and adjustable frequency"
+        },
+        "alternativeParts": [
+          {
+            "partNumber": "LM5117",
+            "brand": "Texas Instruments",
+            "link": "/brands/ti/products/dc-dc/lm5117/",
+            "reason": "Wide Vin synchronous buck controller from TI",
+            "useCase": "Alternative for TI-based designs",
+            "specifications": {
+              "Input Voltage Range": "4.5V - 65V",
+              "Output Voltage Range": "0.8V - 55V",
+              "Output Current": "External FETs",
+              "Efficiency": "Up to 95%",
+              "Switching Frequency": "50kHz - 1MHz"
+            },
+            "comparison": {
+              "Input Voltage Range": "4.5V - 65V > 4.5V - 40V",
+              "Output Current": "External FETs > 5A",
+              "Efficiency": "95% = 95%",
+              "Switching Frequency": "50kHz - 1MHz < 200kHz - 2MHz"
+            }
+          },
+          {
+            "partNumber": "LTC3891",
+            "brand": "Analog Devices",
+            "link": "/brands/adi/products/dc-dc/ltc3891/",
+            "reason": "Low IQ synchronous buck controller",
+            "useCase": "Alternative for low quiescent current requirements",
+            "specifications": {
+              "Input Voltage Range": "4V - 60V",
+              "Output Voltage Range": "0.8V - 55V",
+              "Output Current": "External FETs",
+              "Efficiency": "Up to 96%",
+              "Quiescent Current": "50μA"
+            },
+            "comparison": {
+              "Input Voltage Range": "4V - 60V > 4.5V - 40V",
+              "Output Current": "External FETs > 5A",
+              "Efficiency": "96% > 95%",
+              "Quiescent Current": "50μA < 2mA"
+            }
+          }
+        ],
+        "companionParts": [
+          {
+            "partNumber": "JW1763B",
+            "category": "AC-DC Converter",
+            "description": "AC-DC converter for front-end power supply",
+            "link": "/brands/joulwatt/products/ac-dc/jw1763b/"
+          },
+          {
+            "partNumber": "JW5220",
+            "category": "LDO",
+            "description": "LDO for post-regulation of sensitive rails",
+            "link": "/brands/joulwatt/products/ldo/jw5220/"
+          },
+          {
+            "partNumber": "JW5116",
+            "category": "Gate Driver",
+            "description": "Gate driver for external power stage",
+            "link": "/brands/joulwatt/products/gate-driver/jw5116/"
+          }
+        ],
+        "faqs": [
+          {
+            "question": "What is the maximum output current of JW5359?",
+            "answer": "The JW5359 can deliver up to 5A continuous output current with proper thermal management. The actual maximum current depends on input voltage, output voltage, switching frequency, and thermal conditions. With good PCB layout and the exposed pad soldered to ground plane, 5A is achievable across the operating temperature range.",
+            "decisionGuide": "5A continuous with proper thermal design; ensure exposed pad is soldered to ground plane.",
+            "keywords": ["output current", "5A", "thermal management", "exposed pad"]
+          },
+          {
+            "question": "What switching frequency should I use?",
+            "answer": "Switching frequency selection involves trade-offs: Lower frequencies (200-500kHz) provide better efficiency but require larger inductors. Higher frequencies (1-2MHz) allow smaller components but have slightly lower efficiency and higher EMI. For most applications, 500kHz offers a good balance. Use higher frequencies when board space is critical.",
+            "decisionGuide": "500kHz for general use; 200kHz for max efficiency; 1-2MHz for compact designs.",
+            "keywords": ["switching frequency", "efficiency", "component size", "EMI"]
+          },
+          {
+            "question": "What inductor value should I use?",
+            "answer": "Inductor value depends on switching frequency and ripple current requirement. A good starting point is 20-40% ripple current. For 5V output at 2A with 500kHz frequency, 4.7μH to 10μH is typical. Higher inductance reduces ripple but slows transient response. Lower inductance improves transient response but increases ripple.",
+            "decisionGuide": "Target 20-40% ripple current; 4.7-10μH typical for 500kHz applications.",
+            "keywords": ["inductor", "inductance", "ripple current", "transient response"]
+          },
+          {
+            "question": "Does JW5359 support external synchronization?",
+            "answer": "Yes, the JW5359 supports external clock synchronization. Connect the external clock to the SYNC pin. The converter will synchronize to the external frequency if it is within the valid range (typically ±20% of programmed frequency). This is useful for multi-rail systems where switching noise must be coordinated.",
+            "decisionGuide": "Yes, external sync supported; useful for multi-rail systems requiring frequency coordination.",
+            "keywords": ["synchronization", "external clock", "SYNC pin", "multi-rail"]
+          },
+          {
+            "question": "What is the power-good indicator threshold?",
+            "answer": "The power-good (PGOOD) pin indicates when the output voltage is within regulation. It typically asserts high when output is within ±5% of target voltage and deasserts when outside ±10%. This can be used for power sequencing or monitoring. The PGOOD output is open-drain and requires an external pull-up resistor.",
+            "decisionGuide": "PGOOD asserts within ±5%, deasserts outside ±10%; open-drain requires pull-up resistor.",
+            "keywords": ["power-good", "PGOOD", "threshold", "sequencing"]
+          },
+          {
+            "question": "Is JW5359 suitable for automotive applications?",
+            "answer": "Yes, the JW5359 is suitable for automotive applications with its wide input range (4.5V-40V) and extended temperature range (-40°C to +125°C). It can handle typical automotive transients including load dump. For safety-critical applications, verify specific automotive qualification requirements.",
+            "decisionGuide": "Suitable for automotive; wide input handles transients; verify qualifications for safety-critical apps.",
+            "keywords": ["automotive", "AEC-Q100", "load dump", "transient"]
+          },
+          {
+            "question": "What compensation is needed for JW5359?",
+            "answer": "The JW5359 features internal compensation that works for most applications. For specific requirements, external compensation can be added to the COMP pin. Typical compensation includes a series RC network from COMP to ground. Follow the application note for specific values based on your output capacitance and ESR.",
+            "decisionGuide": "Internal compensation sufficient for most; add external RC to COMP pin if needed.",
+            "keywords": ["compensation", "COMP pin", "stability", "loop response"]
+          }
+        ]
+      },
+      {
+        "partNumber": "JW5060",
+        "name": "JW5060 High-Current Buck Converter",
+        "category": "DC-DC Converters",
+        "shortDescription": "10A synchronous buck converter with 5V-28V input for high-power industrial applications",
+        "descriptionParagraphs": [
+          "The JW5060 is a high-current synchronous buck converter designed for demanding industrial applications. It operates from 5V to 28V input and delivers up to 10A continuous output current, making it ideal for high-power point-of-load regulation.",
+          "The device uses valley current mode control for fast transient response and easy compensation. The switching frequency is programmable from 200kHz to 1MHz. The JW5060 includes adjustable current limit, allowing optimization for specific inductor and application requirements.",
+          "Protection features include input UVLO, output OVP, cycle-by-cycle current limit, hiccup mode short-circuit protection, and thermal shutdown. The device is available in a thermally enhanced QFN-32 package suitable for high-current applications."
+        ],
+        "specifications": {
+          "Input Voltage Range": "5V - 28V",
+          "Output Voltage Range": "0.6V - 24V",
+          "Output Current": "10A max",
+          "Efficiency": "Up to 96%",
+          "Switching Frequency": "200kHz - 1MHz",
+          "Current Limit": "Adjustable",
+          "Operating Temperature": "-40°C to +125°C",
+          "Package": "QFN-32 EP"
+        },
+        "features": [
+          "10A continuous output current",
+          "Wide 5V to 28V input range",
+          "Up to 96% efficiency",
+          "Valley current mode control",
+          "Adjustable current limit",
+          "Hiccup mode short protection",
+          "External frequency sync",
+          "Power-good output"
+        ],
+        "applications": [
+          "Industrial automation",
+          "Telecom base stations",
+          "Server and storage systems",
+          "FPGA and processor power",
+          "High-current point-of-load"
+        ],
+        "faeReview": {
+          "author": "Steven Wang",
+          "title": "Senior FAE - High Power Design",
+          "content": "The JW5060 is a powerhouse buck converter for high-current applications. The 10A capability with up to 96% efficiency is impressive - I've used it to power FPGAs and processors in industrial systems. The valley current mode control provides excellent transient response; I've seen it handle 50% load steps with minimal overshoot. The adjustable current limit is useful for protecting the inductor and optimizing fault response. One critical design consideration: thermal management is essential at 10A. You need adequate copper area, thermal vias, and possibly airflow for continuous operation. I recommend at least 4-layer PCB with dedicated ground plane. The QFN package has good thermal performance when properly soldered. For the inductor, use a shielded part with low DCR - I typically use 1-2μH for 500kHz operation. Overall, an excellent high-current buck solution for industrial applications.",
+          "highlight": "High-current 10A buck converter with excellent efficiency and transient response"
+        },
+        "alternativeParts": [
+          {
+            "partNumber": "TPS546D24",
+            "brand": "Texas Instruments",
+            "link": "/brands/ti/products/dc-dc/tps546d24/",
+            "reason": "High-current synchronous buck with PMBus",
+            "useCase": "Alternative for digital power management applications",
+            "specifications": {
+              "Input Voltage Range": "4.5V - 18V",
+              "Output Voltage Range": "0.25V - 5.5V",
+              "Output Current": "40A",
+              "Efficiency": "Up to 96%",
+              "Interface": "PMBus"
+            },
+            "comparison": {
+              "Input Voltage Range": "4.5V - 18V < 5V - 28V",
+              "Output Current": "40A > 10A",
+              "Efficiency": "96% = 96%",
+              "Interface": "PMBus > None"
+            }
+          },
+          {
+            "partNumber": "LTC3618",
+            "brand": "Analog Devices",
+            "link": "/brands/adi/products/dc-dc/ltc3618/",
+            "reason": "Dual high-current synchronous buck",
+            "useCase": "Alternative for dual-rail applications",
+            "specifications": {
+              "Input Voltage Range": "2.25V - 5.5V",
+              "Output Voltage Range": "0.6V - 5V",
+              "Output Current": "4A per channel",
+              "Efficiency": "Up to 95%",
+              "Channels": "Dual"
+            },
+            "comparison": {
+              "Input Voltage Range": "2.25V - 5.5V < 5V - 28V",
+              "Output Current": "4A < 10A",
+              "Efficiency": "95% < 96%",
+              "Channels": "Dual > Single"
+            }
+          }
+        ],
+        "companionParts": [
+          {
+            "partNumber": "JW5359",
+            "category": "DC-DC",
+            "description": "Lower current buck for auxiliary rails",
+            "link": "/brands/joulwatt/products/dc-dc/jw5359/"
+          },
+          {
+            "partNumber": "JW5220",
+            "category": "LDO",
+            "description": "LDO for noise-sensitive auxiliary rails",
+            "link": "/brands/joulwatt/products/ldo/jw5220/"
+          },
+          {
+            "partNumber": "JW5116",
+            "category": "Gate Driver",
+            "description": "Gate driver for external sync FETs",
+            "link": "/brands/joulwatt/products/gate-driver/jw5116/"
+          }
+        ],
+        "faqs": [
+          {
+            "question": "What is the maximum output current of JW5060?",
+            "answer": "The JW5060 can deliver up to 10A continuous output current. This high current capability requires proper thermal management including adequate PCB copper area, thermal vias, and the exposed pad soldered to the ground plane. For continuous 10A operation, a 4-layer PCB with dedicated ground plane and possibly forced airflow is recommended.",
+            "decisionGuide": "10A continuous with proper thermal design; use 4-layer PCB with ground plane.",
+            "keywords": ["output current", "10A", "thermal design", "PCB layout"]
+          },
+          {
+            "question": "What is valley current mode control?",
+            "answer": "Valley current mode control senses inductor current during the off-time (valley) rather than peak current. This provides inherent cycle-by-cycle current limiting and allows easy compensation. The control loop responds quickly to load transients while maintaining stability with minimal external components.",
+            "decisionGuide": "Valley current mode provides fast transient response and easy compensation.",
+            "keywords": ["valley current mode", "current sensing", "transient response", "compensation"]
+          },
+          {
+            "question": "How do I set the current limit?",
+            "answer": "The JW5060 current limit is set by a resistor from the ILIM pin to ground. Calculate the resistor value based on your desired current limit using the formula in the datasheet. The adjustable current limit allows optimization for your specific inductor saturation current and application requirements.",
+            "decisionGuide": "Use resistor from ILIM to ground; calculate value from datasheet formula.",
+            "keywords": ["current limit", "ILIM pin", "resistor", "adjustable"]
+          },
+          {
+            "question": "What is hiccup mode protection?",
+            "answer": "Hiccup mode protection activates during sustained over-current or short-circuit conditions. Instead of continuous current limiting, the converter shuts down for a period, then attempts to restart. This reduces power dissipation during faults and prevents inductor saturation. If the fault persists, the cycle repeats.",
+            "decisionGuide": "Hiccup mode reduces power dissipation during faults; protects converter and load.",
+            "keywords": ["hiccup mode", "short circuit", "protection", "over-current"]
+          },
+          {
+            "question": "What inductor should I use for 10A operation?",
+            "answer": "For 10A operation, select an inductor with saturation current rating at least 12-13A (30% margin). Use shielded inductor with low DCR (under 10mΩ) for best efficiency. Inductance value depends on frequency - typically 1-2μH for 500kHz, 0.5-1μH for 1MHz. Ensure adequate PCB copper for inductor current.",
+            "decisionGuide": "Saturation current >12A; shielded with low DCR; 1-2μH for 500kHz.",
+            "keywords": ["inductor", "saturation current", "DCR", "shielded"]
+          },
+          {
+            "question": "Can JW5060 be paralleled for higher current?",
+            "answer": "The JW5060 is not designed for direct paralleling. For currents above 10A, consider using multiple converters with current sharing or select a higher current controller with external FETs. Some designs use interleaved converters with phase shifting to reduce ripple and improve transient response.",
+            "decisionGuide": "Not designed for paralleling; use multiple converters or higher current controller.",
+            "keywords": ["parallel", "current sharing", "high current", "interleaved"]
+          },
+          {
+            "question": "What thermal management is needed for 10A?",
+            "answer": "For 10A continuous operation: 1) Use 4-layer PCB with dedicated ground plane, 2) Connect exposed pad to ground with multiple thermal vias, 3) Provide adequate copper area (minimum 2 sq in), 4) Consider forced airflow for high ambient temperatures, 5) Use thermal interface material if heatsink is required. Monitor junction temperature during testing.",
+            "decisionGuide": "4-layer PCB, thermal vias, copper area, airflow; monitor junction temperature.",
+            "keywords": ["thermal management", "10A", "PCB layout", "cooling"]
+          }
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "question": "When should I use synchronous vs non-synchronous buck converters?",
+        "answer": "Use synchronous buck converters for high efficiency, especially at low output voltages or high currents where diode losses would be significant. Synchronous converters use a MOSFET instead of a diode for the low-side switch, reducing conduction losses. Non-synchronous converters are simpler and lower cost but less efficient. For currents above 2A or efficiency-critical applications, synchronous is preferred.",
+        "decisionGuide": "Synchronous for high efficiency >2A; non-synchronous for simple low-cost designs.",
+        "keywords": ["synchronous", "non-synchronous", "efficiency", "comparison"]
+      },
+      {
+        "question": "What is the difference between voltage mode and current mode control?",
+        "answer": "Voltage mode controls output voltage directly by comparing it to a reference. Current mode adds an inner current loop, controlling inductor current. Current mode provides faster transient response, inherent current limiting, and easier compensation. Voltage mode offers better noise immunity and is simpler for multi-phase designs. Most modern converters use current mode.",
+        "decisionGuide": "Current mode for fast transient and easy compensation; voltage mode for noise immunity.",
+        "keywords": ["voltage mode", "current mode", "control", "transient response"]
+      },
+      {
+        "question": "How do I calculate power dissipation in a buck converter?",
+        "answer": "Power dissipation includes conduction losses (I²×R) and switching losses. Conduction loss = IOUT² × (Rds(on)_HS × D + Rds(on)_LS × (1-D)) where D is duty cycle. Switching loss ≈ 0.5 × VIN × IOUT × (tr + tf) × fsw. Add quiescent current loss (VIN × IQ). Total efficiency = POUT / (POUT + PLOSS).",
+        "decisionGuide": "Calculate conduction and switching losses; use for thermal design and efficiency estimation.",
+        "keywords": ["power dissipation", "conduction loss", "switching loss", "efficiency"]
+      },
+      {
+        "question": "What input and output capacitors do I need?",
+        "answer": "Input capacitor: Use ceramic capacitors with low ESR, typically 10-22μF per amp of output current. Place close to IC input pins. Output capacitor: Size for ripple and transient requirements. Typically 22-100μF with low ESR. Use ceramic (X5R/X7R) or polymer capacitors. Add bulk capacitance if needed for load transients.",
+        "decisionGuide": "10-22μF per A input; 22-100μF output; ceramic or polymer with low ESR.",
+        "keywords": ["input capacitor", "output capacitor", "ESR", "ripple"]
+      },
+      {
+        "question": "How do I optimize efficiency in a buck converter?",
+        "answer": "Optimize efficiency by: 1) Select low Rds(on) MOSFETs, 2) Use low DCR inductor, 3) Optimize switching frequency (lower for light loads, higher for heavy loads), 4) Use appropriate gate drive voltage, 5) Minimize switching losses with proper dead time, 6) Use synchronous rectification, 7) Optimize inductor ripple current (20-40% of IOUT).",
+        "decisionGuide": "Low Rds(on), low DCR, optimal frequency, proper dead time for best efficiency.",
+        "keywords": ["efficiency", "optimization", "Rds(on)", "DCR", "switching frequency"]
+      }
+    ]
+  },
+  {
+    "id": "ldo",
+    "name": "LDO Regulators",
+    "slug": "ldo",
+    "description": "Low-dropout regulators for post-regulation and noise-sensitive applications",
+    "longDescription": "JoulWatt LDO regulators provide clean, stable output voltages for noise-sensitive applications. These LDOs feature low dropout voltage, high PSRR, and fast transient response. Available in various output currents and packages, they are ideal for post-regulation after switching converters or for powering sensitive analog circuits. As an authorized JoulWatt distributor, BeiLuo Electronics provides comprehensive selection guide and technical support.",
+    "image": "/assets/brands/joulwatt/ldo-category.jpg",
+    "series": [
+      {
+        "name": "JW52xx Series",
+        "description": "High PSRR LDOs for noise-sensitive applications"
+      },
+      {
+        "name": "JW51xx Series",
+        "description": "Low dropout LDOs for post-regulation"
+      }
+    ],
+    "selectionGuide": "Choose JW52xx series for noise-sensitive analog circuits requiring high PSRR. Select JW51xx series for general post-regulation applications. Consider dropout voltage, PSRR, output current, and noise requirements.",
+    "selectionGuideLink": "/brands/joulwatt/support/ldo-selection-guide/",
+    "parameters": ["Output Voltage", "Output Current", "Dropout Voltage", "PSRR", "Noise"],
+    "products": [
+      {
+        "partNumber": "JW5220",
+        "name": "JW5220 High PSRR LDO",
+        "category": "LDO Regulators",
+        "shortDescription": "High PSRR LDO with 500mA output for powering noise-sensitive RF and analog circuits",
+        "descriptionParagraphs": [
+          "The JW5220 is a high-performance low-dropout regulator designed for noise-sensitive applications. It delivers up to 500mA output current with excellent line and load regulation. The device features high PSRR (70dB at 1kHz), making it ideal for powering RF circuits, ADCs, and precision analog circuits.",
+          "The LDO operates from 2.5V to 5.5V input and provides fixed output voltages from 1.2V to 3.3V. The low 200mV dropout voltage at 500mA allows operation with minimal headroom. The fast transient response handles load steps with minimal output voltage variation.",
+          "The JW5220 includes current limit protection, thermal shutdown, and reverse current protection. The enable pin allows power sequencing and shutdown control. Available in compact SOT-23-5 and SOT-89 packages."
+        ],
+        "specifications": {
+          "Input Voltage Range": "2.5V - 5.5V",
+          "Output Voltage": "1.2V - 3.3V (fixed)",
+          "Output Current": "500mA max",
+          "Dropout Voltage": "200mV @ 500mA",
+          "PSRR": "70dB @ 1kHz",
+          "Output Noise": "50μVRMS",
+          "Quiescent Current": "100μA",
+          "Load Regulation": "±1%",
+          "Operating Temperature": "-40°C to +125°C",
+          "Package": "SOT-23-5, SOT-89"
+        },
+        "features": [
+          "High 70dB PSRR at 1kHz",
+          "500mA maximum output current",
+          "Low 200mV dropout voltage",
+          "Low 50μVRMS output noise",
+          "Fast transient response",
+          "Current limit protection",
+          "Thermal shutdown",
+          "Enable pin for power control"
+        ],
+        "applications": [
+          "RF power supplies",
+          "ADC/DAC power",
+          "Precision analog circuits",
+          "Post-regulation",
+          "Noise-sensitive systems"
+        ],
+        "faeReview": {
+          "author": "Jennifer Park",
+          "title": "Senior FAE - Analog Power",
+          "content": "The JW5220 is my go-to LDO for noise-sensitive applications. The 70dB PSRR at 1kHz is excellent for this class of LDO - I've used it to power 16-bit ADCs in precision measurement systems with great results. The 50μVRMS noise floor is low enough for most RF applications. One thing I really appreciate is the fast transient response - it handles load steps from 10mA to 500mA with minimal undershoot. The dropout voltage of 200mV at full load is competitive, allowing operation even with small input-output differentials. One design tip: use a 2.2μF or larger ceramic output capacitor for best PSRR and transient performance. Place the capacitor as close as possible to the output pin. The SOT-23-5 package is compact but can handle the thermal load if you have adequate copper area. For higher current or better thermal performance, use the SOT-89 package. Overall, an excellent high-PSRR LDO at a competitive price.",
+          "highlight": "High PSRR LDO with low noise for sensitive RF and analog applications"
+        },
+        "alternativeParts": [
+          {
+            "partNumber": "TPS7A4901",
+            "brand": "Texas Instruments",
+            "link": "/brands/ti/products/ldo/tps7a4901/",
+            "reason": "High PSRR LDO with adjustable output",
+            "useCase": "Alternative for adjustable output voltage requirements",
+            "specifications": {
+              "Input Voltage Range": "3V - 36V",
+              "Output Voltage": "Adjustable",
+              "Output Current": "150mA",
+              "PSRR": "75dB @ 1kHz",
+              "Dropout Voltage": "300mV @ 150mA"
+            },
+            "comparison": {
+              "Input Voltage Range": "3V - 36V > 2.5V - 5.5V",
+              "Output Current": "150mA < 500mA",
+              "PSRR": "75dB > 70dB",
+              "Dropout Voltage": "300mV > 200mV"
+            }
+          },
+          {
+            "partNumber": "ADP1741",
+            "brand": "Analog Devices",
+            "link": "/brands/adi/products/ldo/adp1741/",
+            "reason": "High current LDO with excellent noise performance",
+            "useCase": "Alternative for high current noise-sensitive applications",
+            "specifications": {
+              "Input Voltage Range": "1.6V - 3.6V",
+              "Output Voltage": "Adjustable",
+              "Output Current": "2A",
+              "PSRR": "60dB @ 100kHz",
+              "Dropout Voltage": "160mV @ 2A"
+            },
+            "comparison": {
+              "Input Voltage Range": "1.6V - 3.6V < 2.5V - 5.5V",
+              "Output Current": "2A > 500mA",
+              "PSRR": "60dB < 70dB",
+              "Dropout Voltage": "160mV < 200mV"
+            }
+          }
+        ],
+        "companionParts": [
+          {
+            "partNumber": "JW5359",
+            "category": "DC-DC",
+            "description": "Buck converter for pre-regulation",
+            "link": "/brands/joulwatt/products/dc-dc/jw5359/"
+          },
+          {
+            "partNumber": "JW5116",
+            "category": "Gate Driver",
+            "description": "Gate driver for switching circuits",
+            "link": "/brands/joulwatt/products/gate-driver/jw5116/"
+          },
+          {
+            "partNumber": "OPA2277",
+            "category": "Op-Amp",
+            "description": "Precision op-amp for analog signal chain",
+            "link": "/brands/ti/products/op-amp/opa2277/"
+          }
+        ],
+        "faqs": [
+          {
+            "question": "What is the PSRR of JW5220?",
+            "answer": "The JW5220 features 70dB PSRR at 1kHz, which provides excellent rejection of input power supply noise and ripple. This high PSRR makes it suitable for powering noise-sensitive circuits such as RF modules, precision ADCs, and audio codecs where power supply quality directly impacts performance.",
+            "decisionGuide": "70dB PSRR excellent for noise-sensitive applications; verify PSRR at your specific noise frequencies.",
+            "keywords": ["PSRR", "power supply rejection", "noise rejection", "70dB"]
+          },
+          {
+            "question": "What is the dropout voltage of JW5220?",
+            "answer": "The JW5220 has a dropout voltage of 200mV at the maximum 500mA output current. This low dropout allows the regulator to maintain regulation even when the input voltage is close to the output voltage. For lighter loads, the dropout voltage is proportionally lower.",
+            "decisionGuide": "200mV dropout at 500mA; ensure adequate input voltage margin for your application.",
+            "keywords": ["dropout voltage", "200mV", "low dropout", "LDO"]
+          },
+          {
+            "question": "What output capacitor should I use?",
+            "answer": "For optimal performance, use a 2.2μF or larger ceramic capacitor (X5R or X7R dielectric) on the output. Place the capacitor as close as possible to the output pin. Larger capacitance improves PSRR and transient response. ESR should be low (ceramic capacitors preferred) for best stability and noise performance.",
+            "decisionGuide": "Use 2.2μF or larger ceramic capacitor close to output pin; X5R/X7R dielectric.",
+            "keywords": ["output capacitor", "2.2μF", "ceramic", "X5R", "X7R"]
+          },
+          {
+            "question": "Is JW5220 suitable for RF applications?",
+            "answer": "Yes, the JW5220 is well-suited for RF applications due to its high PSRR (70dB) and low output noise (50μVRMS). These characteristics ensure clean power supply for RF circuits, minimizing phase noise and spurious emissions. The fast transient response also handles the varying loads typical of RF transmitters.",
+            "decisionGuide": "Excellent for RF applications; high PSRR and low noise ensure clean power for sensitive circuits.",
+            "keywords": ["RF", "radio frequency", "noise", "PSRR", "clean power"]
+          },
+          {
+            "question": "What is the quiescent current of JW5220?",
+            "answer": "The JW5220 has a quiescent current of 100μA typical. While this is higher than ultra-low power LDOs, it is reasonable for a high PSRR device. For battery-powered applications where quiescent current is critical, consider whether the improved noise performance justifies the higher current consumption.",
+            "decisionGuide": "100μA quiescent current; trade-off for high PSRR performance.",
+            "keywords": ["quiescent current", "100μA", "power consumption", "IQ"]
+          },
+          {
+            "question": "Does JW5220 have an enable pin?",
+            "answer": "Yes, the JW5220 includes an active-high enable pin that allows power sequencing and shutdown control. When disabled, the LDO enters low-power mode with reduced quiescent current. The enable pin has internal pull-down to ensure the LDO is off when the pin is floating.",
+            "decisionGuide": "Enable pin useful for power sequencing; active-high with internal pull-down.",
+            "keywords": ["enable pin", "power sequencing", "shutdown", "control"]
+          },
+          {
+            "question": "What protection features does JW5220 include?",
+            "answer": "The JW5220 includes current limit protection to prevent damage during output shorts, thermal shutdown to protect against overheating, and reverse current protection to prevent damage when output voltage exceeds input voltage. These features ensure robust operation under fault conditions.",
+            "decisionGuide": "Built-in protections ensure robust operation; thermal shutdown activates at approximately 160°C.",
+            "keywords": ["protection", "current limit", "thermal shutdown", "reverse current"]
+          }
+        ]
+      },
+      {
+        "partNumber": "JW5110",
+        "name": "JW5110 Low Dropout Regulator",
+        "category": "LDO Regulators",
+        "shortDescription": "Low dropout regulator with 1A output and 300mV dropout for post-regulation applications",
+        "descriptionParagraphs": [
+          "The JW5110 is a low-dropout regulator designed for post-regulation applications. It delivers up to 1A output current with a low 300mV dropout voltage at full load. The device is ideal for generating clean supply rails after switching converters.",
+          "The LDO operates from 2.5V to 6V input and provides fixed output voltages from 1.2V to 5V. The device features good PSRR (60dB at 1kHz) and fast transient response. The low quiescent current of 80μA makes it suitable for always-on applications.",
+          "The JW5110 includes current limit protection, thermal shutdown, and reverse polarity protection. The device is stable with ceramic output capacitors as small as 1μF. Available in SOT-223 and TO-252 packages for different thermal requirements."
+        ],
+        "specifications": {
+          "Input Voltage Range": "2.5V - 6V",
+          "Output Voltage": "1.2V - 5V (fixed)",
+          "Output Current": "1A max",
+          "Dropout Voltage": "300mV @ 1A",
+          "PSRR": "60dB @ 1kHz",
+          "Quiescent Current": "80μA",
+          "Load Regulation": "±1%",
+          "Operating Temperature": "-40°C to +125°C",
+          "Package": "SOT-223, TO-252"
+        },
+        "features": [
+          "1A maximum output current",
+          "Low 300mV dropout voltage",
+          "Good 60dB PSRR",
+          "Low 80μA quiescent current",
+          "Stable with 1μF ceramic capacitor",
+          "Current limit protection",
+          "Thermal shutdown",
+          "Multiple package options"
+        ],
+        "applications": [
+          "Post-regulation",
+          "Switching supply cleanup",
+          "Battery-powered systems",
+          "Industrial control",
+          "Consumer electronics"
+        ],
+        "faeReview": {
+          "author": "Thomas Lee",
+          "title": "Senior FAE - Power Regulation",
+          "content": "The JW5110 is a solid workhorse LDO for post-regulation applications. The 1A capability with 300mV dropout is a good balance for many applications. I frequently use it after buck converters to clean up the output and provide a quiet rail for sensitive circuits. The 60dB PSRR is adequate for most digital and mixed-signal applications, though for highly sensitive analog you might want the JW5220. One advantage of the JW5110 is stability with small output capacitors - it works fine with just 1μF, which saves cost and board space. The SOT-223 package handles 1A with reasonable copper area, while the TO-252 can do it with minimal copper. One design tip: if you're using it for post-regulation after a switching converter, place it close to the load rather than the converter to minimize noise pickup on the traces. The 80μA quiescent current is reasonable for always-on applications. Overall, a reliable and cost-effective LDO for general-purpose applications.",
+          "highlight": "1A LDO with low dropout for post-regulation and general-purpose applications"
+        },
+        "alternativeParts": [
+          {
+            "partNumber": "AMS1117",
+            "brand": "Advanced Monolithic Systems",
+            "link": "/brands/ams/products/ldo/ams1117/",
+            "reason": "Popular low-cost LDO with 1A capability",
+            "useCase": "Alternative for cost-sensitive consumer applications",
+            "specifications": {
+              "Input Voltage Range": "4.75V - 15V",
+              "Output Voltage": "Fixed/Adjustable",
+              "Output Current": "1A",
+              "Dropout Voltage": "1.15V @ 1A",
+              "Package": "SOT-223"
+            },
+            "comparison": {
+              "Input Voltage Range": "4.75V - 15V > 2.5V - 6V",
+              "Output Current": "1A = 1A",
+              "Dropout Voltage": "1.15V > 300mV",
+              "Package": "SOT-223 = SOT-223"
+            }
+          },
+          {
+            "partNumber": "NCP1117",
+            "brand": "ON Semiconductor",
+            "link": "/brands/onsemi/products/ldo/ncp1117/",
+            "reason": "Industry-standard LDO from ON Semi",
+            "useCase": "Alternative for ON Semi-based designs",
+            "specifications": {
+              "Input Voltage Range": "2.95V - 20V",
+              "Output Voltage": "Fixed/Adjustable",
+              "Output Current": "1A",
+              "Dropout Voltage": "1.2V @ 1A",
+              "Package": "SOT-223"
+            },
+            "comparison": {
+              "Input Voltage Range": "2.95V - 20V > 2.5V - 6V",
+              "Output Current": "1A = 1A",
+              "Dropout Voltage": "1.2V > 300mV",
+              "Package": "SOT-223 = SOT-223"
+            }
+          }
+        ],
+        "companionParts": [
+          {
+            "partNumber": "JW5359",
+            "category": "DC-DC",
+            "description": "Buck converter for pre-regulation",
+            "link": "/brands/joulwatt/products/dc-dc/jw5359/"
+          },
+          {
+            "partNumber": "JW5220",
+            "category": "LDO",
+            "description": "High PSRR LDO for noise-sensitive circuits",
+            "link": "/brands/joulwatt/products/ldo/jw5220/"
+          },
+          {
+            "partNumber": "JW1763B",
+            "category": "AC-DC",
+            "description": "AC-DC converter for offline power",
+            "link": "/brands/joulwatt/products/ac-dc/jw1763b/"
+          }
+        ],
+        "faqs": [
+          {
+            "question": "What is the dropout voltage of JW5110?",
+            "answer": "The JW5110 has a dropout voltage of 300mV at the maximum 1A output current. This low dropout allows efficient post-regulation even with small input-output voltage differentials. For lighter loads, the dropout voltage is proportionally lower (approximately 300mV × IOUT/1A).",
+            "decisionGuide": "300mV dropout at 1A; lower at lighter loads; suitable for post-regulation with small headroom.",
+            "keywords": ["dropout voltage", "300mV", "low dropout", "post-regulation"]
+          },
+          {
+            "question": "What is the minimum output capacitor for JW5110?",
+            "answer": "The JW5110 is stable with ceramic output capacitors as small as 1μF. This is an advantage for cost-sensitive and space-constrained applications. However, for best transient response and PSRR, a 2.2μF or larger capacitor is recommended. Use X5R or X7R dielectric for stable capacitance across temperature.",
+            "decisionGuide": "Stable with 1μF minimum; 2.2μF or larger recommended for best performance.",
+            "keywords": ["output capacitor", "1μF", "minimum", "stability"]
+          },
+          {
+            "question": "What is the quiescent current of JW5110?",
+            "answer": "The JW5110 has a quiescent current of 80μA typical. This relatively low quiescent current makes it suitable for always-on applications and battery-powered systems where standby power consumption is a concern.",
+            "decisionGuide": "80μA quiescent current suitable for always-on and battery-powered applications.",
+            "keywords": ["quiescent current", "80μA", "low power", "battery"]
+          },
+          {
+            "question": "What packages are available for JW5110?",
+            "answer": "The JW5110 is available in SOT-223 and TO-252 (DPAK) packages. The SOT-223 is compact and suitable for applications up to 500-600mA with adequate PCB copper. The TO-252 has better thermal performance and can handle the full 1A current with minimal additional heatsinking.",
+            "decisionGuide": "SOT-223 for compact designs <600mA; TO-252 for full 1A capability.",
+            "keywords": ["package", "SOT-223", "TO-252", "DPAK", "thermal"]
+          },
+          {
+            "question": "Is JW5110 suitable for post-regulation after a buck converter?",
+            "answer": "Yes, the JW5110 is ideal for post-regulation after switching converters. The 60dB PSRR provides good rejection of switching noise, and the low dropout allows efficient operation even with small voltage headroom. Use it to create clean supply rails for sensitive circuits while the switching converter handles the main power conversion efficiently.",
+            "decisionGuide": "Excellent for post-regulation; provides clean rails with good switching noise rejection.",
+            "keywords": ["post-regulation", "buck converter", "switching noise", "clean power"]
+          },
+          {
+            "question": "What is the PSRR of JW5110?",
+            "answer": "The JW5110 provides 60dB PSRR at 1kHz, which is good for general-purpose applications. This level of power supply rejection is adequate for most digital and mixed-signal circuits. For highly noise-sensitive analog applications, consider the JW5220 which offers 70dB PSRR.",
+            "decisionGuide": "60dB PSRR good for general applications; use JW5220 for highly sensitive analog circuits.",
+            "keywords": ["PSRR", "60dB", "power supply rejection", "noise"]
+          },
+          {
+            "question": "What protection features does JW5110 have?",
+            "answer": "The JW5110 includes current limit protection to prevent damage during output short circuits, thermal shutdown to protect the device from overheating, and reverse polarity protection to prevent damage if the input voltage is connected backwards. These protections ensure reliable operation under various fault conditions.",
+            "decisionGuide": "Current limit, thermal shutdown, and reverse polarity protection included.",
+            "keywords": ["protection", "current limit", "thermal shutdown", "reverse polarity"]
+          }
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "question": "When should I use an LDO vs a DC-DC converter?",
+        "answer": "Use an LDO when the voltage differential is small (under 1V), when low noise is critical, or for simple cost-sensitive designs. LDOs have no switching noise but lower efficiency with large voltage drops. Use a DC-DC converter when the voltage differential is large, when high efficiency is required, or when minimizing heat generation is important.",
+        "decisionGuide": "LDO for small drops and noise-sensitive circuits; DC-DC for large drops and high efficiency.",
+        "keywords": ["LDO", "DC-DC", "comparison", "selection"]
+      },
+      {
+        "question": "What is PSRR and why is it important?",
+        "answer": "PSRR (Power Supply Rejection Ratio) measures how well an LDO rejects noise and ripple from the input power supply. Higher PSRR means better noise rejection. It is important for sensitive analog circuits where power supply noise can affect performance. PSRR is typically specified in dB and varies with frequency.",
+        "decisionGuide": "Higher PSRR better for noise-sensitive circuits; 70dB+ for sensitive analog applications.",
+        "keywords": ["PSRR", "power supply rejection", "noise", "ripple"]
+      },
+      {
+        "question": "What is dropout voltage?",
+        "answer": "Dropout voltage is the minimum input-to-output voltage differential required for the LDO to maintain regulation. Below this voltage, the output will follow the input (drop out of regulation). Lower dropout voltage allows operation with smaller headroom, which is important for battery applications and post-regulation.",
+        "decisionGuide": "Lower dropout better for battery and post-regulation applications; 200-300mV typical.",
+        "keywords": ["dropout voltage", "headroom", "regulation", "LDO"]
+      },
+      {
+        "question": "What output capacitor is best for LDOs?",
+          "answer": "Ceramic capacitors with X5R or X7R dielectric are preferred for LDOs due to their low ESR and stable capacitance. Typical values range from 1μF to 10μF depending on the LDO and application requirements. Place the capacitor as close as possible to the output pin for best stability and transient response.",
+        "decisionGuide": "Ceramic capacitors 1-10μF; X5R/X7R dielectric; place close to output pin.",
+        "keywords": ["output capacitor", "ceramic", "X5R", "X7R", "ESR"]
+      },
+      {
+        "question": "How do I calculate LDO power dissipation?",
+        "answer": "LDO power dissipation is calculated as P = (VIN - VOUT) × IOUT + VIN × IQ. The first term is the main dissipation from voltage drop across the regulator. The second term is quiescent power. For example, with 5V input, 3.3V output, 500mA load, and 100μA quiescent: P = (5-3.3) × 0.5 + 5 × 0.0001 = 0.85W + 0.0005W ≈ 0.85W.",
+        "decisionGuide": "P = (VIN - VOUT) × IOUT; verify thermal capability; consider heat sinking if needed.",
+        "keywords": ["power dissipation", "thermal", "calculation", "heat"]
+      }
+    ]
+  },
+  {
+    "id": "gate-driver",
+    "name": "Gate Drivers",
+    "slug": "gate-driver",
+    "description": "High-speed MOSFET and IGBT gate drivers for power switching applications",
+    "longDescription": "JoulWatt gate drivers provide fast switching of power MOSFETs and IGBTs in switching power supplies, motor drives, and inverter applications. These drivers feature high source/sink currents, fast propagation delays, and robust protection features. Available in single and dual configurations, they are essential for efficient power switching. As an authorized JoulWatt distributor, BeiLuo Electronics provides comprehensive selection guide and technical support.",
+    "image": "/assets/brands/joulwatt/gate-driver-category.jpg",
+    "series": [
+      {
+        "name": "JW511x Series",
+        "description": "High-speed low-side gate drivers"
+      },
+      {
+        "name": "JW512x Series",
+        "description": "Half-bridge gate drivers"
+      }
+    ],
+    "selectionGuide": "Choose JW511x series for single low-side MOSFET driving. Select JW512x series for half-bridge applications. Consider peak current capability, propagation delay, and package requirements.",
+    "selectionGuideLink": "/brands/joulwatt/support/gate-driver-selection-guide/",
+    "parameters": ["Peak Current", "Propagation Delay", "Supply Voltage", "Input Type", "Package"],
+    "products": [
+      {
+        "partNumber": "JW5116",
+        "name": "JW5116 Single Gate Driver",
+        "category": "Gate Drivers",
+        "shortDescription": "High-speed single channel gate driver with 4A peak current for fast MOSFET switching",
+        "descriptionParagraphs": [
+          "The JW5116 is a high-speed single channel gate driver designed for driving N-channel MOSFETs and IGBTs. It provides 4A peak source and sink current for fast switching of power devices, minimizing switching losses in power converters.",
+          "The driver features fast propagation delay (typical 25ns) with excellent delay matching between channels. The wide 4.5V to 20V supply voltage range accommodates various MOSFET gate drive requirements. The device includes under-voltage lockout (UVLO) to ensure proper MOSFET operation.",
+          "The JW5116 accepts TTL/CMOS compatible inputs and provides rail-to-rail output drive. The split output configuration allows independent control of turn-on and turn-off speeds. Available in compact SOT-23-5 and SOIC-8 packages."
+        ],
+        "specifications": {
+          "Peak Source Current": "4A",
+          "Peak Sink Current": "4A",
+          "Supply Voltage Range": "4.5V - 20V",
+          "Propagation Delay": "25ns typical",
+          "Rise Time": "10ns (1nF load)",
+          "Fall Time": "8ns (1nF load)",
+          "Input Type": "TTL/CMOS compatible",
+          "UVLO Threshold": "4.0V typical",
+          "Operating Temperature": "-40°C to +125°C",
+          "Package": "SOT-23-5, SOIC-8"
+        },
+        "features": [
+          "4A peak source/sink current",
+          "Fast 25ns propagation delay",
+          "Wide 4.5V to 20V supply range",
+          "TTL/CMOS compatible inputs",
+          "Rail-to-rail output drive",
+          "Split output configuration",
+          "Under-voltage lockout",
+          "Compact packages"
+        ],
+        "applications": [
+          "Switching power supplies",
+          "DC-DC converters",
+          "Motor drives",
+          "Class-D amplifiers",
+          "Power inverters"
+        ],
+        "faeReview": {
+          "author": "Kevin Chen",
+          "title": "Senior FAE - Power Electronics",
+          "content": "The JW5116 is a reliable gate driver for fast switching applications. The 4A peak current is sufficient for driving most power MOSFETs up to about 50A drain current. I've used this driver in numerous DC-DC converter designs with excellent results. The 25ns propagation delay is fast enough for switching frequencies up to several MHz. One feature I really like is the split output - you can add different gate resistors to the source and sink paths to independently control turn-on and turn-off speeds. This is useful for managing EMI and switching losses. The TTL/CMOS compatible inputs work well with various controllers. One design tip: place the gate driver as close as possible to the MOSFET gate to minimize parasitic inductance in the gate loop. Use a small series resistor (typically 2-10Ω) to dampen ringing. The UVLO ensures the MOSFET doesn't operate with insufficient gate voltage. Overall, a solid gate driver at a competitive price point.",
+          "highlight": "High-speed gate driver with 4A peak current for fast MOSFET switching"
+        },
+        "alternativeParts": [
+          {
+            "partNumber": "UCC27517",
+            "brand": "Texas Instruments",
+            "link": "/brands/ti/products/gate-driver/ucc27517/",
+            "reason": "Single channel gate driver with similar performance",
+            "useCase": "Alternative for TI-based designs",
+            "specifications": {
+              "Peak Source Current": "4A",
+              "Peak Sink Current": "4A",
+              "Supply Voltage Range": "4.5V - 18V",
+              "Propagation Delay": "17ns",
+              "Package": "SOT-23"
+            },
+            "comparison": {
+              "Peak Source Current": "4A = 4A",
+              "Peak Sink Current": "4A = 4A",
+              "Supply Voltage Range": "4.5V - 18V < 4.5V - 20V",
+              "Propagation Delay": "17ns < 25ns",
+              "Package": "SOT-23 = SOT-23-5"
+            }
+          },
+          {
+            "partNumber": "MIC4427",
+            "brand": "Microchip",
+            "link": "/brands/microchip/products/gate-driver/mic4427/",
+            "reason": "High-speed MOSFET driver from Microchip",
+            "useCase": "Alternative for dual driver applications",
+            "specifications": {
+              "Peak Source Current": "6A",
+              "Peak Sink Current": "6A",
+              "Supply Voltage Range": "4.5V - 18V",
+              "Propagation Delay": "30ns",
+              "Package": "SOIC-8"
+            },
+            "comparison": {
+              "Peak Source Current": "6A > 4A",
+              "Peak Sink Current": "6A > 4A",
+              "Supply Voltage Range": "4.5V - 18V < 4.5V - 20V",
+              "Propagation Delay": "30ns > 25ns",
+              "Package": "SOIC-8 = SOIC-8"
+            }
+          }
+        ],
+        "companionParts": [
+          {
+            "partNumber": "JW5359",
+            "category": "DC-DC",
+            "description": "Buck converter for gate drive power supply",
+            "link": "/brands/joulwatt/products/dc-dc/jw5359/"
+          },
+          {
+            "partNumber": "IPD60R600E6",
+            "category": "MOSFET",
+            "description": "Power MOSFET for switching applications",
+            "link": "/brands/infineon/products/mosfet/ipd60r600e6/"
+          },
+          {
+            "partNumber": "JW5220",
+            "category": "LDO",
+            "description": "LDO for controller power supply",
+            "link": "/brands/joulwatt/products/ldo/jw5220/"
+          }
+        ],
+        "faqs": [
+          {
+            "question": "What is the peak current of JW5116?",
+            "answer": "The JW5116 provides 4A peak source and sink current. This high peak current enables fast charging and discharging of MOSFET gate capacitance, resulting in fast switching transitions. The peak current capability is sufficient for driving most power MOSFETs up to approximately 50A drain current rating.",
+            "decisionGuide": "4A peak current suitable for MOSFETs up to ~50A; sufficient for most switching applications.",
+            "keywords": ["peak current", "4A", "gate drive", "switching speed"]
+          },
+          {
+            "question": "What is the propagation delay of JW5116?",
+            "answer": "The JW5116 features a typical propagation delay of 25ns from input to output. This fast propagation delay ensures minimal delay between control signal and MOSFET switching, which is important for high-frequency converters and precise timing applications.",
+            "decisionGuide": "25ns propagation delay suitable for high-frequency switching up to several MHz.",
+            "keywords": ["propagation delay", "25ns", "timing", "high frequency"]
+          },
+          {
+            "question": "What gate resistor should I use?",
+            "answer": "Gate resistor selection involves trade-offs between switching speed and EMI. Typical values range from 2Ω to 20Ω. Lower values provide faster switching but more ringing and EMI. Higher values reduce ringing but increase switching losses. Start with 5-10Ω and adjust based on oscilloscope measurements of gate waveform.",
+            "decisionGuide": "Start with 5-10Ω; lower for speed, higher for EMI reduction; verify with measurements.",
+            "keywords": ["gate resistor", "switching speed", "EMI", "ringing"]
+          },
+          {
+            "question": "What is split output configuration?",
+            "answer": "Split output provides separate source and sink paths, allowing independent gate resistors for turn-on and turn-off. This enables optimization of switching speeds - typically faster turn-off to minimize switching losses, with slower turn-on to reduce EMI. The JW5116 supports this configuration with separate output pins.",
+            "decisionGuide": "Split output allows independent turn-on/turn-off optimization; use different resistors for each.",
+            "keywords": ["split output", "source", "sink", "turn-on", "turn-off"]
+          },
+          {
+            "question": "What supply voltage should I use?",
+            "answer": "The supply voltage should match the MOSFET's recommended gate drive voltage, typically 10V-12V for standard MOSFETs or 5V for logic-level MOSFETs. The JW5116 supports 4.5V to 20V supply range. Higher gate voltage reduces Rds(on) but increases gate drive losses. Use the minimum voltage that provides adequate Rds(on) for your application.",
+            "decisionGuide": "10-12V for standard MOSFETs; 5V for logic-level; use minimum adequate voltage.",
+            "keywords": ["supply voltage", "gate drive", "10V", "12V", "logic level"]
+          },
+          {
+            "question": "How do I minimize gate drive loop inductance?",
+            "answer": "Minimize gate drive loop inductance by: 1) Place gate driver close to MOSFET (<10mm if possible), 2) Use short, wide traces for gate connection, 3) Minimize loop area between gate driver output, gate resistor, and MOSFET gate, 4) Use ground plane under gate drive traces, 5) Consider using a gate drive transformer for isolated applications.",
+            "decisionGuide": "Place driver close to MOSFET; short wide traces; minimize loop area.",
+            "keywords": ["gate drive", "inductance", "layout", "parasitic", "loop area"]
+          },
+          {
+            "question": "What is UVLO and why is it important?",
+            "answer": "UVLO (Under-Voltage Lockout) prevents the gate driver from operating when supply voltage is too low to properly enhance the MOSFET. Operating with insufficient gate voltage causes high Rds(on) and excessive power dissipation. The JW5116 includes UVLO with 4.0V typical threshold to ensure reliable operation.",
+            "decisionGuide": "UVLO ensures proper MOSFET enhancement; prevents damage from insufficient gate voltage.",
+            "keywords": ["UVLO", "under-voltage lockout", "protection", "gate voltage"]
+          }
+        ]
+      },
+      {
+        "partNumber": "JW5120",
+        "name": "JW5120 Half-Bridge Driver",
+        "category": "Gate Drivers",
+        "shortDescription": "High-speed half-bridge gate driver with 3A output and adaptive shoot-through protection",
+        "descriptionParagraphs": [
+          "The JW5120 is a high-speed half-bridge gate driver designed for driving N-channel MOSFETs in half-bridge configurations. It provides 3A peak source and sink current for both high-side and low-side MOSFETs, enabling efficient power conversion in DC-DC converters and motor drives.",
+          "The driver features adaptive shoot-through protection with adjustable dead time, preventing simultaneous conduction of both MOSFETs. The bootstrap supply for the high-side driver supports operation up to 600V. The wide 10V to 20V supply range accommodates various MOSFET requirements.",
+          "The JW5120 includes under-voltage lockout for both high-side and low-side supplies, ensuring proper operation. The device accepts TTL/CMOS compatible inputs with excellent noise immunity. Available in SOIC-8 and DIP-8 packages."
+        ],
+        "specifications": {
+          "Peak Source Current": "3A",
+          "Peak Sink Current": "3A",
+          "High-Side Voltage": "Up to 600V",
+          "Supply Voltage Range": "10V - 20V",
+          "Propagation Delay": "50ns typical",
+          "Dead Time": "Adjustable",
+          "Bootstrap Voltage": "Up to 620V",
+          "UVLO Threshold": "8.5V typical",
+          "Operating Temperature": "-40°C to +125°C",
+          "Package": "SOIC-8, DIP-8"
+        },
+        "features": [
+          "3A peak source/sink current",
+          "600V high-side capability",
+          "Adaptive shoot-through protection",
+          "Adjustable dead time",
+          "Bootstrap supply for high-side",
+          "UVLO for both sides",
+          "TTL/CMOS compatible inputs",
+          "Excellent noise immunity"
+        ],
+        "applications": [
+          "Half-bridge DC-DC converters",
+          "Motor drives",
+          "Class-D amplifiers",
+          "Power inverters",
+          "SMPS"
+        ],
+        "faeReview": {
+          "author": "Michael Zhang",
+          "title": "Senior FAE - Motor Drive Applications",
+          "content": "The JW5120 is a reliable half-bridge driver for medium-power applications. The 3A gate drive is sufficient for MOSFETs up to about 100A drain current. The adaptive shoot-through protection is a key safety feature - I've seen it save designs from catastrophic failure during transients. The 600V high-side capability handles most offline and industrial applications. One important design consideration: the bootstrap capacitor must be sized properly based on switching frequency and gate charge. I typically use 0.1μF to 1μF depending on the application. The bootstrap diode should be a fast recovery or Schottky type. For high-frequency applications (>100kHz), pay attention to bootstrap capacitor refresh time. The dead time adjustment allows optimization for your specific MOSFETs - measure the switching waveforms and adjust for minimum dead time without shoot-through. The SOIC-8 package is compact but requires good PCB layout for thermal management at high switching frequencies. Overall, a solid half-bridge driver for industrial and consumer applications.",
+          "highlight": "Half-bridge driver with 600V high-side capability and adaptive shoot-through protection"
+        },
+        "alternativeParts": [
+          {
+            "partNumber": "IR2104",
+            "brand": "Infineon",
+            "link": "/brands/infineon/products/gate-driver/ir2104/",
+            "reason": "Popular half-bridge driver from Infineon",
+            "useCase": "Alternative for Infineon-based designs",
+            "specifications": {
+              "Peak Source Current": "130mA",
+              "Peak Sink Current": "270mA",
+              "High-Side Voltage": "Up to 600V",
+              "Supply Voltage Range": "10V - 20V",
+              "Package": "DIP-8, SOIC-8"
+            },
+            "comparison": {
+              "Peak Source Current": "130mA < 3A",
+              "Peak Sink Current": "270mA < 3A",
+              "High-Side Voltage": "600V = 600V",
+              "Package": "DIP-8, SOIC-8 = DIP-8, SOIC-8"
+            }
+          },
+          {
+            "partNumber": "UCC27714",
+            "brand": "Texas Instruments",
+            "link": "/brands/ti/products/gate-driver/ucc27714/",
+            "reason": "High-speed half-bridge driver from TI",
+            "useCase": "Alternative for high-speed applications",
+            "specifications": {
+              "Peak Source Current": "4A",
+              "Peak Sink Current": "4A",
+              "High-Side Voltage": "Up to 600V",
+              "Supply Voltage Range": "10V - 20V",
+              "Propagation Delay": "30ns"
+            },
+            "comparison": {
+              "Peak Source Current": "4A > 3A",
+              "Peak Sink Current": "4A > 3A",
+              "High-Side Voltage": "600V = 600V",
+              "Propagation Delay": "30ns < 50ns"
+            }
+          }
+        ],
+        "companionParts": [
+          {
+            "partNumber": "JW5359",
+            "category": "DC-DC",
+            "description": "Buck converter for low-voltage supply",
+            "link": "/brands/joulwatt/products/dc-dc/jw5359/"
+          },
+          {
+            "partNumber": "IPP110N20N3",
+            "category": "MOSFET",
+            "description": "200V MOSFET for half-bridge applications",
+            "link": "/brands/infineon/products/mosfet/ipp110n20n3/"
+          },
+          {
+            "partNumber": "JW1763B",
+            "category": "AC-DC",
+            "description": "AC-DC converter for offline power",
+            "link": "/brands/joulwatt/products/ac-dc/jw1763b/"
+          }
+        ],
+        "faqs": [
+          {
+            "question": "What is the high-side voltage capability of JW5120?",
+            "answer": "The JW5120 supports high-side operation up to 600V. This high voltage capability is achieved through a bootstrap supply that powers the high-side driver. The bootstrap capacitor is charged from the low-side supply when the low-side MOSFET is on, then provides power to the high-side driver when the high-side MOSFET is on.",
+            "decisionGuide": "600V high-side capability suitable for offline and industrial applications.",
+            "keywords": ["high-side", "600V", "bootstrap", "voltage capability"]
+          },
+          {
+            "question": "What is shoot-through protection?",
+            "answer": "Shoot-through protection prevents both high-side and low-side MOSFETs from conducting simultaneously, which would create a short circuit across the supply. The JW5120 includes adaptive shoot-through protection with adjustable dead time - a deliberate delay between turning off one MOSFET and turning on the other to ensure no overlap.",
+            "decisionGuide": "Adaptive shoot-through protection with adjustable dead time prevents catastrophic short circuits.",
+            "keywords": ["shoot-through", "protection", "dead time", "short circuit"]
+          },
+          {
+            "question": "How do I size the bootstrap capacitor?",
+            "answer": "Size the bootstrap capacitor based on gate charge of the high-side MOSFET and switching frequency. A general rule is CBOOT = 10 × QGATE / VBOOT, where QGATE is total gate charge. Typical values range from 0.1μF to 1μF. Use a low-ESR ceramic capacitor (X5R or X7R) rated for at least 25V.",
+            "decisionGuide": "CBOOT = 10 × QGATE / VBOOT; typically 0.1-1μF; use low-ESR ceramic capacitor.",
+            "keywords": ["bootstrap capacitor", "gate charge", "sizing", "calculation"]
+          },
+          {
+            "question": "What is dead time and how do I set it?",
+            "answer": "Dead time is the delay between turning off one MOSFET and turning on the other in a half-bridge. It prevents shoot-through while minimizing conduction losses. Set dead time based on MOSFET turn-off delay - typically 100-500ns. Measure the switching waveforms and adjust for minimum dead time without observing shoot-through current.",
+            "decisionGuide": "Set based on MOSFET turn-off time; 100-500ns typical; verify with measurements.",
+            "keywords": ["dead time", "shoot-through", "delay", "adjustment"]
+          },
+          {
+            "question": "What bootstrap diode should I use?",
+            "answer": "Use a fast recovery diode or Schottky diode for the bootstrap supply. The diode must have voltage rating higher than the high-side voltage (600V+ for JW5120) and current rating sufficient for charging the bootstrap capacitor. Reverse recovery time should be fast (<100ns) to minimize losses.",
+            "decisionGuide": "Fast recovery or Schottky diode; 600V+ rating; fast reverse recovery.",
+            "keywords": ["bootstrap diode", "fast recovery", "Schottky", "reverse recovery"]
+          },
+          {
+            "question": "How do I layout a half-bridge driver?",
+            "answer": "For half-bridge layout: 1) Place driver close to both MOSFETs, 2) Minimize gate loop area for both high and low side, 3) Keep bootstrap capacitor close to driver pins, 4) Use ground plane under driver and power stage, 5) Separate power ground from signal ground, 6) Use Kelvin connection for current sense if needed.",
+            "decisionGuide": "Minimize gate loops; place bootstrap cap close; use ground plane; separate grounds.",
+            "keywords": ["layout", "half-bridge", "gate loop", "bootstrap", "grounding"]
+          },
+          {
+            "question": "What is the difference between half-bridge and full-bridge drivers?",
+            "answer": "A half-bridge drives two MOSFETs (high-side and low-side) and produces a switched output between ground and supply voltage. A full-bridge (H-bridge) uses two half-bridges to drive four MOSFETs, allowing bidirectional current flow and output voltage from -V to +V. Half-bridges are used in buck converters and single-ended applications; full-bridges in motor drives and inverters.",
+            "decisionGuide": "Half-bridge for buck converters; full-bridge for motor drives and bidirectional applications.",
+            "keywords": ["half-bridge", "full-bridge", "H-bridge", "comparison"]
+          }
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Why do I need a gate driver instead of driving MOSFETs directly from a microcontroller?",
+        "answer": "Microcontrollers cannot provide sufficient gate drive current for fast switching of power MOSFETs. Slow switching causes high switching losses and poor efficiency. Gate drivers provide high peak current (2-10A) for fast gate charging/discharging, resulting in fast switching transitions, low losses, and reliable operation.",
+        "decisionGuide": "Use gate drivers for fast switching; MCUs lack sufficient drive current for power MOSFETs.",
+        "keywords": ["gate driver", "microcontroller", "drive current", "switching speed"]
+      },
+      {
+        "question": "What is the difference between low-side and half-bridge drivers?",
+        "answer": "Low-side drivers control a single MOSFET with source grounded. They are simple and low cost. Half-bridge drivers control two MOSFETs (high-side with floating source, low-side grounded) and are used in buck converters, motor drives, and inverters. Half-bridge drivers require bootstrap or isolated supplies for the high-side.",
+        "decisionGuide": "Low-side for simple applications; half-bridge for buck converters and motor drives.",
+        "keywords": ["low-side", "half-bridge", "high-side", "comparison"]
+      },
+      {
+        "question": "How do I calculate gate drive power requirements?",
+        "answer": "Gate drive power is P = QG × VGS × fSW, where QG is total gate charge, VGS is gate drive voltage, and fSW is switching frequency. For example, with 50nC gate charge, 12V drive, and 100kHz frequency: P = 50nC × 12V × 100kHz = 60mW. This power is dissipated in the gate driver and gate resistor.",
+        "decisionGuide": "P = QG × VGS × fSW; calculate for thermal design of gate driver.",
+        "keywords": ["gate drive power", "gate charge", "switching frequency", "calculation"]
+      },
+      {
+        "question": "What causes gate ringing and how do I prevent it?",
+        "answer": "Gate ringing is caused by parasitic inductance in the gate loop resonating with MOSFET gate capacitance. Prevent it by: 1) Minimizing gate loop area, 2) Using gate resistor (2-20Ω), 3) Adding ferrite bead in series with gate, 4) Using RC snubber if needed, 5) Proper PCB layout with ground plane.",
+        "decisionGuide": "Minimize loop area; use gate resistor; ferrite bead; proper layout.",
+        "keywords": ["gate ringing", "oscillation", "parasitic", "prevention"]
+      },
+      {
+        "question": "When should I use a gate drive transformer?",
+        "answer": "Use gate drive transformers for isolated applications where the control circuit and power stage must be galvanically isolated. Transformers provide isolation and can drive high-side MOSFETs without bootstrap supplies. They are common in offline converters, motor drives, and applications requiring safety isolation.",
+        "decisionGuide": "Use transformers for isolated applications; bootstrap for non-isolated half-bridges.",
+        "keywords": ["gate drive transformer", "isolation", "bootstrap", "galvanic"]
+      }
+    ]
+  }
+];
+
+// Add the new categories to products
+products.categories = [...products.categories, ...additionalCategories];
+
+// Add root-level FAQs
+products.faqs = [
+  {
+    "question": "What types of power management ICs does JoulWatt offer?",
+    "answer": "JoulWatt offers a comprehensive portfolio of power management ICs including AC-DC converters for offline power supplies, DC-DC converters for point-of-load regulation, LDO regulators for post-regulation, and gate drivers for power switching applications. These products are designed for industrial, automotive, and consumer applications.",
+    "decisionGuide": "Choose AC-DC for offline power, DC-DC for voltage conversion, LDO for post-regulation, gate drivers for MOSFET control.",
+    "keywords": ["JoulWatt", "power management", "AC-DC", "DC-DC", "LDO", "gate driver"]
+  },
+  {
+    "question": "What is the efficiency of JoulWatt DC-DC converters?",
+    "answer": "JoulWatt synchronous buck converters achieve up to 95-96% efficiency under optimal conditions. The high efficiency is achieved through synchronous rectification, low Rds(on) MOSFETs, and optimized switching. Actual efficiency depends on input voltage, output voltage, and load current.",
+    "decisionGuide": "Up to 95-96% efficiency; excellent for thermally constrained applications.",
+    "keywords": ["efficiency", "95%", "96%", "DC-DC", "synchronous"]
+  },
+  {
+    "question": "Does JoulWatt offer automotive-qualified products?",
+    "answer": "Yes, JoulWatt offers automotive-grade products qualified to AEC-Q100 standards. These products feature extended temperature range (-40°C to +125°C) and enhanced reliability for automotive applications including infotainment, ADAS, and body electronics.",
+    "decisionGuide": "AEC-Q100 qualified products available; suitable for automotive applications.",
+    "keywords": ["automotive", "AEC-Q100", "qualified", "reliability"]
+  },
+  {
+    "question": "What protection features do JoulWatt products include?",
+    "answer": "JoulWatt products include comprehensive protection features: over-voltage protection (OVP), under-voltage lockout (UVLO), over-current protection (OCP), short-circuit protection (SCP), and thermal shutdown. These protections ensure safe and reliable operation under fault conditions.",
+    "decisionGuide": "Comprehensive protections included; suitable for safety-critical applications.",
+    "keywords": ["protection", "OVP", "UVLO", "OCP", "thermal shutdown"]
+  },
+  {
+    "question": "How do I select the right JoulWatt product for my application?",
+    "answer": "Product selection depends on your requirements: AC-DC for offline power (85-265VAC), DC-DC for DC voltage conversion, LDO for post-regulation or noise-sensitive circuits, gate drivers for MOSFET control. Consider voltage range, current requirements, efficiency needs, and package constraints. Contact BeiLuo Electronics FAE for selection assistance.",
+    "decisionGuide": "Match product type to application; consider voltage, current, efficiency; contact FAE for assistance.",
+    "keywords": ["selection", "application", "requirements", "FAE support"]
+  }
+];
+
+// Write back
+fs.writeFileSync(productsPath, JSON.stringify(products, null, 2));
+console.log("✅ Added 3 new categories to products.json:");
+console.log("  - DC-DC Converters (2 products)");
+console.log("  - LDO Regulators (2 products)");
+console.log("  - Gate Drivers (2 products)");
+console.log("Total categories:", products.categories.length);
+console.log("✅ Added root-level FAQs");

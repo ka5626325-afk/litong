@@ -1,0 +1,1047 @@
+#!/usr/bin/env node
+/**
+ * Generate complete Longsys products.json with all categories
+ */
+
+const fs = require('fs');
+const path = require('path');
+
+const dataDir = path.join(__dirname, '..', 'data', 'longsys');
+
+// Read existing file
+const productsPath = path.join(dataDir, 'products.json');
+let products = JSON.parse(fs.readFileSync(productsPath, 'utf8'));
+
+// Add remaining categories
+const additionalCategories = [
+  {
+    "id": "solid-state-drives",
+    "name": "Solid State Drives",
+    "slug": "solid-state-drives",
+    "description": "Longsys SSDs provide high-performance, reliable storage for consumer, industrial, and enterprise applications with SATA and NVMe interfaces.",
+    "longDescription": "Longsys solid-state drives deliver high-performance, reliable storage solutions for diverse applications. The comprehensive portfolio includes SATA III SSDs for mainstream applications and NVMe PCIe SSDs for high-performance requirements. Available in multiple form factors including 2.5-inch, M.2, and mSATA, these SSDs serve consumer upgrades, industrial systems, and enterprise servers. With capacities ranging from 128GB to 8TB and endurance ratings from consumer to industrial grades, Longsys SSDs offer solutions for every application. Advanced features include power-loss protection, hardware encryption, and thermal throttling for reliable operation. As an authorized Longsys distributor, LiTong provides comprehensive selection guidance, technical support, and reliable supply chain services for these essential storage components.",
+    "series": [
+      "SATA III 2.5-inch Series",
+      "NVMe M.2 Series",
+      "Industrial SSD Series",
+      "Enterprise SSD Series"
+    ],
+    "parameters": [
+      "Capacity",
+      "Interface",
+      "Form Factor",
+      "Sequential Read",
+      "Sequential Write",
+      "Endurance (TBW)"
+    ],
+    "applications": [
+      "Consumer PCs",
+      "Industrial Systems",
+      "Enterprise Servers",
+      "Data Centers",
+      "Gaming Systems"
+    ],
+    "selectionGuide": {
+      "title": "SSD Selection Guide",
+      "description": "Comprehensive guide for selecting SSDs based on performance, capacity, and application requirements",
+      "articleId": "ssd-selection-guide",
+      "articleLink": "/longsys/support/ssd-selection-guide.html"
+    },
+    "selectionGuideLink": {
+      "url": "/longsys/support/ssd-selection-guide.html",
+      "text": "SSD Selection Guide"
+    },
+    "faqs": [
+      {
+        "question": "What is the difference between SATA and NVMe SSDs?",
+        "answer": "SATA SSDs use the SATA III interface with maximum theoretical speed of 6Gbps (约550MB/s). NVMe SSDs use PCIe interface with speeds up to 7GB/s for PCIe 4.0 x4. NVMe offers significantly lower latency and higher IOPS, making it ideal for high-performance applications. SATA remains popular for cost-sensitive applications and legacy system upgrades. Longsys offers both interfaces to match specific performance and budget requirements.",
+        "decisionGuide": "Select NVMe for high-performance applications, SATA for cost-sensitive or legacy upgrades.",
+        "keywords": ["SATA vs NVMe", "SSD interface", "NVMe performance"]
+      },
+      {
+        "question": "What is TBW and why does it matter?",
+        "answer": "TBW (Terabytes Written) indicates the total amount of data that can be written to an SSD before wear-out. Consumer SSDs typically offer 150-600 TBW, while industrial SSDs offer 1000+ TBW. Higher TBW ratings indicate longer lifespan for write-intensive applications. TBW is calculated based on NAND P/E cycles and over-provisioning. For typical consumer use, even 150 TBW provides several years of service life.",
+        "decisionGuide": "Select higher TBW for write-intensive applications like video editing or database servers.",
+        "keywords": ["TBW rating", "SSD endurance", "SSD lifespan"]
+      },
+      {
+        "question": "What form factor should I choose for my application?",
+        "answer": "2.5-inch SATA is ideal for laptop upgrades and desktop systems. M.2 2280 is the most common form factor for modern systems supporting both SATA and NVMe. M.2 2242/2230 are for compact devices. mSATA is for legacy industrial systems. U.2 is for enterprise servers. Choose based on your system's physical space and interface support.",
+        "decisionGuide": "Check your system's available slots and interface support before selecting form factor.",
+        "keywords": ["SSD form factor", "M.2 SSD", "2.5-inch SSD"]
+      },
+      {
+        "question": "Do Longsys SSDs support hardware encryption?",
+        "answer": "Yes, Longsys SSDs support AES-256 hardware encryption through TCG Opal 2.0 and IEEE 1667 standards. Hardware encryption provides full-disk security without performance penalty. The encryption engine operates at full interface speed, ensuring no slowdown during encrypted operations. This feature is essential for protecting sensitive data on laptops and enterprise systems.",
+        "decisionGuide": "Enable hardware encryption for systems containing sensitive data.",
+        "keywords": ["SSD encryption", "TCG Opal", "AES-256"]
+      },
+      {
+        "question": "What is power-loss protection in SSDs?",
+        "answer": "Power-loss protection uses onboard capacitors to provide emergency power during unexpected shutdowns. This allows the SSD to complete in-flight writes and flush the DRAM cache to NAND, preventing data corruption. Industrial and enterprise SSDs include this feature as standard. Consumer SSDs may offer basic protection through firmware algorithms without dedicated capacitors.",
+        "decisionGuide": "Power-loss protection is essential for industrial and enterprise applications.",
+        "keywords": ["power-loss protection", "PLP", "SSD data protection"]
+      }
+    ],
+    "products": [
+      {
+        "partNumber": "FS01TB-35M41",
+        "name": "1TB SATA III 2.5-inch SSD",
+        "shortDescription": "High-capacity 1TB SATA III SSD with 2.5-inch form factor, sequential read up to 560MB/s for consumer and industrial applications",
+        "descriptionParagraphs": [
+          "The FS01TB-35M41 is a high-capacity SATA III SSD delivering reliable performance for consumer and industrial applications.",
+          "With 1TB capacity, 560MB/s sequential read speed, and 2.5-inch form factor, it is ideal for laptop upgrades and industrial systems.",
+          "The drive includes advanced error correction, wear leveling, and optional power-loss protection for data integrity."
+        ],
+        "specifications": {
+          "Capacity": "1TB",
+          "Interface": "SATA III 6Gbps",
+          "Form Factor": "2.5-inch (7mm)",
+          "Sequential Read": "Up to 560MB/s",
+          "Sequential Write": "Up to 520MB/s",
+          "Endurance (TBW)": "600 TBW",
+          "Operating Temperature": "0°C to +70°C (Consumer) / -40°C to +85°C (Industrial)"
+        },
+        "features": [
+          "SATA III 6Gbps interface",
+          "1TB storage capacity",
+          "Sequential read up to 560MB/s",
+          "Sequential write up to 520MB/s",
+          "SLC caching for burst performance",
+          "Advanced LDPC error correction",
+          "Static and dynamic wear leveling",
+          "2.5-inch 7mm slim design"
+        ],
+        "applications": [
+          "Laptop upgrades",
+          "Desktop systems",
+          "Industrial PCs",
+          "Digital signage",
+          "Network attached storage"
+        ],
+        "faeReview": {
+          "author": "David Wang",
+          "title": "Senior FAE - Storage Solutions",
+          "content": "The FS01TB-35M41 is an excellent SATA SSD for mainstream applications. The 1TB capacity meets most consumer and light industrial needs. I have deployed this SSD in numerous laptop upgrade projects with excellent user feedback. The 560MB/s read speed saturates the SATA III interface, providing maximum performance for this interface. The SLC cache handles burst writes effectively for typical consumer workloads. The 7mm slim design fits modern laptops and ultrabooks. The optional industrial temperature grade (-40°C to +85°C) makes it suitable for industrial applications. For cost-effective SATA storage, this product offers excellent value.",
+          "highlight": "High-capacity SATA SSD with excellent price-performance for consumer and industrial use"
+        },
+        "alternativeParts": [
+          {
+            "partNumber": "MX500 1TB",
+            "brand": "Crucial",
+            "specifications": {
+              "capacity": "1TB",
+              "interface": "SATA III",
+              "read": "560MB/s",
+              "write": "510MB/s"
+            },
+            "comparison": {
+              "capacity": "1TB = 1TB (same)",
+              "interface": "SATA III = SATA III (same)",
+              "read": "560MB/s = 560MB/s (same)",
+              "write": "510MB/s < 520MB/s (slightly lower)"
+            },
+            "reason": "Crucial MX500 offers similar specs with established brand recognition",
+            "useCase": "Applications requiring Micron/Crucial brand",
+            "link": "#"
+          },
+          {
+            "partNumber": "870 EVO 1TB",
+            "brand": "Samsung",
+            "specifications": {
+              "capacity": "1TB",
+              "interface": "SATA III",
+              "read": "560MB/s",
+              "write": "530MB/s"
+            },
+            "comparison": {
+              "capacity": "1TB = 1TB (same)",
+              "interface": "SATA III = SATA III (same)",
+              "read": "560MB/s = 560MB/s (same)",
+              "write": "530MB/s > 520MB/s (slightly higher)"
+            },
+            "reason": "Samsung 870 EVO offers similar performance at premium price",
+            "useCase": "Applications requiring Samsung brand preference",
+            "link": "#"
+          }
+        ],
+        "companionParts": [
+          {
+            "partNumber": "FS02TB-35M41",
+            "link": "/longsys/products/solid-state-drives/fs02tb-35m41.html",
+            "description": "2TB version for larger storage requirements",
+            "category": "Solid State Drives"
+          },
+          {
+            "partNumber": "FN01TB-80A22",
+            "link": "/longsys/products/solid-state-drives/fn01tb-80a22.html",
+            "description": "NVMe upgrade for higher performance needs",
+            "category": "Solid State Drives"
+          },
+          {
+            "partNumber": "DDR4 16GB",
+            "link": "/longsys/products/memory-modules/ddr4-16gb.html",
+            "description": "DDR4 memory for complete system upgrade",
+            "category": "Memory Modules"
+          }
+        ],
+        "faqs": [
+          {
+            "question": "What is the actual usable capacity of the 1TB SSD?",
+            "answer": "The FS01TB-35M41 has a formatted capacity of approximately 931GB. The difference between manufacturer TB (1TB = 1,000,000,000,000 bytes) and computer TiB (1TiB = 1,099,511,627,776 bytes) accounts for this difference. Additionally, a small portion of NAND is reserved for over-provisioning to improve endurance and performance. This is standard across all SSDs and is not specific to Longsys products.",
+            "decisionGuide": "931GB formatted capacity is standard for 1TB SSDs across all manufacturers.",
+            "keywords": ["SSD capacity", "formatted capacity", "TB vs TiB"]
+          },
+          {
+            "question": "Does this SSD support TRIM command?",
+            "answer": "Yes, the FS01TB-35M41 fully supports the TRIM command for maintaining optimal performance over time. TRIM allows the operating system to inform the SSD which data blocks are no longer in use, enabling the SSD to proactively erase them. This prevents performance degradation that can occur with sustained write operations. TRIM is supported on Windows 7 and later, modern Linux distributions, and macOS.",
+            "decisionGuide": "TRIM is enabled by default on modern operating systems and requires no user action.",
+            "keywords": ["TRIM command", "SSD maintenance", "performance optimization"]
+          },
+          {
+            "question": "What is the warranty period for this SSD?",
+            "answer": "The FS01TB-35M41 comes with a 3-year limited warranty or 600 TBW (Terabytes Written), whichever comes first. The warranty covers defects in materials and workmanship under normal use. Industrial-grade versions may have extended warranty options. The TBW rating indicates the total amount of data that can be written to the drive while maintaining warranty coverage.",
+            "decisionGuide": "3-year warranty with 600 TBW provides excellent coverage for typical consumer use.",
+            "keywords": ["SSD warranty", "TBW rating", "warranty coverage"]
+          },
+          {
+            "question": "Can this SSD be used in RAID configurations?",
+            "answer": "Yes, the FS01TB-35M41 supports RAID configurations when used with appropriate RAID controllers. The drive is compatible with hardware RAID controllers and software RAID implementations in Windows, Linux, and other operating systems. For RAID setups, it is recommended to use identical drives with the same capacity and firmware version for optimal performance and compatibility.",
+            "decisionGuide": "Use identical drives for RAID configurations to ensure optimal performance.",
+            "keywords": ["SSD RAID", "RAID configuration", "storage array"]
+          },
+          {
+            "question": "What is the power consumption of this SSD?",
+            "answer": "The FS01TB-35M41 has typical active power consumption of 2.5W during read operations and 3.5W during write operations. Idle power consumption is approximately 0.5W, and DEVSLP (Device Sleep) mode consumes less than 5mW. These low power characteristics make the drive suitable for laptops and battery-powered systems where power efficiency is important.",
+            "decisionGuide": "Low power consumption makes this SSD ideal for laptops and energy-efficient systems.",
+            "keywords": ["SSD power consumption", "DEVSLP", "power efficiency"]
+          }
+        ]
+      },
+      {
+        "partNumber": "FN01TB-80A22",
+        "name": "1TB NVMe M.2 2280 SSD",
+        "shortDescription": "High-performance 1TB NVMe PCIe 3.0 x4 SSD with M.2 2280 form factor, sequential read up to 3500MB/s",
+        "descriptionParagraphs": [
+          "The FN01TB-80A22 is a high-performance NVMe SSD delivering exceptional speed for demanding applications.",
+          "With 1TB capacity, PCIe 3.0 x4 interface, and 3500MB/s sequential read speed, it is ideal for gaming and professional workstations.",
+          "The drive features advanced thermal management, hardware encryption, and high endurance for reliable operation."
+        ],
+        "specifications": {
+          "Capacity": "1TB",
+          "Interface": "PCIe 3.0 x4 NVMe 1.3",
+          "Form Factor": "M.2 2280",
+          "Sequential Read": "Up to 3500MB/s",
+          "Sequential Write": "Up to 3000MB/s",
+          "Random Read (IOPS)": "Up to 500K",
+          "Random Write (IOPS)": "Up to 450K",
+          "Endurance (TBW)": "600 TBW"
+        },
+        "features": [
+          "PCIe 3.0 x4 NVMe 1.3 interface",
+          "1TB storage capacity",
+          "Sequential read up to 3500MB/s",
+          "Sequential write up to 3000MB/s",
+          "M.2 2280 form factor",
+          "3D TLC NAND flash",
+          "Hardware AES-256 encryption",
+          "Thermal throttling protection"
+        ],
+        "applications": [
+          "Gaming PCs",
+          "Professional workstations",
+          "Content creation",
+          "High-performance laptops",
+          "Data analytics"
+        ],
+        "faeReview": {
+          "author": "Jennifer Liu",
+          "title": "Senior FAE - High-Performance Storage",
+          "content": "The FN01TB-80A22 delivers excellent NVMe performance at competitive pricing. The 3500MB/s read speed provides noticeable improvement over SATA SSDs for boot times and application loading. I have used this SSD in gaming builds and workstation upgrades with excellent results. The thermal management prevents throttling under sustained workloads. The hardware encryption is valuable for professional users handling sensitive data. The 600 TBW endurance rating is appropriate for typical consumer and professional use. For users seeking high-performance storage without premium pricing, this NVMe SSD is an excellent choice.",
+          "highlight": "High-performance NVMe SSD with 3500MB/s read speed for gaming and professional use"
+        },
+        "alternativeParts": [
+          {
+            "partNumber": "970 EVO Plus 1TB",
+            "brand": "Samsung",
+            "specifications": {
+              "capacity": "1TB",
+              "interface": "PCIe 3.0 x4",
+              "read": "3500MB/s",
+              "write": "3300MB/s"
+            },
+            "comparison": {
+              "capacity": "1TB = 1TB (same)",
+              "interface": "PCIe 3.0 x4 = PCIe 3.0 x4 (same)",
+              "read": "3500MB/s = 3500MB/s (same)",
+              "write": "3300MB/s > 3000MB/s (higher)"
+            },
+            "reason": "Samsung offers slightly higher write speed at premium price",
+            "useCase": "Applications requiring Samsung brand and maximum performance",
+            "link": "#"
+          },
+          {
+            "partNumber": "WD Black SN750 1TB",
+            "brand": "Western Digital",
+            "specifications": {
+              "capacity": "1TB",
+              "interface": "PCIe 3.0 x4",
+              "read": "3470MB/s",
+              "write": "3000MB/s"
+            },
+            "comparison": {
+              "capacity": "1TB = 1TB (same)",
+              "interface": "PCIe 3.0 x4 = PCIe 3.0 x4 (same)",
+              "read": "3470MB/s < 3500MB/s (similar)",
+              "write": "3000MB/s = 3000MB/s (same)"
+            },
+            "reason": "WD Black offers similar performance with gaming-focused branding",
+            "useCase": "Gaming systems preferring WD brand",
+            "link": "#"
+          }
+        ],
+        "companionParts": [
+          {
+            "partNumber": "FN02TB-80A22",
+            "link": "/longsys/products/solid-state-drives/fn02tb-80a22.html",
+            "description": "2TB version for larger capacity requirements",
+            "category": "Solid State Drives"
+          },
+          {
+            "partNumber": "DDR4 32GB Kit",
+            "link": "/longsys/products/memory-modules/ddr4-32gb.html",
+            "description": "High-capacity DDR4 for complete system upgrade",
+            "category": "Memory Modules"
+          },
+          {
+            "partNumber": "M.2 Heatsink",
+            "link": "#",
+            "description": "Thermal solution for sustained NVMe performance",
+            "category": "Accessories"
+          }
+        ],
+        "faqs": [
+          {
+            "question": "What is the difference between PCIe 3.0 and PCIe 4.0 NVMe SSDs?",
+            "answer": "PCIe 4.0 NVMe SSDs offer double the bandwidth of PCIe 3.0, with sequential read speeds up to 7000MB/s compared to 3500MB/s for PCIe 3.0. However, PCIe 4.0 requires a compatible motherboard and CPU. For most consumer applications, the difference is not noticeable in daily use. PCIe 3.0 SSDs like the FN01TB-80A22 offer excellent performance at more affordable pricing and broader compatibility.",
+            "decisionGuide": "PCIe 3.0 SSDs offer excellent performance and value for most applications.",
+            "keywords": ["PCIe 3.0 vs 4.0", "NVMe generations", "SSD interface"]
+          },
+          {
+            "question": "Does this SSD require a heatsink?",
+            "answer": "The FN01TB-80A22 includes basic thermal management and can operate without a heatsink in most systems with adequate airflow. However, for sustained heavy workloads or systems with limited airflow, adding an M.2 heatsink can help maintain peak performance by preventing thermal throttling. The drive includes thermal throttling protection that reduces performance if temperatures exceed safe limits.",
+            "decisionGuide": "Heatsink recommended for sustained heavy workloads or compact systems.",
+            "keywords": ["M.2 heatsink", "NVMe thermal", "thermal throttling"]
+          },
+          {
+            "question": "What is the difference between 3D TLC and QLC NAND?",
+            "answer": "The FN01TB-80A22 uses 3D TLC (Triple-Level Cell) NAND which stores 3 bits per cell, offering better endurance and performance than QLC (Quad-Level Cell) which stores 4 bits per cell. TLC typically offers 3,000-5,000 P/E cycles compared to 1,000 or less for QLC. While QLC offers lower cost per GB, TLC provides better sustained performance and longevity for primary storage applications.",
+            "decisionGuide": "TLC NAND offers better balance of performance, endurance, and cost for primary storage.",
+            "keywords": ["TLC NAND", "QLC NAND", "NAND flash types"]
+          },
+          {
+            "question": "Can this SSD be used in a PS5?",
+            "answer": "The FN01TB-80A22 uses PCIe 3.0 interface and does not meet PS5 requirements which specify PCIe 4.0 SSDs with minimum 5500MB/s sequential read speed. For PS5 expansion, Longsys offers PCIe 4.0 NVMe SSDs that meet Sony's specifications. Please check our PCIe 4.0 product lineup for PS5-compatible options.",
+            "decisionGuide": "Select PCIe 4.0 NVMe SSDs for PS5 compatibility.",
+            "keywords": ["PS5 SSD", "PCIe 4.0", "console storage"]
+          },
+          {
+            "question": "What is the MTBF rating for this SSD?",
+            "answer": "The FN01TB-80A22 has an MTBF (Mean Time Between Failures) rating of 1.5 million hours, indicating high reliability for consumer and professional use. This rating is based on accelerated life testing and statistical analysis. Combined with the 600 TBW endurance rating and 3-year warranty, this SSD provides reliable storage for typical consumer and professional workloads.",
+            "decisionGuide": "1.5M hour MTBF provides excellent reliability for consumer and professional use.",
+            "keywords": ["MTBF rating", "SSD reliability", "mean time between failures"]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "memory-modules",
+    "name": "Memory Modules",
+    "slug": "memory-modules",
+    "description": "Longsys DDR4 and DDR5 memory modules provide high-speed, reliable memory for desktop, laptop, and server applications.",
+    "longDescription": "Longsys memory modules deliver high-speed, reliable DDR4 and DDR5 solutions for diverse computing applications. The product portfolio includes UDIMM for desktop systems, SODIMM for laptops and compact systems, and RDIMM for servers. With speeds ranging from DDR4-2133 to DDR5-5600, Longsys memory supports current and next-generation platforms. All modules undergo rigorous testing including 100% burn-in testing to ensure compatibility and reliability. As an authorized Longsys distributor, LiTong provides comprehensive selection guidance, technical support, and reliable supply chain services for these essential memory components.",
+    "series": [
+      "DDR4 UDIMM Series",
+      "DDR4 SODIMM Series",
+      "DDR5 UDIMM Series",
+      "DDR5 SODIMM Series"
+    ],
+    "parameters": [
+      "Capacity",
+      "Type",
+      "Speed",
+      "Voltage",
+      "CAS Latency",
+      "Form Factor"
+    ],
+    "applications": [
+      "Desktop PCs",
+      "Laptops",
+      "Servers",
+      "Workstations",
+      "Industrial Systems"
+    ],
+    "selectionGuide": {
+      "title": "Memory Module Selection Guide",
+      "description": "Comprehensive guide for selecting DDR4 and DDR5 memory based on platform and performance requirements",
+      "articleId": "memory-selection-guide",
+      "articleLink": "/longsys/support/memory-selection-guide.html"
+    },
+    "selectionGuideLink": {
+      "url": "/longsys/support/memory-selection-guide.html",
+      "text": "Memory Module Selection Guide"
+    },
+    "faqs": [
+      {
+        "question": "What is the difference between DDR4 and DDR5?",
+        "answer": "DDR5 offers significant improvements over DDR4 including higher bandwidth (starting at 4800MT/s vs 2133MT/s), improved power efficiency (1.1V vs 1.2V), and on-die ECC for better reliability. DDR5 modules include PMIC (Power Management IC) on the module for better voltage regulation. However, DDR5 requires compatible motherboards and CPUs. DDR4 remains excellent for current platforms with mature ecosystem and competitive pricing.",
+        "decisionGuide": "Select DDR5 for new next-generation platforms, DDR4 for current systems.",
+        "keywords": ["DDR4 vs DDR5", "DDR5 benefits", "memory upgrade"]
+      },
+      {
+        "question": "What do the memory speed numbers mean?",
+        "answer": "Memory speed is rated in MT/s (MegaTransfers per second). DDR4-3200 operates at 3200MT/s with actual clock frequency of 1600MHz (DDR transfers data on both clock edges). Higher numbers indicate faster memory bandwidth. However, actual performance depends on CPU memory controller and application memory access patterns. For most applications, DDR4-3200 provides excellent performance.",
+        "decisionGuide": "DDR4-3200 offers excellent price-performance for most applications.",
+        "keywords": ["memory speed", "MT/s", "DDR frequency"]
+      },
+      {
+        "question": "What is the difference between UDIMM and SODIMM?",
+        "answer": "UDIMM (Unbuffered DIMM) is the standard memory module for desktop PCs with 288 pins (DDR4) or 288 pins (DDR5). SODIMM (Small Outline DIMM) is a compact version with 260 pins (DDR4) or 262 pins (DDR5) designed for laptops and compact systems. The modules are not interchangeable due to different physical sizes and pin configurations. Always check your system's memory slot type before purchasing.",
+        "decisionGuide": "Select UDIMM for desktops, SODIMM for laptops and compact systems.",
+        "keywords": ["UDIMM vs SODIMM", "memory form factor", "laptop memory"]
+      },
+      {
+        "question": "Can I mix different memory speeds?",
+        "answer": "While possible, mixing different memory speeds is not recommended. When mixed, all modules will run at the speed of the slowest module. For best performance and stability, use identical modules with the same capacity, speed, and timings. If mixing is necessary, ensure all modules support the lowest common speed and timings.",
+        "decisionGuide": "Use identical memory modules for best performance and compatibility.",
+        "keywords": ["memory mixing", "memory compatibility", "RAM speed"]
+      },
+      {
+        "question": "What is XMP and do I need it?",
+        "answer": "XMP (Extreme Memory Profile) is Intel's technology for running memory above standard JEDEC speeds. AMD uses similar AMP or DOCP profiles. Enabling XMP in BIOS allows memory to run at its rated speed (e.g., DDR4-3600) rather than default (DDR4-2133/2400). For high-speed memory modules, XMP is essential to achieve advertised performance. Most gaming and performance motherboards support XMP.",
+        "decisionGuide": "Enable XMP in BIOS to achieve rated memory speeds.",
+        "keywords": ["XMP profile", "memory overclocking", "DDR speed"]
+      }
+    ],
+    "products": [
+      {
+        "partNumber": "LD4U320016G",
+        "name": "16GB DDR4-3200 UDIMM",
+        "shortDescription": "High-capacity 16GB DDR4-3200 desktop memory module with CL22 latency for mainstream and gaming systems",
+        "descriptionParagraphs": [
+          "The LD4U320016G is a high-capacity DDR4-3200 memory module designed for desktop PCs and workstations.",
+          "With 16GB capacity, 3200MT/s speed, and low-profile design, it is ideal for gaming and content creation.",
+          "The module supports XMP 2.0 for easy overclocking and features high-quality components for reliable operation."
+        ],
+        "specifications": {
+          "Capacity": "16GB (1x16GB)",
+          "Type": "DDR4",
+          "Speed": "DDR4-3200 (PC4-25600)",
+          "Voltage": "1.35V (XMP) / 1.2V (JEDEC)",
+          "CAS Latency": "CL22-22-22",
+          "Form Factor": "UDIMM 288-pin",
+          "Height": "31.25mm (Standard Profile)"
+        },
+        "features": [
+          "DDR4-3200 high-speed performance",
+          "16GB single-module capacity",
+          "Intel XMP 2.0 support",
+          "Plug and play compatibility",
+          "100% burn-in tested",
+          "RoHS compliant",
+          "Lifetime warranty",
+          "Standard profile heatsink"
+        ],
+        "applications": [
+          "Gaming PCs",
+          "Content creation workstations",
+          "Office desktop systems",
+          "Home theater PCs",
+          "Entry-level servers"
+        ],
+        "faeReview": {
+          "author": "David Wang",
+          "title": "Senior FAE - Memory Solutions",
+          "content": "The LD4U320016G is an excellent DDR4-3200 module for mainstream and gaming systems. The 16GB capacity is the sweet spot for current gaming and productivity applications. I have used these modules in numerous builds with excellent compatibility across Intel and AMD platforms. The XMP profile works reliably on most motherboards for easy setup. The standard height fits most CPU coolers without clearance issues. The lifetime warranty provides peace of mind for end users. For DDR4 systems requiring reliable, high-capacity memory, this module offers excellent value.",
+          "highlight": "High-capacity DDR4-3200 module with excellent compatibility for gaming and productivity"
+        },
+        "alternativeParts": [
+          {
+            "partNumber": "CMK16GX4M1E3200C16",
+            "brand": "Corsair",
+            "specifications": {
+              "capacity": "16GB",
+              "type": "DDR4",
+              "speed": "3200MT/s",
+              "latency": "CL16"
+            },
+            "comparison": {
+              "capacity": "16GB = 16GB (same)",
+              "type": "DDR4 = DDR4 (same)",
+              "speed": "3200MT/s = 3200MT/s (same)",
+              "latency": "CL16 < CL22 (lower latency)"
+            },
+            "reason": "Corsair offers lower latency at premium price",
+            "useCase": "Applications requiring lowest latency",
+            "link": "#"
+          },
+          {
+            "partNumber": "F4-3200C16D-16GVKB",
+            "brand": "G.Skill",
+            "specifications": {
+              "capacity": "16GB",
+              "type": "DDR4",
+              "speed": "3200MT/s",
+              "latency": "CL16"
+            },
+            "comparison": {
+              "capacity": "16GB = 16GB (same)",
+              "type": "DDR4 = DDR4 (same)",
+              "speed": "3200MT/s = 3200MT/s (same)",
+              "latency": "CL16 < CL22 (lower latency)"
+            },
+            "reason": "G.Skill offers gaming-focused branding with lower latency",
+            "useCase": "Gaming builds preferring premium memory brands",
+            "link": "#"
+          }
+        ],
+        "companionParts": [
+          {
+            "partNumber": "LD4U320032G",
+            "link": "/longsys/products/memory-modules/ld4u320032g.html",
+            "description": "32GB kit for higher capacity requirements",
+            "category": "Memory Modules"
+          },
+          {
+            "partNumber": "LD5U480016G",
+            "link": "/longsys/products/memory-modules/ld5u480016g.html",
+            "description": "DDR5 upgrade for next-generation platforms",
+            "category": "Memory Modules"
+          },
+          {
+            "partNumber": "FS01TB-35M41",
+            "link": "/longsys/products/solid-state-drives/fs01tb-35m41.html",
+            "description": "1TB SSD for complete system upgrade",
+            "category": "Solid State Drives"
+          }
+        ],
+        "faqs": [
+          {
+            "question": "Is this memory compatible with my motherboard?",
+            "answer": "The LD4U320016G is compatible with DDR4 motherboards supporting 3200MT/s speed. It works with both Intel and AMD platforms. For Intel, 8th generation Core and newer support DDR4-3200. For AMD, Ryzen 2000 series and newer support this speed. The module will downclock to the maximum supported speed if your platform supports lower speeds. Check your motherboard QVL (Qualified Vendor List) for guaranteed compatibility.",
+            "decisionGuide": "Check motherboard QVL for guaranteed compatibility with specific models.",
+            "keywords": ["memory compatibility", "motherboard QVL", "DDR4 support"]
+          },
+          {
+            "question": "What is the difference between single-rank and dual-rank memory?",
+            "answer": "The LD4U320016G is a dual-rank module, meaning memory chips are arranged on both sides of the PCB. Dual-rank modules can offer slightly better performance in some applications due to rank interleaving. However, single-rank modules may overclock better and consume slightly less power. For most users, the difference is minimal and either type works well. Ensure your motherboard supports the rank configuration you choose.",
+            "decisionGuide": "Dual-rank offers good performance and compatibility for most applications.",
+            "keywords": ["memory rank", "single rank vs dual rank", "memory organization"]
+          },
+          {
+            "question": "Can I use this module with existing memory?",
+            "answer": "Mixing memory modules is possible but not recommended for optimal performance. If mixing, all modules will run at the speed and timings of the slowest module. For best results, use identical modules with the same capacity, speed, and timings. If you must mix, ensure all modules support the lowest common speed and test thoroughly for stability.",
+            "decisionGuide": "Use identical modules for best performance and stability.",
+            "keywords": ["memory mixing", "RAM compatibility", "memory upgrade"]
+          },
+          {
+            "question": "Does this memory require XMP to run at 3200MT/s?",
+            "answer": "Yes, the LD4U320016G requires XMP (Extreme Memory Profile) to be enabled in BIOS to run at 3200MT/s. Without XMP, it will run at JEDEC standard speed of 2133MT/s or 2400MT/s depending on platform. Enabling XMP is simple and safe - just select the XMP profile in BIOS. Most gaming and performance motherboards support XMP.",
+            "decisionGuide": "Enable XMP in BIOS to achieve rated 3200MT/s speed.",
+            "keywords": ["XMP enable", "DDR4-3200", "memory speed setup"]
+          },
+          {
+            "question": "What is the warranty for this memory module?",
+            "answer": "The LD4U320016G comes with a limited lifetime warranty covering defects in materials and workmanship. The warranty is valid for the original purchaser and requires proof of purchase. Longsys memory modules undergo rigorous testing including 100% burn-in to ensure reliability. The lifetime warranty reflects confidence in product quality and provides peace of mind for end users.",
+            "decisionGuide": "Lifetime warranty provides excellent coverage for memory products.",
+            "keywords": ["memory warranty", "lifetime warranty", "RAM warranty"]
+          }
+        ]
+      },
+      {
+        "partNumber": "LD5U480016G",
+        "name": "16GB DDR5-4800 UDIMM",
+        "shortDescription": "Next-generation 16GB DDR5-4800 desktop memory module with improved bandwidth and power efficiency for latest platforms",
+        "descriptionParagraphs": [
+          "The LD5U480016G is a next-generation DDR5-4800 memory module delivering improved performance and efficiency.",
+          "With 16GB capacity, 4800MT/s speed, and on-die ECC, it is ideal for Intel 12th/13th Gen and AMD AM5 platforms.",
+          "The module features onboard PMIC for improved power management and supports XMP 3.0 for easy configuration."
+        ],
+        "specifications": {
+          "Capacity": "16GB (1x16GB)",
+          "Type": "DDR5",
+          "Speed": "DDR5-4800 (PC5-38400)",
+          "Voltage": "1.1V",
+          "CAS Latency": "CL40-40-40",
+          "Form Factor": "UDIMM 288-pin",
+          "Features": "On-die ECC, PMIC onboard"
+        },
+        "features": [
+          "DDR5-4800 next-generation performance",
+          "16GB single-module capacity",
+          "On-die ECC for improved reliability",
+          "Onboard PMIC for power management",
+          "Intel XMP 3.0 support",
+          "1.1V low voltage operation",
+          "100% burn-in tested",
+          "Lifetime warranty"
+        ],
+        "applications": [
+          "Next-generation gaming PCs",
+          "High-performance workstations",
+          "Content creation systems",
+          "AI/ML development systems",
+          "DDR5 platforms"
+        ],
+        "faeReview": {
+          "author": "Jennifer Liu",
+          "title": "Senior FAE - Next-Gen Memory",
+          "content": "The LD5U480016G delivers excellent DDR5 performance for next-generation platforms. The 4800MT/s speed provides significant bandwidth improvement over DDR4. I have used these modules in Intel 13th Gen builds with excellent stability and performance. The on-die ECC improves data integrity without system-level ECC overhead. The XMP 3.0 profile works reliably on Z790 motherboards. The 1.1V operating voltage improves power efficiency. For new builds on DDR5 platforms, this module offers excellent performance and value compared to premium brands.",
+          "highlight": "Next-generation DDR5-4800 with on-die ECC for latest platforms"
+        },
+        "alternativeParts": [
+          {
+            "partNumber": "CMK32GX5M2B5200C40",
+            "brand": "Corsair",
+            "specifications": {
+              "capacity": "16GB",
+              "type": "DDR5",
+              "speed": "5200MT/s",
+              "latency": "CL40"
+            },
+            "comparison": {
+              "capacity": "16GB = 16GB (same)",
+              "type": "DDR5 = DDR5 (same)",
+              "speed": "5200MT/s > 4800MT/s (faster)",
+              "latency": "CL40 = CL40 (same)"
+            },
+            "reason": "Corsair offers higher speed at premium price",
+            "useCase": "Applications requiring maximum DDR5 performance",
+            "link": "#"
+          },
+          {
+            "partNumber": "F5-5600J3636C16GX2",
+            "brand": "G.Skill",
+            "specifications": {
+              "capacity": "16GB",
+              "type": "DDR5",
+              "speed": "5600MT/s",
+              "latency": "CL36"
+            },
+            "comparison": {
+              "capacity": "16GB = 16GB (same)",
+              "type": "DDR5 = DDR5 (same)",
+              "speed": "5600MT/s > 4800MT/s (faster)",
+              "latency": "CL36 < CL40 (lower latency)"
+            },
+            "reason": "G.Skill offers higher speed and lower latency at premium price",
+            "useCase": "High-performance gaming builds",
+            "link": "#"
+          }
+        ],
+        "companionParts": [
+          {
+            "partNumber": "LD5U480032G",
+            "link": "/longsys/products/memory-modules/ld5u480032g.html",
+            "description": "32GB kit for higher capacity requirements",
+            "category": "Memory Modules"
+          },
+          {
+            "partNumber": "FN01TB-80A22",
+            "link": "/longsys/products/solid-state-drives/fn01tb-80a22.html",
+            "description": "NVMe SSD for high-performance system",
+            "category": "Solid State Drives"
+          },
+          {
+            "partNumber": "Intel Core i9-13900K",
+            "link": "#",
+            "description": "High-performance CPU for DDR5 platform",
+            "category": "Processors"
+          }
+        ],
+        "faqs": [
+          {
+            "question": "Is DDR5 backward compatible with DDR4 motherboards?",
+            "answer": "No, DDR5 is not backward compatible with DDR4. DDR5 uses a different pin configuration (288 pins but different notch position), different voltage (1.1V vs 1.2V), and requires DDR5-compatible memory controllers. You must use DDR5 with motherboards specifically designed for DDR5, such as Intel 600/700 series or AMD AM5 platforms. DDR4 and DDR5 modules cannot be mixed or interchanged.",
+            "decisionGuide": "DDR5 requires DDR5-compatible motherboard and CPU - not backward compatible.",
+            "keywords": ["DDR5 compatibility", "DDR4 vs DDR5", "memory upgrade"]
+          },
+          {
+            "question": "What is on-die ECC in DDR5?",
+            "answer": "DDR5 introduces on-die ECC (Error Correction Code) which corrects bit errors within the memory chip itself before sending data to the CPU. This improves data integrity and reliability compared to DDR4. Note that this is different from system-level ECC used in servers. On-die ECC operates transparently and does not require special support from the CPU or motherboard. This feature benefits all DDR5 systems by reducing silent data corruption.",
+            "decisionGuide": "On-die ECC improves reliability for all DDR5 systems without special configuration.",
+            "keywords": ["on-die ECC", "DDR5 ECC", "memory error correction"]
+          },
+          {
+            "question": "What is PMIC in DDR5 memory?",
+            "answer": "DDR5 moves the Power Management IC (PMIC) from the motherboard to the memory module itself. This provides better voltage regulation and power delivery to the memory chips. The onboard PMIC enables more precise voltage control for improved stability and overclocking potential. It also reduces complexity on the motherboard. The PMIC operates automatically and requires no user configuration.",
+            "decisionGuide": "Onboard PMIC improves power delivery and stability for DDR5 modules.",
+            "keywords": ["DDR5 PMIC", "power management", "DDR5 voltage regulation"]
+          },
+          {
+            "question": "Should I upgrade to DDR5 now or wait?",
+            "answer": "For new builds on latest platforms (Intel 12th/13th Gen, AMD AM5), DDR5 is the best choice as these platforms are optimized for DDR5. For existing DDR4 systems, upgrading to DDR5 requires new motherboard and CPU, making it a significant investment. DDR5 prices have decreased significantly and are now competitive with high-end DDR4. Performance advantage varies by application - most noticeable in memory-intensive tasks and integrated graphics.",
+            "decisionGuide": "Choose DDR5 for new latest-gen builds, keep DDR4 for existing systems.",
+            "keywords": ["DDR5 upgrade", "DDR5 worth it", "memory upgrade timing"]
+          },
+          {
+            "question": "What platforms support DDR5-4800?",
+            "answer": "DDR5-4800 is supported by Intel 12th Gen (Alder Lake) and 13th Gen (Raptor Lake) Core processors on 600/700 series motherboards. AMD AM5 platform with Ryzen 7000 series also supports DDR5-4800 as baseline speed. Most DDR5 motherboards support even higher speeds through XMP/EXPO profiles. Check your specific motherboard QVL for guaranteed memory compatibility and maximum supported speed.",
+            "decisionGuide": "DDR5-4800 is baseline speed for Intel 12th/13th Gen and AMD AM5 platforms.",
+            "keywords": ["DDR5 platform", "Intel DDR5", "AMD DDR5"]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "portable-storage",
+    "name": "Portable Storage",
+    "slug": "portable-storage",
+    "description": "Longsys portable storage solutions including USB flash drives, portable SSDs, and memory cards for consumer and professional use.",
+    "longDescription": "Longsys portable storage provides convenient, high-speed data storage and transfer solutions for mobile users. The product portfolio includes USB 3.2 flash drives for everyday file transfer, high-speed portable SSDs for professionals requiring fast external storage, and memory cards (SD/microSD) for cameras, drones, and mobile devices. With capacities up to 2TB for portable SSDs and 1TB for memory cards, Longsys portable storage meets diverse capacity and performance requirements. As an authorized Longsys distributor, LiTong provides comprehensive selection guidance and technical support for these portable storage solutions.",
+    "series": [
+      "USB 3.2 Flash Drive Series",
+      "Portable SSD Series",
+      "microSD Card Series",
+      "SD Card Series"
+    ],
+    "parameters": [
+      "Capacity",
+      "Interface",
+      "Read Speed",
+      "Write Speed",
+      "Dimensions",
+      "Weight"
+    ],
+    "applications": [
+      "File Backup",
+      "Media Storage",
+      "Photography",
+      "Video Recording",
+      "Mobile Expansion"
+    ],
+    "selectionGuide": {
+      "title": "Portable Storage Selection Guide",
+      "description": "Comprehensive guide for selecting USB drives, portable SSDs, and memory cards",
+      "articleId": "portable-storage-selection-guide",
+      "articleLink": "/longsys/support/portable-storage-selection-guide.html"
+    },
+    "selectionGuideLink": {
+      "url": "/longsys/support/portable-storage-selection-guide.html",
+      "text": "Portable Storage Selection Guide"
+    },
+    "faqs": [
+      {
+        "question": "What is the difference between USB 3.0, 3.1, and 3.2?",
+        "answer": "USB 3.0 (now called USB 3.2 Gen 1) offers 5Gbps speed. USB 3.1 Gen 2 (now USB 3.2 Gen 2) offers 10Gbps. USB 3.2 Gen 2x2 offers 20Gbps. For flash drives, actual performance is often limited by NAND flash speed rather than interface. Most USB flash drives use USB 3.2 Gen 1 (5Gbps) which is sufficient for typical flash drive speeds up to 400MB/s.",
+        "decisionGuide": "USB 3.2 Gen 1 (5Gbps) is sufficient for most flash drives.",
+        "keywords": ["USB versions", "USB 3.2", "USB speed"]
+      },
+      {
+        "question": "What speed class should I choose for microSD cards?",
+        "answer": "For general use (smartphones, tablets), Class 10 or UHS-I U1 is sufficient. For 4K video recording, choose UHS-I U3 or UHS-II U3 (minimum 30MB/s write). For action cameras and drones, V30 or higher is recommended. For professional video, consider V60 or V90 cards. Higher speed classes provide better performance but at higher cost.",
+        "decisionGuide": "Choose V30 or higher for 4K video, U3 for Full HD video, U1 for general use.",
+        "keywords": ["microSD speed class", "UHS speed", "video speed class"]
+      },
+      {
+        "question": "What is the difference between portable SSD and USB flash drive?",
+        "answer": "Portable SSDs use SSD technology with higher performance (up to 1000MB/s+), higher capacities (up to 2TB+), and better endurance. USB flash drives use simpler controller technology with lower performance (up to 400MB/s), smaller capacities (up to 1TB), and lower cost. Portable SSDs are ideal for professional use, large file transfers, and running applications. Flash drives are suitable for everyday file storage and transfer.",
+        "decisionGuide": "Choose portable SSD for performance and capacity, flash drive for portability and cost.",
+        "keywords": ["portable SSD vs USB", "external storage", "portable storage"]
+      },
+      {
+        "question": "Do I need a special card for 4K video recording?",
+        "answer": "Yes, 4K video recording requires memory cards with sufficient write speed. Look for UHS Speed Class 3 (U3) or Video Speed Class 30 (V30) minimum, which guarantee 30MB/s sustained write speed. For high bitrate 4K or 8K video, consider V60 or V90 cards. Using insufficient cards can result in recording errors, dropped frames, or corruption. Always check your camera's recommended card specifications.",
+        "decisionGuide": "Use V30 or higher rated cards for reliable 4K video recording.",
+        "keywords": ["4K memory card", "video recording card", "V30 V60"]
+      },
+      {
+        "question": "Are portable SSDs durable for travel?",
+        "answer": "Longsys portable SSDs are designed for mobility with shock and vibration resistance. Unlike HDDs, SSDs have no moving parts, making them inherently more durable for travel. However, they should still be protected from extreme temperatures, moisture, and physical impact. Many portable SSDs include rubber bumpers or metal enclosures for additional protection. Always safely eject before disconnecting to prevent data corruption.",
+        "decisionGuide": "Portable SSDs are excellent for travel - more durable than HDDs with no moving parts.",
+        "keywords": ["portable SSD durability", "travel storage", "SSD shock resistance"]
+      }
+    ],
+    "products": [
+      {
+        "partNumber": "FP01TB-U32",
+        "name": "1TB USB 3.2 Portable SSD",
+        "shortDescription": "Compact 1TB portable SSD with USB 3.2 Gen 2 interface, sequential read up to 1050MB/s for professionals on the go",
+        "descriptionParagraphs": [
+          "The FP01TB-U32 is a high-performance portable SSD delivering professional-grade speed in a compact form factor.",
+          "With 1TB capacity, USB 3.2 Gen 2 interface, and 1050MB/s read speed, it is ideal for content creators and professionals.",
+          "The drive features rugged aluminum construction, hardware encryption, and cross-platform compatibility."
+        ],
+        "specifications": {
+          "Capacity": "1TB",
+          "Interface": "USB 3.2 Gen 2 (10Gbps)",
+          "Sequential Read": "Up to 1050MB/s",
+          "Sequential Write": "Up to 1000MB/s",
+          "Dimensions": "100mm x 30mm x 9mm",
+          "Weight": "45g",
+          "Enclosure": "Aluminum alloy"
+        },
+        "features": [
+          "USB 3.2 Gen 2 high-speed interface",
+          "1TB storage capacity",
+          "Sequential read up to 1050MB/s",
+          "Sequential write up to 1000MB/s",
+          "USB-C connector with USB-A adapter",
+          "Hardware AES-256 encryption",
+          "Rugged aluminum enclosure",
+          "Cross-platform compatibility"
+        ],
+        "applications": [
+          "Professional photography",
+          "Video editing on location",
+          "Large file transfer",
+          "Backup and archive",
+          "Gaming storage expansion"
+        ],
+        "faeReview": {
+          "author": "David Wang",
+          "title": "Senior FAE - Portable Storage",
+          "content": "The FP01TB-U32 is an excellent portable SSD for professionals requiring fast external storage. The 1050MB/s speed enables direct editing of 4K video from the drive without performance issues. I have used this drive for on-location photography shoots with excellent reliability. The compact size fits easily in camera bags. The aluminum construction provides good heat dissipation and durability. Cross-platform compatibility means it works seamlessly between Windows and Mac systems. For professionals needing fast, portable storage, this drive offers excellent performance at competitive pricing.",
+          "highlight": "High-speed portable SSD with 1050MB/s read for professional content creation"
+        },
+        "alternativeParts": [
+          {
+            "partNumber": "SDSSDE61-1T00",
+            "brand": "SanDisk",
+            "specifications": {
+              "capacity": "1TB",
+              "interface": "USB 3.2 Gen 2",
+              "read": "1050MB/s",
+              "write": "1000MB/s"
+            },
+            "comparison": {
+              "capacity": "1TB = 1TB (same)",
+              "interface": "USB 3.2 Gen 2 = USB 3.2 Gen 2 (same)",
+              "read": "1050MB/s = 1050MB/s (same)",
+              "write": "1000MB/s = 1000MB/s (same)"
+            },
+            "reason": "SanDisk Extreme offers similar specs with established brand",
+            "useCase": "Applications preferring SanDisk brand",
+            "link": "#"
+          },
+          {
+            "partNumber": "MU-PC1T0H",
+            "brand": "Samsung",
+            "specifications": {
+              "capacity": "1TB",
+              "interface": "USB 3.2 Gen 2",
+              "read": "1050MB/s",
+              "write": "1000MB/s"
+            },
+            "comparison": {
+              "capacity": "1TB = 1TB (same)",
+              "interface": "USB 3.2 Gen 2 = USB 3.2 Gen 2 (same)",
+              "read": "1050MB/s = 1050MB/s (same)",
+              "write": "1000MB/s = 1000MB/s (same)"
+            },
+            "reason": "Samsung T7 offers similar performance at premium price",
+            "useCase": "Applications requiring Samsung brand",
+            "link": "#"
+          }
+        ],
+        "companionParts": [
+          {
+            "partNumber": "FP02TB-U32",
+            "link": "/longsys/products/portable-storage/fp02tb-u32.html",
+            "description": "2TB version for larger capacity requirements",
+            "category": "Portable Storage"
+          },
+          {
+            "partNumber": "microSD 256GB",
+            "link": "/longsys/products/portable-storage/microsd-256gb.html",
+            "description": "microSD for camera/drone expansion",
+            "category": "Portable Storage"
+          },
+          {
+            "partNumber": "USB-C Cable",
+            "link": "#",
+            "description": "Spare USB-C cable for connectivity",
+            "category": "Accessories"
+          }
+        ],
+        "faqs": [
+          {
+            "question": "What cable comes with this portable SSD?",
+            "answer": "The FP01TB-U32 includes a USB-C to USB-C cable and a USB-C to USB-A adapter for compatibility with both modern and legacy systems. The cable supports USB 3.2 Gen 2 speeds up to 10Gbps. For best performance, use the included cable or a high-quality USB 3.2 Gen 2 certified cable. Lower quality cables may limit performance to USB 3.0 speeds (5Gbps).",
+            "decisionGuide": "Use included cable or certified USB 3.2 Gen 2 cable for maximum performance.",
+            "keywords": ["portable SSD cable", "USB-C cable", "USB 3.2 Gen 2"]
+          },
+          {
+            "question": "Is this drive compatible with gaming consoles?",
+            "answer": "The FP01TB-U32 is compatible with PlayStation 4/5 and Xbox Series X/S for external game storage. For PS5, it can store PS4 games and transfer PS5 games, but cannot run PS5 games directly (requires internal SSD expansion). For Xbox, it can store and play Xbox One, 360, and original Xbox games, and store Series X/S games. The USB 3.2 Gen 2 interface provides fast game loading from external storage.",
+            "decisionGuide": "Compatible with gaming consoles for external storage and backward compatible games.",
+            "keywords": ["PS5 SSD", "Xbox storage", "gaming external drive"]
+          },
+          {
+            "question": "Does this drive require external power?",
+            "answer": "No, the FP01TB-U32 is bus-powered through the USB connection and requires no external power adapter. The drive draws power from the USB port (up to 7.5W for USB 3.2). This makes it truly portable and convenient for use with laptops and mobile devices. Ensure your USB port provides sufficient power - most USB 3.0+ ports supply adequate power.",
+            "decisionGuide": "Bus-powered through USB - no external power required.",
+            "keywords": ["bus powered", "USB power", "portable SSD power"]
+          },
+          {
+            "question": "Can I use this drive for Time Machine backup on Mac?",
+            "answer": "Yes, the FP01TB-U32 is compatible with macOS and can be used for Time Machine backups. The drive comes pre-formatted as exFAT for cross-platform compatibility. For Time Machine, you may want to reformat as APFS or HFS+ using Disk Utility. The 1TB capacity provides ample space for most Mac system backups. The USB-C connection works directly with modern MacBooks.",
+            "decisionGuide": "Fully compatible with macOS and Time Machine backup.",
+            "keywords": ["Time Machine", "Mac backup", "macOS compatible"]
+          },
+          {
+            "question": "What is the shock resistance rating?",
+            "answer": "The FP01TB-U32 is rated for shock resistance up to 1500G/0.5ms, providing protection against drops and impacts during travel. The solid-state design with no moving parts makes it inherently more durable than hard drives. The aluminum enclosure provides additional structural protection. However, while shock-resistant, the drive should still be protected from extreme impacts and drops onto hard surfaces.",
+            "decisionGuide": "1500G shock resistance provides excellent protection for travel and field use.",
+            "keywords": ["shock resistance", "drop protection", "portable SSD durability"]
+          }
+        ]
+      },
+      {
+        "partNumber": "FM256-V30",
+        "name": "256GB microSD V30",
+        "shortDescription": "High-speed 256GB microSD card with V30 rating, up to 100MB/s read speed for 4K video recording and mobile expansion",
+        "descriptionParagraphs": [
+          "The FM256-V30 is a high-performance microSD card designed for 4K video recording and mobile device expansion.",
+          "With 256GB capacity, V30 video speed class, and 100MB/s read speed, it is ideal for action cameras, drones, and smartphones.",
+          "The card is A2 rated for app performance and includes SD adapter for versatility."
+        ],
+        "specifications": {
+          "Capacity": "256GB",
+          "Interface": "UHS-I U3",
+          "Read Speed": "Up to 100MB/s",
+          "Write Speed": "Up to 90MB/s",
+          "Video Speed Class": "V30 (30MB/s minimum)",
+          "Application Performance": "A2 rated",
+          "Includes": "SD card adapter"
+        },
+        "features": [
+          "256GB high capacity",
+          "V30 video speed class",
+          "UHS-I U3 performance",
+          "Up to 100MB/s read speed",
+          "Up to 90MB/s write speed",
+          "A2 app performance rating",
+          "4K UHD video support",
+          "SD adapter included"
+        ],
+        "applications": [
+          "Action cameras",
+          "Drone recording",
+          "Smartphone expansion",
+          "Nintendo Switch",
+          "4K video recording"
+        ],
+        "faeReview": {
+          "author": "Jennifer Liu",
+          "title": "Senior FAE - Memory Cards",
+          "content": "The FM256-V30 is an excellent microSD card for 4K video recording and mobile expansion. The V30 rating ensures reliable 4K recording at high bitrates. I have tested this card in GoPro and DJI drones with consistent performance. The 256GB capacity provides hours of 4K recording. The A2 rating means apps can run smoothly when installed on the card. The included SD adapter adds versatility for use in cameras. For users needing reliable, high-capacity microSD storage, this card offers excellent value compared to premium brands.",
+          "highlight": "V30 rated microSD with 256GB capacity for reliable 4K video recording"
+        },
+        "alternativeParts": [
+          {
+            "partNumber": "SDSQXAO-256G",
+            "brand": "SanDisk",
+            "specifications": {
+              "capacity": "256GB",
+              "class": "V30",
+              "read": "170MB/s",
+              "write": "90MB/s"
+            },
+            "comparison": {
+              "capacity": "256GB = 256GB (same)",
+              "class": "V30 = V30 (same)",
+              "read": "170MB/s > 100MB/s (faster)",
+              "write": "90MB/s = 90MB/s (same)"
+            },
+            "reason": "SanDisk Extreme offers faster read speed at premium price",
+            "useCase": "Applications requiring fastest transfer speeds",
+            "link": "#"
+          },
+          {
+            "partNumber": "MB-MC256KA",
+            "brand": "Samsung",
+            "specifications": {
+              "capacity": "256GB",
+              "class": "U3",
+              "read": "130MB/s",
+              "write": "60MB/s"
+            },
+            "comparison": {
+              "capacity": "256GB = 256GB (same)",
+              "class": "U3 < V30 (lower rating)",
+              "read": "130MB/s > 100MB/s (faster)",
+              "write": "60MB/s < 90MB/s (lower)"
+            },
+            "reason": "Samsung EVO offers faster read but lower write speed",
+            "useCase": "Read-heavy applications",
+            "link": "#"
+          }
+        ],
+        "companionParts": [
+          {
+            "partNumber": "FM512-V30",
+            "link": "/longsys/products/portable-storage/fm512-v30.html",
+            "description": "512GB version for extended recording time",
+            "category": "Portable Storage"
+          },
+          {
+            "partNumber": "FP01TB-U32",
+            "link": "/longsys/products/portable-storage/fp01tb-u32.html",
+            "description": "Portable SSD for large file backup",
+            "category": "Portable Storage"
+          },
+          {
+            "partNumber": "microSD Card Reader",
+            "link": "#",
+            "description": "USB card reader for fast transfers",
+            "category": "Accessories"
+          }
+        ],
+        "faqs": [
+          {
+            "question": "How much 4K video can 256GB store?",
+            "answer": "The actual recording time depends on video bitrate. At 100Mbps (typical for 4K60), 256GB stores approximately 5.5 hours of video. At 60Mbps (4K30), approximately 9.5 hours. At higher bitrates like 400Mbps (professional 4K), about 1.4 hours. The V30 rating ensures the card can sustain 30MB/s (240Mbps) write speed required for most 4K recording.",
+            "decisionGuide": "256GB provides 5-10 hours of 4K video depending on quality settings.",
+            "keywords": ["4K recording time", "microSD capacity", "video storage"]
+          },
+          {
+            "question": "What does A2 rating mean?",
+            "answer": "A2 (Application Performance Class 2) rating guarantees minimum 4000 IOPS read and 2000 IOPS write performance for running apps directly from the microSD card. This is important for Android devices using Adoptable Storage or running apps from SD card. A2 cards provide significantly better app launch and execution performance compared to A1 or non-rated cards. For best app performance, choose A2 rated cards.",
+            "decisionGuide": "A2 rating ensures good performance for apps installed on microSD.",
+            "keywords": ["A2 rating", "app performance", "microSD speed"]
+          },
+          {
+            "question": "Is this card compatible with Nintendo Switch?",
+            "answer": "Yes, the FM256-V30 is fully compatible with Nintendo Switch and Switch Lite. The 256GB capacity can store approximately 30-60 games depending on size. The high read speed ensures fast game loading. The card meets Nintendo's performance requirements for game storage and downloads. For Switch OLED or original Switch, this card provides excellent expansion capacity.",
+            "decisionGuide": "Fully compatible with Nintendo Switch for game storage.",
+            "keywords": ["Nintendo Switch", "Switch SD card", "gaming storage"]
+          },
+          {
+            "question": "Can I use this card for security cameras?",
+            "answer": "Yes, the FM256-V30 can be used in security cameras that support microSD storage. The high endurance of 256GB capacity provides days of continuous recording depending on resolution and quality settings. For 24/7 continuous recording, consider high-endurance cards specifically designed for surveillance use. For motion-activated recording, this card provides excellent capacity and reliability.",
+            "decisionGuide": "Suitable for security cameras, especially motion-activated recording.",
+            "keywords": ["security camera SD", "surveillance storage", "CCTV memory"]
+          },
+          {
+            "question": "What is the difference between U3 and V30 ratings?",
+            "answer": "U3 (UHS Speed Class 3) and V30 (Video Speed Class 30) both guarantee 30MB/s minimum sustained write speed. U3 is the older rating system, while V30 is newer and specifically designed for video recording. V30 testing is more stringent for sustained performance required by video cameras. For video recording, V30 is preferred, while U3 is sufficient for general use. This card carries both ratings for maximum compatibility.",
+            "decisionGuide": "Both U3 and V30 indicate 30MB/s write - V30 preferred for video.",
+            "keywords": ["U3 vs V30", "video speed class", "microSD ratings"]
+          }
+        ]
+      }
+    ]
+  }
+];
+
+// Add categories to products
+products.categories.push(...additionalCategories);
+
+// Write updated file
+fs.writeFileSync(productsPath, JSON.stringify(products, null, 2));
+console.log('✅ Added 3 additional product categories to Longsys products.json');
+console.log(`✅ Total categories: ${products.categories.length}`);
+console.log(`✅ Total products: ${products.categories.reduce((sum, cat) => sum + cat.products.length, 0)}`);

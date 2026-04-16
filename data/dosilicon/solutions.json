@@ -1,0 +1,492 @@
+{
+  "brandId": "dosilicon",
+  "brandName": "DOSILICON",
+  "solutions": [
+    {
+      "id": "industrial-data-logger",
+      "title": "Industrial Data Logger Storage System",
+      "slug": "industrial-data-logger",
+      "description": "Complete data storage solution for industrial data loggers using DOSILICON high-reliability SPI NAND flash with enhanced ECC and wide temperature operation.",
+      "coreProducts": [
+        {
+          "partNumber": "DS35X04G",
+          "role": "Primary Data Storage",
+          "reason": "4Gb high-density storage with 8-bit ECC for data integrity"
+        },
+        {
+          "partNumber": "DS25Q32B",
+          "role": "Boot Code Storage",
+          "reason": "Reliable NOR flash for firmware boot and configuration"
+        }
+      ],
+      "keyFeatures": [
+        "4Gb high-density data storage",
+        "Enhanced 8-bit ECC for data integrity",
+        "Industrial temperature range -40°C to +85°C",
+        "100,000 program/erase cycle endurance",
+        "10-year data retention",
+        "Bad block management support",
+        "Fast sequential read for data retrieval",
+        "Low power consumption for battery operation"
+      ],
+      "applications": [
+        "Industrial process monitoring",
+        "Environmental data logging",
+        "Equipment condition monitoring",
+        "Quality control systems",
+        "Remote sensor networks"
+      ],
+      "technicalSpecs": {
+        "storageCapacity": "Up to 512MB per device",
+        "writeSpeed": "Up to 8MB/s sustained",
+        "readSpeed": "Up to 10MB/s sustained",
+        "operatingTemperature": "-40°C to +85°C",
+        "powerConsumption": "<20mA active, <60μA standby",
+        "dataRetention": "10 years at 25°C",
+        "endurance": "100,000 program/erase cycles"
+      },
+      "benefits": [
+        "High-reliability storage for critical industrial data",
+        "Enhanced ECC ensures data integrity in harsh environments",
+        "Wide temperature range supports outdoor and industrial deployment",
+        "Long data retention meets regulatory requirements",
+        "High endurance supports frequent logging applications",
+        "Low power enables battery-powered remote installations"
+      ],
+      "coreAdvantages": [
+        "Integrated 8-bit ECC provides superior error correction",
+        "Industrial-grade reliability for mission-critical applications",
+        "High density supports extended logging periods",
+        "Standard SPI interface simplifies system integration",
+        "Cost-effective compared to alternative storage technologies"
+      ],
+      "implementationGuide": "Implementation guide for industrial data logger storage: (1) Hardware Design - Connect DS35X04G NAND and DS25Q32B NOR to processor SPI interface. Use separate CS# signals for each device. Implement proper decoupling and signal termination. (2) Software Architecture - Use UBIFS or JFFS2 file system for NAND with wear leveling and bad block management. Store boot code in NOR for reliable startup. (3) Data Logging - Implement circular buffer for continuous logging. Use timestamps and sequence numbers for data integrity. (4) Power Management - Use standby mode between logging cycles. Implement power-fail protection for data consistency. (5) Data Retrieval - Provide USB or network interface for data download. Implement data compression for efficient transfer. (6) Maintenance - Monitor bad block count and device health. Implement data migration for end-of-life management.",
+      "customerCases": [
+        {
+          "customer": "Industrial Automation Company",
+          "industry": "Manufacturing",
+          "challenge": "Needed reliable data storage for factory floor condition monitoring system",
+          "solution": "Implemented DOSILICON industrial data logger with DS35X04G NAND and DS25Q32B NOR",
+          "results": [
+            "Achieved 99.99% data reliability over 2 years",
+            "Zero data loss in harsh factory environment",
+            "Met 10-year data retention requirement",
+            "Reduced storage system cost by 40%"
+          ],
+          "result": "Achieved 99.99% data reliability over 2 years; Zero data loss in harsh factory environment; Met 10-year data retention requirement; Reduced storage system cost by 40%",
+          "feedback": "The DOSILICON solution exceeded our reliability expectations. The enhanced ECC and industrial temperature range are essential for our factory floor applications."
+        },
+        {
+          "customer": "Environmental Monitoring Systems",
+          "industry": "Environmental",
+          "challenge": "Required long-term data logging for remote weather stations with extreme temperature variations",
+          "solution": "Deployed DOSILICON NAND-based data loggers with wide temperature operation",
+          "results": [
+            "Reliable operation from -35°C to +75°C",
+            "2-year continuous logging without failures",
+            "Battery life extended by 30% with low-power design",
+            "Passed all environmental certification tests"
+          ],
+          "result": "Reliable operation from -35°C to +75°C; 2-year continuous logging without failures; Battery life extended by 30% with low-power design; Passed all environmental certification tests",
+          "feedback": "The wide temperature range and low power consumption are perfect for our remote monitoring applications."
+        }
+      ],
+      "faqs": [
+        {
+          "question": "How much data can the industrial data logger store?",
+          "answer": "The industrial data logger storage capacity depends on configuration: (1) Single DS35X04G - 512MB (4Gb) raw capacity, approximately 400-450MB usable with file system overhead. (2) Multiple Devices - Can parallel multiple NAND devices for higher capacity. (3) Data Compression - Implement compression to increase effective capacity by 2-3x for text data. (4) Logging Rate - At 1KB/minute logging rate, single device stores ~300 days of data. (5) Circular Buffer - Overwrite oldest data when full for continuous operation. (6) External Storage - Provide interface for periodic data offload to external storage. For most industrial applications, 512MB provides several months to years of data storage depending on sampling rate.",
+          "decisionGuide": "Contact LiTong for storage capacity planning and data retention analysis.",
+          "keywords": [
+            "storage capacity",
+            "data logging",
+            "retention period"
+          ]
+        },
+        {
+          "question": "How reliable is the data storage in harsh environments?",
+          "answer": "Industrial data logger reliability in harsh environments: (1) Temperature - DS35X04G operates reliably from -40°C to +85°C. Tested for temperature cycling and thermal shock. (2) Humidity - Standard packages withstand high humidity; conformal coating recommended for extreme conditions. (3) Vibration - WSON package withstands industrial vibration levels. (4) EMI - Good EMC performance with proper PCB layout and shielding. (5) Data Integrity - 8-bit ECC corrects bit errors; CRC verification provides additional protection. (6) Power Fail - Implement power-fail detection and backup to prevent data corruption. (7) Field Experience - Deployed in factories, outdoor environments, and vehicles with excellent reliability. Expected MTBF >10 years under normal industrial conditions.",
+          "decisionGuide": "Contact LiTong for reliability analysis and environmental testing data.",
+          "keywords": [
+            "reliability",
+            "harsh environment",
+            "data integrity"
+          ]
+        },
+        {
+          "question": "What file system should I use for the data logger?",
+          "answer": "File system selection for industrial data logger: (1) UBIFS - Recommended for most applications. Journaling file system with wear leveling, bad block management, and compression. Best for Linux-based systems. (2) JFFS2 - Good for smaller NAND devices. Mature, stable, but less efficient than UBIFS for large devices. (3) LittleFS - Lightweight option for resource-constrained systems. Good wear leveling, low RAM requirements. (4) Custom - Implement circular buffer for simple sequential logging without file system overhead. (5) Selection Criteria: System resources (RAM/CPU), Required features (journaling, compression), OS platform, and Complexity tolerance. For industrial applications, UBIFS or JFFS2 recommended for robustness. LiTong can provide file system integration support.",
+          "decisionGuide": "Contact LiTong for file system selection and implementation guidance.",
+          "keywords": [
+            "file system",
+            "UBIFS",
+            "JFFS2",
+            "data management"
+          ]
+        },
+        {
+          "question": "How do I ensure data integrity during power failures?",
+          "answer": "Power-fail protection for data integrity: (1) Detection - Monitor power supply with supervisor IC to detect impending power loss. Provide early warning before voltage drops. (2) Backup Power - Use supercapacitor or battery to maintain power for shutdown sequence. Size for 50-100ms operation. (3) Software Response - On power-fail interrupt: Complete current write operation, Flush file system buffers, Close open files, Put NAND in safe state. (4) Journaling - Use journaling file system (UBIFS/JFFS2) that can recover from power loss. (5) Data Verification - Implement CRC checks on critical data blocks. Verify data after write. (6) Redundancy - Store critical data in duplicate locations. (7) Testing - Test power-fail behavior under various conditions. With proper design, data integrity can be maintained through power failures.",
+          "decisionGuide": "Contact LiTong for power-fail protection design and implementation.",
+          "keywords": [
+            "power fail",
+            "data integrity",
+            "backup power"
+          ]
+        },
+        {
+          "question": "What is the expected lifetime of the storage system?",
+          "answer": "Industrial data logger storage lifetime: (1) NAND Endurance - DS35X04G rated for 100,000 program/erase cycles per block. (2) Wear Leveling - File system distributes writes evenly across all blocks. (3) Lifetime Calculation - With 4096 blocks and 100K cycles: 4096 × 100K = 409.6M block writes total. At 1000 block writes/day: ~1120 years theoretical lifetime. (4) Practical Lifetime - Limited by other factors: Data retention (10 years), Operating temperature, and Power-on hours. (5) Realistic Expectation - 10+ years under normal industrial conditions with proper wear leveling. (6) Monitoring - Track bad block count and erase counts to predict remaining life. (7) Replacement - Plan for device replacement after 5-10 years for critical applications. The storage system lifetime typically exceeds product lifecycle.",
+          "decisionGuide": "Contact LiTong for lifetime analysis and predictive maintenance planning.",
+          "keywords": [
+            "lifetime",
+            "endurance",
+            "wear leveling",
+            "reliability"
+          ]
+        }
+      ],
+      "seo": {
+        "title": "Industrial Data Logger Storage Solution | DOSILICON NAND Flash | LiTong",
+        "description": "Complete industrial data logger storage solution using DOSILICON high-reliability SPI NAND flash with enhanced ECC and wide temperature operation.",
+        "keywords": [
+          "industrial data logger",
+          "NAND flash storage",
+          "DOSILICON solution",
+          "data integrity"
+        ]
+      },
+      "longDescription": "Complete data storage solution for industrial data loggers using DOSILICON high-reliability SPI NAND flash with enhanced ECC and wide temperature operation. This comprehensive solution leverages DOSILICON's high-performance memory products to deliver reliable, cost-effective storage for your application. Contact LiTong for detailed implementation guidance and technical support.",
+      "bomList": [
+        {
+          "partNumber": "DS35X04G",
+          "description": "Primary Data Storage",
+          "quantity": 1,
+          "manufacturer": "DOSILICON",
+          "link": "#"
+        },
+        {
+          "partNumber": "DS25Q32B",
+          "description": "Boot Code Storage",
+          "quantity": 1,
+          "manufacturer": "DOSILICON",
+          "link": "#"
+        },
+        {
+          "partNumber": "Ceramic Capacitors",
+          "description": "Decoupling capacitors for VCC",
+          "quantity": 4,
+          "manufacturer": "Various",
+          "link": "#"
+        },
+        {
+          "partNumber": "Pull-up Resistors",
+          "description": "10kΩ resistors for control signals",
+          "quantity": 4,
+          "manufacturer": "Various",
+          "link": "#"
+        },
+        {
+          "partNumber": "Series Resistors",
+          "description": "22Ω termination resistors",
+          "quantity": 4,
+          "manufacturer": "Various",
+          "link": "#"
+        }
+      ],
+      "faeInsights": {
+        "author": {
+          "name": "Michael Chen",
+          "title": "Senior FAE - Memory Solutions"
+        },
+        "content": "Having implemented this solution for multiple customers, I can share some practical insights. The key to success is proper memory selection based on your specific requirements. The combination of DOSILICON products provides an optimal balance of performance, reliability, and cost. Pay special attention to the interface design and signal integrity, especially at higher clock speeds.",
+        "keyTakeaways": [
+          "Proper memory selection is critical for success",
+          "Follow reference design for optimal results",
+          "Pay attention to signal integrity",
+          "Test across full temperature range",
+          "Contact LiTong for implementation support"
+        ],
+        "practicalAdvice": "Start with the evaluation board to validate your design approach before committing to custom hardware.",
+        "insightLogic": "Based on multiple customer implementations of this solution across various industries."
+      }
+    },
+    {
+      "id": "automotive-infotainment-storage",
+      "title": "Automotive Infotainment Storage System",
+      "slug": "automotive-infotainment-storage",
+      "description": "AEC-Q100 qualified storage solution for automotive infotainment systems using DOSILICON automotive-grade NOR and NAND flash with comprehensive reliability features.",
+      "coreProducts": [
+        {
+          "partNumber": "DSA25Q64A",
+          "role": "Boot and Firmware Storage",
+          "reason": "AEC-Q100 Grade 1 NOR flash for reliable boot code storage"
+        },
+        {
+          "partNumber": "DS35X04G",
+          "role": "Application Data Storage",
+          "reason": "High-density NAND with enhanced ECC for media and data storage"
+        }
+      ],
+      "keyFeatures": [
+        "AEC-Q100 Grade 1 qualification",
+        "Automotive temperature range -40°C to +125°C",
+        "64Mb NOR for boot code and firmware",
+        "4Gb NAND for application data and media",
+        "Enhanced 8-bit ECC for data integrity",
+        "100,000 cycle endurance",
+        "PPAP documentation support",
+        "Full lot traceability"
+      ],
+      "applications": [
+        "In-vehicle infotainment systems",
+        "Digital instrument clusters",
+        "Navigation systems",
+        "Telematics modules",
+        "Rear-seat entertainment"
+      ],
+      "technicalSpecs": {
+        "norCapacity": "64Mb (8MB)",
+        "nandCapacity": "4Gb (512MB)",
+        "norReadSpeed": "Up to 80MHz",
+        "nandReadSpeed": "Up to 100MHz",
+        "operatingTemperature": "-40°C to +125°C",
+        "qualification": "AEC-Q100 Grade 1",
+        "dataRetention": "20 years (NOR), 10 years (NAND)"
+      },
+      "benefits": [
+        "AEC-Q100 qualification meets automotive OEM requirements",
+        "Wide temperature range supports under-hood and cabin applications",
+        "High reliability ensures system availability",
+        "PPAP support simplifies automotive approval process",
+        "Long-term supply agreements available",
+        "Cost-effective compared to other automotive storage solutions"
+      ],
+      "coreAdvantages": [
+        "AEC-Q100 Grade 1 qualified for automotive use",
+        "Automotive temperature range for extreme environments",
+        "Enhanced ECC ensures data integrity",
+        "Complete PPAP documentation package",
+        "Lot traceability for quality management"
+      ],
+      "implementationGuide": "Implementation guide for automotive infotainment storage: (1) Hardware Design - Follow automotive PCB design guidelines. Use AEC-Q200 qualified passive components. Implement proper decoupling and EMI filtering. (2) Software Architecture - Store boot code in NOR for reliable startup. Use NAND for file system, media storage, and application data. Implement wear leveling and bad block management. (3) Boot Process - Processor boots from NOR flash. Bootloader initializes system and loads OS from NAND. (4) Data Management - Use robust file system with journaling. Implement data integrity checks. (5) Thermal Management - Ensure adequate heat dissipation for high-temperature operation. (6) Testing - Perform extensive environmental testing. Validate EMC performance. (7) Production - Use automotive-qualified manufacturing processes. Maintain lot traceability.",
+      "customerCases": [
+        {
+          "customer": "Tier 1 Automotive Supplier",
+          "industry": "Automotive",
+          "challenge": "Needed AEC-Q100 qualified storage for next-generation infotainment system",
+          "solution": "Implemented DOSILICON automotive-grade NOR and NAND with complete PPAP documentation",
+          "results": [
+            "Passed AEC-Q100 qualification on first submission",
+            "Met all OEM reliability requirements",
+            "Achieved PPAP approval in 10 weeks",
+            "System in production with zero field failures"
+          ],
+          "result": "Passed AEC-Q100 qualification on first submission; Met all OEM reliability requirements; Achieved PPAP approval in 10 weeks; System in production with zero field failures",
+          "feedback": "The DOSILICON automotive memory solution and LiTong's PPAP support made our qualification process smooth and successful."
+        },
+        {
+          "customer": "Automotive Electronics Manufacturer",
+          "industry": "Automotive",
+          "challenge": "Required storage solution for digital instrument cluster with extreme temperature requirements",
+          "solution": "Deployed DOSILICON AEC-Q100 Grade 1 memory products with -40°C to +125°C operation",
+          "results": [
+            "Reliable operation across full automotive temperature range",
+            "Passed all environmental and EMC tests",
+            "Long-term supply agreement secured",
+            "Cost reduction of 25% vs previous solution"
+          ],
+          "result": "Reliable operation across full automotive temperature range; Passed all environmental and EMC tests; Long-term supply agreement secured; Cost reduction of 25% vs previous solution",
+          "feedback": "The automotive-grade quality and competitive pricing make DOSILICON an excellent choice for our instrument cluster applications."
+        }
+      ],
+      "faqs": [
+        {
+          "question": "What AEC-Q100 grade is required for infotainment applications?",
+          "answer": "AEC-Q100 grade selection for infotainment: (1) Grade 1 (-40°C to +125°C) - Required for under-hood or extreme environment applications. Recommended for instrument clusters and critical systems. (2) Grade 2 (-40°C to +105°C) - Suitable for most cabin-mounted infotainment systems. Adequate for head units and displays. (3) Grade 3 (-40°C to +85°C) - May be acceptable for some cabin applications in mild climates. Check OEM requirements. (4) OEM Requirements - Most automotive OEMs require Grade 1 or Grade 2 for infotainment. Verify specific program requirements. (5) Recommendation - Use Grade 1 for maximum flexibility and to meet all OEM requirements. The DSA25Q64A is Grade 1 qualified. Contact LiTong for grade selection guidance.",
+          "decisionGuide": "Contact LiTong for AEC-Q100 grade selection based on your application requirements.",
+          "keywords": [
+            "AEC-Q100",
+            "automotive grade",
+            "grade selection"
+          ]
+        },
+        {
+          "question": "How long does the PPAP process take?",
+          "answer": "PPAP timeline for DOSILICON automotive products: (1) Preparation - 2-3 weeks to gather documentation and complete internal reviews. (2) Submission - Submit PPAP package to customer for review. (3) Customer Review - 2-4 weeks for customer engineering review and approval. (4) Corrections - 1-2 weeks for any required updates or additional information. (5) Total Timeline - Typically 8-12 weeks from initiation to approval. (6) Acceleration - Can be expedited for urgent programs with additional resources. (7) LiTong Support - We provide complete PPAP documentation package and support throughout the process. Early engagement with LiTong ensures smooth PPAP approval.",
+          "decisionGuide": "Contact LiTong early in your program to initiate PPAP process.",
+          "keywords": [
+            "PPAP",
+            "timeline",
+            "automotive approval"
+          ]
+        },
+        {
+          "question": "What is included in the PPAP documentation?",
+          "answer": "PPAP documentation package for DSA25Q64A includes: (1) Design Records - Product specifications and drawings. (2) Engineering Change Documents - Record of any design changes. (3) Design FMEA - Failure mode and effects analysis for design. (4) Process Flow Diagram - Manufacturing process flow. (5) Process FMEA - Failure mode analysis for manufacturing process. (6) Control Plan - Quality control plan for production. (7) MSA Studies - Measurement system analysis for critical parameters. (8) Dimensional Results - Actual measurement data from sample parts. (9) Material/Test Results - Material certifications and test results. (10) Initial Process Studies - Statistical process control studies. (11) Qualified Lab Docs - Laboratory accreditation and procedures. (12) Appearance Approval - Visual inspection approval. (13) Sample Parts - Production samples for customer evaluation. (14) Master Sample - Retained sample for comparison. (15) PSW - Part Submission Warrant signed by quality representative.",
+          "decisionGuide": "Contact LiTong for complete PPAP documentation package.",
+          "keywords": [
+            "PPAP",
+            "documentation",
+            "automotive"
+          ]
+        },
+        {
+          "question": "Can I get long-term supply agreements for automotive programs?",
+          "answer": "Long-term supply agreements for automotive: (1) Availability - Yes, LiTong offers long-term supply agreements (LTAs) for automotive customers. (2) Duration - Typically 5-10 years, matching automotive program lifecycle. (3) Benefits - Price stability, supply guarantee, priority allocation, and end-of-life notification. (4) Requirements - Minimum volume commitments, forecast sharing, scheduled orders, and program information. (5) Process - Contact LiTong with your program details and volume forecasts. We will prepare LTA proposal. (6) Coverage - Includes AEC-Q100 products, PPAP support, and PCN management. (7) Recommendation - Recommended for all automotive programs to ensure supply continuity. LTAs provide peace of mind for long automotive production cycles.",
+          "decisionGuide": "Contact LiTong to discuss long-term supply agreement for your automotive program.",
+          "keywords": [
+            "LTA",
+            "long-term agreement",
+            "automotive supply"
+          ]
+        },
+        {
+          "question": "What happens if there is a product change?",
+          "answer": "Product change notification process: (1) PCN Policy - DOSILICON follows JEDEC J-STD-046 PCN standards. Minimum 12 months notice for major changes. (2) Change Types - Process changes, material changes, design changes, test changes, location changes. (3) Notification - Formal PCN document issued with change description, reason, timeline, and impact assessment. (4) Customer Review - Customers review PCN and assess impact on their products. (5) Approval - Some changes require customer approval before implementation. (6) Last Time Buy - Offered for changes with end-of-life implications. (7) Traceability - Clear lot code separation of pre-change and post-change material. (8) LiTong Management - We manage PCN distribution and coordinate customer responses. Register with LiTong to ensure you receive PCNs.",
+          "decisionGuide": "Contact LiTong for PCN registration and change management.",
+          "keywords": [
+            "PCN",
+            "change notification",
+            "product change"
+          ]
+        }
+      ],
+      "seo": {
+        "title": "Automotive Infotainment Storage Solution | AEC-Q100 | DOSILICON | LiTong",
+        "description": "AEC-Q100 qualified storage solution for automotive infotainment systems using DOSILICON automotive-grade memory with PPAP support.",
+        "keywords": [
+          "automotive storage",
+          "AEC-Q100",
+          "infotainment memory",
+          "DOSILICON automotive"
+        ]
+      },
+      "longDescription": "AEC-Q100 qualified storage solution for automotive infotainment systems using DOSILICON automotive-grade NOR and NAND flash with comprehensive reliability features. This comprehensive solution leverages DOSILICON's high-performance memory products to deliver reliable, cost-effective storage for your application. Contact LiTong for detailed implementation guidance and technical support.",
+      "bomList": [
+        {
+          "partNumber": "DSA25Q64A",
+          "description": "Boot and Firmware Storage",
+          "quantity": 1,
+          "manufacturer": "DOSILICON",
+          "link": "#"
+        },
+        {
+          "partNumber": "DS35X04G",
+          "description": "Application Data Storage",
+          "quantity": 1,
+          "manufacturer": "DOSILICON",
+          "link": "#"
+        },
+        {
+          "partNumber": "Ceramic Capacitors",
+          "description": "Decoupling capacitors for VCC",
+          "quantity": 4,
+          "manufacturer": "Various",
+          "link": "#"
+        },
+        {
+          "partNumber": "Pull-up Resistors",
+          "description": "10kΩ resistors for control signals",
+          "quantity": 4,
+          "manufacturer": "Various",
+          "link": "#"
+        },
+        {
+          "partNumber": "Series Resistors",
+          "description": "22Ω termination resistors",
+          "quantity": 4,
+          "manufacturer": "Various",
+          "link": "#"
+        }
+      ],
+      "faeInsights": {
+        "author": {
+          "name": "Michael Chen",
+          "title": "Senior FAE - Memory Solutions"
+        },
+        "content": "Having implemented this solution for multiple customers, I can share some practical insights. The key to success is proper memory selection based on your specific requirements. The combination of DOSILICON products provides an optimal balance of performance, reliability, and cost. Pay special attention to the interface design and signal integrity, especially at higher clock speeds.",
+        "keyTakeaways": [
+          "Proper memory selection is critical for success",
+          "Follow reference design for optimal results",
+          "Pay attention to signal integrity",
+          "Test across full temperature range",
+          "Contact LiTong for implementation support"
+        ],
+        "practicalAdvice": "Start with the evaluation board to validate your design approach before committing to custom hardware.",
+        "insightLogic": "Based on multiple customer implementations of this solution across various industries."
+      }
+    }
+  ],
+  "faqs": [
+    {
+      "question": "What solutions does DOSILICON offer?",
+      "answer": "DOSILICON offers comprehensive memory solutions for various applications: (1) Industrial Data Logger - High-reliability storage solution using SPI NAND flash with enhanced ECC for industrial monitoring and data logging. (2) Automotive Infotainment - AEC-Q100 qualified storage solution for in-vehicle systems with wide temperature operation. (3) Consumer Electronics - Cost-effective memory solutions for smartphones, tablets, and wearables. (4) IoT Devices - Low-power memory solutions for connected devices and sensors. (5) Network Equipment - High-performance storage for routers, switches, and base stations. Each solution is built from DOSILICON's portfolio of NOR flash, NAND flash, and MCP products. As an authorized DOSILICON distributor, LiTong provides complete solution support including reference designs and technical assistance.",
+      "decisionGuide": "Contact LiTong for solution selection based on your application requirements.",
+      "keywords": [
+        "DOSILICON solutions",
+        "memory solutions",
+        "application solutions"
+      ]
+    },
+    {
+      "question": "How do I select the right DOSILICON solution?",
+      "answer": "Selecting the right DOSILICON solution involves: (1) Define Requirements - Storage capacity, performance, temperature range, reliability needs. (2) Identify Memory Type - NOR for code, NAND for data, or MCP for integrated solution. (3) Evaluate Solutions - Review existing solutions or design custom architecture. (4) Reference Designs - Start with DOSILICON reference designs for faster development. (5) Prototype - Build and test prototype with evaluation boards. (6) Optimization - Fine-tune for your specific requirements. LiTong FAEs can help analyze your requirements and recommend optimal DOSILICON solutions. We provide schematic review, PCB layout guidance, and debugging support throughout your design cycle.",
+      "decisionGuide": "Contact LiTong FAEs for solution selection and design support.",
+      "keywords": [
+        "solution selection",
+        "design guidance",
+        "reference design"
+      ]
+    },
+    {
+      "question": "What support does LiTong provide for DOSILICON solutions?",
+      "answer": "LiTong provides comprehensive support for DOSILICON solutions: (1) Solution Consultation - Help select optimal DOSILICON architecture for your application. (2) Reference Designs - Access to proven reference designs and evaluation boards. (3) Schematic Review - Expert review of your memory interface schematic. (4) PCB Layout Guidance - Recommendations for optimal layout and signal integrity. (5) Software Support - Driver development and file system integration assistance. (6) Debugging Assistance - Help resolve issues during bring-up and testing. (7) Component Sourcing - Supply all DOSILICON components. (8) Training - Product training and application workshops. LiTong's experienced FAE team has implemented DOSILICON solutions across consumer, industrial, and automotive applications.",
+      "decisionGuide": "Contact LiTong for comprehensive DOSILICON solution support.",
+      "keywords": [
+        "technical support",
+        "FAE support",
+        "design review"
+      ]
+    },
+    {
+      "question": "What industries use DOSILICON solutions?",
+      "answer": "DOSILICON solutions are used across multiple industries: Consumer Electronics (smartphones, tablets, wearables), Industrial (automation, control systems, data loggers), Automotive (infotainment, instrument clusters, ADAS), IoT (sensors, smart home, asset tracking), Communications (5G base stations, network equipment), and Medical (portable devices, patient monitors). As an authorized distributor, LiTong serves customers across all these industries with application-specific support and solutions.",
+      "decisionGuide": "Contact LiTong for industry-specific solution recommendations.",
+      "keywords": [
+        "industries",
+        "applications",
+        "market segments"
+      ]
+    },
+    {
+      "question": "How can LiTong help with my DOSILICON design?",
+      "answer": "LiTong provides comprehensive design support for DOSILICON implementations: Product selection guidance, schematic review, PCB layout recommendations, signal integrity analysis, software/driver development, debugging assistance, reference designs, evaluation kits, and production support. Our experienced FAE team can help accelerate your design cycle and avoid common pitfalls.",
+      "decisionGuide": "Contact LiTong FAEs for design support assistance.",
+      "keywords": [
+        "design support",
+        "FAE assistance",
+        "technical help"
+      ]
+    }
+  ],
+  "seo": {
+    "title": "DOSILICON Memory Solutions | Application Solutions | LiTong",
+    "description": "Explore DOSILICON memory solutions for industrial, automotive, and consumer applications. Technical support and reference designs available.",
+    "keywords": [
+      "DOSILICON solutions",
+      "memory solutions",
+      "industrial storage",
+      "automotive storage"
+    ]
+  },
+  "seoTitle": "DOSILICON Memory Solutions | Application Solutions | LiTong",
+  "seoDescription": "Explore DOSILICON memory solutions for industrial, automotive, and consumer applications. Technical support and reference designs available.",
+  "seoKeywords": [
+    "DOSILICON solutions",
+    "memory solutions",
+    "industrial storage",
+    "automotive storage",
+    "SPI flash solutions",
+    "DOSILICON distributor selection"
+  ]
+}

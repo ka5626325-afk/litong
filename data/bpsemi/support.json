@@ -1,0 +1,711 @@
+{
+  "seoTitle": "BPSemi Technical Support | LED Driver & Power IC Selection Guide | LiTong",
+  "seoDescription": "Technical support for BPSemi LED drivers, power management ICs, and motor drivers. Selection guides, application notes, and design resources from authorized distributor.",
+  "seoKeywords": [
+    "BPSemi technical support",
+    "BPSemi selection guide",
+    "LED driver application note",
+    "power management design guide",
+    "motor driver tutorial",
+    "BPSemi distributor support"
+  ],
+  "faqs": [
+    {
+      "question": "What technical support resources are available for BPSemi products?",
+      "answer": "LiTong provides comprehensive technical support for BPSemi products including selection guides, application notes, reference designs, evaluation kits, and direct FAE support. Our technical resources cover LED driver design, AC/DC power supply design, DC/DC converter optimization, and motor control applications. We offer design review services, thermal analysis, EMI troubleshooting, and debugging assistance. Contact our FAE team for personalized technical support.",
+      "decisionGuide": "Browse the technical articles below or contact LiTong FAEs for specific application support.",
+      "keywords": [
+        "technical support",
+        "design resources",
+        "application support"
+      ]
+    },
+    {
+      "question": "How can I get BPSemi product samples and evaluation kits?",
+      "answer": "LiTong provides BPSemi product samples and evaluation kits for qualified customers. Sample requests can be submitted through our website or by contacting our sales team. Evaluation kits include reference designs, demo boards, and documentation to accelerate your development. For high-volume production planning, we can discuss sample programs and early access to new products.",
+      "decisionGuide": "Contact LiTong sales team to request samples and evaluation kits for your project.",
+      "keywords": [
+        "product samples",
+        "evaluation kit",
+        "demo board"
+      ]
+    },
+    {
+      "question": "Does LiTong provide design review services for BPSemi-based designs?",
+      "answer": "Yes, LiTong provides comprehensive design review services for BPSemi-based designs. Our FAE team can review your schematics, PCB layouts, and BOMs to identify potential issues and optimization opportunities. Design reviews cover electrical design, thermal management, EMI considerations, and manufacturability. We provide detailed feedback and recommendations to improve design reliability and performance.",
+      "decisionGuide": "Submit your design files to LiTong FAEs for review early in your design cycle.",
+      "keywords": [
+        "design review",
+        "schematic review",
+        "PCB review"
+      ]
+    },
+    {
+      "question": "What is the typical response time for technical support inquiries?",
+      "answer": "LiTong technical support response times: General inquiries - within 24 hours, Technical questions - within 1-2 business days, Design review requests - within 3-5 business days, Urgent production issues - same day response. For complex technical issues, we may schedule a call or meeting with our FAE team. Priority support is available for strategic customers and high-volume projects.",
+      "decisionGuide": "Contact LiTong through your preferred channel for technical support with expected response times.",
+      "keywords": [
+        "response time",
+        "technical support",
+        "customer service"
+      ]
+    },
+    {
+      "question": "How do I report a technical issue or product defect?",
+      "answer": "Technical issues or product defects can be reported to LiTong through our technical support hotline, email, or website contact form. Please provide detailed information including: product part number, lot code, issue description, operating conditions, and supporting documentation (scope shots, photos). Our quality team will investigate and provide resolution or replacement as appropriate. For critical production issues, we provide expedited handling.",
+      "decisionGuide": "Contact LiTong technical support immediately for production-critical issues.",
+      "keywords": [
+        "technical issue",
+        "product defect",
+        "quality support"
+      ]
+    },
+    {
+      "question": "Are there training programs available for BPSemi products?",
+      "answer": "LiTong offers training programs for BPSemi products including online webinars, hands-on workshops, and customized training sessions. Training topics cover product fundamentals, application design, troubleshooting techniques, and best practices. We can arrange on-site training for customers with specific requirements. Contact our training coordinator to discuss training options and schedule.",
+      "decisionGuide": "Contact LiTong to schedule training for your engineering team on BPSemi products.",
+      "keywords": [
+        "training programs",
+        "webinars",
+        "workshops"
+      ]
+    },
+    {
+      "question": "Can LiTong help with EMI troubleshooting and compliance?",
+      "answer": "Yes, LiTong provides EMI troubleshooting and compliance support for BPSemi-based designs. Our FAE team can help identify EMI issues, recommend filter designs, review PCB layouts for EMI optimization, and provide pre-compliance testing guidance. We have experience with various EMI standards including CISPR, FCC, and EN standards. For complex EMI issues, we can arrange support from BPSemi's application engineering team.",
+      "decisionGuide": "Contact LiTong early in design for EMI design guidance or for troubleshooting existing designs.",
+      "keywords": [
+        "EMI troubleshooting",
+        "EMC compliance",
+        "filter design"
+      ]
+    },
+    {
+      "question": "What documentation is available for BPSemi products?",
+      "answer": "BPSemi product documentation includes datasheets, application notes, reference designs, evaluation board documentation, and design calculation tools. LiTong maintains a comprehensive library of BPSemi documentation and can provide additional application-specific guidance. For specialized applications, we can request additional technical information from BPSemi or arrange direct technical discussions.",
+      "decisionGuide": "Contact LiTong to request specific documentation or application guidance for BPSemi products.",
+      "keywords": [
+        "documentation",
+        "datasheet",
+        "application note"
+      ]
+    }
+  ],
+  "articles": [
+    {
+      "id": "led-driver-selection-guide",
+      "title": "BPSemi LED Driver Selection Guide",
+      "slug": "led-driver-selection-guide",
+      "category": "Product Selection",
+      "author": {
+        "name": "David Wang",
+        "title": "Principal FAE - Lighting Applications",
+        "experience": "15 years",
+        "expertise": [
+          "LED driver design",
+          "Power electronics",
+          "Lighting systems"
+        ]
+      },
+      "publishDate": "2026-01-15",
+      "lastUpdated": "2026-01-15",
+      "summary": "Comprehensive guide for selecting the right BPSemi LED driver based on application requirements, power levels, and features. Covers topology selection, key parameters, and design considerations.",
+      "content": [
+        "## Introduction to LED Driver Selection",
+        "",
+        "Selecting the right LED driver is critical for achieving optimal performance, efficiency, and reliability in lighting applications. This guide provides a systematic approach to selecting BPSemi LED drivers based on application requirements.",
+        "",
+        "## Key Selection Parameters",
+        "",
+        "### Input Voltage Range",
+        "Determine your input voltage source: AC mains (85V-265V universal, or specific regional voltage), DC bus voltage, or battery. BPSemi offers solutions for all common input ranges.",
+        "",
+        "### Output Power Requirements",
+        "Calculate required output power based on LED configuration: Power = LED forward voltage × LED current × Number of LEDs. Add 15-20% margin for driver efficiency and temperature derating.",
+        "",
+        "### Topology Selection",
+        "- **Non-isolated buck**: Cost-effective for low-power (<20W) where safety isolation is not required",
+        "- **Isolated flyback**: Required for safety isolation, suitable for medium power (10W-100W)",
+        "- **Active PFC**: Required for >25W in most regions to meet harmonic standards",
+        "",
+        "### Dimming Requirements",
+        "Consider dimming method: 0-10V analog, PWM, triac (phase-cut), or digital. Select drivers with appropriate dimming interfaces.",
+        "",
+        "## Product Family Selection",
+        "",
+        "### BP2861/BP2865 Series",
+        "Non-isolated LED drivers for low-power applications up to 18W. Ideal for LED bulbs, downlights, and consumer lighting.",
+        "",
+        "### BP3319 Series",
+        "Isolated LED drivers with active PFC for commercial lighting up to 60W. Features primary-side regulation for simplified design.",
+        "",
+        "## Design Considerations",
+        "",
+        "### Thermal Management",
+        "LED drivers operate in thermally challenging environments. Ensure adequate heat sinking and consider temperature derating.",
+        "",
+        "### EMI Compliance",
+        "Plan for EMI filtering early in design. BPSemi drivers are designed for good EMI performance with proper layout.",
+        "",
+        "### Protection Features",
+        "Verify required protection features: OVP, OCP, OTP, and LED open/short protection are essential for reliable operation."
+      ],
+      "tags": [
+        "LED driver",
+        "product selection",
+        "lighting design",
+        "application guide"
+      ],
+      "relatedArticles": [
+        "acdc-converter-selection-guide",
+        "dcdc-converter-selection-guide",
+        "motor-driver-selection-guide"
+      ],
+      "faeInsights": {
+        "insight": "After supporting hundreds of LED driver designs, I've found that the most common mistake is inadequate thermal design. Customers often calculate power dissipation at room temperature but don't account for the actual operating environment inside a light fixture. I always recommend designing for worst-case conditions: maximum ambient temperature inside the fixture, minimum input voltage (which causes highest input current), and end-of-life LED forward voltage. Another critical factor is dimming compatibility - not all LED drivers work well with all dimmers. If you're planning to use phase-cut dimming, select drivers specifically designed for that application and test with your target dimmer models. The BP3319 series with its primary-side regulation has been particularly reliable in my experience, simplifying the design while maintaining good performance.",
+        "logic": "1) Define application requirements (power, dimming, safety) 2) Select topology based on isolation and power requirements 3) Choose specific driver based on features and cost 4) Design for thermal worst-case conditions 5) Plan EMI filtering and protection 6) Validate with prototype testing",
+        "keyTakeaways": [
+          "Design for worst-case thermal conditions",
+          "Verify dimming compatibility with target dimmers",
+          "Plan EMI filtering early in design",
+          "Include adequate safety margins in power rating",
+          "Test prototypes in actual operating environment"
+        ],
+        "commonPitfalls": [
+          "Inadequate thermal design for actual operating conditions",
+          "Poor dimming compatibility causing flicker",
+          "Insufficient EMI filtering leading to certification failures",
+          "Incorrect transformer design affecting performance"
+        ],
+        "bestPractices": [
+          "Use BPSemi reference designs as starting point",
+          "Perform thermal calculations with actual operating conditions",
+          "Test dimming performance with intended dimmers",
+          "Validate EMI performance early with pre-compliance testing",
+          "Include proper protection circuits"
+        ]
+      },
+      "customerCases": [
+        {
+          "customer": "Commercial Lighting Manufacturer",
+          "industry": "Commercial Lighting",
+          "application": "LED downlight driver selection",
+          "problem": "Customer was experiencing reliability issues with existing LED drivers in commercial downlights",
+          "diagnosis": "Analysis revealed inadequate thermal design and lack of proper protection features in the existing drivers",
+          "solution": "Recommended BP3319 series with proper thermal design guidelines and protection features",
+          "results": "Improved reliability with 50,000+ hours MTBF and reduced field failure rate by 80%",
+          "challenge": "Customer faced technical challenges with their design implementation",
+          "feedback": "Customer reported successful implementation and improved design performance"
+        }
+      ],
+      "faqs": [
+        {
+          "question": "How do I determine if I need an isolated or non-isolated LED driver?",
+          "answer": "Isolation requirements depend on safety standards and application: 1) Commercial and industrial lighting typically require isolation meeting safety standards (UL, EN), 2) Double-insulated fixtures may allow non-isolated drivers, 3) Outdoor lighting usually requires isolation, 4) Consumer lighting with plastic enclosures may use non-isolated. When in doubt, use isolated drivers for safety. Non-isolated drivers are smaller and lower cost but require careful system design for safety compliance.",
+          "decisionGuide": "For commercial and safety-critical applications, use isolated drivers. Contact LiTong for safety standard guidance.",
+          "keywords": [
+            "isolation requirements",
+            "safety standards",
+            "driver selection"
+          ]
+        },
+        {
+          "question": "What is the maximum LED string voltage I can use?",
+          "answer": "Maximum LED string voltage depends on driver topology and safety requirements: 1) Non-isolated drivers - typically limited to <60V for SELV (Safety Extra Low Voltage), 2) Isolated drivers - can support higher voltages up to driver output rating, 3) Safety standards - many regions require <60V DC for accessible parts. Consider LED forward voltage variation (typically ±10%) when calculating maximum string voltage. Higher voltage strings reduce current and associated losses but may have safety implications.",
+          "decisionGuide": "Design for <60V LED string voltage when possible for safety. Contact LiTong for high-voltage LED driver solutions.",
+          "keywords": [
+            "LED string voltage",
+            "SELV",
+            "safety voltage"
+          ]
+        },
+        {
+          "question": "How do I calculate the LED driver efficiency?",
+          "answer": "LED driver efficiency = LED power output / Input power × 100%. Input power = Output power / Efficiency. For example, with 20W LED load and 90% efficiency: Input power = 20W / 0.9 = 22.2W, Power loss = 2.2W. Efficiency varies with load - typically highest at 50-75% load. Consider efficiency at your actual operating point, not just the maximum rated efficiency. Also consider standby power consumption for applications requiring low standby power.",
+          "decisionGuide": "Calculate efficiency at actual operating conditions. Contact LiTong for efficiency optimization guidance.",
+          "keywords": [
+            "efficiency calculation",
+            "power loss",
+            "operating conditions"
+          ]
+        },
+        {
+          "question": "What causes LED flicker and how do I prevent it?",
+          "answer": "LED flicker causes and solutions: 1) Insufficient driver output capacitance - increase output capacitor value, 2) Poor dimming compatibility - use drivers designed for your dimming method, 3) Input voltage ripple - improve input filtering, 4) Control loop instability - check compensation and layout, 5) PWM frequency too low - use >100Hz to avoid visible flicker. Invisible flicker (100-150Hz) can still cause health issues. Select drivers with low ripple current and proper filtering.",
+          "decisionGuide": "Follow BPSemi design guidelines for flicker-free operation. Contact LiTong for flicker troubleshooting.",
+          "keywords": [
+            "LED flicker",
+            "ripple current",
+            "dimming compatibility"
+          ]
+        },
+        {
+          "question": "How do I design for LED driver reliability?",
+          "answer": "LED driver reliability design: 1) Component derating - use components at 70-80% of rated values, 2) Thermal management - keep junction temperatures <105°C, 3) Protection features - implement OVP, OCP, OTP, 4) Input protection - include surge protection for outdoor applications, 5) Capacitor selection - use high-temperature rated capacitors with adequate margin. Reliability is inversely related to temperature - every 10°C reduction doubles lifetime. Design for worst-case operating conditions.",
+          "decisionGuide": "Follow reliability design guidelines and derating recommendations. Contact LiTong for reliability analysis.",
+          "keywords": [
+            "reliability design",
+            "component derating",
+            "thermal management"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "acdc-converter-selection-guide",
+      "title": "BPSemi AC/DC Converter Selection Guide",
+      "slug": "acdc-converter-selection-guide",
+      "category": "Product Selection",
+      "author": {
+        "name": "Steven Liu",
+        "title": "Senior FAE - Power Supply Design",
+        "experience": "12 years",
+        "expertise": [
+          "AC/DC power supplies",
+          "Switching converters",
+          "Power adapter design"
+        ]
+      },
+      "publishDate": "2026-02-01",
+      "lastUpdated": "2026-02-01",
+      "summary": "Guide for selecting BPSemi AC/DC converters for power adapter and power supply applications. Covers topology selection, controller features, and design optimization.",
+      "content": [
+        "## AC/DC Converter Selection Overview",
+        "",
+        "Selecting the right AC/DC converter involves understanding your application requirements including power level, efficiency targets, size constraints, and cost objectives. BPSemi offers solutions from simple flyback controllers to advanced quasi-resonant converters.",
+        "",
+        "## Power Level and Topology Selection",
+        "",
+        "### Low Power (5W-20W)",
+        "Simple flyback with primary-side regulation (PSR) offers cost-effective solution. BPSemi BP87112 provides integrated MOSFET for minimal BOM.",
+        "",
+        "### Medium Power (20W-65W)",
+        "Quasi-resonant (QR) flyback provides excellent efficiency and EMI performance. BPSemi BP3288 offers valley switching for optimal performance.",
+        "",
+        "### High Power (>65W)",
+        "Active clamp flyback or LLC resonant topology for highest efficiency. May require external power stage with BPSemi controllers.",
+        "",
+        "## Key Controller Features",
+        "",
+        "### Switching Frequency",
+        "Higher frequency reduces component size but increases switching losses. BPSemi controllers offer 50kHz-150kHz range for optimal balance.",
+        "",
+        "### Control Mode",
+        "- **PWM**: Fixed frequency, good for EMI filtering",
+        "- **QR**: Variable frequency with valley switching, best efficiency",
+        "- **Burst mode**: For light load efficiency and standby power",
+        "",
+        "### Protection Features",
+        "Essential protections: OVP, OCP, OTP, UVLO. BPSemi controllers include comprehensive protection.",
+        "",
+        "## Efficiency Optimization",
+        "",
+        "### Synchronous Rectification",
+        "Replace output diode with MOSFET for 3-5% efficiency improvement. Essential for high-current outputs.",
+        "",
+        "### Valley Switching",
+        "QR operation switches at voltage minimum, reducing switching losses and EMI.",
+        "",
+        "### Light Load Optimization",
+        "Frequency foldback and burst mode maintain efficiency at light loads and reduce standby power."
+      ],
+      "tags": [
+        "AC/DC converter",
+        "power supply",
+        "flyback",
+        "quasi-resonant"
+      ],
+      "relatedArticles": [
+        "led-driver-selection-guide",
+        "dcdc-converter-selection-guide",
+        "motor-driver-selection-guide"
+      ],
+      "faeInsights": {
+        "insight": "In my experience with AC/DC power supply design, the most critical decision is selecting the right topology for your power level and efficiency requirements. For adapters under 20W, the integrated solutions like BP87112 offer unbeatable cost and simplicity. As you move to higher power levels, the benefits of quasi-resonant operation become significant - I've seen efficiency improvements of 3-5% compared to standard PWM, plus much better EMI performance. One often overlooked aspect is standby power - with modern energy regulations requiring <75mW or even <30mW, the controller's burst mode performance becomes critical. The transformer design is equally important - a well-designed transformer can make the difference between a supply that barely meets spec and one that exceeds it with margin. I always recommend spending extra time on transformer optimization.",
+        "logic": "1) Define power requirements and efficiency targets 2) Select topology based on power level 3) Choose controller with appropriate features 4) Design transformer for optimal performance 5) Implement synchronous rectification if needed 6) Optimize for EMI and thermal performance",
+        "keyTakeaways": [
+          "Select topology appropriate for power level",
+          "QR operation provides significant efficiency benefits above 30W",
+          "Transformer design is critical for performance",
+          "Standby power requirements drive controller selection",
+          "Synchronous rectification pays off for high-current outputs"
+        ],
+        "commonPitfalls": [
+          "Underestimating transformer design complexity",
+          "Ignoring standby power requirements until late in design",
+          "Inadequate EMI filtering causing certification delays",
+          "Poor thermal management leading to reliability issues"
+        ],
+        "bestPractices": [
+          "Use BPSemi reference designs and transformer specifications",
+          "Design for EMI compliance from the start",
+          "Validate thermal performance under worst-case conditions",
+          "Test efficiency across full load range",
+          "Plan for required safety clearances and creepage"
+        ]
+      },
+      "customerCases": [
+        {
+          "customer": "Power Adapter Manufacturer",
+          "industry": "Consumer Electronics",
+          "application": "65W USB-C PD adapter",
+          "problem": "Customer needed high-efficiency adapter meeting strict efficiency and standby power requirements",
+          "diagnosis": "Existing design used standard PWM controller with poor light-load efficiency",
+          "solution": "Redesigned with BP3288 QR controller and synchronous rectification",
+          "results": "Achieved 93% peak efficiency and <50mW standby power, meeting all certification requirements",
+          "challenge": "Customer faced technical challenges with their design implementation",
+          "feedback": "Customer reported successful implementation and improved design performance"
+        }
+      ],
+      "faqs": [
+        {
+          "question": "What is the difference between PSR and SSR feedback?",
+          "answer": "PSR (Primary-Side Regulation) senses output voltage through auxiliary winding, eliminating optocoupler and secondary feedback components. SSR (Secondary-Side Regulation) uses optocoupler to feedback output voltage information. PSR advantages: lower cost, fewer components, higher reliability. SSR advantages: better regulation accuracy, faster transient response. For most applications, PSR provides adequate performance with significant cost savings. Use SSR for applications requiring tight regulation (<±3%) or fast transient response.",
+          "decisionGuide": "Use PSR for cost-sensitive applications. Use SSR for high-accuracy or fast-transient requirements.",
+          "keywords": [
+            "PSR",
+            "SSR",
+            "feedback methods",
+            "primary-side regulation"
+          ]
+        },
+        {
+          "question": "How do I select the switching frequency?",
+          "answer": "Switching frequency selection involves trade-offs: Higher frequency (100-150kHz) - smaller magnetics and capacitors, higher switching losses, more EMI. Lower frequency (50-70kHz) - larger components, lower switching losses, easier EMI. Typical selections: 65kHz for general purpose, 100kHz for compact designs, 130kHz+ for very small adapters. Consider EMI standards - some frequencies may align with broadcast bands. BPSemi controllers offer flexible frequency selection to optimize for your application.",
+          "decisionGuide": "Start with 65-100kHz for general applications. Contact LiTong for frequency optimization guidance.",
+          "keywords": [
+            "switching frequency",
+            "magnetic size",
+            "EMI trade-offs"
+          ]
+        },
+        {
+          "question": "What causes switching power supply noise and how do I reduce it?",
+          "answer": "Switching noise sources: 1) Switching transitions - fast voltage/current changes, 2) Diode reverse recovery - snap-off creates high-frequency noise, 3) Magnetic coupling - transformer windings couple noise, 4) Ground bounce - high di/dt in ground paths. Reduction techniques: 1) Snubber circuits - RC or RCD snubbers on MOSFET and diodes, 2) Soft switching - QR or resonant topologies, 3) Shielding - transformer shielding windings, 4) Layout - minimize switching loop areas, 5) Filtering - proper input and output filtering.",
+          "decisionGuide": "Implement snubbers and optimize layout for noise reduction. Contact LiTong for noise troubleshooting.",
+          "keywords": [
+            "switching noise",
+            "snubber design",
+            "EMI reduction"
+          ]
+        },
+        {
+          "question": "How do I design for hold-up time requirements?",
+          "answer": "Hold-up time is the duration output voltage stays within regulation after input power loss. Design considerations: 1) Bulk capacitor sizing - larger capacitors provide longer hold-up, 2) Operating voltage range - wider range extends hold-up, 3) Load current - lower load current extends hold-up. Calculation: C = (2 × Pout × thold) / (Vnom² - Vmin²). For example, 20W output, 20ms hold-up, 100V to 70V range: C = (2 × 20 × 0.02) / (100² - 70²) = 47μF. Consider capacitor tolerance and aging.",
+          "decisionGuide": "Calculate bulk capacitor for required hold-up time. Contact LiTong for hold-up time design support.",
+          "keywords": [
+            "hold-up time",
+            "bulk capacitor",
+            "power loss ride-through"
+          ]
+        },
+        {
+          "question": "What safety standards apply to AC/DC power supplies?",
+          "answer": "AC/DC power supply safety standards: 1) IEC/UL 62368-1 - audio/video and IT equipment (replacing 60950-1), 2) IEC/UL 60335-1 - household appliances, 3) IEC/UL 61558-1 - power transformers and supplies, 4) IEC/UL 1310 - class 2 power units. Key requirements: isolation barriers, creepage/clearance distances, insulation ratings, temperature limits, fault testing. Requirements vary by application and region. Work with certified test labs for formal certification.",
+          "decisionGuide": "Identify applicable standards early in design. Contact LiTong for safety standard guidance.",
+          "keywords": [
+            "safety standards",
+            "IEC 62368",
+            "UL certification"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dcdc-converter-selection-guide",
+      "title": "BPSemi DC/DC Converter Selection Guide",
+      "slug": "dcdc-converter-selection-guide",
+      "category": "Product Selection",
+      "author": {
+        "name": "Kevin Wu",
+        "title": "Senior FAE - Power Management",
+        "experience": "10 years",
+        "expertise": [
+          "DC/DC converters",
+          "Power management",
+          "Voltage regulation"
+        ]
+      },
+      "publishDate": "2026-02-15",
+      "lastUpdated": "2026-02-15",
+      "summary": "Guide for selecting BPSemi DC/DC converters including buck, boost, and buck-boost topologies. Covers topology selection, component sizing, and design optimization.",
+      "content": [
+        "## DC/DC Converter Selection Overview",
+        "",
+        "DC/DC converters provide efficient voltage conversion for applications requiring different voltage levels from a common input source. BPSemi offers synchronous buck converters for step-down applications and boost converters for step-up applications.",
+        "",
+        "## Topology Selection",
+        "",
+        "### Buck Converter (Step-Down)",
+        "Use when output voltage is lower than input voltage. Most efficient topology for step-down applications. BPSemi BP2306 offers up to 3A output current.",
+        "",
+        "### Boost Converter (Step-Up)",
+        "Use when output voltage is higher than input voltage. Common for LED backlight and battery applications. BPSemi BP2819 supports up to 100V input.",
+        "",
+        "### Buck-Boost Converter",
+        "Use when input voltage can be above or below output voltage. Required for battery applications where voltage varies during discharge.",
+        "",
+        "## Key Selection Parameters",
+        "",
+        "### Input Voltage Range",
+        "Determine minimum and maximum input voltage including transients. BPSemi converters support 2.5V to 100V input ranges.",
+        "",
+        "### Output Current",
+        "Calculate maximum load current including transient requirements. Select converter with current rating above maximum load with margin.",
+        "",
+        "### Efficiency Requirements",
+        "Synchronous converters offer highest efficiency (90-95%). Consider efficiency at actual operating points, not just peak efficiency.",
+        "",
+        "### Switching Frequency",
+        "Higher frequency enables smaller components but increases switching losses. BPSemi offers 300kHz to 2MHz options."
+      ],
+      "tags": [
+        "DC/DC converter",
+        "buck converter",
+        "boost converter",
+        "voltage regulation"
+      ],
+      "relatedArticles": [
+        "led-driver-selection-guide",
+        "acdc-converter-selection-guide",
+        "motor-driver-selection-guide"
+      ],
+      "faeInsights": {
+        "insight": "DC/DC converter selection often focuses too much on peak efficiency numbers while ignoring the actual operating conditions. In my experience, the most important factor is understanding your input voltage range and load profile. For battery-powered applications, light-load efficiency is critical - a converter with 95% peak efficiency but poor light-load performance may result in shorter battery life than a converter with 92% peak but excellent light-load efficiency. Another common issue is inductor selection - many designers simply use the recommended value without considering the actual ripple current requirements for their application. The input and output capacitor selection is equally important for stability and transient response. I always recommend using ceramic capacitors with adequate voltage margin and considering DC bias derating.",
+        "logic": "1) Define input/output voltage and current requirements 2) Select topology based on voltage relationship 3) Choose converter with appropriate current rating 4) Calculate inductor value for desired ripple current 5) Select capacitors considering DC bias effects 6) Validate stability and transient response",
+        "keyTakeaways": [
+          "Consider efficiency across actual operating range, not just peak",
+          "Inductor selection affects ripple current and transient response",
+          "Ceramic capacitors require DC bias derating consideration",
+          "Light-load efficiency is critical for battery applications",
+          "Stability verification is essential for reliable operation"
+        ],
+        "commonPitfalls": [
+          "Selecting based on peak efficiency only",
+          "Ignoring DC bias effects on ceramic capacitors",
+          "Inadequate input filtering causing instability",
+          "Poor layout causing EMI and noise issues"
+        ],
+        "bestPractices": [
+          "Calculate efficiency at actual operating points",
+          "Use manufacturer's inductor selection tools",
+          "Include DC bias derating in capacitor selection",
+          "Minimize switching loop area in PCB layout",
+          "Validate loop stability with network analyzer"
+        ]
+      },
+      "customerCases": [
+        {
+          "customer": "Industrial Equipment Manufacturer",
+          "industry": "Industrial",
+          "application": "24V to 5V conversion for control circuits",
+          "problem": "Customer needed efficient step-down conversion in thermally constrained space",
+          "diagnosis": "Existing linear regulator wasted too much power and generated excessive heat",
+          "solution": "Replaced with BP2306 synchronous buck converter",
+          "results": "Reduced power dissipation by 80% and eliminated thermal issues",
+          "challenge": "Customer faced technical challenges with their design implementation",
+          "feedback": "Customer reported successful implementation and improved design performance"
+        }
+      ],
+      "faqs": [
+        {
+          "question": "How do I calculate inductor value for buck converters?",
+          "answer": "Inductor value formula: L = (Vout × (Vin - Vout)) / (Vin × fsw × ΔIL), where ΔIL is inductor ripple current (typically 20-40% of output current). Example: Vin=12V, Vout=5V, Iout=2A, fsw=500kHz, 30% ripple: ΔIL = 0.6A, L = (5 × (12-5)) / (12 × 500000 × 0.6) = 9.7μH. Select standard value 10μH. Higher inductance reduces ripple but increases size and cost. Lower inductance improves transient response but increases ripple and losses.",
+          "decisionGuide": "Use 20-40% ripple current for optimal balance. Contact LiTong for inductor selection guidance.",
+          "keywords": [
+            "inductor calculation",
+            "ripple current",
+            "buck converter design"
+          ]
+        },
+        {
+          "question": "What is the difference between CCM and DCM operation?",
+          "answer": "CCM (Continuous Conduction Mode) - inductor current never reaches zero during switching cycle. DCM (Discontinuous Conduction Mode) - inductor current reaches zero during part of cycle. CCM advantages: lower peak currents, better transient response, lower ripple. DCM advantages: smaller inductor possible, simpler compensation. Most converters operate CCM at heavy loads and transition to DCM at light loads. Boundary conduction mode (BCM) operates at CCM/DCM boundary. CCM is preferred for most applications due to better performance.",
+          "decisionGuide": "Design for CCM at full load for best performance. Contact LiTong for CCM/DCM design guidance.",
+          "keywords": [
+            "CCM",
+            "DCM",
+            "conduction mode",
+            "inductor current"
+          ]
+        },
+        {
+          "question": "How do I ensure loop stability in DC/DC converters?",
+          "answer": "Loop stability requirements: 1) Phase margin >45 degrees, 2) Gain margin >10dB, 3) Crossover frequency typically 1/10 to 1/5 of switching frequency. Stability techniques: 1) Proper output capacitor selection - type III compensation for ceramic caps, 2) Compensation network design - follow manufacturer guidelines, 3) Adequate phase boost - use Type II or III compensation, 4) Avoid high ESR zeros - use ceramic or low-ESR caps. BPSemi converters with internal compensation simplify design but still require proper output capacitor selection.",
+          "decisionGuide": "Follow manufacturer compensation guidelines. Contact LiTong for stability analysis and compensation design.",
+          "keywords": [
+            "loop stability",
+            "phase margin",
+            "compensation design"
+          ]
+        },
+        {
+          "question": "What layout considerations are important for DC/DC converters?",
+          "answer": "Critical layout considerations: 1) Minimize switching loop area - input cap, MOSFET, inductor should be close together, 2) Separate power and signal grounds - connect at single point near IC, 3) Current sense routing - Kelvin connection to sense resistor, 4) Feedback trace - keep away from switching nodes, 5) Thermal management - adequate copper for heat dissipation, 6) Gate drive - short, wide traces for gate connections. Poor layout causes noise, instability, and EMI issues.",
+          "decisionGuide": "Follow manufacturer layout guidelines closely. Contact LiTong for layout review services.",
+          "keywords": [
+            "PCB layout",
+            "switching loop",
+            "grounding"
+          ]
+        },
+        {
+          "question": "How do I select input and output capacitors?",
+          "answer": "Capacitor selection guidelines: Input capacitors - handle switching ripple current, use ceramic or low-ESR electrolytic, typical 10-22μF. Output capacitors - filter inductor ripple, determine transient response, use ceramic for low ESR, typical 22-100μF. Key parameters: 1) Capacitance value - higher reduces ripple but increases size, 2) Voltage rating - use 50% derating minimum, 3) ESR - lower is better for output, 4) DC bias - ceramic caps lose capacitance under bias. Always check capacitor specifications at operating voltage.",
+          "decisionGuide": "Use ceramic capacitors with adequate voltage margin. Contact LiTong for capacitor selection guidance.",
+          "keywords": [
+            "input capacitor",
+            "output capacitor",
+            "capacitor selection"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "motor-driver-selection-guide",
+      "title": "BPSemi Motor Driver Selection Guide",
+      "slug": "motor-driver-selection-guide",
+      "category": "Product Selection",
+      "author": {
+        "name": "Alex Zhou",
+        "title": "Senior FAE - Motor Control",
+        "experience": "11 years",
+        "expertise": [
+          "Motor control",
+          "Power electronics",
+          "Motion systems"
+        ]
+      },
+      "publishDate": "2026-03-01",
+      "lastUpdated": "2026-03-01",
+      "summary": "Guide for selecting BPSemi motor drivers for DC motors, stepper motors, and brushless DC motors. Covers driver types, current requirements, and control interfaces.",
+      "content": [
+        "## Motor Driver Selection Overview",
+        "",
+        "Motor drivers provide the power and control interface between microcontrollers and motors. BPSemi offers integrated solutions for DC motors, stepper motors, and brushless DC motors with various current ratings and control interfaces.",
+        "",
+        "## Motor Type Selection",
+        "",
+        "### DC Motors (Brushed)",
+        "Simplest motor type with two leads. Use H-bridge drivers for bidirectional control. BPSemi BP6308 provides dual H-bridge for two DC motors.",
+        "",
+        "### Stepper Motors",
+        "Precise position control with step-wise rotation. Use dedicated stepper drivers with current control and microstepping. BPSemi BP6601 supports up to 1/16 microstepping.",
+        "",
+        "### Brushless DC (BLDC) Motors",
+        "High efficiency and reliability with electronic commutation. Require three-phase bridge drivers with commutation control.",
+        "",
+        "## Key Selection Parameters",
+        "",
+        "### Motor Voltage",
+        "Select driver with voltage rating above motor voltage including transients. BPSemi drivers support 2.5V to 60V motor voltages.",
+        "",
+        "### Motor Current",
+        "Determine peak and continuous current requirements. Select driver with current rating above motor stall current with thermal margin.",
+        "",
+        "### Control Interface",
+        "Simple applications: logic inputs or PWM. Complex applications: SPI/I2C interface for configuration and diagnostics."
+      ],
+      "tags": [
+        "motor driver",
+        "DC motor",
+        "stepper motor",
+        "motor control"
+      ],
+      "relatedArticles": [
+        "led-driver-selection-guide",
+        "acdc-converter-selection-guide",
+        "dcdc-converter-selection-guide"
+      ],
+      "faeInsights": {
+        "insight": "Motor driver selection often underestimates the current requirements, particularly the stall current which can be 5-10 times the rated current. In my experience supporting motor control designs, the most common failure mode is over-current shutdown during motor startup or stall conditions. Always design for stall current, not just running current. Another critical factor is thermal management - motor drivers dissipate significant power due to the high currents involved, and inadequate heat sinking is a common cause of field failures. For stepper motors, the current decay mode (slow, fast, or mixed) significantly affects torque smoothness and motor heating - I generally recommend mixed decay for most applications. The control interface choice depends on your application complexity - simple on/off control can use basic drivers, while precision positioning requires drivers with SPI/I2C interface for current and microstepping control.",
+        "logic": "1) Determine motor type and specifications 2) Calculate current requirements including stall current 3) Select driver with adequate voltage and current ratings 4) Choose control interface based on application complexity 5) Design thermal management for worst-case conditions 6) Implement protection features for reliable operation",
+        "keyTakeaways": [
+          "Design for stall current, not just running current",
+          "Thermal management is critical for reliability",
+          "Current decay mode affects stepper motor performance",
+          "Control interface depends on application requirements",
+          "Protection features prevent damage during fault conditions"
+        ],
+        "commonPitfalls": [
+          "Undersizing driver for stall current",
+          "Inadequate thermal design causing overheating",
+          "Poor PCB layout causing noise and instability",
+          "Insufficient protection against fault conditions"
+        ],
+        "bestPractices": [
+          "Use drivers with at least 50% current margin above stall current",
+          "Provide adequate heat sinking and thermal management",
+          "Implement current limiting and over-temperature protection",
+          "Use proper decoupling capacitors near the driver IC",
+          "Follow manufacturer layout guidelines for noise reduction"
+        ]
+      },
+      "customerCases": [
+        {
+          "customer": "Robotics Startup",
+          "industry": "Robotics",
+          "application": "Precision robot arm with stepper motors",
+          "problem": "Customer needed precise motion control with smooth microstepping for robot joints",
+          "diagnosis": "Existing drivers had poor microstepping performance causing vibration and noise",
+          "solution": "Implemented BP6601 stepper drivers with 1/16 microstepping",
+          "results": "Achieved smooth motion with reduced vibration and improved positioning accuracy",
+          "challenge": "Customer faced technical challenges with their design implementation",
+          "feedback": "Customer reported successful implementation and improved design performance"
+        }
+      ],
+      "faqs": [
+        {
+          "question": "How do I calculate the required motor driver current rating?",
+          "answer": "Motor driver current calculation: 1) Find motor rated current from datasheet, 2) Determine stall current (typically 3-5x rated current), 3) Select driver with peak current > stall current, 4) Verify continuous current rating > running current. Example: Motor rated 1A, stall current 4A. Select driver with peak >4A (BP6308: 2.5A peak insufficient, BP6310: 4A peak adequate). Always include thermal margin - operate at 70-80% of rated current for reliable operation.",
+          "decisionGuide": "Select driver with peak current > motor stall current. Contact LiTong for motor driver selection guidance.",
+          "keywords": [
+            "current rating",
+            "stall current",
+            "motor current"
+          ]
+        },
+        {
+          "question": "What is microstepping and when should I use it?",
+          "answer": "Microstepping divides each full step into smaller increments (1/2, 1/4, 1/8, 1/16, 1/32), providing smoother motion and higher resolution. Benefits: smoother operation, reduced vibration, lower noise, finer positioning. Trade-offs: requires more complex driver, higher step rate needed, slightly reduced torque per microstep. Use microstepping for: precision positioning, noise-sensitive applications, smooth motion requirements. Full stepping is acceptable for simple on/off applications where noise and vibration are not concerns.",
+          "decisionGuide": "Use 1/8 or 1/16 microstepping for smooth motion. Contact LiTong for microstepping optimization.",
+          "keywords": [
+            "microstepping",
+            "step resolution",
+            "smooth motion"
+          ]
+        },
+        {
+          "question": "How do I protect against motor stall conditions?",
+          "answer": "Motor stall protection methods: 1) Current limiting - set driver current limit above normal but below damage threshold, 2) Stall detection - monitor current and detect sustained high current, 3) Over-temperature protection - driver shuts down if overheated, 4) Time-out protection - stop driving if position not reached in expected time, 5) Encoder feedback - detect lack of motion with position encoder. Stall current can damage motor windings if sustained. Implement both hardware current limiting and software stall detection for robust protection.",
+          "decisionGuide": "Implement current limiting and stall detection. Contact LiTong for stall protection design guidance.",
+          "keywords": [
+            "stall protection",
+            "current limiting",
+            "motor protection"
+          ]
+        },
+        {
+          "question": "What causes motor heating and how do I manage it?",
+          "answer": "Motor heating causes: 1) I²R losses in windings - proportional to current squared, 2) Iron losses - hysteresis and eddy currents, 3) High duty cycle - continuous operation without cooling time, 4) Inefficient drive - wrong current decay mode or excessive current. Thermal management: 1) Use correct current setting - match to application requirements, 2) Implement current foldback - reduce current when not moving, 3) Provide cooling - heatsinks or airflow for motors, 4) Monitor temperature - thermistor or thermal switch, 5) Use chopper drive - PWM current control reduces heating vs. linear drive.",
+          "decisionGuide": "Optimize current setting and provide adequate cooling. Contact LiTong for thermal management guidance.",
+          "keywords": [
+            "motor heating",
+            "thermal management",
+            "current setting"
+          ]
+        },
+        {
+          "question": "How do I reduce electrical noise from motor operation?",
+          "answer": "Motor noise reduction techniques: 1) PWM frequency - use >20kHz to avoid audible noise, 2) Current ripple - increase inductance or PWM frequency to reduce ripple, 3) Decay mode - use mixed decay for smoother current, 4) Microstepping - higher resolution reduces vibration, 5) Mechanical - vibration dampening mounts isolate motor vibration. Electrical noise: 1) Decoupling capacitors - place close to driver, 2) Filter capacitors - on motor leads, 3) Shielding - for sensitive circuits near motors, 4) Layout - separate motor and signal grounds.",
+          "decisionGuide": "Use >20kHz PWM and appropriate decay mode. Contact LiTong for noise reduction design.",
+          "keywords": [
+            "motor noise",
+            "PWM frequency",
+            "electrical noise"
+          ]
+        }
+      ]
+    }
+  ]
+}

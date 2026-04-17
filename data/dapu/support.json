@@ -1,0 +1,786 @@
+{
+  "seoTitle": "Dapu Technical Support | Timing Design, RF Application | LiTong",
+  "seoDescription": "Access Dapu technical documentation, timing design guides, and RF application support. Crystal oscillator selection, TCXO/VCXO design, and RF filter application resources.",
+  "seoKeywords": [
+    "Dapu technical support distributor",
+    "Dapu timing design guide",
+    "Dapu RF application support",
+    "crystal oscillator selection guide",
+    "TCXO design support",
+    "Dapu distributor support"
+  ],
+  "faqs": [
+    {
+      "question": "What technical documentation is available for Dapu products?",
+      "answer": "Comprehensive technical documentation is available for Dapu timing and RF products including datasheets with electrical specifications and performance curves, application notes for specific use cases, reference designs with schematics and BOMs, layout guidelines for optimal performance, reliability reports and qualification data, and phase noise and jitter measurement reports. Documentation is available through our distribution channel to registered customers. We also provide simulation models (S-parameters, SPICE) for RF components and timing devices upon request.",
+      "decisionGuide": "Contact our technical team to access documentation and discuss your specific information needs.",
+      "keywords": [
+        "Dapu documentation",
+        "technical manual",
+        "Dapu datasheet"
+      ]
+    },
+    {
+      "question": "How do I get FAE support for my Dapu design?",
+      "answer": "FAE support is available through our distribution channel as an authorized Dapu distributor. Our support services include product selection guidance based on your specifications, schematic and layout review, matching network design for RF components, PLL loop filter design assistance, phase noise and jitter analysis, and troubleshooting support. You can contact our FAE team through email, phone, or scheduled meetings. For complex projects, on-site support can be arranged. Priority support is available for strategic customers with volume commitments.",
+      "decisionGuide": "Reach out to our sales team to establish a support relationship and connect with our FAE engineers.",
+      "keywords": [
+        "Dapu FAE support",
+        "technical support",
+        "Dapu engineering"
+      ]
+    },
+    {
+      "question": "What design resources are available for timing products?",
+      "answer": "We provide extensive design resources for Dapu timing products including oscillator selection guides, PLL design application notes, layout guidelines for minimal jitter, matching circuit recommendations, power supply filtering guidelines, and measurement techniques for phase noise and jitter. Reference designs are available for common applications including GPS timing, Ethernet clocking, and telecom synchronization. Our FAE team can provide personalized design reviews and recommendations based on your specific application requirements.",
+      "decisionGuide": "Access our design resources through the technical support portal or contact our FAE team for personalized guidance.",
+      "keywords": [
+        "Dapu design guide",
+        "timing design resources",
+        "oscillator design"
+      ]
+    },
+    {
+      "question": "Can you provide phase noise measurements for Dapu oscillators?",
+      "answer": "Yes, phase noise measurement data is available for Dapu timing products. We provide typical phase noise plots showing phase noise density vs. offset frequency, integrated phase jitter calculations for standard bandwidths, and phase noise measurements at different temperatures. For critical applications, we can provide device-specific phase noise measurements from factory test records. Contact our FAE team with your specific model numbers and measurement requirements. We can also provide guidance on phase noise measurement techniques and equipment requirements.",
+      "decisionGuide": "Contact our FAE team for phase noise data and measurement reports for specific Dapu products.",
+      "keywords": [
+        "Dapu phase noise",
+        "oscillator phase noise",
+        "jitter measurement"
+      ]
+    },
+    {
+      "question": "What is the process for requesting custom frequency parts?",
+      "answer": "Custom frequency programming is available for Dapu oscillator products. The process involves submitting a custom frequency request with your required frequencies, quantities, and delivery timeline. Our team will review feasibility and provide quotation including any setup charges. Custom parts typically require 8-12 weeks lead time and minimum order quantities (usually 1K-10K pieces depending on frequency). Samples can be provided for qualification before production. Contact our sales team to initiate a custom frequency request and discuss your specific requirements.",
+      "decisionGuide": "Contact our sales team with your custom frequency requirements for feasibility review and quotation.",
+      "keywords": [
+        "Dapu custom frequency",
+        "custom oscillator",
+        "frequency programming"
+      ]
+    },
+    {
+      "question": "Are there reference designs available for GPS applications?",
+      "answer": "Yes, reference designs are available for GPS timing applications using Dapu components. The reference design includes a complete schematic with TCXO, SAW filter, and matching components, PCB layout recommendations for optimal performance, BOM with recommended part numbers, and performance data including sensitivity and TTFF measurements. The reference design can be adapted for different GPS chipsets and form factors. Contact our FAE team to request the GPS reference design package and discuss customization for your specific application.",
+      "decisionGuide": "Contact our FAE team to request GPS reference designs and application support.",
+      "keywords": [
+        "Dapu GPS reference design",
+        "GPS timing design",
+        "GNSS reference"
+      ]
+    },
+    {
+      "question": "How do I measure oscillator jitter and phase noise?",
+      "answer": "Measuring oscillator jitter and phase noise requires specialized equipment including a phase noise analyzer or spectrum analyzer with phase noise measurement capability, high-quality reference oscillator with better phase noise than DUT, and proper test fixtures with good signal integrity. For jitter measurements, a high-bandwidth oscilloscope with jitter analysis software or a time interval analyzer is needed. Dapu provides application notes on measurement techniques. We can also provide guidance on interpreting measurement results and comparing against specifications. For critical qualifications, we recommend using calibrated test equipment and following industry-standard measurement procedures.",
+      "decisionGuide": "Use phase noise analyzer for phase noise, high-bandwidth scope for jitter. Contact us for measurement guidance.",
+      "keywords": [
+        "phase noise measurement",
+        "jitter measurement",
+        "oscillator testing"
+      ]
+    },
+    {
+      "question": "What is the recommended power supply filtering for Dapu oscillators?",
+      "answer": "Proper power supply filtering is critical for achieving specified phase noise and jitter performance. Recommended filtering includes a 10μF bulk capacitor near the oscillator power pin, a 0.1μF ceramic decoupling capacitor close to the device, and a ferrite bead in series with the power supply line for high-frequency noise isolation. For ultra-low jitter applications, consider using a dedicated low-noise LDO regulator. Avoid sharing power rails between oscillators and digital circuits. Keep power traces short and wide to minimize inductance. Our application notes provide detailed filtering recommendations for different performance grades.",
+      "decisionGuide": "Use 10μF + 0.1μF capacitors and ferrite bead. Contact us for ultra-low jitter power supply designs.",
+      "keywords": [
+        "oscillator power supply",
+        "decoupling capacitor",
+        "power filtering"
+      ]
+    }
+  ],
+  "articles": [
+    {
+      "id": "oscillator-selection-guide",
+      "title": "Crystal Oscillator Selection Guide",
+      "slug": "oscillator-selection-guide",
+      "category": "Product Selection",
+      "author": {
+        "name": "Dr. James Chen",
+        "title": "Senior Timing Applications Engineer",
+        "experience": "18 years",
+        "expertise": [
+          "Timing Design",
+          "Oscillator Applications",
+          "RF Systems"
+        ]
+      },
+      "publishDate": "2026-03-20",
+      "lastUpdated": "2026-03-20",
+      "summary": "Comprehensive guide to selecting the right crystal oscillator for your application. Covers frequency stability, jitter, package selection, and application-specific recommendations.",
+      "content": [
+        "Selecting the right crystal oscillator is crucial for system performance. This guide covers key parameters and selection criteria.",
+        "",
+        "## Key Parameters",
+        "",
+        "**Frequency**: Choose standard frequencies when possible for cost savings. Common frequencies include 8MHz, 12MHz, 16MHz, 24MHz, 25MHz, and 48MHz.",
+        "",
+        "**Frequency Stability**: Standard XOs offer ±20-50ppm. For better stability, consider TCXOs (±0.5-2.5ppm) or OCXOs (±0.01-0.1ppm).",
+        "",
+        "**Jitter**: Phase jitter is critical for high-speed interfaces. Standard XOs provide 1-3ps RMS. Low-jitter versions achieve <1ps RMS.",
+        "",
+        "**Package Size**: Smaller packages cost more. Balance size requirements with cost constraints. 3.2x2.5mm is a popular compromise.",
+        "",
+        "## Application Guidelines",
+        "",
+        "**Microprocessor Clocks**: Standard XO with ±50ppm stability is usually adequate. Match frequency to processor requirements.",
+        "",
+        "**Ethernet**: 25MHz for 10/100Mbps, 125MHz for Gigabit. Low jitter (<1ps) recommended for Gigabit.",
+        "",
+        "**USB**: 12MHz, 24MHz, or 48MHz depending on USB generation. Tight stability (±30ppm) required for USB compliance.",
+        "",
+        "**Video**: Pixel clock frequencies with tight jitter requirements. Match exact frequency to resolution.",
+        "",
+        "## Selection Process",
+        "",
+        "1. Define frequency and stability requirements",
+        "2. Determine jitter budget for your application",
+        "3. Select package size based on board constraints",
+        "4. Choose voltage and output type (CMOS, LVDS, etc.)",
+        "5. Verify temperature range requirements",
+        "6. Consider long-term availability and cost"
+      ],
+      "tags": [
+        "Dapu",
+        "Oscillator",
+        "Timing",
+        "Selection Guide"
+      ],
+      "relatedArticles": [
+        "tcxo-selection-guide",
+        "pll-design-guide",
+        "jitter-measurement"
+      ],
+      "faeInsights": {
+        "author": {
+          "name": "David Wang",
+          "title": "Senior FAE - Timing Products",
+          "experience": "14 years"
+        },
+        "content": "In my experience, the most common mistake in oscillator selection is over-specifying. Many designers choose TCXOs when standard XOs would suffice, adding unnecessary cost. For general microcontroller applications, a standard ±50ppm XO is perfectly adequate. The key is understanding your actual requirements. I always recommend starting with the basic requirements and only upgrading if necessary. For Ethernet applications, pay special attention to jitter specifications - this is where cutting corners can cause real problems. The Dapu XO3225 series hits the sweet spot for most applications.",
+        "decisionLogic": "The oscillator selection process should be: First, determine if you need frequency stability better than ±50ppm over temperature. If yes, consider TCXO. If no, use standard XO. Second, check your jitter requirements. For high-speed SERDES (>1Gbps), use low-jitter XO or TCXO. For slower interfaces, standard jitter is fine. Third, consider your power budget. TCXOs consume more power. Fourth, evaluate size constraints. Smaller packages cost more. This systematic approach prevents over-specification.",
+        "keyTakeaways": [
+          "Don't over-specify - standard XOs work for most applications",
+          "Pay attention to jitter for high-speed interfaces",
+          "Package size affects cost significantly",
+          "Temperature range requirements drive grade selection",
+          "Start simple and upgrade only when necessary"
+        ],
+        "insightLogic": "The key insight is that oscillator selection is about balancing requirements with cost. Understanding what you actually need versus what you think you need can save significant BOM cost without compromising performance."
+      },
+      "customerCases": [
+        {
+          "customerName": "Industrial Controller Manufacturer",
+          "industry": "Industrial",
+          "application": "PLC Controller Design",
+          "challenge": "Customer was using expensive TCXOs in their PLC controllers but experiencing occasional timing issues. They needed guidance on proper oscillator selection.",
+          "solution": "After analysis, we recommended switching to standard XOs with better power supply filtering. The temperature stability of the industrial-grade XO was adequate for their application.",
+          "feedback": "Switched to Dapu XO3225-25M industrial grade. Saved 60% on timing component costs while improving reliability. Issues were actually caused by power supply noise, not oscillator stability."
+        }
+      ],
+      "faqs": [
+        {
+          "question": "When do I need a TCXO instead of a standard XO?",
+          "answer": "You need a TCXO when your application requires frequency stability better than ±20-50ppm over temperature. Common scenarios include: GPS receivers (need ±0.5-2.5ppm for fast lock), cellular applications (±1-2.5ppm for standard compliance), precision timing (±0.5ppm or better), and any application where frequency drift over temperature would cause system failure. If your system can tolerate ±50ppm variation, a standard XO is sufficient and much more cost-effective. When in doubt, calculate your system's frequency tolerance requirements over the operating temperature range.",
+          "decisionGuide": "Use TCXO if you need <±20ppm stability over temperature. Otherwise, standard XO is sufficient.",
+          "keywords": [
+            "TCXO vs XO",
+            "when to use TCXO",
+            "oscillator stability selection"
+          ]
+        },
+        {
+          "question": "What is the difference between CMOS and LVDS outputs?",
+          "answer": "CMOS (Complementary Metal-Oxide-Semiconductor) output is a single-ended logic signal swinging between ground and VDD. It's simple, low power, and suitable for most applications. However, CMOS has limited drive capability and higher EMI due to fast edge rates. LVDS (Low-Voltage Differential Signaling) uses a differential pair with low voltage swing (±350mV). LVDS offers better noise immunity, lower EMI, and can drive longer traces. It's preferred for high-speed clocks (>100MHz) and noisy environments. LVDS consumes more power than CMOS. For most microcontroller applications, CMOS is adequate. For high-speed SERDES or long trace runs, use LVDS.",
+          "decisionGuide": "Use CMOS for general applications, LVDS for high-speed or noisy environments.",
+          "keywords": [
+            "CMOS vs LVDS",
+            "oscillator output type",
+            "clock output selection"
+          ]
+        },
+        {
+          "question": "What is the typical lead time for Dapu oscillators?",
+          "answer": "Standard Dapu oscillators typically have 4-6 weeks lead time for production quantities. Popular frequencies (8MHz, 12MHz, 16MHz, 24MHz, 25MHz) are often available from stock or with shorter lead times of 2-3 weeks. For high-volume orders (10K+ pieces), contact us to discuss scheduling and potential buffer stock arrangements. Custom frequencies require 8-12 weeks lead time. We maintain safety stock for strategic customers with forecast commitments. Contact our sales team for current lead times and availability.",
+          "decisionGuide": "Standard parts: 4-6 weeks. Popular frequencies: 2-3 weeks. Contact us for current availability.",
+          "keywords": [
+            "Dapu lead time",
+            "oscillator delivery",
+            "Dapu availability"
+          ]
+        },
+        {
+          "question": "Can I get samples of Dapu oscillators for evaluation?",
+          "answer": "Yes, samples are available for evaluation through our distribution channel. Sample quantities typically range from 2-5 pieces per part number. Samples are usually shipped within 1-2 business days from stock. For specialized or custom frequency samples, lead time may be 1-2 weeks. Sample orders can be placed through our website or by contacting our sales team. We also offer evaluation kits for some product families that include multiple frequencies and package options. For high-volume production qualification, we recommend ordering a small production lot to validate manufacturing processes.",
+          "decisionGuide": "Contact us for sample requests. Evaluation kits available for some product families.",
+          "keywords": [
+            "Dapu samples",
+            "oscillator evaluation",
+            "Dapu samples request"
+          ]
+        },
+        {
+          "question": "What is the minimum order quantity for Dapu oscillators?",
+          "answer": "Standard minimum order quantity (MOQ) for Dapu oscillators is 1,000 pieces for production orders. For standard frequencies in stock, we can accept smaller quantities with a small order surcharge. For prototype and evaluation purposes, sample quantities (2-5 pieces) are available. Volume pricing tiers typically start at 1K, 5K, 10K, 25K, and 100K pieces. Contact our sales team for specific MOQ and pricing information for your required frequencies. For very high volumes (100K+), we can discuss special pricing and scheduling arrangements.",
+          "decisionGuide": "Standard MOQ is 1K pieces. Samples available for evaluation. Contact us for volume pricing.",
+          "keywords": [
+            "Dapu MOQ",
+            "minimum order quantity",
+            "oscillator pricing"
+          ]
+        },
+        {
+          "question": "Are Dapu oscillators RoHS compliant?",
+          "answer": "Yes, all Dapu oscillators are fully RoHS compliant and lead-free (Pb-free). They meet the requirements of EU RoHS Directive 2011/65/EU and subsequent amendments. The packages use tin-based plating and are compatible with standard Pb-free reflow soldering processes. Halogen-free options are available upon request. Full material declarations and RoHS certificates are available from our quality team. Dapu also complies with other environmental regulations including REACH and WEEE. For specific environmental compliance documentation, contact our quality assurance team.",
+          "decisionGuide": "All Dapu oscillators are RoHS compliant. Contact us for compliance documentation.",
+          "keywords": [
+            "Dapu RoHS",
+            "lead-free oscillator",
+            "environmental compliance"
+          ]
+        },
+        {
+          "question": "What packaging options are available for Dapu oscillators?",
+          "answer": "Dapu oscillators are available in various packaging options. Standard packaging is tape and reel (T&R) with 1,000 or 3,000 pieces per reel depending on package size. Reel diameter is typically 7 inches (180mm) or 13 inches (330mm) for high-volume orders. Trays are available for some larger packages. Moisture sensitivity level (MSL) is typically MSL1 or MSL3 depending on the package. Dry pack packaging with desiccant and humidity indicator cards is provided for MSL3 parts. Custom labeling and packaging options are available for high-volume customers. Contact us for specific packaging requirements.",
+          "decisionGuide": "Standard: tape and reel 1K or 3K per reel. Contact us for custom packaging requirements.",
+          "keywords": [
+            "Dapu packaging",
+            "tape and reel",
+            "oscillator packaging"
+          ]
+        },
+        {
+          "question": "How do I store unused Dapu oscillators?",
+          "answer": "Unused Dapu oscillators should be stored in their original packaging in a controlled environment. Recommended storage conditions are temperature 5°C to 35°C and humidity 30% to 70% RH. Avoid exposure to corrosive gases, direct sunlight, and extreme temperature fluctuations. For MSL3 parts, follow the moisture sensitivity precautions - use within the floor life specified on the label after opening, or bake before use if exceeded. When stored properly, Dapu oscillators have a shelf life of 2 years minimum. For long-term storage (>1 year), consider nitrogen-purged containers for additional protection.",
+          "decisionGuide": "Store at 5-35°C, 30-70% RH. Follow MSL precautions for moisture-sensitive parts.",
+          "keywords": [
+            "oscillator storage",
+            "component handling",
+            "MSL storage"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tcxo-selection-guide",
+      "title": "TCXO Selection and Application Guide",
+      "slug": "tcxo-selection-guide",
+      "category": "Product Selection",
+      "author": {
+        "name": "Michael Liu",
+        "title": "Principal RF Engineer",
+        "experience": "16 years",
+        "expertise": [
+          "TCXO Design",
+          "RF Timing",
+          "Wireless Systems"
+        ]
+      },
+      "publishDate": "2026-03-15",
+      "lastUpdated": "2026-03-15",
+      "summary": "Complete guide to selecting and applying Temperature Compensated Crystal Oscillators. Covers stability grades, phase noise, and application-specific recommendations.",
+      "content": [
+        "TCXOs provide excellent frequency stability over temperature through built-in compensation circuitry. This guide helps you select the right TCXO for your application.",
+        "",
+        "## TCXO Stability Grades",
+        "",
+        "**±2.5ppm**: Standard grade for consumer and industrial applications. Suitable for most wireless communication.",
+        "",
+        "**±1.0ppm**: Enhanced grade for cellular and precision applications. Good balance of performance and cost.",
+        "",
+        "**±0.5ppm**: Premium grade for GPS and high-precision timing. Fast satellite acquisition and accurate positioning.",
+        "",
+        "**±0.1ppm**: Ultra-high stability for professional GPS and instrumentation. OCXO may be alternative.",
+        "",
+        "## Key Parameters",
+        "",
+        "**Phase Noise**: Critical for receiver sensitivity. Lower phase noise enables better weak-signal reception.",
+        "",
+        "**Power Consumption**: TCXOs consume 1-5mA depending on grade and frequency. Consider for battery applications.",
+        "",
+        "**Warm-up Time**: Time to reach specified stability. Typically 1-5 seconds for TCXOs.",
+        "",
+        "**Aging**: Long-term frequency drift. ±1-3ppm per year typical. Important for holdover applications.",
+        "",
+        "## Application Guidelines",
+        "",
+        "**GPS Receivers**: Use ±0.5ppm for fast TTFF. Phase noise <-135dBc/Hz @ 1kHz.",
+        "",
+        "**Cellular**: ±1.0-2.5ppm adequate for most applications. Verify chipset requirements.",
+        "",
+        "**WiFi/BT**: Usually don't need TCXO unless doing precision timing or location.",
+        "",
+        "**Telecom**: ±0.5-1.0ppm for synchronization applications. Check holdover requirements."
+      ],
+      "tags": [
+        "Dapu",
+        "TCXO",
+        "Timing",
+        "GPS",
+        "Cellular"
+      ],
+      "relatedArticles": [
+        "oscillator-selection-guide",
+        "gps-timing-design",
+        "pll-design-guide"
+      ],
+      "faeInsights": {
+        "author": {
+          "name": "Lisa Zhang",
+          "title": "Senior FAE - Wireless Timing",
+          "experience": "12 years"
+        },
+        "content": "TCXO selection often confuses customers because they focus only on the ppm number. While stability is important, phase noise is equally critical for many applications. I've seen customers choose a ±0.5ppm TCXO with poor phase noise when a ±1.0ppm with better phase noise would have given better GPS performance. For GPS, the phase noise at 1kHz offset directly impacts tracking sensitivity. For cellular, check your baseband chipset's TCXO requirements - some are very specific. The Dapu TCXO3225 series offers excellent phase noise performance across all stability grades, making them suitable for demanding RF applications.",
+        "decisionLogic": "The TCXO selection framework considers: First, determine your frequency stability requirement based on system tolerance. GPS needs ±0.5ppm, cellular typically ±1-2.5ppm. Second, evaluate phase noise requirements. GPS and high-sensitivity receivers need <-130dBc/Hz @ 1kHz. Third, check power budget. TCXOs consume more power than XOs. Fourth, consider aging for holdover applications. Fifth, verify temperature range. This systematic approach ensures optimal TCXO selection.",
+        "keyTakeaways": [
+          "Phase noise is as important as stability for RF applications",
+          "GPS needs both good stability (±0.5ppm) and low phase noise",
+          "Don't over-specify stability at the expense of phase noise",
+          "Power consumption is higher than standard XOs",
+          "Check baseband chipset requirements for cellular"
+        ],
+        "insightLogic": "The key insight is that TCXO performance is multi-dimensional. Stability, phase noise, power, and aging all matter depending on your application. Understanding which parameter is the bottleneck in your system leads to better component selection."
+      },
+      "customerCases": [
+        {
+          "customerName": "GPS Module Manufacturer",
+          "industry": "Navigation",
+          "application": "GPS Tracking Module",
+          "challenge": "Customer's GPS module had slow TTFF (Time To First Fix) and poor sensitivity. They were using a ±1.0ppm TCXO but still experiencing issues.",
+          "solution": "Analysis showed the TCXO had poor phase noise (-125dBc/Hz @ 1kHz). Recommended switching to Dapu TCXO3225-26M-05 with better phase noise (-135dBc/Hz).",
+          "feedback": "TTFF improved from 45s to 28s. Sensitivity improved by 3dB. The phase noise made more difference than the 0.5ppm stability improvement we initially considered."
+        }
+      ],
+      "faqs": [
+        {
+          "question": "How does temperature compensation work in TCXOs?",
+          "answer": "TCXOs use a temperature sensor (thermistor or integrated sensor) to measure ambient temperature. This temperature information is used to generate a correction voltage that counteracts the crystal's natural frequency drift with temperature. The correction is applied through a varactor diode in the oscillator circuit, pulling the frequency in the opposite direction of the crystal's drift. Modern TCXOs use digital compensation algorithms stored in memory for better accuracy. The result is a much flatter frequency vs. temperature curve, typically improving stability by 10-50x compared to uncompensated crystals.",
+          "decisionGuide": "TCXO compensation is automatic. Select grade based on your stability requirements.",
+          "keywords": [
+            "TCXO compensation",
+            "temperature compensation",
+            "TCXO how it works"
+          ]
+        },
+        {
+          "question": "What is the power consumption of Dapu TCXOs?",
+          "answer": "Dapu TCXOs typically consume 2-5mA at 3.3V, depending on the specific model and frequency. Higher frequency TCXOs generally consume more power. The power consumption is relatively constant across temperature. For battery-powered applications, this power consumption should be factored into the overall power budget. Some TCXOs have a standby mode that reduces power to <100μA when the oscillator is not needed. The higher power consumption compared to standard XOs is the trade-off for achieving excellent temperature stability. For ultra-low-power applications, consider using a standard XO with good inherent temperature characteristics.",
+          "decisionGuide": "Budget 2-5mA for TCXO power. Use standby mode if available for battery applications.",
+          "keywords": [
+            "TCXO power consumption",
+            "TCXO current",
+            "low power TCXO"
+          ]
+        },
+        {
+          "question": "What is the warm-up time for Dapu TCXOs?",
+          "answer": "Dapu TCXOs typically have warm-up times of 1-5 seconds to reach specified stability. The warm-up time is measured from power-on to when the frequency stabilizes within the specified tolerance. During warm-up, the TCXO may exceed the specified stability limits. For applications requiring immediate stability, consider the warm-up time in your system design. Some TCXOs have faster warm-up times than others - check the datasheet for specific values. For critical applications, we can provide warm-up characterization data. The warm-up time may be longer at cold temperatures.",
+          "decisionGuide": "Typical warm-up: 1-5 seconds. Check datasheet for specific values. Factor into system design.",
+          "keywords": [
+            "TCXO warm-up",
+            "oscillator startup",
+            "TCXO settling time"
+          ]
+        },
+        {
+          "question": "Can TCXOs be used for holdover applications?",
+          "answer": "Yes, TCXOs are commonly used for holdover applications in telecom and synchronization systems. Holdover is the ability to maintain timing when the reference signal is lost. TCXO stability during holdover depends on the stability grade (±0.5ppm TCXOs provide better holdover than ±2.5ppm), temperature stability, and aging characteristics. Typical holdover performance is ±1-4μs over 24 hours depending on the TCXO grade. For better holdover, consider OCXOs which can achieve ±0.1-0.5μs over 24 hours. The holdover algorithm in your system also affects performance - proper calibration and temperature compensation improve holdover.",
+          "decisionGuide": "TCXOs suitable for holdover. ±0.5ppm provides best holdover. OCXO for premium performance.",
+          "keywords": [
+            "TCXO holdover",
+            "timing holdover",
+            "telecom holdover"
+          ]
+        },
+        {
+          "question": "What is the g-sensitivity of Dapu TCXOs?",
+          "answer": "G-sensitivity measures the frequency shift caused by vibration or acceleration. Dapu TCXOs typically have g-sensitivity of 0.5-2.0 ppb/g depending on the package and mounting. This means a 1g acceleration can cause 0.5-2.0 parts per billion frequency shift. For most applications, this is negligible. However, for high-vibration environments (automotive, aerospace, industrial), g-sensitivity can be important. Dapu offers low-g-sensitivity options for these applications. For extreme vibration environments, consider using vibration isolation or selecting TCXOs specifically designed for high-g applications. Contact us for g-sensitivity data for specific part numbers.",
+          "decisionGuide": "Typical g-sensitivity: 0.5-2.0 ppb/g. Contact us for high-vibration application recommendations.",
+          "keywords": [
+            "TCXO g-sensitivity",
+            "vibration sensitivity",
+            "acceleration sensitivity"
+          ]
+        },
+        {
+          "question": "How do I power a TCXO for best performance?",
+          "answer": "Proper power supply design is critical for TCXO performance. Use a clean, stable power supply with low noise. Recommended practices include: Use a dedicated LDO regulator for the TCXO if possible, add 10μF and 0.1μF decoupling capacitors close to the TCXO power pins, use a ferrite bead in series with the power supply for high-frequency isolation, keep power traces short and wide to minimize inductance, and avoid sharing power rails with noisy digital circuits. Power supply noise directly impacts phase noise performance. For ultra-low phase noise applications, consider using a low-noise linear regulator specifically for the TCXO.",
+          "decisionGuide": "Use clean LDO, add decoupling caps, isolate from digital noise. Contact us for power design guidance.",
+          "keywords": [
+            "TCXO power supply",
+            "oscillator power design",
+            "low noise power"
+          ]
+        },
+        {
+          "question": "What is the Allan deviation of Dapu TCXOs?",
+          "answer": "Allan deviation (ADEV) is a measure of frequency stability over short time intervals. Dapu TCXOs typically achieve Allan deviation of 0.1-1.0 ppb (parts per billion) at 1-second averaging time, depending on the grade. Better grades (±0.5ppm) have lower Allan deviation than standard grades (±2.5ppm). Allan deviation is important for applications requiring short-term stability, such as precision timing and frequency references. The value improves with longer averaging times (typically following τ^-1/2 dependence). For specific Allan deviation data, contact our technical team. We can provide measurement data for qualification purposes.",
+          "decisionGuide": "Typical ADEV: 0.1-1.0 ppb at 1s. Contact us for specific measurement data.",
+          "keywords": [
+            "Allan deviation",
+            "ADEV",
+            "short-term stability"
+          ]
+        },
+        {
+          "question": "Can I use a TCXO as a reference for a PLL?",
+          "answer": "Yes, TCXOs are commonly used as reference oscillators for PLLs. The TCXO provides a stable reference frequency that the PLL multiplies or divides to generate the desired output frequency. When using a TCXO as a PLL reference, consider the TCXO stability, phase noise, and frequency. The TCXO stability determines the output frequency accuracy. The TCXO phase noise affects the PLL output phase noise (particularly close-in noise). Choose a TCXO frequency that is compatible with your PLL's input requirements and divide ratios. For best PLL performance, use a TCXO with good phase noise characteristics and adequate stability for your application.",
+          "decisionGuide": "TCXOs excellent for PLL references. Consider stability and phase noise for your application.",
+          "keywords": [
+            "TCXO PLL reference",
+            "PLL reference oscillator",
+            "TCXO for PLL"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pll-design-guide",
+      "title": "PLL Design with VCXOs",
+      "slug": "pll-design-guide",
+      "category": "Design Guide",
+      "author": {
+        "name": "Dr. Robert Chen",
+        "title": "Senior PLL Design Engineer",
+        "experience": "20 years",
+        "expertise": [
+          "PLL Design",
+          "Frequency Synthesis",
+          "Timing Systems"
+        ]
+      },
+      "publishDate": "2026-03-10",
+      "lastUpdated": "2026-03-10",
+      "summary": "Practical guide to designing PLL circuits using VCXOs. Covers loop filter design, stability analysis, and practical implementation tips.",
+      "content": [
+        "Phase-Locked Loops (PLLs) are essential for clock generation and synchronization. This guide covers PLL design using VCXOs.",
+        "",
+        "## PLL Basics",
+        "",
+        "A PLL consists of a phase detector, loop filter, and VCO/VCXO. The loop locks when the output frequency is N times the reference frequency.",
+        "",
+        "## VCXO Selection",
+        "",
+        "**Pull Range**: Must accommodate expected frequency variation plus margin. Typical: ±50-150ppm.",
+        "",
+        "**Linearity**: Better linearity (<10%) provides more stable loop operation.",
+        "",
+        "**Kvco**: VCO gain in Hz/V. Calculate from pull range and control voltage range.",
+        "",
+        "## Loop Filter Design",
+        "",
+        "**Loop Bandwidth**: Trade-off between lock time and jitter. Typical: 100Hz-10kHz.",
+        "",
+        "**Phase Margin**: Target >45° for stability. >60° for robustness.",
+        "",
+        "**Filter Order**: Second-order passive is most common. Active filters for special requirements.",
+        "",
+        "## Design Procedure",
+        "",
+        "1. Determine reference frequency and output frequency range",
+        "2. Calculate divide ratio N",
+        "3. Determine required loop bandwidth",
+        "4. Calculate Kvco from VCXO specifications",
+        "5. Calculate loop filter components",
+        "6. Verify stability margins",
+        "7. Simulate and prototype"
+      ],
+      "tags": [
+        "Dapu",
+        "VCXO",
+        "PLL",
+        "Design Guide",
+        "Timing"
+      ],
+      "relatedArticles": [
+        "tcxo-selection-guide",
+        "jitter-measurement",
+        "loop-filter-design"
+      ],
+      "faeInsights": {
+        "author": {
+          "name": "Kevin Zhao",
+          "title": "Senior FAE - PLL Applications",
+          "experience": "15 years"
+        },
+        "content": "PLL design with VCXOs is often intimidating for engineers new to timing design. The most common issue I see is instability caused by improper loop filter design. The key is understanding that the loop bandwidth must be low enough to filter reference noise but high enough for acceptable lock time. For telecom applications, I typically recommend 100Hz-1kHz loop bandwidth. The VCXO linearity is also critical - non-linear VCXOs cause loop instability and increased phase noise. Dapu VCXOs have excellent linearity (<10%), making them easy to work with. Always simulate your loop before building, and leave margin in your phase margin for component variations.",
+        "decisionLogic": "The PLL design process should be: First, clearly define your reference and output frequency requirements. Second, select VCXO with adequate pull range - calculate expected frequency variation and add 50% margin. Third, determine loop bandwidth based on your jitter and lock time requirements. Fourth, calculate loop filter components using standard PLL equations. Fifth, verify stability with at least 45° phase margin. Sixth, prototype and measure. Simulation tools like ADIsimPLL or similar are invaluable for this process.",
+        "keyTakeaways": [
+          "Loop bandwidth is a trade-off between jitter and lock time",
+          "VCXO linearity affects loop stability",
+          "Always verify stability margins with simulation",
+          "Leave margin for component variations",
+          "Measure actual performance - don't rely only on simulation"
+        ],
+        "insightLogic": "The key insight is that PLL design is about managing trade-offs. Understanding what matters most for your application - jitter, lock time, or stability - guides your design decisions. There's no one-size-fits-all solution."
+      },
+      "customerCases": [
+        {
+          "customerName": "Network Equipment OEM",
+          "industry": "Telecommunications",
+          "application": "Ethernet Switch Design",
+          "challenge": "Customer's PLL design for Ethernet clock recovery was unstable, causing occasional link drops. They needed help with loop filter design.",
+          "solution": "Analyzed their design and found insufficient phase margin (30°). Recommended new loop filter component values and verified with simulation.",
+          "feedback": "Implemented new loop filter design with 55° phase margin. PLL is now rock-solid stable. Link drops eliminated. Design passed all Ethernet compliance tests."
+        }
+      ],
+      "faqs": [
+        {
+          "question": "How do I calculate Kvco for my VCXO?",
+          "answer": "Kvco (VCO gain) is calculated as the frequency change divided by the control voltage change. For example, if your VCXO has ±100ppm pull range at 25MHz with 0.3V to 3.0V control range: Total frequency variation = 100ppm × 2 × 25MHz = 5kHz. Control voltage range = 3.0V - 0.3V = 2.7V. Kvco = 5kHz / 2.7V = 1852 Hz/V. Note that Kvco is not perfectly constant across the control range - it's typically specified at the center or as an average. For precise PLL design, use the average Kvco or model the non-linearity if critical.",
+          "decisionGuide": "Calculate Kvco = (Pull Range × 2 × Frequency) / Control Voltage Range. Use average value for design.",
+          "keywords": [
+            "Kvco calculation",
+            "VCO gain",
+            "PLL VCXO design"
+          ]
+        },
+        {
+          "question": "What phase margin should I target for my PLL?",
+          "answer": "For robust PLL operation, target at least 45° phase margin, with 60° being ideal. Phase margin below 45° can result in ringing, long settling times, and potential instability with component variations. Phase margin above 60° provides good robustness but may limit loop bandwidth. The phase margin is measured at the unity gain frequency (loop bandwidth). You can calculate phase margin from your loop transfer function or measure it with a network analyzer. Always leave margin for component tolerances (typically 20-30%) and temperature variations. For critical applications, simulate with worst-case component values.",
+          "decisionGuide": "Target 60° phase margin for robust design. Minimum 45° for acceptable performance.",
+          "keywords": [
+            "PLL phase margin",
+            "loop stability",
+            "PLL design margin"
+          ]
+        },
+        {
+          "question": "What is the difference between integer-N and fractional-N PLLs?",
+          "answer": "Integer-N PLLs use integer divide ratios, resulting in output frequencies that are integer multiples of the reference frequency. They're simpler, have better spurious performance, but limited frequency resolution. Fractional-N PLLs use fractional divide ratios, enabling fine frequency resolution and arbitrary output frequencies. However, fractional-N PLLs can produce fractional spurs that may require compensation. For applications requiring precise frequency resolution (e.g., frequency synthesis, clock generation), fractional-N is preferred. For applications with fixed, integer-related frequencies, integer-N may be simpler. Dapu VCXOs work with both types of PLLs.",
+          "decisionGuide": "Use integer-N for simplicity and spurious performance. Use fractional-N for fine frequency resolution.",
+          "keywords": [
+            "integer-N PLL",
+            "fractional-N PLL",
+            "PLL architecture"
+          ]
+        },
+        {
+          "question": "How do I measure PLL phase noise?",
+          "answer": "PLL phase noise is measured using a phase noise analyzer or spectrum analyzer with phase noise measurement capability. The measurement setup includes: a clean reference source with better phase noise than the DUT, a phase detector or mixer to compare DUT with reference, and analysis software to calculate phase noise density vs. offset frequency. For accurate measurements, ensure the reference source has significantly better phase noise than the DUT. Measure at various offset frequencies (typically 1Hz to 10MHz). For integrated phase jitter, specify the integration bandwidth (e.g., 12kHz-20MHz for Ethernet). Dapu can provide phase noise measurement data for VCXO products.",
+          "decisionGuide": "Use phase noise analyzer with clean reference. Contact us for measurement data.",
+          "keywords": [
+            "PLL phase noise measurement",
+            "phase noise testing",
+            "jitter measurement"
+          ]
+        },
+        {
+          "question": "What causes PLL unlock and how do I prevent it?",
+          "answer": "PLL unlock can be caused by several factors: reference signal loss or degradation, VCXO pull range insufficient for frequency variation, loop instability (insufficient phase margin), power supply noise or transients, temperature extremes affecting VCXO or PLL, and interference or noise coupling. To prevent unlock: ensure robust reference signal with adequate amplitude, select VCXO with sufficient pull range margin, design loop filter with adequate phase margin (>45°), use clean power supply with proper decoupling, verify operation over temperature range, and implement proper shielding and layout. Monitor lock detect signal in your system and implement relock procedures if needed.",
+          "decisionGuide": "Ensure adequate pull range, phase margin, and clean power. Monitor lock detect signal.",
+          "keywords": [
+            "PLL unlock",
+            "PLL lock loss",
+            "PLL stability"
+          ]
+        },
+        {
+          "question": "How do I optimize PLL lock time?",
+          "answer": "PLL lock time can be optimized through several techniques: increase loop bandwidth (trade-off with jitter), use adaptive bandwidth (wide bandwidth during acquisition, narrow when locked), implement fast-lock circuits in the PLL chip, use frequency preset to get close to target frequency quickly, and optimize charge pump current. The lock time is inversely proportional to loop bandwidth - wider bandwidth gives faster lock but more jitter. For applications requiring both fast lock and low jitter, consider adaptive bandwidth techniques. Some PLLs have dedicated fast-lock modes. The VCXO characteristics (Kvco, pull range) also affect lock behavior. Simulate your design to optimize for your specific requirements.",
+          "decisionGuide": "Increase bandwidth for faster lock. Use adaptive bandwidth for jitter/lock time trade-off.",
+          "keywords": [
+            "PLL lock time",
+            "fast lock PLL",
+            "PLL acquisition"
+          ]
+        },
+        {
+          "question": "What is reference spur and how do I reduce it?",
+          "answer": "Reference spurs are unwanted spectral components at the reference frequency and its harmonics that appear in the PLL output. They're caused by imperfections in the phase detector and charge pump. To reduce reference spurs: use a higher reference frequency (spurs are farther from carrier), increase loop filter attenuation at reference frequency, use a higher-order loop filter for better attenuation, ensure good power supply isolation, use balanced charge pump designs if available, and implement spur compensation techniques in the PLL chip. The loop filter is the primary tool for spur reduction - ensure it provides adequate attenuation at the reference frequency while maintaining desired bandwidth.",
+          "decisionGuide": "Use higher reference frequency, increase loop filter attenuation. Contact us for filter design guidance.",
+          "keywords": [
+            "reference spur",
+            "PLL spurs",
+            "spur reduction"
+          ]
+        },
+        {
+          "question": "Can I use the same VCXO for multiple PLLs?",
+          "answer": "Using the same VCXO for multiple PLLs is possible but requires careful consideration. The VCXO output must have sufficient drive capability for multiple loads. Use a clock buffer if necessary to distribute the reference. Each PLL will load the VCXO control line if they're sharing the same VCXO - this is usually not practical. Typically, you would use a fixed oscillator as a common reference and distribute it to multiple PLLs, each with their own VCXO or using the PLL's internal VCO. If you need synchronized outputs from multiple PLLs, use a common reference and ensure the PLLs are designed for synchronization. Contact us for multi-PLL system design guidance.",
+          "decisionGuide": "Use fixed reference with distribution. Each PLL typically needs its own VCXO.",
+          "keywords": [
+            "multiple PLLs",
+            "PLL synchronization",
+            "clock distribution"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rf-filter-application",
+      "title": "RF Filter Selection and Application",
+      "slug": "rf-filter-application",
+      "category": "Design Guide",
+      "author": {
+        "name": "Dr. Emily Wang",
+        "title": "Principal RF Engineer",
+        "experience": "17 years",
+        "expertise": [
+          "RF Design",
+          "Filter Design",
+          "Wireless Systems"
+        ]
+      },
+      "publishDate": "2026-03-05",
+      "lastUpdated": "2026-03-05",
+      "summary": "Guide to selecting and applying RF filters for wireless communication. Covers filter types, matching, and layout considerations.",
+      "content": [
+        "RF filters are essential for frequency selection and interference rejection in wireless systems. This guide covers filter selection and application.",
+        "",
+        "## Filter Types",
+        "",
+        "**SAW Filters**: Surface Acoustic Wave filters offer excellent selectivity and are ideal for cellular, GPS, and wireless applications up to 3GHz.",
+        "",
+        "**BAW Filters**: Bulk Acoustic Wave filters provide higher Q and better performance for challenging interference environments.",
+        "",
+        "**Ceramic Filters**: Cost-effective solutions for ISM band and consumer applications. Lower performance but very economical.",
+        "",
+        "**LC Filters**: Broadband performance for general-purpose filtering. Larger size but flexible design.",
+        "",
+        "## Key Parameters",
+        "",
+        "**Center Frequency**: The frequency of minimum insertion loss. Match to your signal frequency.",
+        "",
+        "**Bandwidth**: The frequency range with acceptable insertion loss. 3dB bandwidth is standard.",
+        "",
+        "**Insertion Loss**: Signal loss through the filter. Lower is better. Typical: 1-3dB.",
+        "",
+        "**Rejection**: Attenuation of out-of-band signals. Higher is better. >30dB typical.",
+        "",
+        "## Application Guidelines",
+        "",
+        "**GPS**: Use GPS-specific SAW filter at 1575.42MHz with >40dB cellular rejection.",
+        "",
+        "**Cellular**: Band-specific SAW or BAW filters. Check band requirements for your region.",
+        "",
+        "**WiFi/BT**: 2.4GHz or 5GHz filters depending on band. Coexistence filtering important.",
+        "",
+        "**ISM Band**: Ceramic or LC filters often adequate for less demanding applications."
+      ],
+      "tags": [
+        "Dapu",
+        "RF Filter",
+        "SAW",
+        "Wireless",
+        "GPS"
+      ],
+      "relatedArticles": [
+        "gps-timing-design",
+        "wireless-coexistence",
+        "rf-layout-guide"
+      ],
+      "faeInsights": {
+        "author": {
+          "name": "James Liu",
+          "title": "Senior FAE - RF Components",
+          "experience": "13 years"
+        },
+        "content": "RF filter selection often gets overlooked in wireless design, but it's critical for performance. The most common mistake I see is inadequate rejection at interference frequencies. For GPS in smartphones, the cellular transmitter can completely desensitize the GPS receiver without proper filtering. The Dapu GPS filter with >40dB rejection at cellular bands is essential for these applications. Another issue is poor matching - even if the filter is 50Ω, poor PCB layout can destroy the performance. Keep traces short, use proper ground vias, and follow the reference layout. For multi-band devices, consider the interaction between filters - isolation between bands is important.",
+        "decisionLogic": "The RF filter selection framework: First, identify your frequency band and bandwidth requirements. Second, determine interference sources and required rejection levels. Third, select filter type based on performance needs and budget - SAW for high performance, ceramic for cost-sensitive. Fourth, verify insertion loss impact on system sensitivity. Fifth, plan layout for proper matching and minimal trace length. This systematic approach ensures your filter provides the expected performance in the actual system.",
+        "keyTakeaways": [
+          "Rejection at interference frequencies is critical",
+          "GPS applications need >40dB cellular rejection",
+          "PCB layout is as important as the filter itself",
+          "Match impedance properly for best performance",
+          "Consider multi-band isolation in complex designs"
+        ],
+        "insightLogic": "The key insight is that an RF filter doesn't work in isolation - it's part of a system. The filter performance must be evaluated in the context of the entire RF chain, including the interference environment, matching networks, and layout."
+      },
+      "customerCases": [
+        {
+          "customerName": "IoT Device Manufacturer",
+          "industry": "IoT",
+          "application": "Smart Home Hub",
+          "challenge": "Customer's WiFi/BT/Zigbee hub had interference issues between protocols. WiFi transmission was desensitizing the Zigbee receiver.",
+          "solution": "Recommended adding Dapu RF2012-WIFI24 filter on WiFi path and RF2012-ZB filter on Zigbee path. Optimized layout for isolation.",
+          "feedback": "Interference issues resolved. Coexistence performance improved dramatically. Product passed all certification tests. Filter cost was minimal compared to the performance improvement."
+        }
+      ],
+      "faqs": [
+        {
+          "question": "Do I need matching components for SAW filters?",
+          "answer": "Most modern SAW filters, including Dapu RF series, are internally matched to 50Ω and don't require external matching components for basic operation. The filter can be connected directly with 50Ω transmission lines. However, for optimal return loss and performance, small series inductors (1-3nH) may be added. The exact matching depends on your PCB layout and trace lengths. For best results, follow the reference design and keep traces short. If you have specific matching requirements or unusual layout constraints, our FAE team can provide matching recommendations based on S-parameter analysis.",
+          "decisionGuide": "Usually no matching needed. Follow reference design. Add 1-3nH series inductors if optimal return loss required.",
+          "keywords": [
+            "SAW filter matching",
+            "RF filter design",
+            "50 ohm matching"
+          ]
+        },
+        {
+          "question": "What is the difference between SAW and BAW filters?",
+          "answer": "SAW (Surface Acoustic Wave) filters use acoustic waves traveling along the surface of a piezoelectric substrate. They're cost-effective and perform well up to about 3GHz. BAW (Bulk Acoustic Wave) filters use acoustic waves traveling through the bulk material. They offer higher Q, better performance at higher frequencies (>2GHz), and steeper roll-off, but at higher cost. For most applications below 2GHz, SAW filters provide excellent performance at lower cost. For demanding applications (high rejection, steep skirts, high frequencies), BAW filters are preferred. Dapu primarily offers SAW filters which meet the needs of most wireless applications.",
+          "decisionGuide": "Use SAW for most applications <3GHz. Use BAW for demanding performance or >2GHz applications.",
+          "keywords": [
+            "SAW vs BAW",
+            "filter type comparison",
+            "RF filter selection"
+          ]
+        },
+        {
+          "question": "What is group delay and why does it matter?",
+          "answer": "Group delay is the frequency-dependent delay through a filter, measured in time (nanoseconds or microseconds). Variation in group delay across the passband can cause signal distortion, particularly for wideband digital signals. Constant group delay (linear phase response) is desired for minimal distortion. SAW filters have good group delay characteristics within the passband but may have variation at band edges. For digital communication systems (WiFi, LTE), group delay variation should be minimized. Check the filter datasheet for group delay specifications. For applications sensitive to group delay (high-order modulation like 256-QAM), select filters with good phase linearity.",
+          "decisionGuide": "Minimize group delay variation for wideband digital signals. Check datasheet specifications.",
+          "keywords": [
+            "group delay",
+            "filter phase response",
+            "signal distortion"
+          ]
+        },
+        {
+          "question": "How do I cascade multiple RF filters?",
+          "answer": "Cascading multiple filters can increase rejection but requires careful design. When cascading: ensure proper impedance matching between stages (typically 50Ω), consider insertion loss accumulation (losses add in dB), watch for interaction between filter responses, allow adequate spacing between filters to prevent coupling, and consider using amplifiers between stages to compensate for loss. For example, cascading two filters each with 2dB insertion loss and 30dB rejection gives 4dB total loss and 60dB rejection (ideally). In practice, interaction may reduce the effective rejection. Use S-parameter simulation to analyze cascaded performance. For multi-band rejection, consider using filters for different bands in series.",
+          "decisionGuide": "Match impedance between stages. Account for accumulated insertion loss. Simulate cascaded response.",
+          "keywords": [
+            "cascade filters",
+            "filter chain",
+            "multi-stage filtering"
+          ]
+        },
+        {
+          "question": "What is temperature drift in SAW filters?",
+          "answer": "Temperature drift is the change in center frequency with temperature. SAW filters have a temperature coefficient of frequency (TCF) typically around -20 to -50 ppm/°C depending on the substrate material. This means the center frequency decreases as temperature increases. For narrowband applications, this drift can shift the filter response relative to the signal frequency. Dapu SAW filters use temperature-compensated designs to minimize drift. For applications operating over wide temperature ranges, consider the frequency shift in your system design. The drift is repeatable and can be compensated in some applications. For critical applications, request temperature characterization data.",
+          "decisionGuide": "SAW filters have -20 to -50 ppm/°C TCF. Consider drift in wide-temperature applications.",
+          "keywords": [
+            "SAW temperature drift",
+            "TCF",
+            "filter frequency stability"
+          ]
+        },
+        {
+          "question": "How do I test RF filter performance?",
+          "answer": "RF filter testing requires a network analyzer or spectrum analyzer with tracking generator. Key measurements include: insertion loss (S21) at center frequency, return loss (S11) for impedance matching, bandwidth at specified attenuation levels (1dB, 3dB), rejection at specific frequencies, and group delay across the passband. For production testing, simpler setups with signal generator and power meter can verify insertion loss and basic functionality. For detailed characterization, use a calibrated network analyzer. Test in a controlled environment (temperature, humidity) for repeatable results. Follow proper calibration procedures including cable and fixture compensation. Dapu provides S-parameter files for simulation and can provide test data for qualification.",
+          "decisionGuide": "Use network analyzer for full characterization. Contact us for S-parameters and test data.",
+          "keywords": [
+            "RF filter testing",
+            "filter measurement",
+            "network analyzer"
+          ]
+        },
+        {
+          "question": "What is power handling in RF filters?",
+          "answer": "Power handling is the maximum RF power a filter can handle without damage or performance degradation. For SAW filters, power handling is typically limited by thermal effects and acoustic power density. Dapu SAW filters typically handle up to +10 to +20dBm (10-100mW) continuous power, depending on the package and frequency. Higher power can cause: frequency shift due to heating, increased insertion loss, permanent damage to the SAW transducers, and reduced lifetime. For transmit applications, ensure the filter power rating exceeds your maximum output power with margin. For high-power applications, consider using high-power rated filters or placing the filter before the power amplifier.",
+          "decisionGuide": "Typical SAW filter: +10 to +20dBm. Verify rating for transmit applications.",
+          "keywords": [
+            "filter power handling",
+            "SAW power rating",
+            "RF filter power"
+          ]
+        },
+        {
+          "question": "Can SAW filters be used for both transmit and receive?",
+          "answer": "Yes, SAW filters can be used in both transmit and receive paths, but considerations differ. In receive paths, the filter provides selectivity to reject interference before the LNA. Low insertion loss is critical to maintain sensitivity. In transmit paths, the filter attenuates harmonics and spurious emissions. Power handling must be adequate for the transmit power. The same filter can be used for both directions in TDD (Time Division Duplex) systems like WiFi. For FDD (Frequency Division Duplex) systems like cellular, different filters are typically used for transmit and receive bands (duplexer function). Dapu offers filters optimized for both receive and transmit applications.",
+          "decisionGuide": "Same filter can be used for TDD. Separate filters for FDD. Verify power handling for TX.",
+          "keywords": [
+            "SAW filter TX RX",
+            "duplexer",
+            "TDD FDD filtering"
+          ]
+        }
+      ]
+    }
+  ]
+}

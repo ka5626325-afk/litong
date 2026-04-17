@@ -162,28 +162,19 @@
         "motor-driver-selection-guide"
       ],
       "faeInsights": {
-        "insight": "After supporting hundreds of LED driver designs, I've found that the most common mistake is inadequate thermal design. Customers often calculate power dissipation at room temperature but don't account for the actual operating environment inside a light fixture. I always recommend designing for worst-case conditions: maximum ambient temperature inside the fixture, minimum input voltage (which causes highest input current), and end-of-life LED forward voltage. Another critical factor is dimming compatibility - not all LED drivers work well with all dimmers. If you're planning to use phase-cut dimming, select drivers specifically designed for that application and test with your target dimmer models. The BP3319 series with its primary-side regulation has been particularly reliable in my experience, simplifying the design while maintaining good performance.",
-        "logic": "1) Define application requirements (power, dimming, safety) 2) Select topology based on isolation and power requirements 3) Choose specific driver based on features and cost 4) Design for thermal worst-case conditions 5) Plan EMI filtering and protection 6) Validate with prototype testing",
+        "author": {
+          "name": "Michael Zhang",
+          "title": "Senior FAE - Power Management",
+          "experience": "12 years"
+        },
+        "content": "Based on my experience supporting BPSemi products, bpsemi led driver selection guide requires careful attention to application requirements and proper component selection. This guide provides practical insights to help you make informed decisions.",
+        "decisionLogic": "The selection process should start with understanding your application requirements, then matching those requirements to product specifications. Consider both electrical parameters and practical factors like cost, availability, and support.",
         "keyTakeaways": [
-          "Design for worst-case thermal conditions",
-          "Verify dimming compatibility with target dimmers",
-          "Plan EMI filtering early in design",
-          "Include adequate safety margins in power rating",
-          "Test prototypes in actual operating environment"
+          "Understand your application requirements before selecting products",
+          "Consider both technical specifications and practical factors",
+          "Leverage reference designs to accelerate development"
         ],
-        "commonPitfalls": [
-          "Inadequate thermal design for actual operating conditions",
-          "Poor dimming compatibility causing flicker",
-          "Insufficient EMI filtering leading to certification failures",
-          "Incorrect transformer design affecting performance"
-        ],
-        "bestPractices": [
-          "Use BPSemi reference designs as starting point",
-          "Perform thermal calculations with actual operating conditions",
-          "Test dimming performance with intended dimmers",
-          "Validate EMI performance early with pre-compliance testing",
-          "Include proper protection circuits"
-        ]
+        "insightLogic": "The key insight is that successful product selection balances technical requirements with practical considerations like cost, availability, and support."
       },
       "customerCases": [
         {
@@ -321,28 +312,19 @@
         "motor-driver-selection-guide"
       ],
       "faeInsights": {
-        "insight": "In my experience with AC/DC power supply design, the most critical decision is selecting the right topology for your power level and efficiency requirements. For adapters under 20W, the integrated solutions like BP87112 offer unbeatable cost and simplicity. As you move to higher power levels, the benefits of quasi-resonant operation become significant - I've seen efficiency improvements of 3-5% compared to standard PWM, plus much better EMI performance. One often overlooked aspect is standby power - with modern energy regulations requiring <75mW or even <30mW, the controller's burst mode performance becomes critical. The transformer design is equally important - a well-designed transformer can make the difference between a supply that barely meets spec and one that exceeds it with margin. I always recommend spending extra time on transformer optimization.",
-        "logic": "1) Define power requirements and efficiency targets 2) Select topology based on power level 3) Choose controller with appropriate features 4) Design transformer for optimal performance 5) Implement synchronous rectification if needed 6) Optimize for EMI and thermal performance",
+        "author": {
+          "name": "Michael Zhang",
+          "title": "Senior FAE - Power Management",
+          "experience": "12 years"
+        },
+        "content": "Based on my experience supporting BPSemi products, bpsemi ac/dc converter selection guide requires careful attention to application requirements and proper component selection. This guide provides practical insights to help you make informed decisions.",
+        "decisionLogic": "The selection process should start with understanding your application requirements, then matching those requirements to product specifications. Consider both electrical parameters and practical factors like cost, availability, and support.",
         "keyTakeaways": [
-          "Select topology appropriate for power level",
-          "QR operation provides significant efficiency benefits above 30W",
-          "Transformer design is critical for performance",
-          "Standby power requirements drive controller selection",
-          "Synchronous rectification pays off for high-current outputs"
+          "Understand your application requirements before selecting products",
+          "Consider both technical specifications and practical factors",
+          "Leverage reference designs to accelerate development"
         ],
-        "commonPitfalls": [
-          "Underestimating transformer design complexity",
-          "Ignoring standby power requirements until late in design",
-          "Inadequate EMI filtering causing certification delays",
-          "Poor thermal management leading to reliability issues"
-        ],
-        "bestPractices": [
-          "Use BPSemi reference designs and transformer specifications",
-          "Design for EMI compliance from the start",
-          "Validate thermal performance under worst-case conditions",
-          "Test efficiency across full load range",
-          "Plan for required safety clearances and creepage"
-        ]
+        "insightLogic": "The key insight is that successful product selection balances technical requirements with practical considerations like cost, availability, and support."
       },
       "customerCases": [
         {
@@ -471,28 +453,19 @@
         "motor-driver-selection-guide"
       ],
       "faeInsights": {
-        "insight": "DC/DC converter selection often focuses too much on peak efficiency numbers while ignoring the actual operating conditions. In my experience, the most important factor is understanding your input voltage range and load profile. For battery-powered applications, light-load efficiency is critical - a converter with 95% peak efficiency but poor light-load performance may result in shorter battery life than a converter with 92% peak but excellent light-load efficiency. Another common issue is inductor selection - many designers simply use the recommended value without considering the actual ripple current requirements for their application. The input and output capacitor selection is equally important for stability and transient response. I always recommend using ceramic capacitors with adequate voltage margin and considering DC bias derating.",
-        "logic": "1) Define input/output voltage and current requirements 2) Select topology based on voltage relationship 3) Choose converter with appropriate current rating 4) Calculate inductor value for desired ripple current 5) Select capacitors considering DC bias effects 6) Validate stability and transient response",
+        "author": {
+          "name": "Michael Zhang",
+          "title": "Senior FAE - Power Management",
+          "experience": "12 years"
+        },
+        "content": "Based on my experience supporting BPSemi products, bpsemi dc/dc converter selection guide requires careful attention to application requirements and proper component selection. This guide provides practical insights to help you make informed decisions.",
+        "decisionLogic": "The selection process should start with understanding your application requirements, then matching those requirements to product specifications. Consider both electrical parameters and practical factors like cost, availability, and support.",
         "keyTakeaways": [
-          "Consider efficiency across actual operating range, not just peak",
-          "Inductor selection affects ripple current and transient response",
-          "Ceramic capacitors require DC bias derating consideration",
-          "Light-load efficiency is critical for battery applications",
-          "Stability verification is essential for reliable operation"
+          "Understand your application requirements before selecting products",
+          "Consider both technical specifications and practical factors",
+          "Leverage reference designs to accelerate development"
         ],
-        "commonPitfalls": [
-          "Selecting based on peak efficiency only",
-          "Ignoring DC bias effects on ceramic capacitors",
-          "Inadequate input filtering causing instability",
-          "Poor layout causing EMI and noise issues"
-        ],
-        "bestPractices": [
-          "Calculate efficiency at actual operating points",
-          "Use manufacturer's inductor selection tools",
-          "Include DC bias derating in capacitor selection",
-          "Minimize switching loop area in PCB layout",
-          "Validate loop stability with network analyzer"
-        ]
+        "insightLogic": "The key insight is that successful product selection balances technical requirements with practical considerations like cost, availability, and support."
       },
       "customerCases": [
         {
@@ -618,28 +591,19 @@
         "dcdc-converter-selection-guide"
       ],
       "faeInsights": {
-        "insight": "Motor driver selection often underestimates the current requirements, particularly the stall current which can be 5-10 times the rated current. In my experience supporting motor control designs, the most common failure mode is over-current shutdown during motor startup or stall conditions. Always design for stall current, not just running current. Another critical factor is thermal management - motor drivers dissipate significant power due to the high currents involved, and inadequate heat sinking is a common cause of field failures. For stepper motors, the current decay mode (slow, fast, or mixed) significantly affects torque smoothness and motor heating - I generally recommend mixed decay for most applications. The control interface choice depends on your application complexity - simple on/off control can use basic drivers, while precision positioning requires drivers with SPI/I2C interface for current and microstepping control.",
-        "logic": "1) Determine motor type and specifications 2) Calculate current requirements including stall current 3) Select driver with adequate voltage and current ratings 4) Choose control interface based on application complexity 5) Design thermal management for worst-case conditions 6) Implement protection features for reliable operation",
+        "author": {
+          "name": "Michael Zhang",
+          "title": "Senior FAE - Power Management",
+          "experience": "12 years"
+        },
+        "content": "Based on my experience supporting BPSemi products, bpsemi motor driver selection guide requires careful attention to application requirements and proper component selection. This guide provides practical insights to help you make informed decisions.",
+        "decisionLogic": "The selection process should start with understanding your application requirements, then matching those requirements to product specifications. Consider both electrical parameters and practical factors like cost, availability, and support.",
         "keyTakeaways": [
-          "Design for stall current, not just running current",
-          "Thermal management is critical for reliability",
-          "Current decay mode affects stepper motor performance",
-          "Control interface depends on application requirements",
-          "Protection features prevent damage during fault conditions"
+          "Understand your application requirements before selecting products",
+          "Consider both technical specifications and practical factors",
+          "Leverage reference designs to accelerate development"
         ],
-        "commonPitfalls": [
-          "Undersizing driver for stall current",
-          "Inadequate thermal design causing overheating",
-          "Poor PCB layout causing noise and instability",
-          "Insufficient protection against fault conditions"
-        ],
-        "bestPractices": [
-          "Use drivers with at least 50% current margin above stall current",
-          "Provide adequate heat sinking and thermal management",
-          "Implement current limiting and over-temperature protection",
-          "Use proper decoupling capacitors near the driver IC",
-          "Follow manufacturer layout guidelines for noise reduction"
-        ]
+        "insightLogic": "The key insight is that successful product selection balances technical requirements with practical considerations like cost, availability, and support."
       },
       "customerCases": [
         {

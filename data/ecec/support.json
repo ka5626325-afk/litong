@@ -1,0 +1,386 @@
+{
+  "brandId": "ecec",
+  "brandName": "ECEC",
+  "seoTitle": "ECEC Technical Support & Resources | Distributor Support",
+  "seoDescription": "Access ECEC technical documentation, datasheets, application notes, and troubleshooting guides. Get expert support for ECEC timing component selection and integration.",
+  "seoKeywords": ["ECEC support", "ECEC technical documentation", "crystal resonator datasheet", "oscillator application note", "timing component guide", "ECEC distributor selection"],
+  "resources": {
+    "title": "ECEC Technical Resources",
+    "titleCn": "ECEC Technical Resources",
+    "description": "Access datasheets, application notes, selection guides, and technical documentation for ECEC timing components.",
+    "categories": [
+      {
+        "id": "datasheets",
+        "name": "Datasheets",
+        "nameCn": "Datasheets",
+        "icon": "document",
+        "description": "Complete product datasheets with specifications, electrical characteristics, and package information.",
+        "documents": [
+          {
+            "title": "Crystal Resonator Datasheet",
+            "titleCn": "Crystal Resonator Datasheet",
+            "description": "Complete specifications for HC-49/S and SMD crystal resonators including frequency range, tolerance, and package dimensions.",
+            "fileType": "PDF",
+            "fileSize": "2.4 MB",
+            "downloadUrl": "/ecec/downloads/crystal-resonator-datasheet.pdf",
+            "updatedAt": "2024-12-01"
+          },
+          {
+            "title": "Crystal Oscillator Datasheet",
+            "titleCn": "Crystal Oscillator Datasheet",
+            "description": "Technical specifications for XO, TCXO, VCXO, and OCXO oscillators including phase noise and jitter characteristics.",
+            "fileType": "PDF",
+            "fileSize": "3.1 MB",
+            "downloadUrl": "/ecec/downloads/crystal-oscillator-datasheet.pdf",
+            "updatedAt": "2024-11-15"
+          }
+        ]
+      },
+      {
+        "id": "application-notes",
+        "name": "Application Notes",
+        "nameCn": "Application Notes",
+        "icon": "book",
+        "description": "Detailed application guidance for crystal and oscillator selection, PCB layout, and system integration.",
+        "documents": [
+          {
+            "title": "Crystal Selection Guide",
+            "titleCn": "Crystal Selection Guide",
+            "description": "Comprehensive guide for selecting the right crystal resonator based on frequency, stability, and application requirements.",
+            "fileType": "PDF",
+            "fileSize": "1.5 MB",
+            "downloadUrl": "/ecec/downloads/crystal-selection-guide.pdf",
+            "updatedAt": "2024-11-01"
+          }
+        ]
+      }
+    ]
+  },
+  "articles": [
+    {
+      "id": "crystal-resonator-selection-guide",
+      "title": "Crystal Resonator Selection Guide",
+      "titleCn": "Crystal Resonator Selection Guide",
+      "slug": "crystal-resonator-selection-guide",
+      "category": "Technical Guide",
+      "categoryCn": "Technical Guide",
+      "author": {
+        "name": "Michael Chen",
+        "title": "Senior Applications Engineer",
+        "email": "michael.chen@ecec.com"
+      },
+      "publishedAt": "2024-11-15",
+      "publishDate": "2024-11-15",
+      "updatedAt": "2024-11-15",
+      "readTime": "8 min",
+      "summary": "Comprehensive guide for selecting crystal resonators including frequency selection, package options, and load capacitance calculations.",
+      "description": "Comprehensive guide for selecting crystal resonators including frequency selection, package options, and load capacitance calculations.",
+      "keywords": ["crystal resonator", "selection guide", "frequency", "load capacitance", "tolerance"],
+      "content": "Crystal resonators are passive components that provide stable frequency references for electronic systems. This guide covers the key parameters and selection criteria for choosing the right crystal resonator for your application. Frequency Selection: The first step in selecting a crystal resonator is determining the required frequency. Crystal resonators are available from 32.768kHz to over 200MHz. Package Selection: ECEC offers crystal resonators in various packages including HC-49/S through-hole and SMD packages from 2.0x1.6mm to 7.0x5.0mm.",
+      "tags": ["crystal resonator", "selection guide", "frequency control"],
+      "relatedArticles": ["pcb-layout-guidelines", "oscillator-vs-resonator", "tcxo-application-guide"],
+      "relatedProducts": ["HC-49S-8MHz-20pF", "SMD3225-16MHz-12pF"],
+      "faeInsights": {
+        "author": "Michael Chen",
+        "title": "FAE - Crystal Applications",
+        "content": "For crystal resonator selection, I always emphasize the importance of matching the load capacitance to your circuit design. The most common issue I see is customers using crystals with the wrong load capacitance, resulting in frequency errors. Over my 15 years of supporting timing applications, I have learned that proper load capacitance calculation is the single most important factor for successful crystal implementation. Many designers forget to account for stray capacitance from PCB traces and IC pins, which can add 2-5pF to the total load. This seemingly small difference can cause significant frequency errors. I always recommend using the formula CL = (C1 x C2)/(C1 + C2) + Cstray and measuring the actual frequency to verify proper operation.",
+        "logic": "Load capacitance directly affects oscillation frequency. Mismatched CL causes frequency offset.",
+        "keyTakeaways": ["Match load capacitance to circuit design", "Account for stray capacitance", "Use industrial grade for harsh environments"],
+        "commonPitfalls": ["Ignoring stray capacitance", "Using wrong crystal cut", "Poor PCB layout"],
+        "bestPractices": ["Calculate CL including stray capacitance", "Keep traces short and matched", "Use solid ground plane"]
+      },
+      "customerCases": [
+        {
+          "customer": "Industrial Equipment Manufacturer",
+          "industry": "Industrial Automation",
+          "challenge": "Frequent crystal failures in high-vibration environment",
+          "solution": "Switched to HC-49/S industrial-grade crystals with proper mounting",
+          "result": "Zero failures over 3 years of operation",
+          "feedback": "The industrial-grade crystals solved our reliability issues completely."
+        },
+        {
+          "customer": "Consumer Electronics Company",
+          "industry": "Consumer Electronics",
+          "challenge": "Frequency drift causing Bluetooth connectivity issues",
+          "solution": "Selected crystal with tighter tolerance and proper load capacitance",
+          "result": "Bluetooth connection stability improved by 95%",
+          "feedback": "Proper crystal selection eliminated our wireless connectivity problems."
+        }
+      ],
+      "faq": [
+        {
+          "question": "What is the difference between series and parallel resonant crystals?",
+          "answer": "Series resonant crystals are designed to operate at the series resonant frequency where impedance is minimum. Parallel resonant crystals are designed to operate with a specific load capacitance.",
+          "decisionGuide": "Most microcontroller applications use parallel resonant crystals.",
+          "keywords": ["crystal resonator", "series resonant", "parallel resonant"]
+        },
+        {
+          "question": "How do I calculate the correct load capacitors for my crystal?",
+          "answer": "Use the formula CL = (C1 x C2) / (C1 + C2) + Cstray. For symmetric circuits where C1 = C2, this simplifies to CL = C1/2 + Cstray.",
+          "decisionGuide": "Account for stray capacitance of 2-5pF when calculating load capacitor values.",
+          "keywords": ["load capacitance", "crystal oscillator"]
+        },
+        {
+          "question": "What is the difference between AT-cut and tuning fork crystals?",
+          "answer": "AT-cut crystals use a quartz plate cut at a specific angle, providing excellent frequency stability in the MHz range. Tuning fork crystals operate at 32.768kHz for real-time clocks.",
+          "decisionGuide": "Use AT-cut for MHz frequencies, tuning fork for 32.768kHz RTC applications.",
+          "keywords": ["AT-cut", "tuning fork", "crystal cut"]
+        },
+        {
+          "question": "How does temperature affect crystal frequency?",
+          "answer": "Crystal frequency varies with temperature in a predictable curve. AT-cut crystals have a characteristic S-curve with inflection points near room temperature.",
+          "decisionGuide": "For better temperature stability, consider TCXOs.",
+          "keywords": ["temperature stability", "frequency drift"]
+        },
+        {
+          "question": "What is crystal aging and how does it affect my application?",
+          "answer": "Aging is the long-term frequency drift of a crystal over time, typically ±3ppm per year. This is caused by mass transfer and stress relaxation in the crystal structure.",
+          "decisionGuide": "For applications requiring long-term accuracy, select crystals with lower aging specifications.",
+          "keywords": ["crystal aging", "long-term stability"]
+        },
+        {
+          "question": "Can I use any crystal with my microcontroller?",
+          "answer": "Not all crystals work with all microcontrollers. Check that frequency is within range, ESR is within limits, and load capacitance can be matched.",
+          "decisionGuide": "Always verify crystal specifications against microcontroller requirements.",
+          "keywords": ["microcontroller", "crystal compatibility"]
+        }
+      ]
+    },
+    {
+      "id": "pcb-layout-guidelines",
+      "title": "PCB Layout Guidelines for Crystal Circuits",
+      "titleCn": "PCB Layout Guidelines for Crystal Circuits",
+      "slug": "pcb-layout-guidelines",
+      "category": "Application Note",
+      "categoryCn": "Application Note",
+      "author": {
+        "name": "Lisa Wang",
+        "title": "PCB Design Specialist",
+        "email": "lisa.wang@ecec.com"
+      },
+      "publishedAt": "2024-10-20",
+      "publishDate": "2024-10-20",
+      "updatedAt": "2024-10-20",
+      "readTime": "10 min",
+      "summary": "Best practices for PCB layout of crystal oscillator circuits including trace routing, grounding, and noise reduction techniques.",
+      "description": "Best practices for PCB layout of crystal oscillator circuits including trace routing, grounding, and noise reduction techniques.",
+      "keywords": ["PCB layout", "crystal oscillator", "grounding", "noise reduction"],
+      "content": "Proper PCB layout is critical for achieving optimal performance from crystal oscillator circuits. Poor layout can result in frequency instability, excessive jitter, or failure to oscillate. General Layout Principles: Place the crystal as close as possible to the microcontroller, keep trace lengths under 10mm, and place load capacitors immediately adjacent to the crystal. Grounding and Shielding: Provide a solid ground plane under the crystal circuit and use multiple vias to connect ground plane layers.",
+      "tags": ["PCB layout", "crystal oscillator", "grounding"],
+      "relatedArticles": ["crystal-resonator-selection-guide", "emi-reduction-techniques", "oscillator-vs-resonator"],
+      "relatedProducts": ["HC-49S-8MHz-20pF", "XO-25MHz-3.3V"],
+      "faeInsights": {
+        "author": "Lisa Wang",
+        "title": "FAE - PCB Design",
+        "content": "The most common layout mistake I see is long traces between the crystal and microcontroller. Keep traces under 10mm for best performance. In my experience supporting hundreds of designs, poor PCB layout is the second most common cause of crystal oscillator problems after incorrect load capacitance. Long traces increase stray capacitance and inductance, which can shift the oscillation frequency and increase susceptibility to noise. I always recommend placing the crystal as close as possible to the microcontroller oscillator pins, ideally within 10mm. For high-frequency crystals above 50MHz, I suggest keeping traces under 5mm. Additionally, a solid ground plane under the crystal circuit is essential for providing a low-impedance return path and isolating the crystal from noise.",
+        "logic": "Long traces increase stray capacitance and inductance, affecting oscillator performance.",
+        "keyTakeaways": ["Keep traces short", "Use solid ground plane", "Avoid vias in crystal traces"],
+        "commonPitfalls": ["Long traces", "No ground plane", "Signals routed under crystal"],
+        "bestPractices": ["Keep traces under 10mm", "Place caps adjacent to crystal", "Use ground guard ring"]
+      },
+      "customerCases": [
+        {
+          "customer": "Medical Device Manufacturer",
+          "industry": "Medical",
+          "challenge": "Excessive jitter in precision timing circuit",
+          "solution": "Redesigned PCB layout with proper grounding and shorter traces",
+          "result": "Jitter reduced by 60%, meeting specifications",
+          "feedback": "Proper layout made the difference between failure and success."
+        },
+        {
+          "customer": "Telecom Equipment Company",
+          "industry": "Telecommunications",
+          "challenge": "EMI issues causing clock instability",
+          "solution": "Implemented guard ring and improved grounding",
+          "result": "EMI reduced by 40dB, clock stability achieved",
+          "feedback": "The guard ring technique solved our EMI problems."
+        }
+      ],
+      "faq": [
+        {
+          "question": "How close should the crystal be to the microcontroller?",
+          "answer": "The crystal should be placed as close as possible to the microcontroller oscillator pins, ideally within 10mm.",
+          "decisionGuide": "For high-frequency crystals, keep traces under 5mm when possible.",
+          "keywords": ["crystal placement", "trace length"]
+        },
+        {
+          "question": "Can I route other signals under the crystal?",
+          "answer": "Avoid routing other signals under or near the crystal circuit. Signals can couple noise into the oscillator circuit.",
+          "decisionGuide": "Maintain a keep-out area of at least 5mm around the crystal.",
+          "keywords": ["signal routing", "noise coupling"]
+        },
+        {
+          "question": "Do I need a ground plane under the crystal?",
+          "answer": "Yes, a solid ground plane under the crystal circuit is recommended for low-impedance return path and noise isolation.",
+          "decisionGuide": "Avoid splitting the ground plane under the crystal.",
+          "keywords": ["ground plane", "PCB design"]
+        },
+        {
+          "question": "What is a guard ring and when should I use one?",
+          "answer": "A guard ring is a grounded trace surrounding sensitive circuits. For crystal circuits, it can help reduce EMI coupling.",
+          "decisionGuide": "Use a guard ring for high-frequency crystals or in noisy environments.",
+          "keywords": ["guard ring", "EMI reduction"]
+        },
+        {
+          "question": "How do I minimize stray capacitance in my crystal circuit?",
+          "answer": "Minimize stray capacitance by keeping traces short, using appropriate trace widths, and avoiding vias in crystal traces.",
+          "decisionGuide": "Account for stray capacitance of 2-5pF when calculating load capacitor values.",
+          "keywords": ["stray capacitance", "PCB layout"]
+        },
+        {
+          "question": "Should I use a series resistor on the crystal output?",
+          "answer": "A series resistor can help reduce drive level and prevent overdriving the crystal. Typical values are 100-500 ohms.",
+          "decisionGuide": "Use if crystal is being overdriven or to reduce EMI.",
+          "keywords": ["series resistor", "drive level"]
+        }
+      ]
+    },
+    {
+      "id": "oscillator-vs-resonator",
+      "title": "Crystal Oscillator vs Resonator: Which to Choose?",
+      "titleCn": "Crystal Oscillator vs Resonator: Which to Choose?",
+      "slug": "oscillator-vs-resonator",
+      "category": "Technical Comparison",
+      "categoryCn": "Technical Comparison",
+      "author": {
+        "name": "David Liu",
+        "title": "Product Marketing Manager",
+        "email": "david.liu@ecec.com"
+      },
+      "publishedAt": "2024-09-25",
+      "publishDate": "2024-09-25",
+      "updatedAt": "2024-09-25",
+      "readTime": "6 min",
+      "summary": "Comparison of crystal resonators and crystal oscillators to help select the right timing solution for your application.",
+      "description": "Comparison of crystal resonators and crystal oscillators to help select the right timing solution for your application.",
+      "keywords": ["crystal oscillator", "crystal resonator", "comparison"],
+      "content": "Choosing between a crystal resonator and a crystal oscillator is a fundamental decision in electronic design. Crystal resonators are passive components that require an external oscillator circuit. They are lower cost and lower power but require more design effort. Crystal oscillators are complete modules with integrated crystal and oscillator circuit. They are easier to use but cost more and consume more power.",
+      "tags": ["crystal oscillator", "crystal resonator", "comparison"],
+      "relatedArticles": ["crystal-resonator-selection-guide", "tcxo-application-guide", "mems-oscillator-guide"],
+      "relatedProducts": ["HC-49S-8MHz-20pF", "XO-25MHz-3.3V"],
+      "faeInsights": {
+        "author": "David Liu",
+        "title": "FAE - Timing Solutions",
+        "content": "I recommend crystal resonators for cost-sensitive applications with simple requirements. Use oscillators when you need guaranteed startup and better stability. After supporting thousands of designs over my career, I have developed a clear decision framework for choosing between resonators and oscillators. Crystal resonators are the best choice when cost is the primary concern and you have microcontroller with integrated oscillator circuit. They are also ideal when power consumption must be minimized. However, if you need guaranteed startup, better frequency stability, or are working in a wide temperature range, crystal oscillators are worth the additional cost. TCXOs should be used for precision applications like GPS and cellular communication where frequency accuracy directly affects system performance. Remember to factor in the total solution cost including external components and design time when making your decision.",
+        "logic": "Resonators are cheaper but need external circuit. Oscillators cost more but work out of the box.",
+        "keyTakeaways": ["Resonators for cost-sensitive apps", "Oscillators for guaranteed performance", "TCXOs for temperature stability"],
+        "commonPitfalls": ["Choosing resonator for precision app", "Ignoring startup time requirements", "Not considering temperature range"],
+        "bestPractices": ["Evaluate total solution cost", "Consider design time", "Plan for temperature range"]
+      },
+      "customerCases": [
+        {
+          "customer": "IoT Device Startup",
+          "industry": "IoT",
+          "challenge": "Unreliable crystal startup in battery-powered device",
+          "solution": "Switched to crystal oscillator for guaranteed startup",
+          "result": "100% startup reliability achieved",
+          "feedback": "The oscillator eliminated our startup failures completely."
+        },
+        {
+          "customer": "Consumer Electronics Brand",
+          "industry": "Consumer Electronics",
+          "challenge": "High BOM cost with oscillators for simple MCU clock",
+          "solution": "Redesigned with crystal resonator and proper load caps",
+          "result": "BOM cost reduced by 40%",
+          "feedback": "The resonator solution saved significant cost."
+        }
+      ],
+      "faq": [
+        {
+          "question": "Can I replace a crystal resonator with an oscillator in an existing design?",
+          "answer": "Yes, but modifications are required. Crystal oscillators have 3-4 pins and you'll need to remove external oscillator circuit components.",
+          "decisionGuide": "Check voltage levels and output type for compatibility.",
+          "keywords": ["design migration", "crystal replacement"]
+        },
+        {
+          "question": "Why do oscillators cost more than resonators?",
+          "answer": "Oscillators contain additional active circuitry including amplifier, temperature compensation, and output driver.",
+          "decisionGuide": "The integrated circuit and assembly add to the cost but provide guaranteed performance.",
+          "keywords": ["oscillator cost", "active components"]
+        },
+        {
+          "question": "Do I need a TCXO or is a standard crystal sufficient?",
+          "answer": "Choose a TCXO when you need better than ±20-50ppm frequency stability over temperature.",
+          "decisionGuide": "GPS and cellular applications typically require TCXOs.",
+          "keywords": ["TCXO", "temperature stability"]
+        },
+        {
+          "question": "What is the typical startup time difference?",
+          "answer": "Crystal resonators typically startup in 1-10ms. MEMS oscillators can startup in under 1ms.",
+          "decisionGuide": "For fast wakeup from sleep mode, consider startup time in your selection.",
+          "keywords": ["startup time", "power management"]
+        },
+        {
+          "question": "Can I use a crystal oscillator with a microcontroller that has built-in oscillator circuit?",
+          "answer": "Yes, but you'll bypass the microcontroller's internal oscillator. Connect the oscillator output to the clock input pin.",
+          "decisionGuide": "Configure the microcontroller to use external clock mode.",
+          "keywords": ["external clock", "microcontroller"]
+        },
+        {
+          "question": "Which has lower power consumption?",
+          "answer": "Crystal resonators have lower power since they have no active circuitry. Oscillators consume 5-15mA typical.",
+          "decisionGuide": "For battery-powered devices, resonators offer lower power consumption.",
+          "keywords": ["power consumption", "battery life"]
+        }
+      ]
+    }
+  ],
+  "faqs": [
+    {
+      "category": "General",
+      "question": "What is the difference between a crystal resonator and a crystal oscillator?",
+      "answer": "A crystal resonator is a passive component that requires an external oscillator circuit. A crystal oscillator is a complete module with integrated crystal and oscillator circuit.",
+      "decisionGuide": "Use resonators for cost-sensitive applications. Use oscillators for guaranteed performance.",
+      "keywords": ["crystal resonator", "crystal oscillator", "comparison"]
+    },
+    {
+      "category": "General",
+      "question": "How do I select the right frequency tolerance for my application?",
+      "answer": "±30-50ppm is sufficient for general microcontroller clocks. ±20-30ppm for USB and standard communication. ±2.5-10ppm for cellular and GPS.",
+      "decisionGuide": "Consider both initial tolerance and stability over temperature.",
+      "keywords": ["frequency tolerance", "crystal selection"]
+    },
+    {
+      "category": "General",
+      "question": "What is load capacitance and why is it important?",
+      "answer": "Load capacitance is the effective capacitance seen by the crystal in the oscillator circuit. Operating at a different CL causes frequency offset.",
+      "decisionGuide": "Calculate CL using: CL = (C1 x C2)/(C1 + C2) + Cstray, where Cstray is typically 2-5pF.",
+      "keywords": ["load capacitance", "crystal oscillator"]
+    },
+    {
+      "category": "Ordering",
+      "question": "What is the typical lead time for ECEC timing components?",
+      "answer": "Crystal resonators 4-6 weeks, Crystal oscillators 6-8 weeks, TCXOs 8-10 weeks. We maintain stock of popular frequencies for faster delivery.",
+      "decisionGuide": "Contact us for current stock availability and expedited delivery options.",
+      "keywords": ["lead time", "stock availability"]
+    },
+    {
+      "category": "Technical",
+      "question": "What is the maximum operating temperature for ECEC timing components?",
+      "answer": "Commercial grade 0°C to +70°C, Industrial grade -40°C to +85°C, Automotive grade -40°C to +125°C or +150°C. Always select a temperature grade that provides margin above your expected operating conditions.",
+      "decisionGuide": "Always verify the temperature rating matches your application requirements and provides adequate margin.",
+      "keywords": ["operating temperature", "temperature range"]
+    },
+    {
+      "category": "Technical",
+      "question": "How do I calculate the correct load capacitance for my crystal circuit?",
+      "answer": "Load capacitance is calculated using the formula: CL = (C1 × C2) / (C1 + C2) + Cstray, where C1 and C2 are the external load capacitors and Cstray is the stray capacitance from PCB traces and IC pins (typically 2-5pF). For symmetric circuits where C1 = C2, this simplifies to CL = C1/2 + Cstray.",
+      "decisionGuide": "Account for stray capacitance of 2-5pF when calculating load capacitor values to ensure accurate frequency operation.",
+      "keywords": ["load capacitance", "crystal circuit", "calculation"]
+    },
+    {
+      "category": "Application",
+      "question": "When should I use a TCXO instead of a standard crystal oscillator?",
+      "answer": "Use a TCXO when your application requires better than ±20-50ppm frequency stability over temperature. TCXOs are essential for GPS receivers, cellular communication systems, precision timing applications, and any system operating over a wide temperature range where frequency accuracy is critical.",
+      "decisionGuide": "Choose TCXO for GPS, cellular, and precision timing. Standard oscillators are sufficient for general microcontroller clocks.",
+      "keywords": ["TCXO", "temperature stability", "crystal oscillator selection"]
+    },
+    {
+      "category": "Application",
+      "question": "What are the advantages of MEMS oscillators over quartz crystals?",
+      "answer": "MEMS oscillators offer several advantages: 1) Superior shock resistance (50,000g+ vs 5,000g for quartz). 2) Programmable frequencies for design flexibility. 3) Faster startup time (<1ms vs 1-10ms). 4) No activity dips in frequency vs temperature curve. 5) Smaller package sizes available. 6) Better long-term stability and aging characteristics.",
+      "decisionGuide": "Choose MEMS for high-shock applications, programmable frequencies, or when supply chain flexibility is important.",
+      "keywords": ["MEMS oscillator", "quartz crystal", "advantages comparison"]
+    }
+  ]
+}

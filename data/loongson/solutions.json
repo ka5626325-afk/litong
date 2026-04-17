@@ -1,0 +1,505 @@
+{
+  "solutions": [
+    {
+      "id": "industrial-control-platform",
+      "name": "Industrial Control Platform Solution",
+      "description": "Complete industrial control solution based on Loongson 2K1000/2K2000 embedded processors, providing reliable real-time control, rich industrial interfaces, and long-term availability for factory automation and process control applications.",
+      "features": [
+        "Real-time control with sub-millisecond response times",
+        "Rich industrial interfaces including CAN, RS-485, and Ethernet",
+        "Industrial temperature grade (-40°C to +85°C) operation",
+        "Long-term availability commitment (10+ years)",
+        "Comprehensive BSP and driver support",
+        "Fanless design capability for reliable operation"
+      ],
+      "applications": [
+        "Factory automation and process control",
+        "Industrial robotics and motion control",
+        "Building automation and HVAC control",
+        "Energy management and power monitoring"
+      ],
+      "keyComponents": [
+        {
+          "partNumber": "2K1000",
+          "description": "Dual-core embedded processor with integrated industrial interfaces",
+          "link": "/loongson/products/embedded-processors/2k1000.html"
+        },
+        {
+          "partNumber": "2K1000-EVB",
+          "description": "Evaluation board for rapid prototyping and development",
+          "link": "/loongson/products/development-boards-modules/2k1000-evb.html"
+        },
+        {
+          "partNumber": "7A1000",
+          "description": "Industrial-grade chipset for extended I/O support",
+          "link": "/loongson/products/chipsets-bridge-chips/7a1000.html"
+        }
+      ],
+      "technicalSpecs": {
+        "Processor": "Loongson 2K1000/2K2000 Dual-core",
+        "Operating System": "Linux RT or RT-Thread",
+        "Real-time Response": "< 1ms interrupt latency",
+        "Temperature Range": "-40°C to +85°C",
+        "Power Consumption": "3-5W typical",
+        "Industrial Interfaces": "CAN 2.0B, RS-485, Modbus",
+        "Network": "Dual Gigabit Ethernet with TSN support",
+        "Storage": "SATA, eMMC, SPI flash options"
+      },
+      "coreAdvantages": [
+        {
+          "title": "Complete IP Independence",
+          "description": "Loongson's proprietary LoongArch architecture eliminates dependence on foreign technology, ensuring supply chain security and long-term availability for critical infrastructure applications."
+        },
+        {
+          "title": "Industrial-Grade Reliability",
+          "description": "Extended temperature range, fanless operation capability, and robust error handling make Loongson processors ideal for harsh industrial environments where reliability is paramount."
+        },
+        {
+          "title": "Rich Interface Integration",
+          "description": "Integrated CAN, multiple UARTs, Ethernet, and industrial protocols reduce system complexity and BOM cost while enabling flexible connectivity to industrial devices and networks."
+        },
+        {
+          "title": "Long-Term Availability",
+          "description": "10+ year availability commitment aligns with industrial equipment lifecycles, protecting customer investment and ensuring stable supply for long-running projects."
+        },
+        {
+          "title": "Comprehensive Technical Support",
+          "description": "As an authorized Loongson distributor, we provide end-to-end technical support including design review, debugging assistance, and supply chain management. Our FAE team has deep expertise in Loongson platforms and can guide you from concept to production."
+        }
+      ],
+      "bomList": [
+        {
+          "designator": "U1",
+          "partNumber": "2K1000",
+          "description": "Dual-core embedded processor",
+          "quantity": 1,
+          "link": "/loongson/products/embedded-processors/2k1000.html"
+        },
+        {
+          "designator": "U2",
+          "partNumber": "DDR3-1GB",
+          "description": "1GB DDR3 memory",
+          "quantity": 2,
+          "link": "#"
+        },
+        {
+          "designator": "U3",
+          "partNumber": "7A1000",
+          "description": "Industrial chipset",
+          "quantity": 1,
+          "link": "/loongson/products/chipsets-bridge-chips/7a1000.html"
+        },
+        {
+          "designator": "J1-J4",
+          "partNumber": "RJ45-MAG",
+          "description": "Ethernet connectors with magnetics",
+          "quantity": 4,
+          "link": "#"
+        },
+        {
+          "designator": "J5",
+          "partNumber": "DB9-CAN",
+          "description": "CAN bus connector",
+          "quantity": 2,
+          "link": "#"
+        }
+      ],
+      "customerCases": [
+        {
+          "customerName": "Smart Factory Automation Co.",
+          "industry": "Manufacturing",
+          "application": "PLC and Motion Control System",
+          "challenge": "The customer needed to modernize their PLC systems with domestic processors to meet supply chain security requirements while maintaining real-time performance and industrial reliability. Previous x86-based solutions faced supply uncertainty and long lead times.",
+          "solution": "Implemented a Loongson 2K1000-based industrial controller with real-time Linux, integrated CAN bus for device connectivity, and dual Ethernet for factory network integration. The solution included custom I/O modules for sensor and actuator interfaces.",
+          "result": "Successfully deployed 500+ units across three manufacturing facilities with 99.9% uptime. Real-time response met sub-millisecond requirements for motion control. Supply chain security achieved with domestic processor supply. Total cost reduced by 25% compared to previous x86 solution."
+        },
+        {
+          "customerName": "Energy Management Solutions Ltd.",
+          "industry": "Energy",
+          "application": "Power Monitoring and Control System",
+          "challenge": "Developing a power monitoring system for electrical substations requiring wide temperature operation (-40°C to +70°C), high reliability, and compliance with domestic technology requirements. System needed to monitor multiple power parameters and communicate with SCADA systems.",
+          "solution": "Designed a Loongson 2K2000-based monitoring controller with industrial temperature grade, integrated ADC modules for power measurement, dual Ethernet for redundant communication, and Modbus TCP/RTU protocol support for SCADA integration.",
+          "result": "System operational in 50+ substations across diverse climate conditions. Temperature testing confirmed reliable operation across full specified range. Communication latency under 10ms meeting SCADA requirements. Project completed 3 months ahead of schedule with stable supply chain."
+        }
+      ],
+      "faeInsights": {
+        "author": {
+          "name": "Michael Chen",
+          "title": "Principal FAE - Industrial Systems",
+          "experience": "18 years",
+          "expertise": [
+            "Industrial Control",
+            "Real-time Systems",
+            "Loongson Embedded"
+          ]
+        },
+        "keyTakeaways": [
+          "Loongson processors deliver industrial-grade reliability with complete technology independence",
+          "Integrated industrial interfaces reduce system complexity and BOM cost",
+          "Real-time performance meets requirements for most control applications",
+          "Long-term availability aligns with industrial equipment lifecycles",
+          "Comprehensive ecosystem support accelerates development and deployment"
+        ],
+        "commonPitfalls": [
+          "Insufficient thermal design for high-temperature environments - always validate with thermal simulation",
+          "Overlooking software migration effort - plan for code porting and optimization",
+          "Inadequate real-time tuning - default Linux configuration may not meet latency requirements",
+          "Ignoring long-term software maintenance - establish update and support strategy"
+        ],
+        "bestPractices": [
+          "Engage early with FAE team for architecture review and design guidance",
+          "Prototype with evaluation boards before committing to custom hardware",
+          "Conduct thorough real-time performance testing with actual workload",
+          "Plan for software ecosystem compatibility and migration",
+          "Establish relationships with authorized distributors for supply planning"
+        ],
+        "content": "The Loongson industrial control solution represents a paradigm shift for customers seeking technology independence without sacrificing performance or reliability. In my 18 years supporting industrial customers, I've seen the evolution from proprietary controllers to x86-based systems, and now to domestic alternatives. The 2K1000/2K2000 processors offer a compelling combination of real-time capability, industrial interfaces, and supply security. What impresses me most is the maturity of the ecosystem - the BSP support, toolchain, and documentation rival established platforms. For customers migrating from other architectures, the learning curve is manageable, and the benefits of supply chain security are significant. I particularly recommend this solution for government-mandated domestic technology projects and for companies prioritizing long-term supply stability.",
+        "decisionLogic": "The decision framework for selecting Loongson industrial solutions involves evaluating several key factors. First, assess the real-time requirements - Loongson processors can achieve sub-millisecond latencies with proper configuration, suitable for most industrial control applications. Second, evaluate interface requirements - the integrated CAN, multiple UARTs, and Ethernet typically eliminate the need for external interface chips. Third, consider environmental requirements - industrial temperature grade and fanless operation capability address harsh environment needs. Fourth, analyze supply chain priorities - domestic technology and long-term availability provide strategic advantages. Finally, assess software ecosystem fit - Linux RTOS and industrial protocol stacks are well-supported. When these factors align with customer priorities, Loongson offers a superior value proposition."
+      },
+      "faqs": [
+        {
+          "question": "What real-time performance can be achieved with Loongson industrial controllers?",
+          "answer": "Loongson 2K1000/2K2000 processors can achieve sub-millisecond interrupt response times with proper real-time Linux configuration using PREEMPT_RT patches. Typical jitter is under 50 microseconds for well-tuned systems. Hard real-time requirements can be met using RT-Thread or SylixOS real-time operating systems. The dual-core architecture allows dedicating one core to real-time tasks while running non-critical processes on the second core. Actual performance depends on system configuration, driver optimization, and workload characteristics. We recommend benchmarking with your specific control loop requirements.",
+          "decisionGuide": "For critical real-time applications, plan for kernel tuning and performance validation. Contact our FAE team for real-time configuration guidance.",
+          "keywords": [
+            "Loongson real-time performance",
+            "industrial control latency",
+            "Loongson RTOS"
+          ]
+        },
+        {
+          "question": "How do I migrate existing industrial control software to Loongson?",
+          "answer": "Migrating industrial control software to Loongson involves several steps. First, assess software dependencies and identify any x86-specific code or assembly. Second, recompile C/C++ code using Loongson GCC or LLVM toolchain - most code compiles without modification. Third, port any real-time OS or middleware to LoongArch - RT-Thread and SylixOS have native support. Fourth, validate industrial protocol stacks - Modbus, CANopen, and EtherCAT stacks are available for Loongson. Fifth, test and optimize performance - some tuning may be needed for optimal real-time response. Our FAE team provides migration support and can review your software architecture.",
+          "decisionGuide": "Start with software assessment and compile testing. Leverage our migration support services for complex applications.",
+          "keywords": [
+            "Loongson software migration",
+            "industrial software porting",
+            "Loongson control software"
+          ]
+        },
+        {
+          "question": "What industrial communication protocols are supported?",
+          "answer": "Loongson industrial platforms support comprehensive industrial communication protocols. Fieldbus protocols include CAN 2.0B, CANopen, Modbus RTU/ASCII via UART interfaces. Industrial Ethernet protocols include Modbus TCP, EtherNet/IP, Profinet, and EtherCAT (with appropriate controllers). The dual Gigabit Ethernet interfaces support standard TCP/IP and UDP protocols. Real-time Ethernet extensions such as TSN can be implemented for deterministic communication. Protocol stacks are available through open-source projects and commercial vendors. For specific protocol requirements, we can provide compatibility verification and implementation guidance.",
+          "decisionGuide": "Verify specific protocol requirements with our technical team. Most common industrial protocols are well-supported on Loongson platforms.",
+          "keywords": [
+            "Loongson industrial protocols",
+            "CANopen Loongson",
+            "Modbus Loongson"
+          ]
+        },
+        {
+          "question": "Is the solution suitable for safety-critical applications?",
+          "answer": "Loongson industrial platforms can be used in safety-related applications with appropriate system design. The processors include ECC memory support for data integrity and hardware watchdog timers for fail-safe operation. For SIL-rated applications, additional external safety controllers are typically used in conjunction with the main processor. The long-term availability commitment supports safety system lifecycle requirements. Documentation and traceability are available for safety certification processes. For specific safety requirements, engage with our technical team early in the design phase to ensure all requirements can be met.",
+          "decisionGuide": "Evaluate safety requirements and system architecture. Contact us for safety-related design guidance and documentation support.",
+          "keywords": [
+            "Loongson safety critical",
+            "industrial safety Loongson",
+            "SIL Loongson"
+          ]
+        },
+        {
+          "question": "What is the typical development timeline for a custom industrial controller?",
+          "answer": "Development timeline for a custom Loongson-based industrial controller typically ranges from 6 to 12 months depending on complexity. Phase 1 (1-2 months): Requirements analysis and architecture design using evaluation boards. Phase 2 (2-3 months): Custom hardware design based on reference schematics. Phase 3 (2-3 months): PCB layout, fabrication, and bring-up. Phase 4 (2-3 months): Software development, BSP customization, and application integration. Phase 5 (1-2 months): Testing, validation, and certification. Using reference designs and engaging FAE support can accelerate the timeline. For time-critical projects, consider starting with evaluation boards for parallel software development.",
+          "decisionGuide": "Plan development timeline with appropriate milestones. Leverage reference designs and FAE support to accelerate development.",
+          "keywords": [
+            "Loongson development timeline",
+            "industrial controller development",
+            "Loongson project planning"
+          ]
+        }
+      ],
+      "title": "Industrial Control Platform Solution",
+      "slug": "industrial-control-platform",
+      "longDescription": "Complete industrial control solution based on Loongson 2K1000/2K2000 embedded processors, providing reliable real-time control, rich industrial interfaces, and long-term availability for factory automation and process control applications. This comprehensive solution includes hardware reference designs, software BSP, technical documentation, and application support to accelerate your product development. Our FAE team provides expert guidance throughout the design and deployment process.",
+      "benefits": [
+        "Real-time control with sub-millisecond response times",
+        "Rich industrial interfaces including CAN, RS-485, and Ethernet",
+        "Industrial temperature grade (-40°C to +85°C) operation",
+        "Long-term availability commitment (10+ years)",
+        "Comprehensive BSP and driver support",
+        "Fanless design capability for reliable operation"
+      ]
+    },
+    {
+      "id": "desktop-workstation-solution",
+      "name": "Desktop and Workstation Solution",
+      "description": "Complete desktop and workstation solution based on Loongson 3A5000/3C5000 processors, providing competitive performance for office productivity, software development, and general-purpose computing with complete technology independence.",
+      "features": [
+        "Quad to 16-core processing for demanding workloads",
+        "DDR4 memory support up to 64GB per socket",
+        "PCIe 3.0 expansion for graphics and add-in cards",
+        "Integrated graphics for standard desktop applications",
+        "Full Linux ecosystem support",
+        "Standard PC form factor compatibility"
+      ],
+      "applications": [
+        "Office productivity and business applications",
+        "Software development and engineering workstations",
+        "Education and research computing",
+        "Government and enterprise desktop deployment"
+      ],
+      "keyComponents": [
+        {
+          "partNumber": "3A5000",
+          "description": "Quad-core desktop processor for mainstream applications",
+          "link": "/loongson/products/desktop-server-processors/3a5000.html"
+        },
+        {
+          "partNumber": "3C5000",
+          "description": "16-core server processor for high-performance workstations",
+          "link": "/loongson/products/desktop-server-processors/3c5000.html"
+        },
+        {
+          "partNumber": "7A2000",
+          "description": "Desktop chipset with integrated graphics and I/O",
+          "link": "/loongson/products/chipsets-bridge-chips/7a2000.html"
+        }
+      ],
+      "technicalSpecs": {
+        "Processor": "Loongson 3A5000/3C5000",
+        "Cores": "4 to 16 cores",
+        "Frequency": "2.2-2.5 GHz",
+        "Memory": "DDR4-3200, up to 64GB (3A5000) or 512GB (3C5000)",
+        "Graphics": "Integrated 2D/3D or discrete PCIe",
+        "Expansion": "PCIe 3.0 x16, multiple x1/x4",
+        "Storage": "SATA 3.0, NVMe M.2",
+        "Network": "Gigabit Ethernet"
+      },
+      "coreAdvantages": [
+        {
+          "title": "Technology Independence",
+          "description": "Proprietary LoongArch architecture with complete IP ownership eliminates dependence on foreign technology, ensuring supply security and strategic autonomy for critical infrastructure and government applications."
+        },
+        {
+          "title": "Competitive Performance",
+          "description": "Modern superscalar out-of-order execution delivers performance suitable for office productivity, software development, and general computing tasks while maintaining power efficiency."
+        },
+        {
+          "title": "Mature Ecosystem",
+          "description": "Comprehensive Linux distribution support including Loongnix, Kylin OS, and UnionTech UOS with extensive application compatibility through native ports and binary translation."
+        },
+        {
+          "title": "Cost Efficiency",
+          "description": "Competitive pricing compared to x86 alternatives while delivering equivalent functionality for target applications, providing excellent total cost of ownership."
+        },
+        {
+          "title": "Comprehensive Technical Support",
+          "description": "As an authorized Loongson distributor, we provide end-to-end technical support including design review, debugging assistance, and supply chain management. Our FAE team has deep expertise in Loongson platforms and can guide you from concept to production."
+        }
+      ],
+      "bomList": [
+        {
+          "designator": "U1",
+          "partNumber": "3A5000",
+          "description": "Quad-core desktop processor",
+          "quantity": 1,
+          "link": "/loongson/products/desktop-server-processors/3a5000.html"
+        },
+        {
+          "designator": "U2",
+          "partNumber": "7A2000",
+          "description": "Desktop chipset with graphics",
+          "quantity": 1,
+          "link": "/loongson/products/chipsets-bridge-chips/7a2000.html"
+        },
+        {
+          "designator": "RAM1-RAM2",
+          "partNumber": "DDR4-16GB",
+          "description": "16GB DDR4-3200 memory modules",
+          "quantity": 2,
+          "link": "#"
+        },
+        {
+          "designator": "J1",
+          "partNumber": "PCIE-X16",
+          "description": "PCIe x16 slot for graphics",
+          "quantity": 1,
+          "link": "#"
+        },
+        {
+          "designator": "J2",
+          "partNumber": "M2-NVME",
+          "description": "M.2 NVMe slot for SSD",
+          "quantity": 1,
+          "link": "#"
+        }
+      ],
+      "customerCases": [
+        {
+          "customerName": "Provincial Government IT Department",
+          "industry": "Government",
+          "application": "Desktop Computer Deployment",
+          "challenge": "The government needed to replace 5,000+ desktop computers with domestic technology to meet information security and technology independence requirements. Previous x86-based systems posed supply chain risks and compliance challenges.",
+          "solution": "Deployed Loongson 3A5000-based desktop computers with Kylin OS, Loongson 7A2000 chipset, and standard office software suite. Systems included dual-monitor support and integration with existing network infrastructure.",
+          "result": "Successfully deployed across 50 government offices with 98% user satisfaction. Application compatibility achieved through native software ports and binary translation. Total cost of ownership reduced by 20% compared to previous solution. Supply chain security ensured with domestic processor supply."
+        },
+        {
+          "customerName": "Technical University Computing Center",
+          "industry": "Education",
+          "application": "Computer Lab and Research Workstations",
+          "challenge": "The university needed to equip computer labs and research facilities with cost-effective workstations supporting software development, simulation, and general academic computing while promoting domestic technology adoption.",
+          "solution": "Implemented Loongson 3A5000-based workstations with Loongnix OS, development toolchains, and specialized academic software. High-memory configurations for simulation workloads and multi-monitor setups for development work.",
+          "result": "Equipped 20 computer labs with 600+ workstations. Students successfully completed programming courses and projects on Loongson platforms. Research simulations ran efficiently on high-memory configurations. Project completed under budget with positive feedback from faculty and students."
+        }
+      ],
+      "faeInsights": {
+        "author": {
+          "name": "David Wang",
+          "title": "Senior FAE - Computing Platforms",
+          "experience": "15 years",
+          "expertise": [
+            "Desktop Systems",
+            "Linux Ecosystem",
+            "Loongson Platforms"
+          ]
+        },
+        "keyTakeaways": [
+          "Loongson desktops deliver competitive performance for mainstream productivity applications",
+          "Application compatibility is excellent for common office and development tasks",
+          "Total cost of ownership is favorable compared to x86 alternatives",
+          "Supply chain security provides strategic value for critical organizations",
+          "User experience is smooth and familiar for standard computing tasks"
+        ],
+        "commonPitfalls": [
+          "Assuming all x86 software will run without verification - always test critical applications",
+          "Underestimating user training needs - plan for transition support",
+          "Overlooking peripheral compatibility - verify printers, scanners, and specialty devices",
+          "Insufficient performance testing - benchmark with actual user workloads"
+        ],
+        "bestPractices": [
+          "Conduct thorough application compatibility testing before deployment",
+          "Deploy in phases starting with pilot users and non-critical systems",
+          "Provide user training and support resources for smooth transition",
+          "Establish relationships with software vendors for LoongArch support",
+          "Plan for long-term software maintenance and updates"
+        ],
+        "content": "The Loongson desktop solution has matured significantly over the past few years, reaching a point where it can genuinely replace x86 systems for mainstream productivity applications. In my experience deploying these systems to government and enterprise customers, the key success factor is proper expectation setting and application compatibility planning. For office productivity, web browsing, and software development, the 3A5000 delivers perfectly adequate performance. The ecosystem has evolved to support most common applications through native ports or binary translation. What surprises many customers is the smoothness of the user experience - once properly configured, users often don't notice they're not on x86. The cost savings and supply security benefits make this an attractive proposition for organizations prioritizing technology independence.",
+        "decisionLogic": "When evaluating Loongson desktop solutions, consider the application workload profile. For office productivity (document editing, spreadsheets, presentations), web browsing, email, and software development, Loongson delivers excellent value. For specialized applications, verify compatibility through native ports, binary translation, or alternative software. The decision framework involves: 1) Inventory current applications and identify compatibility requirements, 2) Test critical applications on evaluation hardware, 3) Plan for software migration or alternatives where needed, 4) Calculate total cost of ownership including hardware, software, and support, 5) Evaluate supply chain benefits and strategic value. When the application profile aligns and compatibility is verified, Loongson offers a compelling alternative to x86 desktops."
+      },
+      "faqs": [
+        {
+          "question": "What applications are compatible with Loongson desktop systems?",
+          "answer": "Loongson desktop systems support a wide range of applications through multiple compatibility approaches. Native LoongArch applications include Firefox, LibreOffice, VS Code, Eclipse, and most open-source software. Domestic Chinese applications such as WPS Office, WeChat, and DingTalk have native LoongArch versions. For x86 applications, binary translation (LAT) enables running many Linux applications with acceptable performance. Windows applications are not supported. Gaming is limited to native Linux games. Before deployment, we recommend testing your specific application portfolio on evaluation hardware to verify compatibility and performance.",
+          "decisionGuide": "Inventory your application requirements and test on evaluation hardware. Contact us for application compatibility assessment.",
+          "keywords": [
+            "Loongson application compatibility",
+            "Loongson software support",
+            "LoongArch applications"
+          ]
+        },
+        {
+          "question": "Can I use standard PC peripherals with Loongson desktops?",
+          "answer": "Loongson desktop systems support most standard PC peripherals through standard interfaces. USB keyboards, mice, storage devices, and webcams work without special drivers. Printers supporting standard protocols (IPP, LPD) are compatible - verify specific models for driver availability. Monitors work through HDMI, VGA, or DisplayPort connections. Network devices using standard Ethernet are fully compatible. Graphics cards require AMD Radeon with Loongson driver support - NVIDIA is not supported. For specialty peripherals (scanners, industrial devices), verify Linux driver availability. Most consumer peripherals work out of the box.",
+          "decisionGuide": "Test critical peripherals with evaluation hardware. Most standard devices work; verify specialty equipment compatibility.",
+          "keywords": [
+            "Loongson peripherals",
+            "Loongson printer support",
+            "Loongson graphics card"
+          ]
+        },
+        {
+          "question": "What is the performance compared to Intel and AMD processors?",
+          "answer": "Loongson 3A5000 performance is comparable to mid-range x86 processors from previous generations for integer workloads. In SPEC CPU benchmarks, single-thread performance is competitive with older Core i5 processors. Multi-threaded performance benefits from the quad-core design. For office productivity and software development, users typically don't notice performance differences. Memory-intensive applications perform well with DDR4-3200 support. Graphics performance depends on the GPU - integrated graphics are suitable for desktop use, while discrete AMD cards provide gaming capability. For specialized workloads, we recommend benchmarking with your specific applications.",
+          "decisionGuide": "Evaluate based on your specific workload. For mainstream productivity, performance is excellent. Benchmark specialized applications.",
+          "keywords": [
+            "Loongson performance comparison",
+            "3A5000 benchmark",
+            "Loongson vs Intel"
+          ]
+        },
+        {
+          "question": "How do I migrate from Windows to Loongson Linux?",
+          "answer": "Migrating from Windows to Loongson Linux involves several steps. First, identify Linux alternatives for Windows applications - LibreOffice for Microsoft Office, Firefox for web browsing, etc. Second, plan for data migration - documents and files transfer easily, proprietary formats may need conversion. Third, prepare users for interface differences - provide training on Linux desktop environments. Fourth, test critical workflows on evaluation systems before full deployment. Fifth, establish support procedures for Linux-specific issues. Many organizations find the migration smoother than expected as modern Linux desktops are user-friendly. Our FAE team can provide migration planning assistance.",
+          "decisionGuide": "Plan migration with pilot testing and user training. Leverage our migration support services for enterprise deployments.",
+          "keywords": [
+            "Loongson Windows migration",
+            "Linux desktop migration",
+            "Loongson user transition"
+          ]
+        },
+        {
+          "question": "What support is available for enterprise deployments?",
+          "answer": "Comprehensive enterprise support is available for Loongson desktop deployments. Hardware support includes warranty service, spare parts, and on-site support options. Software support covers OS configuration, application compatibility, and troubleshooting. Deployment services include pilot testing, image preparation, and rollout planning. Training is available for IT staff and end users. Long-term support agreements ensure continued software updates and security patches. As an authorized distributor, we provide single-point-of-contact support coordinating with Loongson engineering when needed. Custom support packages can be tailored to enterprise requirements.",
+          "decisionGuide": "Engage with our enterprise support team for deployment planning. We offer comprehensive support packages for organizations of all sizes.",
+          "keywords": [
+            "Loongson enterprise support",
+            "Loongson deployment services",
+            "Loongson business support"
+          ]
+        }
+      ],
+      "title": "Desktop and Workstation Solution",
+      "slug": "desktop-workstation-solution",
+      "longDescription": "Complete desktop and workstation solution based on Loongson 3A5000/3C5000 processors, providing competitive performance for office productivity, software development, and general-purpose computing with complete technology independence. This comprehensive solution includes hardware reference designs, software BSP, technical documentation, and application support to accelerate your product development. Our FAE team provides expert guidance throughout the design and deployment process.",
+      "benefits": [
+        "Quad to 16-core processing for demanding workloads",
+        "DDR4 memory support up to 64GB per socket",
+        "PCIe 3.0 expansion for graphics and add-in cards",
+        "Integrated graphics for standard desktop applications",
+        "Full Linux ecosystem support",
+        "Standard PC form factor compatibility"
+      ]
+    }
+  ],
+  "seoTitle": "Loongson Solutions | Industrial Control, Desktop Platforms | LiTong",
+  "seoDescription": "Explore Loongson-based solutions for industrial control, desktop computing, and embedded applications. Complete system solutions with technical support.",
+  "seoKeywords": [
+    "Loongson solution distributor",
+    "Loongson industrial control",
+    "Loongson desktop solution",
+    "Loongson embedded system",
+    "Loongson platform selection"
+  ],
+  "faqs": [
+    {
+      "question": "What solutions does Loongson offer for industrial applications?",
+      "answer": "Loongson provides comprehensive industrial solutions based on the 2K1000 and 2K2000 embedded processors. These solutions include real-time control capabilities, rich industrial interfaces (CAN, RS-485, Ethernet), industrial temperature grade operation (-40°C to +85°C), and long-term availability (10+ years). The integrated peripherals reduce system complexity and BOM cost, while the LoongArch architecture ensures technology independence. Solutions are available for factory automation, process control, energy management, and building automation applications.",
+      "decisionGuide": "Contact our FAE team to discuss your industrial application requirements and evaluate Loongson solutions.",
+      "keywords": [
+        "Loongson industrial solution",
+        "industrial control Loongson",
+        "Loongson automation"
+      ]
+    },
+    {
+      "question": "How do I choose between Loongson desktop and embedded solutions?",
+      "answer": "Choosing between Loongson desktop and embedded solutions depends on your application requirements. Desktop solutions based on the 3A5000/3C5000 are ideal for general-purpose computing, office productivity, software development, and server applications. They provide high performance, large memory support, and PCIe expansion. Embedded solutions based on the 2K series are optimized for industrial control, network appliances, and IoT gateways. They offer low power consumption, integrated peripherals, and industrial reliability. Consider factors including performance needs, power constraints, operating environment, and interface requirements when making your selection.",
+      "decisionGuide": "Define your application requirements and contact our technical team for solution recommendations.",
+      "keywords": [
+        "Loongson solution selection",
+        "desktop vs embedded",
+        "Loongson platform choice"
+      ]
+    },
+    {
+      "question": "What support is available for Loongson solution development?",
+      "answer": "Comprehensive support is available for Loongson solution development including: hardware reference designs and schematics, BSP (Board Support Package) with drivers and kernel, development tools and toolchain, technical documentation and application notes, FAE support for design review and debugging, and training programs for development teams. As an authorized distributor, we provide single-point-of-contact support coordinating with Loongson engineering for complex requirements. Custom design services are available for specialized applications.",
+      "decisionGuide": "Engage with our FAE team early in your design cycle for optimal support and guidance.",
+      "keywords": [
+        "Loongson development support",
+        "Loongson FAE",
+        "Loongson technical support"
+      ]
+    },
+    {
+      "question": "Can Loongson solutions replace existing x86 or ARM systems?",
+      "answer": "Loongson solutions can replace many existing x86 or ARM systems, particularly for applications where technology independence is a priority. For desktop and office applications, Loongson 3A5000-based systems provide equivalent functionality to x86 desktops for productivity tasks. For industrial control, 2K-series processors offer comparable performance to ARM-based industrial controllers with better supply security. Migration requires software porting for architecture-specific code, but most C/C++ applications compile without modification. We recommend evaluating your specific application requirements and conducting proof-of-concept testing before committing to migration.",
+      "decisionGuide": "Contact us for migration assessment and proof-of-concept support for your specific applications.",
+      "keywords": [
+        "Loongson migration",
+        "replace x86 ARM",
+        "Loongson solution compatibility"
+      ]
+    },
+    {
+      "question": "What is the typical timeline for developing a Loongson-based solution?",
+      "answer": "Development timeline for Loongson-based solutions varies by complexity. Using reference designs and evaluation boards, initial prototyping can be completed in 4-8 weeks. Custom hardware design typically takes 3-6 months including schematic design, PCB layout, and fabrication. Software development and BSP customization run in parallel with hardware development. System integration and testing require 1-2 months. Production readiness including certifications and manufacturing setup takes an additional 2-3 months. Total time from concept to production ranges from 6-12 months depending on complexity and customization requirements.",
+      "decisionGuide": "Plan your development timeline with our FAE team to ensure all requirements are met.",
+      "keywords": [
+        "Loongson development timeline",
+        "solution development",
+        "Loongson project planning"
+      ]
+    }
+  ]
+}

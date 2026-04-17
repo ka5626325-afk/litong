@@ -1,0 +1,843 @@
+{
+  "seoTitle": "MPS Power Management ICs | DC-DC Converters | Authorized Distributor",
+  "seoDescription": "Authorized distributor of MPS DC-DC converters, AC-DC controllers, battery management ICs, and motor drivers. Technical support, competitive pricing, fast delivery.",
+  "seoKeywords": ["MPS distributor", "MPS DC-DC converter", "MPS AC-DC controller", "MPS battery management", "power management IC"],
+  "faqs": [
+    {
+      "question": "How do I select the right MPS DC-DC converter for my application?",
+      "answer": "When selecting an MPS DC-DC converter, consider these key factors: 1) Input voltage range - ensure the converter supports your input voltage range with margin. 2) Output voltage and current - select a converter that can deliver your required output power with at least 20% headroom. 3) Efficiency requirements - check efficiency curves at your operating points. 4) Size constraints - MPS offers modules and integrated solutions for space-limited designs. 5) Feature requirements - consider needs like PGOOD, tracking, sequencing, and protection features. Use MPS's online design tools or contact our FAE team for selection assistance.",
+      "decisionGuide": "Browse our DC-DC converter categories or use our product selector tool to find the optimal MPS solution for your power requirements.",
+      "keywords": ["MPS DC-DC selection", "power converter guide"]
+    },
+    {
+      "question": "What is the difference between synchronous and non-synchronous buck converters?",
+      "answer": "Synchronous buck converters use a MOSFET instead of a diode for the low-side switch, improving efficiency especially at low output voltages and high currents. MPS synchronous converters offer higher efficiency (often 5-15% better), better thermal performance, and smaller solution size. Non-synchronous converters use a diode and are simpler and lower cost, suitable for lower current applications. For most modern designs, synchronous converters are preferred due to efficiency advantages.",
+      "decisionGuide": "Choose synchronous converters for high-efficiency requirements above 2A output current. Contact us for application-specific recommendations.",
+      "keywords": ["synchronous buck", "MPS converter topology"]
+    },
+    {
+      "question": "How do MPS power modules simplify design compared to discrete solutions?",
+      "answer": "MPS power modules integrate the inductor, power MOSFETs, and control circuitry in a single package. Benefits include: 1) Faster design - no inductor selection or compensation network design needed. 2) Smaller PCB area - integrated magnetics reduce footprint by 30-50%. 3) Guaranteed performance - pre-optimized design ensures stability and efficiency. 4) Reduced EMI - optimized layout and shielding. 5) Faster time-to-market - minimal external components and simple design process. MPS modules are ideal for designs where size and development time are critical.",
+      "decisionGuide": "Consider MPS power modules for space-constrained designs or when fast development is required. Browse our module portfolio.",
+      "keywords": ["MPS power module", "integrated power solution"]
+    },
+    {
+      "question": "What thermal management considerations are important for MPS DC-DC converters?",
+      "answer": "Thermal management is critical for reliable operation. Key considerations: 1) Junction temperature - keep below maximum rating (typically 125-150C). 2) Thermal resistance - understand Theta-JA and Theta-JC for your package. 3) Copper area - provide adequate PCB copper for heat spreading. 4) Airflow - consider forced convection for high-power applications. 5) Thermal vias - use thermal vias to transfer heat to inner layers. MPS provides thermal guidelines in datasheets and application notes. Use their thermal simulation tools for accurate predictions.",
+      "decisionGuide": "Review MPS thermal design guides or contact our FAE team for thermal analysis support for your specific application.",
+      "keywords": ["MPS thermal design", "power IC cooling"]
+    },
+    {
+      "question": "How do I ensure EMI compliance with MPS switching converters?",
+      "answer": "EMI management for switching converters involves: 1) Input filtering - use proper input capacitors and filters to reduce conducted emissions. 2) Layout optimization - minimize switching loop area and use proper grounding. 3) Shielding - consider shielded inductors for sensitive applications. 4) Frequency selection - some MPS converters offer frequency synchronization or spread spectrum to reduce EMI peaks. 5) Snubber circuits - add RC snubbers if needed for high-frequency ringing. MPS provides EMI-optimized reference designs and layout guidelines to help meet CISPR and FCC requirements.",
+      "decisionGuide": "Follow MPS EMI design guidelines or request EMI-optimized reference designs for your application.",
+      "keywords": ["MPS EMI design", "switching converter EMI"]
+    }
+  ],
+  "categories": [
+    {
+      "id": "dc-dc-converters",
+      "name": "DC-DC Converters",
+      "nameCn": "DC-DC转换器",
+      "slug": "dc-dc-converters",
+      "description": "High-efficiency DC-DC buck and boost converters for point-of-load power management in computing, industrial, and consumer applications.",
+      "longDescription": "MPS DC-DC converters offer industry-leading power density and efficiency for a wide range of applications. From micro-power buck converters for battery-powered devices to high-current modules for servers and telecom equipment, MPS provides comprehensive solutions. Key features include wide input voltage ranges, high switching frequencies for small external components, and advanced control algorithms for fast transient response. MPS's monolithic integration technology reduces external component count while maintaining excellent performance.",
+      "icon": "power",
+      "keywords": ["DC-DC converter", "buck converter", "boost converter", "step-down", "step-up"],
+      "parameters": ["Input Voltage", "Output Voltage", "Output Current", "Switching Frequency", "Efficiency"],
+      "applications": ["Computing", "Telecommunications", "Industrial", "Consumer Electronics", "Automotive"],
+      "selectionGuide": "Select based on input/output voltage requirements, output current, and efficiency needs. Consider integrated modules for simplified design.",
+      "selectionGuideLink": "/mps/support/dc-dc-selection-guide",
+      "faqs": [
+        {
+          "question": "What input voltage ranges do MPS DC-DC converters support?",
+          "answer": "MPS offers DC-DC converters with input voltage ranges from 2.5V to 100V. Low-voltage converters (2.5V-6V) are ideal for battery-powered devices and point-of-load applications. Mid-voltage converters (4.5V-28V) cover most industrial and computing applications. High-voltage converters (up to 100V) are available for telecom, automotive, and industrial applications requiring wide input ranges.",
+          "decisionGuide": "Check our DC-DC converter categories organized by input voltage range to find suitable options.",
+          "keywords": ["MPS input voltage", "DC-DC voltage range"]
+        },
+        {
+          "question": "How do I calculate power dissipation and thermal requirements?",
+          "answer": "Power dissipation can be calculated as Pd = Pin - Pout = Vout × Iout × (1/efficiency - 1). For example, a 5V/3A output at 90% efficiency has Pd = 5×3×(1/0.9-1) = 1.67W. Junction temperature Tj = Ta + Pd × Theta-JA. Ensure Tj stays below maximum rating with margin. MPS provides efficiency curves and thermal data in datasheets to help with calculations.",
+          "decisionGuide": "Use MPS's thermal calculator tools or contact our FAE team for thermal analysis support.",
+          "keywords": ["power dissipation", "thermal calculation"]
+        }
+      ],
+      "products": [
+        {
+          "partNumber": "MPM54304",
+          "name": "4V-16V Input, Quad 3A Output Power Module",
+          "nameCn": "四路3A输出电源模块",
+          "shortDescription": "High-density quad-output power module with integrated inductors, delivering up to 3A per channel with 94% peak efficiency.",
+          "description": "The MPM54304 is a complete power management solution integrating four high-efficiency buck converters with integrated inductors in a compact package.",
+          "descriptionParagraphs": [
+            "The MPM54304 integrates four 3A buck converters with built-in inductors, control circuits, and power MOSFETs in a single compact package. This high-density power module simplifies power supply design by eliminating inductor selection and reducing external component count.",
+            "Each channel operates independently with programmable output voltages from 0.6V to 3.3V, supporting various load requirements in FPGA, ASIC, and processor applications. The integrated solution delivers up to 94% peak efficiency while occupying minimal PCB area.",
+            "Advanced features include I2C interface for monitoring and control, programmable soft-start, power good indicators, and comprehensive protection functions. The module operates over a wide 4V to 16V input range, making it suitable for 5V and 12V bus applications."
+          ],
+          "status": "active",
+          "isPopular": true,
+          "keywords": ["power module", "quad output", "integrated inductor", "FPGA power"],
+          "specifications": {
+            "Input Voltage": "4V to 16V",
+            "Output Voltage": "0.6V to 3.3V (programmable)",
+            "Output Current": "3A per channel (4 channels)",
+            "Peak Efficiency": "94%",
+            "Switching Frequency": "600kHz to 1MHz",
+            "Operating Temperature": "-40°C to +125°C",
+            "Package": "QFN-32 (7mm x 7mm)"
+          },
+          "applications": ["FPGA/ASIC power", "Multi-rail systems", "Telecom equipment", "Industrial control", "Test equipment"],
+          "features": ["Quad 3A outputs", "Integrated inductors", "I2C interface", "94% peak efficiency", "Compact 7x7mm package"],
+          "pinout": {
+            "description": "QFN-32 package with power pins, control pins, and I2C interface",
+            "pins": [
+              {"pin": "1-4", "function": "VIN", "description": "Input voltage supply"},
+              {"pin": "5-8", "function": "SW1", "description": "Channel 1 switching node"},
+              {"pin": "9-12", "function": "PGND", "description": "Power ground"},
+              {"pin": "25-28", "function": "VOUT1", "description": "Channel 1 output"},
+              {"pin": "29", "function": "SDA", "description": "I2C data"},
+              {"pin": "30", "function": "SCL", "description": "I2C clock"}
+            ]
+          },
+          "package": {
+            "type": "QFN",
+            "dimensions": "7mm x 7mm x 2mm",
+            "pinCount": 32
+          },
+          "stock": {
+            "status": "in_stock",
+            "quantity": 5000,
+            "minOrderQty": 100,
+            "leadTime": "Stock available, 1-2 days"
+          },
+          "pricing": {
+            "currency": "USD",
+            "unit": "per piece",
+            "tiers": [
+              {"minQty": 100, "price": 8.50},
+              {"minQty": 500, "price": 6.80},
+              {"minQty": 1000, "price": 5.50},
+              {"minQty": 5000, "price": 4.20}
+            ]
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "MPM54303",
+              "link": "/mps/products/dc-dc-converters/mpm54303.html",
+              "reason": "Triple 3A output version for applications requiring fewer rails",
+              "brand": "MPS"
+            },
+            {
+              "partNumber": "MPM3695-10",
+              "link": "/mps/products/dc-dc-converters/mpm3695-10.html",
+              "reason": "Single 10A output for higher current requirements",
+              "brand": "MPS"
+            }
+          ],
+          "companionParts": [
+            {
+              "partNumber": "MPM54304-EVB",
+              "link": "#",
+              "description": "Evaluation board for quick prototyping",
+              "category": "Evaluation Board"
+            },
+            {
+              "partNumber": "MPM54304-CALC",
+              "link": "#",
+              "description": "Online design calculator and simulation tool",
+              "category": "Design Tool"
+            },
+            {
+              "partNumber": "MPQ8636",
+              "link": "/mps/products/dc-dc-converters/mpq8636.html",
+              "description": "6A automotive-grade companion for higher current rails",
+              "category": "DC-DC Converter"
+            }
+          ],
+          "faeReview": {
+            "rating": 4.8,
+            "author": "Michael Chen",
+            "title": "Senior FAE - Power Management",
+            "content": "The MPM54304 is my go-to recommendation for multi-rail FPGA power designs. The integration level is exceptional - four complete buck converters with inductors in a 7x7mm package is remarkable. I've used this in several Xilinx and Intel FPGA designs with excellent results. The I2C interface is particularly useful for sequencing and monitoring. The efficiency is consistently 2-3% better than discrete solutions. My only caution is thermal management - with four channels at full load, you need adequate copper area and possibly airflow. I recommend at least 4-layer boards with solid ground planes for best performance.",
+            "highlight": "Exceptional integration for multi-rail FPGA power with 94% efficiency"
+          },
+          "faqs": [
+            {
+              "question": "What is the recommended PCB layout for the MPM54304?",
+              "answer": "For optimal performance: 1) Use a 4-layer board with solid ground and power planes. 2) Place input capacitors close to VIN pins. 3) Provide adequate copper area (minimum 2 sq inches) for thermal dissipation. 4) Keep sensitive analog traces away from switching nodes. 5) Use multiple vias for ground connections. 6) Follow the layout guidelines in the datasheet for best EMI performance.",
+              "decisionGuide": "Download the MPM54304 layout guide or contact our FAE team for layout review services.",
+              "keywords": ["MPM54304 layout", "power module PCB"]
+            },
+            {
+              "question": "How do I program the output voltages via I2C?",
+              "answer": "The MPM54304 I2C interface allows voltage programming from 0.6V to 3.3V in 10mV steps. Use the MPS Virtual Bench GUI or direct I2C commands. The device address is configurable via external resistors. Write to registers 0x01-0x04 to set each channel's output voltage. Read registers 0x10-0x13 to monitor output voltages and temperatures. The I2C interface also enables channel enable/disable and fault monitoring.",
+              "decisionGuide": "Download the MPS Virtual Bench software and MPM54304 programming guide for detailed instructions.",
+              "keywords": ["MPM54304 I2C", "voltage programming"]
+            },
+            {
+              "question": "What is the thermal performance at full load?",
+              "answer": "At full load (4 channels x 3A = 12A total), with 5V input and 3.3V output, the MPM54304 dissipates approximately 4-5W. Junction temperature rise is about 40-50°C above ambient with standard PCB layout (2 oz copper, 4 layers). For reliable operation below 125°C junction, keep ambient below 75°C or provide airflow. Thermal vias under the package help transfer heat to inner layers. The I2C interface provides real-time temperature monitoring for thermal management.",
+              "decisionGuide": "Use MPS's thermal calculator to simulate your specific operating conditions and board configuration.",
+              "keywords": ["MPM54304 thermal", "power dissipation"]
+            },
+            {
+              "question": "Can the channels be paralleled for higher current?",
+              "answer": "The MPM54304 channels are designed for independent operation and cannot be directly paralleled. For higher current requirements, consider the MPM3695-10 (10A single output) or use multiple MPM54304 devices with current sharing controllers. Alternatively, the MPQ8636 (6A) or MPQ8862 (12A) offer higher single-channel current capability with similar integration benefits.",
+              "decisionGuide": "Contact our FAE team for high-current power architecture recommendations using MPS products.",
+              "keywords": ["MPM54304 parallel", "high current power"]
+            },
+            {
+              "question": "What protection features are integrated?",
+              "answer": "The MPM54304 includes comprehensive protection: 1) Over-current protection (OCP) - cycle-by-cycle current limiting. 2) Over-voltage protection (OVP) - latches off if output exceeds 120% of set point. 3) Under-voltage lockout (UVLO) - disables operation below 3.5V input. 4) Over-temperature protection (OTP) - shuts down at 150°C junction. 5) Short-circuit protection - hiccup mode for sustained shorts. Fault status is readable via I2C interface.",
+              "decisionGuide": "Review the protection specifications in the datasheet for your application's safety requirements.",
+              "keywords": ["MPM54304 protection", "OCP OVP OTP"]
+            }
+          ],
+          "resources": {
+            "datasheet": "/resources/datasheets/mps/MPM54304.pdf",
+            "applicationNote": "/resources/app-notes/mps/MPM54304-layout-guide.pdf",
+            "evaluationBoard": "/resources/eval-boards/mps/MPM54304-EVB.pdf"
+          }
+        },
+        {
+          "partNumber": "MPQ8862",
+          "name": "6V-36V Input, 12A Synchronous Buck Converter",
+          "nameCn": "12A同步降压转换器",
+          "shortDescription": "High-current synchronous buck converter with integrated MOSFETs, delivering 12A continuous output with 95% peak efficiency for industrial and automotive applications.",
+          "description": "The MPQ8862 is a high-performance synchronous buck converter designed for demanding industrial and automotive power applications requiring high current capability.",
+          "descriptionParagraphs": [
+            "The MPQ8862 integrates high-side and low-side power MOSFETs with advanced control circuitry to deliver up to 12A continuous output current. Operating from a wide 6V to 36V input range, it supports 12V and 24V bus applications common in industrial and automotive systems.",
+            "The device features constant-on-time (COT) control architecture providing fast transient response and minimizing output capacitance requirements. Internal compensation simplifies design while maintaining stability across the operating range. Peak efficiency reaches 95% at 12V input and 5V output.",
+            "Automotive-qualified (AEC-Q100) versions are available with enhanced temperature ranges and reliability features. Protection functions include cycle-by-cycle current limiting, thermal shutdown, and input undervoltage lockout. The device supports external synchronization and power good output for sequencing applications."
+          ],
+          "status": "active",
+          "isPopular": true,
+          "keywords": ["synchronous buck", "high current", "automotive grade", "industrial power"],
+          "specifications": {
+            "Input Voltage": "6V to 36V",
+            "Output Voltage": "0.6V to 0.9 x VIN",
+            "Output Current": "12A continuous",
+            "Peak Efficiency": "95%",
+            "Switching Frequency": "200kHz to 1MHz",
+            "Operating Temperature": "-40°C to +125°C (AEC-Q100)",
+            "Package": "QFN-20 (5mm x 5mm)"
+          },
+          "applications": ["Industrial automation", "Automotive systems", "Telecom equipment", "Server power", "Battery charging"],
+          "features": ["12A output current", "Integrated MOSFETs", "95% peak efficiency", "AEC-Q100 qualified", "Wide input range"],
+          "pinout": {
+            "description": "QFN-20 package with power and control pins",
+            "pins": [
+              {"pin": "1-3", "function": "VIN", "description": "Input voltage supply"},
+              {"pin": "4-6", "function": "SW", "description": "Switching node"},
+              {"pin": "7-9", "function": "PGND", "description": "Power ground"},
+              {"pin": "15-17", "function": "VOUT", "description": "Output voltage sense"},
+              {"pin": "18", "function": "EN", "description": "Enable input"},
+              {"pin": "19", "function": "PG", "description": "Power good output"}
+            ]
+          },
+          "package": {
+            "type": "QFN",
+            "dimensions": "5mm x 5mm x 0.9mm",
+            "pinCount": 20
+          },
+          "stock": {
+            "status": "in_stock",
+            "quantity": 8000,
+            "minOrderQty": 100,
+            "leadTime": "Stock available, 1-2 days"
+          },
+          "pricing": {
+            "currency": "USD",
+            "unit": "per piece",
+            "tiers": [
+              {"minQty": 100, "price": 3.20},
+              {"minQty": 500, "price": 2.60},
+              {"minQty": 1000, "price": 2.10},
+              {"minQty": 5000, "price": 1.65}
+            ]
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "MPQ8860",
+              "link": "/mps/products/dc-dc-converters/mpq8860.html",
+              "reason": "6A version for lower current requirements",
+              "brand": "MPS"
+            },
+            {
+              "partNumber": "MPQ8636",
+              "link": "/mps/products/dc-dc-converters/mpq8636.html",
+              "reason": "6A with higher switching frequency up to 2MHz",
+              "brand": "MPS"
+            }
+          ],
+          "companionParts": [
+            {
+              "partNumber": "MPQ8862-EVB",
+              "link": "#",
+              "description": "Evaluation board for performance testing",
+              "category": "Evaluation Board"
+            },
+            {
+              "partNumber": "MPQ2143",
+              "link": "/mps/products/dc-dc-converters/mpq2143.html",
+              "description": "3.3V auxiliary supply for control circuits",
+              "category": "DC-DC Converter"
+            },
+            {
+              "partNumber": "MPQ8903",
+              "link": "/mps/products/dc-dc-converters/mpq8903.html",
+              "description": "LDO for sensitive analog circuits",
+              "category": "LDO"
+            }
+          ],
+          "faeReview": {
+            "rating": 4.7,
+            "author": "David Zhang",
+            "title": "Senior FAE - Industrial Power",
+            "content": "The MPQ8862 is an excellent choice for high-current industrial and automotive applications. The integrated MOSFETs simplify design while delivering impressive efficiency. I've successfully used this in multiple 24V industrial control systems and automotive body electronics projects. The COT control provides excellent transient response - much better than voltage-mode alternatives. The AEC-Q100 qualification gives confidence for automotive use. One tip: pay attention to the switching frequency selection - lower frequencies improve efficiency but require larger inductors. For most applications, I recommend 400-600kHz as a good balance.",
+            "highlight": "High-current capability with 95% efficiency and automotive qualification"
+          },
+          "faqs": [
+            {
+              "question": "What inductor value should I use with the MPQ8862?",
+              "answer": "Inductor selection depends on switching frequency and ripple current requirements. For 12V to 5V conversion at 500kHz, a 2.2µH inductor provides approximately 30% ripple current. Use the formula L = (Vout x (Vin - Vout)) / (Vin x Fsw x dI). Choose inductors with saturation current at least 20% above peak current. MPS recommends shielded inductors for EMI-sensitive applications. Popular choices include Coilcraft XAL series or Wurth WE-LHMI series.",
+              "decisionGuide": "Use MPS's inductor selection tool or contact our FAE team for specific inductor recommendations.",
+              "keywords": ["MPQ8862 inductor", "buck converter inductor"]
+            },
+            {
+              "question": "How do I set the output voltage?",
+              "answer": "The MPQ8862 uses external resistor divider to set output voltage. Connect FB pin to center tap of divider between VOUT and AGND. Use Rbottom = 10kΩ and calculate Rtop = Rbottom x (Vout/0.6V - 1). For 3.3V output: Rtop = 10k x (3.3/0.6 - 1) = 45kΩ. Use 1% tolerance resistors for accuracy. Place divider close to FB pin with short traces. The device also supports external voltage tracking for sequencing applications.",
+              "decisionGuide": "Download the MPQ8862 calculation spreadsheet for automated resistor value calculations.",
+              "keywords": ["MPQ8862 output voltage", "feedback divider"]
+            },
+            {
+              "question": "What is the switching frequency selection guidance?",
+              "answer": "The MPQ8862 supports 200kHz to 1MHz switching frequency. Lower frequencies (200-400kHz) provide better efficiency but require larger inductors and capacitors. Higher frequencies (600kHz-1MHz) enable smaller magnetics but have slightly lower efficiency and higher EMI. For 12A applications, I recommend 400-600kHz as optimal balance. The frequency can be set with external resistor or synchronized to external clock for multi-rail systems.",
+              "decisionGuide": "Consider size constraints vs efficiency requirements when selecting switching frequency. Contact us for optimization guidance.",
+              "keywords": ["MPQ8862 frequency", "switching frequency selection"]
+            },
+            {
+              "question": "How do I implement parallel operation for higher current?",
+              "answer": "The MPQ8862 supports current sharing through external current sense and balance circuitry. For parallel operation: 1) Connect COMP pins together for current sharing. 2) Use identical inductors and current sense resistors. 3) Ensure symmetrical layout for equal current distribution. 4) Add small ballast resistors (10-20mΩ) if needed for current balancing. Alternatively, consider the MPM3695-25 module which supports 25A single output or parallel operation up to 100A.",
+              "decisionGuide": "Contact our FAE team for parallel operation reference designs and layout guidelines.",
+              "keywords": ["MPQ8862 parallel", "current sharing"]
+            },
+            {
+              "question": "What are the key differences between industrial and automotive versions?",
+              "answer": "The MPQ8862-GJ (industrial) and MPQ8862-AEC1 (automotive) have similar electrical specifications but differ in qualification and temperature grades. The automotive version is AEC-Q100 Grade 1 qualified (-40°C to +125°C ambient) with enhanced reliability testing including temperature cycling, HTOL, and ESD testing. It also has tighter process controls and traceability requirements. For automotive applications, always use the -AEC1 suffix version to ensure compliance with automotive quality standards.",
+              "decisionGuide": "Specify -AEC1 suffix for automotive applications. Contact sales for PPAP documentation support.",
+              "keywords": ["MPQ8862 automotive", "AEC-Q100 qualification"]
+            }
+          ],
+          "resources": {
+            "datasheet": "/resources/datasheets/mps/MPQ8862.pdf",
+            "applicationNote": "/resources/app-notes/mps/MPQ8862-design-guide.pdf",
+            "evaluationBoard": "/resources/eval-boards/mps/MPQ8862-EVB.pdf"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ac-dc-controllers",
+      "name": "AC-DC Controllers",
+      "nameCn": "AC-DC控制器",
+      "slug": "ac-dc-controllers",
+      "description": "High-efficiency offline power solutions for adapters, chargers, and LED lighting with active PFC and flyback topologies.",
+      "longDescription": "MPS AC-DC controllers provide complete solutions for offline power applications from 5W to 200W+. The portfolio includes primary-side regulation (PSR) flyback controllers for cost-sensitive applications, active PFC controllers for high-power-factor designs, and resonant controllers for high-efficiency applications. MPS's innovative control algorithms minimize standby power while maximizing efficiency across load ranges.",
+      "icon": "ac-dc",
+      "keywords": ["AC-DC controller", "flyback", "PFC", "LED driver", "offline power"],
+      "parameters": ["Input Voltage", "Output Power", "Topology", "PFC", "Standby Power"],
+      "applications": ["Power adapters", "LED lighting", "Industrial power", "Appliances", "TV/Monitor"],
+      "selectionGuide": "Select based on output power, efficiency requirements, and topology preference. PSR for cost, active PFC for high power factor.",
+      "selectionGuideLink": "/mps/support/ac-dc-selection-guide",
+      "faqs": [
+        {
+          "question": "What is the difference between PSR and SSR flyback controllers?",
+          "answer": "Primary-side regulation (PSR) eliminates the optocoupler and secondary reference, reducing cost and improving reliability. PSR senses output voltage through the auxiliary winding during flyback period. Secondary-side regulation (SSR) uses optocoupler feedback for tighter regulation (typically ±1% vs ±3-5% for PSR). PSR is preferred for cost-sensitive applications up to 35W. SSR is better for higher power or applications requiring tight cross-regulation in multi-output designs.",
+          "decisionGuide": "Choose PSR for cost-sensitive designs under 35W. Choose SSR for higher power or tight regulation requirements.",
+          "keywords": ["PSR vs SSR", "flyback regulation"]
+        },
+        {
+          "question": "How do I achieve high power factor with MPS controllers?",
+          "answer": "For power factor correction, use MPS active PFC controllers like the MP44010 or MP44014. These controllers use boundary conduction mode (BCM) or continuous conduction mode (CCM) to achieve power factor >0.95 and THD <10%. The PFC stage is placed before the DC-DC converter to shape input current. For designs under 75W, some MPS flyback controllers include simple PFC functionality. Above 75W, a dedicated PFC stage is typically required to meet IEC61000-3-2 harmonic limits.",
+          "decisionGuide": "Browse our PFC controller category or contact us for PFC design support and reference circuits.",
+          "keywords": ["MPS PFC", "power factor correction"]
+        }
+      ],
+      "products": [
+        {
+          "partNumber": "MP44010",
+          "name": "Critical Conduction Mode PFC Controller",
+          "nameCn": "CRM模式PFC控制器",
+          "shortDescription": "High-performance boundary conduction mode PFC controller achieving >0.95 power factor with low THD for offline power applications up to 300W.",
+          "description": "The MP44010 is a critical conduction mode (CRM) power factor correction controller designed for high-efficiency offline power supplies.",
+          "descriptionParagraphs": [
+            "The MP44010 implements boundary conduction mode (BCM) power factor correction to achieve high power factor (>0.95) and low total harmonic distortion (<10%). Operating in CRM eliminates switching losses at turn-on, improving efficiency compared to continuous conduction mode alternatives.",
+            "The controller features integrated startup circuitry, multiplier for sinusoidal current reference, and comprehensive protection functions. The internal OVP protection ensures safe operation during load transients. The device supports wide output power range from 50W to 300W.",
+            "Key benefits include reduced EMI filtering requirements due to soft switching, minimal external component count, and excellent light-load efficiency. The MP44010 is ideal for LED drivers, TV power supplies, and industrial power applications requiring power factor correction."
+          ],
+          "status": "active",
+          "isPopular": true,
+          "keywords": ["PFC controller", "CRM", "power factor correction", "offline power"],
+          "specifications": {
+            "Input Voltage": "85V to 265V AC",
+            "Output Power": "50W to 300W",
+            "Power Factor": ">0.95",
+            "THD": "<10%",
+            "Operating Frequency": "Variable (25kHz to 250kHz)",
+            "Operating Temperature": "-40°C to +125°C",
+            "Package": "SOIC-8"
+          },
+          "applications": ["LED drivers", "TV power supplies", "Industrial power", "Server power", "Appliances"],
+          "features": ["CRM operation", ">0.95 power factor", "Low THD", "Integrated protection", "Wide power range"],
+          "pinout": {
+            "description": "SOIC-8 package with control and sense pins",
+            "pins": [
+              {"pin": "1", "function": "INV", "description": "Error amplifier inverting input"},
+              {"pin": "2", "function": "COMP", "description": "Error amplifier output"},
+              {"pin": "3", "function": "MULT", "description": "Multiplier input"},
+              {"pin": "4", "function": "CS", "description": "Current sense input"},
+              {"pin": "5", "function": "ZCD", "description": "Zero current detection"},
+              {"pin": "6", "function": "GND", "description": "Ground"},
+              {"pin": "7", "function": "GD", "description": "Gate drive output"},
+              {"pin": "8", "function": "VCC", "description": "Supply voltage"}
+            ]
+          },
+          "package": {
+            "type": "SOIC",
+            "dimensions": "4.9mm x 3.9mm",
+            "pinCount": 8
+          },
+          "stock": {
+            "status": "in_stock",
+            "quantity": 12000,
+            "minOrderQty": 100,
+            "leadTime": "Stock available, 1-2 days"
+          },
+          "pricing": {
+            "currency": "USD",
+            "unit": "per piece",
+            "tiers": [
+              {"minQty": 100, "price": 0.85},
+              {"minQty": 500, "price": 0.68},
+              {"minQty": 1000, "price": 0.55},
+              {"minQty": 5000, "price": 0.42}
+            ]
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "MP44014",
+              "link": "/mps/products/ac-dc-controllers/mpq44014.html",
+              "reason": "Higher frequency version for smaller magnetics",
+              "brand": "MPS"
+            },
+            {
+              "partNumber": "MP44019",
+              "link": "/mps/products/ac-dc-controllers/mpq44019.html",
+              "reason": "CCM version for higher power applications",
+              "brand": "MPS"
+            }
+          ],
+          "companionParts": [
+            {
+              "partNumber": "MP44010-REF",
+              "link": "#",
+              "description": "Reference design with complete BOM and layout",
+              "category": "Reference Design"
+            },
+            {
+              "partNumber": "MPQ4560",
+              "link": "/mps/products/dc-dc-converters/mpq4560.html",
+              "description": "Secondary DC-DC for post-regulation",
+              "category": "DC-DC Converter"
+            },
+            {
+              "partNumber": "MPSA14",
+              "link": "#",
+              "description": "High voltage transistor for gate drive",
+              "category": "Discrete"
+            }
+          ],
+          "faeReview": {
+            "rating": 4.6,
+            "author": "James Liu",
+            "title": "Senior FAE - AC-DC Power",
+            "content": "The MP44010 is a reliable PFC controller that I've used in numerous LED driver and TV power designs. The CRM operation provides good efficiency and low EMI without the complexity of CCM controllers. The integrated protections simplify design and improve reliability. One important design consideration is the inductor selection - CRM requires careful calculation of inductance for the operating range. I typically see 95%+ power factor and <8% THD in production designs. The startup behavior is clean with no overshoot issues. Overall, an excellent choice for PFC applications up to 300W.",
+            "highlight": "Reliable CRM PFC with >0.95 PF and simple design"
+          },
+          "faqs": [
+            {
+              "question": "How do I calculate the PFC inductor value?",
+              "answer": "For CRM PFC, inductor value L = (Vin_min^2 x D x (1-D)) / (2 x Pout x Fsw_min). Where D is duty cycle at peak of minimum input voltage. Typical inductance ranges from 100µH to 1mH depending on power level. Higher inductance reduces switching frequency but increases core size. Use ferrite cores with low loss at operating frequencies. Gap the core to prevent saturation. MPS provides an Excel calculator for inductor selection.",
+              "decisionGuide": "Download the MP44010 design calculator or contact our FAE team for inductor recommendations.",
+              "keywords": ["PFC inductor", "CRM inductor calculation"]
+            },
+            {
+              "question": "What is the difference between CRM and CCM PFC?",
+              "answer": "CRM (Critical Conduction Mode) operates at boundary between continuous and discontinuous conduction, with variable frequency. Benefits include zero-voltage switching, lower EMI, and simpler control. Best for 50W-300W applications. CCM (Continuous Conduction Mode) operates at fixed frequency with continuous inductor current. Benefits include lower peak currents and smaller inductors. Best for 300W+ applications. The MP44010 uses CRM while MP44019 uses CCM for higher power.",
+              "decisionGuide": "Choose CRM for 50-300W, CCM for 300W+ applications. Contact us for topology selection guidance.",
+              "keywords": ["CRM vs CCM", "PFC topology"]
+            },
+            {
+              "question": "How do I meet IEC61000-3-2 harmonic limits?",
+              "answer": "The MP44010 with proper design easily meets IEC61000-3-2 Class C and D limits. Key design considerations: 1) Adequate inductance for current shaping. 2) Proper multiplier circuit design. 3) Fast loop compensation without 100Hz ripple. 4) Sufficient output capacitance to reduce voltage ripple. 5) Good layout for noise immunity. Typical designs achieve THD <10% and individual harmonics well below limits. MPS reference designs include EMI and harmonic test results.",
+              "decisionGuide": "Follow MPS reference designs or contact us for compliance testing support.",
+              "keywords": ["IEC61000-3-2", "harmonic compliance"]
+            },
+            {
+              "question": "What startup behavior can I expect?",
+              "answer": "The MP44010 features controlled startup with soft-start function. Upon power-up, the controller charges VCC capacitor through startup resistor. When VCC reaches turn-on threshold (typically 12V), the controller begins switching with gradually increasing duty cycle. The soft-start time is set by external capacitor on COMP pin, typically 10-50ms. This prevents inrush current and output overshoot. The OVP protection is active during startup to prevent overvoltage conditions.",
+              "decisionGuide": "Use MPS startup calculation tools to select appropriate startup resistor and VCC capacitor values.",
+              "keywords": ["MP44010 startup", "soft start"]
+            },
+            {
+              "question": "How do I design the compensation network?",
+              "answer": "The MP44010 uses a single-pole compensation on the COMP pin. Connect a series RC network from COMP to ground. Typical values: Rcomp = 10-47kΩ, Ccomp = 1-10µF. The compensation sets the voltage loop bandwidth, typically 10-20Hz for PFC applications. Lower bandwidth improves power factor but slows transient response. The capacitor provides low-frequency integration for DC regulation. MPS provides loop analysis and compensation design guidelines in the application note.",
+              "decisionGuide": "Use MPS compensation design tools or contact our FAE team for loop stability analysis.",
+              "keywords": ["PFC compensation", "loop stability"]
+            }
+          ],
+          "resources": {
+            "datasheet": "/resources/datasheets/mps/MP44010.pdf",
+            "applicationNote": "/resources/app-notes/mps/MP44010-design-guide.pdf",
+            "evaluationBoard": "/resources/eval-boards/mps/MP44010-EVB.pdf"
+          }
+        }
+      ]
+    },
+    {
+      "id": "battery-management",
+      "name": "Battery Management",
+      "nameCn": "电池管理",
+      "slug": "battery-management",
+      "description": "Complete battery charging and monitoring solutions for Li-ion, Li-polymer, and LiFePO4 batteries in portable and industrial applications.",
+      "longDescription": "MPS battery management ICs provide comprehensive solutions for single-cell to multi-cell battery packs. The portfolio includes linear and switching chargers, fuel gauges, protection ICs, and battery monitors. MPS chargers feature high integration with power path management, JEITA-compliant charging profiles, and USB On-The-Go support. Advanced safety features include temperature monitoring, timer protection, and fault detection.",
+      "icon": "battery",
+      "keywords": ["battery charger", "fuel gauge", "battery monitor", "protection IC", "Li-ion"],
+      "parameters": ["Battery Type", "Cell Count", "Charge Current", "Input Voltage", "Features"],
+      "applications": ["Smartphones", "Tablets", "Power tools", "E-bikes", "Portable medical"],
+      "selectionGuide": "Select based on battery chemistry, cell count, charge current, and feature requirements. Consider fuel gauge for accurate capacity reporting.",
+      "selectionGuideLink": "/mps/support/battery-management-selection-guide",
+      "faqs": [
+        {
+          "question": "What is the difference between linear and switching battery chargers?",
+          "answer": "Linear chargers are simple, low-cost, and generate minimal EMI, but have lower efficiency (charge current limited by thermal dissipation). Best for small batteries under 1Ah. Switching chargers (buck or boost) offer high efficiency (>90%) and can charge larger batteries with less heat. Best for batteries over 1Ah or applications with limited thermal budget. MPS offers both types - MP2722 for linear and MP2759 for switching applications.",
+          "decisionGuide": "Choose linear for small batteries and cost-sensitive designs. Choose switching for large batteries and thermally constrained applications.",
+          "keywords": ["linear vs switching charger", "battery charger topology"]
+        },
+        {
+          "question": "How do fuel gauges improve battery management?",
+          "answer": "Fuel gauges (battery monitors) track battery state-of-charge (SOC) and state-of-health (SOH) using coulomb counting and impedance tracking. Benefits include: 1) Accurate capacity reporting (vs simple voltage-based methods). 2) Cycle counting for predictive maintenance. 3) Temperature compensation for accurate SOC. 4) Authentication for battery safety. MPS fuel gauges like the MPF42790 provide ±3% accuracy across temperature and aging.",
+          "decisionGuide": "Add a fuel gauge for applications requiring accurate battery status or user-facing capacity indicators.",
+          "keywords": ["battery fuel gauge", "SOC measurement"]
+        }
+      ],
+      "products": [
+        {
+          "partNumber": "MP2759",
+          "name": "I2C Controlled Switching Charger with NVDC Power Path",
+          "nameCn": "I2C控制开关充电器",
+          "shortDescription": "Highly integrated 5A switching battery charger with NVDC power path and I2C interface for single-cell Li-ion and Li-polymer applications.",
+          "description": "The MP2759 is a comprehensive switching battery charger with integrated power path management for smartphones, tablets, and portable devices.",
+          "descriptionParagraphs": [
+            "The MP2759 integrates a 5A synchronous switching charger with NVDC (Narrow Voltage DC) power path management. This architecture allows the system to operate from the adapter while independently charging the battery, enabling instant-on functionality even with deeply discharged batteries.",
+            "The I2C interface provides full programmability of charge parameters including charge current, termination current, and float voltage. Integrated ADC monitors battery voltage, charge current, and temperature for safe charging. The device supports USB BC1.2 and proprietary adapter detection.",
+            "Advanced features include JEITA-compliant charging for battery safety, USB On-The-Go (OTG) boost mode for powering USB accessories, and comprehensive protection functions. The high-efficiency switching topology minimizes heat generation during fast charging."
+          ],
+          "status": "active",
+          "isPopular": true,
+          "keywords": ["switching charger", "power path", "NVDC", "fast charging", "I2C"],
+          "specifications": {
+            "Input Voltage": "3.9V to 14V",
+            "Battery Type": "Single-cell Li-ion/Li-polymer",
+            "Charge Current": "Up to 5A",
+            "Efficiency": "Up to 93%",
+            "Float Voltage": "3.85V to 4.4V (programmable)",
+            "Operating Temperature": "-40°C to +85°C",
+            "Package": "QFN-26 (4mm x 4mm)"
+          },
+          "applications": ["Smartphones", "Tablets", "Portable devices", "Power banks", "Handheld instruments"],
+          "features": ["5A switching charger", "NVDC power path", "I2C interface", "USB OTG", "JEITA compliant"],
+          "pinout": {
+            "description": "QFN-26 package with power and interface pins",
+            "pins": [
+              {"pin": "1-3", "function": "VIN", "description": "Input power supply"},
+              {"pin": "4-6", "function": "SW", "description": "Switching node"},
+              {"pin": "7-9", "function": "SYS", "description": "System power output"},
+              {"pin": "15-17", "function": "BAT", "description": "Battery connection"},
+              {"pin": "22", "function": "SDA", "description": "I2C data"},
+              {"pin": "23", "function": "SCL", "description": "I2C clock"},
+              {"pin": "24", "function": "INT", "description": "Interrupt output"}
+            ]
+          },
+          "package": {
+            "type": "QFN",
+            "dimensions": "4mm x 4mm x 0.75mm",
+            "pinCount": 26
+          },
+          "stock": {
+            "status": "in_stock",
+            "quantity": 6000,
+            "minOrderQty": 100,
+            "leadTime": "Stock available, 1-2 days"
+          },
+          "pricing": {
+            "currency": "USD",
+            "unit": "per piece",
+            "tiers": [
+              {"minQty": 100, "price": 1.85},
+              {"minQty": 500, "price": 1.45},
+              {"minQty": 1000, "price": 1.15},
+              {"minQty": 5000, "price": 0.88}
+            ]
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "MP2722",
+              "link": "/mps/products/battery-management/mp2722.html",
+              "reason": "Linear charger for lower cost applications",
+              "brand": "MPS"
+            },
+            {
+              "partNumber": "MP2760",
+              "link": "/mps/products/battery-management/mp2760.html",
+              "reason": "Dual-cell version for 2S battery packs",
+              "brand": "MPS"
+            }
+          ],
+          "companionParts": [
+            {
+              "partNumber": "MPF42790",
+              "link": "/mps/products/battery-management/mpf42790.html",
+              "description": "Fuel gauge for accurate capacity reporting",
+              "category": "Fuel Gauge"
+            },
+            {
+              "partNumber": "MPQ8875",
+              "link": "/mps/products/dc-dc-converters/mpq8875.html",
+              "description": "Buck-boost for system power regulation",
+              "category": "DC-DC Converter"
+            },
+            {
+              "partNumber": "MP2759-EVB",
+              "link": "#",
+              "description": "Evaluation board with GUI software",
+              "category": "Evaluation Board"
+            }
+          ],
+          "faeReview": {
+            "rating": 4.8,
+            "author": "Sarah Wang",
+            "title": "Senior FAE - Battery Management",
+            "content": "The MP2759 is my top recommendation for smartphone and tablet charging applications. The NVDC power path is a game-changer - users can power on their devices immediately even with dead batteries. The 5A charging capability enables fast charging while the 93% efficiency keeps the device cool. The I2C interface makes it easy to integrate with the system's power management IC. I've used this in several flagship smartphone designs with excellent results. The JEITA compliance ensures battery safety across temperature ranges. One tip: pay attention to the PCB thermal design around the package - while efficient, 5A still generates heat that needs to be dissipated.",
+            "highlight": "Excellent NVDC power path with 5A fast charging and 93% efficiency"
+          },
+          "faqs": [
+            {
+              "question": "How does the NVDC power path work?",
+              "answer": "NVDC (Narrow Voltage DC) power path separates system power from battery charging. The system operates from a regulated voltage (typically 3.5-4.4V) while the battery charges independently. Benefits include: 1) Instant-on - system powers up immediately when adapter connected, even with dead battery. 2) Pass-through mode - system runs from adapter with minimal battery cycling. 3) Supplement mode - battery supplements adapter during peak loads. 4) Minimized charge/discharge cycles - extends battery life.",
+              "decisionGuide": "Use NVDC architecture for devices requiring instant-on capability or minimal battery cycling.",
+              "keywords": ["NVDC power path", "power path management"]
+            },
+            {
+              "question": "How do I program the charge parameters via I2C?",
+              "answer": "The MP2759 I2C interface allows programming of all charge parameters. Key registers: 0x00 - Charge Current (0-5A in 64mA steps), 0x01 - Input Current Limit, 0x02 - Float Voltage (3.85-4.4V), 0x03 - Termination Current. Write to these registers to configure charging. Read registers 0x10-0x1F for status including battery voltage, charge current, and fault conditions. The device supports standard and fast I2C modes (100kHz and 400kHz).",
+              "decisionGuide": "Download the MP2759 programming guide and GUI software for easy register configuration.",
+              "keywords": ["MP2759 I2C", "charger programming"]
+            },
+            {
+              "question": "What is the USB OTG functionality?",
+              "answer": "USB On-The-Go (OTG) allows the device to power USB accessories when no adapter is present. The MP2759 boosts battery voltage (3-4.4V) to 5V at up to 1.5A to power USB devices. This is useful for smartphones powering USB flash drives or tablets powering peripherals. The OTG mode is enabled via I2C and includes current limiting and short-circuit protection. Battery voltage monitoring ensures safe operation without over-discharging.",
+              "decisionGuide": "Enable OTG functionality for devices that need to power USB accessories.",
+              "keywords": ["USB OTG", "boost mode"]
+            },
+            {
+              "question": "How does JEITA compliance improve battery safety?",
+              "answer": "JEITA (Japan Electronics and Information Technology Industries Association) defines safe charging temperature ranges. The MP2759 implements JEITA by: 1) Reducing charge current at temperatures above 45°C. 2) Reducing float voltage at temperatures above 50°C. 3) Suspending charging below 0°C or above 60°C. This prevents battery damage from charging at extreme temperatures. The device uses an external NTC thermistor for temperature sensing with programmable thresholds.",
+              "decisionGuide": "Enable JEITA compliance for all Li-ion battery applications to ensure safety and longevity.",
+              "keywords": ["JEITA compliance", "battery safety"]
+            },
+            {
+              "question": "What protection features are integrated?",
+              "answer": "The MP2759 includes comprehensive battery protection: 1) Over-voltage protection (OVP) - stops charging if battery voltage exceeds threshold. 2) Over-current protection (OCP) - limits charge and discharge currents. 3) Thermal regulation - reduces charge current if die temperature exceeds 120°C. 4) Timer protection - safety timer prevents indefinite charging. 5) Reverse leakage protection - prevents battery discharge back to input. 6) Short-circuit protection - limits current during battery shorts.",
+              "decisionGuide": "Review protection specifications to ensure they meet your application's safety requirements.",
+              "keywords": ["battery protection", "safety features"]
+            }
+          ],
+          "resources": {
+            "datasheet": "/resources/datasheets/mps/MP2759.pdf",
+            "applicationNote": "/resources/app-notes/mps/MP2759-design-guide.pdf",
+            "evaluationBoard": "/resources/eval-boards/mps/MP2759-EVB.pdf"
+          }
+        }
+      ]
+    },
+    {
+      "id": "motor-drivers",
+      "name": "Motor Drivers",
+      "nameCn": "电机驱动",
+      "slug": "motor-drivers",
+      "description": "Brushless DC and stepper motor drivers for industrial automation, automotive, and consumer applications with integrated gate drivers and protection.",
+      "longDescription": "MPS motor drivers provide complete solutions for brushless DC (BLDC), stepper, and brushed DC motor control. The portfolio includes integrated motor drivers with built-in power stages as well as gate drivers for external MOSFET configurations. Advanced features include sensorless control, field-oriented control (FOC) support, and comprehensive protection functions. Automotive-qualified options are available for safety-critical applications.",
+      "icon": "motor",
+      "keywords": ["motor driver", "BLDC driver", "stepper driver", "gate driver", "FOC"],
+      "parameters": ["Motor Type", "Voltage Range", "Current Rating", "Control Interface", "Features"],
+      "applications": ["Industrial automation", "Robotics", "Automotive", "Appliances", "Drones"],
+      "selectionGuide": "Select based on motor type, voltage/current requirements, and control complexity. Integrated drivers for simple applications, gate drivers for high-power custom designs.",
+      "selectionGuideLink": "/mps/support/motor-driver-selection-guide",
+      "faqs": [
+        {
+          "question": "What is the difference between integrated motor drivers and gate drivers?",
+          "answer": "Integrated motor drivers include power MOSFETs and control logic in one package, providing a complete solution with minimal external components. Best for applications up to 10A and 60V. Gate drivers only provide the low-voltage control signals to drive external MOSFETs, allowing custom power stage design. Best for high-current (>10A) or high-voltage (>60V) applications. MPS offers both - MPQ6541 for integrated and MPQ18021 for gate driver applications.",
+          "decisionGuide": "Choose integrated drivers for quick development under 10A. Choose gate drivers for high-power custom designs.",
+          "keywords": ["integrated driver vs gate driver", "motor driver selection"]
+        },
+        {
+          "question": "What motor control algorithms does MPS support?",
+          "answer": "MPS motor drivers support various control algorithms: 1) Trapezoidal (6-step) - simple, cost-effective control for BLDC motors. 2) Sinusoidal - smoother operation with lower torque ripple. 3) Field-Oriented Control (FOC) - maximum efficiency and dynamic performance. 4) Sensorless - back-EMF detection eliminates position sensors. 5) Sensored - Hall sensor or encoder feedback for precise control. The MPQ6541 supports trapezoidal and sinusoidal, while MPQ6570 supports FOC for high-performance applications.",
+          "decisionGuide": "Select control algorithm based on performance requirements and cost constraints. Contact us for algorithm selection guidance.",
+          "keywords": ["motor control algorithm", "FOC", "trapezoidal control"]
+        }
+      ],
+      "products": [
+        {
+          "partNumber": "MPQ6541",
+          "name": "60V, 3-Phase BLDC Motor Driver with Integrated MOSFETs",
+          "nameCn": "三相BLDC电机驱动器",
+          "shortDescription": "Highly integrated 60V three-phase BLDC motor driver with 3A continuous current, integrated power MOSFETs, and sensorless control for industrial and automotive applications.",
+          "description": "The MPQ6541 is a complete three-phase brushless DC motor driver with integrated power stage, designed for industrial automation and automotive applications.",
+          "descriptionParagraphs": [
+            "The MPQ6541 integrates three half-bridge power stages with 60V, 3A MOSFETs and comprehensive control logic. This high integration eliminates the need for external power MOSFETs and gate drivers, significantly reducing PCB area and design complexity.",
+            "The device supports both sensorless and sensored operation. Sensorless control uses back-EMF detection for commutation, eliminating Hall sensors. Sensored mode accepts Hall sensor inputs for precise position control. The integrated PWM generator supports various control algorithms including trapezoidal and sinusoidal commutation.",
+            "Comprehensive protection features include over-current protection, thermal shutdown, under-voltage lockout, and shoot-through prevention. The AEC-Q100 qualified version is suitable for automotive applications including pumps, fans, and actuators."
+          ],
+          "status": "active",
+          "isPopular": true,
+          "keywords": ["BLDC driver", "3-phase motor", "integrated MOSFET", "sensorless control"],
+          "specifications": {
+            "Supply Voltage": "6V to 60V",
+            "Output Current": "3A continuous, 5A peak",
+            "MOSFET Rdson": "150mΩ (high-side + low-side)",
+            "PWM Frequency": "Up to 100kHz",
+            "Control Interface": "PWM / Hall / Sensorless",
+            "Operating Temperature": "-40°C to +125°C (AEC-Q100)",
+            "Package": "QFN-32 (5mm x 5mm)"
+          },
+          "applications": ["Industrial pumps", "Cooling fans", "Robotics", "Automotive actuators", "Drones"],
+          "features": ["60V operation", "3A continuous current", "Integrated MOSFETs", "Sensorless control", "AEC-Q100 qualified"],
+          "pinout": {
+            "description": "QFN-32 package with power and control pins",
+            "pins": [
+              {"pin": "1-4", "function": "VM", "description": "Motor supply voltage"},
+              {"pin": "5-8", "function": "U", "description": "Phase U output"},
+              {"pin": "9-12", "function": "V", "description": "Phase V output"},
+              {"pin": "13-16", "function": "W", "description": "Phase W output"},
+              {"pin": "25", "function": "PWM_U", "description": "Phase U PWM input"},
+              {"pin": "26", "function": "PWM_V", "description": "Phase V PWM input"},
+              {"pin": "27", "function": "PWM_W", "description": "Phase W PWM input"}
+            ]
+          },
+          "package": {
+            "type": "QFN",
+            "dimensions": "5mm x 5mm x 0.9mm",
+            "pinCount": 32
+          },
+          "stock": {
+            "status": "in_stock",
+            "quantity": 4000,
+            "minOrderQty": 100,
+            "leadTime": "Stock available, 1-2 days"
+          },
+          "pricing": {
+            "currency": "USD",
+            "unit": "per piece",
+            "tiers": [
+              {"minQty": 100, "price": 4.50},
+              {"minQty": 500, "price": 3.60},
+              {"minQty": 1000, "price": 2.90},
+              {"minQty": 5000, "price": 2.25}
+            ]
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "MPQ6540",
+              "link": "/mps/products/motor-drivers/mpq6540.html",
+              "reason": "Lower voltage 40V version for cost-sensitive applications",
+              "brand": "MPS"
+            },
+            {
+              "partNumber": "MPQ6570",
+              "link": "/mps/products/motor-drivers/mpq6570.html",
+              "reason": "Higher current 10A version with FOC support",
+              "brand": "MPS"
+            }
+          ],
+          "companionParts": [
+            {
+              "partNumber": "MPQ6541-EVB",
+              "link": "#",
+              "description": "Evaluation board with motor and GUI",
+              "category": "Evaluation Board"
+            },
+            {
+              "partNumber": "MPQ8862",
+              "link": "/mps/products/dc-dc-converters/mpq8862.html",
+              "description": "Buck converter for logic supply",
+              "category": "DC-DC Converter"
+            },
+            {
+              "partNumber": "MPQ8903",
+              "link": "/mps/products/dc-dc-converters/mpq8903.html",
+              "description": "LDO for microcontroller supply",
+              "category": "LDO"
+            }
+          ],
+          "faeReview": {
+            "rating": 4.7,
+            "author": "Robert Chen",
+            "title": "Senior FAE - Motor Control",
+            "content": "The MPQ6541 is an excellent integrated solution for BLDC motor control up to 3A. The integration level is impressive - everything you need in a 5x5mm package. I've used this in several industrial pump and automotive fan applications with great success. The sensorless control works well for most applications, though I recommend Hall sensors for very low-speed operation (<100 RPM). The protection features are comprehensive and have saved designs from various fault conditions. Thermal management is important - provide adequate copper area under the thermal pad. Overall, this is my go-to recommendation for 3-phase BLDC applications under 3A.",
+            "highlight": "High integration with 60V/3A capability and sensorless control"
+          },
+          "faqs": [
+            {
+              "question": "How do I configure the MPQ6541 for sensorless operation?",
+              "answer": "For sensorless BLDC control: 1) Connect motor phases to U, V, W outputs. 2) Apply PWM signals to PWM_U, PWM_V, PWM_W inputs with proper 60-degree commutation sequence. 3) The device detects zero-crossing of back-EMF on the undriven phase for commutation timing. 4) Start-up requires open-loop acceleration until sufficient back-EMF is generated. 5) Configure BEMF threshold and filter settings via external resistors. The datasheet provides detailed timing diagrams and recommended start-up sequences.",
+              "decisionGuide": "Download the MPQ6541 sensorless control application note for detailed configuration guidance.",
+              "keywords": ["sensorless BLDC", "back-EMF detection"]
+            },
+            {
+              "question": "What is the recommended PWM frequency?",
+              "answer": "The MPQ6541 supports PWM frequencies from 10kHz to 100kHz. Lower frequencies (10-20kHz) reduce switching losses but may cause audible noise. Higher frequencies (40-100kHz) reduce current ripple and audible noise but increase switching losses. For most applications, 20-40kHz provides good balance. The dead time between high-side and low-side switching is internally fixed at 1µs to prevent shoot-through. Ensure PWM signals from your controller have adequate dead time.",
+              "decisionGuide": "Start with 20kHz and adjust based on audible noise and thermal performance in your application.",
+              "keywords": ["PWM frequency", "motor control switching"]
+            },
+            {
+              "question": "How do I implement current sensing for torque control?",
+              "answer": "The MPQ6541 provides low-side current sense outputs for each phase. Connect sense resistors between low-side MOSFET sources and ground. The ISEN_U, ISEN_V, ISEN_W pins provide amplified current signals. For torque control: 1) Sample phase currents during low-side conduction. 2) Reconstruct three-phase currents. 3) Apply Clarke and Park transforms for FOC (if implemented externally). 4) Use current feedback for torque control loops. Typical sense resistor values are 10-50mΩ depending on current range and ADC resolution.",
+              "decisionGuide": "Contact our FAE team for current sensing reference designs and FOC implementation guidance.",
+              "keywords": ["current sensing", "torque control"]
+            },
+            {
+              "question": "What thermal management is required for the MPQ6541?",
+              "answer": "At 3A continuous with 150mΩ total Rdson, the MPQ6541 dissipates approximately 1.35W (3A² × 0.15Ω). With Theta-JA of 35°C/W, this results in 47°C temperature rise above ambient. To keep junction temperature below 125°C at 60°C ambient: 1) Use 4-layer PCB with solid ground plane. 2) Provide 25mm x 25mm copper area under the thermal pad. 3) Use multiple thermal vias (9-16) to inner ground planes. 4) Consider airflow for continuous 3A operation. The device has thermal shutdown at 160°C for protection.",
+              "decisionGuide": "Use MPS thermal simulation tools or contact us for thermal design review.",
+              "keywords": ["motor driver thermal", "MPQ6541 cooling"]
+            },
+            {
+              "question": "Can the MPQ6541 drive stepper motors?",
+              "answer": "The MPQ6541 is optimized for 3-phase BLDC motors and is not recommended for stepper motor control. For stepper motors, use dedicated stepper drivers like the MPQ6600 or MPQ6610 which provide microstepping and current decay control. If you must use MPQ6541 for stepper control, it would require external control logic to sequence the phases appropriately, but this is not the intended application and performance will be suboptimal.",
+              "decisionGuide": "Use MPQ6600 or MPQ6610 for stepper motor applications. Contact us for stepper driver recommendations.",
+              "keywords": ["stepper motor driver", "MPQ6600"]
+            }
+          ],
+          "resources": {
+            "datasheet": "/resources/datasheets/mps/MPQ6541.pdf",
+            "applicationNote": "/resources/app-notes/mps/MPQ6541-sensorless-guide.pdf",
+            "evaluationBoard": "/resources/eval-boards/mps/MPQ6541-EVB.pdf"
+          }
+        }
+      ]
+    }
+  ]
+}

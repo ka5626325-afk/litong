@@ -1,0 +1,960 @@
+{
+  "articles": [
+    {
+      "id": "ethercat-selection-guide",
+      "title": "How to Select the Right EtherCAT Slave Controller for Your Application",
+      "category": "Product Selection",
+      "author": {
+        "name": "Michael Zhang",
+        "title": "Senior FAE - Industrial Communication",
+        "experience": "15 years",
+        "expertise": [
+          "EtherCAT Networks",
+          "Industrial Communication",
+          "Motion Control"
+        ]
+      },
+      "publishDate": "2026-03-15",
+      "lastUpdated": "2026-03-15",
+      "summary": "This comprehensive guide helps you select the appropriate Funcience EtherCAT slave controller based on your application requirements, network topology, and cost considerations. Covers FCE1100 and FCE1353 comparison, key specifications, and selection criteria.",
+      "contentSections": [
+        {
+          "heading": "Understanding EtherCAT Slave Controller Requirements",
+          "content": "Selecting the right EtherCAT slave controller requires understanding your application's communication needs, network topology, and performance requirements. Key factors include the number of EtherCAT ports needed, PHY integration preferences, host interface type, and temperature range requirements. This guide provides a systematic approach to evaluating these factors and selecting between FCE1100 and FCE1353 options."
+        },
+        {
+          "heading": "FCE1100 vs FCE1353 Comparison",
+          "content": "The FCE1100 is a 2-port EtherCAT slave controller requiring external PHY chips, making it ideal for cost-sensitive applications where PHY flexibility is desired. The FCE1353 offers 3 ports with dual integrated PHYs, reducing BOM cost and PCB complexity while enabling flexible network topologies. Both controllers support 125μs cycle times and distributed clock synchronization."
+        },
+        {
+          "heading": "Port Count and Network Topology",
+          "content": "Two-port controllers like FCE1100 support simple daisy-chain topologies suitable for linear networks. Three-port controllers like FCE1353 enable T-junctions, branches, and redundant ring topologies. Consider your machine layout and wiring constraints when selecting port count. The third port can also provide diagnostic access or connection to secondary networks."
+        },
+        {
+          "heading": "PHY Integration Considerations",
+          "content": "Integrated PHYs (FCE1353) reduce component count by eliminating external PHY chips, crystals, and associated passive components. This reduces BOM cost by 30-40% and simplifies PCB layout. External PHYs (FCE1100) offer flexibility to select PHYs with specific features like extended temperature range or enhanced protection. Choose based on your cost targets and feature requirements."
+        },
+        {
+          "heading": "Host Interface Selection",
+          "content": "SPI interface uses fewer pins and is suitable for simple applications with moderate data rates. Parallel interfaces (8/16-bit or 32-bit) provide higher bandwidth for demanding applications. The FCE1100 supports SPI and 8/16-bit parallel. The FCE1353 adds 32-bit parallel interface option. Match the interface to your host MCU capabilities and bandwidth requirements."
+        },
+        {
+          "heading": "Temperature and Environmental Considerations",
+          "content": "Standard industrial temperature range (-40°C to +85°C) suits most factory automation applications. Extended temperature options may be needed for outdoor installations or equipment near heat sources. Consider your operating environment, enclosure cooling, and reliability requirements when selecting temperature grade."
+        }
+      ],
+      "tags": [
+        "EtherCAT",
+        "Selection Guide",
+        "FCE1100",
+        "FCE1353",
+        "Industrial Communication"
+      ],
+      "relatedArticles": [
+        "dsp-selection-guide",
+        "ethercat-development-guide",
+        "migration-et1100-guide"
+      ],
+      "faeInsights": {
+        "insight": "In my 15 years supporting industrial communication projects, I've seen many customers struggle with EtherCAT controller selection. The most common mistake is underestimating the value of the third port on FCE1353. While it seems like a minor feature, it often saves significant cabling costs in complex machines. I recently worked with a packaging OEM who switched from FCE1100 to FCE1353 and reduced their cable harness cost by 25% through better topology optimization. For the host interface, I recommend starting with SPI for evaluation and prototyping, then moving to parallel interface for production if bandwidth requires it. The SPI interface is easier to debug and requires fewer PCB layers. One important consideration often overlooked is future-proofing - if your product line might need 3-port capability in the future, design in FCE1353 from the start to avoid redesign later.",
+        "logic": "The selection process follows these steps: First, determine your network topology requirements - if you need branches or redundancy, FCE1353 is the clear choice. Second, calculate your BOM cost - FCE1353 often wins when you factor in eliminated external PHY components. Third, assess your host MCU interface capabilities and bandwidth needs. Fourth, consider your temperature and environmental requirements. Finally, evaluate your production volume - at high volumes, even small BOM savings matter significantly.",
+        "practicalTips": [
+          "Start with evaluation kits to validate your selection before committing to hardware design",
+          "Consider future product roadmap when selecting - FCE1353 provides more growth options",
+          "Calculate total BOM cost including external components, not just chip price",
+          "Validate thermal performance in your specific enclosure early in the design"
+        ],
+        "insightLogic": "The decision framework balances cost, flexibility, and performance. For cost-sensitive simple applications, FCE1100 with external PHYs may be optimal. For most industrial applications, FCE1353's integrated PHYs and 3-port capability provide better overall value when total system cost is considered.",
+        "author": {
+          "name": "Senior FAE",
+          "title": "Principal FAE - Technical Support",
+          "experience": "12 years",
+          "expertise": [
+            "Product Support",
+            "Application Engineering",
+            "Technical Consulting"
+          ]
+        },
+        "content": "In my 15 years supporting industrial communication projects, I've seen many customers struggle with EtherCAT controller selection. The most common mistake is underestimating the value of the third port on FCE1353. While it seems like a minor feature, it often saves significant cabling costs in complex machines. I recently worked with a packaging OEM who switched from FCE1100 to FCE1353 and reduced their cable harness cost by 25% through better topology optimization. For the host interface, I recommend starting with SPI for evaluation and prototyping, then moving to parallel interface for production if bandwidth requires it. The SPI interface is easier to debug and requires fewer PCB layers. One important consideration often overlooked is future-proofing - if your product line might need 3-port capability in the future, design in FCE1353 from the start to avoid redesign later."
+      },
+      "customerCases": [
+        {
+          "customerName": "Automation Equipment Manufacturer",
+          "industry": "Industrial Automation",
+          "application": "Modular Machine Controller",
+          "problem": "The customer was selecting an EtherCAT controller for their new machine platform. They initially planned to use FCE1100 for cost reasons but were concerned about cabling complexity in their modular machine design.",
+          "diagnosis": "Analysis of their machine topology revealed that a pure daisy-chain would require long cable runs between distant modules. A branched topology would reduce cable length by 40% but required 3-port capability.",
+          "solution": "We recommended FCE1353 for its 3-port capability. The integrated PHYs actually reduced total BOM cost compared to FCE1100 with external PHYs. The customer implemented a T-junction topology that optimized cable routing.",
+          "results": "Cable cost reduced by 35%, installation time decreased by 30%, and the cleaner wiring improved machine reliability. The customer standardized on FCE1353 for their entire product line.",
+          "feedback": "Customer reported positive experience and successful implementation.",
+          "challenge": "The customer was selecting an EtherCAT controller for their new machine platform. They initially planned to use FCE1100 for cost reasons but were concerned about cabling complexity in their modular machine design."
+        }
+      ],
+      "faqs": [
+        {
+          "question": "What is the main difference between FCE1100 and FCE1353?",
+          "answer": "The main differences are: FCE1100 has 2 EtherCAT ports and requires external PHY chips, while FCE1353 has 3 ports with dual integrated PHYs. FCE1353 also supports 32-bit parallel interface in addition to SPI and 8/16-bit parallel. The integrated PHYs in FCE1353 reduce BOM cost and PCB complexity but result in higher chip price. FCE1100 offers more flexibility in PHY selection. Both support identical EtherCAT protocol features including 125μs cycle time and distributed clocks.",
+          "decisionGuide": "Choose FCE1353 for new designs requiring 3 ports or BOM cost reduction. Choose FCE1100 for 2-port applications needing specific PHY features.",
+          "keywords": [
+            "FCE1100 vs FCE1353",
+            "EtherCAT comparison",
+            "PHY integration"
+          ]
+        },
+        {
+          "question": "How do I decide between SPI and parallel host interface?",
+          "answer": "SPI interface uses 4 pins (clock, data in, data out, chip select) and is suitable for pin-constrained MCUs and applications with moderate data rates up to a few hundred KB/s. Parallel interface uses 8, 16, or 32 data pins plus control signals, providing much higher bandwidth suitable for applications requiring fast process data exchange. SPI is easier to route on PCBs and debug. Parallel interface requires more PCB layers but provides better performance. For most servo drive applications, SPI is sufficient. For high-density I/O or vision systems, parallel interface may be needed.",
+          "decisionGuide": "Start with SPI for development and switch to parallel only if bandwidth testing shows SPI limitations.",
+          "keywords": [
+            "SPI interface",
+            "parallel interface",
+            "host interface selection"
+          ]
+        },
+        {
+          "question": "Can FCE1100/FCE1353 replace Beckhoff ET1100 directly?",
+          "answer": "Yes, FCE1100 is pin-to-pin compatible with Beckhoff ET1100 and can replace it directly in most designs. FCE1353 is pin-compatible with Microchip LAN9253/9252. Hardware migration typically requires no PCB changes. Software migration involves updating the ESI file and possibly minor driver adjustments. The EtherCAT protocol implementation is fully compatible with all standard EtherCAT masters including TwinCAT, Siemens, and open-source implementations. Funcience provides migration guides and technical support.",
+          "decisionGuide": "Contact us for migration guides and compatibility documentation. Sample ESI files are available for common applications.",
+          "keywords": [
+            "ET1100 replacement",
+            "migration guide",
+            "pin compatible"
+          ]
+        },
+        {
+          "question": "What cycle time can be achieved with Funcience EtherCAT controllers?",
+          "answer": "Both FCE1100 and FCE1353 support minimum cycle times of 125μs, which is the standard for high-performance EtherCAT applications. This enables control loop bandwidths up to 2kHz for servo drives. For less demanding applications, longer cycle times of 250μs, 500μs, or 1ms can be used to reduce processor loading. The achievable cycle time also depends on your host MCU processing capability and the complexity of your application code. Most industrial I/O applications work well with 1ms cycle time, while high-performance motion control typically needs 250μs or 125μs.",
+          "decisionGuide": "Select cycle time based on your control bandwidth requirements. Start with longer cycle times and reduce if needed.",
+          "keywords": [
+            "cycle time",
+            "EtherCAT performance",
+            "control bandwidth"
+          ]
+        },
+        {
+          "question": "Do I need special tools to develop with Funcience EtherCAT controllers?",
+          "answer": "Development requires standard tools: An EtherCAT master for testing (TwinCAT is commonly used for development). A JTAG or SWD debugger for your host MCU. Funcience's configuration tool for ESI file generation. Standard Ethernet cables and connectors. Funcience evaluation kits include all necessary hardware and software to get started. No special proprietary tools are required. The development process is similar to other EtherCAT slave development.",
+          "decisionGuide": "Start with a Funcience evaluation kit which includes all necessary tools and documentation.",
+          "keywords": [
+            "development tools",
+            "EtherCAT master",
+            "evaluation kit"
+          ]
+        }
+      ],
+      "slug": "ethercat-selection-guide"
+    },
+    {
+      "id": "dsp-selection-guide",
+      "title": "DSP Selection Guide for Motor Control and Power Applications",
+      "category": "Product Selection",
+      "author": {
+        "name": "Steven Wang",
+        "title": "Senior FAE - Motor Control",
+        "experience": "12 years",
+        "expertise": [
+          "Motor Control",
+          "Power Electronics",
+          "Digital Signal Processing"
+        ]
+      },
+      "publishDate": "2026-03-10",
+      "lastUpdated": "2026-03-10",
+      "summary": "Comprehensive guide for selecting between FCP32C335 and FCP32C334 DSPs based on performance requirements, peripheral needs, and cost considerations. Covers motor control applications, power conversion, and key differentiating features.",
+      "contentSections": [
+        {
+          "heading": "Understanding DSP Requirements for Motor Control",
+          "content": "Selecting the right DSP for motor control involves evaluating processing performance, PWM capabilities, analog peripherals, and communication interfaces. The control algorithm complexity, motor type, and performance requirements determine the necessary processing power. This guide helps you match your application requirements to the appropriate Funcience DSP."
+        },
+        {
+          "heading": "FCP32C335 vs FCP32C334 Comparison",
+          "content": "The FCP32C335 is a high-performance 150MHz DSP with HRPWM (High-Resolution PWM) achieving 150ps resolution, 512KB Flash, and 18 PWM channels. The FCP32C334 offers 100MHz performance with standard PWM, 256KB Flash, and 12 PWM channels at a lower cost. Both use the same C28x core architecture and are code-compatible."
+        },
+        {
+          "heading": "When to Choose FCP32C335",
+          "content": "Select FCP32C335 for high-performance servo drives requiring smooth motion and low torque ripple. The HRPWM is essential for precision applications like CNC machine tools, robotics, and high-performance servo systems. The additional Flash and RAM support complex control algorithms. The extra PWM channels enable multi-axis control from a single DSP. Applications requiring 150MHz processing for fast control loops also need the FCP32C335."
+        },
+        {
+          "heading": "When to Choose FCP32C334",
+          "content": "The FCP32C334 is ideal for cost-sensitive applications like fan and pump drives, compressors, and basic VFDs. Standard PWM is sufficient for these applications. The 100MHz performance handles standard FOC algorithms comfortably. The reduced peripheral set still supports 3-phase motor control with adequate I/O. Significant cost savings make it attractive for high-volume products where performance requirements are moderate."
+        },
+        {
+          "heading": "Motor Control Algorithm Considerations",
+          "content": "FOC (Field Oriented Control) for PMSM or AC induction motors requires significant processing power, especially with sensorless operation. The FCP32C335's 150MHz clock provides headroom for complex observers and advanced algorithms. BLDC trapezoidal control is less demanding and works well on FCP32C334. V/Hz control for simple induction motor drives has minimal processing requirements. Match your algorithm complexity to the DSP performance."
+        },
+        {
+          "heading": "Code Migration from TI C2000",
+          "content": "Both FCP32C335 and FCP32C334 are code-compatible with TI TMS320F28335 and TMS320F28035 respectively. Existing C2000 code can be migrated with minimal changes - typically just updating header files and linker command files. The peripheral register maps are compatible. Control algorithms and application code require little or no modification. Funcience provides migration guides and code examples."
+        }
+      ],
+      "tags": [
+        "DSP",
+        "Motor Control",
+        "Selection Guide",
+        "FCP32C335",
+        "FCP32C334"
+      ],
+      "relatedArticles": [
+        "ethercat-selection-guide",
+        "motor-control-guide",
+        "migration-ti-guide"
+      ],
+      "faeInsights": {
+        "insight": "Having supported hundreds of motor control designs, I can tell you that DSP selection often comes down to the HRPWM decision. Many customers initially choose FCP32C334 for cost reasons, then discover they need HRPWM for their performance requirements. My advice is to carefully evaluate whether you need HRPWM early in the design phase. Applications that definitely need HRPWM include: CNC machine tools where surface finish is critical, high-performance servo drives with low-speed operation, applications requiring extremely smooth motion, and systems where audible noise must be minimized. For standard pumps, fans, and compressors, the FCP32C334's standard PWM is perfectly adequate. One often-overlooked factor is Flash size - complex FOC algorithms with full feature sets can approach 200KB, leaving little room for application code on FCP32C334. If your application needs extensive communication protocols or complex state machines, the FCP32C335's 512KB Flash provides important headroom.",
+        "logic": "The selection framework considers: First, determine if you need HRPWM - if yes, FCP32C335 is required. Second, assess your Flash memory needs - complex applications need 512KB. Third, evaluate PWM channel count - multi-axis needs 18 channels. Fourth, consider processing headroom - 150MHz provides margin for future enhancements. Fifth, factor in cost sensitivity - FCP32C334 offers 30-40% cost savings for suitable applications.",
+        "practicalTips": [
+          "Prototype with FCP32C335 to evaluate HRPWM benefits, then optimize to FCP32C334 if standard PWM suffices",
+          "Calculate worst-case execution time for your control algorithm before selecting DSP speed",
+          "Leave 30% Flash headroom for future firmware updates and feature additions",
+          "Consider using FCP32C335 for development platform, FCP32C334 for cost-optimized production"
+        ],
+        "insightLogic": "The core decision is HRPWM requirement. If your application benefits from or requires HRPWM's 150ps resolution, FCP32C335 is the clear choice. If standard PWM meets your needs, FCP32C334 offers significant cost savings with adequate performance.",
+        "author": {
+          "name": "Senior FAE",
+          "title": "Principal FAE - Technical Support",
+          "experience": "12 years",
+          "expertise": [
+            "Product Support",
+            "Application Engineering",
+            "Technical Consulting"
+          ]
+        },
+        "content": "Having supported hundreds of motor control designs, I can tell you that DSP selection often comes down to the HRPWM decision. Many customers initially choose FCP32C334 for cost reasons, then discover they need HRPWM for their performance requirements. My advice is to carefully evaluate whether you need HRPWM early in the design phase. Applications that definitely need HRPWM include: CNC machine tools where surface finish is critical, high-performance servo drives with low-speed operation, applications requiring extremely smooth motion, and systems where audible noise must be minimized. For standard pumps, fans, and compressors, the FCP32C334's standard PWM is perfectly adequate. One often-overlooked factor is Flash size - complex FOC algorithms with full feature sets can approach 200KB, leaving little room for application code on FCP32C334. If your application needs extensive communication protocols or complex state machines, the FCP32C335's 512KB Flash provides important headroom."
+      },
+      "customerCases": [
+        {
+          "customerName": "Precision Motion Systems",
+          "industry": "Machine Tools",
+          "application": "CNC Servo Drive",
+          "problem": "The customer was developing a CNC servo drive and needed to choose between FCP32C335 and FCP32C334. Their initial cost analysis favored FCP32C334, but they were concerned about motion quality for precision machining.",
+          "diagnosis": "Evaluation of their requirements revealed need for HRPWM due to low-speed operation during precision contouring. The application also needed extensive Flash for complex trajectory planning algorithms.",
+          "solution": "We recommended FCP32C335 based on HRPWM requirement and Flash needs. We provided evaluation hardware for both DSPs to allow direct comparison of motion quality.",
+          "results": "Testing showed 40% reduction in following error with HRPWM during low-speed contouring. The customer selected FCP32C335 and achieved surface finish quality matching their premium servo drive competitors.",
+          "feedback": "Customer reported positive experience and successful implementation.",
+          "challenge": "The customer was developing a CNC servo drive and needed to choose between FCP32C335 and FCP32C334. Their initial cost analysis favored FCP32C334, but they were concerned about motion quality for precision machining."
+        }
+      ],
+      "faqs": [
+        {
+          "question": "What is HRPWM and when is it needed?",
+          "answer": "HRPWM (High-Resolution PWM) extends standard PWM resolution from nanoseconds to picoseconds. The FCP32C335's HRPWM achieves 150ps resolution compared to ~10ns for standard PWM at typical frequencies. This is needed for: High-performance servo drives requiring smooth low-speed operation, applications where torque ripple must be minimized, systems requiring extremely fine position control, and applications sensitive to audible noise. Standard PWM is adequate for fans, pumps, compressors, and general VFD applications. The HRPWM requires no special programming - it's used like standard PWM but provides finer resolution.",
+          "decisionGuide": "Choose FCP32C335 if your application needs smooth motion at low speeds or has strict torque ripple requirements.",
+          "keywords": [
+            "HRPWM",
+            "high-resolution PWM",
+            "motor control precision"
+          ]
+        },
+        {
+          "question": "How much Flash memory do I need for motor control applications?",
+          "answer": "Flash requirements depend on application complexity: Simple V/Hz control needs ~20KB. Basic FOC with sensorless operation needs ~80-100KB. Full-featured servo drive with communication protocols needs ~150-200KB. Complex multi-axis systems with advanced features can exceed 250KB. The FCP32C334's 256KB Flash is adequate for many single-axis applications but leaves limited margin. The FCP32C335's 512KB provides comfortable headroom for complex applications and future expansion. Consider that communication stacks (EtherCAT, CANopen) can consume 50-100KB alone.",
+          "decisionGuide": "Estimate your code size and add 30% margin. Choose FCP32C335 if you're approaching 200KB or need room for growth.",
+          "keywords": [
+            "Flash memory",
+            "code size",
+            "memory requirements"
+          ]
+        },
+        {
+          "question": "Can FCP32C335 directly replace TMS320F28335?",
+          "answer": "Yes, FCP32C335 is pin-to-pin compatible with TMS320F28335 and can directly replace it. The chips have identical pinouts and key specifications. Code migration is straightforward - most C2000 code runs with only header file changes. The peripheral register maps are compatible. Existing PCB designs can use FCP32C335 without modification. Software migration typically takes 2-4 weeks including testing. Funcience provides migration guides and compatibility documentation. Many customers have successfully migrated with excellent results.",
+          "decisionGuide": "Contact us for migration guides and code examples. Pin compatibility enables direct replacement without PCB changes.",
+          "keywords": [
+            "TMS320F28335 replacement",
+            "migration",
+            "pin compatible"
+          ]
+        },
+        {
+          "question": "What processing performance is needed for FOC control?",
+          "answer": "FOC control loop execution time depends on algorithm complexity: Basic sensored FOC needs ~5-10μs per axis on 150MHz DSP. Sensorless FOC with observer needs ~15-25μs per axis. Advanced algorithms with parameter estimation need ~30-50μs. At 10kHz switching frequency, you have 100μs for control loop execution. The FCP32C335's 150MHz provides comfortable headroom for single-axis and dual-axis systems. The FCP32C334's 100MHz handles single-axis FOC adequately but has less margin. Consider that background tasks (communication, diagnostics) also need processing time.",
+          "decisionGuide": "Calculate your total processing load at your target switching frequency. Choose FCP32C335 if you need headroom for multi-axis or complex algorithms.",
+          "keywords": [
+            "FOC processing",
+            "control loop timing",
+            "CPU load"
+          ]
+        },
+        {
+          "question": "How many motors can be controlled by one DSP?",
+          "answer": "The number of motors depends on DSP performance and control complexity: Single-axis high-performance servo - one FCP32C335 per motor for best performance. Dual-axis coordinated motion - possible on one FCP32C335 with shared processing. Simple VFD applications - potentially 2-3 motors on FCP32C334 with reduced performance per axis. Multi-axis CNC typically uses one DSP per axis for maximum performance. The limiting factors are processing time per axis and PWM channel availability. FCP32C335 has 18 PWM channels supporting up to 6 three-phase motors theoretically, but processing limits practical multi-axis to 2-3 axes.",
+          "decisionGuide": "For high-performance applications, use one DSP per axis. For cost-sensitive multi-motor applications, evaluate dual-axis on single DSP carefully.",
+          "keywords": [
+            "multi-axis control",
+            "motor count",
+            "processing capacity"
+          ]
+        }
+      ],
+      "slug": "dsp-selection-guide"
+    },
+    {
+      "id": "ethercat-development-guide",
+      "title": "EtherCAT Slave Development Guide with Funcience Controllers",
+      "category": "Technical Guide",
+      "author": {
+        "name": "David Liu",
+        "title": "Principal FAE - Industrial Networking",
+        "experience": "14 years",
+        "expertise": [
+          "EtherCAT Development",
+          "Industrial Ethernet",
+          "Embedded Systems"
+        ]
+      },
+      "publishDate": "2026-03-05",
+      "lastUpdated": "2026-03-05",
+      "summary": "Step-by-step guide for developing EtherCAT slave devices using Funcience FCE1100 and FCE1353 controllers. Covers hardware design, software development, ESI configuration, and testing procedures.",
+      "contentSections": [
+        {
+          "heading": "EtherCAT Slave Development Overview",
+          "content": "Developing an EtherCAT slave device involves hardware design, firmware development, and protocol configuration. This guide walks through the complete development process using Funcience EtherCAT controllers, from initial concept to production-ready design. The process applies to both FCE1100 and FCE1353 controllers with appropriate modifications."
+        },
+        {
+          "heading": "Hardware Design Considerations",
+          "content": "Hardware design starts with the EtherCAT controller circuit including power supplies, clock generation, and reset circuitry. The PHY interface requires careful layout for signal integrity. Magnetics selection and Ethernet connector implementation affect EMC performance. Host MCU interface connections must match your selected interface type (SPI or parallel). Proper grounding and power decoupling are critical for reliable operation."
+        },
+        {
+          "heading": "PHY Interface Design",
+          "content": "For FCE1100, external PHY chips connect via standard MII or RMII interface. PHY selection should consider temperature range, ESD protection, and power consumption. Magnetics modules integrate the transformer and RJ45 connector. For FCE1353, the integrated PHYs simplify design but still require external magnetics. Follow reference designs for proven implementations."
+        },
+        {
+          "heading": "Firmware Architecture",
+          "content": "The firmware architecture consists of the EtherCAT slave stack, application layer, and hardware abstraction layer. The slave stack handles protocol processing and state machine management. The application layer implements your device-specific functionality. The HAL provides drivers for the host MCU peripherals. Funcience provides sample code frameworks to accelerate development."
+        },
+        {
+          "heading": "ESI Configuration",
+          "content": "The EtherCAT Slave Information (ESI) file describes your device to the EtherCAT master. It defines process data objects (PDOs), synchronization modes, and device identity. Funcience provides ESI templates that you customize for your application. The ESI file is stored in EEPROM and read by the master during network initialization. Proper ESI configuration is essential for correct device operation."
+        },
+        {
+          "heading": "Testing and Validation",
+          "content": "Testing includes functional verification, conformance testing, and interoperability testing. Use an EtherCAT master like TwinCAT for initial testing. Verify process data exchange, state transitions, and error handling. Test with multiple master implementations for interoperability. EMC testing ensures reliable operation in industrial environments. Funcience provides test procedures and checklists."
+        }
+      ],
+      "tags": [
+        "EtherCAT",
+        "Development Guide",
+        "FCE1100",
+        "FCE1353",
+        "Slave Development"
+      ],
+      "relatedArticles": [
+        "ethercat-selection-guide",
+        "migration-et1100-guide",
+        "troubleshooting-ethercat"
+      ],
+      "faeInsights": {
+        "insight": "Having guided dozens of customers through EtherCAT development, I've identified common patterns that lead to success or failure. The most critical factor is starting with a working reference design rather than designing from scratch. Funcience's evaluation kits provide proven hardware and software that you can modify incrementally. The second key is understanding the ESI file - many developers treat it as a black box, but understanding PDO mapping and synchronization modes is essential for debugging. One frequent issue I see is inadequate power supply decoupling on the EtherCAT controller, causing intermittent communication errors that are hard to diagnose. I recommend at least 10μF bulk capacitance plus 0.1μF ceramics near each power pin. For software development, start with the sample application and make small, tested changes rather than major rewrites. The EtherCAT state machine is complex, and subtle errors can cause difficult-to-debug behavior.",
+        "logic": "The development process follows these phases: Phase 1 - Hardware design based on reference designs with your specific requirements. Phase 2 - Basic bring-up testing power supplies, clocks, and communication. Phase 3 - EtherCAT stack integration and basic communication establishment. Phase 4 - Application layer development for your specific functionality. Phase 5 - ESI configuration and optimization. Phase 6 - Comprehensive testing including conformance and EMC. Each phase should be completed and validated before moving to the next.",
+        "practicalTips": [
+          "Use Funcience evaluation kit as starting point for your hardware design",
+          "Implement comprehensive test points for debugging critical signals",
+          "Start with simple PDO configuration and add complexity incrementally",
+          "Test with multiple EtherCAT master implementations early in development"
+        ],
+        "insightLogic": "Successful EtherCAT development requires systematic approach starting from proven reference designs. The complexity of the protocol rewards incremental development with thorough testing at each stage.",
+        "author": {
+          "name": "Senior FAE",
+          "title": "Principal FAE - Technical Support",
+          "experience": "12 years",
+          "expertise": [
+            "Product Support",
+            "Application Engineering",
+            "Technical Consulting"
+          ]
+        },
+        "content": "Having guided dozens of customers through EtherCAT development, I've identified common patterns that lead to success or failure. The most critical factor is starting with a working reference design rather than designing from scratch. Funcience's evaluation kits provide proven hardware and software that you can modify incrementally. The second key is understanding the ESI file - many developers treat it as a black box, but understanding PDO mapping and synchronization modes is essential for debugging. One frequent issue I see is inadequate power supply decoupling on the EtherCAT controller, causing intermittent communication errors that are hard to diagnose. I recommend at least 10μF bulk capacitance plus 0.1μF ceramics near each power pin. For software development, start with the sample application and make small, tested changes rather than major rewrites. The EtherCAT state machine is complex, and subtle errors can cause difficult-to-debug behavior."
+      },
+      "customerCases": [
+        {
+          "customerName": "Motion Control Startup",
+          "industry": "Industrial Automation",
+          "application": "EtherCAT Servo Drive",
+          "problem": "A startup company was developing their first EtherCAT servo drive. They had motor control expertise but limited EtherCAT experience. Their initial prototype had intermittent communication failures.",
+          "diagnosis": "Analysis revealed multiple issues: inadequate power supply decoupling, incorrect ESI configuration, and missing synchronization settings. The hardware design had deviated significantly from reference designs.",
+          "solution": "We recommended redesigning the EtherCAT interface section based on Funcience reference design. Provided corrected ESI file template and configuration guidance. Implemented proper distributed clock settings.",
+          "results": "Communication reliability improved to 99.99%. The product passed EtherCAT conformance testing and has been successfully deployed in customer installations. Development time was 3 months from redesign to production.",
+          "feedback": "Customer reported positive experience and successful implementation.",
+          "challenge": "A startup company was developing their first EtherCAT servo drive. They had motor control expertise but limited EtherCAT experience. Their initial prototype had intermittent communication failures."
+        }
+      ],
+      "faqs": [
+        {
+          "question": "What is the typical development timeline for an EtherCAT slave device?",
+          "answer": "Typical development timeline is 3-6 months depending on complexity: Hardware design and PCB layout takes 4-6 weeks. Firmware development including stack integration takes 6-8 weeks. Testing and debugging takes 4-6 weeks. Conformance testing and documentation takes 2-4 weeks. Starting with Funcience evaluation kit can reduce this by 30-40% as hardware and basic software are proven. Complex applications with custom protocols or extensive PDO mapping may take longer. Plan for iteration cycles as testing reveals optimization opportunities.",
+          "decisionGuide": "Start with evaluation kit to accelerate development. Contact us for project planning assistance.",
+          "keywords": [
+            "development timeline",
+            "project planning",
+            "EtherCAT development"
+          ]
+        },
+        {
+          "question": "What tools do I need for EtherCAT slave development?",
+          "answer": "Essential tools include: EtherCAT master for testing (TwinCAT is most common for development). JTAG/SWD debugger for your host MCU. Oscilloscope for signal analysis (100MHz minimum). Funcience configuration tool for ESI generation. Network analyzer for advanced debugging (optional). Standard lab equipment for power supplies and multimeters. Funcience evaluation kit for reference. Software tools include IDE for your MCU, EtherCAT slave stack, and Funcience driver libraries.",
+          "decisionGuide": "Start with evaluation kit which includes necessary hardware. Add tools as your development progresses.",
+          "keywords": [
+            "development tools",
+            "EtherCAT master",
+            "debugging tools"
+          ]
+        },
+        {
+          "question": "How do I create and configure the ESI file?",
+          "answer": "ESI file creation involves: Starting with Funcience ESI template for your controller. Defining device identity information (vendor ID, product code, revision). Configuring process data objects (PDOs) for your application data. Setting up synchronization parameters (free-run, DC, or SM-sync). Defining device parameters accessible via SDO. Funcience provides ESI configuration tool with graphical interface. The tool generates XML file for EEPROM programming. Testing with your master verifies correct configuration. Sample ESI files are provided for common applications.",
+          "decisionGuide": "Use Funcience ESI configuration tool. Start with simple configuration and add complexity incrementally.",
+          "keywords": [
+            "ESI file",
+            "EtherCAT configuration",
+            "PDO mapping"
+          ]
+        },
+        {
+          "question": "What are common EtherCAT communication errors and how to fix them?",
+          "answer": "Common errors include: Link loss - check PHY connections, magnetics, and cable quality. State transition failures - verify ESI configuration and application state handling. Process data timeout - check cycle time settings and processing load. CRC errors - improve grounding and check for noise sources. Watchdog timeouts - ensure timely processing in application code. Distributed clock errors - verify DC configuration and synchronization settings. Funcience provides troubleshooting guides with systematic diagnostic procedures. Most errors can be diagnosed with proper test equipment and methodology.",
+          "decisionGuide": "Follow systematic troubleshooting procedures. Contact Funcience support for difficult issues.",
+          "keywords": [
+            "communication errors",
+            "troubleshooting",
+            "error diagnosis"
+          ]
+        },
+        {
+          "question": "How do I test EtherCAT conformance?",
+          "answer": "Conformance testing verifies your device meets EtherCAT specifications: Use ETG (EtherCAT Technology Group) conformance test tool. Test covers protocol implementation, state machine behavior, and error handling. Testing includes interoperability with reference masters. You can perform preliminary testing with free tools. Official conformance requires ETG membership and certified test lab. Funcience controllers have passed conformance testing, so issues are typically in application layer. Test early and often during development to catch issues promptly.",
+          "decisionGuide": "Start with informal testing using available tools. Plan for official conformance testing before product release.",
+          "keywords": [
+            "conformance testing",
+            "ETG testing",
+            "certification"
+          ]
+        }
+      ],
+      "slug": "ethercat-development-guide"
+    },
+    {
+      "id": "migration-et1100-guide",
+      "title": "Migration Guide: Replacing ET1100 with FCE1100",
+      "category": "Technical Guide",
+      "author": {
+        "name": "Michael Zhang",
+        "title": "Senior FAE - Industrial Communication",
+        "experience": "15 years",
+        "expertise": [
+          "EtherCAT Migration",
+          "Hardware Design",
+          "System Integration"
+        ]
+      },
+      "publishDate": "2026-02-28",
+      "lastUpdated": "2026-02-28",
+      "summary": "Comprehensive guide for migrating existing EtherCAT designs from Beckhoff ET1100 to Funcience FCE1100. Covers hardware migration, software adaptation, ESI configuration, and validation procedures.",
+      "contentSections": [
+        {
+          "heading": "Migration Overview",
+          "content": "Migrating from ET1100 to FCE1100 is straightforward due to pin-to-pin compatibility. The FCE1100 is designed as a direct replacement, requiring minimal or no hardware changes in most designs. Software migration involves updating the ESI file and minor driver adjustments. This guide provides step-by-step instructions for successful migration."
+        },
+        {
+          "heading": "Hardware Compatibility Analysis",
+          "content": "Before migration, analyze your existing hardware design: Verify ET1100 pinout matches FCE1100 pinout - they are identical. Check power supply requirements - both use 3.3V. Confirm external PHY compatibility - FCE1100 works with same PHYs as ET1100. Review clock circuit - both use same crystal requirements. Check EEPROM interface - identical SPI interface. Most properly designed ET1100 circuits can accept FCE1100 directly."
+        },
+        {
+          "heading": "Hardware Migration Steps",
+          "content": "Hardware migration is typically a simple component swap: Remove ET1100 from PCB (or use new PCB if redesigning). Install FCE1100 in same footprint. No PCB trace changes required for pin-compatible replacement. Verify power supply decoupling is adequate. Confirm crystal and reset circuits are compatible. Test with evaluation board first if any concerns. The migration can often be done as a running change in production."
+        },
+        {
+          "heading": "Software Migration",
+          "content": "Software migration involves: Updating ESI file with FCE1100 identity information (vendor ID, product code). Adjusting EEPROM configuration if needed. Updating host MCU drivers for any timing differences. Testing with your EtherCAT master. Verifying all process data and parameters work correctly. Most application code requires no changes. Funcience provides migration guides with specific code examples."
+        },
+        {
+          "heading": "ESI File Adaptation",
+          "content": "The ESI file needs updates for FCE1100 identity: Change vendor ID to Funcience vendor ID. Update product code and revision numbers. Keep PDO mapping and synchronization settings identical. Update device name and description. Test modified ESI file with your master. Funcience provides ESI templates for common configurations. The protocol implementation remains identical to ET1100."
+        },
+        {
+          "heading": "Validation and Testing",
+          "content": "Thorough validation ensures successful migration: Functional testing of all EtherCAT features. Performance verification (cycle time, jitter). Compatibility testing with your target masters. Long-term reliability testing. EMC verification if hardware changed. Document any behavioral differences. Most customers report identical performance with FCE1100 compared to ET1100."
+        }
+      ],
+      "tags": [
+        "Migration",
+        "ET1100",
+        "FCE1100",
+        "EtherCAT",
+        "Beckhoff"
+      ],
+      "relatedArticles": [
+        "ethercat-selection-guide",
+        "ethercat-development-guide",
+        "troubleshooting-ethercat"
+      ],
+      "faeInsights": {
+        "insight": "I've supported numerous ET1100 to FCE1100 migrations, and the success rate is extremely high when following proper procedures. The most important step is validating your existing ET1100 design is within specification - some older designs may have marginal timing that works with ET1100 but should be corrected. I always recommend testing with an evaluation kit first, even if the migration appears straightforward. One subtle issue I've encountered is EEPROM content - some designs have ET1100-specific configuration that needs updating. The ESI file update is critical and often overlooked. Make sure to test with multiple master implementations, not just your primary one. I've seen cases where a device works fine with TwinCAT but has issues with another master due to subtle timing differences. Overall, migration is typically low-risk and offers significant benefits in cost and supply security.",
+        "logic": "Migration follows this proven process: First, audit your existing ET1100 design for specification compliance. Second, review hardware for any ET1100-specific circuits that may need adjustment. Third, update ESI file with FCE1100 identity while keeping functional configuration identical. Fourth, test with evaluation kit before committing to production. Fifth, validate thoroughly with all target master systems. Sixth, plan production transition with appropriate qualification. Most migrations complete successfully within 2-4 weeks.",
+        "practicalTips": [
+          "Always test with evaluation kit before modifying production hardware",
+          "Update ESI file vendor ID but keep PDO mapping identical",
+          "Test with multiple EtherCAT master implementations",
+          "Document the migration for future reference and customer communication"
+        ],
+        "insightLogic": "The key to successful migration is treating it as a systematic engineering change rather than a simple component swap. Proper validation ensures no surprises in production.",
+        "author": {
+          "name": "Senior FAE",
+          "title": "Principal FAE - Technical Support",
+          "experience": "12 years",
+          "expertise": [
+            "Product Support",
+            "Application Engineering",
+            "Technical Consulting"
+          ]
+        },
+        "content": "I've supported numerous ET1100 to FCE1100 migrations, and the success rate is extremely high when following proper procedures. The most important step is validating your existing ET1100 design is within specification - some older designs may have marginal timing that works with ET1100 but should be corrected. I always recommend testing with an evaluation kit first, even if the migration appears straightforward. One subtle issue I've encountered is EEPROM content - some designs have ET1100-specific configuration that needs updating. The ESI file update is critical and often overlooked. Make sure to test with multiple master implementations, not just your primary one. I've seen cases where a device works fine with TwinCAT but has issues with another master due to subtle timing differences. Overall, migration is typically low-risk and offers significant benefits in cost and supply security."
+      },
+      "customerCases": [
+        {
+          "customerName": "Industrial Drive Manufacturer",
+          "industry": "Motor Drives",
+          "application": "EtherCAT Servo Drive Migration",
+          "problem": "The customer had a mature servo drive product using ET1100 facing supply constraints and price increases. They needed to migrate to FCE1100 while maintaining identical performance and avoiding customer disruption.",
+          "diagnosis": "Analysis showed their ET1100 design was standard and should migrate easily. The main concerns were ESI file compatibility and ensuring customers wouldn't notice any difference.",
+          "solution": "We provided FCE1100 samples and ESI migration template. Customer tested extensively with their supported master systems. Implemented running change with customer notification.",
+          "results": "Migration completed with zero customer-reported issues. Cost reduced by 35% and supply security improved. Product performance remained identical to ET1100 version.",
+          "feedback": "Customer reported positive experience and successful implementation.",
+          "challenge": "The customer had a mature servo drive product using ET1100 facing supply constraints and price increases. They needed to migrate to FCE1100 while maintaining identical performance and avoiding customer disruption."
+        }
+      ],
+      "faqs": [
+        {
+          "question": "Is FCE1100 truly pin-compatible with ET1100?",
+          "answer": "Yes, FCE1100 is designed to be pin-to-pin compatible with Beckhoff ET1100. The pinout is identical, allowing direct replacement without PCB changes. Electrical characteristics including power supply, timing, and interface specifications match ET1100. The package (LQFP-64) is the same. Hundreds of successful migrations confirm the compatibility. Minor differences in some timing parameters are within ET1100 specification tolerance. Funcience provides detailed comparison documentation.",
+          "decisionGuide": "FCE1100 can replace ET1100 directly in most designs. Contact us for compatibility documentation.",
+          "keywords": [
+            "pin compatible",
+            "ET1100 replacement",
+            "drop-in replacement"
+          ]
+        },
+        {
+          "question": "What changes are needed in the ESI file?",
+          "answer": "ESI file changes for FCE1100 migration: Update vendor ID to Funcience vendor ID (0x000006FE). Update product code to FCE1100 product code. Update revision number as appropriate. Update device name and description. Keep all functional configuration identical - PDO mapping, synchronization settings, and parameters should not change. The ESI file structure and content remain the same. Funcience provides ESI templates showing required changes. Testing with your master verifies correct operation.",
+          "decisionGuide": "Use Funcience ESI template and update only identity fields. Keep functional configuration unchanged.",
+          "keywords": [
+            "ESI migration",
+            "vendor ID",
+            "product code"
+          ]
+        },
+        {
+          "question": "Do I need to change my application software?",
+          "answer": "Application software typically requires no changes for ET1100 to FCE1100 migration. The EtherCAT protocol implementation is identical. Process data mapping remains the same. State machine behavior is compatible. Any ET1100-specific code (such as direct register access) should be reviewed but is rarely needed in typical applications. The host MCU communication drivers work unchanged. Most customers report 100% code compatibility. Funcience can review your code if you have concerns.",
+          "decisionGuide": "Application code typically needs no changes. Review any controller-specific code as precaution.",
+          "keywords": [
+            "software migration",
+            "code compatibility",
+            "application software"
+          ]
+        },
+        {
+          "question": "How long does migration typically take?",
+          "answer": "Migration timeline depends on validation requirements: Simple migration with minimal testing can complete in 1-2 weeks. Typical industrial product migration takes 3-4 weeks including testing. Products requiring extensive qualification may take 6-8 weeks. Timeline includes: hardware validation (1 week), software update and testing (1-2 weeks), system testing (1-2 weeks), documentation update (few days). Starting with evaluation kit testing can reduce timeline. Funcience provides support to accelerate migration.",
+          "decisionGuide": "Plan 3-4 weeks for typical migration. Contact us for migration support and accelerated timeline.",
+          "keywords": [
+            "migration timeline",
+            "project schedule",
+            "validation time"
+          ]
+        },
+        {
+          "question": "Will performance be identical to ET1100?",
+          "answer": "Yes, FCE1100 provides identical performance to ET1100 in all key specifications: EtherCAT cycle time capability (125μs minimum). Distributed clock synchronization accuracy. Process data throughput. State transition timing. Communication reliability. EMC performance. Hundreds of successful migrations confirm performance equivalence. Any minor timing differences are within specification tolerance and don't affect operation. Funcience provides performance comparison data.",
+          "decisionGuide": "Expect identical performance to ET1100. Contact us for performance comparison documentation.",
+          "keywords": [
+            "performance comparison",
+            "ET1100 equivalent",
+            "timing specifications"
+          ]
+        }
+      ],
+      "slug": "migration-et1100-guide"
+    },
+    {
+      "id": "motor-control-guide",
+      "title": "Motor Control Implementation Guide with FCP32C335",
+      "category": "Technical Guide",
+      "author": {
+        "name": "Steven Wang",
+        "title": "Senior FAE - Motor Control",
+        "experience": "12 years",
+        "expertise": [
+          "Motor Control",
+          "FOC Algorithms",
+          "Power Electronics"
+        ]
+      },
+      "publishDate": "2026-02-20",
+      "lastUpdated": "2026-02-20",
+      "summary": "Practical guide for implementing motor control applications using FCP32C335 DSP. Covers FOC algorithm implementation, hardware design, parameter tuning, and debugging techniques.",
+      "contentSections": [
+        {
+          "heading": "Motor Control with FCP32C335 Overview",
+          "content": "The FCP32C335 provides a complete platform for motor control applications with its high-performance C28x core, HRPWM capability, and rich analog peripherals. This guide covers practical implementation of FOC and other control algorithms, from hardware design through tuning and optimization."
+        },
+        {
+          "heading": "Hardware Design for Motor Control",
+          "content": "Motor control hardware includes the DSP, power stage, current sensing, and protection circuits. The FCP32C335 interfaces to gate drivers for power stage control. Current sensing typically uses shunt resistors with isolated amplifiers. Encoder interface connects to the QEP peripheral. Protection circuits include overcurrent, overvoltage, and overtemperature detection. Proper PCB layout is critical for noise immunity."
+        },
+        {
+          "heading": "FOC Algorithm Implementation",
+          "content": "FOC implementation includes Clarke and Park transformations, current controllers, and space vector PWM. The FCP32C335's 150MHz performance easily handles FOC calculations within typical switching periods. HRPWM provides precise voltage vector generation. Sensorless operation adds observer algorithms for position estimation. Funcience provides optimized FOC library code."
+        },
+        {
+          "heading": "Control Loop Tuning",
+          "content": "Tuning starts with current loop - set proportional and integral gains for fast response without oscillation. Velocity loop tuning follows for speed regulation. Position loop is tuned last for servo applications. The FCP32C335's fast ADC and PWM enable high control bandwidth. Auto-tuning algorithms can simplify the process. Funcience provides tuning guides and software tools."
+        },
+        {
+          "heading": "Protection and Safety",
+          "content": "Motor drives require comprehensive protection: Overcurrent protection via hardware and software. Overvoltage protection for regeneration conditions. Overtemperature monitoring of power stage and motor. Encoder loss detection for sensored systems. Safe torque off (STO) for safety applications. The FCP32C335's analog comparators enable fast hardware protection."
+        },
+        {
+          "heading": "Debugging and Optimization",
+          "content": "Debugging uses JTAG interface for real-time debugging without stopping the motor. Real-time data exchange enables monitoring variables during operation. Scope functions visualize control waveforms. Performance optimization includes code efficiency and interrupt latency. Funcience debugging tools accelerate development."
+        }
+      ],
+      "tags": [
+        "Motor Control",
+        "FOC",
+        "FCP32C335",
+        "Servo Drive",
+        "Tuning"
+      ],
+      "relatedArticles": [
+        "dsp-selection-guide",
+        "ethercat-servo-guide",
+        "troubleshooting-motor-control"
+      ],
+      "faeInsights": {
+        "insight": "Implementing motor control with FCP32C335 is straightforward if you follow systematic procedures. The most common issue I see is inadequate current sensing design - the shunt resistor value, amplifier bandwidth, and anti-aliasing filter must be carefully matched to your switching frequency. I recommend using 10-20kHz switching for general applications, which provides good balance between losses and control performance. For the FOC algorithm, start with sensored control to validate your hardware, then add sensorless if needed. The HRPWM is a powerful feature but requires proper configuration - make sure to read the application note on HRPWM setup. One debugging tip: use the on-chip DAC to output internal variables to an external scope - it's invaluable for tuning. The FCP32C335 has enough processing headroom that you can add diagnostic features and data logging without impacting control performance.",
+        "logic": "Motor control implementation follows this sequence: First, validate hardware including power stage, current sensing, and feedback. Second, implement basic PWM output and verify with open-loop control. Third, implement current sensing and ADC sampling synchronized to PWM. Fourth, implement FOC algorithm starting with current loop. Fifth, add velocity and position loops for servo control. Sixth, implement protection features and fault handling. Seventh, optimize performance and add advanced features. Each step should be validated before proceeding.",
+        "practicalTips": [
+          "Start with sensored control before attempting sensorless",
+          "Use evaluation kit to validate hardware design before custom PCB",
+          "Implement comprehensive protection early in development",
+          "Use on-chip DAC for debugging internal variables"
+        ],
+        "insightLogic": "Successful motor control implementation requires systematic validation at each stage. The FCP32C335 provides powerful features, but proper hardware design and methodical software development are essential for reliable operation.",
+        "author": {
+          "name": "Senior FAE",
+          "title": "Principal FAE - Technical Support",
+          "experience": "12 years",
+          "expertise": [
+            "Product Support",
+            "Application Engineering",
+            "Technical Consulting"
+          ]
+        },
+        "content": "Implementing motor control with FCP32C335 is straightforward if you follow systematic procedures. The most common issue I see is inadequate current sensing design - the shunt resistor value, amplifier bandwidth, and anti-aliasing filter must be carefully matched to your switching frequency. I recommend using 10-20kHz switching for general applications, which provides good balance between losses and control performance. For the FOC algorithm, start with sensored control to validate your hardware, then add sensorless if needed. The HRPWM is a powerful feature but requires proper configuration - make sure to read the application note on HRPWM setup. One debugging tip: use the on-chip DAC to output internal variables to an external scope - it's invaluable for tuning. The FCP32C335 has enough processing headroom that you can add diagnostic features and data logging without impacting control performance."
+      },
+      "customerCases": [
+        {
+          "customerName": "Servo Drive Manufacturer",
+          "industry": "Motion Control",
+          "application": "High-Performance Servo Drive",
+          "problem": "Customer was developing a new servo drive platform and needed to implement FOC control with high performance. They had limited experience with C2000 DSPs and needed guidance on optimal implementation.",
+          "diagnosis": "Analysis showed they needed HRPWM for smooth low-speed operation and fast current loop for high bandwidth. Their initial design had marginal current sensing bandwidth.",
+          "solution": "We recommended FCP32C335 with optimized current sensing design. Provided FOC library code and tuning guidance. Helped optimize PWM and ADC synchronization.",
+          "results": "Achieved 2kHz current loop bandwidth with smooth operation at 1 RPM. Torque ripple reduced by 50% compared to their previous design. Product successfully launched with excellent customer feedback.",
+          "feedback": "Customer reported positive experience and successful implementation.",
+          "challenge": "Customer was developing a new servo drive platform and needed to implement FOC control with high performance. They had limited experience with C2000 DSPs and needed guidance on optimal implementation."
+        }
+      ],
+      "faqs": [
+        {
+          "question": "What switching frequency should I use for motor control?",
+          "answer": "Switching frequency selection involves trade-offs: 5-10kHz is typical for general-purpose VFDs with good efficiency. 10-20kHz provides better dynamic response for servo applications. Above 20kHz reduces audible noise but increases switching losses. The FCP32C335 supports up to 20kHz easily with HRPWM. Match switching frequency to your application requirements - servo drives typically need 10-16kHz, while pumps and fans work well at 4-8kHz. Consider motor characteristics - some motors have minimum switching frequency requirements.",
+          "decisionGuide": "Start with 10kHz for servo applications, 5kHz for general VFDs. Adjust based on performance and thermal testing.",
+          "keywords": [
+            "switching frequency",
+            "PWM frequency",
+            "motor drive"
+          ]
+        },
+        {
+          "question": "How do I tune the current loop PI controller?",
+          "answer": "Current loop tuning procedure: Start with conservative gains (Kp=0.1, Ki=0.01). Apply step current command and observe response. Increase Kp until slight overshoot occurs, then reduce slightly. Increase Ki to eliminate steady-state error without excessive overshoot. Verify stability across operating range. Typical current loop bandwidth is 1/10th of switching frequency. For 10kHz switching, target 1kHz bandwidth. Use Funcience tuning tools to automate the process. Always validate with actual motor load, not just simulation.",
+          "decisionGuide": "Follow systematic tuning procedure. Use Funcience tuning tools for assistance. Validate with actual motor.",
+          "keywords": [
+            "PI tuning",
+            "current loop",
+            "controller gains"
+          ]
+        },
+        {
+          "question": "What current sensing method should I use?",
+          "answer": "Current sensing options include: Shunt resistors with isolated amplifiers - most common, cost-effective, good accuracy. Hall-effect sensors - isolated, good for high currents, moderate cost. Current transformers - only for AC, not suitable for DC bus sensing. For most applications, shunt resistors with isolated amplifiers provide best value. Select shunt value for 50-100mV drop at rated current. Amplifier bandwidth should exceed switching frequency. Include anti-aliasing filter before ADC. The FCP32C335's fast ADC enables direct sampling of current ripple.",
+          "decisionGuide": "Use shunt resistors with isolated amplifiers for most applications. Contact us for current sensing design guidance.",
+          "keywords": [
+            "current sensing",
+            "shunt resistor",
+            "isolated amplifier"
+          ]
+        },
+        {
+          "question": "How do I implement sensorless control?",
+          "answer": "Sensorless control uses observer algorithms to estimate rotor position: High-frequency injection works at standstill and low speeds. Back-EMF observation works at medium to high speeds. Transition between methods at appropriate speed. The FCP32C335 has processing power for advanced observers. Sensorless adds complexity and reduces performance at very low speeds. Start with sensored control to validate hardware, then add sensorless. Funcience provides sensorless control library. Parameter identification is required for observer tuning.",
+          "decisionGuide": "Implement sensored control first, then add sensorless. Use Funcience sensorless library for faster development.",
+          "keywords": [
+            "sensorless control",
+            "position observer",
+            "back-EMF"
+          ]
+        },
+        {
+          "question": "What protection features should I implement?",
+          "answer": "Essential motor drive protections: Overcurrent protection - hardware fast shutdown plus software monitoring. Overvoltage protection - for regeneration and transient conditions. Undervoltage protection - prevent operation with insufficient bus voltage. Overtemperature - monitor power stage and motor. Encoder loss - detect feedback failure for sensored systems. Following error - detect when motor cannot track command. Safe torque off (STO) - for safety-rated applications. The FCP32C335's analog comparators enable fast hardware protection.",
+          "decisionGuide": "Implement all essential protections for reliable operation. Contact us for protection scheme design.",
+          "keywords": [
+            "protection features",
+            "overcurrent protection",
+            "safe torque off"
+          ]
+        }
+      ],
+      "slug": "motor-control-guide"
+    },
+    {
+      "id": "troubleshooting-ethercat",
+      "title": "Troubleshooting EtherCAT Communication Issues",
+      "category": "Troubleshooting",
+      "author": {
+        "name": "David Liu",
+        "title": "Principal FAE - Industrial Networking",
+        "experience": "14 years",
+        "expertise": [
+          "EtherCAT Troubleshooting",
+          "Network Diagnostics",
+          "Communication Protocols"
+        ]
+      },
+      "publishDate": "2026-02-15",
+      "lastUpdated": "2026-02-15",
+      "summary": "Systematic troubleshooting guide for diagnosing and resolving EtherCAT communication issues. Covers common problems, diagnostic procedures, and solutions for reliable operation.",
+      "contentSections": [
+        {
+          "heading": "EtherCAT Troubleshooting Approach",
+          "content": "Effective troubleshooting requires systematic diagnosis starting from physical layer through application layer. This guide provides structured procedures for identifying and resolving common EtherCAT communication issues. Issues are categorized by symptoms for efficient diagnosis."
+        },
+        {
+          "heading": "Physical Layer Issues",
+          "content": "Physical layer problems include cable faults, connector issues, and signal integrity problems. Symptoms include link loss, CRC errors, and intermittent communication. Check cable quality and length limits. Verify connector installation and shielding. Inspect magnetics and PHY connections. Use network analyzers for advanced diagnosis. Most physical issues can be identified with basic test equipment."
+        },
+        {
+          "heading": "Link and Connection Problems",
+          "content": "Link issues manifest as no communication or frequent disconnections. Check PHY status registers for link state. Verify auto-negotiation completed successfully. Check for proper termination and cable quality. Monitor link status LEDs for visual indication. Link problems often indicate hardware issues requiring oscilloscope diagnosis."
+        },
+        {
+          "heading": "Protocol and State Machine Issues",
+          "content": "Protocol issues cause state transition failures and process data errors. Check ESI file configuration matches device implementation. Verify state machine transitions correctly (Init, Pre-Op, Safe-Op, Op). Monitor for invalid state transitions. Check process data mapping and synchronization settings. Protocol analyzers can capture and decode EtherCAT frames."
+        },
+        {
+          "heading": "Performance and Timing Issues",
+          "content": "Performance issues include high jitter, missed cycles, and slow response. Check cycle time settings match device capability. Monitor distributed clock synchronization status. Verify processing load doesn't exceed capacity. Check for interrupt latency issues. Timing analysis tools help identify bottlenecks."
+        },
+        {
+          "heading": "Environmental and EMC Issues",
+          "content": "Environmental issues cause intermittent failures under specific conditions. Temperature extremes affect component performance. EMI can corrupt communication. Check grounding and shielding practices. Verify compliance with EMC standards. Environmental testing identifies marginal designs."
+        }
+      ],
+      "tags": [
+        "Troubleshooting",
+        "EtherCAT",
+        "Diagnostics",
+        "Communication Issues",
+        "Debugging"
+      ],
+      "relatedArticles": [
+        "ethercat-development-guide",
+        "ethercat-selection-guide",
+        "migration-et1100-guide"
+      ],
+      "faeInsights": {
+        "insight": "After troubleshooting hundreds of EtherCAT issues, I've developed a systematic approach that solves most problems efficiently. Start with the physical layer - you'd be surprised how many 'complex' issues are simply bad cables or loose connections. Always check link status first before diving into protocol analysis. For intermittent issues, temperature and power supply are common culprits. I keep a list of most common issues: inadequate power supply decoupling causing random errors, incorrect ESI configuration preventing state transitions, and timing violations in application code causing watchdog timeouts. One tool I find invaluable is a simple EtherCAT frame capture - even without full protocol analysis, seeing the raw frames often reveals the problem. For distributed clock issues, check that all devices support DC and that sync signals are properly routed. Don't overlook the obvious - I've spent hours debugging only to find an unconfigured DIP switch or wrong baud rate setting.",
+        "logic": "Systematic troubleshooting follows the OSI model layers: Layer 1 (Physical) - cables, connectors, link status. Layer 2 (Data Link) - frame structure, addressing, CRC. Layer 7 (Application) - ESI configuration, process data, state machine. Start at Layer 1 and work up, as lower layer issues cause upper layer symptoms. Document each test result to build a diagnostic picture. Isolate the problem by testing components individually. Use divide-and-conquer to narrow down the fault location.",
+        "practicalTips": [
+          "Always start troubleshooting by checking physical connections and link status",
+          "Keep known-good cables and connectors for quick substitution tests",
+          "Document all configuration settings before making changes",
+          "Use systematic approach - change one thing at a time and test"
+        ],
+        "insightLogic": "Most EtherCAT issues fall into predictable categories. Systematic diagnosis starting from physical layer resolves issues efficiently without random trial-and-error.",
+        "author": {
+          "name": "Senior FAE",
+          "title": "Principal FAE - Technical Support",
+          "experience": "12 years",
+          "expertise": [
+            "Product Support",
+            "Application Engineering",
+            "Technical Consulting"
+          ]
+        },
+        "content": "After troubleshooting hundreds of EtherCAT issues, I've developed a systematic approach that solves most problems efficiently. Start with the physical layer - you'd be surprised how many 'complex' issues are simply bad cables or loose connections. Always check link status first before diving into protocol analysis. For intermittent issues, temperature and power supply are common culprits. I keep a list of most common issues: inadequate power supply decoupling causing random errors, incorrect ESI configuration preventing state transitions, and timing violations in application code causing watchdog timeouts. One tool I find invaluable is a simple EtherCAT frame capture - even without full protocol analysis, seeing the raw frames often reveals the problem. For distributed clock issues, check that all devices support DC and that sync signals are properly routed. Don't overlook the obvious - I've spent hours debugging only to find an unconfigured DIP switch or wrong baud rate setting."
+      },
+      "customerCases": [
+        {
+          "customerName": "Machine Builder",
+          "industry": "Industrial Automation",
+          "application": "Intermittent Communication Failures",
+          "problem": "Customer reported intermittent EtherCAT communication failures on their machine, occurring randomly during operation. The issue was difficult to reproduce and diagnose.",
+          "diagnosis": "Systematic troubleshooting revealed inadequate power supply decoupling on the FCE1100. Under high load conditions, power supply noise caused communication errors. The issue was temperature-dependent, occurring more frequently at higher ambient temperatures.",
+          "solution": "Added additional decoupling capacitors near FCE1100 power pins as per reference design. Improved ground plane connection. Added bulk capacitance to power supply.",
+          "results": "Communication failures eliminated completely. Machine operated reliably across full temperature range. Customer implemented design changes in production.",
+          "feedback": "Customer reported positive experience and successful implementation.",
+          "challenge": "Customer reported intermittent EtherCAT communication failures on their machine, occurring randomly during operation. The issue was difficult to reproduce and diagnose."
+        }
+      ],
+      "faqs": [
+        {
+          "question": "What are the most common EtherCAT communication errors?",
+          "answer": "Common EtherCAT errors include: Link loss - physical connection issues, cable faults, or PHY problems. CRC errors - signal integrity issues, EMI, or cable quality problems. State transition failures - ESI configuration mismatch or application errors. Watchdog timeouts - application not responding within expected time. Distributed clock errors - synchronization issues between devices. Frame errors - malformed frames or addressing problems. Most errors can be diagnosed by checking error counters in the ESC registers. Funcience provides error code reference guide.",
+          "decisionGuide": "Check ESC error registers for specific error types. Follow systematic troubleshooting procedures.",
+          "keywords": [
+            "common errors",
+            "communication errors",
+            "error diagnosis"
+          ]
+        },
+        {
+          "question": "How do I diagnose link loss issues?",
+          "answer": "Link loss diagnosis steps: Check physical cable connections and connector integrity. Verify cable quality - replace with known-good cable for testing. Check PHY status registers for link state and speed. Monitor link status LEDs on the board. Check for proper magnetics installation and termination. Verify power supplies are stable under load. Check for temperature-related issues. Use oscilloscope to examine Ethernet signals if hardware issues suspected. Most link issues are physical layer problems requiring hardware investigation.",
+          "decisionGuide": "Start with physical checks, then verify PHY status. Contact support for hardware diagnosis assistance.",
+          "keywords": [
+            "link loss",
+            "diagnosis procedure",
+            "physical layer"
+          ]
+        },
+        {
+          "question": "What causes high CRC error rates?",
+          "answer": "High CRC errors indicate data corruption on the network: Poor cable quality or damaged cables. Excessive cable length beyond specification. Inadequate shielding or grounding causing EMI pickup. Signal integrity issues due to improper termination. Noisy power supplies affecting PHY operation. Environmental factors like vibration or temperature extremes. Check CRC error counters in ESC registers to identify which segment has issues. Replace cables systematically to isolate faulty segments. Verify installation practices meet industrial Ethernet standards.",
+          "decisionGuide": "Check CRC counters to locate error source. Replace cables and verify installation quality.",
+          "keywords": [
+            "CRC errors",
+            "data corruption",
+            "signal integrity"
+          ]
+        },
+        {
+          "question": "Why does my device fail to reach Operational state?",
+          "answer": "Failure to reach Operational state indicates configuration or application issues: ESI file configuration doesn't match device implementation. PDO mapping is incorrect or inconsistent. Application code not handling state transitions properly. Process data size mismatch between configuration and implementation. Synchronization mode not supported or configured incorrectly. Check ESC state register to see which state is reached before failure. Review master error messages for specific failure reasons. Verify ESI file matches actual device capabilities. Test with simple configuration to isolate complexity-related issues.",
+          "decisionGuide": "Check state register and master error messages. Verify ESI configuration matches implementation.",
+          "keywords": [
+            "operational state",
+            "state transition",
+            "configuration error"
+          ]
+        },
+        {
+          "question": "How do I troubleshoot distributed clock synchronization issues?",
+          "answer": "DC synchronization troubleshooting: Verify all devices in network support distributed clocks. Check DC configuration in ESI file is correct. Monitor DC status registers for sync errors. Check propagation delay measurements are reasonable. Verify sync signals are properly routed and terminated. Check for excessive jitter in sync signals. Ensure reference clock is stable. Some devices may need longer sync initialization time. Use DC diagnostic tools to visualize synchronization quality. Check that cycle time is consistent across all devices.",
+          "decisionGuide": "Check DC status registers and sync signal quality. Verify all devices support DC.",
+          "keywords": [
+            "distributed clock",
+            "synchronization",
+            "DC troubleshooting"
+          ]
+        }
+      ],
+      "slug": "troubleshooting-ethercat"
+    }
+  ],
+  "seoTitle": "Funcience Technical Support | Documentation & Guides | LiTong Electronics",
+  "seoDescription": "Access Funcience technical documentation, selection guides, development resources, and troubleshooting support. Expert FAE assistance available.",
+  "seoKeywords": [
+    "Funcience technical support distributor",
+    "Funcience documentation selection guide",
+    "EtherCAT development guide distributor",
+    "DSP selection guide support",
+    "Funcience troubleshooting support",
+    "industrial chip distributor support"
+  ],
+  "faqs": [
+    {
+      "question": "What technical support resources are available for Funcience products?",
+      "answer": "Funcience provides comprehensive technical support including detailed datasheets, application notes, reference designs, and development tools. LiTong Electronics offers local technical support with experienced FAEs who can assist with product selection, design review, debugging, and application optimization. Support channels include phone, email, and on-site consultation for complex projects.",
+      "decisionGuide": "Contact LiTong for technical support. We provide product selection guidance, design review, and debugging assistance.",
+      "keywords": [
+        "technical support",
+        "FAE support",
+        "documentation"
+      ]
+    },
+    {
+      "question": "How do I select the right Funcience product for my application?",
+      "answer": "Product selection depends on your specific application requirements. For EtherCAT communication, consider FCE1100 for 2-port applications or FCE1353 for 3-port with integrated PHYs. For motor control, choose FCP32C335 for high-performance applications requiring HRPWM, or FCP32C334 for cost-sensitive designs. Our selection guides provide detailed comparison and recommendations. Contact our FAE team for personalized selection assistance.",
+      "decisionGuide": "Review our selection guides or contact LiTong for product selection assistance based on your specific requirements.",
+      "keywords": [
+        "product selection",
+        "selection guide",
+        "application requirements"
+      ]
+    },
+    {
+      "question": "Where can I find Funcience development tools and software?",
+      "answer": "Funcience development tools include evaluation kits, software libraries, configuration tools, and reference designs. These are available through LiTong Electronics. Evaluation kits provide complete hardware platforms for product evaluation. Software libraries include optimized code for common applications. Configuration tools simplify device setup. Contact LiTong to request development tools and software access.",
+      "decisionGuide": "Contact LiTong to request development tools, evaluation kits, and software libraries for your project.",
+      "keywords": [
+        "development tools",
+        "evaluation kit",
+        "software libraries"
+      ]
+    },
+    {
+      "question": "What documentation is available for Funcience products?",
+      "answer": "Funcience provides comprehensive documentation including product datasheets with electrical specifications, user manuals with detailed operation descriptions, application notes for specific use cases, reference manuals with register descriptions, and errata documents. All documentation is available through LiTong Electronics. Technical documentation is regularly updated and includes best practices for design and implementation.",
+      "decisionGuide": "Contact LiTong for access to complete technical documentation including datasheets, manuals, and application notes.",
+      "keywords": [
+        "documentation",
+        "datasheet",
+        "user manual"
+      ]
+    },
+    {
+      "question": "How can I get help with troubleshooting Funcience product issues?",
+      "answer": "For troubleshooting assistance, start with our troubleshooting guides which cover common issues and solutions. Check technical documentation for proper configuration and usage. Contact LiTong technical support with detailed information about your issue including symptoms, configuration, and test conditions. Our FAEs can provide diagnostic guidance, review your design, and suggest solutions. For complex issues, on-site support may be arranged.",
+      "decisionGuide": "Contact LiTong technical support for troubleshooting assistance. Provide detailed information for faster resolution.",
+      "keywords": [
+        "troubleshooting",
+        "technical support",
+        "debugging"
+      ]
+    },
+    {
+      "question": "Does Funcience provide training on product usage?",
+      "answer": "Yes, Funcience provides training on product usage and application development. Training topics include product overview, hardware design guidelines, software development, and application-specific implementation. Training can be conducted online or on-site depending on requirements. Contact LiTong to arrange training sessions for your engineering team. Training materials and recorded sessions may also be available.",
+      "decisionGuide": "Contact LiTong to arrange product training for your engineering team. We offer customized training sessions.",
+      "keywords": [
+        "training",
+        "product training",
+        "engineering support"
+      ]
+    },
+    {
+      "question": "Can I get design review services for my Funcience-based design?",
+      "answer": "Yes, LiTong Electronics offers design review services for Funcience-based designs. Our FAEs can review your schematic, PCB layout, and software implementation to identify potential issues and optimization opportunities. Design review services help ensure reliable operation and accelerate time-to-market. Contact us with your design files and requirements to arrange a design review.",
+      "decisionGuide": "Contact LiTong for design review services. We can review schematics, PCB layouts, and software implementations.",
+      "keywords": [
+        "design review",
+        "schematic review",
+        "PCB layout"
+      ]
+    },
+    {
+      "question": "What is the typical response time for technical support inquiries?",
+      "answer": "LiTong Electronics strives to provide prompt technical support. Standard inquiries are typically responded to within 24 hours during business days. Urgent issues receive priority handling with faster response times. Complex issues requiring detailed analysis may take longer, but we provide regular updates on progress. For critical production issues, emergency support is available. Contact us for support level agreements and response time commitments.",
+      "decisionGuide": "Contact LiTong for technical support with your inquiry. We prioritize urgent and production-critical issues.",
+      "keywords": [
+        "support response time",
+        "technical inquiry",
+        "customer service"
+      ]
+    }
+  ]
+}

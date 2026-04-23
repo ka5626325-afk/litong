@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 
 // 配置
-const DOMAIN = 'https://www.elec-distributor.com';
+const DOMAIN = 'https://core-distributor.com';
 const OUTPUT_DIR = path.join(__dirname, '..', 'output');
 const SITEMAP_PATH = path.join(OUTPUT_DIR, 'sitemap.xml');
 

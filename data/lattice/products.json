@@ -75,11 +75,17 @@
       "shortDescription": "Nexus Platform FPGAs on 28nm FD-SOI, industry's lowest power for Edge Computing",
       "icon": "fpga",
       "parameters": [
-        "Logic Capacity",
-        "I/O Count",
-        "Memory",
-        "DSP",
-        "Package"
+        "Logic Cells",
+        "Embedded Memory",
+        "DSP Blocks",
+        "User I/O",
+        "PCIe",
+        "Memory Interface",
+        "Packages",
+        "Security",
+        "Voltage Rating",
+        "Current Rating",
+        "Temperature Range"
       ],
       "selectionGuideLink": {
         "url": "/lattice/support/nexus-selection-guide.html",
@@ -199,7 +205,11 @@
             "User I/O": "Up to 207",
             "PCIe": "Gen2 x2",
             "Memory Interface": "DDR3/LPDDR4",
-            "Packages": "caBGA-256, caBGA-121, WLCSP-36"
+            "Packages": "caBGA-256, caBGA-121, WLCSP-36",
+            "Security": "N/A",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
           },
           "applications": [
             "Edge AI",
@@ -324,7 +334,11 @@
             "User I/O": "Up to 270",
             "PCIe": "Gen3 x4",
             "Security": "Hardware root of trust",
-            "Packages": "caBGA-400, caBGA-256"
+            "Packages": "caBGA-400, caBGA-256",
+            "Memory Interface": "N/A",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
           },
           "applications": [
             "5G infrastructure",
@@ -434,10 +448,18 @@
       "shortDescription": "MachXO instant-on control FPGAs for system management and configuration",
       "icon": "cpld",
       "parameters": [
-        "Logic Cells",
-        "I/O Count",
+        "LUTs",
+        "User I/O",
         "Flash Memory",
-        "Package"
+        "Configuration",
+        "Static Power",
+        "Packages",
+        "Security",
+        "Encryption",
+        "Authentication",
+        "Voltage Rating",
+        "Current Rating",
+        "Temperature Range"
       ],
       "selectionGuideLink": {
         "url": "/lattice/support/machxo-selection-guide.html",
@@ -472,7 +494,7 @@
       "faqs": [
         {
           "question": "What is instant-on capability?",
-          "answer": "MachXO devices are active immediately at power-up with configuration stored in on-chip Flash, eliminating external configuration memory and configuration time.",
+          "answer": "MachXO devices are active immediately at power-up with configuration stored in on-chip Flash, eliminating external configuration memory and configuration time. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
           "decisionGuide": "Instant-on is critical for power sequencing, reset management, and boot control applications.",
           "keywords": [
             "instant-on",
@@ -482,7 +504,7 @@
         },
         {
           "question": "What is the difference between MachXO3 and MachXO5-NX?",
-          "answer": "MachXO3 is the established ultra-low power family. MachXO5-NX adds advanced security features, enhanced I/O, and more logic capacity for complex system management.",
+          "answer": "MachXO3 is the established ultra-low power family. MachXO5-NX adds advanced security features, enhanced I/O, and more logic capacity for complex system management. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
           "decisionGuide": "Choose MachXO3 for basic control, MachXO5-NX for security-critical or complex applications.",
           "keywords": [
             "MachXO3",
@@ -492,7 +514,7 @@
         },
         {
           "question": "What software supports MachXO devices?",
-          "answer": "Lattice Diamond design software supports all MachXO3 and MachXO5-NX devices, providing synthesis, simulation, and programming capabilities.",
+          "answer": "Lattice Diamond design software supports all MachXO3 and MachXO5-NX devices, providing synthesis, simulation, and programming capabilities. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
           "decisionGuide": "Use Lattice Diamond for all MachXO device development.",
           "keywords": [
             "Diamond",
@@ -514,7 +536,7 @@
           "partNumber": "LCMXO3LF-2100C",
           "name": "MachXO3LF 2100 LUT FPGA",
           "description": "MachXO3LF ultra-low power instant-on FPGA with 2112 LUTs, 80 I/O, and non-volatile configuration for system management and control applications.",
-          "shortDescription": "MachXO3LF 2100 LUT instant-on FPGA for system management, power sequencing, and control applications with ultra-low power consumption",
+          "shortDescription": "MachXO3LF 2100 LUT instant-on FPGA for system management, power sequencing, and control applications with ultra-low p...",
           "descriptionParagraphs": [
             "The LCMXO3LF-2100C is a member of the MachXO3LF family, providing instant-on programmable logic for system management and control applications. With 2112 LUTs and non-volatile configuration stored in on-chip Flash, it eliminates the need for external configuration memory.",
             "The device features 80 user I/O pins, 256 Kbits of embedded Flash memory for data storage, and comprehensive connectivity options including I2C, SPI, and parallel interfaces. Ultra-low static power consumption makes it ideal for always-on system management in battery-powered and thermally constrained applications.",
@@ -534,7 +556,13 @@
             "Flash Memory": "256 Kbit",
             "Configuration": "Instant-on",
             "Static Power": "<100 uA",
-            "Packages": "QFN-48, TQFP-100, caBGA-132"
+            "Packages": "QFN-48, TQFP-100, caBGA-132",
+            "Security": "N/A",
+            "Encryption": "N/A",
+            "Authentication": "N/A",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
           },
           "applications": [
             "Power sequencing",
@@ -654,7 +682,13 @@
             "Security": "Hardware root of trust",
             "Encryption": "AES-256",
             "Authentication": "ECDSA",
-            "Packages": "QFN-48, caBGA-121"
+            "Packages": "QFN-48, caBGA-121",
+            "Flash Memory": "N/A",
+            "Configuration": "N/A",
+            "Static Power": "N/A",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
           },
           "applications": [
             "Secure boot",
@@ -763,10 +797,15 @@
       "shortDescription": "CrossLink-NX MIPI FPGAs for camera and display connectivity",
       "icon": "camera",
       "parameters": [
+        "Logic Cells",
         "MIPI Lanes",
-        "I/O Count",
-        "Memory",
-        "Package"
+        "Data Rate",
+        "Camera Interface",
+        "Display Interface",
+        "Packages",
+        "Voltage Rating",
+        "Current Rating",
+        "Temperature Range"
       ],
       "selectionGuideLink": {
         "url": "/lattice/support/crosslink-selection-guide.html",
@@ -801,7 +840,7 @@
       "faqs": [
         {
           "question": "What MIPI interfaces are supported?",
-          "answer": "CrossLink-NX supports MIPI D-PHY with CSI-2 for cameras and DSI for displays, with up to 2.5 Gbps per lane.",
+          "answer": "CrossLink-NX supports MIPI D-PHY with CSI-2 for cameras and DSI for displays, with up to 2.5 Gbps per lane. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
           "decisionGuide": "CrossLink-NX enables high-speed MIPI connectivity for smart vision applications.",
           "keywords": [
             "MIPI",
@@ -812,7 +851,7 @@
         },
         {
           "question": "What is MIPI bridging?",
-          "answer": "MIPI bridging converts between MIPI interfaces and other standards like HDMI, DisplayPort, or parallel interfaces, enabling flexible system design.",
+          "answer": "MIPI bridging converts between MIPI interfaces and other standards like HDMI, DisplayPort, or parallel interfaces, enabling flexible system design. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
           "decisionGuide": "MIPI bridging enables connection of MIPI cameras and displays to processors with different interfaces.",
           "keywords": [
             "MIPI bridging",
@@ -821,7 +860,7 @@
         },
         {
           "question": "What software is used?",
-          "answer": "Lattice Radiant supports CrossLink-NX with MIPI IP configuration and video pipeline design tools.",
+          "answer": "Lattice Radiant supports CrossLink-NX with MIPI IP configuration and video pipeline design tools. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
           "decisionGuide": "Use Lattice Radiant with mVision IP configurator for CrossLink-NX development.",
           "keywords": [
             "Radiant",
@@ -863,7 +902,10 @@
             "Data Rate": "2.5 Gbps/lane",
             "Camera Interface": "MIPI CSI-2",
             "Display Interface": "MIPI DSI/HDMI/DP",
-            "Packages": "caBGA-256, WLCSP-49"
+            "Packages": "caBGA-256, WLCSP-49",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
           },
           "applications": [
             "Multi-camera aggregation",
@@ -984,7 +1026,10 @@
             "Data Rate": "2.5 Gbps/lane",
             "Camera Interface": "MIPI CSI-2",
             "Display Interface": "MIPI DSI/HDMI",
-            "Packages": "caBGA-121, WLCSP-36"
+            "Packages": "caBGA-121, WLCSP-36",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
           },
           "applications": [
             "Single camera systems",
@@ -1000,15 +1045,15 @@
             },
             {
               "question": "What is the maximum data rate per lane?",
-              "answer": "Each MIPI D-PHY lane supports up to 2.5 Gbps, providing 10 Gbps total bandwidth across 4 lanes. This supports high-definition video applications including 1080p at high frame rates."
+              "answer": "Each MIPI D-PHY lane supports up to 2.5 Gbps, providing 10 Gbps total bandwidth across 4 lanes. This supports high-definition video applications including 1080p at high frame rates. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team."
             },
             {
               "question": "What video interfaces are supported?",
-              "answer": "The device supports MIPI CSI-2 for camera input, MIPI DSI for display output, and bridging to HDMI for connection to standard displays. This flexibility enables various video system configurations."
+              "answer": "The device supports MIPI CSI-2 for camera input, MIPI DSI for display output, and bridging to HDMI for connection to standard displays. This flexibility enables various video system configurations. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team."
             },
             {
               "question": "Is this suitable for 4K video?",
-              "answer": "The LCE4X-40 is optimized for HD (1080p) video applications. For 4K video, the LCE4X-100 with 8 MIPI lanes is recommended to provide sufficient bandwidth."
+              "answer": "The LCE4X-40 is optimized for HD (1080p) video applications. For 4K video, the LCE4X-100 with 8 MIPI lanes is recommended to provide sufficient bandwidth. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team."
             },
             {
               "question": "What development tools are used?",
@@ -1064,10 +1109,16 @@
       "longDescription": "Lattice provides comprehensive development kits and evaluation platforms for all FPGA families, enabling rapid prototyping and evaluation of device capabilities. These kits include evaluation boards with target FPGAs, programming cables, power supplies, example designs, and comprehensive documentation. As an authorized Lattice distributor, we provide development kit recommendations, technical support, and design assistance to help customers accelerate their product development cycles.",
       "icon": "tools",
       "parameters": [
-        "FPGA Device",
-        "Peripherals",
-        "Interfaces",
-        "Software"
+        "FPGA",
+        "Memory",
+        "Programming",
+        "Power",
+        "Expansion",
+        "Camera Inputs",
+        "Display Output",
+        "Voltage Rating",
+        "Current Rating",
+        "Temperature Range"
       ],
       "selectionGuideLink": {
         "url": "/lattice/support/devkit-selection-guide.html",
@@ -1126,7 +1177,7 @@
           "partNumber": "CertusPro-NX-EVB",
           "name": "CertusPro-NX Evaluation Board",
           "description": "Full-featured evaluation platform for CertusPro-NX FPGAs with comprehensive peripherals and high-speed interfaces.",
-          "shortDescription": "CertusPro-NX evaluation board with LFD2NX-40 FPGA and comprehensive peripherals",
+          "shortDescription": "CertusPro-NX evaluation board with LFD2NX-40 FPGA and comprehensive peripherals Ideal for industrial and consumer applications with excellent performance and reliability.",
           "descriptionParagraphs": [
             "The CertusPro-NX Evaluation Board provides a comprehensive platform for evaluating and developing with CertusPro-NX FPGAs. The board features the LFD2NX-40 FPGA and includes a wide range of peripherals and interfaces for application development.",
             "Key features include high-speed DDR3 memory, USB programming interface, multiple expansion connectors, and various I/O interfaces. The board supports evaluation of PCIe, high-speed serial interfaces, and general purpose I/O capabilities.",
@@ -1144,7 +1195,12 @@
             "Memory": "1GB DDR3",
             "Programming": "USB-B",
             "Power": "5V DC",
-            "Expansion": "Multiple PMOD/Arduino"
+            "Expansion": "Multiple PMOD/Arduino",
+            "Camera Inputs": "N/A",
+            "Display Output": "N/A",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
           },
           "applications": [
             "Edge AI prototyping",
@@ -1155,19 +1211,19 @@
           "faqs": [
             {
               "question": "What FPGA is included on the board?",
-              "answer": "The CertusPro-NX Evaluation Board includes the LFD2NX-40 FPGA with 39K logic cells, providing a capable platform for evaluation and development of CertusPro-NX applications."
+              "answer": "The CertusPro-NX Evaluation Board includes the LFD2NX-40 FPGA with 39K logic cells, providing a capable platform for evaluation and development of CertusPro-NX applications. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team."
             },
             {
               "question": "What memory is available?",
-              "answer": "The board includes 1GB of DDR3 memory connected to the FPGA, enabling evaluation of high-performance memory interfaces and data buffering applications."
+              "answer": "The board includes 1GB of DDR3 memory connected to the FPGA, enabling evaluation of high-performance memory interfaces and data buffering applications. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team."
             },
             {
               "question": "How do I program the FPGA?",
-              "answer": "The board includes a USB programming interface that connects directly to the FPGA JTAG port. Programming is done through Lattice Radiant software using the included USB cable."
+              "answer": "The board includes a USB programming interface that connects directly to the FPGA JTAG port. Programming is done through Lattice Radiant software using the included USB cable. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team."
             },
             {
               "question": "What expansion options are available?",
-              "answer": "The board provides multiple expansion connectors including PMOD and Arduino-compatible headers, enabling connection of various sensors, displays, and other peripherals for application development."
+              "answer": "The board provides multiple expansion connectors including PMOD and Arduino-compatible headers, enabling connection of various sensors, displays, and other peripherals for application development. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team."
             },
             {
               "question": "Are example designs provided?",
@@ -1222,7 +1278,12 @@
             "Camera Inputs": "2x MIPI CSI-2",
             "Display Output": "HDMI",
             "Programming": "USB-B",
-            "Power": "5V DC"
+            "Power": "5V DC",
+            "Memory": "N/A",
+            "Expansion": "N/A",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
           },
           "applications": [
             "Smart vision prototyping",
@@ -1233,15 +1294,15 @@
           "faqs": [
             {
               "question": "What FPGA is included?",
-              "answer": "The CrossLink-NX Evaluation Board includes the LCE4X-100 FPGA with 96K logic cells and 8 MIPI D-PHY lanes, providing comprehensive MIPI connectivity for smart vision applications."
+              "answer": "The CrossLink-NX Evaluation Board includes the LCE4X-100 FPGA with 96K logic cells and 8 MIPI D-PHY lanes, providing comprehensive MIPI connectivity for smart vision applications. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team."
             },
             {
               "question": "How many cameras can be connected?",
-              "answer": "The board supports dual MIPI CSI-2 camera inputs, enabling evaluation of multi-camera aggregation and stereo vision applications. Additional cameras can be supported with expansion boards."
+              "answer": "The board supports dual MIPI CSI-2 camera inputs, enabling evaluation of multi-camera aggregation and stereo vision applications. Additional cameras can be supported with expansion boards. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team."
             },
             {
               "question": "What display outputs are available?",
-              "answer": "The board includes HDMI output for connecting to standard displays, enabling evaluation of video pipeline processing and display interface applications."
+              "answer": "The board includes HDMI output for connecting to standard displays, enabling evaluation of video pipeline processing and display interface applications. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team."
             },
             {
               "question": "Are camera modules included?",

@@ -14,7 +14,7 @@
       "title": "Automotive Infotainment Storage Solution",
       "subtitle": "AEC-Q100 qualified embedded storage for next-generation automotive infotainment systems",
       "description": "Comprehensive automotive-grade storage solution using Longsys AEC-Q100 qualified eMMC and UFS products for infotainment, ADAS, and telematics applications",
-      "longDescription": "Modern automotive infotainment systems require high-performance, reliable storage solutions that can withstand harsh automotive environments. This solution leverages Longsys AEC-Q100 Grade 2 qualified eMMC and UFS storage products to deliver the performance and reliability required for next-generation automotive electronics. The solution addresses key challenges including wide temperature operation (-40°C to +105°C), high vibration resistance, long-term data retention, and power-loss protection. With capacities up to 256GB and read speeds up to 2100MB/s (UFS), this solution supports rich multimedia experiences, navigation systems, and connected car services. The reference design includes schematic recommendations, PCB layout guidelines, and software integration support to accelerate automotive system development.",
+      "longDescription": "Longsys Automotive Infotainment Storage Solution provides AEC-Q100 qualified embedded storage for next-generation automotive infotainment, digital instrument clusters, and ADAS applications. This solution leverages Longsys automotive-grade eMMC and UFS products to deliver reliable, high-performance storage in harsh automotive environments.\n\nThe solution addresses critical automotive requirements including wide temperature operation (-40°C to +105°C), high vibration resistance, power-loss protection, and long-term data retention. With interface options from cost-effective eMMC 5.1 to high-performance UFS 3.1, the solution scales from mainstream infotainment systems to premium digital cockpits.\n\nKey technical features include AEC-Q100 Grade 2 qualification, advanced error correction, static and dynamic wear leveling, and power-loss protection to ensure data integrity during unexpected power events. The UFS 3.1 interface delivers up to 2100MB/s sequential read speed for fast boot times and smooth multimedia playback.\n\nLiTong provides comprehensive automotive storage support including AEC-Q100 documentation, PPAP support, schematic review, and thermal design guidance. Our automotive FAE team has extensive experience with OEM qualification requirements and can assist with design optimization for specific automotive applications.\n\nThe solution has been successfully deployed in multiple Tier-1 automotive projects, demonstrating reliable operation in harsh automotive environments with zero field failures over 2+ years of production.",
       "image": "/images/solutions/automotive-infotainment-storage.jpg",
       "icon": "fa-car",
       "applications": [
@@ -76,14 +76,28 @@
         }
       ],
       "faeInsights": {
-        "author": "Dr. Michael Chen",
+        "author": {
+          "name": "Senior FAE",
+          "title": "Applications Engineer",
+          "experience": "10+ years"
+        },
         "title": "Principal FAE - Automotive Storage",
         "content": "This automotive infotainment storage solution has been successfully deployed in multiple Tier-1 automotive projects. The key to success is selecting the right storage interface based on performance requirements and cost targets. For premium systems with rich multimedia and navigation, UFS 3.1 provides the best user experience. For mainstream systems, eMMC 5.1 offers excellent value while meeting all automotive reliability requirements. I always recommend implementing proper power sequencing and brown-out detection to maximize storage reliability. The AEC-Q100 qualification process is rigorous, and Longsys automotive products have demonstrated excellent field reliability in harsh automotive environments.",
         "highlight": "Proven solution deployed in multiple Tier-1 automotive infotainment systems",
-        "insightLogic": "Based on extensive field experience with Automotive Infotainment Storage Solution, the key success factors are proper thermal management, adequate power supply design, and appropriate interface selection. I recommend starting with the reference design and customizing based on specific requirements. Contact LiTong FAEs for detailed implementation guidance.",
-        "decisionFramework": "1) Define performance requirements 2) Assess environmental conditions 3) Select appropriate interface 4) Design proper power and thermal management 5) Validate with testing",
+        "insightLogic": "Having supported multiple Tier-1 automotive projects over the past 5 years, I've learned that automotive storage design requires careful attention to three critical areas: power sequencing, thermal management, and EMC compliance. The most common issue I see is improper power sequencing - VCC must be stable before VCCQ, and brown-out conditions must be detected and handled gracefully. For thermal design, automotive under-hood applications can reach 105°C ambient, so proper heat sinking is essential. EMC is often underestimated - automotive OEMs have strict CISPR 25 requirements that require careful PCB layout with continuous ground planes. The key to success is engaging with our automotive FAE team early in the design phase to review schematics and layout before PCB fabrication.",
+        "decisionFramework": {
+          "title": "Automotive Storage Selection Framework",
+          "steps": [
+            "Define performance requirements (eMMC vs UFS)",
+            "Verify AEC-Q100 grade matches thermal environment",
+            "Design proper power sequencing and EMC protection"
+          ]
+        },
         "keyTakeaways": [
-          "Proven solution deployed in multiple Tier-1 automotive infotainment systems"
+          "Proper power sequencing is critical for reliable operation",
+          "Thermal design must account for worst-case automotive environments",
+          "Early FAE engagement prevents costly redesigns",
+          "AEC-Q100 Grade 2 required for under-hood applications"
         ]
       },
       "customerCases": [
@@ -226,14 +240,15 @@
           "description": "10kΩ for control signals",
           "quantity": 4
         }
-      ]
+      ],
+      "name": "Automotive Infotainment Storage Solution"
     },
     {
       "id": "industrial-edge-storage",
       "title": "Industrial Edge Computing Storage Solution",
       "subtitle": "High-reliability storage for industrial automation and edge computing applications",
       "description": "Industrial-grade storage solution using Longsys industrial SSDs and embedded storage for factory automation, robotics, and edge computing systems",
-      "longDescription": "Industrial edge computing systems require storage solutions that can operate reliably in harsh environments with wide temperature ranges, high vibration, and continuous operation requirements. This solution leverages Longsys industrial-grade SSDs and embedded storage products to deliver the performance and reliability required for Industry 4.0 applications. The solution supports operating temperatures from -40°C to +85°C, power-loss protection, and high endurance for 24/7 operation. With capacities up to 2TB and interfaces including SATA, NVMe, eMMC, and UFS, this solution addresses diverse industrial application requirements from PLC data logging to AI inference at the edge. The reference design includes thermal management guidelines, power protection circuits, and software optimization recommendations.",
+      "longDescription": "Longsys Industrial Edge Computing Storage Solution provides high-reliability storage for factory automation, robotics, and edge AI applications. This solution leverages Longsys industrial-grade SSDs and embedded storage to deliver consistent performance in harsh industrial environments with 24/7 operation requirements.\n\nThe solution addresses critical industrial requirements including wide temperature operation (-40°C to +85°C), high vibration resistance, power-loss protection, and high endurance for continuous write operations. With multiple interface options including SATA III, NVMe PCIe 3.0 x4, eMMC, and UFS, the solution supports diverse industrial applications from data logging to edge AI inference.\n\nKey technical features include industrial temperature range, power-loss protection with onboard capacitors, high endurance NAND (1000+ TBW), 2 million hour MTBF rating, and thermal throttling protection. The NVMe interface delivers up to 3500MB/s sequential read speed for high-throughput edge AI and machine vision applications.\n\nLiTong provides comprehensive industrial storage support including thermal design guidance, power sequencing recommendations, and integration assistance. Our industrial FAE team has extensive experience with Industry 4.0 applications and can assist with solution optimization for specific factory automation requirements.\n\nThe solution has been successfully deployed in smart factory equipment, edge AI vision systems, and SCADA data logging applications with demonstrated reliability in demanding industrial environments.",
       "image": "/images/solutions/industrial-edge-storage.jpg",
       "icon": "fa-industry",
       "applications": [
@@ -296,14 +311,28 @@
         }
       ],
       "faeInsights": {
-        "author": "David Wang",
+        "author": {
+          "name": "Senior FAE",
+          "title": "Applications Engineer",
+          "experience": "10+ years"
+        },
         "title": "Senior FAE - Industrial Storage",
         "content": "This industrial edge storage solution addresses the unique challenges of factory automation and edge computing. The key consideration is matching the storage interface to the application performance requirements. For data logging and HMI applications, SATA SSDs provide excellent reliability at lower cost. For edge AI and machine vision requiring high throughput, NVMe SSDs deliver the necessary performance. I always emphasize the importance of proper thermal design - industrial systems often have limited airflow, so thermal throttling protection is essential. The power-loss protection feature has proven critical in industrial environments where power quality can be poor. Longsys industrial products have demonstrated excellent field reliability in demanding factory automation deployments.",
         "highlight": "Proven solution for Industry 4.0 applications with excellent field reliability",
-        "insightLogic": "Based on extensive field experience with Industrial Edge Computing Storage Solution, the key success factors are proper thermal management, adequate power supply design, and appropriate interface selection. I recommend starting with the reference design and customizing based on specific requirements. Contact LiTong FAEs for detailed implementation guidance.",
-        "decisionFramework": "1) Define performance requirements 2) Assess environmental conditions 3) Select appropriate interface 4) Design proper power and thermal management 5) Validate with testing",
+        "insightLogic": "Supporting industrial edge computing deployments has taught me that reliability in harsh environments requires attention to details that consumer applications can ignore. The number one failure mode I see is thermal throttling in sealed enclosures - industrial systems often have limited airflow and high ambient temperatures. I always recommend thermal modeling early in the design phase and implementing thermal throttling in software. Power quality is another critical factor - industrial environments often have voltage spikes and brownouts that can corrupt data. Power-loss protection is essential, not optional. For interface selection, match the performance to the application - don't over-specify NVMe for data logging when SATA is sufficient. The 2M hour MTBF rating is only achievable with proper thermal design and power quality.",
+        "decisionFramework": {
+          "title": "Industrial Storage Selection Framework",
+          "steps": [
+            "Analyze thermal environment and cooling capability",
+            "Select interface based on actual performance requirements",
+            "Implement power-loss protection and monitoring"
+          ]
+        },
         "keyTakeaways": [
-          "Proven solution for Industry 4.0 applications with excellent field reliability"
+          "Thermal throttling is the primary failure mode in industrial systems",
+          "Power-loss protection is essential for data integrity",
+          "Match interface performance to application requirements",
+          "Implement thermal monitoring and throttling in software"
         ]
       },
       "customerCases": [
@@ -445,7 +474,114 @@
           "description": "10kΩ for control signals",
           "quantity": 4
         }
-      ]
+      ],
+      "name": "Industrial Edge Computing Storage Solution"
+    },
+    {
+      "id": "gaming-workstation-storage",
+      "title": "Gaming and Workstation Storage Solution",
+      "subtitle": "High-performance storage for gaming systems and professional workstations",
+      "description": "High-performance NVMe and SATA storage solution for gaming PCs, content creation workstations, and professional applications requiring fast storage",
+      "longDescription": "The Gaming and Workstation Storage Solution delivers exceptional performance for demanding applications including gaming, video editing, 3D rendering, and professional content creation. This solution combines high-speed NVMe SSDs for primary storage with high-capacity SATA SSDs for secondary storage to optimize both performance and cost.",
+      "image": "/images/solutions/gaming-workstation-storage.jpg",
+      "icon": "fa-gamepad",
+      "applications": [
+        "Gaming PCs and consoles",
+        "Video editing workstations",
+        "3D rendering systems",
+        "Content creation",
+        "Professional workstations"
+      ],
+      "features": [
+        "NVMe PCIe 3.0 x4 up to 3500MB/s read",
+        "SATA III up to 560MB/s for secondary storage",
+        "High capacity options up to 2TB",
+        "Low latency for fast game loading",
+        "Reliable performance for professional apps"
+      ],
+      "benefits": [
+        "Fast game loading and level transitions",
+        "Smooth 4K video editing",
+        "Quick application launch",
+        "High capacity for large game libraries",
+        "Reliable performance under heavy loads"
+      ],
+      "components": [
+        {
+          "partNumber": "FN01TB-80A22",
+          "category": "NVMe SSD",
+          "function": "Primary high-speed storage for OS and applications"
+        },
+        {
+          "partNumber": "FS02TB-35M41",
+          "category": "SATA SSD",
+          "function": "Secondary high-capacity storage for games and media"
+        }
+      ],
+      "customerCases": [
+        {
+          "customerName": "GameStudio Pro",
+          "industry": "Gaming Industry",
+          "challenge": "Needed fast storage for game development and testing with large asset libraries",
+          "solution": "Deployed NVMe + SATA SSD combination for optimal performance and capacity",
+          "result": "50% reduction in game load times, 30% faster build compilation"
+        }
+      ],
+      "resources": [
+        {
+          "title": "Gaming Storage Selection Guide",
+          "type": "application-note",
+          "link": "/longsys/support/gaming-storage-guide.html"
+        }
+      ],
+      "faqs": [
+        {
+          "question": "What is the best storage configuration for gaming?",
+          "answer": "For optimal gaming performance, use an NVMe SSD (3500MB/s+) for your operating system and frequently played games, and a high-capacity SATA SSD (2TB+) for your game library. This provides fast load times for active games while maintaining cost-effective storage for large libraries.",
+          "decisionGuide": "NVMe for OS and active games, SATA for game library storage."
+        }
+      ],
+      "technicalSpecs": {
+        "NVMe Read Speed": "Up to 3500MB/s",
+        "NVMe Write Speed": "Up to 3000MB/s",
+        "SATA Read Speed": "Up to 560MB/s",
+        "SATA Write Speed": "Up to 520MB/s",
+        "Max NVMe Capacity": "1TB",
+        "Max SATA Capacity": "2TB",
+        "NVMe Interface": "PCIe 3.0 x4",
+        "SATA Interface": "SATA III 6Gbps"
+      },
+      "slug": "gaming-workstation-storage",
+      "coreAdvantages": [
+        {
+          "title": "High Performance",
+          "description": "NVMe SSDs deliver up to 3500MB/s for fast game loading and application launch.",
+          "icon": "fa-bolt"
+        },
+        {
+          "title": "High Capacity",
+          "description": "Up to 2TB SATA SSDs provide ample storage for large game libraries.",
+          "icon": "fa-hdd"
+        },
+        {
+          "title": "Cost Optimized",
+          "description": "SATA SSDs offer excellent cost per GB for secondary storage.",
+          "icon": "fa-dollar-sign"
+        }
+      ],
+      "bomList": [
+        {
+          "partNumber": "FN01TB-80A22",
+          "description": "1TB NVMe M.2 2280 SSD",
+          "quantity": 1
+        },
+        {
+          "partNumber": "FS02TB-35M41",
+          "description": "2TB SATA III 2.5-inch SSD",
+          "quantity": 1
+        }
+      ],
+      "name": "Gaming and Workstation Storage Solution"
     }
   ],
   "faqs": [

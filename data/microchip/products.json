@@ -13,31 +13,51 @@
       "question": "What types of microcontrollers does Microchip offer?",
       "answer": "Microchip offers a comprehensive range of microcontrollers across three main architectures: 1) PIC microcontrollers (8-bit and 16-bit) featuring rich analog integration, low power consumption, and extensive peripheral sets ideal for industrial and automotive applications; 2) AVR microcontrollers (8-bit and 32-bit) known for high code efficiency, fast execution, and popularity in maker communities with Arduino compatibility; 3) SAM microcontrollers (32-bit ARM Cortex-M based) providing high-performance computing for complex IoT, industrial automation, and connectivity applications. Each family offers multiple variants with different memory sizes, package options, and specialized features for specific applications.",
       "decisionGuide": "Browse our microcontroller categories to explore the complete portfolio, or contact our FAE team for architecture selection guidance based on your application requirements.",
-      "keywords": ["Microchip microcontroller types", "PIC vs AVR", "SAM microcontroller"]
+      "keywords": [
+        "Microchip microcontroller types",
+        "PIC vs AVR",
+        "SAM microcontroller"
+      ]
     },
     {
       "question": "How do I select the right Microchip product for my application?",
       "answer": "Selecting the right Microchip product requires evaluating several key factors: 1) Performance requirements - determine if you need 8-bit simplicity, 16-bit enhanced performance, or 32-bit ARM capabilities; 2) Memory needs - calculate required Flash for program storage and RAM for data processing; 3) Peripheral integration - identify required analog channels, communication interfaces (UART, SPI, I2C, CAN, USB), and specialized functions like motor control PWMs; 4) Power constraints - consider sleep mode currents and operating voltage range for battery-powered designs; 5) Connectivity requirements - evaluate wired (Ethernet, USB) or wireless (WiFi, Bluetooth, LoRa) needs; 6) Security features - assess need for hardware crypto, secure boot, or tamper detection for IoT applications.",
       "decisionGuide": "Use our product selection guides or contact our FAE team with your technical specifications for personalized recommendations.",
-      "keywords": ["Microchip product selection", "how to select microcontroller", "MCU selection guide"]
+      "keywords": [
+        "Microchip product selection",
+        "how to select microcontroller",
+        "MCU selection guide"
+      ]
     },
     {
       "question": "What analog products are available from Microchip?",
       "answer": "Microchip provides a comprehensive portfolio of analog and power management solutions: 1) Operational amplifiers including precision, low-power, and high-speed variants for signal conditioning; 2) Data converters (ADCs and DACs) with resolutions from 8-bit to 24-bit for precision measurement and control; 3) Voltage regulators including LDOs, switching regulators, and voltage references for power management; 4) Battery management ICs for charging, fuel gauging, and protection of Li-ion and other chemistries; 5) Motor drivers for brushed DC, brushless DC, and stepper motors; 6) LED drivers for lighting and display applications; 7) Interface products including CAN, LIN, and RS-485 transceivers for industrial communications.",
       "decisionGuide": "Explore our Analog Products category to find amplifiers, data converters, power management, and interface solutions for your design.",
-      "keywords": ["Microchip analog products", "Microchip power management", "Microchip ADC DAC"]
+      "keywords": [
+        "Microchip analog products",
+        "Microchip power management",
+        "Microchip ADC DAC"
+      ]
     },
     {
       "question": "What are the advantages of Microchip's FPGA solutions?",
       "answer": "Microchip's FPGA portfolio offers unique advantages that differentiate them from competitors: 1) Flash-based architecture provides instant-on capability and immunity to single-event upsets (SEU), critical for aerospace and defense applications; 2) Industry-leading low power consumption, essential for battery-powered and thermally constrained designs; 3) Non-volatile configuration eliminates need for external configuration memory and enables secure boot; 4) Comprehensive security features including anti-tamper, DPA-resistant crypto accelerators, and physically unclonable functions (PUF); 5) PolarFire family offers cost-effective solutions with 50% lower power than competing SRAM FPGAs; 6) Extended temperature ranges (-55°C to +125°C) for harsh environment applications; 7) Long product lifecycles (20+ years) ensuring supply continuity.",
       "decisionGuide": "Visit our FPGA category to explore PolarFire, IGLOO, and SmartFusion solutions for your programmable logic requirements.",
-      "keywords": ["Microchip FPGA advantages", "flash FPGA benefits", "PolarFire low power"]
+      "keywords": [
+        "Microchip FPGA advantages",
+        "flash FPGA benefits",
+        "PolarFire low power"
+      ]
     },
     {
       "question": "Does Microchip offer development tools and software support?",
       "answer": "Microchip provides comprehensive development ecosystem support: 1) MPLAB X IDE - free, cross-platform integrated development environment supporting all Microchip microcontrollers with advanced debugging capabilities; 2) MPLAB Harmony - modular firmware development framework for 32-bit SAM and PIC32 applications; 3) Atmel Studio / Microchip Studio - development environment for AVR and SAM microcontrollers; 4) Libero SoC - FPGA design suite for Microchip programmable logic devices; 5) Extensive code libraries and application examples for rapid development; 6) In-circuit debuggers and programmers including PICkit, ICD, and Atmel-ICE; 7) Development boards and evaluation kits for all major product families; 8) Technical documentation including datasheets, application notes, and reference designs available through our distributor portal.",
       "decisionGuide": "Contact our FAE team for development tool recommendations and access to software libraries for your Microchip-based designs.",
-      "keywords": ["Microchip development tools", "MPLAB X IDE", "Microchip software support"]
+      "keywords": [
+        "Microchip development tools",
+        "MPLAB X IDE",
+        "Microchip software support"
+      ]
     }
   ],
   "categories": [
@@ -54,13 +74,19 @@
         "SAM - ARM Cortex-M based 32-bit MCUs"
       ],
       "parameters": [
+        "Architecture",
         "Flash Memory",
         "RAM",
-        "Operating Voltage",
+        "EEPROM",
         "Max Frequency",
-        "GPIO Count",
-        "ADC Resolution",
-        "Package Type"
+        "GPIO",
+        "ADC",
+        "Operating Voltage",
+        "Temperature Range",
+        "SRAM",
+        "USB",
+        "Voltage Rating",
+        "Current Rating"
       ],
       "selectionGuide": "Select PIC for cost-sensitive applications with analog integration, AVR for code efficiency, SAM for 32-bit performance and connectivity.",
       "selectionGuideLink": {
@@ -72,31 +98,51 @@
           "question": "What is the difference between PIC and AVR microcontrollers?",
           "answer": "PIC and AVR microcontrollers have distinct architectural differences: PIC uses a modified Harvard architecture with single-cycle execution for most instructions, offering deterministic timing critical for control applications. PIC devices excel in analog integration with advanced ADCs, comparators, and op-amps on-chip. AVR uses a more traditional RISC architecture with 32 general-purpose registers enabling efficient C code compilation and faster context switching. AVR devices typically offer higher MIPS per MHz and are popular for Arduino-compatible designs. PIC has a longer history in industrial applications with proven reliability, while AVR dominates in consumer and educational markets. Both families offer excellent development tools, but PIC uses MPLAB X while AVR traditionally used Atmel Studio (now Microchip Studio).",
           "decisionGuide": "Choose PIC for industrial applications requiring analog integration and deterministic timing; select AVR for code efficiency and rapid prototyping.",
-          "keywords": ["PIC vs AVR", "microcontroller architecture", "MCU comparison"]
+          "keywords": [
+            "PIC vs AVR",
+            "microcontroller architecture",
+            "MCU comparison"
+          ]
         },
         {
           "question": "How do I choose between 8-bit and 32-bit microcontrollers?",
           "answer": "The choice between 8-bit and 32-bit microcontrollers depends on application complexity and performance requirements: 8-bit MCUs (PIC16/18, AVR) are ideal for simple control tasks, sensor interfaces, and cost-sensitive applications requiring minimal processing power. They offer lower power consumption, smaller packages, and reduced BOM cost. 32-bit MCUs (SAM, PIC32) are required for complex algorithms, graphics processing, protocol stacks, and RTOS-based designs. They provide significantly more memory, higher clock speeds, and advanced peripherals like Ethernet and USB. Consider 8-bit when your application involves simple I/O control, basic timing, and low-cost requirements. Choose 32-bit when you need DSP capabilities, extensive connectivity, floating-point math, or plan to run an operating system.",
           "decisionGuide": "Start with 8-bit for simple applications under $2 BOM cost; choose 32-bit for complex processing, connectivity, or when memory needs exceed 128KB Flash.",
-          "keywords": ["8-bit vs 32-bit", "microcontroller selection", "MCU architecture choice"]
+          "keywords": [
+            "8-bit vs 32-bit",
+            "microcontroller selection",
+            "MCU architecture choice"
+          ]
         },
         {
           "question": "What development tools do I need for Microchip microcontrollers?",
           "answer": "Microchip provides comprehensive free development tools: MPLAB X IDE is the primary development environment supporting all PIC, AVR, and SAM microcontrollers with integrated compiler, debugger, and programmer support. The XC8, XC16, and XC32 compilers provide optimized C/C++ compilation for respective architectures. For debugging, you'll need hardware tools like PICkit 4 (entry-level), ICD 4 (professional), or Atmel-ICE (for AVR/SAM). Development boards like Curiosity Nano, Xplained Pro, and Explorer boards provide low-cost evaluation platforms. MPLAB Harmony framework accelerates 32-bit development with middleware and drivers. All tools are available as free downloads, with optional paid Pro compiler optimizations. As an authorized distributor, BeiLuo can provide bundled development kits at competitive pricing.",
           "decisionGuide": "Download MPLAB X IDE and the appropriate XC compiler for free. Contact us for hardware debugger and development board recommendations based on your target MCU family.",
-          "keywords": ["Microchip development tools", "MPLAB X IDE", "PICkit debugger"]
+          "keywords": [
+            "Microchip development tools",
+            "MPLAB X IDE",
+            "PICkit debugger"
+          ]
         },
         {
           "question": "What is the typical product lifecycle for Microchip microcontrollers?",
           "answer": "Microchip is renowned for industry-leading product lifecycles, typically guaranteeing 15-20 years of availability for most microcontroller families. This long-term supply commitment is critical for industrial, automotive, and medical applications requiring extended production runs. Microchip's Product Longevity Program (PLP) formally commits to maintaining production for specific devices, with some families guaranteed for 25+ years. Unlike competitors who obsolete products after 5-7 years, Microchip understands that embedded designs often require decade-long support. When a product does reach end-of-life, Microchip provides 12-24 months advance notice and typically offers pin-compatible migration paths to newer devices. This supply stability significantly reduces redesign costs and qualification efforts for long-life products.",
           "decisionGuide": "For applications requiring 10+ year production lifecycles, Microchip MCUs are an excellent choice. Contact our FAE team for specific product longevity commitments.",
-          "keywords": ["Microchip product lifecycle", "MCU longevity", "embedded supply continuity"]
+          "keywords": [
+            "Microchip product lifecycle",
+            "MCU longevity",
+            "embedded supply continuity"
+          ]
         },
         {
           "question": "Do Microchip microcontrollers support functional safety applications?",
           "answer": "Yes, Microchip offers extensive functional safety support for ISO 26262 (automotive) and IEC 61508 (industrial) applications. Many SAM and PIC32 devices are available with Safety Manuals providing FMEDA (Failure Modes, Effects, and Diagnostics Analysis) data for ASIL-B/D compliance. The dsPIC33C family includes specialized Digital Signal Controllers with hardware safety features like dual-core lockstep, ECC memory, and clock monitoring. Microchip provides safety-certified software libraries and RTOS options. For development, MPLAB X supports code coverage analysis and static analysis integration. As an authorized distributor, BeiLuo can provide safety documentation, reference designs for safety-critical applications, and access to Microchip's functional safety experts for architecture guidance.",
           "decisionGuide": "Contact our automotive/industrial FAE specialists for functional safety documentation and MCU recommendations for your safety-critical application.",
-          "keywords": ["Microchip functional safety", "ISO 26262 MCU", "safety-critical microcontroller"]
+          "keywords": [
+            "Microchip functional safety",
+            "ISO 26262 MCU",
+            "safety-critical microcontroller"
+          ]
         }
       ],
       "products": [
@@ -119,7 +165,11 @@
             "ADC": "12-bit, 30 channels",
             "Operating Voltage": "1.8V - 5.5V",
             "Package": "TQFP-44, QFN-44",
-            "Temperature Range": "-40°C to +85°C (Industrial)"
+            "Temperature Range": "-40°C to +85°C (Industrial)",
+            "SRAM": "N/A",
+            "USB": "N/A",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A"
           },
           "features": [
             "XLP technology for ultra-low power consumption",
@@ -217,31 +267,51 @@
               "question": "What is the maximum clock frequency for PIC18F46K22?",
               "answer": "The PIC18F46K22 supports maximum clock frequencies up to 64MHz using the internal oscillator with PLL. When using external crystal oscillators, the maximum frequency depends on the oscillator mode: HS mode supports up to 25MHz crystals, while HSPLL mode can multiply a 4-10MHz crystal up to 40MHz. The device also supports external clock inputs up to 64MHz. For power-sensitive applications, the clock can be scaled down to 31kHz using the internal LFINTOSC. The flexible clock system allows dynamic clock switching during operation to optimize power consumption versus performance based on application requirements.",
               "decisionGuide": "Use 64MHz for maximum performance; consider lower frequencies or sleep modes for power-sensitive battery applications.",
-              "keywords": ["PIC18F46K22 clock speed", "maximum frequency", "oscillator configuration"]
+              "keywords": [
+                "PIC18F46K22 clock speed",
+                "maximum frequency",
+                "oscillator configuration"
+              ]
             },
             {
               "question": "How much current does PIC18F46K22 consume in sleep mode?",
               "answer": "The PIC18F46K22 features industry-leading low power consumption thanks to XLP technology. Typical sleep mode current is just 20nA when using the LFINTOSC with all peripherals disabled. With the watchdog timer enabled, sleep current increases to approximately 300nA. In active mode, current consumption is 34μA/MHz typical at 3.3V. For battery-powered applications, the device supports multiple idle and sleep modes with selective peripheral operation - for example, you can maintain Timer1 and the ADC active while the CPU sleeps, consuming only 1.2μA while still sampling sensors. These ultra-low power modes make the PIC18F46K22 ideal for energy harvesting and long-life battery applications.",
               "decisionGuide": "Design for 20nA sleep current by disabling all peripherals; use selective wake-on-interrupt for battery-powered sensor nodes.",
-              "keywords": ["PIC18F46K22 power consumption", "sleep mode current", "XLP technology"]
+              "keywords": [
+                "PIC18F46K22 power consumption",
+                "sleep mode current",
+                "XLP technology"
+              ]
             },
             {
               "question": "Can PIC18F46K22 operate at 3.3V and interface with 5V devices?",
               "answer": "Yes, the PIC18F46K22 operates over a wide voltage range from 1.8V to 5.5V, making it compatible with both 3.3V and 5V systems. At 3.3V operation, all GPIO pins are 5V-tolerant on input, meaning you can safely connect 5V logic signals directly to the inputs without damage. For outputs driving 5V logic, the high-level output voltage (VOH) at 3.3V supply is approximately 3.0V, which is above the 2.0V minimum required by standard 5V CMOS logic. However, for 5V TTL logic, you may need level translators for reliable high-level recognition. Microchip offers companion level translator devices like the PCA9306 for I2C bus voltage translation between 3.3V and 5V domains.",
               "decisionGuide": "Inputs are 5V-tolerant at 3.3V operation; use level translators for 5V outputs requiring full 5V swing.",
-              "keywords": ["PIC18F46K22 voltage levels", "3.3V 5V interface", "5V tolerant inputs"]
+              "keywords": [
+                "PIC18F46K22 voltage levels",
+                "3.3V 5V interface",
+                "5V tolerant inputs"
+              ]
             },
             {
               "question": "What is the ADC computation module and how does it help?",
               "answer": "The PIC18F46K22 features an advanced ADC2 (Analog-to-Digital Converter with Computation) module that offloads common signal processing tasks from the CPU. The computation module can automatically perform averaging, accumulation, low-pass filtering, and threshold comparison without CPU intervention. For example, you can configure the ADC to take 16 samples, average them, and compare against a threshold - all while the CPU remains in sleep mode. This reduces power consumption and frees the CPU for other tasks. The module supports oversampling for enhanced resolution (up to 14-bit effective from 12-bit hardware) and can trigger interrupts only when significant changes occur, further reducing power and processing overhead.",
               "decisionGuide": "Use ADC computation for sensor averaging and filtering to reduce CPU load and enable longer sleep periods in battery applications.",
-              "keywords": ["PIC18F46K22 ADC computation", "ADC averaging", "signal processing offload"]
+              "keywords": [
+                "PIC18F46K22 ADC computation",
+                "ADC averaging",
+                "signal processing offload"
+              ]
             },
             {
               "question": "How do I program and debug PIC18F46K22?",
               "answer": "The PIC18F46K22 is programmed and debugged using Microchip's standard ICSP (In-Circuit Serial Programming) interface, requiring only five connections: VPP/MCLR (programming voltage), ICSPCLK (clock), ICSPDAT (data), VDD, and VSS. Compatible programmers include the low-cost PICkit 4 (PG164140), the professional-grade MPLAB ICD 4 (DV164045), and the high-end MPLAB REAL ICE. For development, the Curiosity High Pin Count board (DM164136) provides an integrated programmer/debugger with USB connection. The free MPLAB X IDE supports full debugging capabilities including breakpoints, single-stepping, variable watch windows, and real-time data monitoring. Production programming services are available through BeiLuo for volume orders.",
               "decisionGuide": "Use PICkit 4 for development and low-volume programming; contact us for production programming services on volume orders.",
-              "keywords": ["PIC18F46K22 programming", "ICSP interface", "PICkit debugger"]
+              "keywords": [
+                "PIC18F46K22 programming",
+                "ICSP interface",
+                "PICkit debugger"
+              ]
             }
           ]
         },
@@ -264,7 +334,11 @@
             "USB": "Full-speed Device + Host",
             "Operating Voltage": "1.62V - 3.63V",
             "Package": "TQFP-48, QFN-48",
-            "Temperature Range": "-40°C to +85°C (Industrial)"
+            "Temperature Range": "-40°C to +85°C (Industrial)",
+            "RAM": "N/A",
+            "EEPROM": "N/A",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A"
           },
           "features": [
             "ARM Cortex-M0+ processor up to 48MHz",
@@ -362,31 +436,975 @@
               "question": "What is the difference between SAM D21 and SAM D51?",
               "answer": "The SAM D21 and SAM D51 are both ARM-based microcontrollers but target different performance levels. The SAM D21 uses a Cortex-M0+ core running at 48MHz, ideal for low-power IoT applications with basic processing needs. It offers excellent power efficiency at 70μA/MHz but lacks DSP capabilities. The SAM D51 uses a Cortex-M4F core running at 120MHz with hardware floating-point unit (FPU) and DSP instructions, delivering significantly higher compute performance for complex algorithms, motor control, and graphics. The D51 also provides more memory (up to 1MB Flash vs 256KB) and advanced security features. Choose D21 for cost-sensitive, low-power IoT; choose D51 for performance-intensive applications requiring DSP or floating-point math.",
               "decisionGuide": "Select SAM D21 for basic IoT and USB applications under $3; choose SAM D51 for DSP, motor control, or graphics requiring >48MHz performance.",
-              "keywords": ["SAM D21 vs D51", "Cortex-M0+ vs M4F", "microcontroller comparison"]
+              "keywords": [
+                "SAM D21 vs D51",
+                "Cortex-M0+ vs M4F",
+                "microcontroller comparison"
+              ]
             },
             {
               "question": "How do I configure SERCOM modules for different interfaces?",
               "answer": "The SAM D21 features six SERCOM (Serial Communication) modules that can be individually configured as UART, SPI, or I2C through the PORT and SERCOM registers. Configuration is done via the Atmel START code configurator or by directly writing registers. Each SERCOM uses specific pin mappings defined in the datasheet - for example, SERCOM0 can use PA08/PA09 for I2C or PA04-PA07 for SPI. The flexibility allows you to assign interfaces based on PCB layout constraints rather than fixed pinouts. To configure: 1) Enable SERCOM clock in GCLK and PM; 2) Configure PORT pins for the desired function; 3) Write SERCOM CTRLA register to select mode (USART, SPI, or I2C); 4) Set baud rate and frame format in CTRLB and BAUD registers; 5) Enable the peripheral. The MPLAB Harmony and Arduino cores abstract this configuration for rapid development.",
               "decisionGuide": "Use Atmel START for graphical pin configuration; assign SERCOMs based on PCB routing constraints for optimal layout.",
-              "keywords": ["SAM D21 SERCOM configuration", "UART SPI I2C setup", "pin multiplexing"]
+              "keywords": [
+                "SAM D21 SERCOM configuration",
+                "UART SPI I2C setup",
+                "pin multiplexing"
+              ]
             },
             {
               "question": "What development boards are available for SAM D21?",
               "answer": "Microchip offers several development boards for SAM D21 evaluation: 1) SAM D21 Xplained Pro (ATSAMD21-XPRO) - professional evaluation board with embedded debugger, Arduino-compatible headers, and multiple sensors; 2) Curiosity Nano Evaluation Kit (DM320119) - low-cost board with integrated debugger in a compact form factor; 3) Arduino Zero - Arduino-compatible board using SAM D21, ideal for makers and rapid prototyping; 4) Adafruit Feather M0 - popular third-party board with LiPo battery charging and Feather ecosystem compatibility. All boards include USB debugging and programming capability. The Xplained Pro is recommended for comprehensive evaluation with its rich peripheral expansion options, while the Curiosity Nano offers the best value for basic development.",
               "decisionGuide": "Choose SAM D21 Xplained Pro for comprehensive evaluation; Curiosity Nano for cost-sensitive projects; Arduino Zero for maker community compatibility.",
-              "keywords": ["SAM D21 development board", "Xplained Pro", "Curiosity Nano"]
+              "keywords": [
+                "SAM D21 development board",
+                "Xplained Pro",
+                "Curiosity Nano"
+              ]
             },
             {
               "question": "Can SAM D21 run Arduino sketches?",
               "answer": "Yes, the SAM D21 is fully supported by the Arduino ecosystem. The Arduino Zero board uses the ATSAMD21G18A microcontroller, and Microchip provides official Arduino core support for the SAM D21 family. This means you can use the familiar Arduino IDE and libraries for rapid prototyping. The Arduino core abstracts the low-level register configuration, providing easy-to-use functions for GPIO, ADC, PWM, I2C, SPI, and USB. Advanced features like DMA and the event system are also accessible through Arduino libraries. For production development, you can migrate from Arduino to bare-metal programming or use MPLAB X with Harmony framework while retaining the same hardware. The extensive Arduino library ecosystem significantly accelerates development for common IoT sensors and wireless modules.",
               "decisionGuide": "Use Arduino for rapid prototyping and proof-of-concept; migrate to MPLAB X for production firmware requiring optimization.",
-              "keywords": ["SAM D21 Arduino", "Arduino Zero", "Arduino IDE support"]
+              "keywords": [
+                "SAM D21 Arduino",
+                "Arduino Zero",
+                "Arduino IDE support"
+              ]
             },
             {
               "question": "What is the power consumption of SAM D21 in different modes?",
               "answer": "The SAM D21 offers excellent power efficiency across multiple operating modes: Active mode consumes approximately 70μA/MHz at 3.3V when executing from Flash - so at 48MHz, expect around 3.4mA. Idle mode (CPU stopped, peripherals running) reduces consumption to about 1.2mA. Standby mode with RTC and SRAM retention consumes only 2.5μA typical, making it ideal for battery-powered sensor nodes that wake periodically. Deep sleep mode without RTC drops to 0.5μA but requires external reset to wake. The device supports multiple clock domains allowing selective peripheral gating - for example, you can run the ADC from a 32kHz clock while the CPU sleeps. The event system enables peripheral-to-peripheral communication without CPU wakeups, further reducing average power consumption in event-driven applications.",
               "decisionGuide": "Use standby with RTC for periodic sensor sampling achieving 2.5μA average; use event system to minimize CPU wakeups.",
-              "keywords": ["SAM D21 power consumption", "low power modes", "battery optimization"]
+              "keywords": [
+                "SAM D21 power consumption",
+                "low power modes",
+                "battery optimization"
+              ]
+            }
+          ]
+        },
+        {
+          "partNumber": "ATmega328P",
+          "name": "ATmega328P 8-bit AVR Microcontroller",
+          "shortDescription": "Popular 8-bit AVR MCU with 32KB Flash, 2KB SRAM, and 1KB EEPROM. Widely used in Arduino Uno and educational projects.",
+          "descriptionParagraphs": [
+            "The ATmega328P is one of the most popular 8-bit microcontrollers, best known as the heart of the Arduino Uno. It features 32KB of in-system programmable Flash, 2KB of SRAM, and 1KB of EEPROM.",
+            "Operating at up to 20MHz, this MCU provides sufficient performance for a wide range of embedded applications. The rich peripheral set includes 23 GPIO pins, 6-channel 10-bit ADC, UART, SPI, and I2C interfaces.",
+            "With its low power consumption and wide operating voltage range (1.8V-5.5V), the ATmega328P is ideal for battery-powered applications, educational projects, and cost-sensitive designs."
+          ],
+          "specifications": {
+            "Architecture": "8-bit AVR",
+            "Flash Memory": "32KB",
+            "RAM": "2KB SRAM",
+            "EEPROM": "1KB",
+            "Max Frequency": "20MHz",
+            "GPIO": "23 pins",
+            "ADC": "10-bit, 6 channels",
+            "Operating Voltage": "1.8V - 5.5V",
+            "Package": "DIP-28, TQFP-32, QFN-32",
+            "Temperature Range": "-40°C to +85°C (Industrial)",
+            "SRAM": "N/A",
+            "USB": "N/A",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A"
+          },
+          "features": [
+            "32KB in-system programmable Flash",
+            "2KB SRAM and 1KB EEPROM",
+            "23 programmable GPIO pins",
+            "6-channel 10-bit ADC",
+            "UART, SPI, and I2C interfaces",
+            "Low power consumption",
+            "Wide voltage range 1.8V-5.5V",
+            "Arduino compatible"
+          ],
+          "applications": [
+            "Arduino and maker projects",
+            "Educational development",
+            "Battery-powered devices",
+            "Simple control systems",
+            "Sensor interfaces",
+            "Low-cost embedded designs"
+          ],
+          "faeReview": {
+            "author": "David Lee",
+            "title": "FAE - Educational and Maker Markets",
+            "content": "The ATmega328P is the workhorse of the maker community. Its popularity stems from the Arduino ecosystem, but it's a capable MCU in its own right. I recommend it for educational projects, simple control applications, and when Arduino compatibility is needed. The DIP package is perfect for breadboarding and learning. For production designs, consider the TQFP or QFN packages for smaller footprint.",
+            "highlight": "Arduino-compatible with excellent educational resources and community support"
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "PIC18F46K22",
+              "brand": "Microchip",
+              "specifications": {
+                "Flash": "64KB",
+                "RAM": "4KB",
+                "GPIO": "36",
+                "ADC": "12-bit"
+              },
+              "comparison": {
+                "Flash": "64KB > 32KB (+100%)",
+                "RAM": "4KB > 2KB (+100%)",
+                "ADC": "12-bit > 10-bit (higher resolution)",
+                "MaxFreq": "64MHz > 20MHz (+220%)"
+              },
+              "reason": "More memory and higher performance for complex applications",
+              "useCase": "Applications requiring more resources than ATmega328P",
+              "link": "/microchip/products/pic18f46k22.html"
+            }
+          ],
+          "companionParts": [
+            {
+              "partNumber": "MCP1700",
+              "link": "/microchip/products/mcp1700.html",
+              "description": "Low-dropout voltage regulator for 5V to 3.3V conversion",
+              "category": "Power Management"
+            },
+            {
+              "partNumber": "MCP9808",
+              "link": "/microchip/products/mcp9808.html",
+              "description": "High-accuracy I2C temperature sensor",
+              "category": "Sensors"
+            }
+          ],
+          "faqs": [
+            {
+              "question": "What is the difference between ATmega328 and ATmega328P?",
+              "answer": "The ATmega328P is the picoPower version of the ATmega328. The 'P' indicates lower power consumption through additional power-saving features like the PRR (Power Reduction Register) which allows disabling individual peripherals. The ATmega328P also has a wider operating voltage range (1.8V-5.5V vs 2.7V-5.5V). Both are code-compatible, but the 328P is recommended for all new designs.",
+              "decisionGuide": "Always use ATmega328P for new designs - lower power and wider voltage range at the same price.",
+              "keywords": [
+                "ATmega328 vs 328P",
+                "picoPower",
+                "AVR comparison"
+              ]
+            },
+            {
+              "question": "Can I use Arduino code on ATmega328P without Arduino board?",
+              "answer": "Yes, you can program the ATmega328P directly using the Arduino IDE and a programmer like USBasp or Arduino as ISP. Select 'ATmega328P' as the board and use 'Upload Using Programmer' option. You'll need to configure the fuses for the desired clock source (internal 8MHz or external crystal). The Arduino bootloader is not required for this approach, saving 2KB of Flash memory.",
+              "decisionGuide": "Use direct programming to save bootloader space and reduce cost for production designs.",
+              "keywords": [
+                "Arduino without bootloader",
+                "ATmega328P programming",
+                "ISP programming"
+              ]
+            }
+          ]
+        },
+        {
+          "partNumber": "PIC16F877A",
+          "name": "PIC16F877A Enhanced Flash Microcontroller",
+          "shortDescription": "Classic 8-bit PIC microcontroller with 14KB Flash, 368 bytes RAM, and extensive peripheral set for industrial applications.",
+          "descriptionParagraphs": [
+            "The PIC16F877A is a classic 8-bit microcontroller that has been widely used in industrial and educational applications for over two decades. It features 14KB of Flash program memory and 368 bytes of data memory.",
+            "This device includes a rich set of peripherals including 33 GPIO pins, 8-channel 10-bit ADC, UART, SPI, and I2C interfaces. The built-in EEPROM (256 bytes) provides non-volatile storage for configuration data.",
+            "With its robust design, wide availability, and extensive documentation, the PIC16F877A remains a popular choice for industrial control systems, educational projects, and legacy product support."
+          ],
+          "specifications": {
+            "Architecture": "8-bit PIC",
+            "Flash Memory": "14KB",
+            "RAM": "368 bytes",
+            "EEPROM": "256 bytes",
+            "Max Frequency": "20MHz",
+            "GPIO": "33 pins",
+            "ADC": "10-bit, 8 channels",
+            "Operating Voltage": "2.0V - 5.5V",
+            "Package": "DIP-40, TQFP-44, PLCC-44",
+            "Temperature Range": "-40°C to +85°C (Industrial)",
+            "SRAM": "N/A",
+            "USB": "N/A",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A"
+          },
+          "features": [
+            "14KB Flash program memory",
+            "368 bytes RAM and 256 bytes EEPROM",
+            "33 programmable I/O pins",
+            "8-channel 10-bit ADC",
+            "UART, SPI, and I2C interfaces",
+            "3 timers with capture/compare/PWM",
+            "Watchdog timer and brown-out reset",
+            "In-circuit serial programming (ICSP)"
+          ],
+          "applications": [
+            "Industrial control systems",
+            "Educational development boards",
+            "Legacy product designs",
+            "Simple automation systems",
+            "Process control",
+            "Data acquisition systems"
+          ],
+          "faeReview": {
+            "author": "Michael Chen",
+            "title": "Senior FAE - Embedded Systems",
+            "content": "The PIC16F877A is a classic workhorse that has stood the test of time. While newer MCUs offer more features, the 877A remains relevant for educational purposes and legacy system maintenance. I often recommend it for students learning embedded systems due to its straightforward architecture and extensive learning resources. For new industrial designs, consider the PIC18F series for better performance.",
+            "highlight": "Classic PIC architecture with extensive documentation and educational resources"
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "PIC18F46K22",
+              "brand": "Microchip",
+              "specifications": {
+                "Flash": "64KB",
+                "RAM": "4KB",
+                "GPIO": "36",
+                "ADC": "12-bit"
+              },
+              "comparison": {
+                "Flash": "64KB > 14KB (+357%)",
+                "RAM": "4KB > 368B (+1013%)",
+                "ADC": "12-bit > 10-bit (higher resolution)",
+                "MaxFreq": "64MHz > 20MHz (+220%)"
+              },
+              "reason": "Significantly more resources and performance for modern applications",
+              "useCase": "New designs requiring more memory and performance",
+              "link": "/microchip/products/pic18f46k22.html"
+            }
+          ],
+          "companionParts": [
+            {
+              "partNumber": "MCP1703",
+              "link": "/microchip/products/mcp1703.html",
+              "description": "Low-quiescent current LDO regulator",
+              "category": "Power Management"
+            },
+            {
+              "partNumber": "MCP6002",
+              "link": "/microchip/products/mcp6002.html",
+              "description": "General-purpose op-amp for signal conditioning",
+              "category": "Analog"
+            }
+          ],
+          "faqs": [
+            {
+              "question": "Is the PIC16F877A still recommended for new designs?",
+              "answer": "While the PIC16F877A is still available and supported, Microchip recommends newer devices like the PIC18F46K22 or PIC16F18877 for new designs. These newer devices offer significantly more Flash, RAM, and performance at similar or lower cost. The 877A remains suitable for educational purposes, legacy product maintenance, and when specific peripherals or package options are required.",
+              "decisionGuide": "Use PIC18F46K22 for new designs; use 877A for education or legacy maintenance only.",
+              "keywords": [
+                "PIC16F877A new designs",
+                "legacy microcontroller",
+                "PIC upgrade path"
+              ]
+            },
+            {
+              "question": "What is the difference between PIC16F877 and PIC16F877A?",
+              "answer": "The PIC16F877A is an enhanced version of the PIC16F877 with several improvements: 1) Faster Flash write operations; 2) Lower power consumption in sleep mode; 3) Enhanced oscillator options; 4) Additional brown-out reset options. The 'A' version is pin-compatible and code-compatible with the original 877, making it a drop-in replacement. Always use the 877A version for new purchases.",
+              "decisionGuide": "Always specify PIC16F877A - improved performance at the same cost.",
+              "keywords": [
+                "PIC16F877 vs 877A",
+                "PIC16F877A improvements",
+                "microcontroller revision"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "analog-products",
+      "name": "Analog Products",
+      "slug": "analog-products",
+      "description": "Operational amplifiers, comparators, voltage references, and analog interface products for signal conditioning and precision measurement.",
+      "longDescription": "Microchip's analog product portfolio includes high-performance operational amplifiers, precision voltage references, analog comparators, and analog switches. These products enable accurate signal conditioning, sensor interface, and precision measurement applications.",
+      "series": [
+        "MCP600X - General Purpose Op Amps",
+        "MCP6VXX - Zero-Drift Op Amps",
+        "MCP1525 - Voltage References",
+        "MCP320X - A/D Converters"
+      ],
+      "parameters": [
+        "Gain Bandwidth",
+        "Supply Voltage",
+        "Input Offset",
+        "Package",
+        "Temperature Range"
+      ],
+      "selectionGuide": "Select based on bandwidth, precision, and power requirements for your signal conditioning needs.",
+      "faqs": [
+        {
+          "question": "How do I select the right op amp for my application?",
+          "answer": "Consider these key parameters: 1) Gain Bandwidth Product (GBP) - must be 10x your signal bandwidth; 2) Input offset voltage - critical for precision DC applications; 3) Supply voltage range - must match your system voltage; 4) Power consumption - important for battery applications; 5) Package size - consider PCB space constraints."
+        }
+      ],
+      "products": [
+        {
+          "partNumber": "MCP6002",
+          "name": "MCP6002 Dual General Purpose Op Amp",
+          "shortDescription": "Dual rail-to-rail input/output op amp with 1MHz gain bandwidth, low power consumption, and wide supply range.",
+          "descriptionParagraphs": [
+            "The MCP6002 is a dual general-purpose operational amplifier featuring rail-to-rail input and output operation. With 1MHz gain bandwidth product and low power consumption of 100μA per amplifier, it's ideal for battery-powered applications.",
+            "The device operates from a single supply voltage of 1.8V to 6.0V, making it compatible with a wide range of systems. The rail-to-rail output swing maximizes dynamic range in low-voltage applications.",
+            "Available in standard 8-pin packages, the MCP6002 is pin-compatible with many industry-standard dual op amps, allowing easy substitution in existing designs."
+          ],
+          "specifications": {
+            "Gain Bandwidth": "1MHz",
+            "Supply Voltage": "1.8V - 6.0V",
+            "Input Offset": "±4.5mV max",
+            "Quiescent Current": "100μA per amp",
+            "Slew Rate": "0.6V/μs",
+            "Package": "PDIP-8, SOIC-8, MSOP-8",
+            "Temperature Range": "-40°C to +125°C",
+            "Architecture": "CMOS",
+            "Flash Memory": "N/A",
+            "RAM": "N/A"
+          },
+          "features": [
+            "Rail-to-rail input and output",
+            "Low power consumption",
+            "Wide supply voltage range",
+            "Unity gain stable",
+            "Low input bias current",
+            "Industry-standard pinout"
+          ],
+          "applications": [
+            "Sensor signal conditioning",
+            "Battery-powered equipment",
+            "Portable medical devices",
+            "Consumer electronics",
+            "Industrial controls"
+          ],
+          "faeReview": {
+            "author": "Sarah Johnson",
+            "title": "FAE - Analog Products",
+            "content": "The MCP6002 is my go-to recommendation for general-purpose op amp applications. The rail-to-rail operation is essential for modern low-voltage designs, and the low power consumption makes it perfect for battery-powered devices. I've used it successfully in sensor conditioning circuits, audio preamps, and active filters. The 1MHz bandwidth is sufficient for most sensor applications.",
+            "highlight": "Rail-to-rail operation with low power consumption for battery applications"
+          },
+          "faqs": [
+            {
+              "question": "What is the maximum output current of MCP6002?",
+              "answer": "The MCP6002 can source or sink approximately 23mA of output current. For applications requiring higher drive capability, consider the MCP6001/2/4 series with higher output current or add an external transistor buffer stage.",
+              "decisionGuide": "For loads >20mA, add external buffer or select higher drive op amp.",
+              "keywords": ["output current", "drive capability", "op amp current"]
+            }
+          ]
+        },
+        {
+          "partNumber": "MCP6001",
+          "name": "MCP6001 Single General Purpose Op Amp",
+          "shortDescription": "Single rail-to-rail op amp with 1MHz bandwidth, low power, and SC70 package option for space-constrained designs.",
+          "descriptionParagraphs": [
+            "The MCP6001 is a single-channel version of the popular MCP6002 op amp, offering the same performance in a smaller package. It features rail-to-rail input and output operation with 1MHz gain bandwidth.",
+            "Available in tiny SC70-5 and SOT-23-5 packages, the MCP6001 is ideal for space-constrained portable applications. The device consumes only 100μA quiescent current.",
+            "The wide 1.8V to 6.0V supply range and industrial temperature rating make it suitable for a broad range of applications."
+          ],
+          "specifications": {
+            "Gain Bandwidth": "1MHz",
+            "Supply Voltage": "1.8V - 6.0V",
+            "Input Offset": "±4.5mV max",
+            "Quiescent Current": "100μA",
+            "Slew Rate": "0.6V/μs",
+            "Package": "SC70-5, SOT-23-5, PDIP-8",
+            "Temperature Range": "-40°C to +125°C",
+            "Architecture": "CMOS",
+            "Flash Memory": "N/A",
+            "RAM": "N/A"
+          },
+          "features": [
+            "Tiny SC70 package option",
+            "Rail-to-rail I/O",
+            "Low power 100μA",
+            "Wide supply range",
+            "Unity gain stable"
+          ],
+          "applications": [
+            "Portable devices",
+            "Wearable electronics",
+            "Sensor conditioning",
+            "Battery-powered systems"
+          ],
+          "faeReview": {
+            "author": "Sarah Johnson",
+            "title": "FAE - Analog Products",
+            "content": "The MCP6001 in SC70 package is perfect for wearable and portable devices where space is critical. The performance matches the MCP6002 but in a much smaller footprint. I recommend it for single-channel applications in fitness trackers, smart watches, and IoT sensors.",
+            "highlight": "Tiny SC70 package ideal for space-constrained portable designs"
+          },
+          "faqs": [
+            {
+              "question": "What is the smallest package available for MCP6001?",
+              "answer": "The MCP6001 is available in SC70-5 package measuring just 2.0mm x 2.1mm. This makes it one of the smallest op amps available, perfect for wearable and portable applications with severe space constraints.",
+              "decisionGuide": "Use SC70-5 for minimum footprint; use SOT-23-5 for easier hand soldering.",
+              "keywords": ["SC70 package", "small op amp", "package size"]
+            }
+          ]
+        },
+        {
+          "partNumber": "MCP6V02",
+          "name": "MCP6V02 Zero-Drift Op Amp",
+          "shortDescription": "Precision zero-drift op amp with 5MHz bandwidth, ultra-low offset (±2μV), and auto-calibration for high-precision applications.",
+          "descriptionParagraphs": [
+            "The MCP6V02 is a precision zero-drift operational amplifier featuring an on-chip auto-calibration circuit that eliminates input offset voltage. With typical offset of just ±2μV, it's ideal for precision DC applications.",
+            "The 5MHz gain bandwidth product provides higher speed than standard precision op amps while maintaining excellent DC accuracy. The device operates from 1.8V to 5.5V supplies.",
+            "Zero-drift architecture continuously corrects offset errors, providing stable performance over temperature and time without manual calibration."
+          ],
+          "specifications": {
+            "Gain Bandwidth": "5MHz",
+            "Supply Voltage": "1.8V - 5.5V",
+            "Input Offset": "±2μV typical",
+            "Quiescent Current": "700μA per amp",
+            "Slew Rate": "2.5V/μs",
+            "Package": "PDIP-8, SOIC-8, MSOP-8",
+            "Temperature Range": "-40°C to +125°C",
+            "Architecture": "Zero-Drift CMOS",
+            "Flash Memory": "N/A",
+            "RAM": "N/A"
+          },
+          "features": [
+            "Ultra-low input offset voltage",
+            "Auto-calibration circuit",
+            "Zero-drift architecture",
+            "5MHz bandwidth",
+            "Rail-to-rail output",
+            "No external nulling required"
+          ],
+          "applications": [
+            "Precision sensor conditioning",
+            "Current sensing",
+            "Strain gauge amplifiers",
+            "Medical instrumentation",
+            "Test and measurement"
+          ],
+          "faeReview": {
+            "author": "Dr. James Chen",
+            "title": "Senior FAE - Precision Analog",
+            "content": "The MCP6V02 is my recommendation for any precision DC application. The ±2μV offset is exceptional - I've used it in current sense circuits with 10mΩ shunts where offset errors would be unacceptable. The auto-calibration eliminates the need for manual trimming, saving production costs. For high-precision strain gauge and sensor applications, this op amp delivers excellent results.",
+            "highlight": "Ultra-low ±2μV offset with auto-calibration for precision applications"
+          },
+          "faqs": [
+            {
+              "question": "How does zero-drift architecture work?",
+              "answer": "Zero-drift op amps use an internal auto-calibration circuit that continuously measures and corrects input offset voltage. The circuit switches between normal operation and calibration phases at high frequency (typically kHz range), storing offset correction in internal capacitors. This provides continuous offset correction without external components, maintaining precision over temperature and time.",
+              "decisionGuide": "Use zero-drift op amps for DC precision >12-bit accuracy or when drift over temperature must be minimized.",
+              "keywords": ["zero-drift", "auto-calibration", "precision op amp"]
+            }
+          ]
+        },
+        {
+          "partNumber": "MCP3202",
+          "name": "MCP3202 12-Bit A/D Converter",
+          "shortDescription": "Dual-channel 12-bit SAR ADC with SPI interface, 100ksps sampling rate, and low power consumption for embedded systems.",
+          "descriptionParagraphs": [
+            "The MCP3202 is a 12-bit successive approximation register (SAR) analog-to-digital converter with two input channels. It features a SPI-compatible serial interface and sampling rates up to 100ksps.",
+            "With low power consumption of 400μA active and 500nA standby, the MCP3202 is ideal for battery-powered data acquisition systems. The device operates from a single 2.7V to 5.5V supply.",
+            "The differential input capability allows measurement of differential signals or can be configured for single-ended operation. Internal sample-and-hold captures the input signal for conversion."
+          ],
+          "specifications": {
+            "Resolution": "12-bit",
+            "Sampling Rate": "100ksps",
+            "Supply Voltage": "2.7V - 5.5V",
+            "Input Channels": "2 (single-ended or differential)",
+            "Interface": "SPI",
+            "Active Current": "400μA typical",
+            "Standby Current": "500nA typical",
+            "Package": "PDIP-8, SOIC-8, MSOP-8",
+            "Temperature Range": "-40°C to +85°C",
+            "Architecture": "SAR ADC",
+            "Flash Memory": "N/A",
+            "RAM": "N/A"
+          },
+          "features": [
+            "12-bit resolution",
+            "100ksps sampling rate",
+            "Dual input channels",
+            "SPI interface",
+            "Low power consumption",
+            "Single supply operation"
+          ],
+          "applications": [
+            "Sensor data acquisition",
+            "Battery monitoring",
+            "Industrial control",
+            "Medical instruments",
+            "Test equipment"
+          ],
+          "faeReview": {
+            "author": "Michael Torres",
+            "title": "FAE - Data Conversion",
+            "content": "The MCP3202 provides excellent value for 12-bit data acquisition. The dual channels are useful for differential measurements or monitoring two sensors. The SPI interface is easy to implement with any microcontroller. I typically recommend it for applications requiring 10-12 bit resolution at moderate sampling rates. The low standby current is great for intermittent sampling applications.",
+            "highlight": "Dual-channel 12-bit ADC with low power for embedded data acquisition"
+          },
+          "faqs": [
+            {
+              "question": "What is the maximum SPI clock speed for MCP3202?",
+              "answer": "The MCP3202 supports SPI clock rates up to 1.6MHz at 5V operation, or 0.8MHz at 2.7V. At 5V with 1.6MHz clock, a complete 12-bit conversion takes approximately 17 clock cycles, allowing the maximum 100ksps sampling rate. Ensure your microcontroller SPI can support these clock rates for maximum throughput.",
+              "decisionGuide": "Use 1.6MHz SPI clock at 5V for maximum 100ksps rate; reduce clock at lower voltages.",
+              "keywords": ["SPI clock", "sampling rate", "ADC timing"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "power-management",
+      "name": "Power Management",
+      "slug": "power-management",
+      "description": "Voltage regulators, battery management, and power supply solutions for efficient power conversion and battery-powered applications.",
+      "longDescription": "Microchip's power management portfolio includes low-dropout (LDO) regulators, switching regulators, battery chargers, and voltage supervisors. These products enable efficient power conversion and management for battery-powered and line-powered systems.",
+      "series": [
+        "MCP170X - Low Quiescent LDOs",
+        "MCP738XX - Li-Ion Chargers",
+        "TC766X - Charge Pumps",
+        "MCP1625 - Boost Converters"
+      ],
+      "parameters": [
+        "Output Voltage",
+        "Output Current",
+        "Dropout Voltage",
+        "Quiescent Current",
+        "Package"
+      ],
+      "selectionGuide": "Select based on input/output voltage, current requirements, and efficiency needs for your power supply design.",
+      "faqs": [
+        {
+          "question": "How do I choose between LDO and switching regulator?",
+          "answer": "Use LDO when: input-output voltage difference is small (<1V), low noise is critical, simplicity is preferred, or cost is sensitive. Use switching regulator when: efficiency is critical, input-output difference is large, or battery life must be maximized."
+        }
+      ],
+      "products": [
+        {
+          "partNumber": "MCP1703",
+          "name": "MCP1703 Low Quiescent Current LDO",
+          "shortDescription": "250mA LDO with ultra-low 2.0μA quiescent current, high PSRR, and stable with ceramic capacitors for battery applications.",
+          "descriptionParagraphs": [
+            "The MCP1703 is a CMOS low-dropout (LDO) voltage regulator delivering up to 250mA output current with exceptionally low quiescent current of just 2.0μA. It's ideal for extending battery life in portable applications.",
+            "The device is stable with ceramic output capacitors as small as 1.0μF, reducing board space and cost. High power supply rejection ratio (PSRR) of 70dB at 1kHz minimizes noise coupling.",
+            "Available in fixed output voltages from 1.2V to 5.0V and adjustable versions, the MCP1703 supports a wide range of application requirements."
+          ],
+          "specifications": {
+            "Output Current": "250mA max",
+            "Quiescent Current": "2.0μA typical",
+            "Dropout Voltage": "625mV @ 250mA",
+            "Input Voltage": "2.7V - 13.2V",
+            "Output Voltage": "1.2V - 5.0V (fixed/adj)",
+            "PSRR": "70dB @ 1kHz",
+            "Package": "SOT-23-3, SOT-89-3, TO-92",
+            "Temperature Range": "-40°C to +125°C",
+            "Architecture": "CMOS LDO",
+            "Flash Memory": "N/A",
+            "RAM": "N/A"
+          },
+          "features": [
+            "Ultra-low 2.0μA quiescent current",
+            "Stable with ceramic capacitors",
+            "High PSRR",
+            "Wide input voltage range",
+            "Current limit and thermal protection",
+            "Multiple package options"
+          ],
+          "applications": [
+            "Battery-powered devices",
+            "Portable electronics",
+            "Wireless sensors",
+            "Medical devices",
+            "IoT endpoints"
+          ],
+          "faeReview": {
+            "author": "Lisa Wang",
+            "title": "FAE - Power Management",
+            "content": "The MCP1703 is my top recommendation for battery-powered designs where every microamp counts. The 2μA quiescent current is exceptional - in a system drawing 10μA average, the regulator only adds 20% overhead. The ceramic cap stability eliminates the need for expensive tantalum capacitors. I've used it in wireless sensor nodes that run for years on coin cell batteries.",
+            "highlight": "Ultra-low 2μA quiescent current extends battery life significantly"
+          },
+          "faqs": [
+            {
+              "question": "What is the dropout voltage of MCP1703?",
+              "answer": "The MCP1703 dropout voltage is typically 625mV at 250mA load, 400mV at 150mA, and 200mV at 50mA. At light loads (<1mA), dropout can be as low as 50mV. For minimum dropout operation, keep load current low or consider the MCP1711 with lower dropout voltage.",
+              "decisionGuide": "Ensure input voltage exceeds output by at least 1V for reliable regulation at full load.",
+              "keywords": ["dropout voltage", "LDO dropout", "headroom voltage"]
+            }
+          ]
+        },
+        {
+          "partNumber": "MCP1700",
+          "name": "MCP1700 Low Quiescent LDO",
+          "shortDescription": "250mA LDO with 1.6μA quiescent current, low dropout, and SOT-23 package for space-constrained battery applications.",
+          "descriptionParagraphs": [
+            "The MCP1700 is an ultra-low quiescent current LDO regulator delivering 250mA output with just 1.6μA ground current. It's designed specifically for extended battery life in portable applications.",
+            "The device features low dropout voltage of 350mV at 250mA and is stable with ceramic output capacitors. Fixed output voltages from 1.2V to 5.0V are available.",
+            "The small SOT-23 package minimizes board space while the wide operating temperature range supports industrial applications."
+          ],
+          "specifications": {
+            "Output Current": "250mA max",
+            "Quiescent Current": "1.6μA typical",
+            "Dropout Voltage": "350mV @ 250mA",
+            "Input Voltage": "2.3V - 6.0V",
+            "Output Voltage": "1.2V - 5.0V (fixed)",
+            "PSRR": "44dB @ 1kHz",
+            "Package": "SOT-23-3, TO-92",
+            "Temperature Range": "-40°C to +125°C",
+            "Architecture": "CMOS LDO",
+            "Flash Memory": "N/A",
+            "RAM": "N/A"
+          },
+          "features": [
+            "Ultra-low 1.6μA quiescent current",
+            "Low dropout voltage",
+            "Stable with ceramic caps",
+            "Current limiting protection",
+            "Thermal shutdown",
+            "Small SOT-23 package"
+          ],
+          "applications": [
+            "Battery-powered devices",
+            "Portable electronics",
+            "Wireless sensors",
+            "Wearable devices",
+            "IoT endpoints"
+          ],
+          "faeReview": {
+            "author": "Lisa Wang",
+            "title": "FAE - Power Management",
+            "content": "The MCP1700 is the lowest quiescent current LDO in Microchip's portfolio at just 1.6μA. It's my first choice for coin cell powered devices where battery life is critical. The SOT-23 package is tiny and the dropout voltage is reasonable for most battery applications. For 3V to 1.8V regulation from a coin cell, this is perfect.",
+            "highlight": "Lowest 1.6μA quiescent current for maximum battery life"
+          },
+          "faqs": [
+            {
+              "question": "What is the difference between MCP1700 and MCP1703?",
+              "answer": "The MCP1700 has lower quiescent current (1.6μA vs 2.0μA) and lower dropout voltage (350mV vs 625mV at 250mA), but lower PSRR (44dB vs 70dB). The MCP1700 has lower maximum input voltage (6V vs 13.2V). Choose MCP1700 for maximum battery life; choose MCP1703 for better PSRR or higher input voltage.",
+              "decisionGuide": "Use MCP1700 for lowest power; use MCP1703 for better noise rejection or higher input voltage.",
+              "keywords": ["MCP1700 vs 1703", "LDO comparison", "low power LDO"]
+            }
+          ]
+        },
+        {
+          "partNumber": "MCP73831",
+          "name": "MCP73831 Li-Ion Battery Charger",
+          "shortDescription": "Single-cell Li-Ion/Li-Polymer charge management controller with programmable current, thermal regulation, and tiny SOT-23-5 package.",
+          "descriptionParagraphs": [
+            "The MCP73831 is a fully integrated linear charge management controller for single-cell lithium-ion and lithium-polymer batteries. It provides precise charge control with programmable charge current up to 500mA.",
+            "The device features automatic preconditioning of deeply discharged cells, constant-current/constant-voltage charge algorithm, and automatic charge termination. Thermal regulation prevents overheating during charging.",
+            "The tiny SOT-23-5 package and minimal external components (just one resistor) make it ideal for space-constrained portable applications."
+          ],
+          "specifications": {
+            "Charge Current": "15-500mA (programmable)",
+            "Input Voltage": "3.75V - 6V",
+            "Charge Voltage": "4.2V ±0.5%",
+            "Trickle Charge": "10% of fast charge",
+            "Termination": "C/10 or timer",
+            "Standby Current": "2μA typical",
+            "Package": "SOT-23-5",
+            "Temperature Range": "-40°C to +85°C",
+            "Architecture": "Linear Charger",
+            "Flash Memory": "N/A",
+            "RAM": "N/A"
+          },
+          "features": [
+            "Programmable charge current",
+            "Thermal regulation",
+            "Preconditioning of depleted cells",
+            "Automatic charge termination",
+            "Charge status output",
+            "Tiny SOT-23-5 package"
+          ],
+          "applications": [
+            "Portable electronics",
+            "Bluetooth headsets",
+            "GPS devices",
+            "Medical devices",
+            "Wearable technology"
+          ],
+          "faeReview": {
+            "author": "Tom Anderson",
+            "title": "Senior FAE - Battery Management",
+            "content": "The MCP73831 is my go-to charger for single-cell Li-Ion applications. The programmable current allows optimization of charge time vs. thermal constraints. The tiny SOT-23-5 package is perfect for wearable devices. I appreciate the thermal regulation feature that automatically reduces charge current if the IC gets too hot - this allows maximizing charge current without thermal risk.",
+            "highlight": "Tiny SOT-23-5 package with programmable charge current and thermal regulation"
+          },
+          "faqs": [
+            {
+              "question": "How do I set the charge current for MCP73831?",
+              "answer": "The charge current is set by a resistor (RPROG) connected between the PROG pin and ground. The formula is: ICHARGE = 1000V / RPROG. For example, a 2kΩ resistor sets 500mA, 10kΩ sets 100mA. The resistor should be 1% tolerance for accurate current setting. Minimum recommended is 2kΩ (500mA max).",
+              "decisionGuide": "Use 2kΩ for 500mA fast charge; use 10kΩ for 100mA slow/thermal-limited charge.",
+              "keywords": ["charge current", "RPROG resistor", "programming current"]
+            }
+          ]
+        },
+        {
+          "partNumber": "TC7660",
+          "name": "TC7660 Charge Pump Voltage Converter",
+          "shortDescription": "Switched-capacitor voltage converter that inverts or doubles input voltage, converting +5V to -5V or +10V with few external components.",
+          "descriptionParagraphs": [
+            "The TC7660 is a charge pump voltage converter that can invert or double an input voltage using only two external capacitors. It converts a positive voltage in the +1.5V to +10V range to its negative equivalent (-1.5V to -10V).",
+            "The device operates by switching capacitors between series and parallel configurations, eliminating the need for inductors. This provides a compact, low-EMI solution for generating negative supply voltages.",
+            "With output currents up to 40mA and conversion efficiency of 99%, the TC7660 is ideal for generating negative rails for op amps, ADCs, and interface circuits in single-supply systems."
+          ],
+          "specifications": {
+            "Input Voltage": "+1.5V to +10V",
+            "Output Voltage": "-1.5V to -10V (inverted)",
+            "Output Current": "40mA max",
+            "Efficiency": "99% typical",
+            "Switching Frequency": "10kHz typical",
+            "External Components": "2 capacitors",
+            "Package": "PDIP-8, SOIC-8",
+            "Temperature Range": "-40°C to +85°C",
+            "Architecture": "Charge Pump",
+            "Flash Memory": "N/A",
+            "RAM": "N/A"
+          },
+          "features": [
+            "Voltage inversion or doubling",
+            "No inductors required",
+            "Low EMI",
+            "High efficiency 99%",
+            "Simple 2-capacitor design",
+            "Low output resistance"
+          ],
+          "applications": [
+            "Negative supply generation",
+            "RS-232 interfaces",
+            "Op amp power supplies",
+            "ADC reference circuits",
+            "Data acquisition systems"
+          ],
+          "faeReview": {
+            "author": "Robert Kim",
+            "title": "FAE - Power Conversion",
+            "content": "The TC7660 is the classic charge pump solution for generating negative voltages. When you need a simple -5V supply for op amps in a single-supply system, this is the easiest solution. No inductors means no EMI headaches and simple PCB layout. The efficiency is excellent for light loads. I use it regularly for RS-232 level shifters and bipolar op amp supplies.",
+            "highlight": "Simple 2-capacitor solution for negative voltage generation without inductors"
+          },
+          "faqs": [
+            {
+              "question": "What capacitor values should I use with TC7660?",
+              "answer": "The TC7660 requires two capacitors: a pump capacitor (C1) between pins 2 and 4, and a reservoir capacitor (C2) at the output. Use 10μF electrolytic or ceramic capacitors for most applications. For higher output current, increase C2 to 47μF or 100μF. Use low-ESR capacitors for best performance. The capacitors should be rated for the full input/output voltage.",
+              "decisionGuide": "Use 10μF for standard applications; increase to 47-100μF for higher current.",
+              "keywords": ["charge pump capacitor", "TC7660 capacitors", "pump capacitor"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "connectivity",
+      "name": "Connectivity",
+      "slug": "connectivity",
+      "description": "Wireless and wired connectivity solutions including WiFi, Bluetooth, Ethernet, and CAN transceivers for IoT and industrial applications.",
+      "longDescription": "Microchip's connectivity portfolio includes wireless modules (WiFi, Bluetooth, LoRa), Ethernet controllers, CAN transceivers, and USB solutions. These products enable seamless communication for IoT, industrial, and consumer applications.",
+      "series": [
+        "ATWINC - WiFi Modules",
+        "RN - Bluetooth Modules",
+        "MCP25XX - CAN Controllers",
+        "LAN - Ethernet Controllers"
+      ],
+      "parameters": [
+        "Interface Type",
+        "Data Rate",
+        "Frequency Band",
+        "Range",
+        "Package"
+      ],
+      "selectionGuide": "Select based on wireless protocol, data rate, range requirements, and host interface for your connectivity needs.",
+      "faqs": [
+        {
+          "question": "How do I choose between WiFi and Bluetooth for my IoT application?",
+          "answer": "Use WiFi for: high data rates, direct internet connectivity, longer range with infrastructure, video/audio streaming. Use Bluetooth for: low power, short range, direct device-to-device, audio accessories, battery-powered sensors."
+        }
+      ],
+      "products": [
+        {
+          "partNumber": "ATWINC3400",
+          "name": "ATWINC3400 WiFi and Bluetooth Module",
+          "shortDescription": "IEEE 802.11 b/g/n WiFi + Bluetooth 4.0 module with integrated TCP/IP stack, AT command interface, and compact surface-mount package.",
+          "descriptionParagraphs": [
+            "The ATWINC3400 is a fully integrated WiFi and Bluetooth module providing IEEE 802.11 b/g/n WiFi connectivity along with Bluetooth 4.0/BLE support. The module includes a complete TCP/IP network stack and security protocols.",
+            "Featuring an AT command interface, the module can be controlled by any host microcontroller via UART, SPI, or I2C interfaces. This eliminates the need for complex WiFi driver development.",
+            "The compact 26.5mm x 13.5mm surface-mount module includes integrated antenna, crystal, and all RF circuitry, minimizing external components and accelerating time-to-market."
+          ],
+          "specifications": {
+            "WiFi Standard": "802.11 b/g/n",
+            "Bluetooth": "4.0 / BLE",
+            "Frequency": "2.4GHz",
+            "Data Rate": "72.2 Mbps (WiFi)",
+            "Host Interface": "UART, SPI, I2C",
+            "Security": "WPA/WPA2, TLS/SSL",
+            "Antenna": "Integrated PCB antenna",
+            "Package": "Surface-mount module",
+            "Temperature Range": "-40°C to +85°C",
+            "Architecture": "WiFi/BT Module",
+            "Flash Memory": "N/A",
+            "RAM": "N/A"
+          },
+          "features": [
+            "Dual WiFi + Bluetooth",
+            "Integrated TCP/IP stack",
+            "AT command interface",
+            "WPA/WPA2 security",
+            "Compact module size",
+            "FCC/CE certified"
+          ],
+          "applications": [
+            "IoT devices",
+            "Smart home products",
+            "Industrial sensors",
+            "Medical devices",
+            "Wearable technology"
+          ],
+          "faeReview": {
+            "author": "Jennifer Park",
+            "title": "Senior FAE - Wireless Connectivity",
+            "content": "The ATWINC3400 is my top recommendation for adding WiFi to embedded designs. The AT command interface means any microcontroller can control it without complex WiFi drivers. The integrated antenna and certification save months of development time. I've used it in IoT sensors, smart home devices, and industrial monitors with excellent results. The dual Bluetooth capability is a bonus for BLE sensor connectivity.",
+            "highlight": "AT command interface eliminates WiFi driver development; pre-certified module"
+          },
+          "faqs": [
+            {
+              "question": "What host interfaces does ATWINC3400 support?",
+              "answer": "The ATWINC3400 supports UART (default), SPI, and I2C host interfaces. UART is the simplest with AT commands. SPI offers higher throughput for data-intensive applications. I2C is available for systems with limited I/O. The interface is selected by strapping pins during power-up.",
+              "decisionGuide": "Use UART for simple control; use SPI for high data throughput applications.",
+              "keywords": ["ATWINC interface", "host connection", "WiFi module UART"]
+            }
+          ]
+        },
+        {
+          "partNumber": "MCP2515",
+          "name": "MCP2515 Stand-Alone CAN Controller",
+          "shortDescription": "Stand-alone CAN 2.0B controller with SPI interface, message filtering, and maskable interrupts for automotive and industrial CAN networks.",
+          "descriptionParagraphs": [
+            "The MCP2515 is a stand-alone Controller Area Network (CAN) controller implementing the CAN 2.0B specification. It enables CAN connectivity for microcontrollers without built-in CAN peripherals via SPI interface.",
+            "The device features three transmit buffers, two receive buffers with acceptance filtering, and maskable interrupts for efficient message handling. Hardware acceptance filters reduce host processor load.",
+            "Operating up to 1Mbps CAN bus speed, the MCP2515 is suitable for automotive, industrial automation, and medical equipment applications requiring reliable serial communication."
+          ],
+          "specifications": {
+            "CAN Standard": "CAN 2.0B (active)",
+            "Max Data Rate": "1 Mbps",
+            "Host Interface": "SPI (10MHz max)",
+            "Message Buffers": "3 TX, 2 RX",
+            "Acceptance Filters": "2 masks, 6 filters",
+            "Supply Voltage": "2.7V - 5.5V",
+            "Package": "PDIP-18, SOIC-18",
+            "Temperature Range": "-40°C to +125°C (Extended)",
+            "Architecture": "CAN Controller",
+            "Flash Memory": "N/A",
+            "RAM": "N/A"
+          },
+          "features": [
+            "CAN 2.0B compliant",
+            "SPI host interface",
+            "Hardware message filtering",
+            "Three transmit buffers",
+            "Two receive buffers",
+            "Maskable interrupts",
+            "One-shot transmission mode"
+          ],
+          "applications": [
+            "Automotive networks",
+            "Industrial automation",
+            "Medical equipment",
+            "Building automation",
+            "Agricultural machinery"
+          ],
+          "faeReview": {
+            "author": "Mark Stevens",
+            "title": "Senior FAE - Industrial Networks",
+            "content": "The MCP2515 is the industry standard for adding CAN to microcontrollers without native CAN support. The SPI interface is easy to implement, and the hardware filtering reduces CPU load significantly. I use it with Arduino, PIC, and ARM microcontrollers for CAN bus applications. Pair it with the MCP2551 transceiver for a complete CAN node.",
+            "highlight": "Industry-standard CAN controller with hardware filtering and SPI interface"
+          },
+          "faqs": [
+            {
+              "question": "What CAN transceiver should I use with MCP2515?",
+              "answer": "The MCP2515 requires an external CAN transceiver like the MCP2551 (5V) or MCP2561 (3.3V/5V). The transceiver converts the digital CAN TX/RX signals to the differential CANH/CANL bus signals. Choose based on your supply voltage and bus speed requirements. The MCP2562 offers silent mode for power savings.",
+              "decisionGuide": "Use MCP2551 for 5V systems; use MCP2561 for 3.3V or mixed voltage systems.",
+              "keywords": ["CAN transceiver", "MCP2551", "MCP2561", "CAN bus interface"]
+            }
+          ]
+        },
+        {
+          "partNumber": "MCP2551",
+          "name": "MCP2551 High-Speed CAN Transceiver",
+          "shortDescription": "High-speed CAN transceiver for CAN 2.0B networks up to 1Mbps, with slope control, thermal shutdown, and protection features.",
+          "descriptionParagraphs": [
+            "The MCP2551 is a high-speed CAN transceiver designed for use in CAN 2.0B networks operating at speeds up to 1Mbps. It interfaces between the CAN controller (like MCP2515) and the physical CAN bus.",
+            "The device features differential transmit and receive capability, slope control for reduced EMI, and protection features including thermal shutdown and short-circuit protection on the CAN bus pins.",
+            "The MCP2551 supports up to 112 nodes on the CAN bus and provides excellent EMC performance for harsh industrial and automotive environments."
+          ],
+          "specifications": {
+            "CAN Standard": "ISO 11898-2",
+            "Max Data Rate": "1 Mbps",
+            "Bus Nodes": "Up to 112",
+            "Supply Voltage": "4.5V - 5.5V",
+            "Slope Control": "Selectable",
+            "Protection": "Thermal shutdown, short-circuit",
+            "Package": "PDIP-8, SOIC-8",
+            "Temperature Range": "-40°C to +125°C",
+            "Architecture": "CAN Transceiver",
+            "Flash Memory": "N/A",
+            "RAM": "N/A"
+          },
+          "features": [
+            "1 Mbps operation",
+            "Slope control for EMI reduction",
+            "Thermal shutdown protection",
+            "Short-circuit protection",
+            "Up to 112 nodes",
+            "Excellent EMC performance"
+          ],
+          "applications": [
+            "Automotive CAN networks",
+            "Industrial CAN bus",
+            "CANopen systems",
+            "DeviceNet networks",
+            "J1939 applications"
+          ],
+          "faeReview": {
+            "author": "Mark Stevens",
+            "title": "Senior FAE - Industrial Networks",
+            "content": "The MCP2551 is the classic CAN transceiver that pairs perfectly with the MCP2515 controller. The slope control feature is important for reducing EMI in automotive applications. I've used this combination in dozens of CAN bus projects from automotive diagnostics to industrial control systems. The protection features make it robust for harsh environments.",
+            "highlight": "Reliable CAN transceiver with slope control and protection features"
+          },
+          "faqs": [
+            {
+              "question": "What is the purpose of the Rs pin on MCP2551?",
+              "answer": "The Rs (slope control) pin controls the slew rate of the CAN output signals. Connect Rs to ground for high-speed mode (fastest edges, highest speed). Connect a resistor (10kΩ to 100kΩ) from Rs to ground for slope control mode, which slows the edges to reduce EMI. For high-speed CAN (500k-1M), use high-speed mode. For lower speeds or reduced EMI, use slope control.",
+              "decisionGuide": "Connect Rs to ground for high-speed; use 10-100kΩ resistor for slope control/EMI reduction.",
+              "keywords": ["slope control", "Rs pin", "EMI reduction", "slew rate"]
+            }
+          ]
+        },
+        {
+          "partNumber": "ENC28J60",
+          "name": "ENC28J60 Stand-Alone Ethernet Controller",
+          "shortDescription": "Stand-alone Ethernet controller with SPI interface, integrated MAC and PHY, for embedded systems requiring 10Mbps Ethernet connectivity.",
+          "descriptionParagraphs": [
+            "The ENC28J60 is a stand-alone Ethernet controller with an industry-standard Serial Peripheral Interface (SPI). It is designed to serve as an Ethernet network interface for any controller equipped with SPI.",
+            "The device includes an integrated MAC and 10BASE-T PHY, 8KB transmit/receive packet buffer, and supports full and half-duplex modes. The SPI interface allows any microcontroller to add Ethernet connectivity.",
+            "With programmable automatic retransmit on collision and programmable padding and CRC generation, the ENC28J60 reduces host processor overhead for network communication."
+          ],
+          "specifications": {
+            "Ethernet Standard": "IEEE 802.3 10BASE-T",
+            "Data Rate": "10 Mbps",
+            "Host Interface": "SPI (20MHz max)",
+            "Buffer Memory": "8KB TX/RX",
+            "MAC Address": "Programmable",
+            "PHY": "Integrated 10BASE-T",
+            "Package": "SOIC-28, SSOP-28, QFN-28",
+            "Temperature Range": "-40°C to +85°C",
+            "Architecture": "Ethernet Controller",
+            "Flash Memory": "N/A",
+            "RAM": "N/A"
+          },
+          "features": [
+            "Integrated MAC and PHY",
+            "SPI host interface",
+            "8KB buffer memory",
+            "Programmable MAC address",
+            "Automatic retransmit",
+            "Wake-on-LAN support",
+            "Link status change wake"
+          ],
+          "applications": [
+            "Embedded web servers",
+            "Industrial Ethernet",
+            "Remote monitoring",
+            "Networked sensors",
+            "Building automation"
+          ],
+          "faeReview": {
+            "author": "David Lee",
+            "title": "FAE - Network Connectivity",
+            "content": "The ENC28J60 is a popular choice for adding Ethernet to microcontrollers without built-in MAC. The SPI interface is simple to use, and the 8KB buffer handles complete packets without host intervention. I've used it with Arduino for web server projects and with PIC microcontrollers for industrial Ethernet applications. The integrated PHY means minimal external components - just a magjack connector.",
+            "highlight": "Complete Ethernet solution with SPI interface and integrated PHY"
+          },
+          "faqs": [
+            {
+              "question": "What external components are needed for ENC28J60?",
+              "answer": "The ENC28J60 requires minimal external components: 1) A 25MHz crystal with loading capacitors; 2) A magnetic jack (magjack) with integrated isolation transformer; 3) Decoupling capacitors; 4) Optional status LEDs. The magjack provides the Ethernet physical interface with built-in isolation. No separate Ethernet transformer is needed.",
+              "decisionGuide": "Use integrated magjack for simplest design; ensure 25MHz crystal is accurate.",
+              "keywords": ["ENC28J60 components", "magjack", "Ethernet interface"]
             }
           ]
         }

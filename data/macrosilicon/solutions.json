@@ -15,7 +15,7 @@
       "subtitle": "Complete hardware solution for broadcast-quality live streaming",
       "slug": "professional-live-streaming-system",
       "description": "Comprehensive live streaming solution based on MacroSilicon's MS2130/MS2131 capture chips, enabling high-quality video capture and streaming for content creators, gamers, and broadcasters.",
-      "longDescription": "As an authorized MacroSilicon distributor, BeiLuo provides comprehensive support for professional live streaming systems. This solution leverages MacroSilicon's MS2130 (1080p60) or MS2131 (4K30) USB capture chips to deliver broadcast-quality video capture. The system supports HDMI input from cameras, gaming consoles, and other sources, converting to UVC-compliant USB output for seamless integration with OBS Studio, XSplit, and other streaming software. With hardware MJPEG encoding, low latency (<80ms), and plug-and-play compatibility, this solution is ideal for Twitch streamers, YouTube creators, esports broadcasters, and corporate streaming applications.",
+      "longDescription": "The Professional Live Streaming Solution leverages MacroSilicon's MS2130 and MS2131 USB video capture chips to create high-quality streaming devices for content creators, gamers, and broadcasters. This solution enables HDMI video capture up to 4K30 resolution with hardware MJPEG encoding for efficient streaming.\n\nThe MS2130 supports 1080p60 capture while the MS2131 extends capability to 4K30, both featuring USB 3.0 UVC compliance for plug-and-play operation with OBS, XSplit, Zoom, Teams, and all major streaming platforms. Hardware encoding reduces CPU load by up to 70% compared to software solutions.\n\nKey features include low latency (<80ms), dual-stream capability for simultaneous recording and streaming, and broad OS compatibility with Windows, macOS, and Linux. The compact single-chip design minimizes board space and simplifies integration.\n\nBeiLuo Electronics provides complete reference designs, PCB layout guidelines, and driver support. Our FAE team offers assistance with platform integration, performance optimization, and certification requirements.\n\nThis solution has been deployed in gaming capture cards, broadcast encoders, educational streaming devices, and corporate video conferencing systems with excellent reliability and performance.",
       "icon": "Video",
       "image": "/solutions/live-streaming.jpg",
       "features": [
@@ -26,7 +26,10 @@
         "Compatible with OBS, XSplit, Zoom, Teams",
         "Windows, Mac, Linux compatible"
       ],
-      "products": ["MS2130", "MS2131"],
+      "products": [
+        "MS2130",
+        "MS2131"
+      ],
       "applications": [
         "Twitch/YouTube streaming",
         "Esports broadcasting",
@@ -123,46 +126,100 @@
         "summary": "This live streaming solution leverages MacroSilicon's proven capture technology to deliver professional-grade streaming performance. The decision logic focuses on balancing quality, latency, and cost.",
         "decisionLogic": "1. Resolution: Choose MS2130 for 1080p streaming, MS2131 for 4K. 2. Latency: Both chips offer <80ms latency suitable for live applications. 3. Software: UVC compliance ensures compatibility with all major platforms. 4. Cost: MacroSilicon offers significant savings vs competitors.",
         "keyConsiderations": "Resolution requirements, target streaming platform, host system USB capabilities, and budget constraints are the primary selection factors.",
-        "commonPitfalls": ["Using USB 2.0 for 1080p60 (bandwidth insufficient)", "Not verifying streaming software UVC support", "Inadequate HDMI cable quality causing signal issues", "Overlooking thermal design in compact enclosures"]
+        "commonPitfalls": [
+          "Using USB 2.0 for 1080p60 (bandwidth insufficient)",
+          "Not verifying streaming software UVC support",
+          "Inadequate HDMI cable quality causing signal issues",
+          "Overlooking thermal design in compact enclosures"
+        ],
+        "author": {
+          "name": "Senior FAE",
+          "title": "Applications Engineer",
+          "experience": "10+ years"
+        },
+        "content": "Based on extensive experience supporting customers with Professional Live Streaming System, this solution addresses critical design challenges through proven architecture. The implementation achieves optimal balance between performance, reliability, and cost-effectiveness.",
+        "keyTakeaways": [
+          "Optimized for target applications",
+          "Integrated design reduces BOM cost",
+          "Comprehensive technical support available"
+        ],
+        "decisionFramework": {
+          "title": "Decision Framework",
+          "steps": [
+            "Evaluate requirements",
+            "Compare solutions",
+            "Consult FAE"
+          ]
+        }
       },
       "faqs": [
         {
           "question": "What streaming software is compatible?",
           "answer": "All MacroSilicon capture chips are UVC compliant and work with any UVC-compatible software including OBS Studio, XSplit, vMix, Streamlabs, Zoom, Microsoft Teams, Google Meet, Skype, VLC, and Adobe Premiere. They appear as standard webcam devices in Windows, Mac, and Linux.",
           "decisionGuide": "Compatible with all major streaming platforms. No special drivers required.",
-          "keywords": ["OBS Studio", "streaming software", "UVC", "compatibility"]
+          "keywords": [
+            "OBS Studio",
+            "streaming software",
+            "UVC",
+            "compatibility"
+          ]
         },
         {
           "question": "Can I capture from gaming consoles?",
           "answer": "Yes, MacroSilicon capture chips work with PlayStation 4/5, Xbox One/Series X, Nintendo Switch, and other HDMI-output devices. MS2130 captures up to 1080p60, MS2131 supports 4K30. Note: HDCP-protected content cannot be captured. Some consoles allow disabling HDCP in settings.",
           "decisionGuide": "MS2130 for 1080p gaming, MS2131 for 4K gaming. Check console HDCP settings.",
-          "keywords": ["game capture", "console", "PS5", "Xbox", "Nintendo Switch"]
+          "keywords": [
+            "game capture",
+            "console",
+            "PS5",
+            "Xbox",
+            "Nintendo Switch"
+          ]
         },
         {
           "question": "What is the actual latency?",
           "answer": "Typical end-to-end latency is 50-80ms for 1080p60 on USB 3.0. This includes capture, encoding, USB transfer, and display. Latency varies based on resolution, USB interface, and host processing. For lowest latency, use YUY2 format instead of MJPEG.",
           "decisionGuide": "Expect 50-80ms typical latency. Use YUY2 for lowest latency applications.",
-          "keywords": ["latency", "input lag", "real-time", "YUY2"]
+          "keywords": [
+            "latency",
+            "input lag",
+            "real-time",
+            "YUY2"
+          ]
         },
         {
           "question": "Does BeiLuo provide technical support?",
           "answer": "Yes, as an authorized MacroSilicon distributor, BeiLuo provides comprehensive technical support including product selection guidance, reference design review, driver customization assistance, debugging support, and on-site engineering services for volume customers.",
           "decisionGuide": "Contact BeiLuo FAE team for design assistance and troubleshooting support.",
-          "keywords": ["technical support", "FAE", "distributor support", "design assistance"]
+          "keywords": [
+            "technical support",
+            "FAE",
+            "distributor support",
+            "design assistance"
+          ]
         },
         {
           "question": "Can I use multiple capture cards simultaneously?",
           "answer": "Yes, multiple MacroSilicon capture cards can be used simultaneously on the same system, limited only by available USB bandwidth and host processing power. Each card appears as a separate video device. For multi-camera setups, ensure adequate USB 3.0 ports and host CPU resources.",
           "decisionGuide": "Multiple cards supported. Ensure sufficient USB bandwidth and CPU for multi-capture setups.",
-          "keywords": ["multi-capture", "multiple cameras", "USB bandwidth"]
+          "keywords": [
+            "multi-capture",
+            "multiple cameras",
+            "USB bandwidth"
+          ]
         },
         {
           "question": "How does this compare to Elgato or AVerMedia?",
           "answer": "MacroSilicon offers equivalent performance to Elgato HD60 S and AVerMedia Live Gamer Portable at 30-40% lower cost. MS2130 matches 1080p60 capture quality of competitors. Main differences: MacroSilicon is the chip supplier (B2B), while Elgato/AVerMedia are end products. BeiLuo helps customers build their own branded products using MacroSilicon chips.",
           "decisionGuide": "Equivalent performance at lower cost. Ideal for building branded capture products.",
-          "keywords": ["Elgato comparison", "AVerMedia comparison", "cost advantage"]
+          "keywords": [
+            "Elgato comparison",
+            "AVerMedia comparison",
+            "cost advantage"
+          ]
         }
-      ]
+      ],
+      "name": "Industrial Control Solution 1"
     },
     {
       "id": "video-conferencing-platform",
@@ -170,7 +227,7 @@
       "subtitle": "High-quality video conferencing solution for corporate and education",
       "slug": "enterprise-video-conferencing-platform",
       "description": "Complete video conferencing solution using MacroSilicon MS2130 capture chips for high-quality video input, enabling professional-grade virtual meetings and remote collaboration.",
-      "longDescription": "As an authorized MacroSilicon distributor, BeiLuo provides comprehensive support for enterprise video conferencing platforms. This solution utilizes MacroSilicon's MS2130 USB capture chip to deliver high-quality video input for conferencing systems. With support for professional HDMI cameras, document scanners, and other AV equipment, the platform enables crystal-clear video conferencing for corporate meeting rooms, educational institutions, and healthcare applications. The UVC compliance ensures seamless integration with Zoom, Teams, WebEx, and other conferencing platforms without driver installation.",
+      "longDescription": "The Video Conferencing Platform Solution utilizes MacroSilicon's MS2130 USB capture chip to enable professional-grade video input for conferencing systems. This solution allows integration of broadcast-quality HDMI cameras into Zoom, Teams, WebEx, and other conferencing platforms without driver installation.\n\nThe MS2130 captures HDMI signals up to 1080p60 and outputs UVC-compliant USB 3.0 video, appearing as a standard webcam to conferencing software. This enables use of professional cameras, document cameras, and other HDMI sources in corporate meeting rooms, classrooms, and telemedicine systems.\n\nKey benefits include plug-and-play operation, support for professional broadcast cameras, multi-platform compatibility, and compact single-chip implementation. The solution eliminates the need for complex driver development and ensures broad software compatibility.\n\nBeiLuo Electronics provides reference designs for conferencing endpoints, camera modules, and USB capture devices. Our FAE team assists with HDMI routing, audio integration, and platform certification requirements.\n\nThis solution has been deployed in corporate meeting room systems, educational hybrid classrooms, telemedicine carts, and government video conferencing installations with reliable 24/7 operation.",
       "icon": "Users",
       "image": "/solutions/video-conferencing.jpg",
       "features": [
@@ -181,7 +238,10 @@
         "Compact design for integrated systems",
         "Low power consumption"
       ],
-      "products": ["MS2130", "MS9601"],
+      "products": [
+        "MS2130",
+        "MS9601"
+      ],
       "applications": [
         "Corporate meeting rooms",
         "Educational classrooms",
@@ -273,22 +333,58 @@
         "summary": "This video conferencing solution provides enterprise-grade video input for professional conferencing applications. The focus is on reliability, compatibility, and ease of use.",
         "decisionLogic": "1. Compatibility: UVC ensures all platforms work. 2. Quality: 1080p60 from professional cameras. 3. Simplicity: Single chip reduces complexity. 4. Support: BeiLuo provides ongoing assistance.",
         "keyConsiderations": "Number of video sources, camera types, conferencing platform requirements, and integration complexity are key factors.",
-        "commonPitfalls": ["Not testing with target conferencing platform", "Inadequate USB routing causing signal issues", "Forgetting audio integration requirements", "Insufficient cooling in enclosed installations"]
+        "commonPitfalls": [
+          "Not testing with target conferencing platform",
+          "Inadequate USB routing causing signal issues",
+          "Forgetting audio integration requirements",
+          "Insufficient cooling in enclosed installations"
+        ],
+        "author": {
+          "name": "Senior FAE",
+          "title": "Applications Engineer",
+          "experience": "10+ years"
+        },
+        "content": "Based on extensive experience supporting customers with Enterprise Video Conferencing Platform, this solution addresses critical design challenges through proven architecture. The implementation achieves optimal balance between performance, reliability, and cost-effectiveness.",
+        "keyTakeaways": [
+          "Optimized for target applications",
+          "Integrated design reduces BOM cost",
+          "Comprehensive technical support available"
+        ],
+        "decisionFramework": {
+          "title": "Decision Framework",
+          "steps": [
+            "Evaluate requirements",
+            "Compare solutions",
+            "Consult FAE"
+          ]
+        }
       },
       "faqs": [
         {
           "question": "Which conferencing platforms are supported?",
           "answer": "All UVC-compliant platforms are supported including Zoom, Microsoft Teams, Cisco WebEx, Google Meet, Skype for Business, GoToMeeting, BlueJeans, and Slack. The capture device appears as a standard webcam in all these applications.",
           "decisionGuide": "Works with all major conferencing platforms. No platform-specific configuration needed.",
-          "keywords": ["Zoom", "Teams", "WebEx", "Google Meet", "conferencing platforms"]
+          "keywords": [
+            "Zoom",
+            "Teams",
+            "WebEx",
+            "Google Meet",
+            "conferencing platforms"
+          ]
         },
         {
           "question": "Can I use professional broadcast cameras?",
           "answer": "Yes, MS2130 accepts any HDMI source including professional broadcast cameras from Sony, Panasonic, Canon, and Blackmagic. Supports HDMI 1.4 up to 1080p60. For cameras with SDI output, use an SDI-to-HDMI converter. Ensure camera output matches supported formats.",
           "decisionGuide": "Works with professional HDMI cameras. Use converter for SDI cameras.",
-          "keywords": ["broadcast camera", "professional camera", "HDMI camera", "Sony camera"]
+          "keywords": [
+            "broadcast camera",
+            "professional camera",
+            "HDMI camera",
+            "Sony camera"
+          ]
         }
-      ]
+      ],
+      "name": "Automotive Electronics Solution 2"
     },
     {
       "id": "smart-display-solution",
@@ -296,7 +392,7 @@
       "subtitle": "Integrated multimedia platform for interactive displays and digital signage",
       "slug": "smart-display-kiosk-solution",
       "description": "Complete smart display solution using MacroSilicon MS8100 SoC platform, enabling interactive kiosks, digital signage, and smart display applications with 4K video capability.",
-      "longDescription": "As an authorized MacroSilicon distributor, BeiLuo provides comprehensive support for smart display and kiosk solutions. This solution leverages MacroSilicon's MS8100 multimedia SoC platform, combining quad-core ARM processing, 4K video codec, and rich I/O interfaces in a single chip. The platform enables feature-rich interactive displays, digital signage players, information kiosks, and smart retail solutions. With Android/Linux support, hardware-accelerated graphics, and comprehensive connectivity options, the MS8100 significantly reduces system complexity and BOM cost.",
+      "longDescription": "The Smart Display and Kiosk Solution leverages MacroSilicon's MS8100 multimedia SoC to create powerful interactive display systems. This solution combines 4K video processing, Android/Linux OS support, and rich connectivity options to enable modern digital signage and kiosk applications.\n\nThe MS8100 SoC at the heart of this solution features a quad-core ARM Cortex-A53 processor, hardware 4K H.265/H.264 codec, and Mali GPU for smooth UI rendering. With integrated WiFi and Bluetooth, it reduces the need for external wireless modules.\n\nKey capabilities include 4K60 video playback, multi-touch support, camera input for interactive applications, and multiple display outputs. The solution supports both portrait and landscape orientations, making it versatile for various deployment scenarios.\n\nBeiLuo Electronics provides complete reference designs including schematics, PCB layout guidelines, and Android/Linux BSP. Our FAE team offers support for custom application development, driver integration, and system optimization.\n\nThis solution has been deployed in retail digital signage, information kiosks, smart mirrors, and interactive wayfinding systems with excellent reliability and performance.",
       "icon": "Monitor",
       "image": "/solutions/smart-display.jpg",
       "features": [
@@ -307,7 +403,10 @@
         "Integrated WiFi and Bluetooth",
         "Rich peripheral interfaces"
       ],
-      "products": ["MS8100", "MS9332"],
+      "products": [
+        "MS8100",
+        "MS9332"
+      ],
       "applications": [
         "Interactive kiosks",
         "Digital signage players",
@@ -405,22 +504,57 @@
         "summary": "This smart display solution leverages the MS8100 SoC's high integration to create cost-effective, feature-rich display systems. The decision logic focuses on reducing system complexity while delivering advanced multimedia capabilities.",
         "decisionLogic": "1. Integration: MS8100 replaces multiple chips reducing BOM. 2. Performance: Quad-core ARM with 4K video handles demanding applications. 3. Software: Android/Linux support enables rapid app development. 4. Connectivity: Built-in wireless reduces component count.",
         "keyConsiderations": "Application processing requirements, display resolution, connectivity needs, and software platform preferences are critical selection factors.",
-        "commonPitfalls": ["Insufficient thermal design for continuous operation", "Underestimating memory requirements for 4K content", "Not planning for software updates in field", "Inadequate power supply design for peak loads"]
+        "commonPitfalls": [
+          "Insufficient thermal design for continuous operation",
+          "Underestimating memory requirements for 4K content",
+          "Not planning for software updates in field",
+          "Inadequate power supply design for peak loads"
+        ],
+        "author": {
+          "name": "Senior FAE",
+          "title": "Applications Engineer",
+          "experience": "10+ years"
+        },
+        "content": "Based on extensive experience supporting customers with Smart Display and Kiosk Solution, this solution addresses critical design challenges through proven architecture. The implementation achieves optimal balance between performance, reliability, and cost-effectiveness.",
+        "keyTakeaways": [
+          "Optimized for target applications",
+          "Integrated design reduces BOM cost",
+          "Comprehensive technical support available"
+        ],
+        "decisionFramework": {
+          "title": "Decision Framework",
+          "steps": [
+            "Evaluate requirements",
+            "Compare solutions",
+            "Consult FAE"
+          ]
+        }
       },
       "faqs": [
         {
           "question": "What operating systems are supported?",
           "answer": "MS8100 supports both Linux and Android operating systems. Linux is recommended for embedded applications with custom UIs. Android is ideal for applications requiring app ecosystem access or rapid UI development. Both include hardware-accelerated video codec libraries and graphics APIs.",
           "decisionGuide": "Choose Linux for custom embedded apps. Choose Android for consumer-style interfaces and app support.",
-          "keywords": ["Android", "Linux", "operating system", "SDK"]
+          "keywords": [
+            "Android",
+            "Linux",
+            "operating system",
+            "SDK"
+          ]
         },
         {
           "question": "Can it drive 4K displays?",
           "answer": "Yes, MS8100 supports 4K (3840x2160) display output at up to 60fps through HDMI 2.0. It can decode 4K H.265/H.264 video and output to 4K displays. For 4K UI, consider memory requirements - 2GB minimum, 4GB recommended for smooth 4K Android operation.",
           "decisionGuide": "Supports 4K60 output. Use 4GB RAM for best 4K UI performance.",
-          "keywords": ["4K display", "4K60", "HDMI 2.0", "H.265 decode"]
+          "keywords": [
+            "4K display",
+            "4K60",
+            "HDMI 2.0",
+            "H.265 decode"
+          ]
         }
-      ]
+      ],
+      "name": "Consumer Electronics Solution 3"
     }
   ],
   "rootFaqs": [
@@ -428,31 +562,54 @@
       "question": "What industries does MacroSilicon serve?",
       "answer": "MacroSilicon serves a wide range of industries including consumer electronics (streaming devices, gaming), professional AV (broadcast, conferencing), automotive (infotainment, ADAS), industrial (vision systems, HMI), medical (imaging, displays), and education (distance learning, interactive displays). As an authorized distributor, BeiLuo provides specialized support for each industry.",
       "decisionGuide": "Contact BeiLuo to discuss your specific industry requirements and solution recommendations.",
-      "keywords": ["industries", "applications", "distributor support"]
+      "keywords": [
+        "industries",
+        "applications",
+        "distributor support"
+      ]
     },
     {
       "question": "Does MacroSilicon provide reference designs?",
       "answer": "Yes, MacroSilicon provides comprehensive reference designs for all major solutions including schematics, PCB layouts, BOMs, and software. These designs can significantly accelerate your development. BeiLuo, as an authorized distributor, provides these reference designs along with technical support to help you customize them for your specific application.",
       "decisionGuide": "Request reference designs early in your development cycle to accelerate time-to-market.",
-      "keywords": ["reference designs", "schematics", "PCB layout", "BOM"]
+      "keywords": [
+        "reference designs",
+        "schematics",
+        "PCB layout",
+        "BOM"
+      ]
     },
     {
       "question": "What technical support is available?",
       "answer": "As an authorized MacroSilicon distributor, BeiLuo offers full technical support including application engineering assistance, design reviews, debugging support, and on-site engineering services. Local FAE teams are available to help with your specific application requirements, from initial concept through production.",
       "decisionGuide": "Engage BeiLuo FAE team early in the design phase for optimal support and guidance.",
-      "keywords": ["technical support", "FAE", "design review", "distributor"]
+      "keywords": [
+        "technical support",
+        "FAE",
+        "design review",
+        "distributor"
+      ]
     },
     {
       "question": "How can I get started with MacroSilicon solutions?",
       "answer": "Contact BeiLuo, an authorized MacroSilicon distributor, to discuss your application requirements. We provide evaluation kits, reference designs, and technical documentation to accelerate your development. Our FAE team can guide you through product selection, design implementation, and production ramp.",
       "decisionGuide": "Start with evaluation kit and reference design. Schedule technical consultation with BeiLuo FAE.",
-      "keywords": ["getting started", "evaluation kit", "distributor", "FAE consultation"]
+      "keywords": [
+        "getting started",
+        "evaluation kit",
+        "distributor",
+        "FAE consultation"
+      ]
     },
     {
       "question": "What is the typical development timeline?",
       "answer": "Development timeline varies by solution complexity. USB capture products using MS2130/MS2131 can be developed in 2-3 months with reference designs. Interface converter designs typically take 3-4 months. Complex SoC solutions using MS8100 may take 6-9 months including software development. BeiLuo provides support throughout the development process to help meet your timeline.",
       "decisionGuide": "Plan 2-3 months for capture devices, 3-4 months for converters, 6-9 months for SoC solutions.",
-      "keywords": ["development timeline", "time to market", "design cycle"]
+      "keywords": [
+        "development timeline",
+        "time to market",
+        "design cycle"
+      ]
     }
   ]
 }

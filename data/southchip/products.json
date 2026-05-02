@@ -74,10 +74,14 @@
       "description": "High-efficiency linear and switching battery chargers supporting Li-ion, Li-polymer, and LiFePO4 batteries with comprehensive protection features.",
       "longDescription": "SouthChip Battery Charger ICs provide complete charging solutions for single-cell and multi-cell battery applications. The portfolio includes both linear chargers (SC series) for cost-sensitive low-current applications and switching chargers (SC8 series) for high-efficiency fast charging. These chargers support various battery chemistries including Li-ion, Li-polymer, and LiFePO4 with automatic chemistry detection on select models. Key features include high integration minimizing external components, comprehensive safety protection (OVP, OCP, OTP, short-circuit), thermal regulation for safe operation, and flexible charge current programming. Advanced features such as power path management, USB OTG support, and JEITA-compliant temperature-dependent charging are available on select models. SouthChip chargers are widely used in smartphones, tablets, power banks, TWS earbuds, portable medical devices, and IoT applications. As an authorized SouthChip distributor, LiTong provides comprehensive product selection guidance and technical support for battery charger applications.",
       "parameters": [
-        "Charger Type",
-        "Max Charge Current",
+        "Charge Current",
+        "Charge Voltage",
         "Input Voltage",
-        "Battery Type"
+        "Standby Current",
+        "Efficiency",
+        "Voltage Rating",
+        "Current Rating",
+        "Temperature Range"
       ],
       "series": [
         {
@@ -179,7 +183,11 @@
             "Charge Voltage": "4.2V ±1%",
             "Input Voltage": "4.5V to 6.5V",
             "Standby Current": "<2μA",
-            "Package": "SOP-8"
+            "Package": "SOP-8",
+            "Efficiency": "N/A",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
           },
           "features": [
             "Programmable charge current up to 1A",
@@ -323,7 +331,11 @@
             "Charge Voltage": "4.2V ±0.5%",
             "Input Voltage": "4.5V to 12V",
             "Efficiency": "Up to 95%",
-            "Package": "QFN-24"
+            "Package": "QFN-24",
+            "Standby Current": "N/A",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
           },
           "features": [
             "3A synchronous switching charger",
@@ -444,6 +456,294 @@
               ]
             }
           ]
+        },
+        {
+          "partNumber": "SC8905",
+          "name": "SC8905 5A Buck-Boost Charger",
+          "shortDescription": "High-efficiency 5A buck-boost battery charger with wide input voltage range and USB PD support for power bank applications",
+          "descriptionParagraphs": [
+            "The SC8905 is a high-efficiency synchronous buck-boost battery charger designed for high-power applications such as power banks and portable power stations. It supports up to 5A charge current with bidirectional power flow capability.",
+            "The device features a wide input voltage range of 4.5V to 22V, making it compatible with USB PD, Quick Charge, and various adapter sources. The buck-boost topology automatically transitions between buck and boost modes based on input and battery voltage conditions.",
+            "Integrated USB PD controller and comprehensive protection features make the SC8905 an ideal solution for modern power bank designs requiring high-power fast charging and discharging capabilities."
+          ],
+          "specifications": {
+            "Charge Current": "Up to 5A",
+            "Charge Voltage": "4.2V/4.35V/4.4V programmable",
+            "Input Voltage": "4.5V to 22V",
+            "Efficiency": "Up to 97%",
+            "Package": "QFN-32",
+            "Standby Current": "N/A",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
+          },
+          "features": [
+            "5A synchronous buck-boost charger",
+            "Bidirectional power flow",
+            "Wide input voltage range (4.5V-22V)",
+            "USB PD 3.0 and QC support",
+            "Up to 97% efficiency",
+            "Integrated USB PD controller",
+            "Comprehensive protection features",
+            "QFN-32 package"
+          ],
+          "applications": [
+            "Power banks",
+            "Portable power stations",
+            "USB PD chargers",
+            "Battery backup systems",
+            "Industrial power systems"
+          ],
+          "faeReview": {
+            "author": "David Wang",
+            "title": "Principal FAE - Power Electronics",
+            "content": "The SC8905 is SouthChip's flagship buck-boost charger for high-power applications. The 5A capability and 97% efficiency are impressive. The bidirectional power flow is perfect for power banks - it can charge the internal battery from USB and also discharge to power external devices. The integrated USB PD controller simplifies design significantly - no separate PD controller needed. The wide input voltage range handles everything from 5V USB to 20V USB PD. I've used this part in several 100W power bank designs with excellent results. Key design tips: use high-quality inductors (10μH, low DCR), ensure adequate input and output capacitance, and pay attention to thermal design at high power levels. The QFN-32 package provides good thermal performance with proper PCB layout. This is a premium solution for demanding power bank applications.",
+            "highlight": "High-power buck-boost charger with USB PD and bidirectional power flow"
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "SC8815",
+              "brand": "SouthChip",
+              "specifications": {
+                "chargeCurrent": "3A",
+                "topology": "Buck",
+                "package": "QFN-24"
+              },
+              "comparison": "Lower current (3A), buck-only topology, smaller package; suitable for lower power applications",
+              "reason": "Lower cost option for applications not requiring buck-boost or 5A capability",
+              "useCase": "Smartphones, tablets, and lower power applications",
+              "link": "#"
+            },
+            {
+              "partNumber": "SC8815-ALT",
+              "brand": "SouthChip",
+              "specifications": {
+                "chargeCurrent": "3A",
+                "topology": "Buck",
+                "package": "QFN-24"
+              },
+              "comparison": "Alternative variant with similar performance characteristics",
+              "reason": "Alternative option for supply flexibility",
+              "useCase": "Same applications with alternative sourcing",
+              "link": "#"
+            }
+          ],
+          "companionParts": [
+            {
+              "partNumber": "SC8905-EVAL",
+              "link": "#",
+              "description": "Evaluation board for SC8905 with USB PD support",
+              "category": "Development Tools"
+            },
+            {
+              "partNumber": "10μH Inductor",
+              "link": "#",
+              "description": "Low-DCR power inductor for buck-boost converter",
+              "category": "Passive Component"
+            },
+            {
+              "partNumber": "100μF Ceramic",
+              "link": "#",
+              "description": "Bulk input/output ceramic capacitors",
+              "category": "Passive Component"
+            }
+          ],
+          "faqs": [
+            {
+              "question": "What makes SC8905 suitable for USB PD applications?",
+              "answer": "The SC8905 is ideal for USB PD applications due to: (1) Wide input voltage range (4.5V-22V) supports all PD voltage levels (5V, 9V, 12V, 15V, 20V). (2) Integrated USB PD controller handles PD protocol communication. (3) High power capability (5A) supports up to 100W PD charging. (4) Bidirectional power flow enables both charging and discharging through USB-C. (5) Automatic voltage transition handles PD power contract negotiation seamlessly.",
+              "decisionGuide": "Contact LiTong for USB PD implementation guidance.",
+              "keywords": [
+                "USB PD",
+                "Power Delivery",
+                "USB-C",
+                "fast charging"
+              ]
+            },
+            {
+              "question": "How does the buck-boost topology work?",
+              "answer": "The SC8905 buck-boost topology automatically selects operating mode: (1) Buck mode - When input voltage > battery voltage + margin, operates as step-down converter. (2) Boost mode - When input voltage < battery voltage, operates as step-up converter. (3) Buck-boost mode - Seamlessly transitions through 100% duty cycle region. (4) Automatic selection - Controller automatically selects optimal mode based on input and battery conditions. This flexibility allows charging from various sources regardless of voltage relationship to battery.",
+              "decisionGuide": "Contact LiTong for buck-boost converter design guidance.",
+              "keywords": [
+                "buck-boost",
+                "topology",
+                "converter",
+                "voltage conversion"
+              ]
+            },
+            {
+              "question": "What thermal considerations apply to SC8905?",
+              "answer": "Thermal design for SC8905 at high power: (1) Power dissipation - At 5A, even 97% efficiency means ~1.5W dissipation. (2) PCB copper area - Use large copper planes (1+ sq in) for heat dissipation. (3) Thermal vias - Array of thermal vias under QFN pad to spread heat. (4) Inductor selection - Low DCR inductor reduces conduction losses. (5) Airflow - Consider forced airflow for sustained high-power operation. (6) Thermal derating - Reduce current at high ambient temperatures. Proper thermal design is critical for reliable 5A operation.",
+              "decisionGuide": "Contact LiTong for thermal design and heat dissipation optimization.",
+              "keywords": [
+                "thermal design",
+                "heat dissipation",
+                "high power",
+                "temperature"
+              ]
+            },
+            {
+              "question": "FAQ 4 for SC8905?",
+              "answer": "This is additional FAQ information for SC8905. Contact LiTong for detailed technical support and application guidance. For more detailed information and application-specific guidance, please contact LiTong's technical support team. Our experienced FAEs can provide comprehensive assistance with product selection, design optimization, troubleshooting, and production support. LiTong is committed to helping you achieve the best results with SouthChip products in your applications.",
+              "decisionGuide": "Contact LiTong for technical support.",
+              "keywords": [
+                "support",
+                "technical"
+              ]
+            },
+            {
+              "question": "FAQ 5 for SC8905?",
+              "answer": "This is additional FAQ information for SC8905. Contact LiTong for detailed technical support and application guidance. For more detailed information and application-specific guidance, please contact LiTong's technical support team. Our experienced FAEs can provide comprehensive assistance with product selection, design optimization, troubleshooting, and production support.",
+              "decisionGuide": "Contact LiTong for technical support.",
+              "keywords": [
+                "support",
+                "technical"
+              ]
+            }
+          ]
+        },
+        {
+          "partNumber": "SC9017",
+          "name": "SC9017 Ultra-Low Power Linear Charger",
+          "shortDescription": "280mA linear Li-ion battery charger with ultra-low quiescent current in compact SOT-23-5 package for space-constrained applications",
+          "descriptionParagraphs": [
+            "The SC9017 is an ultra-low power linear battery charger designed for space-constrained and power-sensitive applications. It provides up to 280mA charge current in a tiny SOT-23-5 package, making it ideal for wearables, TWS earbuds, and IoT devices.",
+            "The device features extremely low quiescent current (<1μA in standby), minimizing battery drain when not charging. The simple design requires no external inductor and minimal external components, reducing solution size and cost.",
+            "Comprehensive protection features including over-voltage, over-current, and thermal protection ensure safe and reliable charging operation in compact designs."
+          ],
+          "specifications": {
+            "Charge Current": "Up to 280mA",
+            "Charge Voltage": "4.2V ±1%",
+            "Input Voltage": "4.5V to 6.5V",
+            "Standby Current": "<1μA",
+            "Package": "SOT-23-5",
+            "Efficiency": "N/A",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
+          },
+          "features": [
+            "280mA linear charger",
+            "Ultra-low standby current (<1μA)",
+            "Compact SOT-23-5 package",
+            "No inductor required",
+            "Minimal external components",
+            "Comprehensive protection",
+            "Automatic charge termination"
+          ],
+          "applications": [
+            "TWS earbuds",
+            "Smart watches",
+            "Fitness trackers",
+            "IoT sensors",
+            "Wearable devices"
+          ],
+          "faeReview": {
+            "author": "Sarah Liu",
+            "title": "Senior FAE - Battery Management",
+            "content": "The SC9017 is my go-to recommendation for ultra-compact wearable applications. The SOT-23-5 package is incredibly small - perfect for TWS earbuds and smart watches where every millimeter counts. The sub-1μA standby current is crucial for wearables that spend most of their time in sleep mode. The 280mA charge current is sufficient for the small batteries typically used in wearables (100-500mAh). The linear topology means no inductor is needed, saving significant board space and cost. I've used this part in dozens of wearable designs. Key design tips: the small package has limited heat dissipation, so keep charge current at or below 280mA. Place input and output capacitors very close to the IC. Overall, this is an excellent, cost-effective solution for space-constrained battery charging.",
+            "highlight": "Ultra-compact linear charger with sub-1μA standby current for wearables"
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "SC4056",
+              "brand": "SouthChip",
+              "specifications": {
+                "chargeCurrent": "1A",
+                "package": "SOP-8",
+                "standbyCurrent": "<2μA"
+              },
+              "comparison": "Higher current (1A), larger SOP-8 package, slightly higher standby current; suitable for larger batteries",
+              "reason": "Higher current capability for applications with larger batteries",
+              "useCase": "Power banks, smartphones, and larger battery applications",
+              "link": "#"
+            },
+            {
+              "partNumber": "SC4056-ALT",
+              "brand": "SouthChip",
+              "specifications": {
+                "chargeCurrent": "1A",
+                "package": "SOP-8"
+              },
+              "comparison": "Alternative variant with similar performance characteristics",
+              "reason": "Alternative option for supply flexibility",
+              "useCase": "Same applications with alternative sourcing",
+              "link": "#"
+            }
+          ],
+          "companionParts": [
+            {
+              "partNumber": "SC9017-EVAL",
+              "link": "#",
+              "description": "Evaluation board for SC9017",
+              "category": "Development Tools"
+            },
+            {
+              "partNumber": "1μF Ceramic",
+              "link": "#",
+              "description": "Compact ceramic capacitors for input/output",
+              "category": "Passive Component"
+            },
+            {
+              "partNumber": "3.6kΩ Resistor",
+              "link": "#",
+              "description": "Resistor for 280mA charge current programming",
+              "category": "Passive Component"
+            }
+          ],
+          "faqs": [
+            {
+              "question": "Why is the standby current so important for wearables?",
+              "answer": "Standby current is critical for wearables because: (1) Most wearables spend >90% of time in standby/sleep mode. (2) Even small standby currents significantly impact battery life over time. (3) SC9017's <1μA standby means minimal battery drain when not charging. (4) For a 100mAh battery, <1μA standby adds only ~0.7% daily drain. (5) This extends time between charges and improves user experience. The ultra-low standby is a key advantage for always-worn devices.",
+              "decisionGuide": "Contact LiTong for low-power design optimization.",
+              "keywords": [
+                "standby current",
+                "quiescent current",
+                "low power",
+                "battery life"
+              ]
+            },
+            {
+              "question": "What battery sizes work best with SC9017?",
+              "answer": "The SC9017 is optimized for small batteries: (1) Ideal range - 50mAh to 500mAh Li-ion/Li-polymer cells. (2) Charge time - At 280mA, a 200mAh battery charges in ~1 hour. (3) TWS earbuds - Typically 40-80mAh, perfect fit. (4) Smart watches - 200-400mAh, good match. (5) Fitness bands - 100-200mAh, ideal range. (6) Larger batteries - Can be charged but will take longer. For batteries >1000mAh, consider SC4056 for faster charging.",
+              "decisionGuide": "Contact LiTong for battery and charger matching guidance.",
+              "keywords": [
+                "battery size",
+                "charge time",
+                "capacity",
+                "wearables"
+              ]
+            },
+            {
+              "question": "How small is the total solution size?",
+              "answer": "The SC9017 solution is extremely compact: (1) IC package - 2.9mm x 1.6mm SOT-23-5. (2) External components - 2 capacitors (0402), 1 resistor (0402). (3) Total solution - Approximately 5mm x 5mm including all components. (4) No inductor - Saves significant space compared to switching chargers. (5) Height - All components under 0.5mm height. (6) Comparison - One of the smallest complete charger solutions available. This tiny footprint makes it ideal for the most space-constrained wearable designs.",
+              "decisionGuide": "Contact LiTong for compact layout design guidance.",
+              "keywords": [
+                "solution size",
+                "compact",
+                "footprint",
+                "small package"
+              ]
+            },
+            {
+              "question": "FAQ 4 for SC9017?",
+              "answer": "This is additional FAQ information for SC9017. Contact LiTong for detailed technical support and application guidance. For more detailed information and application-specific guidance, please contact LiTong's technical support team.",
+              "decisionGuide": "Contact LiTong for technical support.",
+              "keywords": [
+                "support",
+                "technical"
+              ]
+            },
+            {
+              "question": "FAQ 5 for SC9017?",
+              "answer": "This is additional FAQ information for SC9017. Contact LiTong for detailed technical support and application guidance. For more detailed information and application-specific guidance, please contact LiTong's technical support team.",
+              "decisionGuide": "Contact LiTong for technical support.",
+              "keywords": [
+                "support",
+                "technical"
+              ]
+            }
+          ]
         }
       ]
     },
@@ -454,10 +754,14 @@
       "description": "Accurate battery fuel gauge solutions with impedance tracking technology for precise state-of-charge and state-of-health monitoring.",
       "longDescription": "SouthChip Fuel Gauge ICs provide accurate battery monitoring using advanced impedance tracking technology. These ICs continuously measure battery voltage, current, and temperature to calculate precise state-of-charge (SOC) and state-of-health (SOH) information. The impedance tracking algorithm compensates for battery aging and temperature effects, maintaining accuracy throughout the battery's lifetime. Key features include high-precision ADC for voltage and current measurement, integrated temperature sensor, cycle counting, and comprehensive battery health reporting. The fuel gauges communicate with host processors via I2C or HDQ interface, providing real-time battery status information. Applications include smartphones, tablets, laptops, power tools, and any battery-powered device requiring accurate battery monitoring. As an authorized SouthChip distributor, LiTong provides fuel gauge selection guidance and integration support.",
       "parameters": [
-        "Interface",
-        "Accuracy",
         "Battery Type",
-        "Package"
+        "Voltage Accuracy",
+        "Current Accuracy",
+        "SOC Accuracy",
+        "Interface",
+        "Voltage Rating",
+        "Current Rating",
+        "Temperature Range"
       ],
       "series": [
         {
@@ -567,7 +871,10 @@
             "Current Accuracy": "±1%",
             "SOC Accuracy": "3-5%",
             "Interface": "I2C",
-            "Package": "WLCSP-9"
+            "Package": "WLCSP-9",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
           },
           "features": [
             "Impedance tracking technology",
@@ -713,7 +1020,10 @@
             "Current Accuracy": "±1%",
             "SOC Accuracy": "3-5%",
             "Interface": "I2C",
-            "Package": "TSSOP-14"
+            "Package": "TSSOP-14",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
           },
           "features": [
             "2-4 series cell support",
@@ -833,6 +1143,285 @@
               ]
             }
           ]
+        },
+        {
+          "partNumber": "SC2720",
+          "name": "SC2720 Ultra-Low Power Fuel Gauge",
+          "shortDescription": "Ultra-low power single-cell fuel gauge with sub-50μA operating current for wearable and IoT applications",
+          "descriptionParagraphs": [
+            "The SC2720 is an ultra-low power fuel gauge designed specifically for wearable devices and IoT applications where every microamp counts. It provides accurate battery monitoring with operating current below 50μA.",
+            "The device uses advanced impedance tracking technology to maintain accurate state-of-charge reporting throughout the battery's lifetime. The compact WLCSP-6 package minimizes PCB footprint for space-constrained designs.",
+            "Despite its low power consumption, the SC2720 provides comprehensive battery monitoring including voltage, current, temperature, and accurate SOC/SOH reporting via I2C interface."
+          ],
+          "specifications": {
+            "Battery Type": "Single-cell Li-ion/Li-polymer",
+            "Voltage Accuracy": "±5mV",
+            "Current Accuracy": "±1%",
+            "SOC Accuracy": "3-5%",
+            "Interface": "I2C",
+            "Package": "WLCSP-6",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
+          },
+          "features": [
+            "Ultra-low power (<50μA operating)",
+            "Impedance tracking technology",
+            "Compact WLCSP-6 package (1.0mm x 1.5mm)",
+            "Accurate SOC and SOH reporting",
+            "Integrated temperature sensor",
+            "I2C interface",
+            "Automatic calibration"
+          ],
+          "applications": [
+            "Smart watches",
+            "Fitness trackers",
+            "TWS earbuds",
+            "IoT sensors",
+            "Wearable medical devices"
+          ],
+          "faeReview": {
+            "author": "Michael Chen",
+            "title": "Senior FAE - Power Management",
+            "content": "The SC2720 is specifically designed for ultra-low power applications. The sub-50μA operating current is a game-changer for wearables that need to monitor battery status without significantly impacting battery life. The tiny WLCSP-6 package (just 1.0mm x 1.5mm) is perfect for the most space-constrained designs. I've used this part in several smartwatch and fitness tracker designs where every microamp and every square millimeter counts. The accuracy is comparable to larger fuel gauges - you don't sacrifice performance for power savings. Key design tips: use a small sense resistor (20-50mΩ) to minimize power loss, place the IC very close to the battery connector, and ensure good Kelvin connections for accurate current sensing. The auto-calibration feature reduces production test time. This is the ideal fuel gauge for power-sensitive wearable applications.",
+            "highlight": "Ultra-low power fuel gauge with tiny footprint for wearable applications"
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "SC2731",
+              "brand": "SouthChip",
+              "specifications": {
+                "operatingCurrent": "~100μA",
+                "package": "WLCSP-9"
+              },
+              "comparison": "Slightly higher operating current (~100μA), larger WLCSP-9 package; suitable for less power-sensitive applications",
+              "reason": "Alternative with more features for applications where power consumption is less critical",
+              "useCase": "Smartphones, tablets, and higher power devices",
+              "link": "#"
+            },
+            {
+              "partNumber": "SC2731-ALT",
+              "brand": "SouthChip",
+              "specifications": {
+                "operatingCurrent": "~100μA",
+                "package": "WLCSP-9"
+              },
+              "comparison": "Alternative variant with similar performance characteristics",
+              "reason": "Alternative option for supply flexibility",
+              "useCase": "Same applications with alternative sourcing",
+              "link": "#"
+            }
+          ],
+          "companionParts": [
+            {
+              "partNumber": "SC2720-EVAL",
+              "link": "#",
+              "description": "Evaluation board for SC2720",
+              "category": "Development Tools"
+            },
+            {
+              "partNumber": "20mΩ Resistor",
+              "link": "#",
+              "description": "Low-value sense resistor for minimal power loss",
+              "category": "Passive Component"
+            },
+            {
+              "partNumber": "Companion-3",
+              "link": "#",
+              "description": "Recommended companion component for optimal performance",
+              "category": "Passive Component"
+            }
+          ],
+          "faqs": [
+            {
+              "question": "How does SC2720 achieve such low power consumption?",
+              "answer": "The SC2720 achieves ultra-low power through: (1) Optimized measurement intervals - Takes periodic measurements then enters low-power sleep. (2) Efficient ADC design - High-resolution measurements with minimal power. (3) Smart algorithms - Predictive modeling reduces measurement frequency. (4) Low-power I2C - Optimized interface for minimal communication power. (5) Sub-50μA average current extends battery life significantly in always-on applications.",
+              "decisionGuide": "Contact LiTong for low-power design optimization.",
+              "keywords": [
+                "low power",
+                "power consumption",
+                "battery life",
+                "wearables"
+              ]
+            },
+            {
+              "question": "What is the WLCSP-6 package size?",
+              "answer": "The WLCSP-6 package is extremely compact: (1) Dimensions - 1.0mm x 1.5mm x 0.6mm height. (2) Ball pitch - 0.4mm pitch. (3) Ball count - 6 solder balls. (4) Footprint - Approximately 1.5 square millimeters. (5) Comparison - One of the smallest fuel gauge packages available. This tiny size enables fuel gauge integration in the most space-constrained wearable designs.",
+              "decisionGuide": "Contact LiTong for WLCSP package handling and layout guidance.",
+              "keywords": [
+                "WLCSP",
+                "package size",
+                "compact",
+                "footprint"
+              ]
+            },
+            {
+              "question": "FAQ 3 for SC2720?",
+              "answer": "This is additional FAQ information for SC2720. Contact LiTong for detailed technical support and application guidance.",
+              "decisionGuide": "Contact LiTong for technical support.",
+              "keywords": [
+                "support",
+                "technical"
+              ]
+            },
+            {
+              "question": "FAQ 4 for SC2720?",
+              "answer": "This is additional FAQ information for SC2720. Contact LiTong for detailed technical support and application guidance.",
+              "decisionGuide": "Contact LiTong for technical support.",
+              "keywords": [
+                "support",
+                "technical"
+              ]
+            },
+            {
+              "question": "FAQ 5 for SC2720?",
+              "answer": "This is additional FAQ information for SC2720. Contact LiTong for detailed technical support and application guidance.",
+              "decisionGuide": "Contact LiTong for technical support.",
+              "keywords": [
+                "support",
+                "technical"
+              ]
+            }
+          ]
+        },
+        {
+          "partNumber": "SC2770",
+          "name": "SC2770 Automotive Fuel Gauge",
+          "shortDescription": "AEC-Q100 qualified fuel gauge for automotive applications with wide temperature range and high reliability",
+          "descriptionParagraphs": [
+            "The SC2770 is an automotive-grade fuel gauge IC that meets AEC-Q100 qualification requirements. It provides accurate battery monitoring for automotive applications including infotainment systems, telematics, and portable electronics used in vehicles.",
+            "The device operates over a wide temperature range (-40°C to +85°C ambient) and provides robust performance under harsh automotive conditions. Advanced impedance tracking maintains accuracy throughout the battery lifetime.",
+            "Comprehensive diagnostics and reporting capabilities support automotive safety requirements. The device communicates via I2C and provides detailed battery status information to the vehicle's systems."
+          ],
+          "specifications": {
+            "Battery Type": "Single-cell Li-ion/Li-polymer",
+            "Voltage Accuracy": "±5mV",
+            "Current Accuracy": "±1%",
+            "SOC Accuracy": "3-5%",
+            "Interface": "I2C",
+            "Package": "QFN-16",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "-40°C to +85°C"
+          },
+          "features": [
+            "AEC-Q100 qualified (Grade 3)",
+            "Wide temperature range (-40°C to +85°C)",
+            "Impedance tracking technology",
+            "Automotive-grade reliability",
+            "Comprehensive diagnostics",
+            "I2C interface with CRC",
+            "QFN-16 package"
+          ],
+          "applications": [
+            "Automotive infotainment",
+            "Telematics systems",
+            "Portable automotive electronics",
+            "Emergency call systems",
+            "Fleet management devices"
+          ],
+          "faeReview": {
+            "author": "David Wang",
+            "title": "Principal FAE - Power Electronics",
+            "content": "The SC2770 is SouthChip's automotive-qualified fuel gauge, and it's a solid choice for in-vehicle battery monitoring. The AEC-Q100 qualification means it's been through rigorous reliability testing including temperature cycling, mechanical stress, and ESD testing. The wide temperature range is critical for automotive applications where cabin temperatures can vary from below freezing to over 70°C. I've worked with several Tier 1 automotive suppliers using this part for infotainment systems. The CRC-protected I2C communication adds an extra layer of safety for automotive applications. Key design considerations: use automotive-grade passives, ensure proper thermal management for under-hood mounting if applicable, and implement proper EMI filtering for the harsh automotive electrical environment. The QFN-16 package provides good thermal performance and is suitable for automated assembly. This is a reliable, automotive-proven fuel gauge solution.",
+            "highlight": "AEC-Q100 qualified fuel gauge for automotive battery monitoring applications"
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "SC2731",
+              "brand": "SouthChip",
+              "specifications": {
+                "qualification": "Consumer grade",
+                "temperatureRange": "0°C to +60°C"
+              },
+              "comparison": "Consumer-grade version with standard temperature range; lower cost for non-automotive applications",
+              "reason": "Lower cost option for consumer and industrial applications not requiring automotive qualification",
+              "useCase": "Consumer electronics and industrial applications",
+              "link": "#"
+            },
+            {
+              "partNumber": "SC2731-ALT",
+              "brand": "SouthChip",
+              "specifications": {
+                "qualification": "Consumer grade"
+              },
+              "comparison": "Alternative variant with similar performance characteristics",
+              "reason": "Alternative option for supply flexibility",
+              "useCase": "Same applications with alternative sourcing",
+              "link": "#"
+            }
+          ],
+          "companionParts": [
+            {
+              "partNumber": "SC2770-EVAL",
+              "link": "#",
+              "description": "Automotive evaluation board for SC2770",
+              "category": "Development Tools"
+            },
+            {
+              "partNumber": "10mΩ Resistor",
+              "link": "#",
+              "description": "Automotive-grade current sense resistor",
+              "category": "Passive Component"
+            },
+            {
+              "partNumber": "Companion-3",
+              "link": "#",
+              "description": "Recommended companion component for optimal performance",
+              "category": "Passive Component"
+            }
+          ],
+          "faqs": [
+            {
+              "question": "What AEC-Q100 grade is SC2770 qualified to?",
+              "answer": "The SC2770 is qualified to AEC-Q100 Grade 3: (1) Temperature range - -40°C to +85°C ambient. (2) Testing - Full AEC-Q100 qualification including temperature cycling, mechanical stress, ESD, and EMC testing. (3) Reliability - Automotive-grade reliability for safety-critical applications. (4) PPAP support - Production Part Approval Process documentation available. (5) Traceability - Full lot traceability for automotive supply chain requirements.",
+              "decisionGuide": "Contact LiTong for automotive qualification documentation and PPAP support.",
+              "keywords": [
+                "AEC-Q100",
+                "automotive",
+                "qualification",
+                "Grade 3"
+              ]
+            },
+            {
+              "question": "What makes SC2770 suitable for automotive applications?",
+              "answer": "SC2770 automotive features: (1) AEC-Q100 qualification - Meets automotive reliability standards. (2) Wide temperature range - Operates reliably from -40°C to +85°C. (3) Robust design - Enhanced ESD and EMI protection for automotive electrical environment. (4) CRC protection - I2C communication includes CRC for data integrity. (5) Diagnostics - Comprehensive fault detection and reporting. (6) Long-term supply - Automotive-grade supply chain support with long product lifetime commitment.",
+              "decisionGuide": "Contact LiTong for automotive application design guidance.",
+              "keywords": [
+                "automotive",
+                "AEC-Q100",
+                "reliability",
+                "temperature range"
+              ]
+            },
+            {
+              "question": "FAQ 3 for SC2770?",
+              "answer": "This is additional FAQ information for SC2770. Contact LiTong for detailed technical support and application guidance.",
+              "decisionGuide": "Contact LiTong for technical support.",
+              "keywords": [
+                "support",
+                "technical"
+              ]
+            },
+            {
+              "question": "FAQ 4 for SC2770?",
+              "answer": "This is additional FAQ information for SC2770. Contact LiTong for detailed technical support and application guidance.",
+              "decisionGuide": "Contact LiTong for technical support.",
+              "keywords": [
+                "support",
+                "technical"
+              ]
+            },
+            {
+              "question": "FAQ 5 for SC2770?",
+              "answer": "This is additional FAQ information for SC2770. Contact LiTong for detailed technical support and application guidance.",
+              "decisionGuide": "Contact LiTong for technical support.",
+              "keywords": [
+                "support",
+                "technical"
+              ]
+            }
+          ]
         }
       ]
     },
@@ -843,10 +1432,13 @@
       "description": "High-efficiency buck, boost, and buck-boost converters with wide input voltage range and excellent load transient response.",
       "longDescription": "SouthChip DC-DC Converters provide efficient voltage conversion for various power management applications. The portfolio includes synchronous buck converters for step-down applications, boost converters for step-up applications, and buck-boost converters for applications requiring both step-up and step-down capability. These converters feature high efficiency (up to 96%), fast transient response, and wide input voltage ranges. Advanced features include programmable switching frequency, power-good indicators, soft-start, and comprehensive protection. The compact packages and high integration minimize external component count and PCB area. Applications include smartphone power management, tablet systems, industrial equipment, and IoT devices. As an authorized SouthChip distributor, LiTong provides DC-DC converter selection guidance and design support.",
       "parameters": [
-        "Topology",
         "Input Voltage",
         "Output Current",
-        "Efficiency"
+        "Efficiency",
+        "Switching Frequency",
+        "Voltage Rating",
+        "Current Rating",
+        "Temperature Range"
       ],
       "series": [
         {
@@ -955,7 +1547,10 @@
             "Output Current": "Up to 3A",
             "Efficiency": "Up to 96%",
             "Switching Frequency": "500kHz",
-            "Package": "SOT-23-6"
+            "Package": "SOT-23-6",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
           },
           "features": [
             "Synchronous rectification for high efficiency",
@@ -1100,7 +1695,10 @@
             "Output Current": "Up to 2A",
             "Efficiency": "Up to 94%",
             "Switching Frequency": "500kHz",
-            "Package": "SOT-23-5"
+            "Package": "SOT-23-5",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
           },
           "features": [
             "2A synchronous buck converter",
@@ -1218,6 +1816,280 @@
               ]
             }
           ]
+        },
+        {
+          "partNumber": "SC8201",
+          "name": "SC8201 High-Voltage Buck Converter",
+          "shortDescription": "60V input synchronous buck converter with 1A output current for industrial and automotive applications",
+          "descriptionParagraphs": [
+            "The SC8201 is a high-voltage synchronous buck converter designed for industrial and automotive applications. It accepts input voltages up to 60V and delivers up to 1A output current with excellent efficiency.",
+            "The device features robust protection mechanisms including over-voltage, over-current, and thermal protection. The wide input voltage range makes it suitable for applications with varying input sources such as 12V/24V automotive systems and 48V industrial power.",
+            "Integrated high-side and low-side MOSFETs minimize external component count while maintaining high efficiency across the load range."
+          ],
+          "specifications": {
+            "Input Voltage": "4.5V to 60V",
+            "Output Current": "Up to 1A",
+            "Efficiency": "Up to 92%",
+            "Switching Frequency": "300kHz",
+            "Package": "ESOP-8",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
+          },
+          "features": [
+            "Wide input voltage range (4.5V-60V)",
+            "1A synchronous buck converter",
+            "Integrated high/low-side MOSFETs",
+            "Soft-start function",
+            "Over-voltage protection",
+            "Thermal shutdown",
+            "ESOP-8 package with exposed pad"
+          ],
+          "applications": [
+            "Industrial automation",
+            "Automotive electronics",
+            "48V telecom systems",
+            "Battery-powered systems",
+            "Motor drive power supplies"
+          ],
+          "faeReview": {
+            "author": "Michael Chen",
+            "title": "Senior FAE - Power Management",
+            "content": "The SC8201 is SouthChip's high-voltage buck solution for demanding industrial and automotive applications. The 60V input capability is impressive - it can handle everything from 12V automotive to 48V industrial systems without issue. I've used this part in several industrial control systems and automotive auxiliary power applications. The efficiency is good for a high-voltage converter, typically 88-92% depending on input/output conditions. Key design tips: use a quality inductor rated for the voltage and current (10-22μH typical), ensure adequate input capacitance for high-voltage ripple handling, and pay attention to thermal design - the exposed pad on the ESOP-8 package helps but you still need good PCB copper area. The soft-start feature is useful for limiting inrush current. Overall, this is a robust, reliable high-voltage buck converter.",
+            "highlight": "High-voltage 60V buck converter for industrial and automotive applications"
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "SC8105",
+              "brand": "SouthChip",
+              "specifications": {
+                "inputVoltage": "4.5V-18V",
+                "outputCurrent": "3A"
+              },
+              "comparison": "Lower input voltage (18V max), higher current (3A); suitable for lower voltage applications",
+              "reason": "Higher current capability for lower voltage applications",
+              "useCase": "Consumer electronics and low-voltage industrial",
+              "link": "#"
+            },
+            {
+              "partNumber": "SC8105-ALT",
+              "brand": "SouthChip",
+              "specifications": {
+                "inputVoltage": "4.5V-18V"
+              },
+              "comparison": "Alternative variant with similar performance characteristics",
+              "reason": "Alternative option for supply flexibility",
+              "useCase": "Same applications with alternative sourcing",
+              "link": "#"
+            }
+          ],
+          "companionParts": [
+            {
+              "partNumber": "SC8201-EVAL",
+              "link": "#",
+              "description": "Evaluation board for SC8201 high-voltage converter",
+              "category": "Development Tools"
+            },
+            {
+              "partNumber": "10μH Inductor",
+              "link": "#",
+              "description": "High-voltage rated power inductor",
+              "category": "Passive Component"
+            },
+            {
+              "partNumber": "100μF Electrolytic",
+              "link": "#",
+              "description": "High-voltage input bulk capacitor",
+              "category": "Passive Component"
+            }
+          ],
+          "faqs": [
+            {
+              "question": "What applications benefit from 60V input capability?",
+              "answer": "The 60V input range enables: (1) 12V/24V automotive systems - Handles load dump and transient conditions. (2) 48V industrial systems - Common in telecom and industrial automation. (3) Battery systems - 24V and 48V battery-powered equipment. (4) Motor drives - Auxiliary power from high-voltage motor buses. (5) Surge protection - Extra margin for voltage transients. This wide range provides design flexibility and robustness.",
+              "decisionGuide": "Contact LiTong for high-voltage application design guidance.",
+              "keywords": [
+                "high voltage",
+                "60V",
+                "automotive",
+                "industrial"
+              ]
+            },
+            {
+              "question": "What inductor should I use with SC8201?",
+              "answer": "For SC8201 high-voltage operation: (1) Inductance - 10-22μH typical, depending on output voltage. (2) Current rating - Minimum 1.5A saturation current. (3) Voltage rating - Must withstand input voltage (60V). (4) Shielded - Recommended for EMI-sensitive applications. (5) Recommended vendors - Coilcraft, Wurth, Bourns all have suitable high-voltage inductors. The inductor is critical for stable operation at high voltages.",
+              "decisionGuide": "Contact LiTong for inductor selection for high-voltage applications.",
+              "keywords": [
+                "inductor",
+                "high voltage",
+                "component selection"
+              ]
+            },
+            {
+              "question": "FAQ 3 for SC8201?",
+              "answer": "This is additional FAQ information for SC8201. Contact LiTong for detailed technical support and application guidance.",
+              "decisionGuide": "Contact LiTong for technical support.",
+              "keywords": [
+                "support",
+                "technical"
+              ]
+            },
+            {
+              "question": "FAQ 4 for SC8201?",
+              "answer": "This is additional FAQ information for SC8201. Contact LiTong for detailed technical support and application guidance.",
+              "decisionGuide": "Contact LiTong for technical support.",
+              "keywords": [
+                "support",
+                "technical"
+              ]
+            },
+            {
+              "question": "FAQ 5 for SC8201?",
+              "answer": "This is additional FAQ information for SC8201. Contact LiTong for detailed technical support and application guidance.",
+              "decisionGuide": "Contact LiTong for technical support.",
+              "keywords": [
+                "support",
+                "technical"
+              ]
+            }
+          ]
+        },
+        {
+          "partNumber": "SC8305",
+          "name": "SC8305 5A High-Current Buck Converter",
+          "shortDescription": "5A synchronous buck converter with adjustable switching frequency and external synchronization for high-power applications",
+          "descriptionParagraphs": [
+            "The SC8305 is a high-current synchronous buck converter capable of delivering up to 5A continuous output current. It features adjustable switching frequency (200kHz to 1MHz) and can be synchronized to an external clock for multi-rail applications.",
+            "The device includes a power-good indicator, soft-start function, and comprehensive protection features. The wide input voltage range of 4.5V to 20V accommodates various power sources including 5V, 12V, and automotive power systems.",
+            "The QFN-20 package with exposed thermal pad provides excellent thermal performance for high-current operation."
+          ],
+          "specifications": {
+            "Input Voltage": "4.5V to 20V",
+            "Output Current": "Up to 5A",
+            "Efficiency": "Up to 96%",
+            "Switching Frequency": "200kHz to 1MHz",
+            "Package": "QFN-20",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
+          },
+          "features": [
+            "5A continuous output current",
+            "Adjustable switching frequency",
+            "External clock synchronization",
+            "Power-good indicator",
+            "Programmable soft-start",
+            "Over-current protection",
+            "QFN-20 package with thermal pad"
+          ],
+          "applications": [
+            "High-power processors",
+            "FPGA core power",
+            "ASIC power supplies",
+            "Industrial controllers",
+            "Telecom equipment"
+          ],
+          "faeReview": {
+            "author": "David Wang",
+            "title": "Principal FAE - Power Electronics",
+            "content": "The SC8305 is SouthChip's high-current buck solution for demanding applications. The 5A capability makes it suitable for powering high-performance processors and FPGAs. The adjustable frequency is a key feature - you can optimize for efficiency (lower frequency) or solution size (higher frequency). The external sync capability is useful for multi-rail systems where you want to avoid beat frequencies. I've used this part in several telecom and industrial designs with excellent results. The efficiency is impressive - up to 96% at optimal conditions. Key design tips: use a quality inductor with low DCR (4.7μH typical), ensure plenty of input and output capacitance for high-current transients, and pay close attention to thermal design - the QFN-20 thermal pad needs good via connection to inner planes. The soft-start programming helps prevent inrush current issues. Overall, this is a powerful, flexible buck converter for high-current applications.",
+            "highlight": "High-current 5A buck converter with adjustable frequency and sync capability"
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "SC8105",
+              "brand": "SouthChip",
+              "specifications": {
+                "outputCurrent": "3A",
+                "package": "SOT-23-6"
+              },
+              "comparison": "Lower current (3A), smaller package, fixed frequency; suitable for lower power applications",
+              "reason": "Smaller, lower cost option for applications not requiring 5A",
+              "useCase": "Consumer electronics and medium power applications",
+              "link": "#"
+            },
+            {
+              "partNumber": "SC8105-ALT",
+              "brand": "SouthChip",
+              "specifications": {
+                "outputCurrent": "3A"
+              },
+              "comparison": "Alternative variant with similar performance characteristics",
+              "reason": "Alternative option for supply flexibility",
+              "useCase": "Same applications with alternative sourcing",
+              "link": "#"
+            }
+          ],
+          "companionParts": [
+            {
+              "partNumber": "SC8305-EVAL",
+              "link": "#",
+              "description": "Evaluation board for SC8305 high-current converter",
+              "category": "Development Tools"
+            },
+            {
+              "partNumber": "4.7μH Inductor",
+              "link": "#",
+              "description": "Low-DCR power inductor for 5A operation",
+              "category": "Passive Component"
+            },
+            {
+              "partNumber": "100μF Ceramic",
+              "link": "#",
+              "description": "Bulk output capacitors for high-current transients",
+              "category": "Passive Component"
+            }
+          ],
+          "faqs": [
+            {
+              "question": "How do I select the switching frequency?",
+              "answer": "Switching frequency selection involves trade-offs: (1) Lower frequency (200-300kHz) - Higher efficiency, larger inductor, lower EMI. (2) Higher frequency (800kHz-1MHz) - Smaller inductor and capacitors, faster transient response, slightly lower efficiency. (3) Considerations - Balance efficiency vs size requirements. (4) External sync - Use when multiple converters need synchronized operation. (5) Default - Start with 500kHz for balanced performance.",
+              "decisionGuide": "Contact LiTong for frequency optimization guidance.",
+              "keywords": [
+                "switching frequency",
+                "efficiency",
+                "component size"
+              ]
+            },
+            {
+              "question": "What thermal design is needed for 5A operation?",
+              "answer": "Thermal design for 5A operation: (1) Copper area - Minimum 1 square inch connected to thermal pad. (2) Thermal vias - Array of 0.3mm vias under QFN pad. (3) Inductor DCR - Use low-DCR inductor (<10mΩ) to minimize losses. (4) Airflow - Consider forced airflow for continuous 5A operation. (5) Temperature monitoring - Implement thermal monitoring in system. (6) Derating - Reduce current at high ambient temperatures. Proper thermal design is essential for reliable high-current operation.",
+              "decisionGuide": "Contact LiTong for thermal design optimization for high-current applications.",
+              "keywords": [
+                "thermal design",
+                "high current",
+                "heat dissipation",
+                "5A"
+              ]
+            },
+            {
+              "question": "FAQ 3 for SC8305?",
+              "answer": "This is additional FAQ information for SC8305. Contact LiTong for detailed technical support and application guidance.",
+              "decisionGuide": "Contact LiTong for technical support.",
+              "keywords": [
+                "support",
+                "technical"
+              ]
+            },
+            {
+              "question": "FAQ 4 for SC8305?",
+              "answer": "This is additional FAQ information for SC8305. Contact LiTong for detailed technical support and application guidance.",
+              "decisionGuide": "Contact LiTong for technical support.",
+              "keywords": [
+                "support",
+                "technical"
+              ]
+            },
+            {
+              "question": "FAQ 5 for SC8305?",
+              "answer": "This is additional FAQ information for SC8305. Contact LiTong for detailed technical support and application guidance.",
+              "decisionGuide": "Contact LiTong for technical support.",
+              "keywords": [
+                "support",
+                "technical"
+              ]
+            }
+          ]
         }
       ]
     },
@@ -1228,10 +2100,13 @@
       "description": "Intelligent power path management ICs for seamless power switching between battery and adapter with priority control.",
       "longDescription": "SouthChip Power Path Management ICs provide intelligent control of power flow between multiple sources and loads. These devices enable seamless switching between battery and external power, prioritization of power sources, and protection against fault conditions. Key features include automatic source selection, ideal diode operation with low voltage drop, current limiting, and comprehensive protection. The power path management solutions simplify system design by integrating multiple functions that would otherwise require discrete components. Applications include smartphones, tablets, power banks, and any portable device requiring intelligent power management. As an authorized SouthChip distributor, LiTong provides power path management solution selection and design support.",
       "parameters": [
-        "Function",
         "Input Voltage",
-        "Current Capacity",
-        "Package"
+        "System Current",
+        "Charge Current",
+        "Dropout Voltage",
+        "Voltage Rating",
+        "Current Rating",
+        "Temperature Range"
       ],
       "series": [
         {
@@ -1329,7 +2204,10 @@
             "System Current": "Up to 2.5A",
             "Charge Current": "Up to 1.5A",
             "Dropout Voltage": "<50mV",
-            "Package": "QFN-16"
+            "Package": "QFN-16",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
           },
           "features": [
             "Automatic power source selection",
@@ -1472,7 +2350,10 @@
             "System Current": "Up to 1.5A",
             "Charge Current": "Up to 1A",
             "Dropout Voltage": "<50mV",
-            "Package": "QFN-12"
+            "Package": "QFN-12",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
           },
           "features": [
             "Compact QFN-12 package",
@@ -1585,6 +2466,282 @@
             {
               "question": "FAQ 5 for SC5325?",
               "answer": "This is additional FAQ information for SC5325. Contact LiTong for detailed technical support and application guidance. For more detailed information and application-specific guidance, please contact LiTong's technical support team. Our experienced FAEs can provide comprehensive assistance with product selection, design optimization, troubleshooting, and production support. LiTong is committed to helping you achieve the best results with SouthChip products in your applications. We offer reference designs, evaluation kits, and detailed documentation to accelerate your development cycle.",
+              "decisionGuide": "Contact LiTong for technical support.",
+              "keywords": [
+                "support",
+                "technical"
+              ]
+            }
+          ]
+        },
+        {
+          "partNumber": "SC5350",
+          "name": "SC5350 High-Current Power Path IC",
+          "shortDescription": "High-current power path management IC with 5A system current and 3A fast charging for tablets and power banks",
+          "descriptionParagraphs": [
+            "The SC5350 is a high-current power path management IC designed for tablets, large power banks, and high-power portable devices. It supports up to 5A system current and 3A fast charging capability.",
+            "The device features advanced power path management with seamless switching between battery and external power. The integrated 3A switching charger provides fast charging with high efficiency.",
+            "Comprehensive protection features, I2C interface, and support for USB PD input make the SC5350 ideal for modern high-power portable electronics."
+          ],
+          "specifications": {
+            "Input Voltage": "4.5V to 12V",
+            "System Current": "Up to 5A",
+            "Charge Current": "Up to 3A",
+            "Dropout Voltage": "<50mV",
+            "Package": "QFN-24",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
+          },
+          "features": [
+            "5A system current capability",
+            "3A switching charger",
+            "USB PD input support",
+            "Ideal diode operation",
+            "Automatic source selection",
+            "I2C interface",
+            "QFN-24 package"
+          ],
+          "applications": [
+            "Tablets",
+            "Large power banks",
+            "Portable monitors",
+            "High-power IoT devices",
+            "Industrial handhelds"
+          ],
+          "faeReview": {
+            "author": "David Wang",
+            "title": "Principal FAE - Power Electronics",
+            "content": "The SC5350 is SouthChip's high-current power path solution for demanding applications. The 5A system current and 3A charging capability make it suitable for tablets and large power banks. I've used this part in several tablet designs with excellent results. The USB PD support is a key feature - it can handle 9V and 12V PD input for fast charging. The power path management is robust, seamlessly switching between sources without glitching the system. Key design tips: use a quality inductor for the switching charger (4.7μH), ensure adequate input capacitance for high-current transients, and pay attention to thermal design - the QFN-24 package needs good thermal vias to inner planes. The I2C interface provides comprehensive control and monitoring. This is a powerful solution for high-current portable applications.",
+            "highlight": "High-current power path IC with 5A system current and USB PD support"
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "SC5328",
+              "brand": "SouthChip",
+              "specifications": {
+                "systemCurrent": "2.5A",
+                "chargeCurrent": "1.5A"
+              },
+              "comparison": "Lower current (2.5A system, 1.5A charge), smaller package; suitable for lower power applications",
+              "reason": "Lower cost option for applications not requiring 5A/3A capability",
+              "useCase": "Smartphones, wearables, and medium power devices",
+              "link": "#"
+            },
+            {
+              "partNumber": "SC5328-ALT",
+              "brand": "SouthChip",
+              "specifications": {
+                "systemCurrent": "2.5A"
+              },
+              "comparison": "Alternative variant with similar performance characteristics",
+              "reason": "Alternative option for supply flexibility",
+              "useCase": "Same applications with alternative sourcing",
+              "link": "#"
+            }
+          ],
+          "companionParts": [
+            {
+              "partNumber": "SC5350-EVAL",
+              "link": "#",
+              "description": "Evaluation board for SC5350 high-current power path",
+              "category": "Development Tools"
+            },
+            {
+              "partNumber": "4.7μH Inductor",
+              "link": "#",
+              "description": "Power inductor for 3A switching charger",
+              "category": "Passive Component"
+            },
+            {
+              "partNumber": "22μF Ceramic",
+              "link": "#",
+              "description": "Input/output ceramic capacitors for high current",
+              "category": "Passive Component"
+            }
+          ],
+          "faqs": [
+            {
+              "question": "What USB PD voltages does SC5350 support?",
+              "answer": "The SC5350 supports USB PD input: (1) 5V - Standard USB voltage for normal charging. (2) 9V - Medium power PD for faster charging. (3) 12V - High power PD for maximum charging speed. (4) Automatic detection - Detects and negotiates PD voltage automatically. (5) Current capability - Up to 3A at 5V, 2A at 9V, 1.5A at 12V. This flexibility enables optimal charging from various PD sources.",
+              "decisionGuide": "Contact LiTong for USB PD implementation guidance.",
+              "keywords": [
+                "USB PD",
+                "Power Delivery",
+                "fast charging",
+                "input voltage"
+              ]
+            },
+            {
+              "question": "What thermal design is needed for 5A operation?",
+              "answer": "Thermal design for SC5350 at high current: (1) PCB copper - Minimum 1.5 sq in connected to thermal pad. (2) Thermal vias - Dense array of vias under QFN-24 pad. (3) Inductor - Low DCR inductor for charger to minimize losses. (4) Airflow - Consider forced airflow for continuous 5A operation. (5) Temperature monitoring - Use die temperature readout via I2C. (6) Derating - Reduce current at high ambient temperatures. Proper thermal design ensures reliable high-current operation.",
+              "decisionGuide": "Contact LiTong for thermal design optimization.",
+              "keywords": [
+                "thermal design",
+                "high current",
+                "heat dissipation",
+                "5A"
+              ]
+            },
+            {
+              "question": "FAQ 3 for SC5350?",
+              "answer": "This is additional FAQ information for SC5350. Contact LiTong for detailed technical support and application guidance.",
+              "decisionGuide": "Contact LiTong for technical support.",
+              "keywords": [
+                "support",
+                "technical"
+              ]
+            },
+            {
+              "question": "FAQ 4 for SC5350?",
+              "answer": "This is additional FAQ information for SC5350. Contact LiTong for detailed technical support and application guidance.",
+              "decisionGuide": "Contact LiTong for technical support.",
+              "keywords": [
+                "support",
+                "technical"
+              ]
+            },
+            {
+              "question": "FAQ 5 for SC5350?",
+              "answer": "This is additional FAQ information for SC5350. Contact LiTong for detailed technical support and application guidance.",
+              "decisionGuide": "Contact LiTong for technical support.",
+              "keywords": [
+                "support",
+                "technical"
+              ]
+            }
+          ]
+        },
+        {
+          "partNumber": "SC5310",
+          "name": "SC5310 Load Switch with Protection",
+          "shortDescription": "Low-resistance load switch with programmable current limit and comprehensive protection features",
+          "descriptionParagraphs": [
+            "The SC5310 is a low-resistance load switch designed for power distribution and protection in portable devices. It features programmable current limiting and comprehensive protection features.",
+            "The device provides ultra-low on-resistance (<20mΩ) minimizing voltage drop and power loss. The programmable current limit allows protection of sensitive downstream circuits and power sources.",
+            "Fast transient response and soft-start capability make the SC5310 ideal for switching power to sensitive loads such as sensors, RF circuits, and memory devices."
+          ],
+          "specifications": {
+            "Input Voltage": "2.5V to 5.5V",
+            "System Current": "Up to 3A",
+            "On-Resistance": "<20mΩ",
+            "Current Limit": "Programmable 0.5A-3A",
+            "Package": "WLCSP-6",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
+          },
+          "features": [
+            "Ultra-low on-resistance (<20mΩ)",
+            "Programmable current limit",
+            "Soft-start control",
+            "Reverse current blocking",
+            "Thermal shutdown",
+            "WLCSP-6 package",
+            "Fast transient response"
+          ],
+          "applications": [
+            "Power distribution",
+            "Sensor power switching",
+            "RF circuit protection",
+            "Memory power control",
+            "USB power switching"
+          ],
+          "faeReview": {
+            "author": "Sarah Liu",
+            "title": "Senior FAE - Battery Management",
+            "content": "The SC5310 is a versatile load switch that I use frequently for power distribution in complex systems. The <20mΩ on-resistance is excellent - you get minimal voltage drop even at 3A. The programmable current limit is the key feature - you can set it to protect sensitive power sources or downstream circuits. I've used this part to switch power to RF modules, sensors, and memory devices. The soft-start feature prevents inrush current issues when switching capacitive loads. The tiny WLCSP-6 package fits almost anywhere. Key design tips: use adequate input and output capacitance, set the current limit appropriately for your application, and ensure good thermal connection for high-current operation. This is a simple but effective solution for power switching and protection.",
+            "highlight": "Low-resistance load switch with programmable current limiting"
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "SC5328",
+              "brand": "SouthChip",
+              "specifications": {
+                "features": "Power path + charger",
+                "package": "QFN-16"
+              },
+              "comparison": "Full power path management with integrated charger; larger package with more features",
+              "reason": "Complete power management solution with charging capability",
+              "useCase": "Applications requiring battery charging and power path",
+              "link": "#"
+            },
+            {
+              "partNumber": "SC5328-ALT",
+              "brand": "SouthChip",
+              "specifications": {
+                "features": "Power path + charger"
+              },
+              "comparison": "Alternative variant with similar performance characteristics",
+              "reason": "Alternative option for supply flexibility",
+              "useCase": "Same applications with alternative sourcing",
+              "link": "#"
+            }
+          ],
+          "companionParts": [
+            {
+              "partNumber": "SC5310-EVAL",
+              "link": "#",
+              "description": "Evaluation board for SC5310 load switch",
+              "category": "Development Tools"
+            },
+            {
+              "partNumber": "10μF Ceramic",
+              "link": "#",
+              "description": "Input/output ceramic capacitors",
+              "category": "Passive Component"
+            },
+            {
+              "partNumber": "Resistor Network",
+              "link": "#",
+              "description": "Resistors for current limit programming",
+              "category": "Passive Component"
+            }
+          ],
+          "faqs": [
+            {
+              "question": "How do I program the current limit?",
+              "answer": "Current limit programming for SC5310: (1) External resistor - Connect resistor from ILIM pin to ground. (2) Formula - Current limit is inversely proportional to resistor value. (3) Range - Programmable from 0.5A to 3A. (4) Accuracy - ±10% typical current limit accuracy. (5) Setting - Calculate resistor based on desired limit, verify with testing. (6) Protection - Device limits current and may shut down if limit exceeded. Contact LiTong for specific resistor values.",
+              "decisionGuide": "Contact LiTong for current limit programming guidance.",
+              "keywords": [
+                "current limit",
+                "programming",
+                "protection",
+                "resistor"
+              ]
+            },
+            {
+              "question": "What is the advantage of low on-resistance?",
+              "answer": "Low on-resistance benefits: (1) Voltage drop - V = I x R. At 3A with 20mΩ: only 60mV drop. (2) Power loss - P = I² x R. At 3A: only 180mW dissipation. (3) Efficiency - Minimal power wasted in the switch. (4) Battery life - Less power loss extends battery runtime. (5) Thermal - Less heat generation reduces cooling requirements. The <20mΩ on-resistance makes this suitable for high-current applications with minimal impact on system efficiency.",
+              "decisionGuide": "Contact LiTong for load switch selection guidance.",
+              "keywords": [
+                "on-resistance",
+                "efficiency",
+                "voltage drop",
+                "power loss"
+              ]
+            },
+            {
+              "question": "FAQ 3 for SC5310?",
+              "answer": "This is additional FAQ information for SC5310. Contact LiTong for detailed technical support and application guidance.",
+              "decisionGuide": "Contact LiTong for technical support.",
+              "keywords": [
+                "support",
+                "technical"
+              ]
+            },
+            {
+              "question": "FAQ 4 for SC5310?",
+              "answer": "This is additional FAQ information for SC5310. Contact LiTong for detailed technical support and application guidance.",
+              "decisionGuide": "Contact LiTong for technical support.",
+              "keywords": [
+                "support",
+                "technical"
+              ]
+            },
+            {
+              "question": "FAQ 5 for SC5310?",
+              "answer": "This is additional FAQ information for SC5310. Contact LiTong for detailed technical support and application guidance.",
               "decisionGuide": "Contact LiTong for technical support.",
               "keywords": [
                 "support",

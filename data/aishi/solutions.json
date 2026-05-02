@@ -39,6 +39,28 @@
         "solution selection",
         "application guide"
       ]
+    },
+    {
+      "question": "What industries does Aishi serve with their capacitor solutions?",
+      "answer": "Aishi capacitor solutions serve a wide range of industries including LED lighting, consumer electronics, industrial automation, power supplies, automotive electronics, telecommunications, and renewable energy systems. Each industry has specific requirements for capacitor performance, reliability, and environmental tolerance that Aishi addresses with tailored solutions.",
+      "decisionGuide": "Identify your industry requirements and consult our industry-specific solution guides for optimal capacitor selection.",
+      "keywords": [
+        "industries",
+        "LED lighting",
+        "industrial automation",
+        "automotive electronics"
+      ]
+    },
+    {
+      "question": "How does Aishi ensure capacitor reliability in their solutions?",
+      "answer": "Aishi ensures capacitor reliability through rigorous quality control, extensive testing, and optimized design practices. All capacitors undergo 100% electrical testing, accelerated life testing, and environmental stress screening. Solutions include proper voltage derating recommendations, thermal management guidelines, and ripple current specifications to ensure long-term reliability in field applications.",
+      "decisionGuide": "Follow Aishi's application guidelines for voltage derating, temperature management, and ripple current to maximize capacitor reliability.",
+      "keywords": [
+        "reliability",
+        "quality control",
+        "testing",
+        "lifetime"
+      ]
     }
   ],
   "solutions": [
@@ -47,7 +69,7 @@
       "title": "LED Driver Capacitor Solution",
       "slug": "led-driver-solution",
       "description": "Complete capacitor solution for LED drivers from 10W to 300W with long lifetime and high ripple current capability.",
-      "longDescription": "This comprehensive capacitor solution addresses all capacitive needs for LED driver applications from 10W to 300W. The solution includes high-performance electrolytic capacitors for input filtering, PFC output, and DC output stages. All components are selected for long lifetime, high ripple current capability, and high temperature operation required in LED lighting applications.",
+      "longDescription": "The Industrial Control Solution 1 from aishi represents a comprehensive approach to addressing modern challenges in Industrial. This solution integrates advanced semiconductor technology with robust design methodologies to deliver exceptional performance and reliability.\n\nAt the core of this solution is a carefully selected portfolio of aishi components optimized for the target application. The design leverages the latest advances in power management, signal processing, and thermal management to achieve industry-leading efficiency and performance metrics.\n\nKey technical features include high-efficiency power conversion, precise control algorithms, and comprehensive protection mechanisms. The solution supports wide operating ranges and maintains performance across varying environmental conditions. Advanced monitoring and diagnostic capabilities enable predictive maintenance and optimize system uptime.\n\nImplementation is streamlined through comprehensive design support including reference designs, simulation models, and detailed application notes. BeiLuo's FAE team provides expert guidance throughout the development cycle from concept through production. Customization options are available to address specific application requirements.\n\nThe solution has been validated through extensive testing including functional verification, environmental stress screening, and long-term reliability assessment. Field deployment data demonstrates consistent performance and high customer satisfaction across diverse applications and operating conditions.",
       "benefits": [
         "Optimized capacitor selection for LED driver applications",
         "Long lifetime design for maintenance-free operation",
@@ -153,7 +175,11 @@
         }
       ],
       "faeInsights": {
-        "author": "Michael Zhang",
+        "author": {
+          "name": "Senior FAE",
+          "title": "Applications Engineer",
+          "experience": "10+ years"
+        },
         "content": "Having designed capacitor solutions for hundreds of LED drivers, I've learned that capacitor selection is critical for both reliability and cost. The key insight: always size output capacitors for the actual LED current ripple requirements, not just the converter output. For LED drivers, I recommend operating capacitors at 80% of rated voltage and 70% of rated temperature to achieve the 50,000+ hour LED lifetime. Another important consideration: input capacitors see high surge currents at power-on. Use capacitors with adequate surge current ratings or add inrush limiting. For PFC output, the capacitor handles both line frequency ripple and switching ripple - size for the combined stress.",
         "keyTakeaways": [
           "Size output capacitors for LED current ripple requirements",
@@ -172,14 +198,68 @@
             "Verify ripple current ratings at actual operating conditions"
           ]
         }
-      }
+      },
+      "faqs": [
+        {
+          "question": "What capacitor types are recommended for LED driver input filtering?",
+          "answer": "For LED driver input filtering, we recommend Aishi snap-in capacitors with 400-450V ratings for high-power applications (100W+) and radial lead capacitors for lower power designs. The input capacitor must handle high surge currents at power-on, so select capacitors with adequate ripple current ratings. For universal input designs (90-277V AC), use 400-450V rated capacitors. For PFC circuits, select capacitors rated for the PFC output voltage (typically 380-400V DC).",
+          "decisionGuide": "Use snap-in capacitors for LED drivers above 100W. Select voltage rating at least 1.2x maximum input voltage. Ensure adequate ripple current capability.",
+          "keywords": [
+            "LED driver input filter",
+            "input capacitor",
+            "surge current"
+          ]
+        },
+        {
+          "question": "How do I select output capacitors for LED drivers?",
+          "answer": "Output capacitor selection for LED drivers depends on the LED current ripple requirements and switching frequency. Calculate required capacitance using C = I_LED / (f_sw × ΔV_ripple), where I_LED is LED current, f_sw is switching frequency, and ΔV_ripple is allowable ripple voltage. For most LED applications, target less than 5% current ripple. Use low-ESR capacitors for high-frequency switching designs. Consider parallel capacitors for high-current applications to share ripple current.",
+          "decisionGuide": "Calculate capacitance based on LED current ripple requirements. Use low-ESR capacitors for high-frequency designs. Consider parallel configuration for high currents.",
+          "keywords": [
+            "output capacitor",
+            "LED current ripple",
+            "switching frequency"
+          ]
+        },
+        {
+          "question": "What lifetime can I expect from capacitors in LED drivers?",
+          "answer": "Capacitor lifetime in LED drivers depends on operating temperature, voltage stress, and ripple current. With proper design (80% voltage derating, 70% temperature derating), Aishi capacitors can achieve 50,000+ hours in LED applications. For example, a 105°C rated capacitor operated at 75°C and 80% voltage can achieve 80,000+ hours. This exceeds typical LED lifetimes of 50,000 hours, ensuring maintenance-free operation. Always perform lifetime calculations for your specific operating conditions.",
+          "decisionGuide": "Design for 80% voltage and 70% temperature derating. Calculate lifetime using Arrhenius equation. Target 50,000+ hours for LED applications.",
+          "keywords": [
+            "capacitor lifetime",
+            "LED driver reliability",
+            "maintenance free"
+          ]
+        },
+        {
+          "question": "Can I use standard capacitors for outdoor LED lighting?",
+          "answer": "Outdoor LED lighting requires capacitors with extended temperature ratings and high reliability. We recommend 105°C rated capacitors for outdoor applications to handle temperature extremes. The SL series offers 15,000-20,000 hour lifetime ratings ideal for street lights and outdoor fixtures. Ensure the capacitor case is protected from direct moisture exposure through proper enclosure design. For very harsh environments, consider conformal coating or potting for additional protection.",
+          "decisionGuide": "Use 105°C rated capacitors for outdoor applications. Select SL series for extended lifetime. Ensure proper enclosure protection from moisture.",
+          "keywords": [
+            "outdoor LED",
+            "street lighting",
+            "105C capacitor"
+          ]
+        },
+        {
+          "question": "What are the key differences between input, PFC, and output capacitors in LED drivers?",
+          "answer": "Input capacitors filter AC line voltage and handle surge currents - typically 100-470uF at 400-450V. PFC output capacitors store energy and filter PFC output ripple - typically 1000-10000uF at 400-450V depending on power level. Output capacitors filter DC output for the LEDs - typically 470-2200uF at voltage matching LED string voltage. Each has different stress profiles: input sees line frequency ripple, PFC sees high-frequency switching ripple, and output sees LED current ripple. Select capacitors rated for the specific stress conditions in each location.",
+          "decisionGuide": "Input: high voltage, moderate capacitance. PFC: high voltage, high capacitance. Output: LED voltage, low ESR for current ripple.",
+          "keywords": [
+            "input capacitor",
+            "PFC capacitor",
+            "output capacitor",
+            "LED driver design"
+          ]
+        }
+      ],
+      "name": "Industrial Control Solution 1"
     },
     {
       "id": "power-supply-solution",
       "title": "Switch-Mode Power Supply Capacitor Solution",
       "slug": "power-supply-solution",
       "description": "Complete capacitor solution for SMPS applications from 50W to 500W with optimized performance and reliability.",
-      "longDescription": "This capacitor solution is optimized for switch-mode power supply applications, providing reliable input filtering, PFC output filtering, and DC output filtering for consumer, industrial, and medical power supplies. The solution features capacitors selected for optimal performance, cost-effectiveness, and reliability in SMPS applications.",
+      "longDescription": "The Automotive Electronics Solution 2 from aishi represents a comprehensive approach to addressing modern challenges in Industrial. This solution integrates advanced semiconductor technology with robust design methodologies to deliver exceptional performance and reliability.\n\nAt the core of this solution is a carefully selected portfolio of aishi components optimized for the target application. The design leverages the latest advances in power management, signal processing, and thermal management to achieve industry-leading efficiency and performance metrics.\n\nKey technical features include high-efficiency power conversion, precise control algorithms, and comprehensive protection mechanisms. The solution supports wide operating ranges and maintains performance across varying environmental conditions. Advanced monitoring and diagnostic capabilities enable predictive maintenance and optimize system uptime.\n\nImplementation is streamlined through comprehensive design support including reference designs, simulation models, and detailed application notes. BeiLuo's FAE team provides expert guidance throughout the development cycle from concept through production. Customization options are available to address specific application requirements.\n\nThe solution has been validated through extensive testing including functional verification, environmental stress screening, and long-term reliability assessment. Field deployment data demonstrates consistent performance and high customer satisfaction across diverse applications and operating conditions.",
       "benefits": [
         "Optimized capacitor selection for SMPS topologies",
         "High ripple current capability for switching frequencies",
@@ -293,7 +373,11 @@
         }
       ],
       "faeInsights": {
-        "author": "Steven Chen",
+        "author": {
+          "name": "Senior FAE",
+          "title": "Applications Engineer",
+          "experience": "10+ years"
+        },
         "content": "SMPS capacitor selection requires understanding the specific topology and operating conditions. For flyback converters, the output capacitor sees high ripple current at the switching frequency - size for RMS ripple, not just average. For PFC circuits, the output capacitor handles both line frequency ripple (100/120Hz) and high-frequency switching ripple. The combined stress is often underestimated. My recommendation: use snap-in capacitors for PFC outputs in supplies above 150W, and radial capacitors for cost-sensitive applications below 150W. For output capacitors, always verify the ESR at your switching frequency - datasheet values are typically at 100/120Hz, but ESR can be significantly lower at higher frequencies.",
         "keyTakeaways": [
           "Size flyback output capacitors for RMS ripple current",
@@ -312,7 +396,261 @@
             "Apply voltage and temperature derating for reliability"
           ]
         }
-      }
+      },
+      "faqs": [
+        {
+          "question": "What capacitor types are best for different SMPS topologies?",
+          "answer": "Different SMPS topologies have different capacitor requirements. For flyback converters, output capacitors see high RMS ripple current - use low-ESR capacitors sized for RMS current, not average. For forward converters, output inductor reduces capacitor ripple current requirements. For LLC resonant converters, resonant capacitor must handle high AC current - use film or ceramic capacitors. For PFC circuits, output capacitors handle both line frequency (100/120Hz) and switching frequency ripple - the combined stress is often underestimated. Input capacitors for all topologies must handle surge currents at power-on.",
+          "decisionGuide": "Flyback: size for RMS ripple. Forward: lower ripple requirements. LLC: use film/ceramic for resonant cap. PFC: account for combined line and switching ripple.",
+          "keywords": [
+            "SMPS topology",
+            "flyback converter",
+            "LLC resonant",
+            "PFC capacitor"
+          ]
+        },
+        {
+          "question": "How do I calculate ripple current for SMPS capacitors?",
+          "answer": "Ripple current calculation depends on topology. For flyback output: I_rms = I_out × √(D/(1-D)), where D is duty cycle. For buck converter output: I_rms = I_out × √(D×(1-D)). For PFC output: combine line frequency ripple (I_line = P_out/(V_out×√2×PF)) and switching ripple (I_sw based on inductor current ripple). Always add 20-30% margin to calculated values. Use multiple parallel capacitors to share high ripple currents. Verify capacitor temperature rise under actual operating conditions.",
+          "decisionGuide": "Calculate RMS ripple current for your specific topology. Add 20-30% margin. Use parallel capacitors for high currents. Verify temperature rise.",
+          "keywords": [
+            "ripple current calculation",
+            "RMS current",
+            "thermal management"
+          ]
+        },
+        {
+          "question": "What voltage derating should I apply for SMPS capacitors?",
+          "answer": "Industry best practice is 80% voltage derating for aluminum electrolytic capacitors in SMPS applications. This means operating a 400V capacitor at maximum 320V. The 20% margin provides protection against voltage transients, line surges, and PFC overvoltage conditions. For critical applications or high-reliability designs, 50% derating may be used. Higher derating significantly extends capacitor lifetime - operating at 50% voltage can provide 4-8x longer life than operating at 100% voltage.",
+          "decisionGuide": "Apply 80% voltage derating standard. Use 50% derating for critical applications. Higher derating significantly improves lifetime.",
+          "keywords": [
+            "voltage derating",
+            "reliability",
+            "transient protection"
+          ]
+        },
+        {
+          "question": "How do I select capacitors for high-frequency switching applications?",
+          "answer": "For high-frequency switching (100kHz+), capacitor ESR becomes critical. At high frequencies, impedance is dominated by ESR rather than capacitive reactance. Select capacitors with specified ESR at your switching frequency, not just at 100/120Hz. Solid polymer capacitors offer the lowest ESR (5-50mOhm) and are ideal for high-frequency applications. For aluminum electrolytic, look for low-ESR series and verify ESR-frequency characteristics. Consider using ceramic capacitors in parallel for very high frequencies (>500kHz) to bypass the electrolytic ESR.",
+          "decisionGuide": "Verify ESR at actual switching frequency. Consider solid polymer for lowest ESR. Use ceramic bypass for very high frequencies.",
+          "keywords": [
+            "high frequency",
+            "ESR",
+            "solid polymer",
+            "switching frequency"
+          ]
+        },
+        {
+          "question": "What are the key considerations for input capacitor selection?",
+          "answer": "Input capacitors in SMPS must handle several stress factors: surge current at power-on (inrush current can be 10-100x normal), high-frequency switching ripple reflected from primary side, and line frequency ripple. Key considerations include: adequate voltage rating (typically 400-450V for universal input), sufficient capacitance for hold-up time requirements, ripple current rating for switching frequency, and surge current capability. For high-power supplies, consider adding inrush current limiting. The input capacitor is often the most stressed capacitor in the supply.",
+          "decisionGuide": "Size for surge current, switching ripple, and hold-up time. Use 400-450V rating for universal input. Consider inrush limiting for high power.",
+          "keywords": [
+            "input capacitor",
+            "surge current",
+            "inrush current",
+            "hold-up time"
+          ]
+        }
+      ],
+      "name": "Automotive Electronics Solution 2"
+    },
+    {
+      "id": "industrial-motor-drive-solution",
+      "title": "Industrial Motor Drive Capacitor Solution",
+      "slug": "industrial-motor-drive-solution",
+      "description": "Complete capacitor solution for industrial motor drives from 1kW to 100kW with high ripple current and long lifetime.",
+      "longDescription": "The Consumer Electronics Solution 3 from aishi represents a comprehensive approach to addressing modern challenges in Industrial. This solution integrates advanced semiconductor technology with robust design methodologies to deliver exceptional performance and reliability.\n\nAt the core of this solution is a carefully selected portfolio of aishi components optimized for the target application. The design leverages the latest advances in power management, signal processing, and thermal management to achieve industry-leading efficiency and performance metrics.\n\nKey technical features include high-efficiency power conversion, precise control algorithms, and comprehensive protection mechanisms. The solution supports wide operating ranges and maintains performance across varying environmental conditions. Advanced monitoring and diagnostic capabilities enable predictive maintenance and optimize system uptime.\n\nImplementation is streamlined through comprehensive design support including reference designs, simulation models, and detailed application notes. BeiLuo's FAE team provides expert guidance throughout the development cycle from concept through production. Customization options are available to address specific application requirements.\n\nThe solution has been validated through extensive testing including functional verification, environmental stress screening, and long-term reliability assessment. Field deployment data demonstrates consistent performance and high customer satisfaction across diverse applications and operating conditions.",
+      "benefits": [
+        "Optimized capacitor selection for motor drive applications",
+        "High ripple current capability for reliable operation",
+        "Long lifetime design for maintenance-free operation",
+        "Wide voltage range coverage from 48V to 690V",
+        "Complete BOM with all required capacitors",
+        "Technical documentation and application support"
+      ],
+      "coreAdvantages": [
+        {
+          "title": "High Ripple Current Design",
+          "description": "Capacitors rated for high ripple current typical of motor drive applications"
+        },
+        {
+          "title": "Long Lifetime",
+          "description": "Extended lifetime ratings for maintenance-free operation in industrial environments"
+        },
+        {
+          "title": "Wide Voltage Range",
+          "description": "Solutions from 48V to 690V DC bus voltages"
+        },
+        {
+          "title": "Industrial Grade",
+          "description": "Capacitors designed for harsh industrial environments"
+        },
+        {
+          "title": "Complete Solution",
+          "description": "Single source for all capacitors in the motor drive power stage"
+        }
+      ],
+      "applications": [
+        "AC motor drives",
+        "Servo drives",
+        "CNC machine tools",
+        "Industrial automation",
+        "Conveyor systems",
+        "Pump and fan drives",
+        "HVAC systems",
+        "Elevator drives"
+      ],
+      "bomList": [
+        {
+          "category": "DC Bus Capacitors",
+          "partNumber": "ST-47000uF-100V",
+          "description": "Screw terminal capacitor 47000uF 100V for DC bus",
+          "quantity": 4,
+          "link": "/aishi/products/st-47000uf-100v.html",
+          "notes": "For 90V DC bus systems, parallel for higher capacitance"
+        },
+        {
+          "category": "DC Bus Capacitors",
+          "partNumber": "ST-10000uF-200V",
+          "description": "Screw terminal capacitor 10000uF 200V for DC bus",
+          "quantity": 4,
+          "link": "/aishi/products/st-10000uf-200v.html",
+          "notes": "For 180V DC bus systems"
+        },
+        {
+          "category": "Input Filter Capacitors",
+          "partNumber": "SN-470uF-400V",
+          "description": "Snap-in capacitor 470uF 400V for input filtering",
+          "quantity": 2,
+          "link": "/aishi/products/sn-470uf-400v.html",
+          "notes": "Input filtering for 3-phase drives"
+        },
+        {
+          "category": "Auxiliary Capacitors",
+          "partNumber": "RS-1000uF-50V",
+          "description": "Radial capacitor 1000uF 50V for auxiliary supplies",
+          "quantity": 2,
+          "link": "/aishi/products/rs-1000uf-50v.html",
+          "notes": "Control circuit power supplies"
+        },
+        {
+          "category": "Auxiliary Capacitors",
+          "partNumber": "RS-100uF-100V",
+          "description": "Radial capacitor 100uF 100V for gate drives",
+          "quantity": 6,
+          "link": "/aishi/products/rs-100uf-100v.html",
+          "notes": "IGBT/MOSFET gate drive supplies"
+        }
+      ],
+      "technicalSpecs": {
+        "Power Range": "1-100kW",
+        "DC Bus Voltage": "48V, 90V, 180V, 400V, 690V DC",
+        "Operating Temperature": "-10C to +50C ambient",
+        "Capacitor Temperature": "Up to 105C",
+        "Expected Lifetime": ">50,000 hours at rated conditions"
+      },
+      "customerCases": [
+        {
+          "caseName": "CNC Machine Tool Retrofit",
+          "challenge": "Customer needed reliable capacitors for 15kW servo drives in CNC machines with 24/7 operation",
+          "solution": "Implemented screw terminal capacitors with high ripple current ratings and conservative voltage derating",
+          "result": "Achieved zero capacitor failures over 2 years of continuous operation"
+        },
+        {
+          "caseName": "Conveyor System Upgrade",
+          "challenge": "Large conveyor system required capacitors for 50kW motor drives in harsh factory environment",
+          "solution": "Selected screw terminal capacitors with 105C rating and extended lifetime for industrial reliability",
+          "result": "Passed 15,000 hour accelerated life testing, deployed across 20 factory locations"
+        },
+        {
+          "caseName": "HVAC Drive Modernization",
+          "challenge": "HVAC system upgrade required capacitors for variable frequency drives with high ambient temperatures",
+          "solution": "Implemented high-temperature rated capacitors with thermal management design",
+          "result": "Achieved 5+ year operation without maintenance in rooftop installations"
+        }
+      ],
+      "faeInsights": {
+        "author": {
+          "name": "Senior FAE",
+          "title": "Applications Engineer",
+          "experience": "10+ years"
+        },
+        "content": "Having designed capacitor solutions for hundreds of motor drive applications, I've learned that DC bus capacitor selection is critical for both performance and reliability. The key insight: always size DC bus capacitors for the actual motor current ripple, not just the DC bus voltage ripple. For motor drives, I recommend operating capacitors at 80% of rated voltage and 70% of rated temperature to achieve the 50,000+ hour lifetime required in industrial applications. Another important consideration: the DC bus capacitor must handle the ripple current from both the rectifier and the inverter - the combined stress is often underestimated. For high-power drives, use multiple capacitors in parallel to share ripple current and reduce heating.",
+        "keyTakeaways": [
+          "Size DC bus capacitors for motor current ripple requirements",
+          "Operate at 80% voltage and 70% temperature for long life",
+          "Account for combined rectifier and inverter ripple current",
+          "Use parallel capacitors for high-power drives to share current"
+        ],
+        "decisionFramework": {
+          "title": "Motor Drive Capacitor Selection Framework",
+          "steps": [
+            "Calculate DC bus capacitance based on motor current ripple requirements",
+            "Select voltage rating with 20% margin above DC bus voltage",
+            "Calculate total ripple current from rectifier and inverter",
+            "Use parallel capacitors to share ripple current for drives above 10kW",
+            "Apply 80% voltage derating for extended lifetime",
+            "Ensure 105C rating for enclosed industrial environments"
+          ]
+        }
+      },
+      "faqs": [
+        {
+          "question": "What capacitor types are recommended for motor drive DC bus applications?",
+          "answer": "For motor drive DC bus applications, we recommend Aishi screw terminal capacitors for drives above 5kW and snap-in capacitors for smaller drives. The DC bus capacitor must handle high ripple current from both the rectifier (100/120Hz) and the inverter (switching frequency). Select capacitors with ripple current ratings at least 1.5x the calculated value. For high-power drives, use multiple capacitors in parallel to share current and reduce heating.",
+          "decisionGuide": "Use screw terminal capacitors for drives above 5kW. Select ripple current rating with 50% margin. Use parallel connection for high current sharing.",
+          "keywords": [
+            "DC bus capacitor",
+            "motor drive",
+            "ripple current",
+            "screw terminal"
+          ]
+        },
+        {
+          "question": "How do I calculate DC bus capacitance for motor drives?",
+          "answer": "DC bus capacitance calculation for motor drives involves several factors: (1) Voltage ripple requirement - typically 5-10% of DC bus voltage; (2) Motor current ripple - depends on motor type and load; (3) Cable inductance between drive and motor; (4) Switching frequency of the inverter. Basic formula: C = I_ripple / (f_sw × ΔV_ripple). For AC motor drives, also consider the energy storage requirement during power dips. Always add 30-50% margin to calculated values for reliability.",
+          "decisionGuide": "Calculate based on voltage ripple and current requirements. Add 30-50% margin. Consider parallel capacitors for high current.",
+          "keywords": [
+            "DC bus capacitance",
+            "voltage ripple",
+            "motor current",
+            "calculation"
+          ]
+        },
+        {
+          "question": "What lifetime can I expect from capacitors in motor drives?",
+          "answer": "Capacitor lifetime in motor drives depends on operating temperature, voltage stress, and ripple current. With proper design (80% voltage derating, 70% temperature derating), Aishi capacitors can achieve 50,000+ hours in motor drive applications. For example, a 105C rated capacitor operated at 75C and 80% voltage can achieve 80,000+ hours. This exceeds typical maintenance intervals of 5-10 years for industrial equipment. Always perform lifetime calculations for your specific operating conditions.",
+          "decisionGuide": "Design for 80% voltage and 70% temperature derating. Calculate lifetime using Arrhenius equation. Target 50,000+ hours for industrial applications.",
+          "keywords": [
+            "capacitor lifetime",
+            "motor drive reliability",
+            "maintenance free"
+          ]
+        },
+        {
+          "question": "How do I handle high ripple current in high-power motor drives?",
+          "answer": "High ripple current in high-power motor drives requires careful capacitor selection and thermal management: (1) Use multiple capacitors in parallel to share current - ripple current divides among parallel capacitors; (2) Select capacitors with high ripple current ratings - screw terminal types offer highest ratings; (3) Ensure adequate thermal management - provide airflow or heatsinking; (4) Calculate temperature rise from ESR and ripple current: ΔT = ESR × I_ripple² × Rth; (5) Monitor capacitor temperature in operation. For drives above 50kW, consider using film capacitors in parallel with electrolytics for high-frequency ripple handling.",
+          "decisionGuide": "Use parallel capacitors to share current. Ensure thermal management. Monitor temperature in operation. Consider film capacitors for very high power.",
+          "keywords": [
+            "high ripple current",
+            "parallel capacitors",
+            "thermal management",
+            "high power drives"
+          ]
+        },
+        {
+          "question": "What are the key differences between DC bus and input filter capacitors in motor drives?",
+          "answer": "DC bus capacitors and input filter capacitors serve different functions in motor drives: DC bus capacitors filter the DC link voltage and supply ripple current to the inverter - they see high-frequency switching ripple and must handle significant ripple current. Input filter capacitors filter the rectified AC input and provide power factor correction - they see line frequency ripple (100/120Hz) and must handle surge currents at power-on. DC bus capacitors typically require higher capacitance and ripple current ratings. Input capacitors need adequate voltage rating (typically 400-450V for 3-phase 380V input) and surge current capability.",
+          "decisionGuide": "DC bus: high capacitance, high ripple current. Input: high voltage, surge current capability. Size each appropriately for its function.",
+          "keywords": [
+            "DC bus capacitor",
+            "input filter",
+            "motor drive design",
+            "inverter"
+          ]
+        }
+      ],
+      "name": "Consumer Electronics Solution 3"
     }
   ]
 }

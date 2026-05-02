@@ -1,0 +1,483 @@
+{
+  "seoTitle": "Slkor Technical Support | MOSFET & IGBT Application Notes | LiTong",
+  "seoDescription": "Access Slkor technical documentation including MOSFET selection guides, IGBT application notes, thermal design guidelines, and motor drive design best practices.",
+  "seoKeywords": [
+    "Slkor technical support",
+    "MOSFET application note",
+    "IGBT selection guide",
+    "thermal design guide",
+    "power semiconductor documentation"
+  ],
+  "faqs": [
+    {
+      "question": "What technical resources does LiTong provide for Slkor products?",
+      "answer": "LiTong provides comprehensive technical resources for Slkor products including selection guides, application notes, reference designs, evaluation boards, and direct FAE support. Our technical documentation covers MOSFET and IGBT selection, thermal design, motor drive design, and application-specific guidance.",
+      "decisionGuide": "Browse our technical articles or contact our FAE team for specific application support.",
+      "keywords": [
+        "technical resources",
+        "application notes",
+        "selection guides",
+        "FAE support"
+      ]
+    },
+    {
+      "question": "How can I get help with my Slkor application design?",
+      "answer": "LiTong's FAE team provides design support including component selection, schematic review, thermal analysis, and troubleshooting. Contact us early in your design cycle for best results. We can also provide reference designs and evaluation boards for prototyping.",
+      "decisionGuide": "Contact our FAE team with your design requirements for personalized support.",
+      "keywords": [
+        "design support",
+        "FAE help",
+        "application design",
+        "technical assistance"
+      ]
+    }
+  ],
+  "articles": [
+    {
+      "id": "mosfet-selection",
+      "title": "MOSFET Selection Guide for Power Applications",
+      "slug": "sikor-mosfet-selection",
+      "category": "Product Selection",
+      "tags": [
+        "MOSFET",
+        "power semiconductor",
+        "selection guide",
+        "application note"
+      ],
+      "description": "Comprehensive guide for selecting the right Slkor MOSFET based on voltage, current, switching frequency, and thermal requirements.",
+      "content": [
+        "This technical reference document provides detailed information about sikor product specifications, characteristics, and performance parameters. Use this information to support your design and analysis activities.",
+        "Electrical characteristics are specified over the operating temperature range unless otherwise noted. Parameters are guaranteed by design, testing, or statistical analysis. Typical values represent the most likely parametric norm at 25°C.",
+        "Thermal characteristics require careful attention during system design. The junction-to-ambient thermal resistance depends on the mounting configuration, PCB copper area, and airflow conditions. Use thermal simulation tools to predict operating temperatures under actual conditions.",
+        "Reliability data is based on accelerated life testing and field failure analysis. Mean time between failures (MTBF) calculations follow industry-standard methodologies. Contact BeiLuo for detailed reliability reports and qualification data."
+      ],
+      "relatedProducts": [
+        {
+          "partNumber": "SL3407",
+          "name": "30V Low-Voltage MOSFET",
+          "link": "/sikor/products/mosfets/sl3407.html"
+        },
+        {
+          "partNumber": "SL20N65",
+          "name": "650V High-Voltage MOSFET",
+          "link": "/sikor/products/mosfets/sl20n65.html"
+        }
+      ],
+      "relatedArticles": [
+        {
+          "title": "IGBT Selection Guide",
+          "link": "/sikor/support/igbt-selection.html"
+        },
+        {
+          "title": "Thermal Design for Power Devices",
+          "link": "/sikor/support/thermal-design.html"
+        }
+      ],
+      "author": {
+        "name": "Michael Chen",
+        "title": "Senior FAE - Power Electronics",
+        "bio": "Michael has over 12 years of experience in power semiconductor applications and has supported hundreds of successful customer designs."
+      },
+      "publishedDate": "2024-01-15",
+      "lastUpdated": "2024-01-15",
+      "readingTime": "10 minutes",
+      "faq": [
+        {
+          "question": "How do I determine the required voltage rating for a MOSFET?",
+          "answer": "The MOSFET voltage rating (VDS) should be selected with adequate margin above the maximum expected drain-source voltage. For DC-DC converters, use VDS > 1.3 × VIN(max) to account for voltage spikes and transients. For AC-DC applications from rectified mains, use VDS > 1.5 × VDC(max) to handle line surges and ringing. For inductive loads, additional margin may be needed due to voltage spikes from current commutation. Always check the actual voltage waveforms in your application with an oscilloscope to verify the selection.",
+          "decisionGuide": "Measure actual voltage stress in your application before finalizing MOSFET selection. Contact our FAE team for voltage margin recommendations for your specific topology.",
+          "keywords": [
+            "voltage rating",
+            "VDS selection",
+            "safety margin",
+            "voltage derating"
+          ]
+        },
+        {
+          "question": "What is the relationship between gate charge and switching performance?",
+          "answer": "Gate charge (Qg) directly impacts switching performance and drive requirements. Lower Qg enables faster switching, reducing switching losses and allowing higher frequency operation. However, Qg and RDS(on) are often trade-offs - devices with very low RDS(on) may have higher Qg due to larger die size. The figure of merit (FOM = RDS(on) × Qg) is useful for comparing devices. For high-frequency applications (>100kHz), prioritize low Qg even if RDS(on) is slightly higher. For low-frequency applications (<50kHz), prioritize low RDS(on) as conduction losses dominate.",
+          "decisionGuide": "For switching frequencies above 100kHz, select MOSFETs with Qg < 15nC. Our FAE team can help optimize the RDS(on) vs Qg trade-off for your application.",
+          "keywords": [
+            "gate charge",
+            "Qg",
+            "switching performance",
+            "figure of merit"
+          ]
+        }
+      ],
+      "faeInsights": {
+        "author": {
+          "name": "Technical FAE",
+          "title": "Support Engineer",
+          "experience": "8+ years"
+        },
+        "content": "Based on years of experience, this MOSFET Selection Guide for Power Applications article addresses common challenges engineers face in project development.",
+        "insightLogic": "Recommendations from analysis of successful product deployment projects across industries.",
+        "keyTakeaways": [
+          "Understand key criteria",
+          "Consider specifications",
+          "Consult FAE team"
+        ]
+      }
+    },
+    {
+      "id": "igbt-selection",
+      "title": "IGBT Selection Guide for Motor Drives and Inverters",
+      "slug": "sikor-igbt-selection",
+      "category": "Product Selection",
+      "tags": [
+        "IGBT",
+        "motor drive",
+        "inverter",
+        "power electronics"
+      ],
+      "description": "Complete guide for selecting Slkor IGBTs for motor drive, inverter, and power conversion applications.",
+      "content": [
+        "This technical reference document provides detailed information about sikor product specifications, characteristics, and performance parameters. Use this information to support your design and analysis activities.",
+        "Electrical characteristics are specified over the operating temperature range unless otherwise noted. Parameters are guaranteed by design, testing, or statistical analysis. Typical values represent the most likely parametric norm at 25°C.",
+        "Thermal characteristics require careful attention during system design. The junction-to-ambient thermal resistance depends on the mounting configuration, PCB copper area, and airflow conditions. Use thermal simulation tools to predict operating temperatures under actual conditions.",
+        "Reliability data is based on accelerated life testing and field failure analysis. Mean time between failures (MTBF) calculations follow industry-standard methodologies. Contact BeiLuo for detailed reliability reports and qualification data."
+      ],
+      "relatedProducts": [
+        {
+          "partNumber": "SL20T65F",
+          "name": "650V 20A IGBT",
+          "link": "/sikor/products/igbts/sl20t65f.html"
+        }
+      ],
+      "relatedArticles": [
+        {
+          "title": "MOSFET Selection Guide",
+          "link": "/sikor/support/mosfet-selection.html"
+        },
+        {
+          "title": "Motor Drive Design Guide",
+          "link": "/sikor/support/motor-drive-design.html"
+        }
+      ],
+      "author": {
+        "name": "James Wang",
+        "title": "Senior FAE - Motor Drives",
+        "bio": "James specializes in motor drive applications with 15 years of experience in variable frequency drives and servo systems."
+      },
+      "publishedDate": "2024-01-20",
+      "lastUpdated": "2024-01-20",
+      "readingTime": "12 minutes",
+      "faq": [
+        {
+          "question": "What is the difference between field-stop and punch-through IGBT technology?",
+          "answer": "Field-stop (FS) technology is an advancement over traditional punch-through (PT) and non-punch-through (NPT) IGBT structures. FS IGBTs use a lightly doped n-drift region with a field-stop layer near the collector, combining the low conduction losses of PT IGBTs with the ruggedness of NPT IGBTs. Benefits include: Lower VCE(sat) for reduced conduction losses; Faster switching with lower switching losses; Better safe operating area (SOA) for short-circuit withstand; and Lower tail current for reduced turn-off losses. Slkor's IGBT portfolio uses field-stop technology for optimal performance.",
+          "decisionGuide": "For new designs, always select field-stop IGBTs for best efficiency and ruggedness. Contact our FAE team for detailed technology comparison and selection guidance.",
+          "keywords": [
+            "field stop IGBT",
+            "punch through",
+            "IGBT technology",
+            "VCE(sat)"
+          ]
+        },
+        {
+          "question": "How do I calculate IGBT losses for thermal design?",
+          "answer": "IGBT total losses consist of conduction losses and switching losses. Conduction loss is Pcond = VCE(sat) × IC × D, where D is duty cycle. Use VCE(sat) at operating temperature (typically 1.5x the 25°C value). Switching loss is Psw = (Eon + Eoff) × fsw, where Eon and Eoff are switching energies from the datasheet at your operating current and voltage. For inverter applications, calculate losses at multiple operating points and use the weighted average. Don't forget to include diode losses if using the integrated anti-parallel diode.",
+          "decisionGuide": "Use our online loss calculator for accurate thermal design. Contact our FAE team for thermal modeling and heatsink recommendations.",
+          "keywords": [
+            "IGBT losses",
+            "conduction loss",
+            "switching loss",
+            "thermal design"
+          ]
+        }
+      ],
+      "faeInsights": {
+        "author": {
+          "name": "Technical FAE",
+          "title": "Support Engineer",
+          "experience": "8+ years"
+        },
+        "content": "Based on years of experience, this IGBT Selection Guide for Motor Drives and Inverters article addresses common challenges engineers face in project development.",
+        "insightLogic": "Recommendations from analysis of successful product deployment projects across industries.",
+        "keyTakeaways": [
+          "Understand key criteria",
+          "Consider specifications",
+          "Consult FAE team"
+        ]
+      }
+    },
+    {
+      "id": "thermal-design",
+      "title": "Thermal Design Guidelines for Power Semiconductors",
+      "slug": "sikor-thermal-design",
+      "category": "Application Note",
+      "tags": [
+        "thermal design",
+        "heatsink",
+        "power dissipation",
+        "reliability"
+      ],
+      "description": "Comprehensive thermal design guidelines for Slkor power MOSFETs and IGBTs including heatsink selection and thermal modeling.",
+      "content": [
+        "Following these design guidelines will help ensure successful implementation of sikor products in your application. These recommendations are based on best practices and lessons learned from numerous design cycles.",
+        "PCB layout is critical for optimal performance. Place decoupling capacitors as close as possible to power pins. Use wide, short traces for high-current paths. Implement proper ground planes and minimize loop areas for sensitive signals.",
+        "Thermal management should be addressed early in the design process. Calculate expected power dissipation and ensure adequate heat sinking. Consider using thermal vias, copper pours, and thermal interface materials as needed.",
+        "Signal integrity considerations become increasingly important at higher frequencies. Control trace impedances, minimize stubs, and use appropriate termination. Consider crosstalk and coupling between adjacent traces."
+      ],
+      "relatedProducts": [
+        {
+          "partNumber": "SL20N65",
+          "name": "650V MOSFET",
+          "link": "/sikor/products/mosfets/sl20n65.html"
+        },
+        {
+          "partNumber": "SL20T65F",
+          "name": "650V IGBT",
+          "link": "/sikor/products/igbts/sl20t65f.html"
+        }
+      ],
+      "relatedArticles": [
+        {
+          "title": "MOSFET Selection Guide",
+          "link": "/sikor/support/mosfet-selection.html"
+        },
+        {
+          "title": "IGBT Selection Guide",
+          "link": "/sikor/support/igbt-selection.html"
+        }
+      ],
+      "author": {
+        "name": "David Liu",
+        "title": "Senior FAE - Power Systems",
+        "bio": "David has extensive experience in thermal management and power system design across industrial and automotive applications."
+      },
+      "publishedDate": "2024-01-25",
+      "lastUpdated": "2024-01-25",
+      "readingTime": "15 minutes",
+      "faq": [
+        {
+          "question": "How do I calculate the required heatsink thermal resistance?",
+          "answer": "The required heatsink-to-ambient thermal resistance (RthSA) is calculated using: RthSA = (Tj_max - Ta) / P - RthJC - RthCS. Where Tj_max is maximum junction temperature (typically 150°C or 175°C), Ta is ambient temperature, P is total power dissipation, RthJC is junction-to-case thermal resistance from datasheet, and RthCS is case-to-heatsink thermal resistance (typically 0.1-0.5°C/W with thermal interface material). For example, with Tj_max=150°C, Ta=50°C, P=50W, RthJC=0.8°C/W, RthCS=0.2°C/W: RthSA = (150-50)/50 - 0.8 - 0.2 = 1.0°C/W. Select a heatsink with RthSA < 1.0°C/W at your airflow condition.",
+          "decisionGuide": "Always include 20-30% thermal margin in your design. Contact our FAE team for thermal modeling and heatsink recommendations specific to your application.",
+          "keywords": [
+            "heatsink calculation",
+            "thermal resistance",
+            "RthSA",
+            "thermal design"
+          ]
+        },
+        {
+          "question": "What is the effect of altitude on thermal performance?",
+          "answer": "At high altitudes, reduced air density decreases the effectiveness of natural and forced convection cooling. The thermal resistance of heatsinks increases approximately 10-15% per 1000m above sea level. At 3000m altitude, a heatsink may have 30-45% higher RthSA than at sea level. For high-altitude applications (>1500m), you must either: Use a larger heatsink with lower sea-level thermal resistance; Increase airflow with more powerful fans; or Derate the device current/power to reduce heat generation. Always verify thermal performance at the actual operating altitude.",
+          "decisionGuide": "For applications above 1500m altitude, contact our FAE team for altitude derating guidelines and thermal design recommendations.",
+          "keywords": [
+            "altitude derating",
+            "high altitude",
+            "thermal performance",
+            "air density"
+          ]
+        }
+      ],
+      "faeInsights": {
+        "author": {
+          "name": "Technical FAE",
+          "title": "Support Engineer",
+          "experience": "8+ years"
+        },
+        "content": "Based on years of experience, this Thermal Design Guidelines for Power Semiconductors article addresses common challenges engineers face in project development.",
+        "insightLogic": "Recommendations from analysis of successful product deployment projects across industries.",
+        "keyTakeaways": [
+          "Understand key criteria",
+          "Consider specifications",
+          "Consult FAE team"
+        ]
+      }
+    },
+    {
+      "id": "motor-drive-design",
+      "title": "Motor Drive Design Best Practices",
+      "slug": "sikor-motor-drive-design",
+      "category": "Application Note",
+      "tags": [
+        "motor drive",
+        "VFD",
+        "inverter",
+        "motor control"
+      ],
+      "description": "Best practices for designing motor drives using Slkor IGBTs and MOSFETs including gate drive, protection, and layout guidelines.",
+      "content": [
+        "This document outlines best practices for using sikor products based on extensive field experience and customer feedback. Following these recommendations will help optimize performance and reliability.",
+        "Component selection should consider not only electrical specifications but also supply chain factors such as availability, lead time, and lifecycle status. Work with BeiLuo to identify optimal alternatives and second sources where appropriate.",
+        "Design validation should include both laboratory testing and real-world evaluation. Develop test plans that cover normal operation, boundary conditions, and stress scenarios. Document all test procedures and results thoroughly.",
+        "Manufacturing considerations include proper handling, storage, and assembly procedures. Follow recommended soldering profiles and cleaning processes. Implement quality control checks to ensure consistent production results."
+      ],
+      "relatedProducts": [
+        {
+          "partNumber": "SL20T65F",
+          "name": "650V IGBT",
+          "link": "/sikor/products/igbts/sl20t65f.html"
+        }
+      ],
+      "relatedArticles": [
+        {
+          "title": "IGBT Selection Guide",
+          "link": "/sikor/support/igbt-selection.html"
+        },
+        {
+          "title": "Thermal Design Guidelines",
+          "link": "/sikor/support/thermal-design.html"
+        }
+      ],
+      "author": {
+        "name": "James Wang",
+        "title": "Senior FAE - Motor Drives",
+        "bio": "James specializes in motor drive applications with extensive experience in VFD and servo system design."
+      },
+      "publishedDate": "2024-01-30",
+      "lastUpdated": "2024-01-30",
+      "readingTime": "18 minutes",
+      "faq": [
+        {
+          "question": "What is the recommended gate drive voltage for IGBTs?",
+          "answer": "IGBTs should be driven with +15V for turn-on to achieve the specified low VCE(sat). For turn-off, negative gate voltage of -5V to -8V is strongly recommended. The negative voltage provides several benefits: Faster turn-off reducing switching losses; Improved noise immunity preventing false turn-on from dv/dt; Better short-circuit protection response; and More robust operation in noisy industrial environments. A typical gate drive scheme uses +15V/-8V. If unipolar drive must be used (0V/+15V), ensure the gate-emitter path has very low impedance and consider adding a Miller clamp circuit to prevent dv/dt induced turn-on during switching.",
+          "decisionGuide": "Use a gate driver IC with built-in negative voltage capability or a bootstrap circuit with negative bias. Contact our FAE team for gate driver recommendations and circuit design.",
+          "keywords": [
+            "gate drive voltage",
+            "negative bias",
+            "IGBT driver",
+            "Miller clamp"
+          ]
+        },
+        {
+          "question": "How do I prevent shoot-through in IGBT bridge circuits?",
+          "answer": "Shoot-through occurs when both high-side and low-side IGBTs conduct simultaneously, causing a short circuit across the DC bus. Prevention methods include: Adequate dead time (typically 1-3μs) inserted between turning off one device and turning on the other; Using gate drivers with built-in dead time generation and interlock protection; Implementing hardware interlocks that prevent simultaneous conduction; Adding current sensing with fast overcurrent shutdown (<2μs); and Using desaturation detection to detect shoot-through and initiate soft shutdown. The dead time must account for IGBT turn-off delay variations with temperature and manufacturing tolerance.",
+          "decisionGuide": "Start with 2μs dead time and verify with oscilloscope measurements. Contact our FAE team for dead time optimization and protection circuit design.",
+          "keywords": [
+            "shoot through",
+            "dead time",
+            "bridge protection",
+            "IGBT bridge"
+          ]
+        }
+      ],
+      "faeInsights": {
+        "author": {
+          "name": "Technical FAE",
+          "title": "Support Engineer",
+          "experience": "8+ years"
+        },
+        "content": "Based on years of experience, this Motor Drive Design Best Practices article addresses common challenges engineers face in project development.",
+        "insightLogic": "Recommendations from analysis of successful product deployment projects across industries.",
+        "keyTakeaways": [
+          "Understand key criteria",
+          "Consider specifications",
+          "Consult FAE team"
+        ]
+      }
+    },
+    {
+      "id": "ev-charging-design-guide",
+      "title": "EV Charging Station Power Design Guide",
+      "slug": "ev-charging-design-guide",
+      "category": "Technical Guide",
+      "author": {
+        "name": "Dr. Thomas Weber",
+        "title": "Senior FAE - Power Systems",
+        "experience": "15 years",
+        "expertise": [
+          "EV Charging",
+          "Power Electronics",
+          "SiC Technology"
+        ]
+      },
+      "publishDate": "2026-04-10",
+      "lastUpdated": "2026-04-10",
+      "summary": "Comprehensive design guide for EV charging station power electronics, covering topology selection, device selection, thermal management, and EMI compliance.",
+      "content": [
+        "EV charging stations require careful design of power electronics to achieve high efficiency, reliability, and safety. This guide covers key design considerations for Level 2 AC and DC fast charging applications.",
+        "## Power Stage Topology Selection",
+        "The choice of power topology depends on power level and application requirements:",
+        "### Level 2 AC Charging (7-22kW)",
+        "For on-board chargers: 1) Use totem-pole PFC for high power factor; 2) Implement LLC or phase-shifted full-bridge DC-DC for isolation; 3) Select switching frequency 50-100kHz for compact magnetics; 4) Plan for bi-directional operation if V2G capability needed.",
+        "### DC Fast Charging (50-350kW)",
+        "For off-board chargers: 1) Use Vienna rectifier or active bridge for PFC; 2) Implement dual active bridge or LLC for DC-DC; 3) Consider modular design for scalability; 4) Plan for wide output voltage range 200-1000V.",
+        "## Device Selection Guidelines",
+        "Proper device selection is critical for performance and reliability:",
+        "### SiC MOSFETs vs IGBTs",
+        "SiC MOSFETs offer: Lower switching losses, higher switching frequency capability, better high-temperature performance. IGBTs offer: Lower cost for high voltage, proven reliability, easier gate drive. Selection criteria: Use SiC for frequencies >30kHz or efficiency >98% required. Use IGBTs for cost-sensitive applications or lower frequencies.",
+        "### Voltage and Current Ratings",
+        "Select devices with adequate margin: Voltage rating at least 1.5x maximum operating voltage. Current rating at least 1.3x RMS current at full load. Consider surge current capability for startup and fault conditions.",
+        "## Thermal Management Design",
+        "Thermal design is often the limiting factor in charging power density:",
+        "### Heatsink Design",
+        "Calculate thermal resistance requirements based on: Device power dissipation, maximum junction temperature, maximum ambient temperature. Use thermal interface material with low thermal resistance. Ensure adequate airflow or liquid flow for cooling.",
+        "### Temperature Monitoring",
+        "Implement temperature sensing at: Device junctions (if available), Heatsink baseplate, Ambient air inlet. Use temperature for protection and thermal derating control.",
+        "## EMI Filter Design",
+        "EV chargers must meet stringent EMI standards:",
+        "### Conducted EMI",
+        "Design multi-stage filters: Common-mode chokes for high-frequency noise, Differential-mode inductors for low-frequency ripple, X and Y capacitors for filtering. Target 6-10dB margin below limits.",
+        "### Radiated EMI",
+        "Minimize loop areas in high-frequency circuits, Use shielding for magnetic components, Implement proper grounding and bonding, Filter all cables entering/leaving enclosure.",
+        "## Protection and Safety",
+        "Comprehensive protection is essential for safe operation:",
+        "### Overcurrent Protection",
+        "Implement fast overcurrent detection (<2μs) with soft shutdown. Use desaturation detection for IGBTs. Plan for short-circuit withstand capability.",
+        "### Ground Fault Protection",
+        "Monitor for ground faults in DC output. Implement isolation monitoring between AC input and DC output. Use appropriate protection class for installation environment.",
+        "### Thermal Protection",
+        "Monitor device and heatsink temperatures. Implement thermal derating at elevated temperatures. Provide overtemperature shutdown with hysteresis.",
+        "## Control and Monitoring",
+        "Digital control enables advanced features:",
+        "### Communication Interfaces",
+        "Implement CAN for vehicle communication. Use Ethernet for backend connectivity. Consider OCPP protocol for charging network integration.",
+        "### Power Quality",
+        "Monitor and control: Power factor, THD, Output voltage and current regulation. Implement active filtering if required.",
+        "## Testing and Validation",
+        "Thorough testing ensures reliable operation:",
+        "### Performance Testing",
+        "Verify efficiency across operating range. Test power quality (PF, THD). Validate output voltage regulation. Confirm protection operation.",
+        "### Environmental Testing",
+        "Test across temperature range (-40°C to +50°C). Verify operation at altitude if applicable. Conduct humidity and corrosion testing.",
+        "### Safety Testing",
+        "Perform dielectric withstand testing. Verify ground continuity. Test protection functions under fault conditions. Validate emergency shutdown operation."
+      ],
+      "faqs": [
+        {
+          "question": "What efficiency should I target for EV charging applications?",
+          "answer": "Efficiency targets depend on power level and application: Level 2 AC chargers (7-22kW): Target 95-96% end-to-end efficiency. DC fast chargers (50-150kW): Target 96-98% efficiency. Ultra-fast chargers (150kW+): Target >98% efficiency using SiC technology. Higher efficiency reduces operating costs and cooling requirements. Every 0.1% efficiency improvement matters for high-power chargers. Consider European efficiency (weighted across load points) rather than just peak efficiency.",
+          "decisionGuide": "Target >98% for DC fast chargers using SiC. Every 0.1% efficiency improvement reduces operating costs.",
+          "keywords": [
+            "efficiency target",
+            "EV charger efficiency",
+            "SiC efficiency"
+          ]
+        },
+        {
+          "question": "How do I select the right switching frequency?",
+          "answer": "Switching frequency selection involves trade-offs: Higher frequency reduces magnetic component size but increases switching losses. For IGBT-based designs: 8-16kHz typical for high power (>50kW). For SiC-based designs: 50-100kHz possible, enabling smaller magnetics. Consider EMI filter size - higher frequencies require more filtering. Thermal limitations often constrain maximum frequency. Validate efficiency across frequency range for your specific design.",
+          "decisionGuide": "Use 8-16kHz for IGBT designs, 50-100kHz for SiC designs. Validate thermal performance at selected frequency.",
+          "keywords": [
+            "switching frequency",
+            "IGBT frequency",
+            "SiC frequency"
+          ]
+        },
+        {
+          "question": "What safety standards apply to EV charging stations?",
+          "answer": "EV chargers must comply with multiple standards: IEC 61851 for conductive charging systems. IEC 61439 for low-voltage switchgear. UL 2202 for EV charging system equipment. EMC standards: CISPR 11, IEC 61000-6-1/2. Grid connection standards vary by region. Safety requirements include: Ground fault protection, Isolation monitoring, Emergency shutdown, Overcurrent protection. Work with certification bodies early in design process.",
+          "decisionGuide": "Design to IEC 61851 and UL 2202 from the start. Engage certification body early in development.",
+          "keywords": [
+            "safety standards",
+            "IEC 61851",
+            "UL 2202",
+            "EV charging standards"
+          ]
+        }
+      ],
+      "tags": [
+        "EV charging",
+        "power design",
+        "SiC",
+        "IGBT",
+        "thermal management"
+      ]
+    }
+  ]
+}

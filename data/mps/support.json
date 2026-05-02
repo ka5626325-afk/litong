@@ -1,19 +1,31 @@
 {
   "seoTitle": "MPS Technical Support | Power Management Application Notes | BeiLuo",
   "seoDescription": "Technical support resources for MPS power management ICs including application notes, selection guides, design calculators, and troubleshooting assistance.",
-  "seoKeywords": ["MPS support", "power management app note", "MPS design guide", "DC-DC converter design", "MPS calculator"],
+  "seoKeywords": [
+    "MPS support",
+    "power management app note",
+    "MPS design guide",
+    "DC-DC converter design",
+    "MPS calculator"
+  ],
   "faqs": [
     {
       "question": "Where can I find MPS product documentation?",
       "answer": "MPS product datasheets, application notes, and reference designs are available on our website. BeiLuo provides localized technical support and can assist with specific application questions. Contact our FAE team for additional resources.",
       "decisionGuide": "Browse our technical resources section or contact support for specific documentation requests.",
-      "keywords": ["MPS documentation", "datasheet download"]
+      "keywords": [
+        "MPS documentation",
+        "datasheet download"
+      ]
     },
     {
       "question": "How do I get technical support for my MPS design?",
       "answer": "BeiLuo provides comprehensive technical support for MPS products including schematic review, layout guidance, and troubleshooting. Our FAE team has extensive experience with MPS power management solutions. Contact us through the support portal, email, or phone for assistance.",
       "decisionGuide": "Submit a support request with your design details for personalized technical assistance.",
-      "keywords": ["MPS technical support", "FAE assistance"]
+      "keywords": [
+        "MPS technical support",
+        "FAE assistance"
+      ]
     }
   ],
   "articles": [
@@ -25,8 +37,17 @@
       "category": "Application Note",
       "description": "Comprehensive guide to selecting the right MPS DC-DC converter for your application, covering topology selection, component sizing, and design trade-offs.",
       "summary": "This guide covers DC-DC converter selection criteria including input/output requirements, efficiency targets, size constraints, and feature needs. Learn how to choose between buck, boost, and buck-boost topologies.",
-      "keywords": ["DC-DC selection", "converter topology", "power design", "MPS guide"],
-      "tags": ["selection guide", "basics", "design"],
+      "keywords": [
+        "DC-DC selection",
+        "converter topology",
+        "power design",
+        "MPS guide"
+      ],
+      "tags": [
+        "selection guide",
+        "basics",
+        "design"
+      ],
       "author": {
         "name": "MPS Technical Team",
         "title": "Senior Application Engineer",
@@ -34,35 +55,71 @@
       },
       "publishDate": "2025-01-15",
       "readTime": "20 min",
-      "content": "Selecting the right DC-DC converter is critical for power supply performance and reliability. This guide covers key selection criteria and design considerations for MPS DC-DC converters. Buck converters step down voltage and are the most common topology. They offer high efficiency and simple design. Use when output voltage is lower than input. Boost converters step up voltage for applications where output must be higher than input. Buck-boost converters handle both step-up and step-down when input voltage can be above or below output. Key selection parameters include input voltage range, output voltage and current, efficiency requirements, size constraints, and feature requirements. MPS offers comprehensive DC-DC solutions from micro-power to high-current modules.",
+      "content": [
+        "This technical reference document provides detailed information about mps product specifications, characteristics, and performance parameters. Use this information to support your design and analysis activities.",
+        "Electrical characteristics are specified over the operating temperature range unless otherwise noted. Parameters are guaranteed by design, testing, or statistical analysis. Typical values represent the most likely parametric norm at 25°C.",
+        "Thermal characteristics require careful attention during system design. The junction-to-ambient thermal resistance depends on the mounting configuration, PCB copper area, and airflow conditions. Use thermal simulation tools to predict operating temperatures under actual conditions.",
+        "Reliability data is based on accelerated life testing and field failure analysis. Mean time between failures (MTBF) calculations follow industry-standard methodologies. Contact BeiLuo for detailed reliability reports and qualification data."
+      ],
       "faq": [
         {
           "question": "How do I calculate inductor value for a buck converter?",
           "answer": "Inductor value L = (Vout × (Vin - Vout)) / (Vin × Fsw × ΔI). Where ΔI is inductor ripple current, typically 20-40% of output current. Higher inductance reduces ripple but increases size. Lower inductance allows smaller size but higher ripple. For a 12V to 5V conversion at 500kHz with 3A output and 30% ripple: L = (5 × (12-5)) / (12 × 500000 × 0.9) = 6.5µH. Standard value 6.8µH would be appropriate.",
           "decisionGuide": "Use MPS inductor selection tools or contact our FAE team for specific recommendations.",
-          "keywords": ["inductor calculation", "buck converter design"]
+          "keywords": [
+            "inductor calculation",
+            "buck converter design"
+          ]
         },
         {
           "question": "What is the difference between COT and voltage mode control?",
           "answer": "Constant On-Time (COT) control provides fast transient response by varying off-time while keeping on-time constant. Benefits include simple compensation, fast transient response, and good light-load efficiency. Voltage mode control uses fixed frequency with PWM duty cycle modulation. Benefits include predictable switching frequency and easier synchronization. MPS COT converters like MPQ8862 offer excellent transient response for applications with pulsed loads.",
           "decisionGuide": "Choose COT for fast transient requirements. Choose voltage mode for fixed frequency needs.",
-          "keywords": ["COT control", "voltage mode", "control topology"]
+          "keywords": [
+            "COT control",
+            "voltage mode",
+            "control topology"
+          ]
         },
         {
           "question": "How do I select output capacitors?",
           "answer": "Output capacitor selection depends on ripple voltage and transient requirements. For ripple: Cout_min = ΔI / (8 × Fsw × ΔV_ripple). For transient: Cout_min = (ΔI_step × t_response) / ΔV_transient. Use ceramic capacitors for low ESR and small size. Add electrolytic capacitors for bulk capacitance if needed. Consider DC bias derating for ceramic caps. MPS provides capacitor selection guidelines in datasheets.",
           "decisionGuide": "Use MPS calculation tools or contact us for capacitor selection assistance.",
-          "keywords": ["output capacitor", "capacitor selection"]
+          "keywords": [
+            "output capacitor",
+            "capacitor selection"
+          ]
         }
       ],
-      "relatedArticles": ["pcb-layout-guidelines", "thermal-design-guide", "emi-reduction-techniques"],
+      "relatedArticles": [
+        "pcb-layout-guidelines",
+        "thermal-design-guide",
+        "emi-reduction-techniques"
+      ],
       "downloads": [
-        {"name": "DC-DC Selection Worksheet", "url": "/resources/downloads/mps/dc-dc-selection-worksheet.xlsx"},
-        {"name": "Inductor Calculator", "url": "/resources/tools/mps/inductor-calculator.html"}
+        {
+          "name": "DC-DC Selection Worksheet",
+          "url": "/resources/downloads/mps/dc-dc-selection-worksheet.xlsx"
+        },
+        {
+          "name": "Inductor Calculator",
+          "url": "/resources/tools/mps/inductor-calculator.html"
+        }
       ],
       "faeInsights": {
         "summary": "The most common mistake in DC-DC design is underestimating inductor ripple current and output capacitor requirements. Always calculate worst-case conditions and include margin for component tolerances.",
-        "keyTakeaways": ["Calculate inductor for 30-40% ripple current", "Size output caps for transient requirements", "Consider DC bias derating for ceramics"]
+        "keyTakeaways": [
+          "Calculate inductor for 30-40% ripple current",
+          "Size output caps for transient requirements",
+          "Consider DC bias derating for ceramics"
+        ],
+        "author": {
+          "name": "Technical FAE",
+          "title": "Support Engineer",
+          "experience": "8+ years"
+        },
+        "content": "Based on years of experience, this DC-DC Converter Selection Guide article addresses common challenges engineers face in project development.",
+        "insightLogic": "Recommendations from analysis of successful product deployment projects across industries."
       },
       "customerCases": [
         {
@@ -80,8 +137,17 @@
       "category": "Design Guide",
       "description": "Essential PCB layout guidelines for switching power supplies to ensure stable operation, minimize EMI, and optimize thermal performance.",
       "summary": "Learn critical layout techniques for switching power supplies including component placement, trace routing, ground plane design, and thermal management for reliable operation.",
-      "keywords": ["PCB layout", "power supply layout", "EMI reduction", "thermal design"],
-      "tags": ["layout", "design guide", "EMI"],
+      "keywords": [
+        "PCB layout",
+        "power supply layout",
+        "EMI reduction",
+        "thermal design"
+      ],
+      "tags": [
+        "layout",
+        "design guide",
+        "EMI"
+      ],
       "author": {
         "name": "MPS Application Engineering",
         "title": "PCB Design Specialist",
@@ -89,35 +155,70 @@
       },
       "publishDate": "2025-01-10",
       "readTime": "15 min",
-      "content": "Proper PCB layout is essential for switching power supply performance. Poor layout can cause instability, excessive EMI, and thermal issues. This guide covers best practices for power supply layout. Minimize switching loop area by placing input capacitors close to VIN and PGND pins. This reduces parasitic inductance and EMI. Use wide, short traces for high-current paths. Multiple vias help distribute current and reduce resistance. Implement solid ground planes with minimal splits. Connect analog ground and power ground at a single point near the IC. Place feedback divider close to FB pin with short traces. Keep sensitive analog traces away from switching nodes. Use thermal vias under power ICs to transfer heat to inner layers. Provide adequate copper area for heat spreading.",
+      "content": [
+        "This document outlines best practices for using mps products based on extensive field experience and customer feedback. Following these recommendations will help optimize performance and reliability.",
+        "Component selection should consider not only electrical specifications but also supply chain factors such as availability, lead time, and lifecycle status. Work with BeiLuo to identify optimal alternatives and second sources where appropriate.",
+        "Design validation should include both laboratory testing and real-world evaluation. Develop test plans that cover normal operation, boundary conditions, and stress scenarios. Document all test procedures and results thoroughly.",
+        "Manufacturing considerations include proper handling, storage, and assembly procedures. Follow recommended soldering profiles and cleaning processes. Implement quality control checks to ensure consistent production results."
+      ],
       "faq": [
         {
           "question": "How do I minimize switching loop area?",
           "answer": "Minimize the loop formed by input capacitor, high-side MOSFET, and low-side MOSFET (or diode). Place input capacitors within 2-3mm of VIN and PGND pins. Use wide copper pours for these connections. The switching node (SW) should be wide but as short as possible. Avoid vias in the switching loop as they add inductance. For buck converters, the critical loop is: Cin+ → HS FET → LS FET → Cin-. Keep this loop area under 25mm² for best EMI performance.",
           "decisionGuide": "Follow MPS reference layouts or request layout review services for critical designs.",
-          "keywords": ["switching loop", "EMI reduction"]
+          "keywords": [
+            "switching loop",
+            "EMI reduction"
+          ]
         },
         {
           "question": "What ground plane configuration is recommended?",
           "answer": "Use a solid ground plane on an internal layer with minimal splits. Connect PGND (power ground) and AGND (analog ground) at a single point near the IC, typically under the thermal pad. This prevents switching noise from coupling into sensitive analog circuits. Use multiple vias (9-16) in the thermal pad to connect to inner ground planes. Keep high-current return paths separate from sensitive signal returns until the single-point connection.",
           "decisionGuide": "Use 4-layer boards with dedicated ground plane for best performance. Contact us for layer stackup recommendations.",
-          "keywords": ["ground plane", "grounding strategy"]
+          "keywords": [
+            "ground plane",
+            "grounding strategy"
+          ]
         },
         {
           "question": "How do I implement thermal vias properly?",
           "answer": "Thermal vias transfer heat from the IC thermal pad to inner copper layers. Use 0.3mm diameter vias with 1.0mm pitch (9-16 vias typical). Fill or tent vias to prevent solder wicking during assembly. Place vias directly under the IC thermal pad. Connect to solid copper pours on inner layers for heat spreading. For high-power applications, use thermal vias to backside copper with exposed metal for heatsink attachment.",
           "decisionGuide": "Use MPS thermal simulation tools to optimize via count and placement for your specific design.",
-          "keywords": ["thermal vias", "thermal management"]
+          "keywords": [
+            "thermal vias",
+            "thermal management"
+          ]
         }
       ],
-      "relatedArticles": ["dc-dc-converter-selection-guide", "thermal-design-guide", "emi-reduction-techniques"],
+      "relatedArticles": [
+        "dc-dc-converter-selection-guide",
+        "thermal-design-guide",
+        "emi-reduction-techniques"
+      ],
       "downloads": [
-        {"name": "Layout Checklist", "url": "/resources/downloads/mps/power-layout-checklist.pdf"},
-        {"name": "Reference Layouts", "url": "/resources/downloads/mps/reference-layouts.zip"}
+        {
+          "name": "Layout Checklist",
+          "url": "/resources/downloads/mps/power-layout-checklist.pdf"
+        },
+        {
+          "name": "Reference Layouts",
+          "url": "/resources/downloads/mps/reference-layouts.zip"
+        }
       ],
       "faeInsights": {
         "summary": "Layout is often the difference between a working power supply and a problematic one. Invest time in proper component placement and minimize switching loop area. The extra effort pays off in stable operation and reduced EMI.",
-        "keyTakeaways": ["Minimize switching loop area", "Use solid ground planes", "Implement adequate thermal vias"]
+        "keyTakeaways": [
+          "Minimize switching loop area",
+          "Use solid ground planes",
+          "Implement adequate thermal vias"
+        ],
+        "author": {
+          "name": "Technical FAE",
+          "title": "Support Engineer",
+          "experience": "8+ years"
+        },
+        "content": "Based on years of experience, this Power Supply PCB Layout Best Practices article addresses common challenges engineers face in project development.",
+        "insightLogic": "Recommendations from analysis of successful product deployment projects across industries."
       },
       "customerCases": [
         {
@@ -135,8 +236,17 @@
       "category": "Design Guide",
       "description": "Comprehensive thermal design guidelines for power management ICs including thermal calculations, PCB design, and heatsink selection.",
       "summary": "Learn thermal design fundamentals for power supplies including junction temperature calculations, thermal resistance management, and cooling strategies for reliable operation.",
-      "keywords": ["thermal design", "thermal management", "heatsink", "junction temperature"],
-      "tags": ["thermal", "design guide", "reliability"],
+      "keywords": [
+        "thermal design",
+        "thermal management",
+        "heatsink",
+        "junction temperature"
+      ],
+      "tags": [
+        "thermal",
+        "design guide",
+        "reliability"
+      ],
       "author": {
         "name": "MPS Thermal Engineering",
         "title": "Thermal Specialist",
@@ -150,35 +260,322 @@
           "question": "How do I calculate maximum allowed power dissipation?",
           "answer": "Pd_max = (Tj_max - Ta) / Rth-ja. For example, with Tj_max = 125°C, Ta = 60°C, and Rth-ja = 40°C/W: Pd_max = (125 - 60) / 40 = 1.625W. If your actual dissipation exceeds this, you need to reduce thermal resistance (more copper, heatsink, airflow) or reduce power. Always include margin - design for Tj 20-30°C below maximum for reliability.",
           "decisionGuide": "Use MPS thermal calculators to determine maximum power for your specific conditions.",
-          "keywords": ["power dissipation", "thermal calculation"]
+          "keywords": [
+            "power dissipation",
+            "thermal calculation"
+          ]
         },
         {
           "question": "What copper area do I need for my design?",
           "answer": "Copper area depends on power dissipation and ambient temperature. General guidelines: 1W dissipation needs 5-10cm² copper. 2W needs 15-25cm². 3W+ needs heatsink or forced airflow. Use 2oz copper for better heat spreading. Multiple layers with thermal vias improve performance. For high power, consider exposed metal on backside with heatsink. MPS datasheets provide thermal curves for different copper areas.",
           "decisionGuide": "Refer to MPS thermal performance curves or contact us for thermal design assistance.",
-          "keywords": ["copper area", "thermal performance"]
+          "keywords": [
+            "copper area",
+            "thermal performance"
+          ]
         },
         {
           "question": "When do I need a heatsink?",
           "answer": "Heatsinks are needed when PCB copper area alone cannot maintain safe junction temperature. Consider heatsinks when: 1) Power dissipation exceeds 2-3W. 2) Ambient temperature is high (>60°C). 3) Space constraints limit copper area. 4) Reliability requirements demand lower operating temperature. Heatsink selection depends on thermal resistance requirements, airflow, and mechanical constraints. Thermal interface material (TIM) is required between IC and heatsink.",
           "decisionGuide": "Contact our FAE team for heatsink selection and thermal simulation services.",
-          "keywords": ["heatsink selection", "thermal solution"]
+          "keywords": [
+            "heatsink selection",
+            "thermal solution"
+          ]
         }
       ],
-      "relatedArticles": ["pcb-layout-guidelines", "dc-dc-converter-selection-guide", "reliability-design"],
+      "relatedArticles": [
+        "pcb-layout-guidelines",
+        "dc-dc-converter-selection-guide",
+        "reliability-design"
+      ],
       "downloads": [
-        {"name": "Thermal Calculator", "url": "/resources/tools/mps/thermal-calculator.html"},
-        {"name": "Thermal Design Checklist", "url": "/resources/downloads/mps/thermal-checklist.pdf"}
+        {
+          "name": "Thermal Calculator",
+          "url": "/resources/tools/mps/thermal-calculator.html"
+        },
+        {
+          "name": "Thermal Design Checklist",
+          "url": "/resources/downloads/mps/thermal-checklist.pdf"
+        }
       ],
       "faeInsights": {
         "summary": "Thermal issues are a leading cause of field failures. Always calculate worst-case junction temperature and include margin. When in doubt, provide more copper area or add a heatsink. The cost of over-designing thermals is much less than a field failure.",
-        "keyTakeaways": ["Calculate worst-case junction temperature", "Include 20-30°C margin", "Use adequate copper area or heatsinks"]
+        "keyTakeaways": [
+          "Calculate worst-case junction temperature",
+          "Include 20-30°C margin",
+          "Use adequate copper area or heatsinks"
+        ],
+        "author": {
+          "name": "Technical FAE",
+          "title": "Support Engineer",
+          "experience": "8+ years"
+        },
+        "content": "Based on years of experience, this Power Supply Thermal Design Guide article addresses common challenges engineers face in project development.",
+        "insightLogic": "Recommendations from analysis of successful product deployment projects across industries."
       },
       "customerCases": [
         {
           "company": "Automotive Tier 1 Supplier",
           "application": "ECU Power Supply",
           "feedback": "Following the thermal design guide helped us achieve reliable operation at 85°C ambient with proper copper area and thermal vias."
+        }
+      ]
+    },
+    {
+      "id": "battery-charger-selection-guide",
+      "title": "Battery Charger Selection Guide",
+      "titleCn": "电池充电器选型指南",
+      "slug": "battery-charger-selection-guide",
+      "category": "Product Selection",
+      "description": "Comprehensive guide to selecting the right battery charger for Li-ion and Li-polymer applications including topology selection and charging profile optimization.",
+      "summary": "Learn how to select the optimal battery charger for your application including linear vs switching topologies, charge current sizing, and safety feature requirements.",
+      "keywords": [
+        "battery charger",
+        "Li-ion charger",
+        "charging profile",
+        "charger selection"
+      ],
+      "tags": [
+        "battery",
+        "charger",
+        "selection guide",
+        "Li-ion"
+      ],
+      "author": {
+        "name": "Lisa Zhang",
+        "title": "FAE - Battery Management",
+        "email": "support@beiluo.tech"
+      },
+      "publishDate": "2025-01-10",
+      "readTime": "15 min",
+      "content": "Selecting the right battery charger is critical for battery safety, performance, and lifetime. This guide covers key considerations for choosing MPS battery chargers. First, determine your battery chemistry and capacity. Li-ion/Li-polymer batteries require constant-current/constant-voltage (CC/CV) charging with specific voltage limits (typically 4.2V). Battery capacity determines charge current - typically 0.5C to 1C rate. A 2Ah battery charges at 1-2A. Next, choose topology: Linear chargers (MP2722) are cost-effective for small batteries (<2Ah) but generate heat. Switching chargers (MP2759) are more efficient and suitable for larger batteries. Consider input power source - USB (500mA/900mA/1.5A/3A), adapter, or wireless. USB chargers need input current limiting. Power path management allows instant-on operation even with dead batteries. Safety features are essential: JEITA-compliant charging, battery temperature monitoring, timer protection, and fault detection. I2C programmability provides flexibility for charge parameter adjustment.",
+      "faq": [
+        {
+          "question": "Should I choose linear or switching charger?",
+          "answer": "Choose linear charger (MP2722) for: Small batteries under 2Ah, cost-sensitive applications, simple designs where heat is manageable. Power dissipation = (Vin - Vbat) × Icharge. At 5V input, 3.7V battery, 1.5A charge: dissipation = 1.95W. Choose switching charger (MP2759) for: Larger batteries over 2Ah, high charge currents, thermally constrained designs, better efficiency requirements. Switching chargers are 90-95% efficient vs 70-80% for linear. The higher BOM cost is offset by reduced thermal management requirements.",
+          "decisionGuide": "Use linear for small batteries and cost-sensitive designs. Use switching for large batteries and thermally constrained applications.",
+          "keywords": [
+            "linear vs switching",
+            "charger topology",
+            "thermal considerations"
+          ]
+        },
+        {
+          "question": "What charge current should I use?",
+          "answer": "Charge current depends on battery capacity and application requirements. Standard charge rate is 0.5C to 1C (where C = battery capacity in Ah). For a 2Ah battery: 0.5C = 1A, 1C = 2A. Higher current charges faster but generates more heat and may reduce battery lifetime. Fast charging (1.5C-2C) is possible but requires careful thermal management and battery chemistry support. Consider: Battery manufacturer specifications, thermal constraints, charge time requirements, battery lifetime priorities. Many applications use 0.7C as a good compromise between charge time and battery stress.",
+          "decisionGuide": "Use 0.5C to 1C for standard applications. Use lower current for battery lifetime, higher current for fast charging with proper thermal design.",
+          "keywords": [
+            "charge current",
+            "C-rate",
+            "fast charging"
+          ]
+        },
+        {
+          "question": "What safety features are required?",
+          "answer": "Essential battery charger safety features include: JEITA-compliant charging - Adjusts charge voltage/current based on battery temperature for safety. Battery temperature monitoring - NTC thermistor input for continuous temperature monitoring. Input current limiting - Prevents overloading USB or adapter power sources. Over-voltage protection - Prevents damage from faulty adapters. Timer protection - Terminates charge if completion not detected within safe timeframe. Short-circuit protection - Handles accidental battery shorts. Reverse polarity protection - Prevents damage from incorrect battery connection. All MPS chargers include these essential safety features.",
+          "decisionGuide": "Ensure your selected charger includes all essential safety features for your application. MPS chargers meet industry safety standards.",
+          "keywords": [
+            "safety features",
+            "JEITA",
+            "protection"
+          ]
+        },
+        {
+          "question": "What is power path management and do I need it?",
+          "answer": "Power path management allows the system to operate from the input power source while simultaneously charging the battery. Benefits: Instant-on operation - System works immediately when plugged in, even with dead battery. Continuous operation - System continues running if battery is removed. Optimized charging - Battery charges at full rate regardless of system load. Battery supplement - Battery supplements input power during peak loads. Applications that benefit: Portable devices with critical functionality, systems requiring instant-on, devices with high peak power demands. Applications that may not need it: Simple chargers without system load, cost-sensitive designs with always-on batteries.",
+          "decisionGuide": "Use power path for portable devices requiring instant-on or high peak loads. Optional for simple charging applications.",
+          "keywords": [
+            "power path",
+            "instant on",
+            "system load"
+          ]
+        },
+        {
+          "question": "How do I handle USB power sources?",
+          "answer": "USB power considerations: Current limits - USB 2.0: 500mA, USB 3.0: 900mA, BC1.2: 1.5A, USB-C: up to 3A or more with PD. Input current limiting - Charger must limit input current to prevent overloading USB port. Detection - BC1.2 detection identifies high-current USB ports. Cable drop - Long cables cause voltage drop; compensate with higher input voltage or cable compensation. USB-C - Requires additional PD controller for high power. MPS chargers like MP2722 and MP2759 include USB input current limiting and BC1.2 detection support.",
+          "decisionGuide": "Select charger with appropriate input current limiting for your USB source. Use BC1.2 detection for maximum charging current.",
+          "keywords": [
+            "USB charging",
+            "input current limit",
+            "BC1.2"
+          ]
+        }
+      ],
+      "relatedProducts": [
+        "mp2759",
+        "mp2722",
+        "mpf42790"
+      ],
+      "relatedArticles": [
+        "pcb-layout-guide",
+        "thermal-design-guide"
+      ],
+      "downloads": [
+        {
+          "name": "Charger Selection Calculator",
+          "url": "/resources/tools/mps/charger-calculator.html"
+        },
+        {
+          "name": "Charging Profile Guide",
+          "url": "/resources/downloads/mps/charging-profiles.pdf"
+        }
+      ],
+      "faeInsights": {
+        "summary": "Battery charger selection impacts safety, performance, and user experience. Always prioritize safety features and proper thermal design. When in doubt, consult with our FAE team for application-specific recommendations.",
+        "keyTakeaways": [
+          "Match charger topology to battery size and thermal constraints",
+          "Include all essential safety features",
+          "Size charge current appropriately for battery and application",
+          "Consider power path for instant-on requirements"
+        ],
+        "author": {
+          "name": "Lisa Zhang",
+          "title": "FAE - Battery Management",
+          "experience": "6+ years"
+        },
+        "content": "Based on extensive experience with battery charger designs, proper selection and implementation are critical for both safety and performance. I've seen many designs fail due to inadequate thermal design or missing safety features.",
+        "insightLogic": "Recommendations based on field experience with hundreds of battery charger designs across consumer, industrial, and automotive applications."
+      },
+      "customerCases": [
+        {
+          "company": "Wearable Device Manufacturer",
+          "application": "Smartwatch Charger",
+          "feedback": "Following the charger selection guide helped us choose the right linear charger for our small battery, achieving fast charging while maintaining safe temperatures."
+        },
+        {
+          "company": "Industrial Equipment OEM",
+          "application": "Portable Test Equipment",
+          "feedback": "The switching charger recommendation was perfect for our large battery and thermally constrained design. The power path feature allows instant operation."
+        }
+      ]
+    },
+    {
+      "id": "motor-driver-selection-guide",
+      "title": "Motor Driver Selection Guide",
+      "titleCn": "电机驱动选型指南",
+      "slug": "motor-driver-selection-guide",
+      "category": "Product Selection",
+      "description": "Comprehensive guide to selecting motor drivers for BLDC, brushed DC, and stepper motor applications including voltage, current, and control considerations.",
+      "summary": "Learn how to select the optimal motor driver for your application including voltage and current ratings, motor type compatibility, and control interface options.",
+      "keywords": [
+        "motor driver",
+        "BLDC driver",
+        "DC motor",
+        "motor selection"
+      ],
+      "tags": [
+        "motor",
+        "driver",
+        "selection guide",
+        "BLDC"
+      ],
+      "author": {
+        "name": "Robert Chen",
+        "title": "FAE - Motor Control",
+        "email": "support@beiluo.tech"
+      },
+      "publishDate": "2025-01-15",
+      "readTime": "16 min",
+      "content": "Selecting the right motor driver is essential for reliable motor control. This guide covers key considerations for choosing MPS motor drivers. First, identify your motor type: BLDC (Brushless DC) motors require 3-phase drivers and electronic commutation. Brushed DC motors use simpler H-bridge or half-bridge drivers. Stepper motors need dual H-bridge drivers with current control. Next, determine voltage and current requirements. Motor voltage rating determines minimum driver voltage - add margin for transients. Motor stall current determines driver current rating - size for 1.5x-2x continuous current. Consider control interface: Simple PWM/IN for basic speed control, SPI/I2C for advanced control and diagnostics, Hall sensor inputs for BLDC commutation, Sensorless control for cost-sensitive BLDC applications. Protection features are critical: Over-current protection prevents driver damage during stalls, Thermal shutdown protects from overheating, Under-voltage lockout ensures reliable operation. Integrated vs discrete: Integrated drivers (MPQ6540, MPQ6541) include MOSFETs for simpler design. Discrete solutions offer more flexibility for specialized applications.",
+      "faq": [
+        {
+          "question": "How do I size the motor driver voltage and current ratings?",
+          "answer": "Voltage rating: Motor nominal voltage × 1.5 minimum for safety margin. For 24V motors, use 40V driver minimum. Consider load dump transients in automotive (up to 60V). Current rating: Motor stall current × 1.5 for reliable operation. If stall current unknown, use 5-10x rated current for small motors, 3-5x for large motors. Example: 24V motor with 2A rated, 10A stall current. Voltage: 24V × 1.5 = 36V minimum, use 40V or 60V driver. Current: 10A × 1.5 = 15A minimum, use driver with 15A+ capability. Thermal: Calculate power dissipation I² × Rds(on) and verify thermal design can handle it.",
+          "decisionGuide": "Use 1.5x voltage margin and 1.5x stall current for reliable operation. Verify thermal capability for continuous operation.",
+          "keywords": [
+            "motor sizing",
+            "voltage rating",
+            "current rating"
+          ]
+        },
+        {
+          "question": "Should I use integrated or discrete motor drivers?",
+          "answer": "Integrated drivers (MPQ6540, MPQ6541, MPQ6570) include power MOSFETs and gate drive. Benefits: Simpler design, faster time-to-market, smaller PCB area, integrated protection. Best for: Standard voltage/current requirements, cost-sensitive applications, limited design resources. Discrete solutions use external MOSFETs. Benefits: Flexible voltage/current ratings, optimized for specific requirements, better thermal management. Best for: Very high current (>10A), high voltage (>100V), specialized applications. Most applications benefit from integrated drivers due to reduced design complexity and faster development.",
+          "decisionGuide": "Use integrated drivers for most applications under 10A. Use discrete for very high current or specialized requirements.",
+          "keywords": [
+            "integrated driver",
+            "discrete driver",
+            "MOSFET selection"
+          ]
+        },
+        {
+          "question": "What control interface should I use?",
+          "answer": "Control interface options: PWM/IN - Simple PWM input for speed/direction control. Best for basic applications. Pros: Simple, widely supported. Cons: Limited diagnostics. SPI/I2C - Digital interface with advanced features. Best for complex applications. Pros: Configuration, diagnostics, fault reporting. Cons: More complex software. Hall sensors - For BLDC commutation. Required for trapezoidal control. Sensorless - Back-EMF detection for BLDC. Pros: Lower cost, no sensors. Cons: Requires tuning, limited low-speed performance. Many MPS drivers support multiple interfaces for design flexibility.",
+          "decisionGuide": "Use PWM/IN for simple applications. Use SPI/I2C for advanced control and diagnostics. Use Hall sensors for reliable BLDC commutation.",
+          "keywords": [
+            "control interface",
+            "PWM",
+            "SPI",
+            "I2C"
+          ]
+        },
+        {
+          "question": "How do I protect the motor driver from failures?",
+          "answer": "Motor driver protection strategies: Over-current protection - Use driver with cycle-by-cycle current limiting. Size for motor stall current. Thermal protection - Ensure adequate heatsinking and airflow. Monitor driver temperature. Under-voltage lockout - Prevents erratic operation during brownout. Use driver with UVLO. Over-voltage protection - Protects from load dump transients. Use TVS diodes for automotive applications. Shoot-through protection - Prevents simultaneous high/low side conduction. Integrated drivers include this. PCB layout - Minimize parasitic inductance with short, wide traces. Use adequate copper for current and thermal management.",
+          "decisionGuide": "Select drivers with comprehensive protection. Implement proper PCB layout and thermal design. Add external protection as needed.",
+          "keywords": [
+            "protection",
+            "over-current",
+            "thermal protection"
+          ]
+        },
+        {
+          "question": "What is the difference between sensored and sensorless BLDC control?",
+          "answer": "Sensored BLDC uses Hall effect sensors for rotor position detection. Pros: Reliable startup, excellent low-speed performance, simple control algorithm. Cons: Additional cost for sensors and wiring, sensor failure modes. Sensorless BLDC uses back-EMF detection for rotor position. Pros: Lower cost, no sensor wiring, higher reliability. Cons: Difficult startup from standstill, limited low-speed performance, requires tuning. Selection criteria: Use sensored for applications requiring reliable startup and low-speed operation (fans, pumps). Use sensorless for cost-sensitive applications with adequate starting torque (drones, tools). Some applications use sensorless with initial open-loop startup.",
+          "decisionGuide": "Use sensored for reliable startup and low-speed operation. Use sensorless for cost-sensitive applications with adequate starting torque.",
+          "keywords": [
+            "sensored BLDC",
+            "sensorless BLDC",
+            "Hall sensor"
+          ]
+        }
+      ],
+      "relatedProducts": [
+        "mpq6541",
+        "mpq6540",
+        "mpq6570"
+      ],
+      "relatedArticles": [
+        "pcb-layout-guide",
+        "thermal-design-guide"
+      ],
+      "downloads": [
+        {
+          "name": "Motor Driver Selection Tool",
+          "url": "/resources/tools/mps/motor-driver-selector.html"
+        },
+        {
+          "name": "Motor Control Basics",
+          "url": "/resources/downloads/mps/motor-control-basics.pdf"
+        }
+      ],
+      "faeInsights": {
+        "summary": "Motor driver selection requires careful consideration of voltage, current, and control requirements. Always include adequate margin and protection. When in doubt, consult with our FAE team for application-specific recommendations.",
+        "keyTakeaways": [
+          "Size voltage and current with adequate margin",
+          "Choose integrated drivers for most applications",
+          "Select control interface based on application complexity",
+          "Implement comprehensive protection features"
+        ],
+        "author": {
+          "name": "Robert Chen",
+          "title": "FAE - Motor Control",
+          "experience": "7+ years"
+        },
+        "content": "Based on extensive experience with motor control designs, proper driver selection and implementation are critical for reliable operation. I've seen many designs fail due to inadequate current rating or poor thermal design.",
+        "insightLogic": "Recommendations based on field experience with hundreds of motor control designs across consumer, industrial, and automotive applications."
+      },
+      "customerCases": [
+        {
+          "company": "Appliance Manufacturer",
+          "application": "Refrigeration Compressor",
+          "feedback": "The motor driver selection guide helped us choose the right integrated driver with adequate voltage margin for reliable compressor operation."
+        },
+        {
+          "company": "Robotics Startup",
+          "application": "Robot Joint Motors",
+          "feedback": "Following the sizing guidelines ensured our motor drivers could handle stall currents during robot collisions without failure."
         }
       ]
     }

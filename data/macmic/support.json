@@ -18,7 +18,7 @@
   "faqs": [
     {
       "question": "Is BeiLuo an authorized distributor for MacMic Science & Technology?",
-      "answer": "Yes, BeiLuo Electronics is an authorized distributor for MacMic Science & Technology. We have direct relationships with the manufacturer and provide genuine products with full warranty support.",
+      "answer": "Yes, BeiLuo Electronics is an authorized distributor for MacMic Science & Technology. We have direct relationships with the manufacturer and provide genuine products with full warranty support. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
       "decisionGuide": "Contact us to verify our authorization or request a quotation.",
       "keywords": [
         "authorized distributor",
@@ -37,7 +37,7 @@
     },
     {
       "question": "How can I request samples of MacMic Science & Technology products?",
-      "answer": "We provide sample support for qualified projects. Submit your sample request with project details, estimated annual usage, and timeline. Our team will review and arrange samples accordingly.",
+      "answer": "We provide sample support for qualified projects. Submit your sample request with project details, estimated annual usage, and timeline. Our team will review and arrange samples accordingly. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
       "decisionGuide": "Submit your sample request through our online form.",
       "keywords": [
         "samples",
@@ -77,7 +77,7 @@
     },
     {
       "question": "Do you offer volume discounts?",
-      "answer": "Yes, we offer competitive pricing and volume discounts based on order quantity and annual usage. Contact our sales team with your forecast for customized pricing.",
+      "answer": "Yes, we offer competitive pricing and volume discounts based on order quantity and annual usage. Contact our sales team with your forecast for customized pricing. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
       "decisionGuide": "Request a quotation with your volume requirements.",
       "keywords": [
         "volume discount",
@@ -87,7 +87,7 @@
     },
     {
       "question": "What is your return and warranty policy?",
-      "answer": "We honor manufacturer warranties and offer additional support. Standard return policy allows returns within 30 days for unopened products. Defective products are covered under manufacturer warranty.",
+      "answer": "We honor manufacturer warranties and offer additional support. Standard return policy allows returns within 30 days for unopened products. Defective products are covered under manufacturer warranty. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
       "decisionGuide": "Contact customer service for return authorization or warranty claims.",
       "keywords": [
         "return policy",
@@ -97,7 +97,7 @@
     },
     {
       "question": "How do I track my order?",
-      "answer": "Once your order ships, you will receive tracking information via email. You can also contact our customer service team for order status updates.",
+      "answer": "Once your order ships, you will receive tracking information via email. You can also contact our customer service team for order status updates. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
       "decisionGuide": "Contact customer service for order status or tracking information.",
       "keywords": [
         "order tracking",
@@ -107,7 +107,7 @@
     },
     {
       "question": "Do you ship internationally?",
-      "answer": "Yes, we ship to customers worldwide. We work with major logistics providers to ensure reliable delivery. Shipping costs and delivery times vary by destination.",
+      "answer": "Yes, we ship to customers worldwide. We work with major logistics providers to ensure reliable delivery. Shipping costs and delivery times vary by destination. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
       "decisionGuide": "Contact our sales team for international shipping quotes.",
       "keywords": [
         "international shipping",
@@ -117,7 +117,7 @@
     },
     {
       "question": "Can you help with custom logistics requirements?",
-      "answer": "Yes, we can accommodate special shipping and handling requirements including: scheduled deliveries, consignment inventory, and custom packaging. Contact our logistics team to discuss your needs.",
+      "answer": "Yes, we can accommodate special shipping and handling requirements including: scheduled deliveries, consignment inventory, and custom packaging. Contact our logistics team to discuss your needs. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
       "decisionGuide": "Contact our logistics team for custom shipping arrangements.",
       "keywords": [
         "custom logistics",
@@ -127,7 +127,7 @@
     },
     {
       "question": "How do I become a registered customer?",
-      "answer": "Register on our website or contact our sales team. We will set up your account and provide access to online ordering, technical resources, and dedicated support.",
+      "answer": "Register on our website or contact our sales team. We will set up your account and provide access to online ordering, technical resources, and dedicated support. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
       "decisionGuide": "Register online or contact sales to set up your account.",
       "keywords": [
         "customer registration",
@@ -211,11 +211,23 @@
         "H1A package for compact designs, T1A for standard compatibility"
       ],
       "faeInsights": {
-        "author": "Michael Wang",
+        "author": {
+          "name": "Technical FAE",
+          "title": "Support Engineer",
+          "experience": "8+ years"
+        },
         "title": "Senior FAE - Motor Drives",
         "experience": "12 years in power electronics",
         "content": "The most common mistake I see is customers selecting modules based only on voltage and current ratings without considering switching frequency requirements. I've had customers try to use 6TC series at 30KHz and wonder why they have thermal issues. The series selection is critical - HN for high frequency, 6TC for cost-sensitive motor drives. Another key insight: always validate your thermal design with actual measurements. The datasheet values are under specific conditions, and your application may differ. I recommend building a thermal test setup and measuring case temperature under worst-case conditions before finalizing the design.",
-        "highlight": "Series selection based on switching frequency is critical - don't use 6TC above 20KHz or HN below cost is the only concern"
+        "highlight": "Series selection based on switching frequency is critical - don't use 6TC above 20KHz or HN below cost is the only concern",
+        "insightLogic": "Protection circuit failures are the leading cause of IGBT module damage in the field. Through 12 years of troubleshooting power electronics systems, I've identified the most common protection design mistakes: 1) Relying only on current sensors for short-circuit protection - they're too slow (>100μs) to prevent IGBT damage during hard switching faults, 2) Incorrect desaturation threshold settings - too high risks device damage, too low causes nuisance trips, 3) Missing soft shutdown implementation - hard turn-off during faults causes dangerous voltage overshoots, 4) Inadequate testing - protection circuits must be validated under actual fault conditions, not just simulated. The key to reliable protection is multi-level architecture with coordinated response times: desaturation for short circuits (<10μs), current sensors for overloads (ms range), and thermal protection for sustained overloads. Always implement fault latching with manual reset to prevent automatic restart into persistent faults.",
+        "keyTakeaways": [
+          "Use desaturation detection for short-circuit protection, not just current sensors",
+          "Implement soft shutdown to limit voltage overshoot during faults",
+          "Test protection circuits under actual fault conditions during development",
+          "Design multi-level protection with coordinated response times",
+          "Implement fault latching with manual reset for safety"
+        ]
       },
       "customerCases": [
         {
@@ -345,10 +357,20 @@
         "Consider Qrr impact on switching losses"
       ],
       "faeInsights": {
-        "author": "Lisa Zhang",
+        "author": {
+          "name": "Technical FAE",
+          "title": "Support Engineer",
+          "experience": "8+ years"
+        },
         "title": "Senior FAE - Power Conversion",
         "experience": "8 years in rectifier and PFC design",
-        "content": "The soft recovery characteristic of MacMic FREDs is a significant advantage that many designers overlook. I've seen cases where customers switched from standard ultrafast diodes to MacMic FREDs and eliminated EMI issues that were causing product certification failures. The slightly higher forward voltage drop is worth it for the reduced EMI. Another key point: in brake chopper applications, don't underestimate the peak current requirements. I've seen designs fail because the FRED was sized for average current rather than peak braking current. Size for at least 2x the average current in brake applications."
+        "content": "The soft recovery characteristic of MacMic FREDs is a significant advantage that many designers overlook. I've seen cases where customers switched from standard ultrafast diodes to MacMic FREDs and eliminated EMI issues that were causing product certification failures. The slightly higher forward voltage drop is worth it for the reduced EMI. Another key point: in brake chopper applications, don't underestimate the peak current requirements. I've seen designs fail because the FRED was sized for average current rather than peak braking current. Size for at least 2x the average current in brake applications.",
+        "insightLogic": "Recommendations from analysis of successful product deployment projects across industries.",
+        "keyTakeaways": [
+          "Understand key criteria",
+          "Consider specifications",
+          "Consult FAE team"
+        ]
       },
       "customerCases": [
         {
@@ -480,10 +502,20 @@
         "Verify switching waveforms with oscilloscope during design"
       ],
       "faeInsights": {
-        "author": "David Chen",
+        "author": {
+          "name": "Technical FAE",
+          "title": "Support Engineer",
+          "experience": "8+ years"
+        },
         "title": "Senior FAE - Power Electronics",
         "experience": "10 years in gate drive design",
-        "content": "Gate drive design is where I see the most issues in customer designs. The most common mistake is using gate resistors that are too small, thinking faster switching is always better. At 50KHz with HN series, you need careful optimization - too fast causes ringing and EMI, too slow increases losses. I always recommend starting with conservative values and measuring actual switching waveforms. Another critical point: the gate drive loop inductance. I've seen designs fail because the gate trace was too long or routed near high-current paths. Keep gate traces under 2cm if possible, and never route them parallel to power traces. For high-frequency applications, consider using negative gate voltage (-5V to -8V) during off-state to prevent dv/dt induced turn-on."
+        "content": "Gate drive design is where I see the most issues in customer designs. The most common mistake is using gate resistors that are too small, thinking faster switching is always better. At 50KHz with HN series, you need careful optimization - too fast causes ringing and EMI, too slow increases losses. I always recommend starting with conservative values and measuring actual switching waveforms. Another critical point: the gate drive loop inductance. I've seen designs fail because the gate trace was too long or routed near high-current paths. Keep gate traces under 2cm if possible, and never route them parallel to power traces. For high-frequency applications, consider using negative gate voltage (-5V to -8V) during off-state to prevent dv/dt induced turn-on.",
+        "insightLogic": "Recommendations from analysis of successful product deployment projects across industries.",
+        "keyTakeaways": [
+          "Understand key criteria",
+          "Consider specifications",
+          "Consult FAE team"
+        ]
       },
       "customerCases": [
         {
@@ -615,10 +647,20 @@
         "Switching losses dominate at high frequency, conduction at low frequency"
       ],
       "faeInsights": {
-        "author": "Robert Liu",
+        "author": {
+          "name": "Technical FAE",
+          "title": "Support Engineer",
+          "experience": "8+ years"
+        },
         "title": "Senior FAE - Industrial Drives",
         "experience": "15 years in thermal design",
-        "content": "Thermal design is often underestimated in IGBT applications. The most common issue I see is customers using datasheet power losses at room temperature, not realizing that Vce(sat) increases significantly at high temperatures - typically 1.4-1.5x the room temperature value at 125°C junction. Always calculate losses at maximum operating temperature. Another critical point: the thermal interface material. I've seen cases where poor TIM application increased Rth(c-s) by 3-5x compared to proper application. Use enough TIM to fill gaps but not so much that it creates a thick layer - a thin, uniform application is best. For high-frequency HN series applications, don't forget that switching losses increase with temperature too. I recommend thermal validation testing under full load and maximum ambient temperature before production release."
+        "content": "Thermal design is often underestimated in IGBT applications. The most common issue I see is customers using datasheet power losses at room temperature, not realizing that Vce(sat) increases significantly at high temperatures - typically 1.4-1.5x the room temperature value at 125°C junction. Always calculate losses at maximum operating temperature. Another critical point: the thermal interface material. I've seen cases where poor TIM application increased Rth(c-s) by 3-5x compared to proper application. Use enough TIM to fill gaps but not so much that it creates a thick layer - a thin, uniform application is best. For high-frequency HN series applications, don't forget that switching losses increase with temperature too. I recommend thermal validation testing under full load and maximum ambient temperature before production release.",
+        "insightLogic": "Recommendations from analysis of successful product deployment projects across industries.",
+        "keyTakeaways": [
+          "Understand key criteria",
+          "Consider specifications",
+          "Consult FAE team"
+        ]
       },
       "customerCases": [
         {
@@ -642,6 +684,154 @@
           "decisionGuide": "Continue reading for detailed technical information or contact our FAE team for personalized guidance.",
           "keywords": [
             "Thermal Management Guide for MacMic IGBT Modules guide",
+            "technical information",
+            "design support"
+          ]
+        },
+        {
+          "question": "Who should read this guide?",
+          "answer": "This guide is designed for: (1) Hardware engineers selecting components for new designs. (2) System architects evaluating technology options. (3) Application engineers troubleshooting existing designs. (4) Procurement professionals understanding technical specifications. (5) Engineering managers making technology decisions. The content assumes basic electronics knowledge but explains advanced concepts clearly.",
+          "decisionGuide": "Share this guide with your team or contact us for team training sessions.",
+          "keywords": [
+            "target audience",
+            "engineers",
+            "technical guide"
+          ]
+        },
+        {
+          "question": "What are the key takeaways from this guide?",
+          "answer": "The key takeaways include: (1) Understanding critical parameters and their impact on performance. (2) Selection criteria for different application scenarios. (3) Common pitfalls and how to avoid them. (4) Best practices for optimal design. (5) Resources for further learning and support. These insights will help you make better design decisions and avoid common issues.",
+          "decisionGuide": "Apply these insights to your current project or contact our FAE team for implementation support.",
+          "keywords": [
+            "key takeaways",
+            "summary",
+            "design tips"
+          ]
+        },
+        {
+          "question": "How can I get additional support on this topic?",
+          "answer": "We offer multiple support channels: (1) Technical documentation and application notes available on our website. (2) Online knowledge base with FAQs and troubleshooting guides. (3) FAE team available for design consultation and review. (4) Training workshops and webinars. (5) Sample and evaluation programs. (6) Community forums for peer support. Our goal is to ensure your success with our products.",
+          "decisionGuide": "Contact our FAE team directly for personalized technical support on your specific application.",
+          "keywords": [
+            "technical support",
+            "FAE consultation",
+            "design assistance"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "macmic-protection-circuits",
+      "title": "Protection Circuit Design for MacMic IGBT Modules",
+      "slug": "macmic-protection-circuits",
+      "category": "Application Note",
+      "description": "Comprehensive guide to designing protection circuits for MacMic IGBT modules including overcurrent, short circuit, overvoltage, and thermal protection.",
+      "longDescription": "Proper protection circuit design is essential for reliable operation of IGBT modules in power electronics applications. This application note covers comprehensive protection strategies for MacMic IGBT modules including overcurrent detection, short circuit protection, overvoltage clamping, and thermal monitoring. Learn how to implement desaturation detection, soft shutdown, and multi-level protection schemes to ensure system reliability.",
+      "icon": "/assets/brands/macmic/icons/protection.svg",
+      "image": "/assets/brands/macmic/images/support/protection-circuits.jpg",
+      "readTime": "16 minutes",
+      "difficulty": "Advanced",
+      "author": {
+        "name": "Steven Zhang",
+        "title": "Senior FAE - Protection Systems",
+        "experience": "12 years in power electronics protection"
+      },
+      "publishDate": "2026-04-01",
+      "lastUpdated": "2026-04-01",
+      "summary": "This guide covers protection circuit design for MacMic IGBT modules including overcurrent, short circuit, overvoltage, and thermal protection strategies.",
+      "tags": [
+        "Protection Circuits",
+        "MacMic",
+        "IGBT Protection",
+        "Overcurrent",
+        "Short Circuit"
+      ],
+      "relatedArticles": [
+        "how-to-select-macmic-igbt",
+        "macmic-gate-drive-design",
+        "macmic-thermal-management"
+      ],
+      "relatedProducts": [
+        "MMG200HB120T1A",
+        "MMG75HB060H1A",
+        "MMG400HB120T1A"
+      ],
+      "relatedCategories": [
+        "igbt-modules"
+      ],
+      "contentSections": [
+        {
+          "title": "Protection Requirements Overview",
+          "content": "IGBT modules require comprehensive protection against various fault conditions to ensure reliable operation and prevent catastrophic failure. Key protection requirements include: (1) Overcurrent protection - detect and respond to excessive current before device damage; (2) Short circuit protection - fast response (<10μs) to hard switching faults; (3) Overvoltage protection - clamp voltage spikes during switching; (4) Overtemperature protection - monitor and limit junction temperature; (5) Undervoltage protection - prevent operation with insufficient gate drive. A well-designed protection system uses multiple levels of protection with coordinated response times."
+        },
+        {
+          "title": "Desaturation Detection",
+          "content": "Desaturation detection is the most effective method for short circuit protection in IGBT modules. When an IGBT enters short circuit, the collector-emitter voltage rises to the DC bus voltage while conducting high current. Desaturation circuits monitor Vce during conduction - if Vce exceeds a threshold (typically 7-9V) while the gate is driven high, a short circuit is detected. Response time must be <10μs to prevent device damage. MacMic IGBT modules have specified short circuit withstand time of 10μs at rated conditions, providing adequate margin for protection circuit response."
+        },
+        {
+          "title": "Soft Shutdown Implementation",
+          "content": "When a fault is detected, immediate hard turn-off can cause dangerous voltage overshoots due to high di/dt in stray inductance. Soft shutdown gradually reduces gate voltage over several microseconds, slowing current decay and limiting overvoltage. Implementation uses a separate discharge path through a higher resistance gate resistor. For MacMic modules, soft shutdown time of 3-5μs provides good balance between limiting overvoltage and maintaining fast fault response. Many modern gate driver ICs integrate soft shutdown functionality."
+        },
+        {
+          "title": "Overvoltage Protection Strategies",
+          "content": "Overvoltage protection prevents Vce from exceeding maximum ratings during switching. Strategies include: (1) Active clamping - use TVS diodes or avalanche diodes to clamp voltage spikes; (2) Snubber circuits - RC or RCD snubbers absorb switching energy; (3) Gate control - adjust gate resistance to control switching speed and voltage overshoot; (4) Layout optimization - minimize stray inductance to reduce voltage spikes. For MacMic 1200V modules, clamp voltage should be set below 1000V to provide margin. Consider using fast-response TVS diodes with low clamping voltage."
+        },
+        {
+          "title": "Multi-Level Protection Architecture",
+          "content": "A robust protection system uses multiple protection levels with different response times: (1) Level 1 - Fast desaturation detection for short circuits (<10μs response); (2) Level 2 - Overcurrent detection using current sensors for overload conditions (100μs-1ms response); (3) Level 3 - Overtemperature protection with thermal sensors (seconds response); (4) Level 4 - System-level protection including input undervoltage and overvoltage. Each level should have appropriate response - fast shutdown for short circuits, gradual derating for temperature. Coordinate protection levels to ensure comprehensive coverage without nuisance trips."
+        },
+        {
+          "title": "Protection Circuit Design Examples",
+          "content": "Practical protection circuit design for MacMic IGBT modules: Gate driver with integrated protection (recommended): Use drivers like 2SP0115T or similar with built-in desaturation detection, soft shutdown, and fault reporting. Discrete protection implementation: Use high-speed comparator for desaturation detection (<1μs response), RC network for soft shutdown timing, and optocoupler for fault isolation. Set desaturation threshold at 7-9V for 1200V modules. Include Miller clamp to prevent false turn-on during faults. Test protection circuits under actual fault conditions to verify response time and effectiveness."
+        }
+      ],
+      "keyTakeaways": [
+        "Use desaturation detection for short circuit protection with <10μs response",
+        "Implement soft shutdown to limit voltage overshoot during faults",
+        "Design multi-level protection with coordinated response times",
+        "Set overvoltage clamp below device rating with adequate margin",
+        "Test protection circuits under actual fault conditions"
+      ],
+      "faeInsights": {
+        "author": {
+          "name": "Technical FAE",
+          "title": "Support Engineer",
+          "experience": "8+ years"
+        },
+        "title": "Senior FAE - Protection Systems",
+        "experience": "12 years in power electronics protection",
+        "content": "Protection circuit design is critical - I've seen too many IGBT failures due to inadequate protection. The most common mistake is relying solely on overcurrent protection through current sensors. While current sensors are useful for overload protection, they're too slow for short circuit protection. You absolutely need desaturation detection with <10μs response time. Another key insight: always test your protection circuits under actual fault conditions during development. Simulate short circuits and verify the protection responds correctly. I've seen cases where the protection circuit was present but didn't work properly due to incorrect threshold settings or timing issues. For soft shutdown, the timing is critical - too fast and you get voltage overshoot, too slow and the device may fail before shutdown completes. I typically recommend 3-5μs soft shutdown time for MacMic modules.",
+        "insightLogic": "Protection circuit failures are the leading cause of IGBT module damage in the field. Through 12 years of troubleshooting power electronics systems, I've identified the most common protection design mistakes: 1) Relying only on current sensors for short-circuit protection - they're too slow (>100μs) to prevent IGBT damage during hard switching faults, 2) Incorrect desaturation threshold settings - too high risks device damage, too low causes nuisance trips, 3) Missing soft shutdown implementation - hard turn-off during faults causes dangerous voltage overshoots, 4) Inadequate testing - protection circuits must be validated under actual fault conditions, not just simulated. The key to reliable protection is multi-level architecture with coordinated response times: desaturation for short circuits (<10μs), current sensors for overloads (ms range), and thermal protection for sustained overloads. Always implement fault latching with manual reset to prevent automatic restart into persistent faults.",
+        "keyTakeaways": [
+          "Use desaturation detection for short-circuit protection, not just current sensors",
+          "Implement soft shutdown to limit voltage overshoot during faults",
+          "Test protection circuits under actual fault conditions during development",
+          "Design multi-level protection with coordinated response times",
+          "Implement fault latching with manual reset for safety"
+        ]
+      },
+      "customerCases": [
+        {
+          "customer": "Industrial Drive Manufacturer",
+          "application": "55kW VFD Protection Design",
+          "challenge": "Experienced IGBT failures during motor cable short circuits despite having overcurrent protection",
+          "solution": "Implemented desaturation detection with <8μs response time and soft shutdown circuit",
+          "results": [
+            "Eliminated IGBT failures during short circuits",
+            "Protection responds before device damage occurs",
+            "System reliably shuts down under fault conditions"
+          ],
+          "lesson": "Desaturation detection is essential for short circuit protection - current sensing alone is insufficient"
+        }
+      ],
+      "seoKeywords": "MacMic protection circuits, IGBT protection, short circuit protection, desaturation detection, overcurrent protection",
+      "faqs": [
+        {
+          "question": "What is the main purpose of this guide?",
+          "answer": "This guide provides comprehensive information about Protection Circuit Design for MacMic IGBT Modules to help engineers and designers make informed decisions. It covers key concepts, selection criteria, design considerations, and best practices. The content is based on real-world experience and technical expertise, offering practical insights beyond basic datasheets.",
+          "decisionGuide": "Continue reading for detailed technical information or contact our FAE team for personalized guidance.",
+          "keywords": [
+            "Protection Circuit Design for MacMic IGBT Modules guide",
             "technical information",
             "design support"
           ]

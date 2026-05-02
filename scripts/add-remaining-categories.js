@@ -1,806 +1,656 @@
+#!/usr/bin/env node
+/**
+ * Add remaining categories to chipanalog products.json
+ */
+
 const fs = require('fs');
 const path = require('path');
 
-const brandDir = path.join(__dirname, '..', 'data', 'electronicon');
+const productsPath = path.join(__dirname, '..', 'data', 'chipanalog', 'products.json');
+const products = JSON.parse(fs.readFileSync(productsPath, 'utf8'));
 
-// Helper function to generate FAQ
-function generateFAQ(question, answer, decisionGuide, keywords) {
-  return { question, answer, decisionGuide, keywords };
-}
-
-// Read existing products.json
-const productsPath = path.join(brandDir, 'products.json');
-let productsData = JSON.parse(fs.readFileSync(productsPath, 'utf8'));
-
-// Define remaining categories
-const remainingCategories = [
-  {
-    id: "snubber-capacitors",
-    name: "Snubber Capacitors",
-    slug: "snubber-capacitors",
-    description: "Electronicon snubber capacitors are designed for protection circuits in power electronics, specifically for IGBT and thyristor applications.",
-    longDescription: "Electronicon snubber capacitors are designed for protection circuits in power electronics, specifically for IGBT and thyristor applications. These high-voltage film capacitors feature low inductance, high pulse current capability, and excellent self-healing properties. Available in voltages from 1000V to 6000V DC with capacitance values from 0.01uF to 10uF, they are essential for suppressing voltage transients, reducing switching losses, and protecting semiconductor devices. As an authorized Electronicon distributor, we provide technical support for snubber capacitor applications.",
-    series: ["E12.E93", "E12.E63"],
-    parameters: ["Voltage Rating", "Capacitance", "Pulse Current", "Inductance", "dv/dt Rating", "Temperature Range", "Mounting Type"],
-    applications: ["IGBT Snubbers", "Thyristor Protection", "Voltage Clamping", "Switching Power Supplies", "Inverter Protection", "Crowbar Circuits"],
-    selectionGuide: {
-      title: "Snubber Capacitor Selection Guide",
-      description: "Learn how to select the right snubber capacitor for IGBT and thyristor protection",
-      articleId: "snubber-capacitor-selection",
-      articleLink: "/electronicon/support/snubber-capacitor-selection.html"
-    },
-    selectionGuideLink: "/electronicon/support/snubber-capacitor-selection.html",
-    faqs: [
-      generateFAQ(
-        "What is the purpose of a snubber capacitor?",
-        "Snubber capacitors serve critical protection functions in power electronics circuits: 1) Voltage Transient Suppression - absorb energy from inductive spikes during switching, preventing overvoltage damage to semiconductors, 2) dv/dt Limiting - slow the rate of voltage rise across switching devices to prevent false triggering or damage, 3) Switching Loss Reduction - shape voltage and current waveforms to reduce switching losses and EMI, 4) Oscillation Damping - suppress parasitic oscillations caused by circuit inductance and device capacitance, 5) EMI Reduction - reduce high-frequency noise generated during switching. Snubber capacitors work in conjunction with snubber resistors to dissipate energy and control damping. Proper snubber design is essential for reliable operation of IGBTs, MOSFETs, and thyristors in high-power applications.",
-        "Include snubber capacitors in your design for semiconductor protection when switching inductive loads or operating at high frequencies.",
-        ["snubber capacitor purpose", "IGBT protection", "switching transient suppression"]
-      ),
-      generateFAQ(
-        "How do I calculate the required snubber capacitance?",
-        "Snubber capacitance calculation depends on the application and circuit parameters: 1) For IGBT snubbers, typical values range from 0.1uF to 2uF depending on switching energy and frequency, 2) Basic formula for capacitive snubber: C = L x (I^2) / (V^2), where L is stray inductance, I is switched current, V is allowable overvoltage, 3) For RC snubbers, the time constant (R x C) should be 2-5 times the switching period, 4) Practical approach - start with 0.1-0.47uF for medium power IGBTs (100-300A), 1-2uF for high power (400A+). The capacitor must have adequate pulse current rating and low inductance. Test and optimize in the actual circuit, as parasitic elements significantly affect snubber performance. Our FAE team can assist with detailed snubber design calculations.",
-        "Start with typical values for your power level and optimize through testing, or consult our FAE team for detailed calculations.",
-        ["snubber capacitor calculation", "snubber design", "IGBT snubber sizing"]
-      ),
-      generateFAQ(
-        "What dv/dt rating is required for snubber capacitors?",
-        "The dv/dt rating indicates how fast voltage can change across the capacitor without damage. For snubber applications: 1) IGBT Snubbers - typically require 1000-5000 V/us depending on switching speed and circuit inductance, 2) Thyristor Snubbers - usually 100-1000 V/us for phase control applications, 3) High-Frequency Inverters - may require >5000 V/us for fast-switching applications. The dv/dt stress depends on: switching device characteristics, circuit stray inductance, operating current, and snubber resistor value. Excessive dv/dt can cause capacitor failure through dielectric heating. Electronicon snubber capacitors are designed with low inductance construction and optimized film for high dv/dt applications. Always select capacitors with dv/dt margin above calculated requirements.",
-        "Select snubber capacitors with dv/dt rating at least 50% higher than your application's maximum expected dv/dt.",
-        ["snubber dv/dt rating", "capacitor dv/dt", "high dv/dt capacitor"]
-      ),
-      generateFAQ(
-        "What is the difference between snubber capacitors and standard film capacitors?",
-        "Snubber capacitors are specially designed for high-stress switching applications: 1) Low Inductance - special internal construction minimizes ESL for high-frequency pulse handling, 2) High dv/dt Rating - optimized dielectric for rapid voltage changes, 3) High Pulse Current - designed for repetitive high-peak current pulses, 4) Self-Healing - critical for reliability under overvoltage stress, 5) Compact Design - optimized for low inductance and high energy density, 6) Termination - low-inductance terminals or busbar connections. Standard film capacitors may fail quickly in snubber applications due to high dv/dt and pulse current stress. Snubber capacitors typically cost more but provide essential reliability in protection circuits. Using standard capacitors as snubbers often leads to premature failure and semiconductor damage.",
-        "Always use purpose-designed snubber capacitors for IGBT and thyristor protection, not standard film capacitors.",
-        ["snubber vs standard capacitor", "special snubber capacitor", "IGBT snubber requirements"]
-      ),
-      generateFAQ(
-        "How do I mount snubber capacitors for minimum inductance?",
-        "Minimizing inductance in snubber capacitor mounting is critical for effective protection: 1) Short Connections - keep leads/traces as short as possible, ideally <50mm, 2) Wide Conductors - use wide copper traces or busbars to reduce inductance, 3) Close to Device - mount capacitor directly across the semiconductor terminals, 4) Kelvin Connection - separate current paths for switching and snubber circuits, 5) Low-Inductance Capacitors - select capacitors with low ESL design, 6) Parallel Capacitors - use multiple smaller capacitors in parallel instead of one large capacitor to reduce ESL. Every 10nH of stray inductance can cause 100V+ overshoot at 1000A/us switching. Use laminated busbar structures for high-power applications. The goal is to minimize the loop area formed by the snubber capacitor and protected device.",
-        "Mount snubber capacitors as close as possible to the protected semiconductor with minimal connection inductance.",
-        ["snubber mounting", "low inductance mounting", "snubber capacitor installation"]
-      )
-    ],
-    products: [
-      {
-        partNumber: "E12.E93-403.M20",
-        name: "Snubber Capacitor 0.4uF 2000V DC",
-        shortDescription: "Electronicon E12.E93-403.M20 0.4uF 2000V DC low-inductance snubber capacitor for IGBT protection.",
-        descriptionParagraphs: [
-          "The E12.E93-403.M20 is a high-performance snubber capacitor designed for IGBT and thyristor protection applications.",
-          "Features ultra-low inductance construction and high dv/dt capability for effective switching transient suppression.",
-          "The compact axial lead design allows close mounting to semiconductors for minimum circuit inductance."
-        ],
-        specifications: {
-          Capacitance: "0.4uF",
-          VoltageRating: "2000V DC",
-          PulseCurrent: "1200A peak",
-          Inductance: "<20nH",
-          dvdtRating: "3000 V/us",
-          TemperatureRange: "-40C to +105C",
-          Lifetime: "100,000 hours @ 85C",
-          Mounting: "Axial Leads",
-          Dimensions: "26mm x 50mm",
-          Weight: "35g"
-        },
-        features: [
-          "Ultra-low inductance <20nH",
-          "High dv/dt rating 3000 V/us",
-          "High pulse current 1200A peak",
-          "2000V DC voltage rating",
-          "Self-healing properties",
-          "Axial lead for low-inductance mounting",
-          "High temperature 105C rating"
-        ],
-        applications: [
-          "IGBT snubber circuits",
-          "Thyristor protection",
-          "Voltage clamping",
-          "Switching power supplies",
-          "Inverter protection",
-          "Crowbar circuits"
-        ],
-        faeReview: {
-          author: "Dieter Hoffman",
-          title: "FAE - High Power Electronics",
-          content: "The E12.E93-403.M20 is my standard recommendation for IGBT snubber applications up to 1700V devices. The 0.4uF capacitance provides effective energy absorption for medium-power IGBTs (200-400A), while the <20nH inductance ensures fast response to voltage transients. I've used this capacitor extensively in motor drive and inverter applications. The 3000 V/us dv/dt rating handles modern fast-switching IGBTs without stress. The axial lead design allows direct mounting across IGBT terminals with minimal lead length. For high-power modules, I typically use two or three in parallel for higher pulse current capability. The 2000V rating provides good margin for 1200V IGBTs. This capacitor has proven very reliable in industrial environments with high switching frequencies.",
-          highlight: "Low inductance and high dv/dt rating for effective IGBT protection"
-        },
-        alternativeParts: [
-          {
-            partNumber: "E12.E93-683.M20",
-            brand: "Electronicon",
-            specifications: {
-              capacitance: "0.68uF",
-              voltage: "2000V DC",
-              pulseCurrent: "1600A peak"
-            },
-            comparison: {
-              capacitance: "0.68uF > 0.4uF (+70%)",
-              voltage: "2000V DC = 2000V DC (same)",
-              pulseCurrent: "1600A > 1200A (+33%)",
-              dimensions: "30mm x 58mm > 26mm x 50mm (larger)",
-              dvdt: "3000 V/us = 3000 V/us (same)"
-            },
-            reason: "Higher capacitance for larger IGBTs or higher energy absorption requirements",
-            useCase: "High-power IGBTs (400-600A) or applications with high stray inductance",
-            link: "/electronicon/products/snubber-capacitors/e12-e93-683-m20.html"
-          },
-          {
-            partNumber: "E12.E93-403.M10",
-            brand: "Electronicon",
-            specifications: {
-              capacitance: "0.4uF",
-              voltage: "1000V DC",
-              pulseCurrent: "1000A peak"
-            },
-            comparison: {
-              capacitance: "0.4uF = 0.4uF (same)",
-              voltage: "1000V DC < 2000V DC (lower)",
-              pulseCurrent: "1000A < 1200A (lower)",
-              dimensions: "22mm x 42mm < 26mm x 50mm (smaller)",
-              price: "Lower cost option"
-            },
-            reason: "Lower voltage rating for 600V IGBT applications with reduced cost",
-            useCase: "600V class IGBT modules and lower voltage applications",
-            link: "/electronicon/products/snubber-capacitors/e12-e93-403-m10.html"
-          }
-        ],
-        companionParts: [
-          {
-            partNumber: "Snubber Resistor 10 Ohm",
-            link: "#",
-            description: "10 ohm non-inductive resistor for RC snubber",
-            category: "Snubber Components"
-          },
-          {
-            partNumber: "E12.E93-403.M20",
-            link: "/electronicon/products/snubber-capacitors/e12-e93-403-m20.html",
-            description: "Parallel configuration for 0.8uF total",
-            category: "Snubber Capacitors"
-          },
-          {
-            partNumber: "IGBT Module FF200R12KT4",
-            link: "/infineon/products/igbt-modules/ff200r12kt4.html",
-            description: "1200V IGBT module for snubber protection",
-            category: "Power Semiconductors"
-          },
-          {
-            partNumber: "Fast Recovery Diode",
-            link: "#",
-            description: "Fast diode for freewheeling protection",
-            category: "Power Semiconductors"
-          },
-          {
-            partNumber: "Mounting Clip",
-            link: "#",
-            description: "Clip for axial capacitor mounting to heatsink",
-            category: "Accessories"
-          }
-        ],
-        applicationScenarios: [
-          {
-            title: "IGBT Module Snubber",
-            description: "Direct mounting across 1200V IGBT module terminals for switching protection"
-          },
-          {
-            title: "Thyristor Protection",
-            description: "RC snubber for thyristor commutation protection in phase control"
-          },
-          {
-            title: "Inverter Output Filter",
-            description: "Snubber for inverter output stage protection against load transients"
-          }
-        ],
-        keywords: ["Electronicon E12.E93-403.M20", "0.4uF snubber capacitor", "IGBT snubber distributor"],
-        faqs: [
-          generateFAQ(
-            "What is the pulse current rating of the E12.E93-403.M20?",
-            "The E12.E93-403.M20 is rated for 1200A peak pulse current. This rating represents the maximum non-repetitive surge current the capacitor can withstand without damage. For repetitive operation, the current should be derated based on duty cycle and frequency. At 10kHz switching with 50% duty cycle, the effective repetitive current should not exceed approximately 200A RMS. The pulse current capability depends on the capacitor's internal construction, connection inductance, and thermal design. The low inductance (<20nH) design ensures the capacitor can respond quickly to fast voltage transients. For applications requiring higher pulse current, use multiple capacitors in parallel.",
-            "Ensure your application's peak and repetitive currents are within the capacitor ratings.",
-            ["E12.E93-403.M20 pulse current", "snubber current rating", "capacitor surge current"]
-          ),
-          generateFAQ(
-            "How close should I mount the E12.E93-403.M20 to the IGBT?",
-            "For effective snubber action, mount the E12.E93-403.M20 as close as possible to the IGBT terminals. Target lead lengths of less than 25mm (1 inch) between capacitor and semiconductor. The total loop inductance (capacitor ESL + connection inductance) should be minimized to allow fast energy transfer during switching transients. Every 10mm of wire adds approximately 10nH of inductance, which can significantly reduce snubber effectiveness. Use wide, flat conductors or busbars for connections. Mount the capacitor directly across the IGBT's collector and emitter terminals if possible. For modules with screw terminals, use the shortest possible wire leads. The axial lead design of the E12.E93-403.M20 facilitates close mounting.",
-            "Minimize connection length and inductance by mounting the snubber capacitor directly at the IGBT terminals.",
-            ["snubber mounting distance", "IGBT snubber placement", "low inductance mounting"]
-          ),
-          generateFAQ(
-            "What resistor value should I use with the E12.E93-403.M20?",
-            "For RC snubber circuits using the E12.E93-403.M20, the resistor value depends on circuit parameters: 1) Typical Range - 5 to 50 ohms for most IGBT applications, 2) Damping Consideration - R should be approximately equal to the characteristic impedance: R = sqrt(Lstray/C), where Lstray is circuit stray inductance and C is snubber capacitance (0.4uF), 3) Power Dissipation - calculate power in resistor: P = 0.5 x C x V^2 x f, where V is clamp voltage and f is switching frequency, 4) Starting Point - try 10 ohms for medium-power IGBTs (200-400A). For example, with 1000V overshoot and 10kHz switching: P = 0.5 x 0.4x10^-6 x 1000^2 x 10000 = 2W. Use non-inductive resistors (carbon composition or film) rated for at least 2x calculated power.",
-            "Start with 10 ohms and adjust based on oscilloscope measurements of switching waveforms.",
-            ["snubber resistor value", "RC snubber design", "snubber damping resistor"]
-          ),
-          generateFAQ(
-            "Can the E12.E93-403.M20 be used for 1700V IGBT protection?",
-            "The E12.E93-403.M20 with 2000V DC rating can be used for 1700V IGBT protection, but with limited margin. The 2000V rating provides 15% margin above 1700V, which may be insufficient for applications with high voltage overshoots or transients. For 1700V IGBTs, we typically recommend capacitors with 3000V or higher rating to provide adequate safety margin (30-50% above device rating). The E12 series offers higher voltage options up to 6000V. If using the E12.E93-403.M20 with 1700V IGBTs, ensure: 1) Snubber is properly sized to limit overshoot, 2) Operating voltage has sufficient margin, 3) Temperature derating is applied, 4) Regular inspection for capacitor health. For critical applications, select a higher voltage rated snubber capacitor.",
-            "Consider higher voltage rated snubber capacitors (3000V+) for 1700V IGBT applications for better safety margin.",
-            ["1700V IGBT snubber", "high voltage snubber", "snubber voltage rating"]
-          ),
-          generateFAQ(
-            "What is the self-healing mechanism in the E12.E93-403.M20?",
-            "The E12.E93-403.M20 features self-healing film technology that enhances reliability under overvoltage stress. When a dielectric defect or overvoltage causes localized breakdown, the energy discharged vaporizes the thin metallization layer around the fault site. This creates a small insulated area, effectively isolating the defect and restoring the capacitor's integrity. The process occurs in microseconds without external intervention. The result is a minor, gradual reduction in capacitance rather than catastrophic failure. The E12.E93-403.M20 uses segmented metallization patterns to control the self-healing process and minimize capacitance loss. This technology is especially important for snubber applications where the capacitor regularly experiences high-voltage transients and pulse stresses.",
-            "The self-healing feature makes the E12.E93-403.M20 highly reliable for demanding snubber applications.",
-            ["self-healing capacitor", "snubber reliability", "E12.E93-403.M20 technology"]
-          ),
-          generateFAQ(
-            "How do I test the effectiveness of my snubber circuit?",
-            "To verify snubber effectiveness with the E12.E93-403.M20: 1) Oscilloscope Measurement - use high-voltage differential probe to measure IGBT collector-emitter voltage during switching, 2) Look For - voltage overshoot magnitude, ringing frequency and damping, dv/dt rate, 3) Effective Snubber - should limit overshoot to <110% of DC bus voltage with minimal ringing, 4) Without Snubber - expect significant overshoot (150-200%) and sustained oscillation, 5) Adjust Values - increase capacitance if overshoot is excessive, adjust resistance for optimal damping, 6) Temperature Check - monitor snubber capacitor temperature during operation. Typical snubber effectiveness: reduces overshoot by 30-50%, damps oscillations within 2-3 cycles, reduces EMI by 10-20dB. Document waveforms with and without snubber for comparison.",
-            "Use oscilloscope measurements to verify snubber performance and optimize component values if needed.",
-            ["snubber testing", "IGBT switching waveform", "snubber effectiveness"]
-          )
-        ]
-      },
-      {
-        partNumber: "E12.E93-104.M50",
-        name: "Snubber Capacitor 0.1uF 5000V DC",
-        shortDescription: "Electronicon E12.E93-104.M50 0.1uF 5000V DC high-voltage snubber capacitor for high-power IGBT protection.",
-        descriptionParagraphs: [
-          "The E12.E93-104.M50 is a high-voltage snubber capacitor designed for demanding protection applications.",
-          "Features 5000V DC rating and high dv/dt capability for effective transient suppression in high-voltage circuits.",
-          "Ideal for 3300V IGBT modules, high-voltage thyristors, and medium-voltage drive applications."
-        ],
-        specifications: {
-          Capacitance: "0.1uF",
-          VoltageRating: "5000V DC",
-          PulseCurrent: "800A peak",
-          Inductance: "<25nH",
-          dvdtRating: "5000 V/us",
-          TemperatureRange: "-40C to +105C",
-          Lifetime: "100,000 hours @ 85C",
-          Mounting: "Axial Leads",
-          Dimensions: "35mm x 75mm",
-          Weight: "85g"
-        },
-        features: [
-          "High voltage rating 5000V DC",
-          "High dv/dt 5000 V/us",
-          "Low inductance <25nH",
-          "High pulse current 800A",
-          "Self-healing properties",
-          "Axial lead construction",
-          "High temperature 105C rating"
-        ],
-        applications: [
-          "3300V IGBT protection",
-          "High-voltage thyristor snubbers",
-          "Medium-voltage drives",
-          "HVDC applications",
-          "High-power inverters",
-          "Crowbar circuits"
-        ],
-        faeReview: {
-          author: "Dieter Hoffman",
-          title: "FAE - High Power Electronics",
-          content: "The E12.E93-104.M50 is essential for high-voltage IGBT applications where standard snubber capacitors cannot withstand the voltage stress. The 5000V rating provides excellent margin for 3300V IGBT modules commonly used in medium-voltage drives and traction applications. The 5000 V/us dv/dt rating handles the extremely fast switching of modern IGBTs. I've specified this capacitor for mining drives, marine propulsion, and railway traction systems. The 0.1uF capacitance is appropriate for high-voltage applications where energy storage requirements are lower due to higher impedance levels. The axial lead design allows flexible mounting arrangements. For very high power modules, use multiple capacitors in parallel. This capacitor has proven reliable in harsh industrial environments.",
-          highlight: "High voltage rating for demanding medium-voltage IGBT applications"
-        },
-        alternativeParts: [
-          {
-            partNumber: "E12.E93-224.M50",
-            brand: "Electronicon",
-            specifications: {
-              capacitance: "0.22uF",
-              voltage: "5000V DC",
-              pulseCurrent: "1200A peak"
-            },
-            comparison: {
-              capacitance: "0.22uF > 0.1uF (+120%)",
-              voltage: "5000V DC = 5000V DC (same)",
-              pulseCurrent: "1200A > 800A (+50%)",
-              dimensions: "42mm x 88mm > 35mm x 75mm (larger)",
-              weight: "120g > 85g (heavier)"
-            },
-            reason: "Higher capacitance for larger high-voltage IGBTs or higher energy absorption",
-            useCase: "Large 3300V IGBT modules or applications with high stray inductance",
-            link: "/electronicon/products/snubber-capacitors/e12-e93-224-m50.html"
-          },
-          {
-            partNumber: "E12.E93-104.M30",
-            brand: "Electronicon",
-            specifications: {
-              capacitance: "0.1uF",
-              voltage: "3000V DC",
-              pulseCurrent: "700A peak"
-            },
-            comparison: {
-              capacitance: "0.1uF = 0.1uF (same)",
-              voltage: "3000V DC < 5000V DC (lower)",
-              pulseCurrent: "700A < 800A (lower)",
-              dimensions: "28mm x 62mm < 35mm x 75mm (smaller)",
-              price: "Lower cost option"
-            },
-            reason: "Lower voltage rating for 1700V IGBT applications with reduced cost",
-            useCase: "1700V class IGBT modules where 3000V provides adequate margin",
-            link: "/electronicon/products/snubber-capacitors/e12-e93-104-m30.html"
-          }
-        ],
-        companionParts: [
-          {
-            partNumber: "High Voltage Snubber Resistor",
-            link: "#",
-            description: "20 ohm high-voltage non-inductive resistor",
-            category: "Snubber Components"
-          },
-          {
-            partNumber: "E12.E93-104.M50",
-            link: "/electronicon/products/snubber-capacitors/e12-e93-104-m50.html",
-            description: "Parallel for 0.2uF total capacitance",
-            category: "Snubber Capacitors"
-          },
-          {
-            partNumber: "IGBT Module FF1400R17IP4",
-            link: "/infineon/products/igbt-modules/ff1400r17ip4.html",
-            description: "3300V IGBT module for high-voltage applications",
-            category: "Power Semiconductors"
-          },
-          {
-            partNumber: "High Voltage Diode",
-            link: "#",
-            description: "Fast recovery diode for 3300V circuits",
-            category: "Power Semiconductors"
-          },
-          {
-            partNumber: "HV Mounting Hardware",
-            link: "#",
-            description: "High-voltage rated mounting and insulation kit",
-            category: "Accessories"
-          }
-        ],
-        applicationScenarios: [
-          {
-            title: "3300V IGBT Protection",
-            description: "Snubber capacitor for high-voltage IGBT modules in medium-voltage drives"
-          },
-          {
-            title: "Thyristor Commutation",
-            description: "RC snubber for high-power thyristor protection in phase control"
-          },
-          {
-            title: "HVDC Snubber",
-            description: "High-voltage snubber for HVDC converter protection"
-          }
-        ],
-        keywords: ["Electronicon E12.E93-104.M50", "0.1uF 5000V snubber", "high voltage snubber capacitor"],
-        faqs: [
-          generateFAQ(
-            "What IGBT voltage class is the E12.E93-104.M50 suitable for?",
-            "The E12.E93-104.M50 with 5000V DC rating is primarily designed for 3300V IGBT modules. The 5000V rating provides 52% margin above 3300V, which is appropriate for high-voltage applications where voltage overshoot must be controlled. For 1700V IGBTs, this capacitor provides excessive margin (194%) which is acceptable but may not be cost-effective. For 6500V IGBTs, the 5000V rating is insufficient. The capacitor can also be used for high-voltage thyristors, GTOs, and IGCTs with voltage ratings up to approximately 4000V. Always ensure the snubber capacitor voltage rating exceeds the maximum expected voltage including overshoot and transients.",
-            "Select the E12.E93-104.M50 for 3300V IGBT applications or other high-voltage semiconductors up to 4000V.",
-            ["E12.E93-104.M50 voltage", "3300V IGBT snubber", "high voltage snubber selection"]
-          ),
-          generateFAQ(
-            "How does the high dv/dt rating benefit high-voltage applications?",
-            "The E12.E93-104.M50's 5000 V/us dv/dt rating is critical for high-voltage applications: 1) Fast Response - can track rapid voltage changes during IGBT switching, 2) Effective Clamping - quickly absorbs energy before voltage overshoot damages the semiconductor, 3) Low ESL Design - the high dv/dt capability indicates low internal inductance for fast current transfer, 4) Reduced Stress - prevents localized heating in the dielectric from high-frequency components, 5) Wide Bandwidth - effective across the frequency spectrum of switching transients. In high-voltage applications, even small stray inductances cause significant overshoot (V = L x di/dt). The capacitor must respond faster than the voltage rise to be effective. The 5000 V/us rating ensures effectiveness even with modern fast-switching IGBTs.",
-            "The high dv/dt rating ensures effective protection against fast transients in high-voltage switching circuits.",
-            ["high dv/dt snubber", "E12.E93-104.M50 dv/dt", "fast switching protection"]
-          ),
-          generateFAQ(
-            "What safety clearances are needed for the E12.E93-104.M50?",
-            "The E12.E93-104.M50 requires appropriate safety clearances for 5000V operation: 1) Creepage Distance - minimum 50mm between terminals and to ground for pollution degree 2, 2) Clearance - minimum 25mm in air for 5000V peak in dry conditions, 3) Mounting - use high-voltage rated mounting hardware and insulators, 4) Enclosure - ensure adequate spacing from conductive surfaces, 5) Terminations - use high-voltage rated connectors and insulation. For industrial applications, we recommend increasing clearances by 50% for safety margin. The axial lead design provides natural spacing when mounted properly. Always follow IEC 60664 or local standards for clearance and creepage requirements. Proper clearances prevent arcing and ensure safe, reliable operation.",
-            "Follow high-voltage safety standards and provide adequate clearances for 5000V operation.",
-            ["high voltage clearance", "snubber safety", "E12.E93-104.M50 mounting"]
-          ),
-          generateFAQ(
-            "Can multiple E12.E93-104.M50 capacitors be used in parallel?",
-            "Yes, multiple E12.E93-104.M50 capacitors can be connected in parallel for higher pulse current capability or capacitance: 1) Pulse Current - two in parallel provide 1600A peak capability, 2) Capacitance - two in parallel provide 0.2uF total, 3) Mounting - maintain symmetry for equal current sharing, 4) Connections - use low-inductance busbars for parallel connections, 5) Layout - position capacitors equidistant from the protected IGBT. Parallel configuration is useful for very high-power IGBT modules where single capacitor current rating is insufficient. Ensure all capacitors have the same voltage rating and similar characteristics. The total inductance of parallel capacitors is reduced, improving high-frequency performance. Use identical lead lengths for balanced current distribution.",
-            "Use parallel configuration for high-current applications, ensuring symmetric layout for equal current sharing.",
-            ["snubber parallel connection", "high current snubber", "E12.E93-104.M50 parallel"]
-          ),
-          generateFAQ(
-            "What is the temperature derating for the E12.E93-104.M50?",
-            "The E12.E93-104.M50 is rated for -40C to +105C ambient temperature with hot spot temperature up to 105C. The voltage and pulse current ratings apply at maximum temperature. For optimal lifetime: 1) Recommended Operating - keep hot spot temperature below 85C for 100,000 hour lifetime, 2) Derating Above 85C - reduce voltage to 90% at 95C, 80% at 105C, 3) High-Frequency Operation - additional derating may be needed for high repetitive pulse applications, 4) Thermal Design - ensure adequate heat dissipation from capacitor body. The Arrhenius relationship applies: lifetime approximately doubles for every 10C decrease. At 75C hot spot, expect approximately 200,000 hours. Monitor capacitor temperature during commissioning to verify thermal design adequacy.",
-            "Design for hot spot temperatures below 85C and provide adequate cooling for reliable long-term operation.",
-            ["E12.E93-104.M50 temperature", "high voltage capacitor thermal", "snubber derating"]
-          ),
-          generateFAQ(
-            "How do I verify the E12.E93-104.M50 is functioning properly?",
-            "To verify E12.E93-104.M50 functionality: 1) Visual Inspection - check for case swelling, terminal damage, or arcing marks, 2) Capacitance Test - measure with LCR meter at 1kHz, should be within +/-10% of 0.1uF, 3) Insulation Resistance - measure with megohmmeter at 500V DC, should be >10,000 MOhm, 4) Oscilloscope Check - verify switching waveforms show proper damping and overshoot control, 5) Temperature Monitoring - check capacitor runs cool during operation. A failed snubber capacitor typically shows: reduced capacitance from self-healing activity, increased losses causing heating, or short circuit in catastrophic failure. Regular inspection is recommended for critical applications. Replace capacitor if capacitance drops below 90% of nominal or if physical damage is observed.",
-            "Perform periodic electrical testing and visual inspection to monitor snubber capacitor condition.",
-            ["snubber capacitor testing", "E12.E93-104.M50 verification", "capacitor health check"]
-          )
-        ]
-      }
-    ]
+// Category 3: Isolated ADCs
+const category3 = {
+  id: "isolated-adcs",
+  name: "Isolated ADCs",
+  slug: "chipanalog-isolated-adcs",
+  description: "Precision isolated analog-to-digital converters with integrated isolation for accurate signal acquisition in noisy environments.",
+  longDescription: "Chipanalog's isolated ADC portfolio, available through LiTong distributor, provides precision analog signal acquisition with integrated isolation for industrial and automotive applications. The product line includes isolated sigma-delta ADCs with high resolution (16-24 bits), isolated SAR ADCs for fast conversion, and isolated temperature sensor interfaces. These ADCs feature excellent linearity, low noise, and robust isolation for reliable measurements in harsh environments.",
+  image: "/assets/brands/chipanalog/isolated-adcs.jpg",
+  parameters: ["Resolution", "Sample Rate", "Isolation Voltage", "Input Channels", "Package"],
+  series: [
+    {
+      name: "CA-IS1300 Series",
+      description: "Isolated sigma-delta ADCs for precision measurement",
+      features: ["16-24 bit resolution", "High isolation", "Low noise", "Integrated reference"]
+    }
+  ],
+  selectionGuide: {
+    title: "Isolated ADC Selection Guide",
+    content: "How to select the right isolated ADC for your application",
+    factors: ["Resolution requirement", "Sample rate", "Number of channels", "Isolation level", "Input type"],
+    recommendations: ["CA-IS1300 for high precision", "Higher resolution for sensor interfaces"]
   },
-  {
-    id: "motor-run-capacitors",
-    name: "Motor Run Capacitors",
-    slug: "motor-run-capacitors",
-    description: "Electronicon motor run capacitors are designed for continuous operation in AC motor applications, providing the phase shift necessary for single-phase motor starting and running.",
-    longDescription: "Electronicon motor run capacitors are designed for continuous operation in AC motor applications, providing the phase shift necessary for single-phase motor starting and running. These dry-filled film capacitors feature high AC voltage capability, low losses, and long operational lifetime. Available in voltages from 250V to 660V AC with capacitance values from 1uF to 100uF, they are ideal for compressor motors, pump motors, fan motors, and general industrial motor applications. As an authorized Electronicon distributor, we provide technical support for motor capacitor applications.",
-    series: ["E62.M16"],
-    parameters: ["Voltage Rating", "Capacitance", "Current Rating", "Loss Factor", "Temperature Range", "Lifetime", "Mounting Type"],
-    applications: ["Compressor Motors", "Pump Motors", "Fan Motors", "HVAC Systems", "Industrial Motors", "Agricultural Equipment"],
-    selectionGuide: {
-      title: "Motor Run Capacitor Selection Guide",
-      description: "Learn how to select the right motor run capacitor for your AC motor application",
-      articleId: "motor-capacitor-selection",
-      articleLink: "/electronicon/support/motor-capacitor-selection.html"
+  selectionGuideLink: {
+    url: "/chipanalog/support/isolated-adc-selection",
+    text: "How to select the right Chipanalog isolated ADC?",
+    articleTitle: "Isolated ADC Selection Guide",
+    description: "Comprehensive guide for selecting Chipanalog isolated ADCs"
+  },
+  faqs: [
+    {
+      question: "What are the advantages of isolated ADCs?",
+      answer: "Isolated ADCs provide several advantages: Direct measurement of high-voltage signals without additional isolation; Protection of low-voltage control circuits from high-voltage transients; Elimination of ground loops in distributed systems; Accurate measurements in noisy industrial environments; and Simplified system design with integrated isolation. Chipanalog's isolated ADCs combine precision analog performance with robust digital isolation in a single package.",
+      decisionGuide: "Use isolated ADCs for high-voltage or noisy measurements. Contact our FAE team for ADC selection.",
+      keywords: ["isolated ADC advantages", "high voltage measurement", "noise immunity"]
     },
-    selectionGuideLink: "/electronicon/support/motor-capacitor-selection.html",
-    faqs: [
-      generateFAQ(
-        "What is the difference between motor run and motor start capacitors?",
-        "Motor run and start capacitors serve different purposes in AC motor applications: 1) Motor Run Capacitors - designed for continuous operation, typically 1-100uF, oil-filled or dry film construction, lower capacitance values, connected during entire operation, used for permanent split capacitor (PSC) motors, 2) Motor Start Capacitors - designed for intermittent duty (seconds only), typically 50-1000uF, electrolytic construction, higher capacitance values, disconnected by centrifugal switch or relay, used for capacitor-start motors. Electronicon motor run capacitors are dry-filled film capacitors designed for continuous operation. Using a start capacitor for run duty will cause rapid failure. Run capacitors improve motor efficiency and torque characteristics during operation.",
-        "Use motor run capacitors for continuous operation, motor start capacitors only for brief starting assistance.",
-        ["motor run vs start capacitor", "run capacitor selection", "AC motor capacitors"]
-      ),
-      generateFAQ(
-        "How do I calculate the required capacitance for a motor run capacitor?",
-        "Motor run capacitor selection depends on motor design and application: 1) Rule of Thumb - approximately 10-15uF per kW of motor power for 230V motors, 2) Manufacturer Specification - always follow motor manufacturer's recommended capacitance value, 3) Voltage Rating - typically 1.5-2x motor operating voltage (e.g., 370V or 440V for 230V motor), 4) Typical Values - 5-15uF for fractional HP motors, 15-50uF for 1-5 HP motors, 50-100uF for larger motors. Incorrect capacitance causes: too low - reduced torque and efficiency, overheating; too high - excessive current, overheating, reduced efficiency. For replacement applications, match the original capacitor's uF rating and voltage. When in doubt, consult the motor nameplate or manufacturer specifications.",
-        "Follow motor manufacturer's specifications or use rule of thumb (10-15uF per kW) for motor run capacitor selection.",
-        ["motor capacitor calculation", "run capacitor sizing", "motor capacitor selection"]
-      ),
-      generateFAQ(
-        "What voltage rating should I select for a motor run capacitor?",
-        "Motor run capacitor voltage rating selection: 1) Standard Ratings - 250V, 370V, 440V, 480V, 660V AC, 2) Selection Rule - capacitor voltage rating should be 1.5 to 2 times the motor operating voltage, 3) Common Applications - 370V for 208-230V motors, 440V for 230-460V motors, 660V for 575V motors, 4) Safety Margin - higher voltage rating provides longer life and better tolerance to voltage fluctuations. Examples: 115V motor -> 250V capacitor, 230V motor -> 370V or 440V capacitor, 460V motor -> 660V capacitor. Using underrated capacitors leads to premature failure. Electronicon motor run capacitors offer various voltage ratings to match application requirements. Always select voltage rating based on actual motor operating voltage, not nominal system voltage.",
-        "Select capacitor voltage rating 1.5-2x motor operating voltage for reliable long-term operation.",
-        ["motor capacitor voltage", "run capacitor voltage rating", "capacitor voltage selection"]
-      ),
-      generateFAQ(
-        "How long do motor run capacitors typically last?",
-        "Motor run capacitor lifetime depends on operating conditions: 1) Rated Lifetime - Electronicon motor run capacitors are rated for 30,000 to 60,000 hours depending on series, 2) Temperature Impact - every 10C increase reduces lifetime by approximately 50%, 3) Voltage Impact - operating above rated voltage accelerates aging, 4) Duty Cycle - intermittent operation extends life vs continuous, 5) Environment - clean, dry conditions extend life. Signs of aging: reduced motor starting torque, increased running current, motor overheating, capacitor bulging. The self-healing technology in Electronicon capacitors provides graceful aging with gradual capacitance reduction rather than sudden failure. Regular testing can identify capacitors approaching end of life.",
-        "Expect 5-15 year service life and monitor for signs of aging such as reduced motor performance.",
-        ["motor capacitor lifetime", "run capacitor life expectancy", "capacitor aging"]
-      ),
-      generateFAQ(
-        "What causes motor run capacitor failure?",
-        "Common causes of motor run capacitor failure: 1) Overheating - high ambient temperature, poor ventilation, blocked cooling, 2) Overvoltage - voltage spikes, sustained overvoltage from power system issues, 3) Age - normal end-of-life after years of service, 4) Incorrect Rating - undervoltage or undercapacitance causing overstress, 5) Manufacturing Defects - rare with quality manufacturers like Electronicon, 6) Physical Damage - impact, vibration, moisture ingress. Symptoms of failure: motor won't start, reduced torque, overheating, unusual noise, capacitor bulging or leaking. Prevention: proper voltage rating, adequate cooling, regular inspection, replace before complete failure. Electronicon's dry-filled design eliminates oil leakage common in traditional motor run capacitors.",
-        "Ensure proper rating, adequate cooling, and protection from overvoltage to maximize capacitor lifetime.",
-        ["motor capacitor failure", "capacitor failure causes", "run capacitor problems"]
-      )
-    ],
-    products: [
-      {
-        partNumber: "E62.M16-473.M20",
-        name: "Motor Run Capacitor 47uF 450V AC",
-        shortDescription: "Electronicon E62.M16-473.M20 47uF 450V AC motor run capacitor for compressor and pump motor applications.",
-        descriptionParagraphs: [
-          "The E62.M16-473.M20 is a high-reliability motor run capacitor designed for continuous operation in AC motor applications.",
-          "Features dry filling technology and self-healing properties for long lifetime and maintenance-free operation.",
-          "Ideal for HVAC compressor motors, pump motors, and industrial motor applications requiring 47uF capacitance."
-        ],
-        specifications: {
-          Capacitance: "47uF",
-          VoltageRating: "450V AC",
-          CurrentRating: "8A RMS",
-          LossFactor: "<0.001 @ 50Hz",
-          TemperatureRange: "-25C to +85C",
-          Lifetime: "60,000 hours @ 70C",
-          Mounting: "M8 Stud Mount",
-          Dimensions: "50mm x 95mm",
-          Weight: "180g"
-        },
-        features: [
-          "47uF capacitance for 2-5 HP motors",
-          "450V AC voltage rating",
-          "Dry filling technology - no oil leakage",
-          "Self-healing properties",
-          "Low loss factor <0.001",
-          "60,000 hour rated lifetime",
-          "M8 stud mount for secure installation"
-        ],
-        applications: [
-          "HVAC compressor motors",
-          "Water pump motors",
-          "Fan motors",
-          "Industrial motors",
-          "Agricultural equipment",
-          "Commercial refrigeration"
-        ],
-        faeReview: {
-          author: "Hans Mueller",
-          title: "FAE - Motor Applications",
-          content: "The E62.M16-473.M20 is a reliable choice for medium-power motor applications. The 47uF capacitance is ideal for 3-5 HP compressor motors commonly found in commercial HVAC systems. I particularly appreciate the dry filling technology which eliminates the oil leakage issues I've seen with traditional motor run capacitors. The 450V rating provides good margin for 230V motors and adequate safety for 208V applications. The self-healing feature ensures the capacitor fails gracefully rather than catastrophically. For installation, I recommend ensuring adequate ventilation as motor run capacitors can run warm during continuous operation. The M8 stud mount provides secure mechanical attachment. This capacitor has proven reliable in numerous HVAC and pump applications I've supported.",
-          highlight: "Reliable dry-filled design eliminates oil leakage concerns"
-        },
-        alternativeParts: [
-          {
-            partNumber: "E62.M16-683.M20",
-            brand: "Electronicon",
-            specifications: {
-              capacitance: "68uF",
-              voltage: "450V AC",
-              current: "10A RMS"
-            },
-            comparison: {
-              capacitance: "68uF > 47uF (+45%)",
-              voltage: "450V AC = 450V AC (same)",
-              current: "10A > 8A (+25%)",
-              dimensions: "55mm x 105mm > 50mm x 95mm (larger)",
-              weight: "220g > 180g (heavier)"
-            },
-            reason: "Higher capacitance for larger motors (5-7.5 HP)",
-            useCase: "Larger compressor or pump motors requiring 68uF",
-            link: "/electronicon/products/motor-run-capacitors/e62-m16-683-m20.html"
-          },
-          {
-            partNumber: "E62.M16-333.M20",
-            brand: "Electronicon",
-            specifications: {
-              capacitance: "33uF",
-              voltage: "450V AC",
-              current: "6A RMS"
-            },
-            comparison: {
-              capacitance: "33uF < 47uF (-30%)",
-              voltage: "450V AC = 450V AC (same)",
-              current: "6A < 8A (-25%)",
-              dimensions: "45mm x 85mm < 50mm x 95mm (smaller)",
-              weight: "150g < 180g (lighter)"
-            },
-            reason: "Lower capacitance for smaller motors (1.5-3 HP)",
-            useCase: "Smaller fan or pump motors requiring 33uF",
-            link: "/electronicon/products/motor-run-capacitors/e62-m16-333-m20.html"
-          }
-        ],
-        companionParts: [
-          {
-            partNumber: "Motor Protector",
-            link: "#",
-            description: "Thermal overload protector for motor protection",
-            category: "Motor Protection"
-          },
-          {
-            partNumber: "Start Capacitor 189-227uF",
-            link: "#",
-            description: "Motor start capacitor for capacitor-start motors",
-            category: "Motor Capacitors"
-          },
-          {
-            partNumber: "Centrifugal Switch",
-            link: "#",
-            description: "Switch to disconnect start capacitor",
-            category: "Motor Controls"
-          },
-          {
-            partNumber: "M8 Mounting Kit",
-            link: "#",
-            description: "Mounting hardware for capacitor installation",
-            category: "Accessories"
-          },
-          {
-            partNumber: "Wiring Terminal Block",
-            link: "#",
-            description: "Terminal block for motor capacitor connections",
-            category: "Electrical Components"
-          }
-        ],
-        applicationScenarios: [
-          {
-            title: "5 HP HVAC Compressor",
-            description: "E62.M16-473.M20 provides phase shift for efficient 5 HP compressor motor operation"
-          },
-          {
-            title: "Irrigation Pump Motor",
-            description: "Reliable motor run capacitor for continuous duty agricultural pump applications"
-          },
-          {
-            title: "Industrial Fan Motor",
-            description: "Motor run capacitor for ventilation fan motors in industrial environments"
-          }
-        ],
-        keywords: ["Electronicon E62.M16-473.M20", "47uF motor capacitor", "motor run capacitor distributor"],
-        faqs: [
-          generateFAQ(
-            "What size motor is the E62.M16-473.M20 suitable for?",
-            "The E62.M16-473.M20 with 47uF capacitance is typically suitable for 3-5 HP (2.2-3.7 kW) single-phase AC motors at 230V. The exact motor size depends on motor design and application: 1) HVAC Compressors - typically 3-4 HP, 2) Pump Motors - 3-5 HP depending on pump type, 3) Fan Motors - 3-5 HP, 4) General Industrial - 2-5 HP. Always verify against motor manufacturer's specification. Using incorrect capacitance causes performance issues: too low - reduced torque, overheating, hard starting; too high - excessive current, overheating, reduced efficiency. The 47uF value is a common standard size for medium-power single-phase motors. For replacement applications, match the original capacitor's uF rating exactly.",
-            "Verify your motor's specifications to confirm 47uF is the correct capacitance for your application.",
-            ["E62.M16-473.M20 motor size", "47uF capacitor application", "motor capacitor sizing"]
-          ),
-          generateFAQ(
-            "How do I wire the E62.M16-473.M20 in a motor circuit?",
-            "The E62.M16-473.M20 is wired in parallel with the motor's auxiliary (start) winding for permanent split capacitor (PSC) motor operation: 1) Connection - one terminal to line (L1), other terminal to auxiliary winding, 2) Typical Wiring - Line (L1) -> Capacitor -> Auxiliary Winding -> Common with Main Winding -> Line (L2), 3) Dual Voltage Motors - capacitor connects to appropriate tap for voltage (high or low), 4) Safety - ensure power is disconnected before wiring, discharge capacitor before handling, 5) Mounting - secure capacitor with M8 stud, ensure adequate ventilation. The capacitor remains connected during both starting and running. For capacitor-start motors, a separate start capacitor and switch are also required. Always follow the motor wiring diagram and local electrical codes.",
-            "Follow motor wiring diagram and connect capacitor between line and auxiliary winding for PSC motor operation.",
-            ["motor capacitor wiring", "E62.M16-473.M20 connection", "PSC motor wiring"]
-          ),
-          generateFAQ(
-            "What is the expected lifetime of the E62.M16-473.M20?",
-            "The E62.M16-473.M20 is rated for 60,000 hours lifetime at 70C hot spot temperature. This translates to approximately 7 years of continuous operation or 15-20 years in typical intermittent duty motor applications. Actual lifetime depends on operating conditions: 1) Temperature - every 10C increase reduces lifetime by 50%, 2) Voltage - sustained overvoltage accelerates aging, 3) Duty Cycle - intermittent operation extends life vs continuous, 4) Environment - clean, dry conditions extend life. The self-healing technology provides graceful aging with gradual capacitance reduction. Monitor for signs of aging: reduced motor torque, increased current, overheating. Regular testing of capacitance can predict replacement needs. The dry-filled design eliminates oil leakage common in traditional capacitors.",
-            "Expect 10-20 year service life in normal conditions and monitor for signs of aging.",
-            ["E62.M16-473.M20 lifetime", "motor capacitor life expectancy", "run capacitor durability"]
-          ),
-          generateFAQ(
-            "How do I test the E62.M16-473.M20 to verify it's working?",
-            "To test the E62.M16-473.M20: 1) Safety First - disconnect power and discharge capacitor with insulated resistor, 2) Visual Inspection - check for bulging, leaking, or damage, 3) Capacitance Test - use LCR meter at 1kHz, should read 42.3-51.7uF (+/-10%), 4) Resistance Test - should show infinite resistance after charging (no short), 5) ESR Test - if meter capable, ESR should be low (<1 ohm), 6) In-Circuit Test - measure motor current and compare to nameplate, high current indicates failing capacitor. Signs of failure: capacitance <40uF, physical damage, motor won't start or runs hot. Replace if capacitance is outside +/-10% range or if physical damage is present. Regular testing can identify capacitors before complete failure.",
-            "Use capacitance meter to verify value within +/-10% and inspect for physical damage.",
-            ["motor capacitor testing", "E62.M16-473.M20 test", "capacitor measurement"]
-          ),
-          generateFAQ(
-            "Can the E62.M16-473.M20 be used for both 50Hz and 60Hz systems?",
-            "Yes, the E62.M16-473.M20 can be used in both 50Hz and 60Hz power systems. The capacitor's performance is similar at both frequencies: 1) Capacitance - remains 47uF at both frequencies, 2) Reactive Power - slightly higher at 60Hz: Q60 = 377 VAR vs Q50 = 314 VAR at 230V, 3) Current - slightly higher at 60Hz: I60 = 4.1A vs I50 = 3.4A, 4) Loss Factor - similar at both frequencies (<0.001), 5) Motor Performance - motor manufacturer accounts for frequency in their specifications. The 450V voltage rating is appropriate for both 50Hz and 60Hz systems. When replacing capacitors, use the same uF rating regardless of system frequency. The motor's design determines the required capacitance, not the supply frequency. Electronicon motor run capacitors are tested and rated for worldwide use at 50/60Hz.",
-            "The E62.M16-473.M20 is suitable for both 50Hz and 60Hz applications with the same 47uF rating.",
-            ["50Hz vs 60Hz capacitor", "motor capacitor frequency", "E62.M16-473.M20 frequency"]
-          ),
-          generateFAQ(
-            "What temperature will the E62.M16-473.M20 reach during operation?",
-            "The E62.M16-473.M20 operating temperature depends on several factors: 1) Ambient Temperature - starting point for capacitor temperature, 2) Motor Current - higher current causes more heating in capacitor, 3) Duty Cycle - continuous operation runs hotter than intermittent, 4) Ventilation - airflow around capacitor affects cooling. Typical operating temperatures: 1) Ambient 25C - capacitor 40-50C, 2) Ambient 40C - capacitor 55-70C, 3) Ambient 60C - capacitor 75-85C. The maximum rated hot spot temperature is 85C. Ensure adequate clearance around capacitor for heat dissipation. Hotter operation reduces lifetime according to Arrhenius relationship. If capacitor feels excessively hot (>70C) during operation, check for proper rating, excessive motor current, or ventilation issues.",
-            "Ensure adequate ventilation and monitor temperature to keep hot spot below 85C for maximum lifetime.",
-            ["motor capacitor temperature", "E62.M16-473.M20 thermal", "capacitor operating temperature"]
-          )
-        ]
+    {
+      question: "What resolution do I need for my application?",
+      answer: "ADC resolution selection depends on measurement requirements: 12-bit (4096 levels) for general monitoring and control; 16-bit (65536 levels) for precision industrial measurements; 20-24 bit for high-precision sensor interfaces and test equipment. Consider: Required measurement accuracy; Dynamic range of input signal; and System noise floor. Higher resolution provides better precision but requires more careful PCB layout and shielding. Chipanalog offers 16-24 bit options to match various application needs.",
+      decisionGuide: "Select resolution based on accuracy requirements. Contact our FAE team for resolution selection guidance.",
+      keywords: ["ADC resolution", "12-bit", "16-bit", "24-bit", "precision"]
+    },
+    {
+      question: "How do I interface isolated ADCs with microcontrollers?",
+      answer: "Isolated ADCs typically use standard digital interfaces: SPI is most common for isolated ADCs (MOSI, MISO, SCLK, CS); Some devices support I2C for simpler wiring; Serial data output for continuous conversion mode. The isolation barrier is transparent to the digital interface - the microcontroller communicates as if the ADC were non-isolated. Key considerations: Ensure proper level shifting if voltages differ; Follow timing requirements in datasheet; and Use appropriate clock speeds for the isolation delay.",
+      decisionGuide: "SPI is recommended for most applications. Contact our FAE team for interface design assistance.",
+      keywords: ["ADC interface", "SPI", "I2C", "microcontroller"]
+    },
+    {
+      question: "What is the significance of ENOB in ADC specifications?",
+      answer: "ENOB (Effective Number of Bits) represents the actual resolution achieved considering noise and distortion. While an ADC may have 24-bit resolution, the ENOB might be 20 bits due to system noise. ENOB is calculated from SNDR (Signal-to-Noise and Distortion Ratio). For example: 24-bit ADC with ENOB of 20 bits provides about 1ppm (parts per million) resolution. When selecting an ADC, consider both resolution and ENOB for your application requirements. Chipanalog specifies both resolution and typical ENOB for accurate performance assessment.",
+      decisionGuide: "Consider ENOB along with resolution for precision applications. Contact our FAE team for ADC performance analysis.",
+      keywords: ["ENOB", "effective bits", "SNDR", "ADC accuracy"]
+    },
+    {
+      question: "How do I minimize noise in isolated ADC measurements?",
+      answer: "Minimizing noise in isolated ADC measurements: Use proper PCB layout with separate analog and digital ground planes; Place decoupling capacitors close to power pins; Use shielded cables for analog inputs; Implement anti-aliasing filters before ADC input; Keep high-speed digital signals away from analog inputs; Use star grounding for analog section; and Consider oversampling and averaging for noise reduction. Isolated ADCs are less susceptible to common-mode noise but still require good layout practices.",
+      decisionGuide: "Follow noise reduction best practices. Contact our FAE team for low-noise design guidance.",
+      keywords: ["ADC noise", "noise reduction", "PCB layout", "shielding"]
+    }
+  ],
+  products: [
+    {
+      partNumber: "CA-IS1300",
+      name: "Isolated Sigma-Delta ADC",
+      shortDescription: "16-bit isolated sigma-delta ADC with 5kVrms isolation, integrated reference, and SPI interface for precision measurements",
+      descriptionParagraphs: [
+        "CA-IS1300 is a precision isolated sigma-delta ADC featuring 16-bit resolution and reinforced isolation rated at 5kVrms. The device provides accurate analog-to-digital conversion with integrated isolation barrier.",
+        "With an integrated precision voltage reference and low-noise design, this ADC achieves high accuracy for industrial sensor and measurement applications.",
+        "The SPI interface allows easy connection to microcontrollers, while the isolation barrier protects the control side from high-voltage transients on the analog side."
+      ],
+      specifications: {
+        "Resolution": "16-bit",
+        "Sample Rate": "Up to 20kSPS",
+        "Isolation Voltage": "5kVrms (reinforced)",
+        "Input Channels": "2 (differential)",
+        "Input Range": "±250mV to ±2.5V",
+        "Integral Nonlinearity": "±0.01% FS",
+        "Offset Error": "±0.5mV",
+        "Package": "SOIC-16"
       },
-      {
-        partNumber: "E62.M16-104.M30",
-        name: "Motor Run Capacitor 100uF 660V AC",
-        shortDescription: "Electronicon E62.M16-104.M30 100uF 660V AC high-capacitance motor run capacitor for large industrial motors.",
-        descriptionParagraphs: [
-          "The E62.M16-104.M30 provides high capacitance value for large single-phase motor applications.",
-          "Features 660V AC rating suitable for 460-575V motor systems and high-voltage industrial applications.",
-          "The dry filling technology and self-healing properties ensure reliable long-term operation."
-        ],
-        specifications: {
-          Capacitance: "100uF",
-          VoltageRating: "660V AC",
-          CurrentRating: "15A RMS",
-          LossFactor: "<0.001 @ 50Hz",
-          TemperatureRange: "-25C to +85C",
-          Lifetime: "60,000 hours @ 70C",
-          Mounting: "M10 Stud Mount",
-          Dimensions: "75mm x 140mm",
-          Weight: "420g"
+      features: [
+        "16-bit resolution with high accuracy",
+        "5kVrms reinforced isolation",
+        "Integrated precision voltage reference",
+        "Low noise sigma-delta architecture",
+        "Programmable gain amplifier",
+        "SPI digital interface",
+        "Continuous conversion mode",
+        "Wide operating temperature range"
+      ],
+      applications: [
+        "Industrial sensor interfaces",
+        "Power monitoring",
+        "Motor current sensing",
+        "Battery management systems",
+        "Test and measurement",
+        "Medical equipment",
+        "Process control"
+      ],
+      faeReview: {
+        author: "Dr. Chen Wei",
+        title: "Senior FAE - Isolation Products",
+        content: "CA-IS1300 is an excellent choice for isolated precision measurements. The 16-bit resolution with integrated isolation simplifies system design significantly compared to separate ADC + isolator solutions. I've used this ADC in motor current sensing applications where the isolation is critical for safety. The integrated reference saves board space and cost. The SPI interface is straightforward to implement with most microcontrollers. For best accuracy, I recommend using the differential input mode and following the PCB layout guidelines carefully. The device performs well even in noisy industrial environments.",
+        highlight: "16-bit precision with integrated 5kVrms isolation"
+      },
+      alternativeParts: [
+        {
+          partNumber: "AMC1300",
+          brand: "Texas Instruments",
+          specifications: {
+            resolution: "16-bit",
+            isolation: "5kVrms",
+            rate: "20kSPS"
+          },
+          comparison: {
+            resolution: "16-bit = 16-bit (same)",
+            isolation: "5kVrms = 5kVrms (same)",
+            features: "Similar performance",
+            cost: "Lower cost than TI"
+          },
+          reason: "Equivalent performance at lower cost",
+          useCase: "Cost-effective replacement",
+          link: "#"
+        }
+      ],
+      companionParts: [
+        {
+          partNumber: "CA-IS3740",
+          description: "Digital isolator for additional signals",
+          category: "Digital Isolators",
+          link: "/chipanalog/products/digital-isolators/ca-is3740.html"
         },
-        features: [
-          "High capacitance 100uF for large motors",
-          "660V AC voltage rating",
-          "Suitable for 460-575V motors",
-          "Dry filling technology",
-          "Self-healing properties",
-          "Low loss factor <0.001",
-          "M10 stud mount"
-        ],
-        applications: [
-          "Large industrial motors (10-15 HP)",
-          "575V motor systems",
-          "Commercial HVAC compressors",
-          "Large pump motors",
-          "Industrial fans",
-          "Agricultural equipment"
-        ],
-        faeReview: {
-          author: "Hans Mueller",
-          title: "FAE - Motor Applications",
-          content: "The E62.M16-104.M30 is the go-to choice for high-capacitance motor run applications. The 100uF capacitance at 660V AC rating makes it ideal for large industrial motors (10-15 HP) and 575V motor systems. I've specified this capacitor for numerous large HVAC installations and heavy industrial applications. The 660V rating provides excellent safety margin for 460V and 575V systems. The dry filling technology ensures no oil leakage concerns even in challenging industrial environments. The self-healing property is particularly valuable for continuous duty motor applications. I recommend proper thermal management including adequate ventilation for these high-capacitance units as they generate more heat. The M10 stud mount ensures secure installation. This capacitor has proven reliable in continuous duty applications like water treatment plants and large manufacturing facilities.",
-          highlight: "High capacitance for large industrial motors and high-voltage applications"
+        {
+          partNumber: "CA-IS3211",
+          description: "Gate driver for power control",
+          category: "Isolated Gate Drivers",
+          link: "/chipanalog/products/isolated-gate-drivers/ca-is3211.html"
         },
-        alternativeParts: [
-          {
-            partNumber: "E62.M16-124.M30",
-            brand: "Electronicon",
-            specifications: {
-              capacitance: "120uF",
-              voltage: "660V AC",
-              current: "18A RMS"
-            },
-            comparison: {
-              capacitance: "120uF > 100uF (+20%)",
-              voltage: "660V AC = 660V AC (same)",
-              current: "18A > 15A (+20%)",
-              dimensions: "85mm x 160mm > 75mm x 140mm (larger)",
-              weight: "520g > 420g (heavier)"
-            },
-            reason: "Higher capacitance for larger motors (15-20 HP)",
-            useCase: "Very large industrial motors requiring 120uF",
-            link: "/electronicon/products/motor-run-capacitors/e62-m16-124-m30.html"
+        {
+          partNumber: "CA-IS3417",
+          description: "Isolated RS-485 for communication",
+          category: "Isolated Interfaces",
+          link: "/chipanalog/products/isolated-interfaces/ca-is3417.html"
+        }
+      ],
+      faqs: [
+        {
+          question: "What is the maximum sample rate of CA-IS1300?",
+          answer: "CA-IS1300 supports sample rates up to 20kSPS (samples per second). The actual sample rate is determined by the SPI clock frequency and conversion timing. At maximum rate, the device can continuously convert with 50μs conversion time. For lower noise, you can reduce the sample rate or use averaging. The device supports both single conversion mode (triggered by SPI command) and continuous conversion mode for streaming data. For most industrial applications, 1-10kSPS provides adequate bandwidth with lower noise.",
+          decisionGuide: "Select sample rate based on signal bandwidth requirements. Contact our FAE team for sampling strategy guidance.",
+          keywords: ["sample rate", "SPS", "conversion time", "continuous conversion"]
+        },
+        {
+          question: "How accurate is the integrated voltage reference?",
+          answer: "CA-IS1300's integrated voltage reference has initial accuracy of ±0.2% and temperature drift of ±10ppm/°C typical. This provides excellent accuracy over temperature without external reference components. For even higher accuracy requirements, an external precision reference can be used. The reference output is available on a pin for external use if needed. For most industrial applications, the integrated reference provides sufficient accuracy. The reference is buffered and can drive external loads up to 100μA.",
+          decisionGuide: "Integrated reference is adequate for most applications. Contact our FAE team for high-accuracy requirements.",
+          keywords: ["voltage reference", "reference accuracy", "temperature drift", "ppm"]
+        },
+        {
+          question: "Can CA-IS1300 measure bipolar signals?",
+          answer: "Yes, CA-IS1300 can measure bipolar (positive and negative) input signals. The differential input accepts input ranges from ±250mV to ±2.5V, selectable via internal programmable gain amplifier. For bipolar measurements: Use differential input mode; Connect signal between AIN+ and AIN-; Common-mode range is ±1V; and Both inputs can swing positive and negative relative to AGND. This makes CA-IS1300 suitable for AC measurements, bridge sensors, and other bipolar signal sources.",
+          decisionGuide: "Use differential mode for bipolar measurements. Contact our FAE team for input connection guidance.",
+          keywords: ["bipolar input", "differential input", "AC measurement", "input range"]
+        },
+        {
+          question: "What anti-aliasing filter should I use with CA-IS1300?",
+          answer: "CA-IS1300 is a sigma-delta ADC with internal digital filtering that provides inherent anti-aliasing. However, an external analog anti-aliasing filter is still recommended to prevent high-frequency noise from affecting the measurement. Recommended filter: Single-pole RC filter with cutoff at 1/10th of sample rate; For 10kSPS sampling, use 1kHz cutoff; Resistor: 1-10kΩ; Capacitor: Calculate C = 1/(2π × R × fc). Place filter close to ADC input. The sigma-delta architecture provides additional rejection of out-of-band signals through digital filtering.",
+          decisionGuide: "Use RC anti-aliasing filter at input. Contact our FAE team for filter design assistance.",
+          keywords: ["anti-aliasing", "RC filter", "cutoff frequency", "sigma-delta"]
+        },
+        {
+          question: "How do I calibrate CA-IS1300 for highest accuracy?",
+          answer: "CA-IS1300 can be calibrated for offset and gain errors to achieve highest accuracy. Calibration procedure: Apply known zero input (shorted inputs) and read offset; Apply known full-scale input and read gain error; Store calibration coefficients in microcontroller; Apply correction in software. Typical calibration improves accuracy to ±0.005% FS. The device has good stability over temperature, so calibration at room temperature is usually sufficient. For critical applications, consider two-point calibration at minimum and maximum operating temperatures.",
+          decisionGuide: "Perform two-point calibration for highest accuracy. Contact our FAE team for calibration procedures.",
+          keywords: ["calibration", "offset calibration", "gain calibration", "accuracy"]
+        },
+        {
+          question: "What is the power consumption of CA-IS1300?",
+          answer: "CA-IS1300 power consumption depends on operating mode and supply voltages. Typical consumption: Active conversion: 15mA at 5V (75mW); Standby mode: 2mA (10mW); Power-down mode: 50μA (0.25mW). The isolated side and non-isolated side have separate power supplies. Both sides consume similar power. For low-power applications, use power-down mode between conversions. The device powers up and stabilizes in less than 1ms, allowing duty-cycled operation for battery-powered applications.",
+          decisionGuide: "Use power-down mode for low-power applications. Contact our FAE team for power management strategies.",
+          keywords: ["power consumption", "low power", "power-down mode", "battery"]
+        }
+      ]
+    },
+    {
+      partNumber: "CA-IS1301",
+      name: "Isolated Temperature Sensor ADC",
+      shortDescription: "Isolated ADC optimized for temperature sensor interfaces with RTD and thermocouple support",
+      descriptionParagraphs: [
+        "CA-IS1301 is a specialized isolated ADC designed for temperature measurement applications. The device supports RTD (PT100/PT1000) and thermocouple inputs with built-in excitation and cold junction compensation.",
+        "With 5kVrms isolation and 20-bit effective resolution, this ADC provides accurate temperature measurements in industrial process control applications.",
+        "The integrated sensor excitation and linearization simplify temperature sensor interface design."
+      ],
+      specifications: {
+        "Resolution": "20-bit effective",
+        "Sample Rate": "Up to 10kSPS",
+        "Isolation Voltage": "5kVrms (reinforced)",
+        "Sensor Types": "RTD, Thermocouple",
+        "Excitation Current": "100μA to 1mA",
+        "Accuracy": "±0.1°C for RTD",
+        "CJC Accuracy": "±0.5°C",
+        "Package": "SOIC-20"
+      },
+      features: [
+        "Optimized for temperature sensors",
+        "RTD and thermocouple support",
+        "Built-in sensor excitation",
+        "Cold junction compensation",
+        "5kVrms reinforced isolation",
+        "20-bit effective resolution",
+        "Linearization for common sensors",
+        "SPI interface"
+      ],
+      applications: [
+        "Industrial temperature control",
+        "Process monitoring",
+        "HVAC systems",
+        "Food processing",
+        "Medical equipment",
+        "Laboratory equipment",
+        "Energy monitoring"
+      ],
+      faeReview: {
+        author: "Dr. Chen Wei",
+        title: "Senior FAE - Isolation Products",
+        content: "CA-IS1301 is purpose-built for temperature measurement applications. The integrated excitation and cold junction compensation save significant design effort compared to discrete solutions. I've used this ADC in industrial process control systems with PT100 sensors, achieving excellent accuracy. The linearization for common sensor types eliminates the need for lookup tables in software. The 5kVrms isolation is crucial for high-voltage industrial environments. For best accuracy, follow the recommended PCB layout for the sensor connections and use proper shielding.",
+        highlight: "Integrated temperature sensor interface with 5kVrms isolation"
+      },
+      alternativeParts: [
+        {
+          partNumber: "AD7124-4",
+          brand: "Analog Devices",
+          specifications: {
+            resolution: "24-bit",
+            sensors: "RTD, TC",
+            isolation: "None"
           },
-          {
-            partNumber: "E62.M16-104.M20",
-            brand: "Electronicon",
-            specifications: {
-              capacitance: "100uF",
-              voltage: "450V AC",
-              current: "12A RMS"
-            },
-            comparison: {
-              capacitance: "100uF = 100uF (same)",
-              voltage: "450V AC < 660V AC (lower)",
-              current: "12A < 15A (lower)",
-              dimensions: "65mm x 125mm < 75mm x 140mm (smaller)",
-              price: "Lower cost option"
-            },
-            reason: "Lower voltage rating for 230-380V motor applications",
-            useCase: "460V and lower motor systems where 450V rating is acceptable",
-            link: "/electronicon/products/motor-run-capacitors/e62-m16-104-m20.html"
-          }
-        ],
-        companionParts: [
-          {
-            partNumber: "Motor Protector 20A",
-            link: "#",
-            description: "Thermal overload protector for large motor protection",
-            category: "Motor Protection"
+          comparison: {
+            resolution: "20-bit < 24-bit (lower)",
+            integration: "Integrated isolation => External isolation needed",
+            features: "Similar sensor support",
+            cost: "Lower total solution cost"
           },
-          {
-            partNumber: "E62.M16-104.M30",
-            link: "/electronicon/products/motor-run-capacitors/e62-m16-104-m30.html",
-            description: "Multiple capacitors for very large motor banks",
-            category: "Motor Run Capacitors"
-          },
-          {
-            partNumber: "Start Capacitor 250-300uF",
-            link: "#",
-            description: "Motor start capacitor for large capacitor-start motors",
-            category: "Motor Capacitors"
-          },
-          {
-            partNumber: "M10 Mounting Hardware",
-            link: "#",
-            description: "Complete mounting kit for secure installation",
-            category: "Accessories"
-          },
-          {
-            partNumber: "Wiring Terminal Block 25A",
-            link: "#",
-            description: "Terminal block for high-current motor connections",
-            category: "Electrical Components"
-          }
-        ],
-        applicationScenarios: [
-          {
-            title: "15 HP Industrial Motor",
-            description: "E62.M16-104.M30 provides phase shift for efficient 15 HP industrial motor operation"
-          },
-          {
-            title: "575V Compressor Motor",
-            description: "High-voltage motor run capacitor for 575V compressor applications"
-          },
-          {
-            title: "Large Water Pump",
-            description: "Reliable motor run capacitor for continuous duty water treatment pumps"
-          }
-        ],
-        keywords: ["Electronicon E62.M16-104.M30", "100uF motor capacitor", "660V motor run capacitor"],
-        faqs: [
-          generateFAQ(
-            "What size motor is the E62.M16-104.M30 suitable for?",
-            "The E62.M16-104.M30 with 100uF capacitance is suitable for 10-15 HP (7.5-11 kW) single-phase AC motors at 460-575V. The exact motor size depends on motor design and voltage: at 460V, typically 10-12 HP; at 575V, up to 15 HP. Always verify against motor manufacturer specifications. Using incorrect capacitance causes performance issues: too low - reduced torque, overheating, hard starting; too high - excessive current, overheating, reduced efficiency. The 660V rating provides excellent margin for 575V applications. For replacement applications, match the original capacitor's uF rating exactly. Consult motor nameplate or manufacturer if unsure.",
-            "Verify your motor's voltage and power rating to confirm 100uF and 660V are appropriate for your application.",
-            ["E62.M16-104.M30 motor size", "100uF motor application", "large motor capacitor"]
-          ),
-          generateFAQ(
-            "How do I wire the E62.M16-104.M30 in a high-voltage motor circuit?",
-            "The E62.M16-104.M30 wiring follows standard motor run capacitor connections: 1) Connection - connect between line (L1) and motor auxiliary winding, 2) High Voltage Safety - use proper voltage-rated wiring and enclosures for 575V systems, 3) Protection - include overload protection sized for motor full load current, 4) Grounding - ensure motor frame is properly grounded, 5) Disconnect - provide lockable disconnect switch for maintenance. For 575V systems, ensure all components (switches, contactors, wire) are rated for the voltage. Use appropriately sized conductors per NEC or local code. The M10 stud provides secure mounting. Always follow motor wiring diagram and local electrical codes.",
-            "Follow motor wiring diagram with proper voltage-rated components for safe 575V motor installation.",
-            ["575V motor wiring", "high voltage capacitor", "E62.M16-104.M30 installation"]
-          ),
-          generateFAQ(
-            "What is the expected lifetime of the E62.M16-104.M30?",
-            "The E62.M16-104.M30 is rated for 60,000 hours lifetime at 70C hot spot temperature. For large motor run capacitors, this translates to approximately 7 years continuous or 15-20 years in typical intermittent duty. Lifetime depends on: 1) Temperature - every 10C increase reduces lifetime by 50%, 2) Voltage - sustained overvoltage accelerates aging, 3) Current - excessive current causes additional heating. The self-healing technology provides graceful aging with gradual capacitance reduction. Monitor for signs of aging: reduced motor torque, increased current, overheating. The dry-filled design eliminates oil leakage. For critical applications, implement capacitance monitoring to predict replacement needs.",
-            "Expect 10-20 year service life and implement monitoring for critical motor applications.",
-            ["E62.M16-104.M30 lifetime", "motor capacitor life", "run capacitor durability"]
-          ),
-          generateFAQ(
-            "What thermal considerations apply to the E62.M16-104.M30?",
-            "Thermal management is critical for the E62.M16-104.M30: 1) Heat Generation - 100uF at high voltage generates more heat than smaller capacitors, 2) Ventilation - ensure adequate airflow around capacitor, 3) Mounting - M10 stud mount allows heat transfer to grounded chassis, 4) Ambient - keep ambient temperature below 50C for reliable operation, 5) Monitoring - consider temperature monitoring for critical applications. Typical operating temperatures: 40-50C at 25C ambient, 60-75C at 40C ambient. If capacitor exceeds 85C hot spot temperature, reduce loading or improve cooling. The dry filling technology handles heat well but long-term exposure to high temperatures reduces lifetime.",
-            "Ensure adequate ventilation and thermal management to keep capacitor below 85C hot spot temperature.",
-            ["motor capacitor thermal", "E62.M16-104.M30 temperature", "capacitor cooling"]
-          ),
-          generateFAQ(
-            "Can the E62.M16-104.M30 be used for 480V systems?",
-            "Yes, the E62.M16-104.M30 with 660V AC rating is excellent for 480V systems. The 660V rating provides 37% margin above 480V, which is well above the typical 1.5-2x requirement. This margin accommodates voltage transients, starting surges, and provides long capacitor life. The 100uF capacitance is appropriate for 10-15 HP motors at 480V. For 480V systems, the 660V rating is the preferred choice over 450V-rated capacitors as it provides better reliability and longer life. The higher rating handles voltage spikes and brownout conditions better. For 480V motors requiring 100uF, this is an excellent, reliable choice.",
-            "The E62.M16-104.M30 is an excellent choice for 480V systems with generous voltage margin.",
-            ["480V motor capacitor", "E62.M16-104.M30 480V", "high voltage margin"]
-          ),
-          generateFAQ(
-            "How do I test the E62.M16-104.M30?",
-            "Testing the E62.M16-104.M30: 1) Safety - disconnect power, discharge capacitor with 100kOhm resistor for 30 seconds minimum, 2) Visual - check for swelling, damage, or oil signs (dry filled so none), 3) Capacitance - measure with LCR meter at 1kHz, should be 90-110uF (+/-10%), 4) ESR - measure equivalent series resistance, should be low (<0.5 ohm), 5) Insulation - check insulation resistance to case >10,000 MOhm. Capacitance below 90uF indicates aging. For in-service testing, measure motor current - high current indicates failing capacitor. Document test results for comparison over time.",
-            "Use capacitance meter to verify 100uF value and inspect for physical condition.",
-            ["E62.M16-104.M30 testing", "motor capacitor test", "capacitor verification"]
-          )
-        ]
-      }
-    ]
-  }
-];
+          reason: "Integrated isolation simplifies design",
+          useCase: "Isolated temperature measurement",
+          link: "#"
+        }
+      ],
+      companionParts: [
+        {
+          partNumber: "CA-IS1300",
+          description: "General purpose isolated ADC",
+          category: "Isolated ADCs",
+          link: "/chipanalog/products/isolated-adcs/ca-is1300.html"
+        },
+        {
+          partNumber: "CA-IS3740",
+          description: "Digital isolator for control",
+          category: "Digital Isolators",
+          link: "/chipanalog/products/digital-isolators/ca-is3740.html"
+        },
+        {
+          partNumber: "CA-IS3417",
+          description: "Isolated RS-485 for networking",
+          category: "Isolated Interfaces",
+          link: "/chipanalog/products/isolated-interfaces/ca-is3417.html"
+        }
+      ],
+      faqs: [
+        {
+          question: "What types of temperature sensors does CA-IS1301 support?",
+          answer: "CA-IS1301 supports multiple temperature sensor types: RTDs (PT100, PT1000, PT500) with 2, 3, or 4-wire configurations; Thermocouples (J, K, T, E, N, S, R, B types) with cold junction compensation; Thermistors (NTC and PTC); and Other resistive temperature sensors. The device provides configurable excitation current and gain settings to optimize for each sensor type. Built-in linearization tables for common sensors simplify software development.",
+          decisionGuide: "Select sensor type in configuration. Contact our FAE team for sensor interface design.",
+          keywords: ["temperature sensors", "RTD", "thermocouple", "PT100"]
+        },
+        {
+          question: "How accurate is the cold junction compensation?",
+          answer: "CA-IS1301's integrated cold junction compensation (CJC) for thermocouples has typical accuracy of ±0.5°C over the operating temperature range. The CJC uses an internal temperature sensor located near the thermocouple connection terminals. For highest accuracy: Keep thermocouple connection terminals at uniform temperature; Minimize thermal gradients near terminals; and Consider external CJC for extreme accuracy requirements. The ±0.5°C CJC accuracy is adequate for most industrial applications with standard thermocouple types.",
+          decisionGuide: "Integrated CJC is adequate for most applications. Contact our FAE team for high-accuracy CJC options.",
+          keywords: ["cold junction compensation", "CJC accuracy", "thermocouple"]
+        },
+        {
+          question: "What is lead compensation for RTD measurements?",
+          answer: "Lead compensation eliminates errors from lead wire resistance in RTD measurements. CA-IS1301 supports 2-wire, 3-wire, and 4-wire RTD configurations: 2-wire: No compensation, includes lead resistance in measurement; 3-wire: Compensates for lead resistance assuming equal lead lengths; 4-wire: Kelvin connection eliminates lead resistance completely. For 3-wire configuration, the device measures lead resistance and subtracts it from the measurement. 4-wire provides highest accuracy but requires more wiring. 3-wire offers good accuracy with reasonable wiring complexity.",
+          decisionGuide: "Use 3-wire for most applications. Use 4-wire for highest accuracy. Contact our FAE team for RTD connection guidance.",
+          keywords: ["lead compensation", "3-wire RTD", "4-wire RTD", "Kelvin connection"]
+        },
+        {
+          question: "How do I convert ADC readings to temperature?",
+          answer: "CA-IS1301 provides ADC readings that need conversion to temperature. For RTDs: Use Callendar-Van Dusen equation or lookup table; Device provides resistance value directly; Calculate temperature from resistance. For thermocouples: Use NIST polynomial coefficients or lookup table; Device provides voltage with CJC applied; Calculate temperature from voltage. The device includes built-in linearization for common sensors, providing direct temperature output in some modes. Software libraries are available to simplify conversion.",
+          decisionGuide: "Use built-in linearization or software conversion. Contact our FAE team for conversion software.",
+          keywords: ["temperature conversion", "Callendar-Van Dusen", "NIST polynomial"]
+        },
+        {
+          question: "What update rate can I achieve for temperature monitoring?",
+          answer: "CA-IS1301 supports temperature update rates up to 10kSPS, but practical rates are lower due to sensor settling time. Typical update rates: Fast monitoring: 10-100 samples/second; Standard process control: 1-10 samples/second; Slow processes: 0.1-1 samples/second. Temperature sensors have thermal mass that limits how fast temperature changes can be measured. For most industrial processes, 1-10 samples/second provides adequate response. Higher rates may be needed for fast thermal control loops.",
+          decisionGuide: "Select update rate based on process dynamics. Contact our FAE team for sampling strategy.",
+          keywords: ["update rate", "sampling rate", "temperature monitoring"]
+        },
+        {
+          question: "Can CA-IS1301 measure multiple temperature sensors?",
+          answer: "CA-IS1301 supports single sensor measurement per device. For multiple sensors, options include: Using multiple CA-IS1301 devices (one per sensor); Using external multiplexer with single CA-IS1301; or Using CA-IS1300 for multiplexed applications. Each CA-IS1301 provides isolated measurement for one sensor. For systems with multiple sensors, consider the trade-off between: Multiple isolated ADCs (higher cost, simpler design); or Multiplexed single ADC (lower cost, more complex). For critical measurements, individual isolation per sensor provides best reliability.",
+          decisionGuide: "Use multiple devices for critical measurements. Contact our FAE team for multi-sensor solutions.",
+          keywords: ["multiple sensors", "multiplexer", "multi-channel"]
+        }
+      ]
+    }
+  ]
+};
 
-// Add the remaining categories
-productsData.categories = [...productsData.categories, ...remainingCategories];
+products.categories.push(category3);
 
-// Write updated products.json
-fs.writeFileSync(productsPath, JSON.stringify(productsData, null, 2));
-console.log('Added Snubber Capacitors and Motor Run Capacitors categories');
-console.log('Total categories now: ' + productsData.categories.length);
-console.log('Categories: ' + productsData.categories.map(c => c.name).join(', '));
+// Category 4: Isolated Interfaces
+const category4 = {
+  id: "isolated-interfaces",
+  name: "Isolated Interfaces",
+  slug: "chipanalog-isolated-interfaces",
+  description: "Isolated communication interfaces including CAN, RS-485, and I2C for robust industrial communication.",
+  longDescription: "Chipanalog's isolated interface portfolio, available through LiTong distributor, provides robust communication solutions with selection guide support for industrial networks. The product line includes isolated CAN transceivers, isolated RS-485/RS-422 transceivers, and isolated I2C interfaces. These devices combine standard communication protocols with robust isolation for reliable operation in harsh industrial environments.",
+  image: "/assets/brands/chipanalog/isolated-interfaces.jpg",
+  parameters: ["Protocol", "Data Rate", "Isolation Voltage", "Bus Protection", "Package"],
+  series: [
+    {
+      name: "CA-IS34xx Series",
+      description: "Isolated CAN and RS-485 transceivers",
+      features: ["5kVrms isolation", "High speed", "Bus protection", "Fault-tolerant"]
+    }
+  ],
+  selectionGuide: {
+    title: "Isolated Interface Selection Guide",
+    content: "How to select the right isolated interface for your application",
+    factors: ["Communication protocol", "Data rate requirements", "Bus length", "Isolation level", "Protection requirements"],
+    recommendations: ["CA-IS3417 for isolated RS-485", "CA-IS3430 for isolated CAN"]
+  },
+  selectionGuideLink: {
+    url: "/chipanalog/support/isolated-interface-selection",
+    text: "How to select the right Chipanalog isolated interface?",
+    articleTitle: "Isolated Interface Selection Guide",
+    description: "Comprehensive guide for selecting Chipanalog isolated interfaces"
+  },
+  faqs: [
+    {
+      question: "Why do I need isolated communication interfaces?",
+      answer: "Isolated communication interfaces provide several benefits: Protection against ground loops and common-mode voltage differences; Immunity to electrical noise in industrial environments; Safety isolation between high-voltage and low-voltage circuits; Protection from lightning and surge transients; and Reliable communication over long distances. In industrial systems, different nodes may have significant ground potential differences. Isolation prevents these differences from affecting communication and protects sensitive control electronics.",
+      decisionGuide: "Use isolated interfaces for industrial networks or long-distance communication. Contact our FAE team for interface selection.",
+      keywords: ["isolated interface benefits", "ground loops", "common mode voltage"]
+    },
+    {
+      question: "What is the difference between isolated and non-isolated CAN?",
+      answer: "Non-isolated CAN uses a single transceiver connected directly to the bus. Isolated CAN adds a digital isolator between the CAN controller and transceiver, plus isolated power supplies. Key differences: Isolated CAN eliminates ground loops between nodes; Isolated CAN provides protection against high-voltage transients; Isolated CAN requires separate isolated power for the transceiver side; and Isolated CAN has slightly higher cost but much better reliability. For industrial applications with multiple nodes or long bus lengths, isolated CAN is strongly recommended.",
+      decisionGuide: "Use isolated CAN for multi-node industrial networks. Contact our FAE team for CAN design guidance.",
+      keywords: ["isolated CAN", "CAN bus", "ground loop", "transceiver"]
+    },
+    {
+      question: "How do I power an isolated CAN transceiver?",
+      answer: "Isolated CAN transceivers require two power supplies: VCC1 (logic side): 3.3V or 5V for CAN controller interface; VCC2 (bus side): 5V for CAN transceiver, isolated from VCC1. Options for isolated VCC2: Use isolated DC-DC converter module; Use CA-IS37xx with integrated DC-DC; or Use transformer-coupled isolated supply. The isolated supply must provide sufficient current for the transceiver (typically 50-100mA). Place decoupling capacitors (0.1μF + 1μF) close to VCC2 pin.",
+      decisionGuide: "Use integrated DC-DC for simple designs. Contact our FAE team for isolated power solutions.",
+      keywords: ["isolated power", "CAN power supply", "VCC2", "DC-DC converter"]
+    },
+    {
+      question: "What bus protection features are important?",
+      answer: "Important bus protection features for isolated interfaces: ESD protection (>8kV contact discharge); Overvoltage protection (±58V for RS-485); Short-circuit protection (current limiting); Thermal shutdown (overtemperature protection); and Fail-safe features (defined output during faults). Chipanalog isolated interfaces include comprehensive protection: ±16kV ESD protection; ±58V fault protection on bus pins; Current limiting and thermal protection; and Open-circuit and short-circuit fail-safe. These protections ensure reliable operation in harsh industrial environments.",
+      decisionGuide: "Select interfaces with comprehensive protection. Contact our FAE team for protection requirements.",
+          keywords: ["bus protection", "ESD protection", "fault protection", "fail-safe"]
+    },
+    {
+      question: "Can isolated interfaces operate at standard data rates?",
+      answer: "Yes, isolated interfaces support standard data rates: Isolated CAN: Up to 1Mbps (CAN 2.0B) or 5Mbps (CAN FD); Isolated RS-485: Up to 20Mbps or higher; Isolated I2C: Up to 1MHz Fast Mode Plus. The isolation barrier adds minimal delay (typically 10-20ns), which is negligible compared to bit times at standard rates. For example, at 1Mbps CAN, bit time is 1μs, so 20ns isolation delay is only 2% of bit time. Isolated interfaces are fully compatible with non-isolated devices on the same bus.",
+      decisionGuide: "Isolated interfaces support standard rates. Contact our FAE team for high-speed applications.",
+      keywords: ["data rate", "CAN speed", "RS-485 speed", "Mbps"]
+    }
+  ],
+  products: [
+    {
+      partNumber: "CA-IS3417",
+      name: "Isolated RS-485 Transceiver",
+      shortDescription: "Isolated RS-485 transceiver with 5kVrms isolation, 20Mbps data rate, and comprehensive bus protection for industrial networks",
+      descriptionParagraphs: [
+        "CA-IS3417 is a high-performance isolated RS-485 transceiver featuring reinforced isolation rated at 5kVrms. The device combines a digital isolator with a robust RS-485 transceiver in a single package.",
+        "With data rates up to 20Mbps and comprehensive bus protection, this transceiver is ideal for industrial automation, building control, and motor drive applications.",
+        "The device includes fail-safe features, thermal protection, and ESD protection for reliable operation in harsh environments."
+      ],
+      specifications: {
+        "Protocol": "RS-485/RS-422",
+        "Isolation Voltage": "5kVrms (reinforced)",
+        "Data Rate": "Up to 20Mbps",
+        "Bus Protection": "±16kV ESD, ±58V fault",
+        "Nodes on Bus": "Up to 256",
+        "Supply Voltage": "3.3V or 5V (logic side)",
+        "Isolated Supply": "3.3V or 5V",
+        "Package": "SOIC-16, QSOP-16"
+      },
+      features: [
+        "5kVrms reinforced isolation",
+        "High speed up to 20Mbps",
+        "±16kV ESD protection",
+        "±58V fault protection",
+        "Fail-safe receiver inputs",
+        "Current limiting and thermal protection",
+        "Open-circuit, short-circuit fail-safe",
+        "Low power shutdown mode"
+      ],
+      applications: [
+        "Industrial automation",
+        "Building control systems",
+        "Motor drives",
+        "Power monitoring",
+        "HVAC systems",
+        "Security systems",
+        "Process control"
+      ],
+      faeReview: {
+        author: "Dr. Chen Wei",
+        title: "Senior FAE - Isolation Products",
+        content: "CA-IS3417 is an excellent isolated RS-485 solution for industrial networks. The integration of isolation and transceiver in one package saves significant board space compared to discrete solutions. I've used this part in building automation systems with long bus runs and multiple nodes. The high CMTI ensures reliable communication even with motor drives on the same power system. The comprehensive protection features prevent damage from wiring faults and transients. For best EMC performance, I recommend proper termination at both bus ends and using shielded twisted pair cable.",
+        highlight: "Integrated isolated RS-485 with comprehensive protection"
+      },
+      alternativeParts: [
+        {
+          partNumber: "ISO1410",
+          brand: "Texas Instruments",
+          specifications: {
+            isolation: "5kVrms",
+            rate: "10Mbps",
+            esd: "16kV"
+          },
+          comparison: {
+            isolation: "5kVrms = 5kVrms (same)",
+            rate: "20Mbps > 10Mbps (faster)",
+            esd: "16kV = 16kV (same)",
+            cost: "Lower cost than TI"
+          },
+          reason: "Higher speed at lower cost",
+          useCase: "Cost-effective isolated RS-485",
+          link: "#"
+        },
+        {
+          partNumber: "ADM2587E",
+          brand: "Analog Devices",
+          specifications: {
+            isolation: "2.5kVrms",
+            rate: "500kbps",
+            power: "Integrated"
+          },
+          comparison: {
+            isolation: "5kVrms > 2.5kVrms (better)",
+            rate: "20Mbps > 500kbps (much faster)",
+            power: "External isolated supply",
+            cost: "Lower cost"
+          },
+          reason: "Higher isolation and speed",
+          useCase: "High-performance isolated RS-485",
+          link: "#"
+        }
+      ],
+      companionParts: [
+        {
+          partNumber: "CA-IS3740",
+          description: "Digital isolator for additional signals",
+          category: "Digital Isolators",
+          link: "/chipanalog/products/digital-isolators/ca-is3740.html"
+        },
+        {
+          partNumber: "CA-IS3430",
+          description: "Isolated CAN transceiver",
+          category: "Isolated Interfaces",
+          link: "/chipanalog/products/isolated-interfaces/ca-is3430.html"
+        },
+        {
+          partNumber: "CA-IS3760",
+          description: "Isolator with DC-DC for power",
+          category: "Digital Isolators",
+          link: "/chipanalog/products/digital-isolators/ca-is3760.html"
+        }
+      ],
+      faqs: [
+        {
+          question: "What is the maximum bus length for CA-IS3417?",
+          answer: "CA-IS3417 supports RS-485 bus lengths up to 1200 meters (4000 feet) at lower data rates. Maximum length vs data rate: 1200m at 100kbps; 600m at 1Mbps; 150m at 10Mbps; 50m at 20Mbps. These are typical values - actual maximum depends on cable quality, termination, and noise environment. Use shielded twisted pair cable (120Ω characteristic impedance) for best performance. Terminate the bus at both ends with 120Ω resistors. For long buses, use proper grounding to avoid ground loops.",
+          decisionGuide: "Follow RS-485 length guidelines based on data rate. Contact our FAE team for network design.",
+          keywords: ["bus length", "maximum distance", "RS-485 cable", "termination"]
+        },
+        {
+          question: "How many nodes can be connected to a CA-IS3417 network?",
+          answer: "CA-IS3417 supports up to 256 nodes on a single RS-485 bus. This is determined by the unit load of each transceiver. Standard RS-485 allows 32 unit loads (32 standard transceivers). CA-IS3417 is 1/8 unit load, allowing 8× more nodes (256). For networks with mixed transceivers: Calculate total unit loads (1 unit load per standard, 1/8 per CA-IS3417); Keep total ≤ 32 unit loads; and Use repeaters for larger networks. In practice, 256 nodes is the theoretical maximum - practical limits may be lower due to cable capacitance and power dissipation.",
+          decisionGuide: "Up to 256 CA-IS3417 nodes per bus. Contact our FAE team for large network design.",
+          keywords: ["node count", "unit load", "256 nodes", "network size"]
+        },
+        {
+          question: "What is the fail-safe feature in CA-IS3417?",
+          answer: "CA-IS3417 includes multiple fail-safe features: Open-circuit fail-safe: Receiver outputs high (inactive) if bus is open; Short-circuit fail-safe: Receiver outputs high if bus is shorted; Idle-bus fail-safe: Receiver outputs high if no driver is active; and Full fail-safe: No external bias resistors needed. These features ensure the receiver is in a known state (logic high) during fault conditions, preventing false triggering. Traditional RS-485 requires external bias resistors for fail-safe operation. CA-IS3417's integrated fail-safe simplifies design and improves reliability.",
+          decisionGuide: "Fail-safe is automatic, no external components needed. Contact our FAE team for fail-safe operation details.",
+          keywords: ["fail-safe", "open circuit", "short circuit", "bias resistors"]
+        },
+        {
+          question: "How do I terminate an RS-485 bus with CA-IS3417?",
+          answer: "Proper RS-485 termination is essential for reliable communication: Place 120Ω termination resistors at both ends of the bus only; Do not place termination at intermediate nodes; Use resistors matching cable characteristic impedance (typically 120Ω); For long buses, use termination at both ends; For short buses (<100m at low speed), termination may be optional. CA-IS3417 has high input impedance (1/8 unit load), so termination current is minimal. Biasing resistors are not needed due to integrated fail-safe. Proper termination prevents signal reflections that cause data errors.",
+          decisionGuide: "Use 120Ω termination at both bus ends. Contact our FAE team for termination guidelines.",
+          keywords: ["termination", "120 ohm", "bus termination", "reflections"]
+        },
+        {
+          question: "Can CA-IS3417 be used in multi-master RS-485 networks?",
+          answer: "Yes, CA-IS3417 supports multi-master (peer-to-peer) RS-485 networks where any node can initiate communication. For multi-master operation: Use RS-485 transceivers with driver enable control; Implement collision detection in software; Use appropriate protocol (Modbus RTU, custom protocol); and Handle bus arbitration. CA-IS3417 has separate driver enable (DE) and receiver enable (RE) pins for flexible control. The high CMTI ensures reliable operation even when multiple drivers switch simultaneously during collisions.",
+          decisionGuide: "CA-IS3417 supports multi-master with proper protocol. Contact our FAE team for multi-master design.",
+          keywords: ["multi-master", "peer-to-peer", "bus arbitration", "collision detection"]
+        },
+        {
+          question: "What cable should I use for RS-485 with CA-IS3417?",
+          answer: "Recommended cable for RS-485 with CA-IS3417: Type: Shielded twisted pair (STP); Characteristic impedance: 120Ω (matches termination); Wire gauge: 24-26 AWG for typical distances; Shield: Overall foil or braid shield; Twist rate: Regular twisting for noise rejection. Recommended cables: Belden 3109A, 9841; Alpha Wire 5413; or equivalent industrial RS-485 cable. For long distances or high noise environments, use cable with higher shield coverage. Avoid running RS-485 cables parallel to high-voltage power cables.",
+          decisionGuide: "Use 120Ω STP cable for best performance. Contact our FAE team for cable recommendations.",
+          keywords: ["RS-485 cable", "twisted pair", "120 ohm", "shielded cable"]
+        }
+      ]
+    },
+    {
+      partNumber: "CA-IS3430",
+      name: "Isolated CAN Transceiver",
+      shortDescription: "Isolated CAN transceiver with 5kVrms isolation, CAN FD support up to 5Mbps, and comprehensive fault protection",
+      descriptionParagraphs: [
+        "CA-IS3430 is a high-performance isolated CAN transceiver featuring reinforced isolation rated at 5kVrms. The device supports both classic CAN (up to 1Mbps) and CAN FD (up to 5Mbps).",
+        "With comprehensive fault protection and high CMTI, this transceiver is ideal for automotive and industrial CAN networks requiring isolation.",
+        "The device includes dominant timeout protection, thermal shutdown, and ESD protection for reliable operation in harsh environments."
+      ],
+      specifications: {
+        "Protocol": "CAN 2.0B, CAN FD",
+        "Isolation Voltage": "5kVrms (reinforced)",
+        "CAN FD Data Rate": "Up to 5Mbps",
+        "Classic CAN Rate": "Up to 1Mbps",
+        "Bus Protection": "±16kV ESD, ±58V fault",
+        "CMTI": ">100kV/μs",
+        "Supply Voltage": "3.3V or 5V (logic side)",
+        "Package": "SOIC-16, QSOP-16"
+      },
+      features: [
+        "5kVrms reinforced isolation",
+        "CAN FD support up to 5Mbps",
+        "Classic CAN compatible",
+        "±16kV ESD protection",
+        "±58V fault protection",
+        "Dominant timeout protection",
+        "Thermal shutdown",
+        "Low power standby mode"
+      ],
+      applications: [
+        "Automotive CAN networks",
+        "Industrial automation",
+        "Battery management systems",
+        "Motor drives",
+        "Charging stations",
+        "Medical equipment",
+        "Aerospace systems"
+      ],
+      faeReview: {
+        author: "Dr. Chen Wei",
+        title: "Senior FAE - Isolation Products",
+        content: "CA-IS3430 is an excellent isolated CAN solution for both automotive and industrial applications. The CAN FD support up to 5Mbps is essential for modern automotive networks requiring higher bandwidth. I've used this part in BMS applications where isolation is critical for safety. The high CMTI ensures reliable communication in noisy EV environments. The device is fully compatible with standard CAN controllers and works seamlessly with other CAN transceivers on the bus. For automotive applications, the device meets AEC-Q100 requirements. I recommend proper termination (120Ω at both ends) and using twisted pair cable for best EMC performance.",
+        highlight: "CAN FD support with 5kVrms isolation for automotive and industrial"
+      },
+      alternativeParts: [
+        {
+          partNumber: "ISO1042",
+          brand: "Texas Instruments",
+          specifications: {
+            isolation: "5kVrms",
+            canfd: "5Mbps",
+            aec: "AEC-Q100"
+          },
+          comparison: {
+            isolation: "5kVrms = 5kVrms (same)",
+            canfd: "5Mbps = 5Mbps (same)",
+            cmti: "100kV/us similar",
+            cost: "Lower cost than TI"
+          },
+          reason: "Equivalent performance at lower cost",
+          useCase: "Cost-effective isolated CAN FD",
+          link: "#"
+        }
+      ],
+      companionParts: [
+        {
+          partNumber: "CA-IS3417",
+          description: "Isolated RS-485 for alternative interface",
+          category: "Isolated Interfaces",
+          link: "/chipanalog/products/isolated-interfaces/ca-is3417.html"
+        },
+        {
+          partNumber: "CA-IS3740",
+          description: "Digital isolator for additional signals",
+          category: "Digital Isolators",
+          link: "/chipanalog/products/digital-isolators/ca-is3740.html"
+        },
+        {
+          partNumber: "CA-IS3760",
+          description: "Isolator with DC-DC for isolated power",
+          category: "Digital Isolators",
+          link: "/chipanalog/products/digital-isolators/ca-is3760.html"
+        }
+      ],
+      faqs: [
+        {
+          question: "What is the difference between CAN 2.0 and CAN FD?",
+          answer: "CAN FD (Flexible Data-rate) is an enhanced version of CAN 2.0: Data rate: CAN 2.0 limited to 1Mbps; CAN FD supports up to 5Mbps or higher; Data length: CAN 2.0 max 8 bytes per frame; CAN FD supports up to 64 bytes; Frame format: CAN FD uses modified frame format with extra bits; Compatibility: CAN FD controllers can communicate with CAN 2.0 nodes (at 2.0 speeds). CA-IS3430 supports both protocols. For mixed networks, CAN FD nodes fall back to CAN 2.0 mode when communicating with legacy nodes. CAN FD is increasingly adopted in automotive for higher bandwidth.",
+          decisionGuide: "Use CAN FD for new designs requiring higher bandwidth. Contact our FAE team for CAN FD migration.",
+          keywords: ["CAN FD", "CAN 2.0", "flexible data rate", "bandwidth"]
+        },
+        {
+          question: "How do I terminate a CAN bus with CA-IS3430?",
+          answer: "CAN bus termination differs from RS-485: Use 120Ω termination at both ends of the bus; Use split termination (two 60Ω resistors with capacitor to ground) for better EMI; Do not place termination at intermediate nodes; For short buses (<10 nodes, <10m), single termination may work. Split termination: Two 60Ω resistors in series between CANH and CANL; Center tap connected to ground through 4.7nF capacitor; Provides better common-mode filtering. CA-IS3430 works with both standard and split termination. Proper termination is critical for reliable CAN communication.",
+          decisionGuide: "Use 120Ω or split termination at both bus ends. Contact our FAE team for CAN termination guidelines.",
+          keywords: ["CAN termination", "120 ohm", "split termination", "EMI"]
+        },
+        {
+          question: "What is dominant timeout protection in CA-IS3430?",
+          answer: "Dominant timeout protection prevents permanent bus lockup if a faulty node holds the bus dominant (logic low). If the bus is dominant for longer than timeout period (typically 1-3ms), the driver is disabled, releasing the bus. This protects against: Faulty transceivers stuck in dominant state; Software errors keeping transmitter enabled; and Wiring faults causing permanent dominant condition. After timeout, the driver can be re-enabled by toggling the TXD pin. This feature is required for CAN standards compliance and ensures bus recovery from fault conditions.",
+          decisionGuide: "Dominant timeout is automatic protection. Contact our FAE team for fault protection details.",
+          keywords: ["dominant timeout", "bus lockup", "fault protection", "TXD"]
+        },
+        {
+          question: "Can CA-IS3430 be used in 3.3V systems?",
+          answer: "Yes, CA-IS3430 supports both 3.3V and 5V logic levels on the controller side (VCC1). The logic I/O pins (TXD, RXD, STB) are 3.3V and 5V compatible. The isolated side (VCC2) should be 5V for proper CAN bus levels (CANH = 3.5V, CANL = 1.5V dominant). For 3.3V microcontroller systems: Connect VCC1 to 3.3V; Connect VCC2 to 5V (isolated); and Logic levels are automatically compatible. This makes CA-IS3430 ideal for modern 3.3V microcontroller-based systems while maintaining standard CAN bus voltage levels.",
+          decisionGuide: "CA-IS3430 works with 3.3V and 5V logic. Contact our FAE team for mixed-voltage design.",
+          keywords: ["3.3V CAN", "logic levels", "VCC1", "mixed voltage"]
+        },
+        {
+          question: "What is the maximum number of nodes in a CAN network with CA-IS3430?",
+          answer: "Theoretical maximum for CAN networks is determined by the electrical load: Standard CAN allows up to 32 nodes (assuming 1 unit load each); CA-IS3430 is less than 1 unit load, allowing more nodes; Practical maximum is typically 64-110 nodes depending on transceiver loading; Bus length and data rate also limit node count. For large networks: Use low-unit-load transceivers like CA-IS3430; Keep bus length within specifications; Use proper termination; and Consider CAN bridges/routers for very large networks. Most automotive and industrial networks have 8-32 nodes.",
+          decisionGuide: "CA-IS3430 supports large networks. Contact our FAE team for network sizing.",
+          keywords: ["CAN node count", "unit load", "network size", "large networks"]
+        },
+        {
+          question: "How do I handle ground loops in isolated CAN networks?",
+          answer: "CA-IS3430's integrated isolation eliminates ground loops between nodes. Each node has: Local ground reference for controller side; Isolated ground for CAN bus side; and No DC connection between grounds. This allows nodes with different ground potentials to communicate without issues. For the entire network: Connect CAN_GND at each node to local system ground; Do not connect CAN_GND between nodes (isolation prevents this); Use shielded cable with shield grounded at one end; and Isolation barrier handles common-mode voltage differences. This topology prevents ground loop currents while maintaining signal integrity.",
+          decisionGuide: "Isolation eliminates ground loops automatically. Contact our FAE team for CAN grounding guidelines.",
+          keywords: ["ground loops", "isolated CAN", "CAN grounding", "common mode"]
+        }
+      ]
+    }
+  ]
+};
+
+products.categories.push(category4);
+
+// Save file
+fs.writeFileSync(productsPath, JSON.stringify(products, null, 2), 'utf8');
+console.log('✅ Added categories 3 and 4 (Isolated ADCs and Isolated Interfaces)');

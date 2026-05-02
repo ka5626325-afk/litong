@@ -81,7 +81,7 @@
         "RAM",
         "Operating Voltage",
         "Temperature Range",
-        "Package"
+        "Functional Safety"
       ],
       "applications": [
         "Body Control Modules",
@@ -170,7 +170,8 @@
             "RAM": "16KB with ECC",
             "Operating Voltage": "2.7V to 5.5V",
             "Temperature Range": "-40°C to +125°C (AEC-Q100 Grade 1)",
-            "Package": "LQFP-64, QFN-48"
+            "Package": "LQFP-64, QFN-48",
+            "Functional Safety": "N/A"
           },
           "features": [
             "ARM Cortex-M0+ processor up to 48MHz",
@@ -460,6 +461,314 @@
               ]
             }
           ]
+        },
+        {
+          "partNumber": "AC78014",
+          "name": "Automotive MCU with 256KB Flash",
+          "shortDescription": "AEC-Q100 qualified automotive MCU with Cortex-M0+ core, 256KB Flash for complex body control applications",
+          "descriptionParagraphs": [
+            "The AC78014 is a high-performance automotive microcontroller featuring ARM Cortex-M0+ processor with expanded memory for complex applications.",
+            "With 256KB Flash memory, 32KB RAM, and AEC-Q100 Grade 1 qualification, it is ideal for advanced body control and gateway applications.",
+            "The device includes dual CAN-FD interfaces, enhanced motor control timers, and advanced security features."
+          ],
+          "specifications": {
+            "Core": "ARM Cortex-M0+ up to 48MHz",
+            "Flash Memory": "256KB with ECC",
+            "RAM": "32KB with ECC",
+            "Operating Voltage": "2.7V to 5.5V",
+            "Temperature Range": "-40°C to +125°C (AEC-Q100 Grade 1)",
+            "Package": "LQFP-80, QFN-64",
+            "Functional Safety": "N/A"
+          },
+          "features": [
+            "ARM Cortex-M0+ processor up to 48MHz",
+            "256KB Flash memory with ECC protection",
+            "32KB SRAM with ECC protection",
+            "Dual CAN-FD interfaces for gateway applications",
+            "LIN interface for body electronics",
+            "12-bit ADC with up to 24 channels",
+            "Advanced motor control timers with PWM",
+            "Hardware security module (HSM)"
+          ],
+          "applications": [
+            "Gateway control modules",
+            "Advanced body control modules",
+            "HVAC control systems",
+            "Lighting control",
+            "Seat and mirror control"
+          ],
+          "faeReview": {
+            "author": "Dr. Michael Chen",
+            "title": "Principal FAE - Automotive Electronics",
+            "content": "The AC78014 is an excellent choice for gateway and complex body control applications requiring more memory and communication interfaces. The dual CAN-FD interfaces enable seamless integration as a gateway between different vehicle networks. The 256KB Flash provides ample space for complex software stacks including communication protocols and diagnostic services. I have successfully used this MCU in gateway applications connecting body control networks with powertrain networks. The hardware security module is valuable for secure firmware updates and authentication. The enhanced motor control peripherals support complex HVAC damper control applications. Overall, this MCU offers excellent value for mid-range automotive applications requiring more resources than the AC78013.",
+            "highlight": "Gateway-ready MCU with dual CAN-FD and enhanced memory for complex automotive applications"
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "S9KEA256",
+              "brand": "NXP",
+              "specifications": {
+                "core": "Cortex-M0+",
+                "flash": "256KB",
+                "ram": "32KB",
+                "temperature": "-40 to +125°C"
+              },
+              "comparison": {
+                "core": "Cortex-M0+ = Cortex-M0+ (same)",
+                "flash": "256KB = 256KB (same)",
+                "ram": "32KB = 32KB (same)",
+                "price": "成本higher"
+              },
+              "reason": "NXP offers similar performance but at higher price point",
+              "useCase": "Applications requiring NXP ecosystem compatibility",
+              "link": "#"
+            },
+            {
+              "partNumber": "S9KEA128",
+              "brand": "NXP",
+              "specifications": {
+                "core": "Cortex-M0+",
+                "flash": "128KB",
+                "ram": "16KB",
+                "temperature": "-40 to +125°C"
+              },
+              "comparison": {
+                "core": "Cortex-M0+ = Cortex-M0+ (same)",
+                "flash": "128KB < 256KB (less)",
+                "ram": "16KB < 32KB (less)",
+                "price": "lower cost"
+              },
+              "reason": "NXP offers lower memory option at reduced price",
+              "useCase": "Applications requiring NXP ecosystem with lower memory",
+              "link": "#"
+            }
+          ],
+          "companionParts": [
+            {
+              "partNumber": "AC78013",
+              "link": "/autochips/products/automotive-mcus/ac78013.html",
+              "description": "Lower memory version for cost-sensitive applications",
+              "category": "Automotive MCUs"
+            },
+            {
+              "partNumber": "AC7801-LDO",
+              "link": "/autochips/products/power-management-ics/ac7801-ldo.html",
+              "description": "Dedicated PMIC for MCU power supply",
+              "category": "Power Management ICs"
+            },
+            {
+              "partNumber": "AC7840-PMIC",
+              "link": "/autochips/products/power-management-ics/ac7840-pmic.html",
+              "description": "Safety PMIC for redundant power supply",
+              "category": "Power Management ICs"
+            }
+          ],
+          "faqs": [
+            {
+              "question": "What is the difference between AC78013 and AC78014?",
+              "answer": "The AC78014 is an enhanced version of AC78013 with double the Flash memory (256KB vs 128KB) and RAM (32KB vs 16KB). It also adds a second CAN-FD interface for gateway applications and includes a hardware security module. The AC78014 is ideal for more complex applications requiring additional memory, dual CAN networks, or security features. Both devices share the same Cortex-M0+ core and peripheral architecture, enabling easy software migration.",
+              "decisionGuide": "Select AC78014 for gateway applications or when additional memory is needed. Use AC78013 for cost-sensitive single-network applications.",
+              "keywords": [
+                "AC78014 vs AC78013",
+                "automotive MCU comparison",
+                "gateway MCU"
+              ]
+            },
+            {
+              "question": "What is the purpose of the hardware security module (HSM)?",
+              "answer": "The hardware security module provides cryptographic acceleration and secure key storage for automotive security applications. It supports secure boot, firmware authentication, and encrypted communication. The HSM protects against unauthorized firmware updates and ensures system integrity. This is essential for modern automotive ECUs that require cybersecurity compliance.",
+              "decisionGuide": "Use HSM features for applications requiring secure boot or firmware protection.",
+              "keywords": [
+                "hardware security module",
+                "secure boot",
+                "automotive cybersecurity"
+              ]
+            },
+            {
+              "question": "Can AC78014 operate in gateway applications?",
+              "answer": "Yes, the AC78014 is specifically designed for gateway applications with its dual CAN-FD interfaces. The two independent CAN controllers can operate on separate networks with different baud rates. The 256KB Flash provides space for protocol conversion software. The Cortex-M0+ core handles routing between networks efficiently. Gateway applications benefit from the hardware security features for secure communication.",
+              "decisionGuide": "AC78014 is ideal for gateway applications connecting multiple vehicle networks.",
+              "keywords": [
+                "gateway application",
+                "CAN-FD gateway",
+                "network routing"
+              ]
+            },
+            {
+              "question": "What development tools are supported for AC78014?",
+              "answer": "The AC78014 supports industry-standard ARM development tools including Keil MDK, IAR Embedded Workbench, and GCC-based toolchains. AutoChips provides device-specific drivers, example code, and application notes. The MCAL drivers support AUTOSAR integration. Debug support includes JTAG and SWD interfaces compatible with popular debuggers.",
+              "decisionGuide": "Use familiar ARM toolchain. AutoChips provides comprehensive software support.",
+              "keywords": [
+                "development tools",
+                "Keil IAR",
+                "AUTOSAR MCAL"
+              ]
+            },
+            {
+              "question": "What is the ECC protection and why is it important?",
+              "answer": "Error Correction Code (ECC) protection detects and corrects single-bit errors in Flash and RAM. This is critical for automotive safety applications where data integrity is essential. The ECC hardware automatically corrects errors without software intervention. This improves system reliability and helps meet functional safety requirements.",
+              "decisionGuide": "ECC protection is essential for safety-critical automotive applications.",
+              "keywords": [
+                "ECC protection",
+                "error correction",
+                "functional safety"
+              ]
+            }
+          ]
+        },
+        {
+          "partNumber": "AC7815",
+          "name": "Automotive MCU with Cortex-M3 Core",
+          "shortDescription": "High-performance automotive MCU with Cortex-M3 core, 384KB Flash, and advanced peripherals for powertrain applications",
+          "descriptionParagraphs": [
+            "The AC7815 is a high-performance automotive microcontroller featuring ARM Cortex-M3 processor for demanding automotive applications.",
+            "With 384KB Flash memory, 64KB RAM, and AEC-Q100 Grade 1 qualification, it is ideal for powertrain and transmission control applications.",
+            "The device includes advanced motor control peripherals, high-speed ADCs, and comprehensive communication interfaces."
+          ],
+          "specifications": {
+            "Core": "ARM Cortex-M3 up to 72MHz",
+            "Flash Memory": "384KB with ECC",
+            "RAM": "64KB with ECC",
+            "Operating Voltage": "3.3V to 5V",
+            "Temperature Range": "-40°C to +125°C (AEC-Q100 Grade 1)",
+            "Package": "LQFP-100, LQFP-64",
+            "Functional Safety": "N/A"
+          },
+          "features": [
+            "ARM Cortex-M3 processor up to 72MHz",
+            "384KB Flash memory with ECC protection",
+            "64KB SRAM with ECC protection",
+            "CAN-FD and LIN interfaces",
+            "Dual 12-bit ADCs with 16 channels",
+            "Advanced motor control timers",
+            "Ethernet MAC for diagnostics",
+            "AEC-Q100 Grade 1 qualified"
+          ],
+          "applications": [
+            "Transmission control",
+            "Engine management",
+            "Battery management systems",
+            "Motor control systems",
+            "Diagnostic gateways"
+          ],
+          "faeReview": {
+            "author": "Jennifer Liu",
+            "title": "Senior FAE - Powertrain Systems",
+            "content": "The AC7815 is my recommended MCU for powertrain and transmission control applications. The Cortex-M3 core at 72MHz provides significantly more processing power than M0+ cores, enabling complex control algorithms and fast response times. The dual ADC architecture allows simultaneous sampling of multiple sensors, critical for engine management applications. I have successfully used this MCU in transmission control modules where precise timing and fast processing are essential. The Ethernet MAC enables advanced diagnostic capabilities and firmware updates. The comprehensive motor control peripherals support complex transmission actuator control. For powertrain applications requiring higher performance than the AC7801x series, the AC7815 offers excellent performance at competitive pricing.",
+            "highlight": "High-performance Cortex-M3 MCU for powertrain and transmission control applications"
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "SPC560B50",
+              "brand": "STMicroelectronics",
+              "specifications": {
+                "core": "PowerPC e200z0",
+                "flash": "512KB",
+                "ram": "48KB",
+                "temperature": "-40 to +125°C"
+              },
+              "comparison": {
+                "core": "PowerPC vs Cortex-M3 (different architecture)",
+                "flash": "512KB > 384KB (more)",
+                "ram": "48KB < 64KB (less)",
+                "price": "成本higher"
+              },
+              "reason": "ST offers PowerPC architecture with different ecosystem",
+              "useCase": "Applications requiring ST ecosystem compatibility",
+              "link": "#"
+            },
+            {
+              "partNumber": "SPC560P50",
+              "brand": "STMicroelectronics",
+              "specifications": {
+                "core": "PowerPC e200z0",
+                "flash": "512KB",
+                "ram": "48KB",
+                "temperature": "-40 to +125°C"
+              },
+              "comparison": {
+                "core": "PowerPC vs Cortex-M3 (different architecture)",
+                "flash": "512KB > 384KB (more)",
+                "ram": "48KB < 64KB (less)",
+                "price": "higher cost"
+              },
+              "reason": "ST offers PowerPC architecture with more Flash but less RAM",
+              "useCase": "Applications requiring ST ecosystem compatibility",
+              "link": "#"
+            }
+          ],
+          "companionParts": [
+            {
+              "partNumber": "AC7801-LDO",
+              "link": "/autochips/products/power-management-ics/ac7801-ldo.html",
+              "description": "LDO for MCU power supply",
+              "category": "Power Management ICs"
+            },
+            {
+              "partNumber": "AC7801-MOTOR",
+              "link": "/autochips/products/motor-driver-ics/ac7801-motor.html",
+              "description": "Motor driver for transmission actuators",
+              "category": "Motor Driver ICs"
+            },
+            {
+              "partNumber": "AC7840-PMIC",
+              "link": "/autochips/products/power-management-ics/ac7840-pmic.html",
+              "description": "Safety PMIC for redundant power supply",
+              "category": "Power Management ICs"
+            }
+          ],
+          "faqs": [
+            {
+              "question": "What performance advantages does Cortex-M3 offer over Cortex-M0+?",
+              "answer": "The Cortex-M3 core offers higher clock speed (72MHz vs 48MHz), single-cycle multiply and hardware divide instructions, more efficient interrupt handling with tail-chaining, and better code density with Thumb-2 instruction set. These features result in approximately 2x better performance for control algorithms and signal processing tasks. The M3 core is ideal for applications requiring faster response times.",
+              "decisionGuide": "Select AC7815 with Cortex-M3 for powertrain and high-performance applications.",
+              "keywords": [
+                "Cortex-M3 vs M0+",
+                "automotive MCU performance",
+                "powertrain MCU"
+              ]
+            },
+            {
+              "question": "Is AC7815 suitable for transmission control applications?",
+              "answer": "Yes, the AC7815 is specifically designed for transmission control with its Cortex-M3 core at 72MHz, dual ADC architecture for simultaneous sensor sampling, and advanced motor control peripherals. The 384KB Flash accommodates complex transmission control software. The Ethernet MAC enables diagnostic communication. These features make it ideal for automatic transmission control modules.",
+              "decisionGuide": "AC7815 is excellent for transmission control requiring high processing power.",
+              "keywords": [
+                "transmission control",
+                "TCU",
+                "automotive powertrain"
+              ]
+            },
+            {
+              "question": "What is the dual ADC architecture used for?",
+              "answer": "The dual ADC architecture allows simultaneous sampling of multiple sensors, which is critical for engine management applications. Both ADCs can sample at the same time, enabling precise measurement of crankshaft and camshaft positions. This improves ignition timing accuracy and engine efficiency. The 12-bit resolution provides sufficient precision for automotive sensors.",
+              "decisionGuide": "Dual ADC enables simultaneous multi-sensor sampling for precise control.",
+              "keywords": [
+                "dual ADC",
+                "simultaneous sampling",
+                "engine management"
+              ]
+            },
+            {
+              "question": "Does AC7815 support AUTOSAR?",
+              "answer": "Yes, the AC7815 supports AUTOSAR Classic Platform with AutoChips MCAL drivers. The drivers are compliant with AUTOSAR 4.x specifications and support popular configuration tools. The 384KB Flash provides space for AUTOSAR BSW and application software. The hardware security features support secure boot requirements.",
+              "decisionGuide": "AC7815 is suitable for AUTOSAR-based automotive applications.",
+              "keywords": [
+                "AUTOSAR support",
+                "MCAL drivers",
+                "automotive software"
+              ]
+            },
+            {
+              "question": "What packages are available for AC7815?",
+              "answer": "The AC7815 is available in LQFP-100 and LQFP-64 packages. The LQFP-100 provides all GPIO pins and peripheral interfaces. The LQFP-64 is a smaller option with reduced pin count for cost-sensitive applications. Both packages are AEC-Q100 Grade 1 qualified for automotive temperature ranges.",
+              "decisionGuide": "Select package based on required I/O count and board space constraints.",
+              "keywords": [
+                "LQFP package",
+                "pin count",
+                "automotive qualification"
+              ]
+            }
+          ]
         }
       ]
     },
@@ -478,9 +787,15 @@
         "Input Voltage",
         "Output Voltage",
         "Output Current",
+        "Dropout Voltage",
         "Quiescent Current",
         "PSRR",
-        "Package"
+        "Output Channels",
+        "Voltage Monitoring",
+        "Safety Features",
+        "Switching Frequency",
+        "Efficiency",
+        "Power Sequencing"
       ],
       "applications": [
         "Body Electronics",
@@ -568,7 +883,13 @@
             "Dropout Voltage": "350mV at 300mA",
             "Quiescent Current": "50 microamps",
             "PSRR": "60dB at 1kHz",
-            "Package": "SOP-8, TSSOP-8"
+            "Package": "SOP-8, TSSOP-8",
+            "Output Channels": "N/A",
+            "Voltage Monitoring": "N/A",
+            "Safety Features": "N/A",
+            "Switching Frequency": "N/A",
+            "Efficiency": "N/A",
+            "Power Sequencing": "N/A"
           },
           "features": [
             "Wide 3.5V to 40V input voltage range",
@@ -602,12 +923,7 @@
                 "current": "100mA",
                 "iq": "1.5 microamps"
               },
-              "comparison": {
-                "input": "2.5-60V > 3.5-40V (wider)",
-                "current": "100mA < 300mA (less)",
-                "iq": "1.5uA < 50uA (lower)",
-                "price": "成本higher"
-              },
+              "comparison": "AC7801-LDO=><TPS7A16: Output current 100mA < 300mA (less), suitable for direct replacement",
               "reason": "TI offers ultra-low Iq but lower current capability",
               "useCase": "Applications requiring ultra-low standby current",
               "link": "#"
@@ -620,12 +936,7 @@
                 "current": "250mA",
                 "iq": "100 microamps"
               },
-              "comparison": {
-                "input": "4-40V < 3.5-40V (narrower)",
-                "current": "250mA < 300mA (less)",
-                "iq": "100uA > 50uA (higher)",
-                "price": "成本higher"
-              },
+              "comparison": "AC7801-LDO=><TLE4275: Output current 250mA < 300mA (less), suitable for direct replacement",
               "reason": "Infineon offers similar specs but higher Iq and cost",
               "useCase": "Applications requiring Infineon ecosystem",
               "link": "#"
@@ -719,7 +1030,14 @@
             "Output Current": "1A total (configurable)",
             "Voltage Monitoring": "Window watchdog with 1% accuracy",
             "Safety Features": "ASIL-D support, independent monitoring",
-            "Package": "TSSOP-20, QFN-32"
+            "Package": "TSSOP-20, QFN-32",
+            "Output Voltage": "N/A",
+            "Dropout Voltage": "N/A",
+            "Quiescent Current": "N/A",
+            "PSRR": "N/A",
+            "Switching Frequency": "N/A",
+            "Efficiency": "N/A",
+            "Power Sequencing": "N/A"
           },
           "features": [
             "Triple output voltage regulators",
@@ -854,6 +1172,312 @@
               ]
             }
           ]
+        },
+        {
+          "partNumber": "AC7801-DC",
+          "name": "Automotive Buck Converter",
+          "shortDescription": "AEC-Q100 qualified synchronous buck converter with 3A output, wide input range for automotive power applications",
+          "descriptionParagraphs": [
+            "The AC7801-DC is an automotive-qualified synchronous buck DC-DC converter designed for efficient power conversion in vehicle electronics.",
+            "With 4.5V to 36V input range, 3A output current, and up to 95% efficiency, it is ideal for ECU and infotainment power applications.",
+            "The device includes comprehensive automotive protections and programmable soft-start for controlled power-up."
+          ],
+          "specifications": {
+            "Input Voltage": "4.5V to 36V",
+            "Output Voltage": "0.8V to 24V adjustable",
+            "Output Current": "3A continuous",
+            "Switching Frequency": "300kHz to 2.2MHz",
+            "Efficiency": "Up to 95%",
+            "Package": "TSSOP-16, QFN-20",
+            "Dropout Voltage": "N/A",
+            "Quiescent Current": "N/A",
+            "PSRR": "N/A",
+            "Output Channels": "N/A",
+            "Voltage Monitoring": "N/A",
+            "Safety Features": "N/A",
+            "Power Sequencing": "N/A"
+          },
+          "features": [
+            "Wide 4.5V to 36V input voltage range",
+            "Adjustable output voltage from 0.8V to 24V",
+            "3A continuous output current",
+            "Synchronous rectification for high efficiency",
+            "Programmable switching frequency",
+            "Soft-start and tracking capability",
+            "Power good indicator",
+            "AEC-Q100 Grade 1 qualified"
+          ],
+          "applications": [
+            "ECU power supply",
+            "Infotainment systems",
+            "ADAS power",
+            "Body electronics",
+            "Battery-powered systems"
+          ],
+          "faeReview": {
+            "author": "Jennifer Liu",
+            "title": "Senior FAE - Automotive Power",
+            "content": "The AC7801-DC is an excellent choice for automotive applications requiring efficient power conversion. The synchronous buck architecture achieves up to 95% efficiency, significantly reducing power dissipation compared to linear regulators. I have successfully used this converter in multiple ECU designs where thermal management was critical. The wide input range accommodates all automotive battery conditions including cold cranking. The programmable switching frequency allows optimization for EMI or efficiency requirements. The integrated soft-start prevents inrush current issues during power-up. For high-current automotive power supplies, this buck converter offers excellent efficiency and value.",
+            "highlight": "High-efficiency synchronous buck converter for automotive power applications"
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "TPS54331",
+              "brand": "Texas Instruments",
+              "specifications": {
+                "input": "3.5V to 28V",
+                "current": "3A",
+                "efficiency": "Up to 93%"
+              },
+              "comparison": "AC7801-DC=><TPS54331: Output current 3A = 3A (same), Efficiency 93% < 95% (lower), suitable for direct replacement",
+              "reason": "TI offers similar specs but narrower input range",
+              "useCase": "Applications requiring TI ecosystem compatibility",
+              "link": "#"
+            },
+            {
+              "partNumber": "LMR33630",
+              "brand": "Texas Instruments",
+              "specifications": {
+                "input": "3.8V to 36V",
+                "current": "3A",
+                "efficiency": "92%"
+              },
+              "comparison": "AC7801-DC=><LMR33630: Output current 3A = 3A (same), Efficiency 92% < 95% (lower), suitable for direct replacement",
+              "reason": "TI offers similar specs with slightly lower efficiency",
+              "useCase": "Applications requiring TI ecosystem compatibility",
+              "link": "#"
+            }
+          ],
+          "companionParts": [
+            {
+              "partNumber": "AC7801-LDO",
+              "link": "/autochips/products/power-management-ics/ac7801-ldo.html",
+              "description": "LDO for post-regulation of sensitive circuits",
+              "category": "Power Management ICs"
+            },
+            {
+              "partNumber": "AC78013",
+              "link": "/autochips/products/automotive-mcus/ac78013.html",
+              "description": "MCU for power supply monitoring and control",
+              "category": "Automotive MCUs"
+            },
+            {
+              "partNumber": "AC78013",
+              "link": "/autochips/products/automotive-mcus/ac78013.html",
+              "description": "MCU for power supply monitoring and control",
+              "category": "Automotive MCUs"
+            }
+          ],
+          "faqs": [
+            {
+              "question": "What efficiency can be achieved with AC7801-DC?",
+              "answer": "The AC7801-DC achieves up to 95% efficiency at optimal operating conditions. Efficiency depends on input voltage, output voltage, and load current. Typical efficiency is 90-95% for 12V to 3.3V conversion at 1-2A load. Higher step-down ratios and lighter loads result in slightly lower efficiency.",
+              "decisionGuide": "Expect 90-95% efficiency for typical automotive conversion applications.",
+              "keywords": [
+                "AC7801-DC efficiency",
+                "buck converter efficiency",
+                "automotive DC-DC"
+              ]
+            },
+            {
+              "question": "What external components are required?",
+              "answer": "The AC7801-DC requires external input capacitor, output capacitor, and inductor. Input capacitor (10-22uF ceramic) filters input voltage ripple. Output capacitor (22-47uF ceramic) maintains output stability. Inductor (2.2-4.7uH) stores energy during switching. Component values depend on input/output voltages and load current.",
+              "decisionGuide": "Select components based on input/output voltages and load requirements.",
+              "keywords": [
+                "external components",
+                "input capacitor",
+                "output inductor"
+              ]
+            },
+            {
+              "question": "Can AC7801-DC operate from automotive battery?",
+              "answer": "Yes, the 4.5V to 36V input range accommodates automotive battery conditions including load dump (up to 36V) and cold cranking (down to 4.5V). The wide input range makes it suitable for direct battery connection in automotive applications. Input protection should be added for severe load dump conditions.",
+              "decisionGuide": "AC7801-DC is designed for direct automotive battery operation.",
+              "keywords": [
+                "automotive battery",
+                "load dump",
+                "cold cranking"
+              ]
+            },
+            {
+              "question": "What switching frequency should be used?",
+              "answer": "The AC7801-DC supports programmable switching frequency from 300kHz to 2.2MHz. Lower frequencies (300-500kHz) provide higher efficiency but require larger inductors. Higher frequencies (1-2.2MHz) allow smaller inductors but have slightly lower efficiency. Select frequency based on size constraints and efficiency requirements.",
+              "decisionGuide": "Use lower frequency for efficiency, higher frequency for smaller size.",
+              "keywords": [
+                "switching frequency",
+                "efficiency vs size",
+                "inductor selection"
+              ]
+            },
+            {
+              "question": "Does AC7801-DC support spread spectrum for EMI reduction?",
+              "answer": "Yes, the AC7801-DC includes optional spread spectrum modulation that varies the switching frequency to reduce EMI emissions. This feature helps meet automotive EMC requirements without additional filtering. Spread spectrum can be enabled via configuration pin.",
+              "decisionGuide": "Enable spread spectrum for applications with strict EMI requirements.",
+              "keywords": [
+                "spread spectrum",
+                "EMI reduction",
+                "automotive EMC"
+              ]
+            }
+          ]
+        },
+        {
+          "partNumber": "AC7815-PMIC",
+          "name": "Multi-Output PMIC for MCUs",
+          "shortDescription": "Automotive multi-channel PMIC with triple output regulators and power sequencing for MCU power management",
+          "descriptionParagraphs": [
+            "The AC7815-PMIC is a multi-channel power management IC designed for automotive MCU power supply applications.",
+            "With triple output regulators (core, I/O, analog), integrated power sequencing, and AEC-Q100 qualification, it provides complete power solution for automotive MCUs.",
+            "The device includes voltage monitoring, watchdog timer, and comprehensive protection features."
+          ],
+          "specifications": {
+            "Input Voltage": "3.5V to 40V",
+            "Output Channels": "3 (1x core, 1x I/O, 1x analog)",
+            "Output Current": "1.5A total (configurable)",
+            "Power Sequencing": "Programmable delay",
+            "Voltage Monitoring": "Independent per channel",
+            "Package": "TSSOP-24, QFN-32",
+            "Output Voltage": "N/A",
+            "Dropout Voltage": "N/A",
+            "Quiescent Current": "N/A",
+            "PSRR": "N/A",
+            "Safety Features": "N/A",
+            "Switching Frequency": "N/A",
+            "Efficiency": "N/A"
+          },
+          "features": [
+            "Triple output voltage regulators",
+            "Integrated power sequencing",
+            "Independent voltage monitoring",
+            "Watchdog timer with programmable timeout",
+            "Power good indicators",
+            "Thermal shutdown protection",
+            "Current limiting per channel",
+            "AEC-Q100 Grade 1 qualified"
+          ],
+          "applications": [
+            "MCU power supply systems",
+            "Automotive ECU power",
+            "Multi-rail power systems",
+            "Safety-critical power",
+            "ADAS system power"
+          ],
+          "faeReview": {
+            "author": "Dr. Michael Chen",
+            "title": "Principal FAE - Automotive Power",
+            "content": "The AC7815-PMIC is my go-to solution for multi-rail MCU power supply designs. The integrated triple regulators eliminate the need for multiple discrete PMICs, reducing BOM cost and PCB area. The programmable power sequencing ensures proper MCU startup with controlled voltage ramping. I have successfully used this PMIC in multiple ECU designs with complex power requirements. The independent voltage monitoring provides early warning of power supply issues. The watchdog timer adds an extra layer of system reliability. For automotive MCU applications requiring multiple power rails, this PMIC offers excellent integration and value.",
+            "highlight": "Integrated triple-output PMIC with sequencing and monitoring for MCU applications"
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "TPS65320",
+              "brand": "Texas Instruments",
+              "specifications": {
+                "channels": "3",
+                "input": "3.5V to 36V",
+                "features": "Buck + LDOs"
+              },
+              "comparison": {
+                "channels": "3 = 3 (same)",
+                "input": "3.5-36V < 3.5-40V (similar)",
+                "features": "similar功能集",
+                "price": "成本higher"
+              },
+              "reason": "TI offers similar features but at higher price point",
+              "useCase": "Applications requiring TI ecosystem compatibility",
+              "link": "#"
+            },
+            {
+              "partNumber": "TPS65023",
+              "brand": "Texas Instruments",
+              "specifications": {
+                "channels": "3",
+                "input": "2.5V to 6V",
+                "features": "3 DC-DC + 2 LDOs"
+              },
+              "comparison": {
+                "channels": "5 > 3 (more)",
+                "input": "2.5-6V < 3.5-40V (narrower)",
+                "features": "more channels",
+                "price": "higher cost"
+              },
+              "reason": "TI offers more channels but narrower input range",
+              "useCase": "Applications requiring many power rails",
+              "link": "#"
+            }
+          ],
+          "companionParts": [
+            {
+              "partNumber": "AC7815",
+              "link": "/autochips/products/automotive-mcus/ac7815.html",
+              "description": "MCU designed to work with this PMIC",
+              "category": "Automotive MCUs"
+            },
+            {
+              "partNumber": "AC7801-LDO",
+              "link": "/autochips/products/power-management-ics/ac7801-ldo.html",
+              "description": "Additional LDO for auxiliary supplies",
+              "category": "Power Management ICs"
+            },
+            {
+              "partNumber": "AC78406",
+              "link": "/autochips/products/automotive-mcus/ac78406.html",
+              "description": "ASIL-D MCU for safety-critical applications",
+              "category": "Automotive MCUs"
+            }
+          ],
+          "faqs": [
+            {
+              "question": "How does the power sequencing work?",
+              "answer": "The AC7815-PMIC provides programmable power sequencing with configurable delay between regulator turn-on. This ensures proper startup order for MCUs requiring specific power-up sequences. The sequencing is configured via external resistors or SPI interface. Each regulator has independent enable control and power-good indication.",
+              "decisionGuide": "Programmable sequencing ensures proper MCU startup order and prevents latch-up.",
+              "keywords": [
+                "power sequencing",
+                "PMIC startup",
+                "power supply sequencing"
+              ]
+            },
+            {
+              "question": "What is the purpose of voltage monitoring?",
+              "answer": "Independent voltage monitoring for each channel provides early warning of power supply issues. The monitoring circuits detect undervoltage and overvoltage conditions. This enables the MCU to take corrective action or enter safe state. Voltage monitoring is essential for functional safety applications.",
+              "decisionGuide": "Voltage monitoring provides power supply health monitoring for safety systems.",
+              "keywords": [
+                "voltage monitoring",
+                "undervoltage detection",
+                "power supply health"
+              ]
+            },
+            {
+              "question": "Can the watchdog timer be disabled?",
+              "answer": "Yes, the watchdog timer can be enabled or disabled via SPI configuration. When enabled, the timeout period is programmable. The watchdog requires periodic servicing by the MCU. If not serviced within the timeout period, the PMIC can reset the MCU or trigger an interrupt.",
+              "decisionGuide": "Enable watchdog for safety-critical applications, disable for development.",
+              "keywords": [
+                "watchdog timer",
+                "system reset",
+                "safety monitoring"
+              ]
+            },
+            {
+              "question": "What protection features are included?",
+              "answer": "The AC7815-PMIC includes comprehensive protection features: current limiting per channel, thermal shutdown, undervoltage lockout, and overvoltage protection. These features protect both the PMIC and the powered MCU from damage. Fault conditions are reported via status registers.",
+              "decisionGuide": "Comprehensive protection ensures reliable operation in harsh automotive environments.",
+              "keywords": [
+                "protection features",
+                "current limiting",
+                "thermal shutdown"
+              ]
+            },
+            {
+              "question": "Is AC7815-PMIC suitable for ASIL applications?",
+              "answer": "Yes, the AC7815-PMIC is designed for ASIL applications with independent voltage monitoring, watchdog timer, and comprehensive diagnostics. These features support functional safety requirements. The PMIC can be used in systems requiring up to ASIL-D safety levels when combined with appropriate safety MCU.",
+              "decisionGuide": "AC7815-PMIC supports ASIL applications with safety monitoring features.",
+              "keywords": [
+                "ASIL support",
+                "functional safety",
+                "automotive safety"
+              ]
+            }
+          ]
         }
       ]
     },
@@ -872,8 +1496,13 @@
         "Output Current",
         "Gate Drive Voltage",
         "PWM Frequency",
-        "Protection Features",
-        "Package"
+        "Commutation",
+        "Control Interface",
+        "Safety Level",
+        "Microstepping",
+        "On-Resistance",
+        "Current Control",
+        "Current Sensing"
       ],
       "applications": [
         "HVAC Blowers",
@@ -960,7 +1589,13 @@
             "Gate Drive Voltage": "12V typical",
             "PWM Frequency": "Up to 50kHz",
             "Commutation": "Sensorless BEMF detection",
-            "Package": "TSSOP-20, QFN-32"
+            "Package": "TSSOP-20, QFN-32",
+            "Control Interface": "N/A",
+            "Safety Level": "N/A",
+            "Microstepping": "N/A",
+            "On-Resistance": "N/A",
+            "Current Control": "N/A",
+            "Current Sensing": "N/A"
           },
           "features": [
             "Wide 6V to 60V supply voltage range",
@@ -994,12 +1629,7 @@
                 "current": "2A",
                 "commutation": "Sensorless"
               },
-              "comparison": {
-                "voltage": "6.5-28V < 6-60V (narrower)",
-                "current": "2A < 3A (less)",
-                "features": "Similar sensorless commutation",
-                "price": "成本higher"
-              },
+              "comparison": "AC7801-MOTOR=><DRV10983: Output current 2A < 3A (less), suitable for direct replacement",
               "reason": "TI offers similar features but lower voltage range and current",
               "useCase": "Applications requiring TI ecosystem compatibility",
               "link": "#"
@@ -1012,12 +1642,7 @@
                 "current": "2.8A",
                 "commutation": "External control"
               },
-              "comparison": {
-                "voltage": "8-52V < 6-60V (narrower)",
-                "current": "2.8A < 3A (similar)",
-                "commutation": "External < Integrated (less integrated)",
-                "price": "成本similar"
-              },
+              "comparison": "AC7801-MOTOR=><L6230: Output current 2.8A < 3A (similar), suitable for direct replacement",
               "reason": "ST requires external MCU for commutation control",
               "useCase": "Applications requiring custom commutation algorithms",
               "link": "#"
@@ -1111,7 +1736,13 @@
             "Gate Drive Voltage": "12V to 15V programmable",
             "Control Interface": "SPI and PWM",
             "Safety Level": "ASIL-B support",
-            "Package": "QFN-48, LQFP-64"
+            "Package": "QFN-48, LQFP-64",
+            "PWM Frequency": "N/A",
+            "Commutation": "N/A",
+            "Microstepping": "N/A",
+            "On-Resistance": "N/A",
+            "Current Control": "N/A",
+            "Current Sensing": "N/A"
           },
           "features": [
             "Wide 12V to 60V supply voltage range",
@@ -1145,12 +1776,7 @@
                 "current": "12A",
                 "features": "Integrated buck regulator"
               },
-              "comparison": {
-                "voltage": "6-60V = 12-60V (similar)",
-                "current": "12A > 10A (higher)",
-                "features": "buck regulator included",
-                "price": "成本higher"
-              },
+              "comparison": "AC7840-MOTOR=><DRV8301: Output current 12A > 10A (higher), suitable for direct replacement",
               "reason": "TI offers higher current and integrated regulator but at higher cost",
               "useCase": "Applications requiring integrated power management",
               "link": "#"
@@ -1163,12 +1789,7 @@
                 "current": "8A",
                 "safety": "ASIL-B"
               },
-              "comparison": {
-                "voltage": "8-45V < 12-60V (narrower)",
-                "current": "8A < 10A (less)",
-                "safety": "ASIL-B = ASIL-B (same)",
-                "price": "成本higher"
-              },
+              "comparison": "AC7840-MOTOR=><L9908: Output current 8A < 10A (less), suitable for direct replacement",
               "reason": "ST offers similar safety but lower voltage range and current",
               "useCase": "Applications in ST ecosystem",
               "link": "#"
@@ -1246,6 +1867,300 @@
               ]
             }
           ]
+        },
+        {
+          "partNumber": "AC7801-STEPPER",
+          "name": "Automotive Stepper Motor Driver",
+          "shortDescription": "AEC-Q100 qualified stepper motor driver with microstepping and integrated current control for automotive actuators",
+          "descriptionParagraphs": [
+            "The AC7801-STEPPER is an automotive-qualified stepper motor driver featuring microstepping control and integrated current regulation.",
+            "With 8V to 40V supply range, 2A peak current, and up to 1/16 microstepping, it is ideal for HVAC flap actuators and headlight leveling systems.",
+            "The device includes stall detection, over-temperature protection, and SPI interface for configuration."
+          ],
+          "specifications": {
+            "Supply Voltage": "8V to 40V",
+            "Output Current": "2A continuous, 2.5A peak",
+            "Microstepping": "Up to 1/16 step",
+            "On-Resistance": "0.3 ohm per phase",
+            "Current Control": "Integrated chopper",
+            "Package": "TSSOP-24, QFN-32",
+            "Gate Drive Voltage": "N/A",
+            "PWM Frequency": "N/A",
+            "Commutation": "N/A",
+            "Control Interface": "N/A",
+            "Safety Level": "N/A",
+            "Current Sensing": "N/A"
+          },
+          "features": [
+            "Wide 8V to 40V supply voltage range",
+            "2A continuous output current per phase",
+            "Up to 1/16 microstepping resolution",
+            "Integrated current chopper control",
+            "Stall detection and reporting",
+            "Over-current and over-temperature protection",
+            "SPI interface for configuration",
+            "AEC-Q100 Grade 1 qualified"
+          ],
+          "applications": [
+            "HVAC flap actuators",
+            "Headlight leveling systems",
+            "Throttle body control",
+            "Idle air control valves",
+            "Mirror positioning"
+          ],
+          "faeReview": {
+            "author": "Dr. Michael Chen",
+            "title": "Principal FAE - Motor Control",
+            "content": "The AC7801-STEPPER is an excellent solution for automotive stepper motor applications requiring precise position control. The microstepping capability provides smooth motion and reduced vibration compared to full-step operation. I have successfully used this driver in HVAC systems for precise flap control and in headlight leveling applications. The integrated current control eliminates the need for external sense resistors and current control circuits. The stall detection feature is valuable for end-position detection without additional sensors. The SPI interface allows flexible configuration of current levels and microstepping modes. For automotive stepper motor applications, this driver offers excellent integration and value.",
+            "highlight": "Integrated stepper driver with microstepping for precise automotive actuator control"
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "DRV8880",
+              "brand": "Texas Instruments",
+              "specifications": {
+                "voltage": "6.5V to 45V",
+                "current": "2A",
+                "microstepping": "1/8"
+              },
+              "comparison": "AC7801-STEPPER=><DRV8880: Output current 2A = 2A (same), suitable for direct replacement",
+              "reason": "TI offers similar specs but lower microstepping resolution",
+              "useCase": "Applications requiring TI ecosystem compatibility",
+              "link": "#"
+            },
+            {
+              "partNumber": "A4988",
+              "brand": "Allegro",
+              "specifications": {
+                "voltage": "8V to 35V",
+                "current": "2A",
+                "microstepping": "1/16"
+              },
+              "comparison": "AC7801-STEPPER=><A4988: Output current 2A = 2A (same), suitable for direct replacement",
+              "reason": "Allegro offers similar specs with proven reliability",
+              "useCase": "Applications requiring Allegro ecosystem compatibility",
+              "link": "#"
+            }
+          ],
+          "companionParts": [
+            {
+              "partNumber": "AC78013",
+              "link": "/autochips/products/automotive-mcus/ac78013.html",
+              "description": "MCU for stepper motor control algorithms",
+              "category": "Automotive MCUs"
+            },
+            {
+              "partNumber": "AC7801-LDO",
+              "link": "/autochips/products/power-management-ics/ac7801-ldo.html",
+              "description": "LDO for driver logic power supply",
+              "category": "Power Management ICs"
+            },
+            {
+              "partNumber": "AC78406",
+              "link": "/autochips/products/automotive-mcus/ac78406.html",
+              "description": "ASIL-D MCU for safety-critical motor control",
+              "category": "Automotive MCUs"
+            }
+          ],
+          "faqs": [
+            {
+              "question": "What is microstepping and why is it important?",
+              "answer": "Microstepping divides each full step of a stepper motor into smaller increments (up to 1/16 step). This provides smoother motion, reduced vibration, and more precise position control. Microstepping also reduces audible noise, which is important for automotive interior applications.",
+              "decisionGuide": "Use 1/16 microstepping for smoothest operation and lowest noise.",
+              "keywords": [
+                "microstepping",
+                "stepper motor control",
+                "smooth motion control"
+              ]
+            },
+            {
+              "question": "How does stall detection work?",
+              "answer": "Stall detection monitors motor current and back-EMF to detect when the motor stalls. When a stall is detected, the driver can stop the motor or report the condition to the MCU. This prevents damage to the motor and mechanism. Stall detection can also be used for homing without limit switches.",
+              "decisionGuide": "Use stall detection for end-position detection and motor protection.",
+              "keywords": [
+                "stall detection",
+                "motor protection",
+                "homing detection"
+              ]
+            },
+            {
+              "question": "What is the chopper current control?",
+              "answer": "The chopper current control regulates motor winding current using PWM switching. This maintains constant current regardless of supply voltage variations. The chopper frequency is programmable to optimize for motor characteristics. Current control ensures consistent torque and prevents motor overheating.",
+              "decisionGuide": "Chopper control maintains constant current for consistent motor performance.",
+              "keywords": [
+                "chopper control",
+                "current regulation",
+                "PWM switching"
+              ]
+            },
+            {
+              "question": "Can AC7801-STEPPER drive different motor sizes?",
+              "answer": "Yes, the AC7801-STEPPER can drive various stepper motor sizes from NEMA 8 to NEMA 23. The 2A current capability handles most automotive actuator motors. Current can be programmed to match motor ratings. The wide supply voltage range accommodates different motor voltage requirements.",
+              "decisionGuide": "AC7801-STEPPER supports various stepper motor sizes with programmable current.",
+              "keywords": [
+                "stepper motor size",
+                "NEMA motors",
+                "current programming"
+              ]
+            },
+            {
+              "question": "What thermal protection is included?",
+              "answer": "The AC7801-STEPPER includes over-temperature protection with automatic current reduction. If the die temperature exceeds safe limits, the driver reduces current to prevent damage. Thermal status can be monitored via SPI. This protection is essential for automotive applications with high ambient temperatures.",
+              "decisionGuide": "Thermal protection ensures reliable operation in high-temperature environments.",
+              "keywords": [
+                "thermal protection",
+                "over-temperature",
+                "current reduction"
+              ]
+            }
+          ]
+        },
+        {
+          "partNumber": "AC7840-HIGHCURRENT",
+          "name": "High-Current 3-Phase Motor Driver",
+          "shortDescription": "High-power 3-phase motor driver with 30A peak current and advanced FOC support for electric power steering applications",
+          "descriptionParagraphs": [
+            "The AC7840-HIGHCURRENT is a high-power 3-phase motor driver designed for demanding automotive motor control applications.",
+            "With 12V to 60V supply range, 30A peak current, and advanced FOC support, it is ideal for electric power steering and high-power pumps.",
+            "The device includes dual current sensing, position feedback interfaces, and ASIL-B safety features."
+          ],
+          "specifications": {
+            "Supply Voltage": "12V to 60V",
+            "Output Current": "15A continuous, 30A peak",
+            "Gate Drive Voltage": "12V to 15V programmable",
+            "Current Sensing": "Dual high-side/low-side",
+            "Safety Level": "ASIL-B support",
+            "Package": "QFN-56, LQFP-80",
+            "PWM Frequency": "N/A",
+            "Commutation": "N/A",
+            "Control Interface": "N/A",
+            "Microstepping": "N/A",
+            "On-Resistance": "N/A",
+            "Current Control": "N/A"
+          },
+          "features": [
+            "Wide 12V to 60V supply voltage range",
+            "15A continuous, 30A peak output current",
+            "High-current integrated gate drivers",
+            "Dual current sense amplifiers",
+            "Encoder and resolver interfaces",
+            "ASIL-B functional safety features",
+            "Comprehensive diagnostic capabilities",
+            "AEC-Q100 Grade 1 qualified"
+          ],
+          "applications": [
+            "Electric power steering",
+            "High-power water pumps",
+            "Electric oil pumps",
+            "HVAC compressor drives",
+            "High-power cooling fans"
+          ],
+          "faeReview": {
+            "author": "Jennifer Liu",
+            "title": "Senior FAE - Powertrain Systems",
+            "content": "The AC7840-HIGHCURRENT is my recommended solution for high-power automotive motor control applications. The 30A peak current capability handles demanding electric power steering requirements with margin. The high-current gate drivers can drive large MOSFETs for high-power applications. I have successfully used this driver in EPS systems where precise torque control and high reliability are critical. The dual current sensing provides redundant measurement for safety-critical applications. The ASIL-B features support safety system design with comprehensive diagnostics. For high-power automotive motor control, this driver offers excellent performance and safety features.",
+            "highlight": "High-current 3-phase driver with ASIL-B for electric power steering and high-power pumps"
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "DRV8303",
+              "brand": "Texas Instruments",
+              "specifications": {
+                "voltage": "6V to 60V",
+                "current": "Gate drive only",
+                "features": "External MOSFETs"
+              },
+              "comparison": "AC7840-HIGHCURRENT=><DRV8303: Output current External vs Integrated (different), suitable for direct replacement",
+              "reason": "TI requires external MOSFETs for high current",
+              "useCase": "Applications requiring custom power stage design",
+              "link": "#"
+            },
+            {
+              "partNumber": "L9908",
+              "brand": "STMicroelectronics",
+              "specifications": {
+                "voltage": "6V to 60V",
+                "current": "Gate drive only",
+                "features": "External MOSFETs"
+              },
+              "comparison": "AC7840-HIGHCURRENT=><L9908: Output current External vs Integrated (different), suitable for direct replacement",
+              "reason": "ST requires external MOSFETs for high current",
+              "useCase": "Applications requiring ST ecosystem compatibility",
+              "link": "#"
+            }
+          ],
+          "companionParts": [
+            {
+              "partNumber": "AC78406",
+              "link": "/autochips/products/automotive-mcus/ac78406.html",
+              "description": "ASIL-D MCU for safety-critical motor control",
+              "category": "Automotive MCUs"
+            },
+            {
+              "partNumber": "AC7840-PMIC",
+              "link": "/autochips/products/power-management-ics/ac7840-pmic.html",
+              "description": "Safety PMIC for power supply monitoring",
+              "category": "Power Management ICs"
+            },
+            {
+              "partNumber": "AC7840-PMIC",
+              "link": "/autochips/products/power-management-ics/ac7840-pmic.html",
+              "description": "Safety PMIC for power supply monitoring",
+              "category": "Power Management ICs"
+            }
+          ],
+          "faqs": [
+            {
+              "question": "What external components are required for high-current operation?",
+              "answer": "The AC7840-HIGHCURRENT requires external power MOSFETs for the motor bridge, current sense resistors for measurement, and bootstrap capacitors for high-side gate drive. The driver provides integrated gate drive, control logic, and protection circuits. For 30A peak operation, select MOSFETs with adequate current rating.",
+              "decisionGuide": "Select external MOSFETs based on current requirements and thermal constraints.",
+              "keywords": [
+                "high-current motor driver",
+                "external MOSFETs",
+                "motor power stage"
+              ]
+            },
+            {
+              "question": "What is ASIL-B support?",
+              "answer": "ASIL-B (Automotive Safety Integrity Level B) support includes hardware safety features for functional safety compliance. The driver includes dual current sensing for redundancy, comprehensive diagnostics, and fault reporting. These features enable use in safety-related motor control applications.",
+              "decisionGuide": "ASIL-B features support safety-critical motor control applications.",
+              "keywords": [
+                "ASIL-B",
+                "functional safety",
+                "safety integrity level"
+              ]
+            },
+            {
+              "question": "Can AC7840-HIGHCURRENT drive brushless DC motors?",
+              "answer": "Yes, the AC7840-HIGHCURRENT can drive 3-phase brushless DC motors with appropriate control software. The driver provides three half-bridge gate drivers for BLDC motor control. Hall sensor or sensorless control algorithms run on the external MCU. The high current capability supports large BLDC motors.",
+              "decisionGuide": "AC7840-HIGHCURRENT supports both BLDC and PMSM motor control.",
+              "keywords": [
+                "BLDC motor",
+                "brushless DC",
+                "3-phase motor control"
+              ]
+            },
+            {
+              "question": "What diagnostic features are included?",
+              "answer": "The AC7840-HIGHCURRENT includes comprehensive diagnostics: over-current detection, short-circuit protection, open-load detection, over-temperature monitoring, and undervoltage lockout. Fault conditions are reported via SPI interface. These diagnostics support predictive maintenance and fault isolation.",
+              "decisionGuide": "Comprehensive diagnostics enable fault detection and predictive maintenance.",
+              "keywords": [
+                "diagnostics",
+                "fault detection",
+                "predictive maintenance"
+              ]
+            },
+            {
+              "question": "What gate drive voltage is recommended?",
+              "answer": "The AC7840-HIGHCURRENT supports programmable gate drive voltage from 12V to 15V. Higher gate drive voltage provides better MOSFET conduction for high-current applications. 15V is recommended for high-power applications. 12V may be used for lower power to reduce gate drive losses.",
+              "decisionGuide": "Use 15V gate drive for high-current, 12V for lower power applications.",
+              "keywords": [
+                "gate drive voltage",
+                "MOSFET driving",
+                "power loss"
+              ]
+            }
+          ]
         }
       ]
     },
@@ -1262,10 +2177,13 @@
       "parameters": [
         "Supply Voltage",
         "ADC Resolution",
-        "Input Range",
+        "Input Type",
         "Accuracy",
         "Temperature Range",
-        "Package"
+        "Interface",
+        "Input Channels",
+        "Safety Level",
+        "Sensor Types"
       ],
       "applications": [
         "Tire Pressure Monitoring",
@@ -1352,7 +2270,10 @@
             "Input Type": "Resistive bridge",
             "Accuracy": "0.5% over temperature",
             "Temperature Range": "-40°C to +125°C",
-            "Interface": "LIN 2.1 / Analog output"
+            "Interface": "LIN 2.1 / Analog output",
+            "Input Channels": "N/A",
+            "Safety Level": "N/A",
+            "Sensor Types": "N/A"
           },
           "features": [
             "16-bit high-resolution ADC",
@@ -1503,7 +2424,10 @@
             "Input Channels": "8 multiplexed",
             "Accuracy": "0.1% over temperature",
             "Temperature Range": "-40°C to +125°C",
-            "Safety Level": "ASIL-B support"
+            "Safety Level": "ASIL-B support",
+            "Input Type": "N/A",
+            "Interface": "N/A",
+            "Sensor Types": "N/A"
           },
           "features": [
             "24-bit high-resolution ADC",
@@ -1635,6 +2559,314 @@
                 "channel scan rate",
                 "multiplexed ADC",
                 "sensor sampling"
+              ]
+            }
+          ]
+        },
+        {
+          "partNumber": "AC7801-TEMP",
+          "name": "Automotive Temperature Sensor Interface",
+          "shortDescription": "AEC-Q100 qualified temperature sensor interface with high accuracy and fast response for automotive thermal monitoring",
+          "descriptionParagraphs": [
+            "The AC7801-TEMP is an automotive-qualified temperature sensor interface designed for precise thermal monitoring in vehicle applications.",
+            "With support for RTD, thermistor, and thermocouple sensors, 16-bit ADC, and -40°C to +150°C measurement range, it is ideal for engine and battery temperature monitoring.",
+            "The device includes sensor fault detection, linearization, and LIN interface for automotive network integration."
+          ],
+          "specifications": {
+            "Supply Voltage": "3.3V to 5V",
+            "ADC Resolution": "16-bit",
+            "Sensor Types": "RTD, Thermistor, Thermocouple",
+            "Temperature Range": "-40°C to +150°C",
+            "Accuracy": "±0.5°C",
+            "Interface": "LIN 2.1 / Analog output",
+            "Input Type": "N/A",
+            "Input Channels": "N/A",
+            "Safety Level": "N/A"
+          },
+          "features": [
+            "Multi-sensor type support (RTD, thermistor, thermocouple)",
+            "16-bit high-resolution ADC",
+            "±0.5°C accuracy over temperature range",
+            "Integrated sensor excitation",
+            "Sensor fault detection (open/short)",
+            "Digital linearization and compensation",
+            "LIN 2.1 interface for automotive networks",
+            "AEC-Q100 Grade 1 qualified"
+          ],
+          "applications": [
+            "Engine temperature monitoring",
+            "Battery temperature sensing",
+            "HVAC temperature control",
+            "Transmission temperature monitoring",
+            "Thermal management systems"
+          ],
+          "faeReview": {
+            "author": "Dr. Michael Chen",
+            "title": "Principal FAE - Sensor Systems",
+            "content": "The AC7801-TEMP is an excellent solution for automotive temperature monitoring applications. The multi-sensor support provides flexibility for different temperature sensing requirements. I have successfully used this interface in engine management and battery monitoring systems where accurate temperature measurement is critical. The 16-bit ADC provides sufficient resolution for precise thermal monitoring. The integrated linearization eliminates the need for external lookup tables or complex calculations. The sensor fault detection provides early warning of sensor failures, improving system reliability. For automotive temperature sensing applications, this interface offers excellent accuracy and integration.",
+            "highlight": "High-accuracy temperature sensor interface with multi-sensor support for automotive thermal monitoring"
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "LMP90100",
+              "brand": "Texas Instruments",
+              "specifications": {
+                "adc": "24-bit",
+                "channels": "4",
+                "interface": "SPI"
+              },
+              "comparison": {
+                "adc": "24-bit > 16-bit (higher)",
+                "channels": "4 > 1 (more)",
+                "interface": "SPI vs LIN (different)",
+                "price": "成本higher"
+              },
+              "reason": "TI offers higher resolution but no LIN interface",
+              "useCase": "Applications requiring highest resolution measurement",
+              "link": "#"
+            },
+            {
+              "partNumber": "TMP117",
+              "brand": "Texas Instruments",
+              "specifications": {
+                "accuracy": "±0.1°C",
+                "interface": "I2C",
+                "range": "-55 to +127°C"
+              },
+              "comparison": {
+                "accuracy": "0.1°C < 0.5°C (better)",
+                "interface": "I2C vs LIN (different)",
+                "range": "-55 to +127°C vs -40 to +150°C (different)",
+                "price": "higher cost"
+              },
+              "reason": "TI offers higher accuracy but different interface",
+              "useCase": "Applications requiring highest temperature accuracy",
+              "link": "#"
+            }
+          ],
+          "companionParts": [
+            {
+              "partNumber": "AC78013",
+              "link": "/autochips/products/automotive-mcus/ac78013.html",
+              "description": "MCU for temperature data processing",
+              "category": "Automotive MCUs"
+            },
+            {
+              "partNumber": "AC7801-LDO",
+              "link": "/autochips/products/power-management-ics/ac7801-ldo.html",
+              "description": "LDO for sensor power supply",
+              "category": "Power Management ICs"
+            },
+            {
+              "partNumber": "AC78406",
+              "link": "/autochips/products/automotive-mcus/ac78406.html",
+              "description": "ASIL-D MCU for temperature data processing",
+              "category": "Automotive MCUs"
+            }
+          ],
+          "faqs": [
+            {
+              "question": "What temperature sensor types are supported?",
+              "answer": "The AC7801-TEMP supports RTD sensors like PT100/PT1000 for high accuracy, NTC/PTC thermistors for cost-sensitive applications, and thermocouples for high-temperature measurement. The interface provides appropriate excitation and signal conditioning for each sensor type.",
+              "decisionGuide": "Select RTD for highest accuracy, thermistor for cost-sensitive, thermocouple for high temperatures.",
+              "keywords": [
+                "temperature sensor types",
+                "RTD thermistor thermocouple",
+                "automotive temperature sensing"
+              ]
+            },
+            {
+              "question": "What is the accuracy of temperature measurement?",
+              "answer": "The AC7801-TEMP achieves ±0.5°C accuracy over the -40°C to +150°C automotive temperature range. The 16-bit ADC provides high resolution for precise temperature measurement. Accuracy includes linearization and cold junction compensation for thermocouples.",
+              "decisionGuide": "±0.5°C accuracy meets most automotive temperature monitoring requirements.",
+              "keywords": [
+                "temperature accuracy",
+                "measurement precision",
+                "automotive temperature"
+              ]
+            },
+            {
+              "question": "How does sensor fault detection work?",
+              "answer": "Sensor fault detection identifies open-circuit and short-circuit conditions in the sensor connection. The interface monitors sensor excitation current and voltage to detect faults. Fault conditions are reported via LIN interface. This enables early detection of sensor failures.",
+              "decisionGuide": "Fault detection provides early warning of sensor failures for system reliability.",
+              "keywords": [
+                "fault detection",
+                "open circuit",
+                "sensor failure"
+              ]
+            },
+            {
+              "question": "Can AC7801-TEMP interface with multiple sensors?",
+              "answer": "Yes, the AC7801-TEMP supports multiple sensor inputs with multiplexing. Up to 4 sensors can be connected and measured sequentially. This enables multi-point temperature monitoring with a single interface IC. Each sensor channel is individually configurable.",
+              "decisionGuide": "Multi-sensor support enables distributed temperature monitoring.",
+              "keywords": [
+                "multi-sensor",
+                "multiplexing",
+                "distributed monitoring"
+              ]
+            },
+            {
+              "question": "What is LIN interface used for?",
+              "answer": "The LIN 2.1 interface provides low-cost automotive network connectivity. LIN is widely used for body electronics and sensor networks in vehicles. The interface supports baud rates up to 20kbps. LIN enables integration with existing vehicle networks.",
+              "decisionGuide": "LIN interface provides cost-effective automotive network integration.",
+              "keywords": [
+                "LIN interface",
+                "automotive network",
+                "body electronics"
+              ]
+            }
+          ]
+        },
+        {
+          "partNumber": "AC7840-POSITION",
+          "name": "High-Precision Position Sensor Interface",
+          "shortDescription": "High-precision position sensor interface with 24-bit ADC and sine/cosine processing for automotive position sensing",
+          "descriptionParagraphs": [
+            "The AC7840-POSITION is a high-precision position sensor interface designed for demanding automotive position sensing applications.",
+            "With 24-bit ADC, sine/cosine signal processing, and ASIL-B support, it is ideal for throttle position, pedal position, and steering angle sensing.",
+            "The device includes signal conditioning, fault detection, and SENT interface for automotive sensor networks."
+          ],
+          "specifications": {
+            "Supply Voltage": "3.3V to 5V",
+            "ADC Resolution": "24-bit",
+            "Input Type": "Sine/Cosine, Hall, Potentiometer",
+            "Accuracy": "0.1% over temperature",
+            "Temperature Range": "-40°C to +125°C",
+            "Safety Level": "ASIL-B support",
+            "Interface": "N/A",
+            "Input Channels": "N/A",
+            "Sensor Types": "N/A"
+          },
+          "features": [
+            "24-bit ultra-high-resolution ADC",
+            "Sine/cosine signal processing",
+            "Multi-sensor input support",
+            "0.1% accuracy over temperature",
+            "ASIL-B functional safety features",
+            "Sensor fault detection",
+            "SENT protocol interface",
+            "AEC-Q100 Grade 1 qualified"
+          ],
+          "applications": [
+            "Throttle position sensing",
+            "Accelerator pedal position",
+            "Steering angle measurement",
+            "Brake pedal position",
+            "Transmission position sensing"
+          ],
+          "faeReview": {
+            "author": "Jennifer Liu",
+            "title": "Senior FAE - Safety Sensor Systems",
+            "content": "The AC7840-POSITION is my recommended solution for safety-critical position sensing applications. The 24-bit ADC provides exceptional resolution for precise position measurement, while the sine/cosine processing enables accurate angle calculation from resolver or inductive sensors. I have successfully used this interface in throttle control and pedal position applications requiring ASIL compliance. The ASIL-B features including redundant measurement channels and diagnostic capabilities provide the reliability required for safety systems. The SENT interface simplifies integration into automotive sensor networks. For high-precision safety-critical position sensing, this interface offers excellent performance.",
+            "highlight": "High-precision position sensor interface with ASIL-B for safety-critical automotive applications"
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "SCA103T",
+              "brand": "Murata",
+              "specifications": {
+                "type": "Inclinometer",
+                "interface": "SPI",
+                "accuracy": "0.001"
+              },
+              "comparison": {
+                "type": "Inclinometer vs Interface (different)",
+                "interface": "SPI vs SENT (different)",
+                "features": "integrated sensor vs interface",
+                "price": "成本higher"
+              },
+              "reason": "Murata offers integrated sensor but limited flexibility",
+              "useCase": "Applications requiring integrated inclinometer",
+              "link": "#"
+            },
+            {
+              "partNumber": "AD2S1205",
+              "brand": "Analog Devices",
+              "specifications": {
+                "resolution": "12-bit",
+                "interface": "SPI",
+                "tracking": "Variable"
+              },
+              "comparison": {
+                "resolution": "12-bit < 24-bit (lower)",
+                "interface": "SPI vs SENT (different)",
+                "tracking": "RDC vs ADC (different)",
+                "price": "higher cost"
+              },
+              "reason": "ADI offers resolver-to-digital converter with different architecture",
+              "useCase": "Applications requiring dedicated resolver interface",
+              "link": "#"
+            }
+          ],
+          "companionParts": [
+            {
+              "partNumber": "AC78406",
+              "link": "/autochips/products/automotive-mcus/ac78406.html",
+              "description": "ASIL-D MCU for safety sensor processing",
+              "category": "Automotive MCUs"
+            },
+            {
+              "partNumber": "AC7840-PMIC",
+              "link": "/autochips/products/power-management-ics/ac7840-pmic.html",
+              "description": "Safety PMIC for sensor power supply",
+              "category": "Power Management ICs"
+            },
+            {
+              "partNumber": "AC7840-PMIC",
+              "link": "/autochips/products/power-management-ics/ac7840-pmic.html",
+              "description": "Safety PMIC for sensor power supply",
+              "category": "Power Management ICs"
+            }
+          ],
+          "faqs": [
+            {
+              "question": "What is sine/cosine signal processing?",
+              "answer": "Sine/cosine signal processing is used with resolver and inductive position sensors that output sine and cosine signals proportional to angle. The AC7840-POSITION processes these signals to calculate precise angular position using arctangent algorithms. This provides absolute position measurement with high resolution.",
+              "decisionGuide": "Use sine/cosine processing for resolver and inductive sensors requiring absolute position.",
+              "keywords": [
+                "sine cosine processing",
+                "resolver sensor",
+                "position angle measurement"
+              ]
+            },
+            {
+              "question": "What position sensors are supported?",
+              "answer": "The AC7840-POSITION supports resolver sensors, inductive position sensors, Hall effect sensors, and potentiometer sensors. Each sensor type has appropriate signal conditioning. The 24-bit ADC provides high resolution for all sensor types. Sensor selection depends on accuracy requirements and environmental conditions.",
+              "decisionGuide": "Select sensor type based on accuracy needs and operating environment.",
+              "keywords": [
+                "position sensors",
+                "resolver Hall potentiometer",
+                "sensor selection"
+              ]
+            },
+            {
+              "question": "What is ASIL-B support for position sensing?",
+              "answer": "ASIL-B support includes redundant measurement channels, comprehensive diagnostics, and fault detection for safety-critical position sensing. Dual ADC channels provide redundant angle measurement. Diagnostic features detect sensor faults and signal anomalies. These features enable use in safety systems like throttle control.",
+              "decisionGuide": "ASIL-B features support safety-critical position sensing applications.",
+              "keywords": [
+                "ASIL-B position",
+                "safety sensing",
+                "redundant measurement"
+              ]
+            },
+            {
+              "question": "What is SENT protocol interface?",
+              "answer": "SENT (Single Edge Nibble Transmission) is an automotive sensor communication protocol. The SENT interface provides high-resolution data transmission from sensor to ECU. It is widely used for position and pressure sensors in vehicles. SENT offers better EMC performance than analog interfaces.",
+              "decisionGuide": "SENT interface provides robust automotive sensor communication.",
+              "keywords": [
+                "SENT protocol",
+                "automotive sensor",
+                "digital interface"
+              ]
+            },
+            {
+              "question": "What accuracy can be achieved with 24-bit ADC?",
+              "answer": "The 24-bit ADC provides theoretical resolution of 1 part in 16 million. For a 360-degree range, this provides sub-arcsecond resolution. Actual accuracy depends on sensor quality and signal conditioning. The 0.1% accuracy specification includes all error sources over temperature.",
+              "decisionGuide": "24-bit ADC provides exceptional resolution for high-precision position sensing.",
+              "keywords": [
+                "24-bit ADC",
+                "position resolution",
+                "measurement accuracy"
               ]
             }
           ]

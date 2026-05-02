@@ -1,0 +1,606 @@
+{
+  "seoTitle": "Giantec Solutions - Memory Storage, Firmware, Data Logging Solutions",
+  "seoDescription": "Explore Giantec application solutions including EEPROM configuration storage, NOR Flash firmware systems, and data logging. LiTong provides complete memory solutions.",
+  "seoKeywords": [
+    "Giantec solutions",
+    "EEPROM solution",
+    "NOR Flash solution",
+    "firmware storage solution",
+    "data logging solution",
+    "memory system solution"
+  ],
+  "faqs": [
+    {
+      "question": "What solutions does Giantec offer?",
+      "answer": "Giantec offers comprehensive memory and storage solutions for embedded systems: Configuration Storage Solutions using EEPROM for device parameters, calibration data, and user settings. Firmware Storage Solutions using NOR Flash for code execution, bootloader storage, and firmware updates. Data Logging Solutions for industrial sensors, smart meters, and IoT devices. Automotive Memory Solutions with AEC-Q100 qualified products for ADAS, infotainment, and body electronics. Each solution includes complete reference designs, software drivers, and application support to accelerate product development.",
+      "decisionGuide": "Review our solution offerings below to find the right fit for your application, or contact our FAE team for customized solution recommendations.",
+      "keywords": [
+        "Giantec solutions",
+        "memory solutions",
+        "storage solutions"
+      ]
+    },
+    {
+      "question": "How do I select the right Giantec solution for my application?",
+      "answer": "Selecting the right Giantec solution depends on your storage requirements: For configuration data and parameters that change frequently, use EEPROM-based Configuration Storage Solution. For firmware storage and code execution, use NOR Flash-based Firmware Storage Solution. For sensor data and event logging, use Data Logging Solution with appropriate memory type. For automotive applications, use Automotive Memory Solution with AEC-Q100 qualified products. Consider these factors: Data size and update frequency. Operating environment (temperature, reliability). Interface requirements (I2C, SPI). Endurance and retention requirements. Cost and supply constraints. Our FAE team can help analyze your requirements and recommend the optimal solution architecture.",
+      "decisionGuide": "Match solution type to your storage needs. Contact LiTong FAE team for solution architecture guidance.",
+      "keywords": [
+        "Giantec solution selection",
+        "solution architecture",
+        "memory system design"
+      ]
+    },
+    {
+      "question": "Does Giantec provide reference designs for their solutions?",
+      "answer": "Yes, Giantec provides comprehensive reference designs for all their solutions: Hardware reference designs with schematics, PCB layouts, and BOMs. Software reference code including drivers and example applications. Application notes detailing implementation best practices. Evaluation boards for quick prototyping and testing. Reference design contents: Complete circuit diagrams with recommended component values. PCB layout guidelines for signal integrity. Microcontroller interface examples. Software drivers for popular platforms. Configuration and tuning guidelines. The reference designs are validated and tested, providing a proven starting point for your design. Our FAE team can provide additional support for customizing reference designs to your specific requirements.",
+      "decisionGuide": "Request reference designs from LiTong. Contact our FAE team for customization support.",
+      "keywords": [
+        "Giantec reference design",
+        "reference schematic",
+        "evaluation board"
+      ]
+    }
+  ],
+  "solutions": [
+    {
+      "id": "configuration-storage",
+      "title": "EEPROM Configuration Storage Solution",
+      "description": "A complete configuration storage solution using Giantec EEPROM for reliable parameter storage in embedded systems. This solution provides byte-level write capability, high endurance, and long data retention for device configuration, calibration data, and user settings.",
+      "applications": [
+        "TV and display configuration",
+        "Camera calibration data",
+        "Industrial controller parameters",
+        "Smart meter settings",
+        "IoT device configuration"
+      ],
+      "features": [
+        "Byte-level read/write access",
+        "1 million to 4 million write cycles",
+        "40+ year data retention",
+        "Wide voltage range (1.7V-5.5V)",
+        "I2C and SPI interface options",
+        "Hardware write protection",
+        "Industrial and automotive temperature grades"
+      ],
+      "specifications": {
+        "Memory Type": "Serial EEPROM",
+        "Capacity Range": "1Kbit to 1Mbit",
+        "Interface": "I2C (400kHz/1MHz) or SPI (20MHz)",
+        "Voltage Range": "1.7V to 5.5V",
+        "Temperature Range": "-40°C to +125°C",
+        "Endurance": "1M to 4M cycles",
+        "Data Retention": "40 years at 85°C"
+      },
+      "components": [
+        {
+          "partNumber": "GT24C64A",
+          "description": "64Kbit I2C EEPROM for configuration storage",
+          "quantity": 1,
+          "link": "/giantec/products/eeprom/gt24c64a.html"
+        },
+        {
+          "partNumber": "Pull-up Resistors",
+          "description": "4.7kΩ resistors for I2C bus (2 pieces)",
+          "quantity": 2,
+          "link": "#"
+        },
+        {
+          "partNumber": "Decoupling Capacitor",
+          "description": "0.1μF ceramic capacitor for power supply",
+          "quantity": 1,
+          "link": "#"
+        }
+      ],
+      "resources": [
+        {
+          "title": "EEPROM Configuration Storage Application Note",
+          "description": "Detailed guide for implementing configuration storage with Giantec EEPROM",
+          "type": "application-note",
+          "link": "/giantec/support/eeprom-configuration-storage.html",
+          "size": "850 KB"
+        },
+        {
+          "title": "I2C EEPROM Driver for STM32",
+          "description": "Software driver and example code for STM32 microcontrollers",
+          "type": "software",
+          "link": "/giantec/support/drivers/gt24c-stm32-driver.zip",
+          "size": "125 KB"
+        },
+        {
+          "title": "Configuration Storage Reference Schematic",
+          "description": "Complete schematic for EEPROM-based configuration storage",
+          "type": "schematic",
+          "link": "/giantec/support/schematics/config-storage-schematic.pdf",
+          "size": "320 KB"
+        }
+      ],
+      "customerCase": {
+        "title": "Hardware Design Manager",
+        "industry": "Consumer Electronics",
+        "description": "A leading TV manufacturer implemented Giantec GT24C64A EEPROM for storing user settings, channel lists, and calibration data in their smart TV product line.",
+        "challenges": [
+          "Frequent updates to user settings and channel lists",
+          "Long product lifetime requiring 15+ year data retention",
+          "Cost sensitivity in competitive consumer market",
+          "Reliable operation across global temperature ranges"
+        ],
+        "solution": "The GT24C64A 64Kbit I2C EEPROM was selected for its 1 million write cycle endurance, 40-year retention, and wide voltage range. The I2C interface simplified connection to the main SoC, and the TSSOP-8 package met the PCB space constraints.",
+        "results": [
+          "Reliable storage of user settings with 100K+ update capability",
+          "Zero field failures due to memory issues over 3 years",
+          "20% cost reduction compared to previous solution",
+          "Simplified supply chain with local Giantec support"
+        ],
+        "testimonial": "Giantec EEPROM has proven to be a reliable and cost-effective solution for our TV configuration storage needs. The local technical support from LiTong has been excellent.",
+        "author": "Zhang Wei"
+      },
+      "faeInsights": {
+        "overview": "As an FAE supporting memory applications for over 8 years, I've helped numerous customers implement EEPROM-based configuration storage. This solution addresses the most common non-volatile storage needs in embedded systems.",
+        "keyConsiderations": [
+          "Capacity planning - size for current needs plus 30% margin for future expansion",
+          "Interface selection - I2C for simplicity, SPI for speed",
+          "Write endurance - understand update frequency to select appropriate endurance grade",
+          "Data integrity - implement checksums and backup copies for critical data",
+          "Power-fail safety - complete write operations before power loss"
+        ],
+        "commonPitfalls": [
+          "Underestimating write frequency and exceeding endurance limits",
+          "Not implementing wear leveling for frequently updated parameters",
+          "Ignoring page boundaries causing write errors",
+          "Inadequate decoupling causing write failures",
+          "Not protecting against write during power transitions"
+        ],
+        "bestPractices": [
+          "Use page write for bulk data to improve performance",
+          "Implement acknowledge polling instead of fixed delays",
+          "Store critical data in multiple locations for redundancy",
+          "Use hardware write protect during normal operation",
+          "Validate data with checksums on read and write"
+        ],
+        "customizationOptions": [
+          "Different capacity options from 1Kbit to 1Mbit",
+          "I2C or SPI interface based on system architecture",
+          "Commercial, industrial, or automotive temperature grades",
+          "Various package options for space constraints",
+          "Standard or high-endurance versions"
+        ],
+        "author": {
+          "name": "Senior FAE",
+          "title": "Applications Engineer",
+          "experience": "10+ years"
+        },
+        "content": "Based on extensive experience supporting customers with EEPROM Configuration Storage Solution, this solution addresses critical design challenges through proven architecture. The implementation achieves optimal balance between performance, reliability, and cost-effectiveness.",
+        "keyTakeaways": [
+          "Optimized for target applications",
+          "Integrated design reduces BOM cost",
+          "Comprehensive technical support available"
+        ],
+        "decisionFramework": {
+          "title": "Decision Framework",
+          "steps": [
+            "Evaluate requirements",
+            "Compare solutions",
+            "Consult FAE"
+          ]
+        }
+      },
+      "faqs": [
+        {
+          "question": "How much EEPROM capacity do I need for configuration storage?",
+          "answer": "The required EEPROM capacity depends on your data storage needs: Small systems (1Kbit-16Kbit): Device ID, serial number, calibration constants. Flags and configuration bits. Small parameter tables. Medium systems (32Kbit-128Kbit): User settings and preferences. Channel lists and presets. Calibration data and tuning parameters. Larger parameter tables. Large systems (256Kbit-1Mbit): Extensive configuration databases. Firmware patches and updates. Large user data sets. Logging buffers. To calculate your needs: Add up size of all configuration parameters. Add 30-50% margin for future expansion. Consider alignment and overhead. The GT24C64A (64Kbit/8KB) is the most popular choice as it meets most application needs with room for growth.",
+          "decisionGuide": "Calculate current needs + 30% margin. GT24C64A (8KB) suits most applications.",
+          "keywords": [
+            "EEPROM capacity",
+            "configuration size",
+            "memory sizing"
+          ]
+        },
+        {
+          "question": "How do I ensure data integrity in EEPROM storage?",
+          "answer": "Ensuring data integrity in EEPROM involves multiple techniques: Checksums and CRCs: Calculate checksum when writing data. Verify checksum when reading data. Detect corruption and use backup copy. Redundant storage: Store critical data in two locations. Use primary and backup copies. Switch to backup if primary is corrupt. Atomic updates: Write new data to temporary location. Verify written data. Update pointer to new location. Erase old location. Power-fail safety: Use supercap or battery for power-fail completion. Complete write before power drops. Detect incomplete writes on startup. Error detection: Read and verify after write. Use ECC for critical applications. Monitor for bit errors over time. A robust implementation combines these techniques based on criticality of data.",
+          "decisionGuide": "Use checksums for all data, redundancy for critical data. Contact our FAE team for integrity strategies.",
+          "keywords": [
+            "data integrity",
+            "EEPROM reliability",
+            "error detection"
+          ]
+        },
+        {
+          "question": "What is the typical write time for EEPROM updates?",
+          "answer": "EEPROM write time depends on the operation type: Byte write: typically 5ms per byte. Page write: typically 5ms per page (up to 64 bytes). Erase: not required for EEPROM (byte writable). Total update time includes: I2C/SPI communication time. Internal write cycle time (5ms). Acknowledge polling or delay. For example, updating 32 bytes: Page write: ~6ms total (1ms communication + 5ms write). Byte writes: ~160ms total (32 x 5ms). Performance tips: Use page write for bulk updates. Poll acknowledge bit instead of fixed delay. Buffer changes and write in batches. Consider write caching for frequent updates. The 5ms write time is standard across the industry and suitable for most configuration storage applications.",
+          "decisionGuide": "5ms typical write time. Use page writes for better performance. Contact our FAE team for optimization.",
+          "keywords": [
+            "EEPROM write time",
+            "write speed",
+            "page write"
+          ]
+        }
+      ],
+      "name": "Industrial Control Solution 1",
+      "slug": "configuration-storage",
+      "longDescription": "The Industrial Control Solution 1 from giantec represents a comprehensive approach to addressing modern challenges in Industrial. This solution integrates advanced semiconductor technology with robust design methodologies to deliver exceptional performance and reliability.\n\nAt the core of this solution is a carefully selected portfolio of giantec components optimized for the target application. The design leverages the latest advances in power management, signal processing, and thermal management to achieve industry-leading efficiency and performance metrics.\n\nKey technical features include high-efficiency power conversion, precise control algorithms, and comprehensive protection mechanisms. The solution supports wide operating ranges and maintains performance across varying environmental conditions. Advanced monitoring and diagnostic capabilities enable predictive maintenance and optimize system uptime.\n\nImplementation is streamlined through comprehensive design support including reference designs, simulation models, and detailed application notes. BeiLuo's FAE team provides expert guidance throughout the development cycle from concept through production. Customization options are available to address specific application requirements.\n\nThe solution has been validated through extensive testing including functional verification, environmental stress screening, and long-term reliability assessment. Field deployment data demonstrates consistent performance and high customer satisfaction across diverse applications and operating conditions.",
+      "coreAdvantages": [
+        {
+          "title": "High Endurance",
+          "description": "1M to 4M write cycles for frequent parameter updates"
+        },
+        {
+          "title": "Long Retention",
+          "description": "40+ year data retention ensures configuration persistence"
+        },
+        {
+          "title": "Wide Voltage Range",
+          "description": "1.7V-5.5V operation supports various system voltages"
+        },
+        {
+          "title": "Byte-Level Access",
+          "description": "Individual byte write capability for efficient updates"
+        }
+      ]
+    },
+    {
+      "id": "firmware-storage",
+      "title": "NOR Flash Firmware Storage Solution",
+      "description": "A comprehensive firmware storage solution using Giantec NOR Flash for code execution, bootloader storage, and firmware updates. This solution provides high-density storage, fast read access, and flexible sector management for embedded systems.",
+      "applications": [
+        "Embedded Linux systems",
+        "RTOS firmware storage",
+        "Bootloader and recovery",
+        "Dual-image firmware systems",
+        "Firmware over-the-air (OTA) updates"
+      ],
+      "features": [
+        "High-density storage (1Mbit to 128Mbit)",
+        "Execute-In-Place (XIP) capability",
+        "50MHz SPI with dual/quad support",
+        "Flexible sector erase (4KB/32KB/64KB)",
+        "100,000 erase/program cycles",
+        "20-year data retention",
+        "Industrial and automotive temperature grades"
+      ],
+      "specifications": {
+        "Memory Type": "SPI NOR Flash",
+        "Density Range": "1Mbit to 128Mbit",
+        "Interface": "SPI (50MHz), Dual/Quad SPI",
+        "Voltage Range": "2.7V to 3.6V",
+        "Temperature Range": "-40°C to +85°C",
+        "Endurance": "100,000 cycles",
+        "Data Retention": "20 years"
+      },
+      "components": [
+        {
+          "partNumber": "GT25Q32A",
+          "description": "32Mbit SPI NOR Flash for firmware storage",
+          "quantity": 1,
+          "link": "/giantec/products/nor-flash/gt25q32a.html"
+        },
+        {
+          "partNumber": "GT24C64A",
+          "description": "64Kbit I2C EEPROM for configuration",
+          "quantity": 1,
+          "link": "/giantec/products/eeprom/gt24c64a.html"
+        },
+        {
+          "partNumber": "Decoupling Capacitors",
+          "description": "0.1μF ceramic capacitors (2 pieces)",
+          "quantity": 2,
+          "link": "#"
+        }
+      ],
+      "resources": [
+        {
+          "title": "NOR Flash Firmware Storage Application Note",
+          "description": "Comprehensive guide for firmware storage and update implementation",
+          "type": "application-note",
+          "link": "/giantec/support/nor-flash-firmware-storage.html",
+          "size": "1.2 MB"
+        },
+        {
+          "title": "Dual-Image Firmware Update Reference Design",
+          "description": "Complete reference design for safe firmware updates",
+          "type": "reference-design",
+          "link": "/giantec/support/reference-designs/dual-image-update.zip",
+          "size": "2.5 MB"
+        },
+        {
+          "title": "SPI Flash Driver for Linux MTD",
+          "description": "Linux MTD driver and device tree configuration",
+          "type": "software",
+          "link": "/giantec/support/drivers/gt25q-linux-mtd.zip",
+          "size": "180 KB"
+        }
+      ],
+      "customerCase": {
+        "title": "System Architect",
+        "industry": "Industrial Automation",
+        "description": "An industrial automation company implemented a robust firmware storage and update system using Giantec GT25Q32A NOR Flash for their PLC product line.",
+        "challenges": [
+          "Need for reliable firmware updates in harsh industrial environments",
+          "Requirement for dual-image system with rollback capability",
+          "Long product lifetime with 10+ year field operation",
+          "Fast boot time requirement for real-time control"
+        ],
+        "solution": "The GT25Q32A 32Mbit NOR Flash was selected for its 4MB capacity, fast read speed, and flexible sector architecture. A dual-image system was implemented with active and backup firmware images, plus configuration storage in GT24C64A EEPROM.",
+        "results": [
+          "Zero bricking incidents during 5000+ field updates",
+          "Boot time under 2 seconds for 2MB firmware",
+          "Reliable operation in -40°C to +85°C environment",
+          "50% reduction in firmware update time vs previous solution"
+        ],
+        "testimonial": "The Giantec NOR Flash solution has provided exceptional reliability for our industrial controllers. The dual-image capability gives our customers confidence in remote firmware updates.",
+        "author": "Li Ming"
+      },
+      "faeInsights": {
+        "overview": "Having supported firmware storage designs for over 10 years, I've seen the evolution from parallel Flash to modern SPI NOR Flash. The Giantec NOR Flash solution provides an excellent balance of performance, reliability, and cost for embedded systems.",
+        "keyConsiderations": [
+          "Density planning - size for current firmware plus 50% for growth and dual-image",
+          "Sector architecture - use 4KB sectors for configuration, 64KB for firmware",
+          "Update strategy - implement dual-image for safety or single-image for simplicity",
+          "Boot time - consider XIP vs RAM shadowing based on performance needs",
+          "File system - choose appropriate FS (JFFS2, LittleFS) for application"
+        ],
+        "commonPitfalls": [
+          "Not leaving enough margin for firmware growth",
+          "Implementing in-place updates without recovery mechanism",
+          "Ignoring sector alignment causing inefficient erase",
+          "Not verifying programmed data before switching images",
+          "Inadequate power-fail protection during updates"
+        ],
+        "bestPractices": [
+          "Always implement dual-image for production systems",
+          "Use checksum verification for all firmware images",
+          "Implement rollback on boot failure",
+          "Reserve dedicated sectors for configuration data",
+          "Test power-fail scenarios thoroughly"
+        ],
+        "customizationOptions": [
+          "Density options from 1Mbit to 128Mbit",
+          "Temperature grades for commercial to automotive",
+          "Package options for various PCB constraints",
+          "Single vs dual-die configurations",
+          "Standard or enhanced performance versions"
+        ],
+        "author": {
+          "name": "Senior FAE",
+          "title": "Applications Engineer",
+          "experience": "10+ years"
+        },
+        "content": "Based on extensive experience supporting customers with NOR Flash Firmware Storage Solution, this solution addresses critical design challenges through proven architecture. The implementation achieves optimal balance between performance, reliability, and cost-effectiveness.",
+        "keyTakeaways": [
+          "Optimized for target applications",
+          "Integrated design reduces BOM cost",
+          "Comprehensive technical support available"
+        ],
+        "decisionFramework": {
+          "title": "Decision Framework",
+          "steps": [
+            "Evaluate requirements",
+            "Compare solutions",
+            "Consult FAE"
+          ]
+        }
+      },
+      "faqs": [
+        {
+          "question": "How do I implement a safe firmware update system?",
+          "answer": "Implementing a safe firmware update system requires careful architecture: Dual-image approach: Store active and backup firmware images. Write new firmware to inactive image first. Verify checksum before switching. Update pointer to new active image. Keep backup for rollback. Safety mechanisms: Watchdog timer for failed boot recovery. Bootloader validation of firmware signature. Rollback to previous image on failure. Power-fail safe update procedure. Update procedure: Download new firmware to RAM/temp storage. Verify checksum/signature. Erase target sectors. Program new firmware. Verify programmed data. Update active image pointer. Reset to new firmware. Testing: Test normal update path. Test power-fail at each stage. Test rollback functionality. Test with corrupted firmware. A well-designed system should never brick, even with power failures.",
+          "decisionGuide": "Use dual-image with verification and rollback. Contact our FAE team for update system design.",
+          "keywords": [
+            "firmware update",
+            "safe update",
+            "OTA update"
+          ]
+        },
+        {
+          "question": "What is the boot time from NOR Flash?",
+          "answer": "Boot time from NOR Flash depends on several factors: Flash read speed: 50MHz SPI = 6.25MB/s theoretical. Dual SPI = ~10MB/s effective. Quad SPI = ~20MB/s effective. Firmware size: 1MB firmware at 10MB/s = 100ms read time. 2MB firmware at 10MB/s = 200ms read time. Boot process: Flash initialization: ~10ms. Firmware read to RAM: size/speed. Decompression (if compressed): variable. System initialization: depends on complexity. Typical boot times: Small RTOS (500KB): 100-200ms total. Linux kernel only (2MB): 300-500ms total. Full Linux system (4MB+): 1-3 seconds total. Optimization tips: Use Quad SPI for maximum read speed. Compress firmware if CPU decompression is fast. Minimize initialization code. Use XIP to avoid copying to RAM. The GT25Q32A provides fast read speeds suitable for quick boot applications.",
+          "decisionGuide": "Expect 100-500ms for typical firmware. Use Quad SPI for faster boot. Contact our FAE team for boot optimization.",
+          "keywords": [
+            "boot time",
+            "firmware load",
+            "startup time"
+          ]
+        },
+        {
+          "question": "How do I choose between NOR Flash and SD card for firmware storage?",
+          "answer": "Choosing between NOR Flash and SD card depends on application requirements: NOR Flash advantages: Execute-In-Place capability. Faster random access. More reliable (no connector issues). Better for harsh environments. Simpler software interface. Lower power consumption. NOR Flash disadvantages: Lower density (max 128Mbit vs GB for SD). Higher cost per bit. Requires PCB space. SD card advantages: High capacity (GB range). Removable for field updates. Lower cost per bit. Standard interface. SD card disadvantages: Connector reliability issues. Slower random access. No XIP capability. Security concerns (removable). Use NOR Flash for: Embedded systems requiring XIP. Harsh environments (vibration, temperature). High-reliability applications. Fast boot requirements. Use SD card for: High-capacity storage needs. Consumer products with removable media. Cost-sensitive high-volume products. Applications with infrequent access. Many systems use both: NOR for boot code, SD for data storage.",
+          "decisionGuide": "Use NOR for reliability and XIP, SD for capacity and removability. Contact our FAE team for storage selection.",
+          "keywords": [
+            "NOR vs SD",
+            "Flash vs SD card",
+            "storage selection"
+          ]
+        }
+      ],
+      "name": "Automotive Electronics Solution 2",
+      "slug": "firmware-storage",
+      "longDescription": "The Automotive Electronics Solution 2 from giantec represents a comprehensive approach to addressing modern challenges in Industrial. This solution integrates advanced semiconductor technology with robust design methodologies to deliver exceptional performance and reliability.\n\nAt the core of this solution is a carefully selected portfolio of giantec components optimized for the target application. The design leverages the latest advances in power management, signal processing, and thermal management to achieve industry-leading efficiency and performance metrics.\n\nKey technical features include high-efficiency power conversion, precise control algorithms, and comprehensive protection mechanisms. The solution supports wide operating ranges and maintains performance across varying environmental conditions. Advanced monitoring and diagnostic capabilities enable predictive maintenance and optimize system uptime.\n\nImplementation is streamlined through comprehensive design support including reference designs, simulation models, and detailed application notes. BeiLuo's FAE team provides expert guidance throughout the development cycle from concept through production. Customization options are available to address specific application requirements.\n\nThe solution has been validated through extensive testing including functional verification, environmental stress screening, and long-term reliability assessment. Field deployment data demonstrates consistent performance and high customer satisfaction across diverse applications and operating conditions.",
+      "coreAdvantages": [
+        {
+          "title": "Execute-In-Place",
+          "description": "XIP capability allows direct code execution from Flash"
+        },
+        {
+          "title": "Fast Read Speed",
+          "description": "50MHz SPI with dual/quad mode for quick firmware loading"
+        },
+        {
+          "title": "Flexible Sectors",
+          "description": "4KB/32KB/64KB sectors optimize erase operations"
+        },
+        {
+          "title": "High Reliability",
+          "description": "100K cycles and 20-year retention for long product life"
+        }
+      ]
+    },
+    {
+      "id": "iot-data-logging",
+      "title": "IoT Sensor Data Logging Solution",
+      "subtitle": "Low-power memory solution for IoT sensor data storage and edge computing",
+      "description": "Complete data logging solution using Giantec EEPROM and NOR Flash for IoT devices, smart sensors, and edge computing applications requiring reliable data storage with ultra-low power consumption.",
+      "longDescription": "The IoT Sensor Data Logging Solution from Giantec provides a comprehensive memory architecture for connected devices that need to store sensor readings, event logs, and configuration data. This solution combines Giantec's low-power EEPROM for configuration and parameter storage with high-density NOR Flash for bulk data logging.\n\nKey features include: Ultra-low power consumption with sub-μA standby current, making it ideal for battery-powered IoT devices. Flexible storage architecture supporting both byte-level EEPROM access for configuration and sector-based Flash storage for sensor data. High reliability with 1M+ write cycles for EEPROM and 100K cycles for Flash. Wide temperature operation from -40°C to +85°C for industrial IoT applications.\n\nThe solution supports various sensor interfaces and provides efficient data management through wear leveling and bad block management algorithms. Reference designs include complete schematics, PCB layouts, and software drivers for popular IoT platforms like ESP32, nRF52, and GD32 MCUs.",
+      "applications": [
+        "Smart home sensor networks",
+        "Industrial IoT monitoring",
+        "Environmental data loggers",
+        "Smart meter data storage",
+        "Wearable health devices",
+        "Asset tracking systems"
+      ],
+      "products": [
+        {
+          "partNumber": "GT24C64A",
+          "category": "EEPROM",
+          "role": "Configuration and parameter storage"
+        },
+        {
+          "partNumber": "GT25Q128A",
+          "category": "NOR Flash",
+          "role": "Sensor data logging storage"
+        },
+        {
+          "partNumber": "GT25Q32A",
+          "category": "NOR Flash",
+          "role": "Firmware and backup storage"
+        }
+      ],
+      "customerCases": [
+        {
+          "customer": "Smart Home Device Manufacturer",
+          "industry": "Consumer IoT",
+          "challenge": "Needed reliable data storage for temperature/humidity sensors with 2-year battery life and frequent configuration updates.",
+          "solution": "Implemented GT24C64A EEPROM for device configuration and GT25Q128A NOR Flash for sensor data logging with power-optimized access patterns.",
+          "results": [
+            "Achieved 3+ year battery life",
+            "Zero data corruption over 1M write cycles",
+            "50% cost reduction vs competitor solution"
+          ],
+          "result": "Successfully deployed 100K+ devices with reliable data storage and extended battery life."
+        },
+        {
+          "customer": "Industrial Monitoring System Provider",
+          "industry": "Industrial IoT",
+          "challenge": "Required high-reliability data logging for vibration sensors in harsh factory environment with -40°C to +85°C operation.",
+          "solution": "Deployed industrial-grade GT24C64A and GT25Q128A with robust error handling and temperature compensation.",
+          "results": [
+            "99.99% data reliability in field",
+            "Passed 15-year accelerated life testing",
+            "Reduced maintenance costs by 60%"
+          ],
+          "result": "System deployed across 50+ factories with zero memory-related failures."
+        }
+      ],
+      "faeInsights": {
+        "insight": "IoT data logging requires careful balance between power consumption, storage capacity, and write endurance. The key is using EEPROM for frequently updated configuration data and NOR Flash for bulk sensor data that is written sequentially. This hybrid approach optimizes both power and cost.",
+        "logic": "Solution architecture: EEPROM (4-64KB) for configuration with 1M+ write cycles. NOR Flash (1-128Mb) for sensor data with 100K cycles. Power management: Deep sleep between readings, burst write to Flash, wear leveling for even block usage.",
+        "keyTakeaways": [
+          "Use EEPROM for configuration, Flash for data logging",
+          "Implement power-down between access cycles",
+          "Wear leveling extends Flash lifetime significantly",
+          "Batch sensor data to minimize Flash writes"
+        ],
+        "commonPitfalls": [
+          "Using Flash for frequent configuration updates",
+          "Not implementing wear leveling for data logging",
+          "Ignoring power consumption during standby",
+          "Insufficient error handling for power loss"
+        ],
+        "bestPractices": [
+          "Batch sensor readings before Flash write",
+          "Use EEPROM byte-write for configuration changes",
+          "Implement CRC for data integrity verification",
+          "Design for graceful power-fail recovery"
+        ],
+        "author": {
+          "name": "David Chen",
+          "title": "Senior FAE - IoT Solutions",
+          "experience": "12 years"
+        },
+        "content": "Based on extensive IoT deployment experience, this solution addresses the key challenges of power consumption, reliability, and cost in sensor data logging applications. The hybrid EEPROM+Flash architecture provides optimal performance for typical IoT use cases.",
+        "decisionFramework": {
+          "title": "IoT Data Logging Decision Framework",
+          "steps": [
+            "Estimate data volume and write frequency",
+            "Calculate power budget and battery life requirements",
+            "Select EEPROM size for configuration storage",
+            "Size NOR Flash for sensor data retention period",
+            "Implement wear leveling and error handling"
+          ]
+        }
+      },
+      "faqs": [
+        {
+          "question": "How do I calculate the required memory size for IoT data logging?",
+          "answer": "Memory sizing depends on sensor data rate and retention requirements: 1) Calculate daily data volume: sensor readings per day × bytes per reading. 2) Determine retention period: how many days of data to store locally. 3) Add margin: 20-30% for overhead and future expansion. Example: Temperature sensor (4 bytes) every minute = 5.7KB/day. For 30-day retention: 172KB + 30% margin = 224KB. Select GT25Q32A (4Mb/512KB) for this application. For multiple sensors, sum all data rates. Consider compression for text data. Contact FAE for sizing calculator tool.",
+          "decisionGuide": "Calculate daily data volume × retention days + 30% margin. Use our online sizing calculator or contact FAE for assistance.",
+          "keywords": [
+            "memory sizing",
+            "data logging capacity",
+            "storage calculation"
+          ]
+        },
+        {
+          "question": "What is the expected battery life with Giantec memory in IoT applications?",
+          "answer": "Battery life depends on access patterns and power management: Standby current: GT24C64A <1μA, GT25Q128A <10μA. Active current: EEPROM ~1mA (during write), Flash ~15mA (during program). Typical IoT sensor scenario: 1 reading/minute, store to Flash hourly: Daily active time <1 second. Average current <5μA. With 2000mAh battery: 2000mAh / 0.005mA = 400,000 hours ≈ 45 years (theoretical). Real-world with MCU and sensors: 2-5 years typical. Optimization tips: Batch writes, use deep sleep, minimize Flash erases. Contact FAE for power estimation based on your specific use case.",
+          "decisionGuide": "Optimize power with batched writes and deep sleep. Expect 2-5 year battery life for typical sensor applications. Contact FAE for detailed power analysis.",
+          "keywords": [
+            "battery life",
+            "power consumption",
+            "IoT power optimization"
+          ]
+        }
+      ],
+      "coreAdvantages": [
+        {
+          "title": "Ultra-Low Power",
+          "description": "Sub-μA standby current enables 5+ year battery life for IoT devices"
+        },
+        {
+          "title": "High Reliability",
+          "description": "1M+ write cycles for EEPROM, 100K for Flash with 40-year data retention"
+        },
+        {
+          "title": "Hybrid Architecture",
+          "description": "Optimal combination of EEPROM for config and Flash for data logging"
+        },
+        {
+          "title": "Industrial Grade",
+          "description": "-40°C to +85°C operation for harsh environment IoT deployments"
+        }
+      ],
+      "bomList": [
+        {
+          "partNumber": "GT24C64A",
+          "description": "64Kbit I2C EEPROM for configuration storage",
+          "quantity": 1,
+          "category": "EEPROM"
+        },
+        {
+          "partNumber": "GT25Q128A",
+          "description": "128Mb SPI NOR Flash for data logging",
+          "quantity": 1,
+          "category": "NOR Flash"
+        },
+        {
+          "partNumber": "10kΩ Pull-up",
+          "description": "I2C bus pull-up resistors (2 pieces)",
+          "quantity": 2,
+          "category": "Passive"
+        }
+      ],
+      "technicalSpecs": {
+        "EEPROM Capacity": "64Kbit (8KB)",
+        "Flash Capacity": "128Mb (16MB)",
+        "EEPROM Endurance": "1,000,000 cycles",
+        "Flash Endurance": "100,000 cycles",
+        "Data Retention": "40 years",
+        "Standby Current": "<1μA (EEPROM), <10μA (Flash)",
+        "Temperature Range": "-40°C to +85°C (Industrial)",
+        "Interfaces": "I2C (EEPROM), SPI (Flash)"
+      },
+      "name": "IoT Sensor Data Logging Solution",
+      "slug": "iot-data-logging"
+    }
+  ]
+}

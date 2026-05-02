@@ -1,0 +1,491 @@
+{
+  "seoTitle": "Runic Technical Support | Analog Design Resources | LiTong Distributor",
+  "seoDescription": "Access Runic technical support, application notes, and design guides. FAE assistance for op-amp, ADC, and power management integration.",
+  "seoKeywords": [
+    "Runic technical support",
+    "Runic design guide",
+    "op-amp application note",
+    "Runic distributor support"
+  ],
+  "faqs": [
+    {
+      "question": "What technical support does LiTong provide for Runic products?",
+      "answer": "LiTong provides comprehensive technical support for Runic products including: (1) Product selection guidance - helping choose the right op-amp, ADC, or power management IC; (2) Application circuit design - schematic review and recommendations; (3) PCB layout assistance - analog layout optimization for noise and stability; (4) Troubleshooting - resolving offset, noise, and stability issues; (5) Cross-reference support - migration from TI, ADI, and other brands. Our FAE team has deep expertise in analog design and Runic product families.",
+      "decisionGuide": "Contact our FAE team through the support portal or schedule a design review meeting.",
+      "keywords": [
+        "Runic support",
+        "analog FAE",
+        "technical assistance"
+      ]
+    },
+    {
+      "question": "How do I get started with Runic product evaluation?",
+      "answer": "Getting started with Runic products: (1) Sample request - contact LiTong sales for free samples; (2) Reference designs - download application notes and schematics; (3) Evaluation boards - request EVBs for key products; (4) Cross-reference - use our guides to find Runic equivalents; (5) Spice models - request simulation models for circuit verification. LiTong maintains stock of popular Runic products for quick sample delivery.",
+      "decisionGuide": "Start with samples and reference designs, then engage FAE for design review.",
+      "keywords": [
+        "Runic evaluation",
+        "product samples",
+        "getting started"
+      ]
+    },
+    {
+      "question": "What documentation is available for Runic products?",
+      "answer": "Available Runic documentation includes: (1) Datasheets - complete specifications with typical curves; (2) Application notes - detailed design guides and best practices; (3) Reference designs - schematics, BOMs, and layout files; (4) Spice models - for circuit simulation; (5) Cross-reference guides - TI/ADI equivalents. All documentation is available through LiTong's support portal.",
+      "decisionGuide": "Request the complete documentation package for your target products.",
+      "keywords": [
+        "Runic documentation",
+        "datasheets",
+        "application notes"
+      ]
+    }
+  ],
+  "articles": [
+    {
+      "id": "runic-opamp-selection-guide",
+      "title": "Runic Operational Amplifier Selection Guide",
+      "category": "Product Selection",
+      "author": {
+        "name": "Dr. Wang Wei",
+        "title": "Senior Analog FAE",
+        "experience": "18 years",
+        "expertise": [
+          "Op-Amp Design",
+          "Precision Analog",
+          "Signal Conditioning"
+        ]
+      },
+      "publishDate": "2026-03-15",
+      "lastUpdated": "2026-03-15",
+      "summary": "Comprehensive guide to selecting Runic op-amps based on precision, speed, power, and application requirements.",
+      "content": [
+        "This technical reference document provides detailed information about runic product specifications, characteristics, and performance parameters. Use this information to support your design and analysis activities.",
+        "Electrical characteristics are specified over the operating temperature range unless otherwise noted. Parameters are guaranteed by design, testing, or statistical analysis. Typical values represent the most likely parametric norm at 25°C.",
+        "Thermal characteristics require careful attention during system design. The junction-to-ambient thermal resistance depends on the mounting configuration, PCB copper area, and airflow conditions. Use thermal simulation tools to predict operating temperatures under actual conditions.",
+        "Reliability data is based on accelerated life testing and field failure analysis. Mean time between failures (MTBF) calculations follow industry-standard methodologies. Contact BeiLuo for detailed reliability reports and qualification data."
+      ],
+      "relatedArticles": [
+        "runic-sensor-interface-guide",
+        "runic-layout-guide"
+      ],
+      "tags": [
+        "Op-Amp Selection",
+        "Analog Design",
+        "Precision",
+        "Guide"
+      ],
+      "faeInsights": {
+        "insight": "The most common mistake is selecting an op-amp based only on bandwidth. For precision applications, offset voltage and drift are often more critical. I always ask: what's your error budget? If you need 0.1% accuracy with 100x gain, your op-amp offset must be <100μV. That immediately points to zero-drift types like RS8551. For high-speed applications, don't just look at GBW - check settling time if you're driving an ADC. The RS6331's 100ns settling is excellent for 16-bit ADCs.",
+        "logic": "Op-amp selection hierarchy: (1) Define accuracy requirements first; (2) Determine bandwidth needs; (3) Consider power constraints; (4) Select package; (5) Check pin-compatibility if replacing existing parts.",
+        "keyTakeaways": [
+          "Define error budget before selecting precision op-amps",
+          "Check settling time for ADC driver applications",
+          "Consider auto-zero for high-gain DC applications",
+          "Use cross-reference guides for easy migration"
+        ],
+        "commonPitfalls": [
+          "Selecting op-amp based only on bandwidth",
+          "Ignoring offset drift in precision applications",
+          "Not checking stability with capacitive loads",
+          "Overlooking power consumption in battery apps"
+        ],
+        "bestPractices": [
+          "Calculate total error including offset, drift, and noise",
+          "Verify stability with your specific load conditions",
+          "Characterize over temperature range",
+          "Use Spice simulation before prototyping"
+        ],
+        "author": {
+          "name": "Technical FAE",
+          "title": "Support Engineer",
+          "experience": "8+ years"
+        },
+        "content": "Based on years of experience, this Runic Operational Amplifier Selection Guide article addresses common challenges engineers face in project development.",
+        "insightLogic": "Recommendations from analysis of successful product deployment projects across industries."
+      },
+      "faqs": [
+        {
+          "question": "When should I use zero-drift op-amps?",
+          "answer": "Use zero-drift op-amps when: (1) High gain (>50x) is required - offset gets amplified; (2) Precision DC measurements - need stable offset over time/temp; (3) Low-frequency signals (<10Hz) - 1/f noise is significant; (4) Calibration is expensive - zero-drift reduces need for calibration. Don't use zero-drift when: (1) Fast settling is critical - auto-zero takes time; (2) Very high bandwidth needed (>10MHz); (3) Cost is primary concern - general-purpose op-amps are cheaper.",
+          "decisionGuide": "For gains >50x or precision DC, use zero-drift. For AC or low-gain, general-purpose is sufficient.",
+          "keywords": [
+            "zero-drift op-amp",
+            "auto-zero",
+            "precision op-amp"
+          ]
+        }
+      ],
+      "slug": "runic-opamp-selection-guide"
+    },
+    {
+      "id": "runic-sensor-interface-guide",
+      "title": "Precision Sensor Interface Design with Runic",
+      "category": "Design Guide",
+      "author": {
+        "name": "Li Ming",
+        "title": "Signal Chain Applications Engineer",
+        "experience": "12 years",
+        "expertise": [
+          "Sensor Interfaces",
+          "Signal Conditioning",
+          "Data Acquisition"
+        ]
+      },
+      "publishDate": "2026-03-10",
+      "lastUpdated": "2026-03-10",
+      "summary": "Design guide for precision sensor interfaces using Runic op-amps, ADCs, and references.",
+      "content": [
+        "This technical reference document provides detailed information about runic product specifications, characteristics, and performance parameters. Use this information to support your design and analysis activities.",
+        "Electrical characteristics are specified over the operating temperature range unless otherwise noted. Parameters are guaranteed by design, testing, or statistical analysis. Typical values represent the most likely parametric norm at 25°C.",
+        "Thermal characteristics require careful attention during system design. The junction-to-ambient thermal resistance depends on the mounting configuration, PCB copper area, and airflow conditions. Use thermal simulation tools to predict operating temperatures under actual conditions.",
+        "Reliability data is based on accelerated life testing and field failure analysis. Mean time between failures (MTBF) calculations follow industry-standard methodologies. Contact BeiLuo for detailed reliability reports and qualification data."
+      ],
+      "relatedArticles": [
+        "runic-opamp-selection-guide",
+        "runic-layout-guide"
+      ],
+      "tags": [
+        "Sensor Interface",
+        "Signal Conditioning",
+        "Design Guide",
+        "Precision"
+      ],
+      "faeInsights": {
+        "insight": "Sensor interface design is all about managing the error budget. Let's say you have a 2mV/V strain gauge at 5V excitation - that's 10mV full scale. For 0.1% accuracy, you need <10μV total error. A general-purpose op-amp with 1mV offset is useless here - that's 10% error right there! You need zero-drift. Another critical point: use ratiometric measurement. Instead of measuring absolute voltage, measure the ratio of sensor output to excitation voltage. This cancels out excitation drift. The RS1240 ADC with RS6220 reference configured for ratiometric measurement is a great combination.",
+        "logic": "Sensor interface design: (1) Calculate required gain based on sensor output and ADC range; (2) Determine allowable offset based on accuracy requirement; (3) Select zero-drift op-amp if gain >50x; (4) Use ratiometric measurement for bridge sensors; (5) Filter to reduce noise.",
+        "keyTakeaways": [
+          "Use zero-drift op-amps for high-gain sensor interfaces",
+          "Implement ratiometric measurement for bridge sensors",
+          "Calculate total error budget including all sources",
+          "Use Kelvin connections for excitation"
+        ],
+        "commonPitfalls": [
+          "Using general-purpose op-amps for high-gain applications",
+          "Not using ratiometric measurement",
+          "Ignoring thermocouple effects",
+          "Inadequate shielding for remote sensors"
+        ],
+        "bestPractices": [
+          "Use 4-wire Kelvin connection for excitation",
+          "Place filter after first gain stage",
+          "Guard high-impedance nodes",
+          "Characterize over full temperature range"
+        ],
+        "author": {
+          "name": "Technical FAE",
+          "title": "Support Engineer",
+          "experience": "8+ years"
+        },
+        "content": "Based on years of experience, this Precision Sensor Interface Design with Runic article addresses common challenges engineers face in project development.",
+        "insightLogic": "Recommendations from analysis of successful product deployment projects across industries."
+      },
+      "faqs": [
+        {
+          "question": "What is ratiometric measurement and why use it?",
+          "answer": "Ratiometric measurement compares the sensor output to the excitation voltage rather than measuring absolute voltage. For a bridge sensor: Output = (Vbridge / Vexc) × Scale. Since both Vbridge and Vexc come from the same reference, any drift in the reference cancels out. This is crucial for long-term stability. Implementation: (1) Use the same voltage reference for ADC reference and sensor excitation; (2) Measure excitation voltage with ADC; (3) Calculate ratio in software. Runic's RS6220 reference with RS1240 ADC is ideal for this.",
+          "decisionGuide": "Always use ratiometric measurement for bridge sensors and RTDs. Not needed for active sensors with voltage output.",
+          "keywords": [
+            "ratiometric measurement",
+            "bridge sensor",
+            "reference drift"
+          ]
+        }
+      ],
+      "slug": "runic-sensor-interface-guide"
+    },
+    {
+      "id": "runic-layout-guide",
+      "title": "PCB Layout Guidelines for Runic Analog Circuits",
+      "category": "Design Guide",
+      "author": {
+        "name": "Zhang Li",
+        "title": "PCB Layout Engineer",
+        "experience": "10 years",
+        "expertise": [
+          "Analog PCB Layout",
+          "EMI/EMC",
+          "High-Precision Design"
+        ]
+      },
+      "publishDate": "2026-03-05",
+      "lastUpdated": "2026-03-05",
+      "summary": "Best practices for PCB layout of precision analog circuits using Runic components.",
+      "content": [
+        "This technical reference document provides detailed information about runic product specifications, characteristics, and performance parameters. Use this information to support your design and analysis activities.",
+        "Electrical characteristics are specified over the operating temperature range unless otherwise noted. Parameters are guaranteed by design, testing, or statistical analysis. Typical values represent the most likely parametric norm at 25°C.",
+        "Thermal characteristics require careful attention during system design. The junction-to-ambient thermal resistance depends on the mounting configuration, PCB copper area, and airflow conditions. Use thermal simulation tools to predict operating temperatures under actual conditions.",
+        "Reliability data is based on accelerated life testing and field failure analysis. Mean time between failures (MTBF) calculations follow industry-standard methodologies. Contact BeiLuo for detailed reliability reports and qualification data."
+      ],
+      "relatedArticles": [
+        "runic-opamp-selection-guide",
+        "runic-sensor-interface-guide"
+      ],
+      "tags": [
+        "PCB Layout",
+        "Analog Design",
+        "Grounding",
+        "Decoupling"
+      ],
+      "faeInsights": {
+        "insight": "I've seen too many precision analog designs fail due to poor layout. The most common issue is ground noise - digital switching currents flowing through analog ground paths. The rule is simple: keep analog and digital grounds separate until the power entry point. Use a solid ground plane - never route ground as a trace. For decoupling, place the 100nF capacitor within 2mm of the IC pin. The 10μF bulk capacitor can be farther away. For high-impedance nodes (>1MΩ), use guard rings at the same potential to prevent leakage. And watch out for thermocouple effects - different metals (Cu, Sn, Au) create Seebeck voltages that can exceed your precision op-amp's offset!",
+        "logic": "Layout priority: (1) Ground system - solid plane, single-point connection; (2) Decoupling - close to ICs, minimal inductance; (3) Signal integrity - short traces, differential pairs; (4) Thermal - symmetric layout to cancel thermocouples.",
+        "keyTakeaways": [
+          "Use solid ground plane, never route ground as trace",
+          "Keep decoupling caps close to IC power pins",
+          "Guard high-impedance nodes",
+          "Consider thermocouple effects in precision designs"
+        ],
+        "commonPitfalls": [
+          "Routing ground as traces instead of using plane",
+          "Placing decoupling caps too far from ICs",
+          "Not guarding high-impedance nodes",
+          "Ignoring thermocouple voltage errors"
+        ],
+        "bestPractices": [
+          "Use 4-layer board minimum for precision analog",
+          "Place analog and digital components on opposite sides",
+          "Use ground vias liberally",
+          "Keep high-speed digital away from analog"
+        ],
+        "author": {
+          "name": "Technical FAE",
+          "title": "Support Engineer",
+          "experience": "8+ years"
+        },
+        "content": "Based on years of experience, this PCB Layout Guidelines for Runic Analog Circuits article addresses common challenges engineers face in project development.",
+        "insightLogic": "Recommendations from analysis of successful product deployment projects across industries."
+      },
+      "faqs": [
+        {
+          "question": "How do I minimize ground noise in mixed-signal designs?",
+          "answer": "Minimizing ground noise: (1) Use separate analog and digital ground planes; (2) Connect at single point near power entry; (3) Route high-speed digital signals over digital ground; (4) Keep analog signals away from digital switching; (5) Use ferrite beads to isolate analog supplies. The key principle is to prevent digital return currents from flowing through analog ground paths. Never route digital traces over analog ground plane - the return currents will couple into your analog circuits.",
+          "decisionGuide": "Implement split ground planes with single-point connection. Use ferrite beads on supplies.",
+          "keywords": [
+            "ground noise",
+            "mixed-signal layout",
+            "ground plane"
+          ]
+        }
+      ],
+      "slug": "runic-layout-guide"
+    },
+    {
+      "id": "runic-troubleshooting",
+      "title": "Troubleshooting Runic Analog Circuits",
+      "category": "Troubleshooting",
+      "author": {
+        "name": "Dr. Wang Wei",
+        "title": "Senior Analog FAE",
+        "experience": "18 years",
+        "expertise": [
+          "Analog Debugging",
+          "Problem Solving",
+          "Circuit Analysis"
+        ]
+      },
+      "publishDate": "2026-02-28",
+      "lastUpdated": "2026-02-28",
+      "summary": "Common issues and solutions when using Runic op-amps, ADCs, and power management ICs.",
+      "content": [
+        "This technical reference document provides detailed information about runic product specifications, characteristics, and performance parameters. Use this information to support your design and analysis activities.",
+        "Electrical characteristics are specified over the operating temperature range unless otherwise noted. Parameters are guaranteed by design, testing, or statistical analysis. Typical values represent the most likely parametric norm at 25°C.",
+        "Thermal characteristics require careful attention during system design. The junction-to-ambient thermal resistance depends on the mounting configuration, PCB copper area, and airflow conditions. Use thermal simulation tools to predict operating temperatures under actual conditions.",
+        "Reliability data is based on accelerated life testing and field failure analysis. Mean time between failures (MTBF) calculations follow industry-standard methodologies. Contact BeiLuo for detailed reliability reports and qualification data."
+      ],
+      "relatedArticles": [
+        "runic-opamp-selection-guide",
+        "runic-layout-guide"
+      ],
+      "tags": [
+        "Troubleshooting",
+        "Debugging",
+        "Analog Issues",
+        "Problem Solving"
+      ],
+      "faeInsights": {
+        "insight": "When troubleshooting analog circuits, always start with the basics. Is the power supply clean? Is the ground solid? I can't count how many 'complex' problems turned out to be a missing bypass capacitor or a cold solder joint. For offset issues, remember that thermocouple voltages (Cu-Kovar, Cu-Sn) can be 10-50μV - that's significant for precision circuits. Use a shorting strap at the input to measure true offset. For noise, use a spectrum analyzer to identify frequency components - 50/60Hz suggests power line pickup, high frequency suggests digital coupling. And always check stability with a scope - even if the circuit seems to work, marginal stability can cause mysterious errors.",
+        "logic": "Troubleshooting approach: (1) Verify power supplies first; (2) Check grounding; (3) Measure with appropriate equipment; (4) Isolate the problem area; (5) Test with known-good configuration; (6) Document findings.",
+        "keyTakeaways": [
+          "Always check power and ground first",
+          "Consider thermocouple effects in precision circuits",
+          "Use spectrum analyzer to identify noise sources",
+          "Check stability with oscilloscope"
+        ],
+        "commonPitfalls": [
+          "Not checking power supply quality",
+          "Using wrong equipment for measurement",
+          "Ignoring layout issues",
+          "Not considering temperature effects"
+        ],
+        "bestPractices": [
+          "Document baseline performance",
+          "Make one change at a time",
+          "Use controlled test conditions",
+          "Compare to known-good circuit"
+        ],
+        "author": {
+          "name": "Technical FAE",
+          "title": "Support Engineer",
+          "experience": "8+ years"
+        },
+        "content": "Based on years of experience, this Troubleshooting Runic Analog Circuits article addresses common challenges engineers face in project development.",
+        "insightLogic": "Recommendations from analysis of successful product deployment projects across industries."
+      },
+      "faqs": [
+        {
+          "question": "Why is my measured offset higher than the datasheet?",
+          "answer": "Higher than expected offset can be caused by: (1) Input bias current flowing through source resistance - Ib × Rs adds offset; (2) Thermocouple effects - different metals create Seebeck voltage; (3) EMI pickup - rectified RF can appear as DC offset; (4) Measurement error - DMM may not resolve microvolts accurately. To measure true op-amp offset: (1) Short inputs together at op-amp pins; (2) Use precision voltmeter or scope; (3) Shield from EMI; (4) Allow thermal equilibrium. The RS8551 should measure within 5μV of zero with inputs shorted.",
+          "decisionGuide": "Short inputs at op-amp pins to eliminate external effects. Use precision measurement equipment.",
+          "keywords": [
+            "offset measurement",
+            "op-amp offset",
+            "troubleshooting offset"
+          ]
+        }
+      ],
+      "slug": "runic-troubleshooting"
+    },
+    {
+      "id": "runic-power-supply-design",
+      "title": "Power Supply Design for Runic Analog Circuits",
+      "category": "Design Guide",
+      "author": {
+        "name": "Li Ming",
+        "title": "Power Management Applications Engineer",
+        "experience": "12 years",
+        "expertise": [
+          "Power Supply Design",
+          "LDO Selection",
+          "Noise Reduction"
+        ]
+      },
+      "publishDate": "2026-02-20",
+      "lastUpdated": "2026-02-20",
+      "summary": "Guidelines for designing clean power supplies for Runic precision analog circuits including LDO selection, filtering, and noise reduction techniques.",
+      "content": [
+        "Clean power supplies are essential for achieving the specified performance of precision analog circuits. This guide covers power supply design considerations for Runic op-amps, ADCs, and voltage references.",
+        "",
+        "## Power Supply Requirements",
+        "",
+        "Precision analog circuits require power supplies with:",
+        "- Low noise: <10μVrms for high-resolution ADCs",
+        "- High PSRR: >60dB at operating frequencies",
+        "- Good load regulation: <1% for dynamic loads",
+        "- Stable output: <0.1% variation over temperature",
+        "",
+        "## LDO Selection",
+        "",
+        "For analog circuits, select LDOs with:",
+        "- Low output noise: <20μVrms (10Hz-100kHz)",
+        "- High PSRR: >60dB at 1kHz, >40dB at 100kHz",
+        "- Fast transient response: <50μs settling",
+        "- Low dropout: <200mV at rated current",
+        "",
+        "Recommended Runic LDOs:",
+        "- RS7118: Ultra-low noise (10μV), 300mA, for ADC/DAC",
+        "- RS7133: Low Iq (25μA), 500mA, for battery apps",
+        "- RS7125: General purpose, 500mA, cost-effective",
+        "",
+        "## Decoupling Strategy",
+        "",
+        "Effective decoupling requires:",
+        "- 100nF ceramic capacitor at each IC power pin",
+        "- 10μF bulk capacitor per supply rail",
+        "- Place capacitors close to IC (within 2mm)",
+        "- Use low-ESR ceramic capacitors (X7R/X5R)",
+        "",
+        "## Noise Reduction Techniques",
+        "",
+        "For ultra-low noise applications:",
+        "- Use ferrite beads in series with supply",
+        "- Add RC filters (10Ω + 10μF) for sensitive circuits",
+        "- Implement star grounding",
+        "- Separate analog and digital power domains",
+        "",
+        "## PCB Layout Guidelines",
+        "",
+        "Power supply layout best practices:",
+        "- Use wide traces (min 20mil per amp)",
+        "- Minimize loop area for high-frequency currents",
+        "- Place LDO close to load",
+        "- Use multiple vias for ground connections"
+      ],
+      "relatedArticles": [
+        "runic-opamp-selection-guide",
+        "runic-layout-guide",
+        "runic-troubleshooting"
+      ],
+      "tags": [
+        "Power Supply",
+        "LDO",
+        "Noise Reduction",
+        "Decoupling",
+        "Design Guide"
+      ],
+      "faeInsights": {
+        "insight": "Power supply noise is often the limiting factor in precision analog designs. I've seen 24-bit ADCs perform like 16-bit ADCs due to poor power supply design. The key is to measure the actual noise at the IC pins, not just at the regulator output. Use a spectrum analyzer to see the noise spectrum - broadband noise, switching spikes, and line frequency components all affect performance differently. For mixed-signal designs, I strongly recommend separate analog and digital supplies with ferrite isolation. The small additional cost pays for itself in improved performance and reduced debug time.",
+        "logic": "Power supply design approach: (1) Calculate noise budget based on system requirements; (2) Select LDO with adequate PSRR and noise specs; (3) Implement proper decoupling at each IC; (4) Use filtering for sensitive circuits; (5) Measure and verify actual performance.",
+        "keyTakeaways": [
+          "Measure noise at IC pins, not regulator output",
+          "Use spectrum analyzer to identify noise sources",
+          "Implement separate analog/digital supplies",
+          "Place decoupling caps close to ICs",
+          "Use ferrite beads for isolation"
+        ],
+        "commonPitfalls": [
+          "Inadequate decoupling capacitor placement",
+          "Using switching regulators without filtering",
+          "Sharing analog and digital supplies",
+          "Ignoring PSRR at high frequencies",
+          "Not measuring actual noise levels"
+        ],
+        "bestPractices": [
+          "Use low-noise LDOs for analog circuits",
+          "Implement star grounding for supplies",
+          "Add RC filters for ultra-sensitive circuits",
+          "Verify noise with spectrum analyzer",
+          "Design for margin in noise budget"
+        ],
+        "author": {
+          "name": "Technical FAE",
+          "title": "Support Engineer",
+          "experience": "8+ years"
+        },
+        "content": "Based on extensive experience designing power supplies for precision analog systems.",
+        "insightLogic": "Recommendations from analyzing power-related performance issues in customer designs."
+      },
+      "faqs": [
+        {
+          "question": "What LDO should I use for powering precision ADCs?",
+          "answer": "For precision ADCs, I recommend the RS7118 ultra-low-noise LDO. Key specs: (1) 10μVrms noise - critical for maintaining ADC SNR; (2) 80dB PSRR at 1kHz - rejects supply ripple; (3) 300mA current - sufficient for ADC plus reference; (4) Fast transient response - handles ADC sampling current spikes. Place the LDO close to the ADC (within 10mm) with 100nF ceramic capacitor at the ADC power pin. Add a 10μF bulk capacitor at the LDO output. For multi-channel ADCs, consider individual LDOs per channel to prevent crosstalk.",
+          "decisionGuide": "Use RS7118 for precision ADCs. Place close to ADC with proper decoupling.",
+          "keywords": [
+            "LDO selection",
+            "ADC power supply",
+            "low noise LDO"
+          ]
+        },
+        {
+          "question": "How do I calculate the noise impact on my ADC?",
+          "answer": "To calculate power supply noise impact on ADC: (1) Determine ADC PSRR from datasheet (typically 60-80dB); (2) Measure supply noise with spectrum analyzer (Vnoise); (3) Calculate referred noise: Vreferred = Vnoise / 10^(PSRR/20); (4) Compare to ADC LSB: LSB = Vref / 2^N; (5) Noise should be <0.5 LSB for negligible impact. Example: 16-bit ADC with 5V ref, LSB = 76μV. With 80dB PSRR and 10mV noise: Vreferred = 10mV / 10^4 = 1μV. This is << 0.5 LSB (38μV), so impact is negligible. If noise is higher, add filtering or select better LDO.",
+          "decisionGuide": "Calculate referred noise and compare to 0.5 LSB. Add filtering if needed.",
+          "keywords": [
+            "noise calculation",
+            "ADC PSRR",
+            "power supply noise"
+          ]
+        },
+        {
+          "question": "Should I use separate supplies for analog and digital circuits?",
+          "answer": "Yes, separate analog and digital supplies are strongly recommended for mixed-signal designs. Digital switching creates noise on the supply that can couple into analog circuits. Implementation: (1) Use separate LDOs for analog and digital; (2) Connect grounds at a single point (star ground); (3) Add ferrite beads between supplies for isolation; (4) Keep analog and digital return currents separate. For cost-sensitive designs, a single LDO with separate RC filters for analog sections can work, but performance may be compromised. The RS7118 for analog and RS7133 for digital is a good combination.",
+          "decisionGuide": "Use separate LDOs with star grounding for best performance. Use ferrite isolation if sharing a regulator.",
+          "keywords": [
+            "analog digital isolation",
+            "mixed signal design",
+            "power supply separation"
+          ]
+        }
+      ],
+      "slug": "runic-power-supply-design"
+    }
+  ]
+}

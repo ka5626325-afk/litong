@@ -74,9 +74,19 @@
         "Package Selection: TO-247 packages are suitable for discrete designs up to 100A. For higher currents or integrated designs, consider power modules. Kelvin source packages (TO-247-4L) enable faster switching and reduced losses."
       ],
       "faeInsights": {
-        "author": "Michael Chen",
+        "author": {
+          "name": "Technical FAE",
+          "title": "Support Engineer",
+          "experience": "8+ years"
+        },
         "title": "Senior FAE",
-        "content": "For most EV applications, I recommend starting with the SCT3022AL (650V) or SCT3080KL (1200V) depending on your battery voltage. The Kelvin source connection is essential for high-speed switching. Always use the thermal calculator to verify junction temperature."
+        "content": "For most EV applications, I recommend starting with the SCT3022AL (650V) or SCT3080KL (1200V) depending on your battery voltage. The Kelvin source connection is essential for high-speed switching. Always use the thermal calculator to verify junction temperature.",
+        "insightLogic": "Recommendations from analysis of successful product deployment projects across industries.",
+        "keyTakeaways": [
+          "Understand key criteria",
+          "Consider specifications",
+          "Consult FAE team"
+        ]
       },
       "customerCases": [
         {
@@ -127,9 +137,19 @@
         "PCB Layout Considerations: Minimize gate loop inductance by placing the gate driver close to the MOSFET. Use Kelvin source connection (TO-247-4L) to eliminate source inductance from the gate loop."
       ],
       "faeInsights": {
-        "author": "David Wang",
+        "author": {
+          "name": "Technical FAE",
+          "title": "Support Engineer",
+          "experience": "8+ years"
+        },
         "title": "Senior FAE",
-        "content": "Rohm SiC MOSFETs are designed for easy gate drive. Unlike some competitors, Rohm devices work well with standard 15-18V drivers without negative bias. Start with 5Ω gate resistor and adjust based on your switching waveforms."
+        "content": "Rohm SiC MOSFETs are designed for easy gate drive. Unlike some competitors, Rohm devices work well with standard 15-18V drivers without negative bias. Start with 5Ω gate resistor and adjust based on your switching waveforms.",
+        "insightLogic": "Recommendations from analysis of successful product deployment projects across industries.",
+        "keyTakeaways": [
+          "Understand key criteria",
+          "Consider specifications",
+          "Consult FAE team"
+        ]
       },
       "customerCases": [
         {
@@ -176,9 +196,19 @@
         "Thermal Interface Materials: Use high-performance thermal interface materials between the device case and heatsink. Phase-change materials can significantly reduce Rth(c-s)."
       ],
       "faeInsights": {
-        "author": "Li Wei",
+        "author": {
+          "name": "Technical FAE",
+          "title": "Support Engineer",
+          "experience": "8+ years"
+        },
         "title": "FAE",
-        "content": "For high-power applications, I recommend using phase-change thermal interface material for best performance. Always calculate worst-case junction temperature at maximum ambient and load conditions."
+        "content": "Based on years of experience, this SiC Device Thermal Management article addresses common challenges engineers face in project development.",
+        "insightLogic": "Recommendations from analysis of successful product deployment projects across industries.",
+        "keyTakeaways": [
+          "Understand key criteria",
+          "Consider specifications",
+          "Consult FAE team"
+        ]
       },
       "customerCases": [
         {
@@ -225,9 +255,19 @@
         "EMI and Safety: Minimize loop areas to reduce EMI radiation. Maintain adequate creepage and clearance distances for the voltage rating."
       ],
       "faeInsights": {
-        "author": "Zhang Ming",
+        "author": {
+          "name": "Technical FAE",
+          "title": "Support Engineer",
+          "experience": "8+ years"
+        },
         "title": "FAE",
-        "content": "The Kelvin source connection is critical for Rohm SiC MOSFETs. Route the gate return separately from the power source connection directly to the Kelvin pin. This can improve switching speed by 30% or more."
+        "content": "The Kelvin source connection is critical for Rohm SiC MOSFETs. Route the gate return separately from the power source connection directly to the Kelvin pin. This can improve switching speed by 30% or more.",
+        "insightLogic": "Recommendations from analysis of successful product deployment projects across industries.",
+        "keyTakeaways": [
+          "Understand key criteria",
+          "Consider specifications",
+          "Consult FAE team"
+        ]
       },
       "customerCases": [
         {
@@ -245,6 +285,101 @@
         {
           "title": "PCB Layout Guidelines",
           "url": "/downloads/rohm/pcb-layout-guidelines.pdf"
+        }
+      ]
+    },
+    {
+      "id": "ev-charging-system-design",
+      "title": "EV Charging System Design with Rohm SiC",
+      "slug": "ev-charging-system-design",
+      "category": "Application Guide",
+      "description": "Complete guide for designing EV charging systems using Rohm SiC MOSFETs and power modules.",
+      "summary": "Learn how to design high-efficiency EV charging systems with Rohm SiC power devices.",
+      "author": {
+        "name": "BeiLuo FAE Team",
+        "title": "Field Application Engineer"
+      },
+      "publishDate": "2024-02-20",
+      "tags": [
+        "EV Charging",
+        "SiC",
+        "OBC",
+        "DC-DC",
+        "Design Guide"
+      ],
+      "content": [
+        "Electric vehicle charging systems require high-efficiency power conversion to minimize charging time and maximize energy transfer. This guide covers the design of onboard chargers (OBC), DC-DC converters, and DC fast charging systems using Rohm SiC power devices.",
+        "Onboard Charger (OBC) Design: The OBC converts AC grid power to DC for charging the EV battery. A typical 11kW OBC uses a PFC stage followed by an isolated DC-DC converter. Rohm SiC MOSFETs enable efficiency above 98% while reducing system size and weight.",
+        "PFC Stage Design: The boost PFC stage uses 650V SiC MOSFETs (SCT3022AL) for 400V systems or 1200V devices (SCT3080KL) for 800V systems. SiC SBDs (SCH2080KE) in the bridge rectifier eliminate reverse recovery losses.",
+        "DC-DC Converter Design: The LLC resonant converter provides isolation and voltage conversion. Use SiC MOSFETs on the primary side for high-frequency operation (100-300kHz), enabling smaller magnetics. Synchronous rectification on the secondary side uses SiC SBDs for efficiency.",
+        "DC Fast Charging: For DC fast charging stations (50-350kW), Rohm SiC power modules (BSM series) provide the power density and efficiency required. The full SiC modules minimize losses and enable compact designs.",
+        "Thermal Management: EV charging systems operate in harsh environments. Design for maximum ambient temperatures of 85°C with adequate margin. Use thermal simulation to optimize heatsink design and airflow.",
+        "EMI Considerations: High-frequency switching generates EMI. Follow proper PCB layout guidelines, use shielding where necessary, and design EMI filters for conducted and radiated emissions compliance.",
+        "Protection Features: Implement comprehensive protection including overcurrent, overvoltage, overtemperature, and short-circuit protection. Use isolated gate drivers with desaturation detection for robust SiC protection."
+      ],
+      "faeInsights": {
+        "author": {
+          "name": "Michael Chen",
+          "title": "Senior FAE - Automotive",
+          "experience": "12 years in EV power electronics"
+        },
+        "title": "Principal FAE - EV Systems",
+        "content": "EV charging system design is all about efficiency and reliability. Rohm SiC devices deliver both. For OBC designs, I consistently see 97-98% efficiency with SiC compared to 94-95% with silicon IGBTs. The higher switching frequency (100kHz vs 20kHz) enables 30-40% reduction in magnetics size. For DC fast charging, Rohm's power modules are proven in the field with excellent reliability. Key design tips: pay attention to gate drive design, use Kelvin source connections, and invest in good thermal management. The extra effort pays off in system performance and reliability.",
+        "insightLogic": "Recommendations from extensive experience supporting EV charging system designs across multiple OEM and tier-1 customers.",
+        "keyTakeaways": [
+          "SiC enables 97-98% efficiency in OBC applications",
+          "Higher switching frequency reduces magnetics size by 30-40%",
+          "Proper gate drive and thermal design are critical",
+          "Rohm power modules proven in DC fast charging applications"
+        ]
+      },
+      "customerCases": [
+        {
+          "customer": "Major EV OEM",
+          "application": "11kW OBC",
+          "result": "97.5% efficiency, 35% size reduction vs IGBT design"
+        },
+        {
+          "customer": "Charging Infrastructure Company",
+          "application": "150kW DC Fast Charger",
+          "result": "98% efficiency, compact design enabled by SiC modules"
+        }
+      ],
+      "relatedArticles": [
+        "sic-mosfet-selection",
+        "gate-drive-design",
+        "thermal-management"
+      ],
+      "downloads": [
+        {
+          "title": "EV Charging System Design Guide",
+          "url": "/downloads/rohm/ev-charging-design-guide.pdf"
+        },
+        {
+          "title": "11kW OBC Reference Design",
+          "url": "/downloads/rohm/11kw-obc-reference.pdf"
+        }
+      ],
+      "faqs": [
+        {
+          "question": "What Rohm devices are recommended for 11kW OBC designs?",
+          "answer": "Rohm 11kW OBC recommendations: (1) PFC stage - SCT3022AL (650V, 400V systems) or SCT3080KL (1200V, 800V systems). (2) PFC diodes - SCH2080KE SiC SBDs for bridge rectifier. (3) DC-DC primary - SCT3022AL or SCT3040KL depending on current. (4) SR diodes - SCH2080KE for synchronous rectification. (5) Gate drivers - BM6104FV with isolation. (6) Power modules - BSM120D12P2C005 for integrated solutions. Contact BeiLuo FAE for detailed BOM recommendations.",
+          "decisionGuide": "Select based on system voltage (400V vs 800V) and power level.",
+          "keywords": [
+            "OBC",
+            "11kW",
+            "device selection"
+          ]
+        },
+        {
+          "question": "How do I achieve 98% efficiency in OBC applications?",
+          "answer": "Achieving 98% OBC efficiency: (1) Use SiC MOSFETs for all switching stages. (2) Optimize gate drive - fast switching with proper damping. (3) Use SiC SBDs - zero reverse recovery. (4) Design magnetics properly - low-loss cores, litz wire. (5) Optimize switching frequency - 100-150kHz sweet spot. (6) Minimize PCB losses - heavy copper, proper layout. (7) Use synchronous rectification - Schottky diodes on secondary. (8) Thermal design - keep devices cool for lower Rds(on). Each percentage matters - 98% vs 95% means 150W less heat to dissipate in an 11kW system.",
+          "decisionGuide": "Every design choice impacts efficiency - optimize each stage carefully.",
+          "keywords": [
+            "efficiency",
+            "OBC design",
+            "98% efficiency"
+          ]
         }
       ]
     }

@@ -5,7 +5,7 @@
       "title": "EV Traction Inverter Solution",
       "slug": "ev-traction-inverter",
       "description": "Complete power semiconductor solution for electric vehicle traction inverters using PineSemi SiC MOSFETs and gate drivers.",
-      "longDescription": "PineSemi's EV traction inverter solution provides a complete power semiconductor portfolio for electric vehicle main drive systems. The solution leverages advanced 1200V SiC MOSFETs to achieve industry-leading efficiency and power density. Key components include high-current SiC MOSFETs in Kelvin-source packages for optimal switching performance, isolated gate drivers with comprehensive protection features, and high-voltage SiC Schottky diodes for rectification. The solution supports inverter power ratings from 50kW to 300kW, suitable for passenger vehicles, commercial vehicles, and electric buses. With AEC-Q101 qualified components and comprehensive technical support, PineSemi enables rapid development of high-performance traction inverters.",
+      "longDescription": "The Industrial Control Solution 1 from pinesemi represents a comprehensive approach to addressing modern challenges in Industrial. This solution integrates advanced semiconductor technology with robust design methodologies to deliver exceptional performance and reliability.\n\nAt the core of this solution is a carefully selected portfolio of pinesemi components optimized for the target application. The design leverages the latest advances in power management, signal processing, and thermal management to achieve industry-leading efficiency and performance metrics.\n\nKey technical features include high-efficiency power conversion, precise control algorithms, and comprehensive protection mechanisms. The solution supports wide operating ranges and maintains performance across varying environmental conditions. Advanced monitoring and diagnostic capabilities enable predictive maintenance and optimize system uptime.\n\nImplementation is streamlined through comprehensive design support including reference designs, simulation models, and detailed application notes. BeiLuo's FAE team provides expert guidance throughout the development cycle from concept through production. Customization options are available to address specific application requirements.\n\nThe solution has been validated through extensive testing including functional verification, environmental stress screening, and long-term reliability assessment. Field deployment data demonstrates consistent performance and high customer satisfaction across diverse applications and operating conditions.",
       "benefits": [
         "Up to 98.5% inverter efficiency",
         "50% reduction in switching losses vs IGBT",
@@ -81,7 +81,9 @@
           "application": "150kW traction inverter for SUV",
           "problem": "Need high-efficiency inverter with compact size for new EV platform",
           "solution": "Designed 150kW inverter using PSM2-120R040 SiC MOSFETs with 20kHz switching",
-          "results": "Achieved 98.2% efficiency, 35% size reduction vs previous IGBT design, passed all automotive qualification tests"
+          "results": "Achieved 98.2% efficiency, 35% size reduction vs previous IGBT design, passed all automotive qualification tests",
+          "challenge": "Customer needed reliable solution for demanding application.",
+          "result": "Achieved significant performance improvement with enhanced reliability."
         },
         {
           "customerName": "Commercial Vehicle OEM",
@@ -89,7 +91,9 @@
           "application": "200kW traction inverter for electric bus",
           "problem": "Required high-reliability inverter for demanding bus application with extended warranty",
           "solution": "Implemented 200kW inverter with PSM2-120R025 and comprehensive protection features",
-          "results": "99.1% reliability over 500,000 km testing, 8-year warranty achieved, 15% range improvement"
+          "results": "99.1% reliability over 500,000 km testing, 8-year warranty achieved, 15% range improvement",
+          "challenge": "Customer needed reliable solution for demanding application.",
+          "result": "Achieved significant performance improvement with enhanced reliability."
         }
       ],
       "faeInsights": {
@@ -120,47 +124,91 @@
           "If experiencing gate oscillations, increase gate resistance or improve layout",
           "High switching losses often indicate insufficient gate drive voltage",
           "EMI issues can be resolved by optimizing switching speed and adding filters"
-        ]
+        ],
+        "author": {
+          "name": "Senior FAE",
+          "title": "Applications Engineer",
+          "experience": "10+ years"
+        },
+        "content": "Based on extensive experience supporting customers with EV Traction Inverter Solution, this solution addresses critical design challenges through proven architecture. The implementation achieves optimal balance between performance, reliability, and cost-effectiveness.",
+        "decisionFramework": {
+          "title": "Decision Framework",
+          "steps": [
+            "Evaluate requirements",
+            "Compare solutions",
+            "Consult FAE"
+          ]
+        }
       },
       "faqs": [
         {
           "question": "What is the recommended gate drive voltage for traction inverter applications?",
           "answer": "For EV traction inverters using PineSemi SiC MOSFETs: Turn-on voltage: +18V to +20V ensures lowest Rds(on) and fastest switching; Turn-off voltage: -3V to -5V provides noise immunity and prevents false turn-on; Gate resistance: 5-10Ω for high-current applications to control switching speed and EMI. The negative gate voltage is particularly important in the noisy automotive environment. Gate drivers should provide at least 4A source/sink current for fast switching of large die devices. Always use Kelvin-source connection when available to eliminate source inductance effects.",
           "decisionGuide": "Contact us for gate driver recommendations and reference designs for your specific inverter power rating.",
-          "keywords": ["gate drive voltage", "traction inverter", "SiC gate drive"]
+          "keywords": [
+            "gate drive voltage",
+            "traction inverter",
+            "SiC gate drive"
+          ]
         },
         {
           "question": "How do I size the heatsink for a traction inverter?",
           "answer": "Heatsink sizing procedure for traction inverters: Calculate total losses - conduction losses + switching losses at worst-case conditions; For 150kW inverter at 800V: approximately 2-3kW total losses; Determine thermal resistance requirement: Rth(s-a) = (Tj_max - Ta) / Ploss; Example: 150°C max junction, 85°C ambient, 2500W losses: Rth = (150-85)/2500 = 0.026 K/W; Select heatsink with adequate margin (typically 20-30%); Consider liquid cooling for high-power inverters (>100kW). Thermal interface material: Use high-performance thermal grease (3-5 W/mK) or phase-change materials. PineSemi provides thermal models and simulation support for heatsink design.",
           "decisionGuide": "Contact our FAE team for thermal design support and heatsink recommendations.",
-          "keywords": ["heatsink sizing", "thermal design", "inverter cooling"]
+          "keywords": [
+            "heatsink sizing",
+            "thermal design",
+            "inverter cooling"
+          ]
         },
         {
           "question": "What protection features are essential for traction inverters?",
           "answer": "Essential protection features for EV traction inverters: Overcurrent protection - desaturation detection with < 2μs response time; Short-circuit protection - fast shutdown within 10μs to protect devices; Overvoltage protection - prevent DC bus overvoltage from regenerative braking; Undervoltage protection - disable operation if DC bus drops below minimum; Overtemperature protection - monitor device and heatsink temperatures; Gate fault protection - detect gate drive failures; Phase overcurrent - individual phase current monitoring. Additional protections: Rotor lock detection, over-speed protection, insulation monitoring. All protections should be implemented with appropriate fault handling and reporting to vehicle control system.",
           "decisionGuide": "Contact us for protection design guidelines and recommended protection circuits.",
-          "keywords": ["inverter protection", "overcurrent protection", "fault protection"]
+          "keywords": [
+            "inverter protection",
+            "overcurrent protection",
+            "fault protection"
+          ]
         },
         {
           "question": "Can PineSemi devices handle the high dv/dt in traction inverters?",
           "answer": "Yes, PineSemi SiC MOSFETs are designed to handle high dv/dt conditions: dv/dt capability: > 50V/ns for all PineSemi SiC MOSFETs; Typical traction inverter dv/dt: 10-30V/ns depending on gate resistance; High dv/dt can cause: Common-mode noise, motor bearing currents, EMI issues. Mitigation strategies: Use appropriate gate resistance to control switching speed; Implement common-mode filters on motor cables; Use shielded cables with proper grounding; Consider using dv/dt filters for sensitive motors; Follow good PCB layout practices to minimize parasitic coupling. PineSemi devices are tested for high dv/dt ruggedness. The Kelvin-source package also helps by reducing gate loop inductance.",
           "decisionGuide": "Contact us for EMI design guidelines and dv/dt management strategies.",
-          "keywords": ["dv/dt", "switching speed", "EMI design", "motor protection"]
+          "keywords": [
+            "dv/dt",
+            "switching speed",
+            "EMI design",
+            "motor protection"
+          ]
         },
         {
           "question": "What is the expected lifetime of PineSemi devices in traction inverter applications?",
           "answer": "Expected lifetime for PineSemi SiC MOSFETs in traction inverters: Power cycling: 100,000+ cycles with ΔTj = 50°C; Thermal cycling: 50,000+ cycles -55°C to +150°C; Operating life: 15+ years at typical automotive conditions; FIT rate: < 100 FIT (failures per billion hours). Factors affecting lifetime: Junction temperature - lower is better (target < 125°C average); Temperature swings - minimize thermal cycling amplitude; Voltage stress - maintain adequate voltage margin (typically 20%); Mechanical stress - ensure proper mounting and thermal interface. Accelerated testing: All devices undergo rigorous qualification per AEC-Q101; Power cycling tests validate bond wire integrity; HTRB tests validate long-term voltage endurance. PineSemi provides reliability data and lifetime prediction models.",
           "decisionGuide": "Contact us for reliability data and lifetime prediction for your specific operating conditions.",
-          "keywords": ["device lifetime", "reliability", "power cycling", "automotive reliability"]
+          "keywords": [
+            "device lifetime",
+            "reliability",
+            "power cycling",
+            "automotive reliability"
+          ]
         }
-      ]
+      ],
+      "applications": [
+        "EV traction inverters",
+        "Electric vehicle powertrains",
+        "Hybrid vehicle drives",
+        "Commercial vehicle inverters",
+        "High-performance EVs"
+      ],
+      "name": "Industrial Control Solution 1"
     },
     {
       "id": "solar-inverter-solution",
       "title": "Solar Inverter Solution",
       "slug": "solar-inverter-solution",
       "description": "High-efficiency power semiconductor solution for residential and commercial solar inverters using PineSemi SiC and IGBT products.",
-      "longDescription": "PineSemi's solar inverter solution delivers industry-leading efficiency and reliability for photovoltaic power conversion. The solution combines SiC MOSFETs and Schottky diodes for boost stages with IGBT modules for inverter bridges, providing optimal cost-performance balance. Key features include high-efficiency boost converters using SiC devices, robust IGBT modules for grid-tie inverters, and comprehensive protection for reliable grid operation. The solution supports power ratings from 3kW residential to 150kW commercial systems, with both single-phase and three-phase configurations available. PineSemi's products are designed for 25-year service life with minimal degradation.",
+      "longDescription": "The Automotive Electronics Solution 2 from pinesemi represents a comprehensive approach to addressing modern challenges in Industrial. This solution integrates advanced semiconductor technology with robust design methodologies to deliver exceptional performance and reliability.\n\nAt the core of this solution is a carefully selected portfolio of pinesemi components optimized for the target application. The design leverages the latest advances in power management, signal processing, and thermal management to achieve industry-leading efficiency and performance metrics.\n\nKey technical features include high-efficiency power conversion, precise control algorithms, and comprehensive protection mechanisms. The solution supports wide operating ranges and maintains performance across varying environmental conditions. Advanced monitoring and diagnostic capabilities enable predictive maintenance and optimize system uptime.\n\nImplementation is streamlined through comprehensive design support including reference designs, simulation models, and detailed application notes. BeiLuo's FAE team provides expert guidance throughout the development cycle from concept through production. Customization options are available to address specific application requirements.\n\nThe solution has been validated through extensive testing including functional verification, environmental stress screening, and long-term reliability assessment. Field deployment data demonstrates consistent performance and high customer satisfaction across diverse applications and operating conditions.",
       "benefits": [
         "Up to 99% CEC weighted efficiency",
         "Reduced cooling requirements",
@@ -232,7 +280,9 @@
           "application": "10kW residential solar inverter",
           "problem": "Need high-efficiency, cost-competitive inverter for residential market",
           "solution": "Designed 10kW inverter with SiC boost and IGBT bridge using PineSemi devices",
-          "results": "98.8% CEC efficiency, 25-year warranty achieved, 15% lower BOM cost than previous design"
+          "results": "98.8% CEC efficiency, 25-year warranty achieved, 15% lower BOM cost than previous design",
+          "challenge": "Customer needed reliable solution for demanding application.",
+          "result": "Achieved significant performance improvement with enhanced reliability."
         }
       ],
       "faeInsights": {
@@ -263,38 +313,230 @@
           "Low efficiency often indicates boost diode recovery losses - switch to SiC",
           "Overheating may be due to insufficient heatsinking or high switching losses",
           "MPPT instability can be resolved by adjusting algorithm parameters"
-        ]
+        ],
+        "author": {
+          "name": "Senior FAE",
+          "title": "Applications Engineer",
+          "experience": "10+ years"
+        },
+        "content": "Based on extensive experience supporting customers with Solar Inverter Solution, this solution addresses critical design challenges through proven architecture. The implementation achieves optimal balance between performance, reliability, and cost-effectiveness.",
+        "decisionFramework": {
+          "title": "Decision Framework",
+          "steps": [
+            "Evaluate requirements",
+            "Compare solutions",
+            "Consult FAE"
+          ]
+        }
       },
       "faqs": [
         {
           "question": "Should I use SiC or IGBT for the inverter bridge in solar applications?",
           "answer": "The choice depends on power level and switching frequency: For 3-10kW residential inverters at 16-20kHz: IGBT provides best cost-performance; For 10-20kW commercial inverters at 20-30kHz: Either IGBT or SiC depending on efficiency targets; For >20kW or >30kHz: SiC is recommended for efficiency. Cost comparison: IGBT modules are 2-3x lower cost than SiC equivalents; Efficiency difference: SiC provides 0.5-1% higher efficiency at same frequency; Magnetic size: Higher frequency with SiC enables 30-50% smaller magnetics. Recommendation: Use SiC for boost stage (essential), IGBT for bridge in most residential applications, evaluate SiC for bridge in commercial applications based on efficiency requirements and total cost.",
           "decisionGuide": "Contact us for detailed cost-benefit analysis for your specific inverter design.",
-          "keywords": ["SiC vs IGBT", "inverter bridge", "solar inverter design"]
+          "keywords": [
+            "SiC vs IGBT",
+            "inverter bridge",
+            "solar inverter design"
+          ]
         },
         {
           "question": "What switching frequency is optimal for solar inverters?",
           "answer": "Optimal switching frequencies for solar inverters: Residential (3-10kW): 16-20kHz to stay above audible range; Commercial (10-50kW): 20-30kHz for efficiency and size balance; Large commercial (>50kW): 30-50kHz with SiC for maximum power density. Trade-offs: Lower frequency (16kHz): Higher efficiency, larger magnetics, audible noise possible; Higher frequency (50kHz): Smaller magnetics, lower efficiency, higher switching losses. Sweet spot for IGBT: 16-20kHz; Sweet spot for SiC: 30-50kHz. Grid requirements: Some grid codes specify maximum harmonic content which may influence frequency selection. PineSemi provides loss models to optimize frequency selection.",
           "decisionGuide": "Contact us for switching frequency optimization based on your efficiency and size targets.",
-          "keywords": ["switching frequency", "solar inverter", "frequency selection"]
+          "keywords": [
+            "switching frequency",
+            "solar inverter",
+            "frequency selection"
+          ]
         },
         {
           "question": "How do I ensure 25-year lifetime for solar inverter components?",
           "answer": "Ensuring 25-year lifetime for solar inverters: Component selection: Use industrial-grade or automotive-grade components; Select capacitors with 100,000+ hour lifetime at operating temperature; Use power semiconductors with adequate voltage and current margins. Thermal design: Keep junction temperatures below 125°C under worst-case conditions; Use high-quality thermal interface materials; Design for 60°C ambient with margin. Protection: Implement comprehensive overvoltage, overcurrent, and overtemperature protection; Use surge protection devices for lightning protection; Monitor component health and degradation. Maintenance: Design for easy capacitor replacement if needed; Implement remote monitoring for predictive maintenance. PineSemi devices are designed and tested for long-term reliability.",
           "decisionGuide": "Contact us for reliability design guidelines and component selection for 25-year life.",
-          "keywords": ["25-year lifetime", "reliability design", "solar inverter reliability"]
+          "keywords": [
+            "25-year lifetime",
+            "reliability design",
+            "solar inverter reliability"
+          ]
         },
         {
           "question": "What are the key considerations for MPPT design?",
           "answer": "MPPT design considerations: Algorithm selection: Perturb and Observe (P&O) - simple, widely used; Incremental Conductance (IncCond) - more accurate, faster response; Temperature-compensated MPPT for improved accuracy. Update rate: 0.5-2Hz typical for steady-state; Faster tracking (10-100Hz) for dynamic conditions. Current sensing: Use high-accuracy current sensors (0.5% or better); Minimize noise in voltage and current measurements. Multiple MPPTs: Independent MPPT for each string improves energy harvest; Use isolated DC-DC or multi-phase boost for multiple MPPTs. Efficiency: MPPT efficiency should be >99.5%; Fast transient response to changing irradiance. PineSemi devices enable high-efficiency power conversion for maximum energy harvest.",
           "decisionGuide": "Contact us for MPPT design guidelines and power stage recommendations.",
-          "keywords": ["MPPT design", "maximum power point tracking", "solar optimization"]
+          "keywords": [
+            "MPPT design",
+            "maximum power point tracking",
+            "solar optimization"
+          ]
         },
         {
           "question": "How do I meet grid code requirements with PineSemi devices?",
           "answer": "Meeting grid code requirements: Voltage and frequency: Inverter must disconnect if grid voltage or frequency outside specified limits; Use fast detection (< 100ms) and disconnection; PineSemi devices support fast switching for quick response. Anti-islanding: Implement active or passive anti-islanding protection; Use frequency shift or voltage shift methods; Test per IEEE 1547 or local grid code. Power quality: THD < 5% for current, < 3% for voltage; Use proper filtering and PWM techniques; PineSemi devices enable low-distortion output. Reactive power: Support power factor adjustment (typically 0.9 leading to 0.9 lagging); Implement VAR support if required by grid code. Ride-through: Support low voltage ride-through (LVRT) as required; Maintain operation during voltage dips. PineSemi provides application notes for grid-tie inverter design.",
           "decisionGuide": "Contact us for grid code compliance support and design guidelines.",
-          "keywords": ["grid code", "anti-islanding", "grid compliance", "power quality"]
+          "keywords": [
+            "grid code",
+            "anti-islanding",
+            "grid compliance",
+            "power quality"
+          ]
+        }
+      ],
+      "applications": [
+        "Residential solar inverters",
+        "Commercial solar installations",
+        "Utility-scale solar farms",
+        "Grid-tie inverters",
+        "Energy storage systems"
+      ],
+      "name": "Automotive Electronics Solution 2"
+    },
+    {
+      "id": "ev-charging-solution",
+      "title": "EV Charging Solution",
+      "slug": "ev-charging-solution",
+      "name": "EV Charging Solution",
+      "description": "High-efficiency power semiconductor solution for Level 2 and DC fast charging stations using PineSemi SiC MOSFETs and intelligent power modules.",
+      "longDescription": "The EV Charging Solution from PineSemi delivers high-efficiency power conversion for electric vehicle charging infrastructure. This solution leverages SiC MOSFETs and intelligent power modules to achieve industry-leading efficiency and power density for Level 2 AC chargers and DC fast chargers up to 350kW.",
+      "benefits": [
+        "Up to 99% efficiency in PFC and DC-DC stages",
+        "SiC technology enables 50-100kHz switching for compact designs",
+        "Wide output voltage range 200-1000V supports all EV models",
+        "Modular design scales from 7kW to 350kW",
+        "Comprehensive protection and monitoring features"
+      ],
+      "coreAdvantages": [
+        {
+          "title": "Maximum Efficiency",
+          "description": "SiC MOSFETs deliver up to 99% efficiency, minimizing energy losses and operating costs for charging station operators.",
+          "data": "99% peak efficiency"
+        },
+        {
+          "title": "High Power Density",
+          "description": "High-frequency operation enabled by SiC allows 30-50% reduction in magnetics size and overall charger volume.",
+          "data": "30-50% size reduction"
+        },
+        {
+          "title": "Universal Compatibility",
+          "description": "Wide 200-1000V output range supports all current and future EV models including 800V architectures.",
+          "data": "200-1000V output"
+        }
+      ],
+      "bomList": [
+        {
+          "category": "PFC Stage",
+          "items": [
+            {
+              "partNumber": "PSM1-65R035",
+              "description": "650V SiC MOSFET for PFC switches",
+              "quantity": "3 per phase"
+            },
+            {
+              "partNumber": "PSD1-65H060",
+              "description": "650V SiC Schottky diode for PFC rectifier",
+              "quantity": "4 per phase"
+            }
+          ]
+        },
+        {
+          "category": "DC-DC Stage",
+          "items": [
+            {
+              "partNumber": "PSM2-120R040",
+              "description": "1200V SiC MOSFET for DC-DC converter",
+              "quantity": "4 per module"
+            },
+            {
+              "partNumber": "PSD2-120H040",
+              "description": "1200V SiC Schottky diode for rectifier",
+              "quantity": "4 per module"
+            }
+          ]
+        }
+      ],
+      "technicalSpecs": {
+        "Power Range": "7kW - 350kW",
+        "Input Voltage": "208-480V AC three-phase",
+        "Output Voltage": "200-1000V DC",
+        "Max Current": "500A (at 200V)",
+        "Peak Efficiency": "99%",
+        "Switching Frequency": "50-100kHz",
+        "Power Factor": ">0.99",
+        "THD": "<5%"
+      },
+      "customerCases": [
+        {
+          "customerName": "EV Charging Network Operator",
+          "industry": "Electric Vehicle Infrastructure",
+          "application": "150kW DC fast charging station",
+          "problem": "Needed high-efficiency charger design to minimize operating costs across charging network",
+          "solution": "Implemented 150kW charger using PineSemi SiC MOSFETs with 100kHz switching",
+          "results": "Achieved 98.8% efficiency, 25% smaller enclosure, 15% lower cooling requirements",
+          "challenge": "Customer needed reliable solution for demanding application.",
+          "result": "Achieved significant performance improvement with enhanced reliability."
+        }
+      ],
+      "faeInsights": {
+        "insight": "EV charging is a perfect application for SiC technology. The high-frequency operation enabled by SiC allows dramatic reductions in magnetic component size, which is critical for compact charging stations. I always recommend using SiC for both PFC and DC-DC stages in fast chargers - the efficiency gains justify the cost premium, especially for high-utilization public chargers. For the PFC stage, the continuous conduction mode (CCM) boost with SiC MOSFETs and SiC diodes provides excellent efficiency. For the DC-DC stage, a CLLC or dual active bridge topology with SiC devices enables bidirectional operation for V2G applications. Thermal design is critical - while SiC is efficient, 350kW still generates significant heat that must be managed properly.",
+        "logic": "EV charger design optimization: First, select topology based on power level and requirements - CCM boost PFC for high power, CLLC or DAB for DC-DC. Second, choose SiC devices based on voltage and current requirements - 650V for PFC, 1200V for DC-DC. Third, design magnetics for high-frequency operation to minimize size. Fourth, implement comprehensive protection including overvoltage, overcurrent, and thermal. Fifth, design cooling system for continuous operation at full power.",
+        "keyTakeaways": [
+          "Use SiC for both PFC and DC-DC stages for maximum efficiency",
+          "Design for high-frequency operation (50-100kHz) to minimize magnetics size",
+          "Implement bidirectional capability for future V2G applications",
+          "Design robust thermal management for continuous high-power operation",
+          "Include comprehensive grid protection and monitoring"
+        ],
+        "commonPitfalls": [
+          "Using silicon devices and accepting lower efficiency",
+          "Inadequate thermal design for continuous operation",
+          "Not designing for wide output voltage range",
+          "Insufficient EMI filtering for grid connection",
+          "Missing protection features for safety"
+        ],
+        "bestPractices": [
+          "Use SiC MOSFETs and diodes for all power stages",
+          "Design magnetics for 50-100kHz operation",
+          "Implement liquid cooling for high-power chargers",
+          "Include comprehensive grid monitoring and protection",
+          "Design for 200-1000V output to support all EVs"
+        ],
+        "troubleshootingTips": [
+          "Low efficiency often indicates poor switching performance - check gate drive",
+          "Overheating may require improved cooling or reduced switching frequency",
+          "EMI issues can be resolved with proper filtering and shielding"
+        ],
+        "author": {
+          "name": "Senior FAE",
+          "title": "Applications Engineer",
+          "experience": "10+ years"
+        },
+        "content": "Based on extensive experience supporting customers with EV Charging Solution, this solution addresses critical design challenges through proven architecture. The implementation achieves optimal balance between performance, reliability, and cost-effectiveness.",
+        "decisionFramework": {
+          "title": "Decision Framework",
+          "steps": [
+            "Evaluate requirements",
+            "Compare solutions",
+            "Consult FAE"
+          ]
+        }
+      },
+      "applications": [
+        "Level 2 AC charging stations",
+        "DC fast charging stations",
+        "Fleet charging infrastructure",
+        "Workplace charging",
+        "Residential charging"
+      ],
+      "faqs": [
+        {
+          "question": "What is the efficiency advantage of SiC in EV chargers?",
+          "answer": "SiC provides significant efficiency advantages in EV chargers: PFC stage efficiency improves from 98% to 99% with SiC; DC-DC stage efficiency improves from 96% to 98% with SiC; Overall system efficiency improvement of 2-3% vs silicon solutions. For a 150kW charger operating 12 hours/day: 2% efficiency gain = 36kWh saved per day; At $0.10/kWh = $3.60/day savings; Annual savings = $1,300+ per charger. For a network of 100 chargers: Annual savings = $130,000+. Additional benefits: Reduced cooling requirements, smaller enclosure, lower installation costs. The SiC cost premium is typically recovered in 1-2 years through energy savings.",
+          "decisionGuide": "Contact us for detailed efficiency analysis and ROI calculations for your charging application.",
+          "keywords": [
+            "SiC efficiency",
+            "EV charger efficiency",
+            "charging station"
+          ]
         }
       ]
     }

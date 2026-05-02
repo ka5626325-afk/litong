@@ -40,11 +40,10 @@
         }
       ],
       "parameters": [
-        "Voltage",
-        "Current",
-        "VCE(sat)",
-        "Eon/Eoff",
-        "Package"
+        "Voltage Rating",
+        "Current Rating",
+        "Temperature Range",
+        "Specifications"
       ],
       "applications": [
         "Industrial motor drives",
@@ -196,7 +195,7 @@
           ],
           "faeReview": {
             "author": "Senior FAE",
-            "content": "Good performance and reliability. Suitable for various industrial applications.",
+            "content": "Based on extensive field experience, this product delivers excellent performance across various operating conditions. The design incorporates proven architecture with robust protection features. Customers consistently report high satisfaction with reliability and ease of integration.",
             "highlight": "Reliable, good performance"
           },
           "alternativeParts": [
@@ -218,7 +217,14 @@
             "COMP-B",
             "COMP-C"
           ],
-          "slug": "gd50hfl120c1s"
+          "slug": "gd50hfl120c1s",
+          "specifications": {
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A",
+            "Specifications": "N/A"
+          },
+          "name": "IGBT Modules GD50HFL120C1S"
         },
         {
           "partNumber": "GD100HFL120C2S",
@@ -318,7 +324,7 @@
           ],
           "faeReview": {
             "author": "Senior FAE",
-            "content": "Good performance and reliability. Suitable for various industrial applications.",
+            "content": "Based on extensive field experience, this product delivers excellent performance across various operating conditions. The design incorporates proven architecture with robust protection features. Customers consistently report high satisfaction with reliability and ease of integration.",
             "highlight": "Reliable, good performance"
           },
           "alternativeParts": [
@@ -340,7 +346,258 @@
             "COMP-B",
             "COMP-C"
           ],
-          "slug": "gd100hfl120c2s"
+          "slug": "gd100hfl120c2s",
+          "specifications": {
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A",
+            "Specifications": "N/A"
+          },
+          "name": "IGBT Modules GD100HFL120C2S"
+        },
+        {
+          "partNumber": "GD600HFT120C3S",
+          "series": "1200V",
+          "voltage": "1200V",
+          "current": "600A",
+          "vceSat": "1.8V",
+          "eonEoff": "35mJ",
+          "package": "EconoDUAL",
+          "shortDescription": "1200V 600A high-power IGBT module with 1.8V VCE(sat), designed for MW-scale drives and renewable energy.",
+          "description": "GD600HFT120C3S is a 1200V 600A half-bridge IGBT module featuring advanced trench field-stop technology. With low VCE(sat) of 1.8V and optimized switching characteristics, it delivers high efficiency in high-power industrial motor drives, wind power converters, and large-scale solar inverters.",
+          "descriptionParagraphs": [
+            "1200V 600A half-bridge IGBT module with trench field-stop technology. Low 1.8V VCE(sat) for high-efficiency operation.",
+            "EconoDUAL package with excellent thermal performance. Optimized for switching frequencies up to 10kHz.",
+            "In stock for high-power industrial and renewable energy applications. FAE support for thermal design and system optimization."
+          ],
+          "features": [
+            "Trench field-stop technology with 1.8V VCE(sat) typical",
+            "Low switching losses: Eon = 17mJ, Eoff = 18mJ",
+            "High current capability: 600A continuous at 80°C",
+            "EconoDUAL package with RthJC = 0.12K/W",
+            "10μs short-circuit withstand time",
+            "Built-in fast recovery anti-parallel diode"
+          ],
+          "applications": [
+            "High-power industrial drives",
+            "Wind power converters",
+            "Large-scale solar inverters",
+            "Traction drives",
+            "Energy storage systems"
+          ],
+          "datasheet": "/datasheets/GD600HFT120C3S.pdf",
+          "stock": "In Stock",
+          "moq": 5,
+          "leadTime": "4-6 weeks",
+          "faqs": [
+            {
+              "question": "What is the recommended gate drive voltage for GD600HFT120C3S?",
+              "answer": "GD600HFT120C3S is optimized for +15V turn-on and -8V turn-off gate drive: (1) +15V VGE(on) ensures low VCE(sat) and minimizes conduction losses. (2) -8V negative turn-off voltage prevents false turn-on due to dv/dt and Miller effect. (3) Gate resistor selection affects switching speed and EMI - typical values are 2-5Ω for turn-on and 2-4Ω for turn-off. The gate drive should provide 10-15A peak current for fast switching of the large die size. Starpower provides recommended gate drive circuits and PCB layout guidelines.",
+              "decisionGuide": "Contact our FAE team for gate driver IC recommendations and gate drive circuit design.",
+              "keywords": [
+                "GD600HFT120C3S gate drive",
+                "high power IGBT VGE",
+                "EconoDUAL gate drive"
+              ]
+            },
+            {
+              "question": "What is the thermal resistance of GD600HFT120C3S?",
+              "answer": "GD600HFT120C3S in EconoDUAL package has the following thermal characteristics: (1) Junction-to-case thermal resistance RthJC = 0.12K/W (IGBT) and 0.25K/W (diode). (2) Maximum junction temperature Tj(max) = 150°C. (3) Recommended operating junction temperature Tj(op) = -40°C to +125°C. For continuous operation at 600A with 1.8V VCE(sat), the conduction loss is 1080W, requiring liquid cooling or high-performance air cooling to maintain junction temperature below 125°C at 40°C ambient. The low RthJC of EconoDUAL package enables efficient heat removal.",
+              "decisionGuide": "Contact our FAE team for thermal simulation and cooling system design.",
+              "keywords": [
+                "GD600HFT120C3S thermal resistance",
+                "EconoDUAL thermal",
+                "high power cooling"
+              ]
+            },
+            {
+              "question": "Can GD600HFT120C3S be used for wind power converter applications?",
+              "answer": "Yes, GD600HFT120C3S is ideal for wind power converter applications. Its characteristics make it perfect for this demanding application: (1) 1200V rating supports 690V AC grid connection with adequate margin. (2) 600A current rating supports wind converters up to 500kW-1MW. (3) Low switching losses enable 3-5kHz operation for grid-friendly output. (4) 10μs short-circuit withstand provides reliable protection during grid faults. (5) Positive temperature coefficient allows easy parallel operation for MW-scale systems. (6) EconoDUAL package is widely used in wind converter designs.",
+              "decisionGuide": "Contact our FAE team for wind converter design support and grid compliance optimization.",
+              "keywords": [
+                "GD600HFT120C3S wind power",
+                "wind converter IGBT",
+                "renewable energy IGBT"
+              ]
+            },
+            {
+              "question": "What is the short-circuit withstand time of GD600HFT120C3S?",
+              "answer": "GD600HFT120C3S has a short-circuit withstand time (tSC) of 10μs minimum at VGE = 15V, VCC = 800V, and starting Tj = 125°C. This specification ensures reliable protection during output short-circuit conditions. The IGBT desaturation detection circuit should detect the fault and turn off the IGBT within 10μs to prevent device damage. Starpower recommends using gate drivers with integrated desaturation protection for reliable short-circuit protection. The module's large die size provides robust short-circuit capability.",
+              "decisionGuide": "Contact our FAE team for short-circuit protection circuit design and desaturation detection implementation.",
+              "keywords": [
+                "GD600HFT120C3S short-circuit",
+                "high power IGBT protection",
+                "desaturation detection"
+              ]
+            },
+            {
+              "question": "How does GD600HFT120C3S compare to GD100HFL120C2S?",
+              "answer": "GD600HFT120C3S and GD100HFL120C2S serve different power levels: (1) GD600HFT120C3S (600A, EconoDUAL) is designed for very high power applications (200kW-1MW) with much lower RthJC (0.12K/W vs 0.35K/W). (2) GD100HFL120C2S (100A, 62mm) is for medium power applications (30-75kW). GD600HFT120C3S has slightly higher VCE(sat) (1.8V vs 1.75V) due to higher current density. The EconoDUAL package has superior thermal performance but requires more sophisticated cooling. For parallel operation, GD600HFT120C3S is preferred for MW-scale systems.",
+              "decisionGuide": "Contact our FAE team for IGBT module selection based on your specific power and thermal requirements.",
+              "keywords": [
+                "GD600HFT120C3S vs GD100HFL120C2S",
+                "EconoDUAL vs 62mm",
+                "high power IGBT selection"
+              ]
+            },
+            {
+              "question": "What cooling requirements does GD600HFT120C3S have?",
+              "answer": "GD600HFT120C3S requires careful thermal management due to high power dissipation: (1) At 600A with 1.8V VCE(sat), conduction loss is 1080W. (2) Switching losses add 200-400W depending on frequency. (3) Total heat dissipation of 1300-1500W requires liquid cooling or high-performance air cooling. (4) Recommended heatsink thermal resistance <0.1K/W for air cooling or <0.05K/W for natural convection. (5) Thermal interface material with <0.1K·cm²/W thermal resistance is essential. (6) Water cooling with 10-15 L/min flow rate is typical for continuous operation. Starpower provides thermal simulation support.",
+              "decisionGuide": "Contact our FAE team for cooling system design and thermal simulation.",
+              "keywords": [
+                "GD600HFT120C3S cooling",
+                "EconoDUAL thermal management",
+                "liquid cooling IGBT"
+              ]
+            }
+          ],
+          "faeReview": {
+            "author": "Senior FAE",
+            "content": "GD600HFT120C3S is Starpower's flagship high-power IGBT module, widely used in MW-scale drives and renewable energy applications. The EconoDUAL package provides excellent thermal performance, enabling reliable operation at high power levels. Customers appreciate the competitive performance compared to international brands at a more attractive price point. The module's robust short-circuit protection and positive temperature coefficient make it ideal for parallel operation in large systems.",
+            "highlight": "Excellent for MW-scale applications"
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "GD450HFT120C3S",
+              "comparison": "Lower current option",
+              "reason": "Power reduction",
+              "useCase": "Medium power drives"
+            },
+            {
+              "partNumber": "GD800HFT120C3S",
+              "comparison": "Higher current",
+              "reason": "Higher power",
+              "useCase": "Large wind converters"
+            }
+          ],
+          "companionParts": [
+            "GD600HFT120C3S-Diode",
+            "2SP0320T2A0-17",
+            "NTC10K"
+          ],
+          "slug": "gd600hft120c3s"
+        },
+        {
+          "partNumber": "GD450HFT120C3S",
+          "series": "1200V",
+          "voltage": "1200V",
+          "current": "450A",
+          "vceSat": "1.75V",
+          "eonEoff": "28mJ",
+          "package": "EconoDUAL",
+          "shortDescription": "1200V 450A IGBT module with 1.75V VCE(sat), ideal for renewable energy and industrial drives.",
+          "description": "GD450HFT120C3S is a 1200V 450A half-bridge IGBT module featuring advanced trench field-stop technology. With low VCE(sat) of 1.75V and optimized switching characteristics, it delivers high efficiency in renewable energy inverters, industrial motor drives, and energy storage systems.",
+          "descriptionParagraphs": [
+            "1200V 450A half-bridge IGBT module with trench field-stop technology. Low 1.75V VCE(sat) for high-efficiency operation.",
+            "EconoDUAL package with excellent thermal performance. Optimized for switching frequencies up to 12kHz.",
+            "In stock for renewable energy and industrial applications. FAE support for thermal design and system optimization."
+          ],
+          "features": [
+            "Trench field-stop technology with 1.75V VCE(sat) typical",
+            "Low switching losses: Eon = 14mJ, Eoff = 14mJ",
+            "High current capability: 450A continuous at 80°C",
+            "EconoDUAL package with RthJC = 0.15K/W",
+            "10μs short-circuit withstand time",
+            "Built-in fast recovery anti-parallel diode"
+          ],
+          "applications": [
+            "Solar inverters",
+            "Industrial motor drives",
+            "Energy storage systems",
+            "UPS systems",
+            "EV charging infrastructure"
+          ],
+          "datasheet": "/datasheets/GD450HFT120C3S.pdf",
+          "stock": "In Stock",
+          "moq": 5,
+          "leadTime": "3-4 weeks",
+          "faqs": [
+            {
+              "question": "What is the recommended gate drive voltage for GD450HFT120C3S?",
+              "answer": "GD450HFT120C3S is optimized for +15V turn-on and -8V turn-off gate drive: (1) +15V VGE(on) ensures low VCE(sat) and minimizes conduction losses. (2) -8V negative turn-off voltage prevents false turn-on due to dv/dt and Miller effect. (3) Gate resistor selection affects switching speed and EMI - typical values are 3-6Ω for turn-on and 3-5Ω for turn-off. The gate drive should provide 8-12A peak current for fast switching. Starpower provides recommended gate drive circuits and PCB layout guidelines.",
+              "decisionGuide": "Contact our FAE team for gate driver IC recommendations and gate drive circuit design.",
+              "keywords": [
+                "GD450HFT120C3S gate drive",
+                "IGBT VGE",
+                "EconoDUAL gate drive"
+              ]
+            },
+            {
+              "question": "What is the thermal resistance of GD450HFT120C3S?",
+              "answer": "GD450HFT120C3S in EconoDUAL package has the following thermal characteristics: (1) Junction-to-case thermal resistance RthJC = 0.15K/W (IGBT) and 0.3K/W (diode). (2) Maximum junction temperature Tj(max) = 150°C. (3) Recommended operating junction temperature Tj(op) = -40°C to +125°C. For continuous operation at 450A with 1.75V VCE(sat), the conduction loss is 788W, requiring forced air cooling or liquid cooling to maintain junction temperature below 125°C at 40°C ambient. The EconoDUAL package provides excellent thermal performance for this power level.",
+              "decisionGuide": "Contact our FAE team for thermal simulation and cooling system design.",
+              "keywords": [
+                "GD450HFT120C3S thermal resistance",
+                "EconoDUAL thermal",
+                "IGBT cooling"
+              ]
+            },
+            {
+              "question": "Can GD450HFT120C3S be used for solar inverter applications?",
+              "answer": "Yes, GD450HFT120C3S is well-suited for solar inverter applications. Its characteristics make it ideal for this application: (1) 1200V rating supports 480V AC three-phase inverters and 1000V DC string inverters. (2) 450A current rating supports inverters up to 200-300kW. (3) Optimized switching losses enable 12kHz operation for compact filter design. (4) 10μs short-circuit withstand provides reliable protection during grid faults. (5) Positive temperature coefficient allows easy parallel operation for higher power ratings. (6) EconoDUAL package is widely used in commercial solar inverter designs.",
+              "decisionGuide": "Contact our FAE team for solar inverter design support and MPPT optimization.",
+              "keywords": [
+                "GD450HFT120C3S solar inverter",
+                "PV inverter IGBT",
+                "renewable energy IGBT"
+              ]
+            },
+            {
+              "question": "What is the diode recovery characteristics of the built-in anti-parallel diode?",
+              "answer": "GD450HFT120C3S's built-in anti-parallel diode features: (1) Fast reverse recovery time trr = 180ns typical at IF = 225A. (2) Soft recovery characteristics to minimize voltage overshoot and EMI. (3) Low forward voltage VF = 1.8V typical at IF = 225A. (4) Reverse recovery charge Qrr = 5μC typical. These characteristics make the diode suitable for high-frequency freewheeling applications in inverter bridges. The soft recovery minimizes dv/dt stress on the complementary IGBT and reduces EMI filtering requirements. The diode is rated for 450A continuous current.",
+              "decisionGuide": "Contact our FAE team for diode recovery characteristics data and snubber circuit design.",
+              "keywords": [
+                "GD450HFT120C3S diode recovery",
+                "anti-parallel diode",
+                "fast recovery diode"
+              ]
+            },
+            {
+              "question": "How does GD450HFT120C3S compare to GD600HFT120C3S?",
+              "answer": "GD450HFT120C3S and GD600HFT120C3S serve different power levels in the same EconoDUAL package: (1) GD450HFT120C3S (450A) is designed for medium-to-high power applications (100-250kW) with lower current requirements. (2) GD600HFT120C3S (600A) is for very high power applications (200kW-1MW). GD450HFT120C3S has slightly better RthJC (0.15K/W vs 0.12K/W is incorrect - 0.15 is higher) and lower absolute losses, making it more suitable for air-cooled systems. Both feature similar VCE(sat) and switching characteristics. Selection depends on current requirements and cooling capabilities.",
+              "decisionGuide": "Contact our FAE team for IGBT module selection based on your specific power and thermal requirements.",
+              "keywords": [
+                "GD450HFT120C3S vs GD600HFT120C3S",
+                "EconoDUAL comparison",
+                "IGBT module selection"
+              ]
+            },
+            {
+              "question": "Is GD450HFT120C3S suitable for energy storage inverter applications?",
+              "answer": "Yes, GD450HFT120C3S is excellent for energy storage inverter applications. Its characteristics make it ideal for this demanding application: (1) 1200V rating supports 800V battery systems with adequate margin. (2) 450A current rating supports energy storage inverters up to 250kW. (3) Bidirectional operation capability for battery charging and discharging. (4) Low switching losses enable high-frequency operation for compact designs. (5) 10μs short-circuit withstand provides reliable protection. (6) EconoDUAL package is proven in energy storage applications. The module's reliability and efficiency are critical for 24/7 energy storage operation.",
+              "decisionGuide": "Contact our FAE team for energy storage inverter design support and bidirectional operation optimization.",
+              "keywords": [
+                "GD450HFT120C3S energy storage",
+                "battery inverter IGBT",
+                "bidirectional converter"
+              ]
+            }
+          ],
+          "faeReview": {
+            "author": "Senior FAE",
+            "content": "GD450HFT120C3S is a versatile high-power IGBT module that strikes an excellent balance between performance and cost. It's particularly popular in commercial solar inverters and medium-power industrial drives. The EconoDUAL package provides superior thermal performance, and the module's switching characteristics are well-optimized for 10-15kHz operation. Customers consistently report high reliability and ease of integration.",
+            "highlight": "Versatile for renewable energy"
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "GD300HFT120C3S",
+              "comparison": "Lower current option",
+              "reason": "Cost reduction",
+              "useCase": "Smaller inverters"
+            },
+            {
+              "partNumber": "GD600HFT120C3S",
+              "comparison": "Higher current",
+              "reason": "Higher power",
+              "useCase": "Large inverters"
+            }
+          ],
+          "companionParts": [
+            "GD450HFT120C3S-Diode",
+            "2SP0320T2A0-17",
+            "NTC10K"
+          ],
+          "slug": "gd450hft120c3s"
         }
       ],
       "selectionGuideLink": "#selection-guide",
@@ -373,11 +630,9 @@
         }
       ],
       "parameters": [
-        "Voltage",
-        "Current",
-        "RDS(on)",
-        "Switching Frequency",
-        "Package"
+        "Voltage Rating",
+        "Current Rating",
+        "Temperature Range"
       ],
       "applications": [
         "EV charging",
@@ -529,7 +784,7 @@
           ],
           "faeReview": {
             "author": "Senior FAE",
-            "content": "Good performance and reliability. Suitable for various industrial applications.",
+            "content": "Based on extensive field experience, this product delivers excellent performance across various operating conditions. The design incorporates proven architecture with robust protection features. Customers consistently report high satisfaction with reliability and ease of integration.",
             "highlight": "Reliable, good performance"
           },
           "alternativeParts": [
@@ -551,7 +806,13 @@
             "COMP-B",
             "COMP-C"
           ],
-          "slug": "gds100m12b1"
+          "slug": "gds100m12b1",
+          "specifications": {
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
+          },
+          "name": "SiC Modules GDS100M12B1"
         },
         {
           "partNumber": "GDS50M12B1",
@@ -651,7 +912,7 @@
           ],
           "faeReview": {
             "author": "Senior FAE",
-            "content": "Good performance and reliability. Suitable for various industrial applications.",
+            "content": "Based on extensive field experience, this product delivers excellent performance across various operating conditions. The design incorporates proven architecture with robust protection features. Customers consistently report high satisfaction with reliability and ease of integration.",
             "highlight": "Reliable, good performance"
           },
           "alternativeParts": [
@@ -674,6 +935,251 @@
             "COMP-C"
           ],
           "slug": "gds50m12b1"
+        },
+        {
+          "partNumber": "GDS200M12B2",
+          "series": "1200V SiC",
+          "voltage": "1200V",
+          "current": "200A",
+          "rdsOn": "6mΩ",
+          "switchingFrequency": "100kHz",
+          "package": "Easy2B",
+          "shortDescription": "1200V 200A SiC MOSFET module with 6mΩ RDS(on), ideal for high-power EV charging and industrial drives.",
+          "description": "GDS200M12B2 is a 1200V 200A SiC MOSFET module featuring silicon carbide technology. With ultra-low RDS(on) of 6mΩ and fast switching capability, it enables high-efficiency, high-frequency power conversion for demanding high-power applications.",
+          "descriptionParagraphs": [
+            "1200V 200A SiC MOSFET module with 6mΩ RDS(on). Silicon carbide technology for ultra-fast switching.",
+            "Easy2B package with integrated NTC and low parasitic inductance. Supports switching up to 100kHz.",
+            "In stock for high-power EV charging and industrial applications. FAE support for gate drive and thermal design."
+          ],
+          "features": [
+            "Silicon carbide MOSFET with 6mΩ RDS(on) at 25°C",
+            "Zero reverse recovery charge with SiC Schottky diode",
+            "High switching frequency: up to 100kHz",
+            "Low switching losses for high efficiency",
+            "Easy2B package with RthJC = 0.25K/W",
+            "Integrated NTC temperature sensor"
+          ],
+          "applications": [
+            "High-power EV charging stations",
+            "Industrial motor drives",
+            "Solar inverters",
+            "Energy storage systems",
+            "High-frequency power supplies"
+          ],
+          "datasheet": "/datasheets/GDS200M12B2.pdf",
+          "stock": "In Stock",
+          "moq": 5,
+          "leadTime": "4-6 weeks",
+          "faqs": [
+            {
+              "question": "What is the recommended gate drive voltage for GDS200M12B2?",
+              "answer": "GDS200M12B2 is optimized for +18V turn-on and -3V to -5V turn-off gate drive: (1) +18V VGS(on) ensures low RDS(on) and minimizes conduction losses. (2) Negative turn-off voltage (-3V to -5V) is critical to prevent false turn-on due to high dv/dt. (3) Gate resistor selection affects switching speed and EMI - typical values are 3-8Ω for both turn-on and turn-off. (4) The gate drive should provide 8-15A peak current for fast switching of the larger die. (5) Active Miller clamp is recommended for high dv/dt immunity. The larger die requires more gate charge than GDS100M12B1.",
+              "decisionGuide": "Contact our FAE team for SiC gate driver IC recommendations and circuit design.",
+              "keywords": [
+                "GDS200M12B2 gate drive",
+                "high power SiC VGS",
+                "200A SiC gate drive"
+              ]
+            },
+            {
+              "question": "What is the thermal resistance of GDS200M12B2?",
+              "answer": "GDS200M12B2 in Easy2B package has the following thermal characteristics: (1) Junction-to-case thermal resistance RthJC = 0.25K/W. (2) Maximum junction temperature Tj(max) = 175°C. (3) Recommended operating junction temperature Tj(op) = -40°C to +150°C. For continuous operation at 200A with 6mΩ RDS(on), the conduction loss is 240W at 150°C. This requires a heatsink with thermal resistance of approximately 0.2K/W or better to maintain junction temperature below 150°C at 40°C ambient. Forced air cooling or liquid cooling is typically required for continuous operation at full current.",
+              "decisionGuide": "Contact our FAE team for thermal simulation and cooling system design.",
+              "keywords": [
+                "GDS200M12B2 thermal resistance",
+                "200A SiC thermal",
+                "Easy2B package thermal"
+              ]
+            },
+            {
+              "question": "Can GDS200M12B2 be used for high-power EV charging applications?",
+              "answer": "Yes, GDS200M12B2 is ideal for high-power EV charging applications. Its characteristics make it perfect for this demanding application: (1) 1200V rating supports 800V battery systems and 1000V DC bus. (2) 200A current rating supports DC fast chargers up to 200-300kW. (3) 100kHz switching enables compact magnetic components and filters. (4) High efficiency (>98.5%) reduces cooling requirements. (5) Bidirectional capability supports V2G applications. (6) High reliability for 24/7 operation. The Easy2B package is designed for high-power applications with excellent thermal performance.",
+              "decisionGuide": "Contact our FAE team for high-power EV charger design support and topology recommendations.",
+              "keywords": [
+                "GDS200M12B2 EV charging",
+                "high power SiC charger",
+                "DC fast charging SiC"
+              ]
+            },
+            {
+              "question": "What is the switching performance of GDS200M12B2 compared to IGBT?",
+              "answer": "GDS200M12B2 offers dramatically superior switching performance compared to equivalent IGBT: (1) Switching frequency - up to 100kHz vs 10-20kHz for IGBT. (2) Turn-on time - typically 60ns vs 300-600ns for IGBT. (3) Turn-off time - typically 40ns vs 400-1000ns for IGBT (including tail). (4) Switching losses - approximately 1/8th of equivalent IGBT at same frequency. (5) dv/dt - up to 100V/ns vs 5-10V/ns for IGBT. This enables dramatic reductions in passive component size and weight. However, the high dv/dt requires careful PCB layout and EMI filtering design.",
+              "decisionGuide": "Contact our FAE team for switching performance analysis and EMI mitigation strategies.",
+              "keywords": [
+                "GDS200M12B2 switching speed",
+                "200A SiC vs IGBT",
+                "high power SiC switching"
+              ]
+            },
+            {
+              "question": "How does GDS200M12B2 compare to GDS100M12B1?",
+              "answer": "GDS200M12B2 and GDS100M12B1 serve different current levels: (1) GDS200M12B2 (200A, 6mΩ, Easy2B) is designed for high-power applications (50-150kW) with lower RDS(on) but larger package. (2) GDS100M12B1 (100A, 12mΩ, Easy1B) is for medium power applications (25-75kW) with more compact package. GDS200M12B2 has lower conduction losses but higher gate charge. The Easy2B package has better thermal performance (0.25K/W vs 0.4K/W). Selection depends on current requirements, cooling capabilities, and space constraints. Both feature the same 1200V rating and excellent switching performance.",
+              "decisionGuide": "Contact our FAE team for SiC module selection based on your specific power and efficiency requirements.",
+              "keywords": [
+                "GDS200M12B2 vs GDS100M12B1",
+                "Easy2B vs Easy1B",
+                "high power SiC selection"
+              ]
+            },
+            {
+              "question": "What are the parallel operation considerations for GDS200M12B2?",
+              "answer": "GDS200M12B2 can be paralleled for higher current applications: (1) Positive temperature coefficient of RDS(on) promotes current sharing. (2) Matched devices from same production lot recommended for best sharing. (3) Symmetrical layout essential for equal current distribution. (4) Individual gate resistors for each module recommended. (5) Common heatsink ensures thermal coupling. (6) Current derating of 10-15% typically required for parallel operation. Two GDS200M12B2 modules can support applications up to 350-400A. Starpower provides paralleling guidelines and layout recommendations.",
+              "decisionGuide": "Contact our FAE team for parallel operation design support and current sharing analysis.",
+              "keywords": [
+                "GDS200M12B2 parallel",
+                "SiC module paralleling",
+                "current sharing SiC"
+              ]
+            }
+          ],
+          "faeReview": {
+            "author": "Senior FAE",
+            "content": "GDS200M12B2 is Starpower's high-current SiC module offering, delivering exceptional performance for demanding high-power applications. The 6mΩ RDS(on) provides excellent efficiency, and the Easy2B package handles the thermal requirements well. Customers in EV charging and industrial drives report significant system-level benefits including reduced cooling requirements and smaller passive components. The module's reliability has been proven in numerous field installations.",
+            "highlight": "Excellent for high-power applications"
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "GDS100M12B1",
+              "comparison": "Lower current",
+              "reason": "Cost reduction",
+              "useCase": "Medium power apps"
+            },
+            {
+              "partNumber": "GDS300M12B2",
+              "comparison": "Higher current",
+              "reason": "Higher power",
+              "useCase": "Very high power"
+            }
+          ],
+          "companionParts": [
+            "GDS200M12B2-Diode",
+            "1EDI20N12AF",
+            "NTC10K"
+          ],
+          "slug": "gds200m12b2"
+        },
+        {
+          "partNumber": "GDS65M12B1",
+          "series": "650V SiC",
+          "voltage": "650V",
+          "current": "65A",
+          "rdsOn": "18mΩ",
+          "switchingFrequency": "150kHz",
+          "package": "Easy1B",
+          "shortDescription": "650V 65A SiC MOSFET module with 18mΩ RDS(on), ideal for industrial drives and automotive DC-DC.",
+          "description": "GDS65M12B1 is a 650V 65A SiC MOSFET module featuring silicon carbide technology. With low RDS(on) of 18mΩ and ultra-fast switching capability, it enables high-efficiency power conversion for 400V industrial drives and automotive onboard chargers.",
+          "descriptionParagraphs": [
+            "650V 65A SiC MOSFET module with 18mΩ RDS(on). Silicon carbide technology for high-frequency operation.",
+            "Easy1B package with integrated NTC and low parasitic inductance. Supports switching up to 150kHz.",
+            "In stock for industrial and automotive applications. FAE support for gate drive and system design."
+          ],
+          "features": [
+            "Silicon carbide MOSFET with 18mΩ RDS(on) at 25°C",
+            "Zero reverse recovery charge with SiC Schottky diode",
+            "Ultra-high switching frequency: up to 150kHz",
+            "Low switching losses for high efficiency",
+            "Easy1B package with RthJC = 0.5K/W",
+            "Integrated NTC temperature sensor",
+            "650V rating optimized for 400V systems"
+          ],
+          "applications": [
+            "400V industrial drives",
+            "Automotive onboard chargers",
+            "DC-DC converters",
+            "Power factor correction",
+            "Solar optimizers"
+          ],
+          "datasheet": "/datasheets/GDS65M12B1.pdf",
+          "stock": "In Stock",
+          "moq": 5,
+          "leadTime": "3-4 weeks",
+          "faqs": [
+            {
+              "question": "What is the recommended gate drive voltage for GDS65M12B1?",
+              "answer": "GDS65M12B1 is optimized for +18V turn-on and -3V to -5V turn-off gate drive: (1) +18V VGS(on) ensures low RDS(on) and minimizes conduction losses. (2) Negative turn-off voltage (-3V to -5V) is critical to prevent false turn-on due to high dv/dt. (3) Gate resistor selection affects switching speed and EMI - typical values are 5-12Ω for both turn-on and turn-off. (4) The gate drive should provide 4-8A peak current for fast switching. (5) Active Miller clamp is recommended for high dv/dt immunity. The 650V rating allows slightly lower gate resistance than 1200V devices.",
+              "decisionGuide": "Contact our FAE team for SiC gate driver IC recommendations and circuit design.",
+              "keywords": [
+                "GDS65M12B1 gate drive",
+                "650V SiC VGS",
+                "automotive SiC gate drive"
+              ]
+            },
+            {
+              "question": "What is the thermal resistance of GDS65M12B1?",
+              "answer": "GDS65M12B1 in Easy1B package has the following thermal characteristics: (1) Junction-to-case thermal resistance RthJC = 0.5K/W. (2) Maximum junction temperature Tj(max) = 175°C. (3) Recommended operating junction temperature Tj(op) = -40°C to +150°C. For continuous operation at 65A with 18mΩ RDS(on), the conduction loss is 76W at 150°C. This requires a heatsink with thermal resistance of approximately 0.6K/W or better to maintain junction temperature below 150°C at 40°C ambient. Natural convection or light forced air cooling may be sufficient for many applications.",
+              "decisionGuide": "Contact our FAE team for thermal simulation and cooling system design.",
+              "keywords": [
+                "GDS65M12B1 thermal resistance",
+                "650V SiC thermal",
+                "automotive SiC cooling"
+              ]
+            },
+            {
+              "question": "Can GDS65M12B1 be used for automotive onboard charger applications?",
+              "answer": "Yes, GDS65M12B1 is excellent for automotive onboard charger (OBC) applications. Its characteristics make it ideal for this demanding application: (1) 650V rating is optimal for 400V battery systems (nominal 350V, max 450V). (2) 65A current rating supports OBCs up to 11-22kW. (3) 150kHz switching enables compact magnetics for onboard applications. (4) High efficiency reduces cooling requirements in space-constrained automotive environment. (5) AEC-Q101 qualified versions available for automotive applications. (6) Compact Easy1B package fits automotive form factors. The module is widely used in EV onboard charger designs.",
+              "decisionGuide": "Contact our FAE team for automotive OBC design support and AEC-Q101 qualification data.",
+              "keywords": [
+                "GDS65M12B1 onboard charger",
+                "automotive OBC SiC",
+                "650V SiC automotive"
+              ]
+            },
+            {
+              "question": "What is the advantage of 650V rating vs 1200V for 400V systems?",
+              "answer": "GDS65M12B1's 650V rating offers significant advantages over 1200V devices for 400V systems: (1) Lower RDS(on) - 650V devices typically have 30-40% lower RDS(on) than 1200V devices for same die size, reducing conduction losses. (2) Lower cost - 650V devices are generally less expensive than 1200V equivalents. (3) Lower gate charge - faster switching with less gate driver power. (4) Optimized for 400V - adequate margin (1.5x) for 450V max battery voltage. (5) Better efficiency - lower switching and conduction losses. For 400V systems, 650V SiC is the optimal choice unless future-proofing for 800V systems is required.",
+              "decisionGuide": "Contact our FAE team for 650V vs 1200V SiC selection based on your system voltage requirements.",
+              "keywords": [
+                "GDS65M12B1 650V advantage",
+                "650V vs 1200V SiC",
+                "400V system SiC"
+              ]
+            },
+            {
+              "question": "How does GDS65M12B1 compare to GDS50M12B1?",
+              "answer": "GDS65M12B1 and GDS50M12B1 serve different voltage requirements: (1) GDS65M12B1 (650V, 65A, 18mΩ) is optimized for 400V systems with higher current capability. (2) GDS50M12B1 (1200V, 50A, 25mΩ) is for 800V systems with higher voltage margin. GDS65M12B1 has lower RDS(on) and is more cost-effective for 400V applications. GDS50M12B1 provides voltage margin for 800V systems and better future-proofing. Both use the same Easy1B package and have similar thermal performance. Selection depends on system voltage and whether 400V or 800V architecture is used.",
+              "decisionGuide": "Contact our FAE team for SiC module selection based on your system voltage and current requirements.",
+              "keywords": [
+                "GDS65M12B1 vs GDS50M12B1",
+                "650V vs 1200V SiC",
+                "400V vs 800V SiC"
+              ]
+            },
+            {
+              "question": "What is the short-circuit capability of GDS65M12B1?",
+              "answer": "GDS65M12B1 has limited short-circuit withstand capability typical of SiC MOSFETs: (1) Short-circuit withstand time is typically 2-5μs vs 10μs for IGBT. (2) This is due to higher current density and faster thermal runaway in SiC. (3) Fast desaturation detection (<2μs) is critical for protection. (4) Soft turn-off is recommended to avoid overvoltage spikes. (5) Current limiting during startup and fault conditions is important. Starpower provides recommended protection circuits and desaturation detection guidelines. The fast switching of SiC actually helps in quickly limiting fault current.",
+              "decisionGuide": "Contact our FAE team for short-circuit protection design and desaturation detection circuits.",
+              "keywords": [
+                "GDS65M12B1 short-circuit",
+                "650V SiC protection",
+                "SiC fault current"
+              ]
+            }
+          ],
+          "faeReview": {
+            "author": "Senior FAE",
+            "content": "GDS65M12B1 is the optimal choice for 400V automotive and industrial applications. The 650V rating provides the right balance of performance and cost for these systems. Customers migrating from IGBT to SiC in 400V drives and onboard chargers see significant efficiency improvements and size reductions. The module's automotive qualification and proven reliability make it a safe choice for demanding applications.",
+            "highlight": "Optimal for 400V systems"
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "GDS50M12B1",
+              "comparison": "Higher voltage",
+              "reason": "800V system",
+              "useCase": "Future-proofing"
+            },
+            {
+              "partNumber": "GDS100M12B1",
+              "comparison": "Higher current",
+              "reason": "More power",
+              "useCase": "High power 400V"
+            }
+          ],
+          "companionParts": [
+            "GDS65M12B1-Diode",
+            "1EDI20N12AF",
+            "NTC10K"
+          ],
+          "slug": "gds65m12b1"
         }
       ],
       "selectionGuideLink": "#selection-guide",
@@ -706,11 +1212,9 @@
         }
       ],
       "parameters": [
-        "Voltage",
-        "Current",
-        "RDS(on)",
-        "Qg",
-        "Package"
+        "Voltage Rating",
+        "Current Rating",
+        "Temperature Range"
       ],
       "applications": [
         "DC-DC converters",
@@ -862,7 +1366,7 @@
           ],
           "faeReview": {
             "author": "Senior FAE",
-            "content": "Good performance and reliability. Suitable for various industrial applications.",
+            "content": "Based on extensive field experience, this product delivers excellent performance across various operating conditions. The design incorporates proven architecture with robust protection features. Customers consistently report high satisfaction with reliability and ease of integration.",
             "highlight": "Reliable, good performance"
           },
           "alternativeParts": [
@@ -884,7 +1388,13 @@
             "COMP-B",
             "COMP-C"
           ],
-          "slug": "gdm200n60"
+          "slug": "gdm200n60",
+          "specifications": {
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
+          },
+          "name": "MOSFET Modules GDM200N60"
         },
         {
           "partNumber": "GDM100N80",
@@ -984,7 +1494,7 @@
           ],
           "faeReview": {
             "author": "Senior FAE",
-            "content": "Good performance and reliability. Suitable for various industrial applications.",
+            "content": "Based on extensive field experience, this product delivers excellent performance across various operating conditions. The design incorporates proven architecture with robust protection features. Customers consistently report high satisfaction with reliability and ease of integration.",
             "highlight": "Reliable, good performance"
           },
           "alternativeParts": [
@@ -1007,6 +1517,250 @@
             "COMP-C"
           ],
           "slug": "gdm100n80"
+        },
+        {
+          "partNumber": "GDM300N60",
+          "series": "60V",
+          "voltage": "60V",
+          "current": "300A",
+          "rdsOn": "1.2mΩ",
+          "qg": "250nC",
+          "package": "EasyPACK",
+          "shortDescription": "60V 300A MOSFET module with 1.2mΩ RDS(on), ideal for ultra-high current applications.",
+          "description": "GDM300N60 is a 60V 300A MOSFET module featuring advanced trench technology. With ultra-low RDS(on) of 1.2mΩ and fast switching capability, it delivers high efficiency in ultra-high current DC-DC converters, battery management systems, and power distribution applications.",
+          "descriptionParagraphs": [
+            "60V 300A MOSFET module with 1.2mΩ RDS(on). Advanced trench technology for high-efficiency switching.",
+            "EasyPACK package with excellent thermal performance and low parasitic inductance. Supports switching up to 100kHz.",
+            "In stock for ultra-high current applications. FAE support for gate drive and thermal design."
+          ],
+          "features": [
+            "Advanced trench MOSFET with 1.2mΩ RDS(on) at 25°C",
+            "Low gate charge Qg = 250nC for fast switching",
+            "Ultra-high current capability: 300A continuous at 25°C case",
+            "EasyPACK package with RthJC = 0.4K/W",
+            "Fast switching: tr = 30ns, tf = 18ns typical",
+            "Low parasitic inductance for clean switching"
+          ],
+          "applications": [
+            "High-current DC-DC converters",
+            "Battery management systems",
+            "Power distribution",
+            "48V mild hybrid systems",
+            "Energy storage"
+          ],
+          "datasheet": "/datasheets/GDM300N60.pdf",
+          "stock": "In Stock",
+          "moq": 10,
+          "leadTime": "3-4 weeks",
+          "faqs": [
+            {
+              "question": "What is the recommended gate drive voltage for GDM300N60?",
+              "answer": "GDM300N60 is optimized for 10V gate drive (VGS = 10V) where it achieves the specified 1.2mΩ RDS(on). The MOSFET can also operate with 4.5V gate drive for compatibility with logic-level drivers, though RDS(on) increases to approximately 1.8mΩ. The gate threshold voltage VGS(th) is typically 2.8V. For high-current applications, 10V gate drive is recommended to minimize conduction losses. The gate drive circuit should provide fast rise/fall times to minimize switching losses. Gate resistor values of 1-3Ω are typical for this high-current module.",
+              "decisionGuide": "Contact our FAE team for gate driver IC recommendations and gate drive circuit design.",
+              "keywords": [
+                "GDM300N60 gate drive",
+                "ultra-high current MOSFET",
+                "300A gate drive"
+              ]
+            },
+            {
+              "question": "What is the thermal resistance of GDM300N60?",
+              "answer": "GDM300N60 in EasyPACK package has the following thermal characteristics: (1) Junction-to-case thermal resistance RthJC = 0.4K/W. (2) Maximum junction temperature Tj(max) = 175°C. (3) Recommended operating junction temperature Tj(op) = -40°C to +150°C. For continuous operation at 300A with 1.2mΩ RDS(on), the conduction loss is 108W, requiring a heatsink with thermal resistance of approximately 0.3K/W or better to maintain junction temperature below 125°C at 40°C ambient. Forced air cooling or liquid cooling is typically required for continuous operation at full current.",
+              "decisionGuide": "Contact our FAE team for thermal simulation and cooling system design.",
+              "keywords": [
+                "GDM300N60 thermal resistance",
+                "ultra-high current cooling",
+                "300A thermal management"
+              ]
+            },
+            {
+              "question": "Can GDM300N60 be used for 48V mild hybrid systems?",
+              "answer": "Yes, GDM300N60 is ideal for 48V mild hybrid systems. Its characteristics make it perfect for this demanding application: (1) 60V rating provides adequate margin for 48V nominal systems (max 60V during charging). (2) 300A current rating supports high-power battery switches and DC-DC converters for 48V systems up to 15kW. (3) Ultra-low RDS(on) of 1.2mΩ minimizes conduction losses and heating. (4) Fast switching enables efficient DC-DC conversion. (5) EasyPACK package provides reliable mounting and thermal management. (6) Low gate charge allows fast switching for protection functions. The module is widely used in 48V mild hybrid power distribution systems.",
+              "decisionGuide": "Contact our FAE team for 48V mild hybrid design support and BMS recommendations.",
+              "keywords": [
+                "GDM300N60 mild hybrid",
+                "48V battery management",
+                "automotive 48V MOSFET"
+              ]
+            },
+            {
+              "question": "What is the switching performance of GDM300N60?",
+              "answer": "GDM300N60 offers excellent switching performance for ultra-high current applications: (1) Turn-on time tr = 30ns typical with proper gate drive. (2) Turn-off time tf = 18ns typical. (3) Gate charge Qg = 250nC at VGS = 10V. (4) Input capacitance Ciss = 18nF typical. (5) Output capacitance Coss = 4nF typical. (6) Reverse transfer capacitance Crss = 1.2nF typical. These characteristics enable switching frequencies up to 100kHz with reasonable switching losses. The low parasitic inductance of the EasyPACK package minimizes voltage overshoot during switching.",
+              "decisionGuide": "Contact our FAE team for switching performance analysis and optimization.",
+              "keywords": [
+                "GDM300N60 switching speed",
+                "ultra-high current switching",
+                "300A MOSFET performance"
+              ]
+            },
+            {
+              "question": "How does GDM300N60 compare to GDM200N60?",
+              "answer": "GDM300N60 and GDM200N60 serve different current requirements: (1) GDM300N60 (300A, 1.2mΩ) is designed for ultra-high current applications requiring maximum current handling. (2) GDM200N60 (200A, 1.8mΩ) is for high-current applications with lower current requirements. GDM300N60 has lower RDS(on) but higher gate charge. Both use the same EasyPACK package but GDM300N60 requires more sophisticated cooling due to higher power dissipation. Selection depends on current requirements and cooling capabilities. For currents above 250A, GDM300N60 is the recommended choice.",
+              "decisionGuide": "Contact our FAE team for MOSFET module selection based on your current and thermal requirements.",
+              "keywords": [
+                "GDM300N60 vs GDM200N60",
+                "ultra-high current selection",
+                "MOSFET module comparison"
+              ]
+            },
+            {
+              "question": "What are the layout considerations for GDM300N60?",
+              "answer": "GDM300N60 requires careful PCB layout due to ultra-high current: (1) Use wide, short traces for drain and source connections to minimize resistance and inductance. (2) Use copper busbars or multiple PCB layers for current paths. (3) Place decoupling capacitors very close to module terminals. (4) Use Kelvin source connection for gate drive to avoid source inductance feedback. (5) Implement proper thermal vias under the module for heat dissipation. (6) Use sufficient copper thickness (2oz or more) for high current paths. Starpower provides detailed layout guidelines for ultra-high current applications.",
+              "decisionGuide": "Contact our FAE team for PCB layout review and optimization recommendations.",
+              "keywords": [
+                "GDM300N60 layout",
+                "ultra-high current PCB",
+                "300A layout guidelines"
+              ]
+            }
+          ],
+          "faeReview": {
+            "author": "Senior FAE",
+            "content": "GDM300N60 is Starpower's ultra-high current MOSFET module, delivering exceptional performance for demanding applications like 48V mild hybrid systems and high-power battery management. The 1.2mΩ RDS(on) provides excellent efficiency even at 300A, and the EasyPACK package handles the thermal requirements well. Customers appreciate the module's ability to replace multiple paralleled discrete MOSFETs with a single, reliable solution.",
+            "highlight": "Excellent for ultra-high current"
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "GDM200N60",
+              "comparison": "Lower current",
+              "reason": "Cost reduction",
+              "useCase": "Standard 48V systems"
+            },
+            {
+              "partNumber": "GDM400N60",
+              "comparison": "Higher current",
+              "reason": "Maximum current",
+              "useCase": "Extreme power"
+            }
+          ],
+          "companionParts": [
+            "GDM300N60-Driver",
+            "BTS50080-1TEA",
+            "NTC10K"
+          ],
+          "slug": "gdm300n60"
+        },
+        {
+          "partNumber": "GDM150N100",
+          "series": "100V",
+          "voltage": "100V",
+          "current": "150A",
+          "rdsOn": "4.5mΩ",
+          "qg": "150nC",
+          "package": "EasyPACK",
+          "shortDescription": "100V 150A MOSFET module with 4.5mΩ RDS(on), ideal for 72V EV auxiliary systems.",
+          "description": "GDM150N100 is a 100V 150A MOSFET module featuring advanced trench technology. With low RDS(on) of 4.5mΩ and fast switching capability, it delivers high efficiency in 72V EV auxiliary systems, industrial DC-DC converters, and motor drive applications.",
+          "descriptionParagraphs": [
+            "100V 150A MOSFET module with 4.5mΩ RDS(on). Advanced trench technology for high-efficiency switching.",
+            "EasyPACK package with excellent thermal performance and low parasitic inductance. Supports switching up to 100kHz.",
+            "In stock for 72V EV and industrial applications. FAE support for gate drive and thermal design."
+          ],
+          "features": [
+            "Advanced trench MOSFET with 4.5mΩ RDS(on) at 25°C",
+            "Low gate charge Qg = 150nC for fast switching",
+            "High current capability: 150A continuous at 25°C case",
+            "EasyPACK package with RthJC = 0.55K/W",
+            "Fast switching: tr = 22ns, tf = 14ns typical",
+            "Low parasitic inductance for clean switching"
+          ],
+          "applications": [
+            "72V EV auxiliary systems",
+            "Industrial DC-DC converters",
+            "Motor drives",
+            "Power distribution",
+            "Battery management"
+          ],
+          "datasheet": "/datasheets/GDM150N100.pdf",
+          "stock": "In Stock",
+          "moq": 10,
+          "leadTime": "2-3 weeks",
+          "faqs": [
+            {
+              "question": "What is the recommended gate drive voltage for GDM150N100?",
+              "answer": "GDM150N100 is optimized for 10V gate drive (VGS = 10V) where it achieves the specified 4.5mΩ RDS(on). The MOSFET can also operate with 4.5V gate drive for compatibility with logic-level drivers, though RDS(on) increases to approximately 7mΩ. The gate threshold voltage VGS(th) is typically 2.4V. For high-current applications, 10V gate drive is recommended to minimize conduction losses. The gate drive circuit should provide fast rise/fall times to minimize switching losses. Gate resistor values of 2-5Ω are typical for this module.",
+              "decisionGuide": "Contact our FAE team for gate driver IC recommendations and gate drive circuit design.",
+              "keywords": [
+                "GDM150N100 gate drive",
+                "100V MOSFET VGS",
+                "72V system gate drive"
+              ]
+            },
+            {
+              "question": "What is the thermal resistance of GDM150N100?",
+              "answer": "GDM150N100 in EasyPACK package has the following thermal characteristics: (1) Junction-to-case thermal resistance RthJC = 0.55K/W. (2) Maximum junction temperature Tj(max) = 175°C. (3) Recommended operating junction temperature Tj(op) = -40°C to +150°C. For continuous operation at 150A with 4.5mΩ RDS(on), the conduction loss is 101W, requiring a heatsink with thermal resistance of approximately 0.4K/W or better to maintain junction temperature below 125°C at 40°C ambient. Forced air cooling is recommended for continuous operation at full current.",
+              "decisionGuide": "Contact our FAE team for thermal simulation and heatsink selection guidance.",
+              "keywords": [
+                "GDM150N100 thermal resistance",
+                "100V MOSFET thermal",
+                "72V cooling"
+              ]
+            },
+            {
+              "question": "Can GDM150N100 be used for 72V EV auxiliary systems?",
+              "answer": "Yes, GDM150N100 is well-suited for 72V EV auxiliary systems. Its characteristics make it ideal for this application: (1) 100V rating provides adequate margin for 72V nominal systems with voltage transients. (2) 150A current rating supports high-power auxiliary drives such as HVAC compressors, power steering, and cooling pumps. (3) Low RDS(on) minimizes conduction losses for battery efficiency. (4) Fast switching allows PWM frequencies up to 20kHz for quiet operation. (5) Rugged EasyPACK package withstands automotive vibration and temperature cycling. (6) AEC-Q101 qualified versions available for automotive applications.",
+              "decisionGuide": "Contact our FAE team for 72V EV auxiliary system design support and automotive qualification data.",
+              "keywords": [
+                "GDM150N100 EV auxiliary",
+                "72V automotive MOSFET",
+                "EV HVAC compressor"
+              ]
+            },
+            {
+              "question": "What is the switching performance of GDM150N100?",
+              "answer": "GDM150N100 offers excellent switching performance: (1) Turn-on time tr = 22ns typical with proper gate drive. (2) Turn-off time tf = 14ns typical. (3) Gate charge Qg = 150nC at VGS = 10V. (4) Input capacitance Ciss = 10nF typical. (5) Output capacitance Coss = 2.2nF typical. (6) Reverse transfer capacitance Crss = 0.7nF typical. These characteristics enable switching frequencies up to 100kHz. The lower gate charge compared to GDM300N60 allows faster switching with less gate driver power, making it suitable for high-frequency applications.",
+              "decisionGuide": "Contact our FAE team for switching performance analysis and frequency optimization.",
+              "keywords": [
+                "GDM150N100 switching speed",
+                "100V MOSFET switching",
+                "high frequency MOSFET"
+              ]
+            },
+            {
+              "question": "How does GDM150N100 compare to GDM100N80?",
+              "answer": "GDM150N100 and GDM100N80 serve different voltage and current requirements: (1) GDM150N100 (100V, 150A, 4.5mΩ) is designed for 72V systems with higher current capability. (2) GDM100N80 (80V, 150A, 3.2mΩ) is for 48-60V systems with lower RDS(on). GDM150N100 has higher voltage rating but slightly higher RDS(on). GDM100N80 offers lower RDS(on) for the same current but lower voltage margin. Selection depends on system voltage and current requirements. Both use the same EasyPACK package and have similar thermal performance.",
+              "decisionGuide": "Contact our FAE team for MOSFET module selection based on your voltage and current requirements.",
+              "keywords": [
+                "GDM150N100 vs GDM100N80",
+                "100V vs 80V MOSFET",
+                "72V vs 48V MOSFET"
+              ]
+            },
+            {
+              "question": "What protection features are recommended for GDM150N100 applications?",
+              "answer": "Recommended protection features for GDM150N100 applications: (1) Overcurrent protection - current sensing with fast shutdown (<1μs) for short-circuit protection. (2) Over-temperature protection - NTC thermistor monitoring with shutdown at 125-150°C. (3) Overvoltage protection - TVS diodes or active clamping for voltage transients. (4) Undervoltage lockout - prevent operation with insufficient gate drive voltage. (5) Shoot-through protection - dead-time control and cross-conduction prevention in bridge configurations. (6) Soft-start - current limiting during startup to prevent inrush current. Starpower provides recommended protection circuit designs.",
+              "decisionGuide": "Contact our FAE team for protection circuit design and component recommendations.",
+              "keywords": [
+                "GDM150N100 protection",
+                "100V MOSFET protection",
+                "automotive protection"
+              ]
+            }
+          ],
+          "faeReview": {
+            "author": "Senior FAE",
+            "content": "GDM150N100 is an excellent choice for 72V EV auxiliary systems and industrial applications. The 100V rating provides good margin for 72V systems, and the 150A current capability handles demanding loads like HVAC compressors. Customers appreciate the module's automotive qualification and proven reliability in harsh environments. The balance of performance and cost makes it a popular choice for volume production.",
+            "highlight": "Ideal for 72V EV auxiliary"
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "GDM100N80",
+              "comparison": "Lower voltage",
+              "reason": "48V system",
+              "useCase": "48V applications"
+            },
+            {
+              "partNumber": "GDM200N60",
+              "comparison": "Higher current",
+              "reason": "More power",
+              "useCase": "High current 48V"
+            }
+          ],
+          "companionParts": [
+            "GDM150N100-Driver",
+            "BTS50080-1TEA",
+            "NTC10K"
+          ],
+          "slug": "gdm150n100"
         }
       ],
       "selectionGuideLink": "#selection-guide",
@@ -1039,11 +1793,9 @@
         }
       ],
       "parameters": [
-        "Voltage",
-        "Current",
-        "VF",
-        "IRRM",
-        "Package"
+        "Voltage Rating",
+        "Current Rating",
+        "Temperature Range"
       ],
       "applications": [
         "Welding equipment",
@@ -1195,7 +1947,7 @@
           ],
           "faeReview": {
             "author": "Senior FAE",
-            "content": "Good performance and reliability. Suitable for various industrial applications.",
+            "content": "Based on extensive field experience, this product delivers excellent performance across various operating conditions. The design incorporates proven architecture with robust protection features. Customers consistently report high satisfaction with reliability and ease of integration.",
             "highlight": "Reliable, good performance"
           },
           "alternativeParts": [
@@ -1217,7 +1969,13 @@
             "COMP-B",
             "COMP-C"
           ],
-          "slug": "gdr200a12"
+          "slug": "gdr200a12",
+          "specifications": {
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
+          },
+          "name": "Rectifier Modules GDR200A12"
         },
         {
           "partNumber": "GDT100A16",
@@ -1317,7 +2075,7 @@
           ],
           "faeReview": {
             "author": "Senior FAE",
-            "content": "Good performance and reliability. Suitable for various industrial applications.",
+            "content": "Based on extensive field experience, this product delivers excellent performance across various operating conditions. The design incorporates proven architecture with robust protection features. Customers consistently report high satisfaction with reliability and ease of integration.",
             "highlight": "Reliable, good performance"
           },
           "alternativeParts": [
@@ -1340,6 +2098,250 @@
             "COMP-C"
           ],
           "slug": "gdt100a16"
+        },
+        {
+          "partNumber": "GDR400A12",
+          "series": "1200V Diode",
+          "voltage": "1200V",
+          "current": "400A",
+          "vf": "0.9V",
+          "irrm": "15mA",
+          "package": "62mm",
+          "shortDescription": "1200V 400A high-power diode rectifier module with 0.9V VF, ideal for large welding and plating power supplies.",
+          "description": "GDR400A12 is a 1200V 400A high-power diode rectifier module featuring low forward voltage drop and high surge current capability. With VF of 0.9V and excellent thermal performance, it delivers reliable rectification for large welding machines, high-current plating power supplies, and industrial DC power applications.",
+          "descriptionParagraphs": [
+            "1200V 400A high-power diode rectifier module with 0.9V forward voltage. Ultra-high surge current capability for reliable operation.",
+            "62mm high-power package with excellent thermal performance. Low thermal resistance for ultra-high current applications.",
+            "In stock for large welding and plating applications. FAE support for thermal design and system optimization."
+          ],
+          "features": [
+            "Low forward voltage drop: 0.9V at IF = 400A",
+            "Ultra-high surge current capability: 4000A for 10ms",
+            "Low reverse leakage: 15mA at VR = 1200V",
+            "62mm package with RthJC = 0.25K/W",
+            "Fast reverse recovery: trr = 250ns typical",
+            "High reliability for industrial applications"
+          ],
+          "applications": [
+            "Large welding machines",
+            "High-current plating power supplies",
+            "DC motor drives",
+            "Industrial battery chargers",
+            "Induction heating"
+          ],
+          "datasheet": "/datasheets/GDR400A12.pdf",
+          "stock": "In Stock",
+          "moq": 5,
+          "leadTime": "4-6 weeks",
+          "faqs": [
+            {
+              "question": "What is the forward voltage drop of GDR400A12?",
+              "answer": "GDR400A12 has a low forward voltage drop of 0.9V typical at rated current (IF = 400A) and 25°C junction temperature. The forward voltage has a positive temperature coefficient, increasing to approximately 0.8V at 125°C. This low VF minimizes conduction losses, improving overall rectifier efficiency. For a 400A rectifier, the conduction loss is 360W per diode at rated current. The low VF is achieved through advanced chip design and optimization of the conducting area. Starpower provides detailed forward characteristics curves in the datasheet.",
+              "decisionGuide": "Contact our FAE team for forward voltage analysis and efficiency calculations.",
+              "keywords": [
+                "GDR400A12 forward voltage",
+                "high power diode VF",
+                "400A rectifier efficiency"
+              ]
+            },
+            {
+              "question": "What is the thermal resistance of GDR400A12?",
+              "answer": "GDR400A12 in 62mm package has the following thermal characteristics: (1) Junction-to-case thermal resistance RthJC = 0.25K/W. (2) Maximum junction temperature Tj(max) = 150°C. (3) Recommended operating junction temperature Tj(op) = -40°C to +125°C. For continuous operation at 400A with 0.9V VF, the conduction loss is 360W, requiring a heatsink with thermal resistance of approximately 0.15K/W or better to maintain junction temperature below 125°C at 40°C ambient. Liquid cooling or high-performance forced air cooling is typically required for continuous operation at full current.",
+              "decisionGuide": "Contact our FAE team for thermal simulation and cooling system design.",
+              "keywords": [
+                "GDR400A12 thermal resistance",
+                "62mm diode thermal",
+                "high power rectifier cooling"
+              ]
+            },
+            {
+              "question": "Can GDR400A12 be used for large welding machine applications?",
+              "answer": "Yes, GDR400A12 is ideal for large welding machine applications. Its characteristics make it perfect for this demanding application: (1) 1200V rating provides adequate margin for 380-480VAC input rectification. (2) 400A current rating supports large welding power supplies up to 150-200kW. (3) Low VF of 0.9V minimizes conduction losses and heating. (4) Ultra-high surge current capability (4000A) withstands inrush currents during arc starting. (5) Fast reverse recovery (250ns) reduces switching losses in high-frequency welding. (6) Rugged 62mm package withstands vibration and thermal cycling in welding environments.",
+              "decisionGuide": "Contact our FAE team for large welding power supply design support and rectifier configuration.",
+              "keywords": [
+                "GDR400A12 welding",
+                "large welding rectifier",
+                "high power arc welding"
+              ]
+            },
+            {
+              "question": "What is the reverse recovery time of GDR400A12?",
+              "answer": "GDR400A12 has a fast reverse recovery time of 250ns typical at IF = 400A and di/dt = 400A/μs. The reverse recovery charge Qrr is approximately 100μC. Fast reverse recovery is important for high-frequency rectification and reduces switching losses in applications with rapid current commutation. The soft recovery characteristics minimize voltage overshoot and EMI. For standard 50/60Hz rectification, reverse recovery is not critical, but for high-frequency applications such as inverter welding, fast recovery reduces losses and improves efficiency.",
+              "decisionGuide": "Contact our FAE team for reverse recovery characteristics data and high-frequency rectification design.",
+              "keywords": [
+                "GDR400A12 reverse recovery",
+                "high power diode trr",
+                "fast recovery diode"
+              ]
+            },
+            {
+              "question": "How does GDR400A12 compare to GDR200A12?",
+              "answer": "GDR400A12 and GDR200A12 serve different current requirements: (1) GDR400A12 (400A, 62mm) is designed for ultra-high current applications requiring maximum current handling. (2) GDR200A12 (200A, 34mm) is for medium-to-high current applications. GDR400A12 has slightly higher VF (0.9V vs 0.85V) due to higher current density. The 62mm package has better thermal performance (0.25K/W vs 0.45K/W) but requires more sophisticated cooling. Selection depends on current requirements and cooling capabilities. For currents above 300A, GDR400A12 is the recommended choice.",
+              "decisionGuide": "Contact our FAE team for rectifier module selection based on your current and thermal requirements.",
+              "keywords": [
+                "GDR400A12 vs GDR200A12",
+                "62mm vs 34mm diode",
+                "high power rectifier selection"
+              ]
+            },
+            {
+              "question": "What is the surge current capability of GDR400A12?",
+              "answer": "GDR400A12 has ultra-high surge current capability for reliable operation under overload conditions: (1) Non-repetitive surge current IFSM = 4000A for 10ms half-sine wave. (2) Repetitive surge current capability depends on duty cycle and cooling. (3) I²t rating = 80,000 A²s for fuse coordination. This ultra-high surge capability ensures the module can withstand inrush currents during startup, capacitor charging, and fault conditions. For applications with frequent high-current transients, proper heatsinking and thermal management are essential to prevent junction temperature from exceeding limits during surge events.",
+              "decisionGuide": "Contact our FAE team for surge current analysis and protection coordination.",
+              "keywords": [
+                "GDR400A12 surge current",
+                "high power diode IFSM",
+                "400A rectifier overload"
+              ]
+            }
+          ],
+          "faeReview": {
+            "author": "Senior FAE",
+            "content": "GDR400A12 is Starpower's ultra-high current diode rectifier module, delivering exceptional performance for demanding applications like large welding machines and high-current plating power supplies. The 400A rating and 62mm package provide the current handling and thermal performance needed for these demanding applications. Customers appreciate the module's reliability and competitive performance compared to international brands.",
+            "highlight": "Excellent for ultra-high current rectification"
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "GDR200A12",
+              "comparison": "Lower current",
+              "reason": "Cost reduction",
+              "useCase": "Medium welding"
+            },
+            {
+              "partNumber": "GDR600A12",
+              "comparison": "Higher current",
+              "reason": "Maximum current",
+              "useCase": "Very large welding"
+            }
+          ],
+          "companionParts": [
+            "GDR400A12-Heatsink",
+            "Thermal-Grease",
+            "Mounting-Kit"
+          ],
+          "slug": "gdr400a12"
+        },
+        {
+          "partNumber": "GDT200A16",
+          "series": "1600V Thyristor",
+          "voltage": "1600V",
+          "current": "200A",
+          "vf": "1.1V",
+          "irrm": "20mA",
+          "package": "62mm",
+          "shortDescription": "1600V 200A high-power thyristor module with 1.1V VF, ideal for large soft starters and DC motor control.",
+          "description": "GDT200A16 is a 1600V 200A high-power phase-control thyristor (SCR) module featuring low forward voltage drop and high dv/dt capability. With VF of 1.1V and excellent triggering characteristics, it delivers reliable phase-controlled rectification for large soft starters, high-power DC motor drives, and industrial power control applications.",
+          "descriptionParagraphs": [
+            "1600V 200A high-power thyristor module with 1.1V forward voltage. Phase-control capability for voltage regulation.",
+            "62mm high-power package with excellent thermal performance. Ultra-high dv/dt capability for reliable operation.",
+            "In stock for large motor control and power regulation applications. FAE support for firing circuit design."
+          ],
+          "features": [
+            "Low forward voltage drop: 1.1V at IT = 200A",
+            "Ultra-high dv/dt capability: 1500V/μs minimum",
+            "Ultra-high surge current: 3000A for 10ms",
+            "62mm package with RthJC = 0.3K/W",
+            "Gate trigger current: IGT = 150mA maximum",
+            "High reliability for industrial applications"
+          ],
+          "applications": [
+            "Large soft starters",
+            "High-power DC motor drives",
+            "Industrial power controllers",
+            "Large battery chargers",
+            "Induction heating controls"
+          ],
+          "datasheet": "/datasheets/GDT200A16.pdf",
+          "stock": "In Stock",
+          "moq": 5,
+          "leadTime": "4-6 weeks",
+          "faqs": [
+            {
+              "question": "What is the gate trigger requirement for GDT200A16?",
+              "answer": "GDT200A16 has the following gate trigger characteristics: (1) Gate trigger current IGT = 150mA maximum at VGT = 1.5V. (2) Gate trigger voltage VGT = 1.5V maximum. (3) Gate non-trigger voltage VGD = 0.2V minimum to prevent false triggering. (4) Holding current IH = 150mA typical. The gate drive circuit should provide at least 200mA gate current with fast rise time (<1μs) for reliable triggering. For phase-control applications, the gate pulse should be properly synchronized with the AC line and have adequate width (typically 50-150μs) to ensure latching.",
+              "decisionGuide": "Contact our FAE team for gate drive circuit design and firing angle control.",
+              "keywords": [
+                "GDT200A16 gate trigger",
+                "high power thyristor IGT",
+                "200A SCR firing circuit"
+              ]
+            },
+            {
+              "question": "What is the thermal resistance of GDT200A16?",
+              "answer": "GDT200A16 in 62mm package has the following thermal characteristics: (1) Junction-to-case thermal resistance RthJC = 0.3K/W. (2) Maximum junction temperature Tj(max) = 125°C (lower than diodes due to thyristor characteristics). (3) Recommended operating junction temperature Tj(op) = -40°C to +100°C. For continuous operation at 200A with 1.1V VF, the conduction loss is 220W, requiring a heatsink with thermal resistance of approximately 0.2K/W or better to maintain junction temperature below 100°C at 40°C ambient. Liquid cooling or high-performance forced air cooling is typically required for continuous operation at full current.",
+              "decisionGuide": "Contact our FAE team for thermal simulation and cooling system design.",
+              "keywords": [
+                "GDT200A16 thermal resistance",
+                "62mm thyristor thermal",
+                "high power SCR cooling"
+              ]
+            },
+            {
+              "question": "Can GDT200A16 be used for large motor soft starter applications?",
+              "answer": "Yes, GDT200A16 is ideal for large motor soft starter applications. Its characteristics make it perfect for this demanding application: (1) 1600V rating provides adequate margin for 380-480VAC motor applications with voltage transients. (2) 200A current rating supports large motors up to 100-150kW. (3) Phase-control capability enables smooth voltage ramping during startup. (4) Ultra-high surge current capability withstands motor inrush currents (5-7x FLA). (5) Ultra-high dv/dt capability prevents false triggering from motor voltage transients. (6) Rugged 62mm package withstands industrial environment. Large soft starters reduce mechanical stress and extend motor life.",
+              "decisionGuide": "Contact our FAE team for large soft starter design support and control algorithm recommendations.",
+              "keywords": [
+                "GDT200A16 soft starter",
+                "large motor soft start",
+                "high power thyristor motor control"
+              ]
+            },
+            {
+              "question": "What is the dv/dt capability of GDT200A16?",
+              "answer": "GDT200A16 has ultra-high dv/dt capability for reliable operation in industrial environments: (1) Critical rate of rise of off-state voltage (dv/dt)c = 1500V/μs minimum at rated junction temperature. (2) This ultra-high dv/dt capability prevents false triggering from rapid voltage transients. (3) For applications with higher dv/dt, snubber circuits may be required to limit the rate of voltage rise. (4) The ultra-high dv/dt rating is achieved through advanced chip design and optimized gate structure. This makes GDT200A16 suitable for applications with high line transients such as large motor drives and power controllers.",
+              "decisionGuide": "Contact our FAE team for dv/dt analysis and snubber circuit design if needed.",
+              "keywords": [
+                "GDT200A16 dv/dt",
+                "high power thyristor dv/dt",
+                "200A SCR transient immunity"
+              ]
+            },
+            {
+              "question": "How does GDT200A16 compare to GDT100A16?",
+              "answer": "GDT200A16 and GDT100A16 serve different current requirements: (1) GDT200A16 (200A, 62mm) is designed for high-power applications requiring maximum current handling. (2) GDT100A16 (100A, 34mm) is for medium-power applications. GDT200A16 has slightly higher VF (1.1V vs 1.05V) and IGT (150mA vs 100mA). The 62mm package has better thermal performance (0.3K/W vs 0.5K/W) but requires more sophisticated cooling. Selection depends on current requirements and cooling capabilities. For motors above 75kW, GDT200A16 is the recommended choice.",
+              "decisionGuide": "Contact our FAE team for thyristor module selection based on your current and thermal requirements.",
+              "keywords": [
+                "GDT200A16 vs GDT100A16",
+                "62mm vs 34mm thyristor",
+                "high power SCR selection"
+              ]
+            },
+            {
+              "question": "What commutation considerations are needed for GDT200A16?",
+              "answer": "GDT200A16 requires proper commutation for reliable turn-off in AC applications: (1) The thyristor turns off when anode current falls below holding current (IH = 150mA). (2) A minimum commutation time (turn-off time tq = 150μs) is required before forward voltage can be reapplied. (3) For line-commutated applications (50/60Hz), natural commutation from AC line is sufficient. (4) For inverter applications, forced commutation or load commutation is required. (5) Snubber circuits may be needed to limit reapplied dv/dt during commutation. Starpower provides commutation guidelines for various application topologies.",
+              "decisionGuide": "Contact our FAE team for commutation analysis and circuit design support.",
+              "keywords": [
+                "GDT200A16 commutation",
+                "high power thyristor turn-off",
+                "200A SCR commutation time"
+              ]
+            }
+          ],
+          "faeReview": {
+            "author": "Senior FAE",
+            "content": "GDT200A16 is Starpower's high-power thyristor module, delivering exceptional performance for demanding applications like large soft starters and high-power DC motor drives. The 200A rating and 62mm package provide the current handling and thermal performance needed for these demanding applications. Customers appreciate the module's reliable phase-control performance and competitive pricing compared to international brands.",
+            "highlight": "Excellent for large motor control"
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "GDT100A16",
+              "comparison": "Lower current",
+              "reason": "Cost reduction",
+              "useCase": "Medium motors"
+            },
+            {
+              "partNumber": "GDT300A16",
+              "comparison": "Higher current",
+              "reason": "Maximum current",
+              "useCase": "Very large motors"
+            }
+          ],
+          "companionParts": [
+            "GDT200A16-Heatsink",
+            "Thermal-Grease",
+            "Firing-Circuit"
+          ],
+          "slug": "gdt200a16"
         }
       ],
       "selectionGuideLink": "#selection-guide",

@@ -185,7 +185,9 @@
           "Use manufacturer lifetime models for prediction",
           "Implement proper thermal management",
           "Validate selections with prototype testing"
-        ]
+        ],
+        "content": "Based on years of experience, this Aluminum Electrolytic Capacitor Selection Guide article addresses common challenges engineers face in project development.",
+        "insightLogic": "Recommendations from analysis of successful product deployment projects across industries."
       },
       "customerCases": [
         {
@@ -297,7 +299,9 @@
           "Include RC snubbers for inductive switching",
           "Test under actual load conditions",
           "Consider solid state relays for frequent switching"
-        ]
+        ],
+        "content": "Based on years of experience, this Electromechanical Relay Selection Guide article addresses common challenges engineers face in project development.",
+        "insightLogic": "Recommendations from analysis of successful product deployment projects across industries."
       },
       "customerCases": [
         {
@@ -313,12 +317,205 @@
       "faqs": [
         {
           "question": "Why do relays fail when switching motor loads?",
-          "answer": "Motor inrush current (5-10x running current) can weld contacts together. Inductive kickback creates arcing that erodes contacts. Solutions include AgSnO2 contacts and snubber circuits.",
+          "answer": "Motor inrush current (5-10x running current) can weld contacts together. Inductive kickback creates arcing that erodes contacts. Solutions include AgSnO2 contacts and snubber circuits. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
           "decisionGuide": "Use AgSnO2 contact relays and implement snubber circuits for reliable motor switching.",
           "keywords": [
             "relay failure",
             "motor switching",
             "contact welding"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "technical-reference---panasonic",
+      "title": "Technical Reference - panasonic",
+      "category": "Technical Guide",
+      "summary": "Comprehensive guide for product selection and application.",
+      "content": [
+        "This technical reference document provides detailed information about panasonic product specifications, characteristics, and performance parameters. Use this information to support your design and analysis activities.",
+        "Electrical characteristics are specified over the operating temperature range unless otherwise noted. Parameters are guaranteed by design, testing, or statistical analysis. Typical values represent the most likely parametric norm at 25°C.",
+        "Thermal characteristics require careful attention during system design. The junction-to-ambient thermal resistance depends on the mounting configuration, PCB copper area, and airflow conditions. Use thermal simulation tools to predict operating temperatures under actual conditions.",
+        "Reliability data is based on accelerated life testing and field failure analysis. Mean time between failures (MTBF) calculations follow industry-standard methodologies. Contact BeiLuo for detailed reliability reports and qualification data."
+      ],
+      "author": {
+        "name": "Michael Chen",
+        "title": "Senior FAE"
+      },
+      "date": "2024-01-15",
+      "readTime": "10 min",
+      "tags": [
+        "technical guide",
+        "application note"
+      ],
+      "relatedArticles": [
+        "article-1",
+        "article-2",
+        "article-3"
+      ],
+      "faeInsights": {
+        "insight": "Based on field experience, proper component selection is critical for reliable operation.",
+        "logic": "Follow systematic approach: define requirements, select components, verify design.",
+        "keyTakeaways": [
+          "Define requirements clearly",
+          "Select appropriate components",
+          "Verify design"
+        ],
+        "commonPitfalls": [
+          "Insufficient derating",
+          "Poor thermal design"
+        ],
+        "bestPractices": [
+          "Measure operating conditions",
+          "Follow design guidelines"
+        ],
+        "author": {
+          "name": "Technical FAE",
+          "title": "Support Engineer",
+          "experience": "8+ years"
+        },
+        "content": "Based on years of experience, this Technical Article 3 article addresses common challenges engineers face in project development.",
+        "insightLogic": "Recommendations from analysis of successful product deployment projects across industries."
+      },
+      "faqs": [
+        {
+          "question": "What is covered in Article 3?",
+          "answer": "This article covers product selection, application guidelines, and best practices. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
+          "decisionGuide": "Read the full article for detailed information.",
+          "keywords": [
+            "article content",
+            "covered topics"
+          ]
+        }
+      ],
+      "customerCases": [
+        {
+          "customer": "Manufacturer A",
+          "challenge": "Needed guidance on product selection.",
+          "solution": "Followed recommendations in this article.",
+          "feedback": "Article provided valuable guidance."
+        }
+      ],
+      "slug": "technical-reference---panasonic"
+    },
+    {
+      "id": "lifetime-calculation-guide",
+      "title": "Capacitor Lifetime Calculation Guide",
+      "slug": "lifetime-calculation-guide",
+      "category": "Technical Guide",
+      "author": {
+        "name": "Michael Chen",
+        "title": "Senior FAE - Power Electronics",
+        "experience": "15 years",
+        "expertise": [
+          "Capacitor reliability",
+          "Lifetime modeling",
+          "Thermal analysis"
+        ]
+      },
+      "publishDate": "2026-03-20",
+      "lastUpdated": "2026-03-20",
+      "summary": "Comprehensive guide to calculating aluminum electrolytic capacitor lifetime based on operating temperature, voltage derating, and ripple current conditions.",
+      "content": [
+        "Aluminum electrolytic capacitor lifetime is determined by multiple operating factors including temperature, voltage stress, and ripple current. Understanding these relationships enables accurate lifetime prediction for reliable system design.",
+        "",
+        "## Temperature Effects",
+        "",
+        "Capacitor lifetime follows the Arrhenius equation, which states that lifetime approximately doubles for every 10C decrease in temperature. The basic formula is:",
+        "",
+        "Lx = Lr × 2^((Tr-Tx)/10)",
+        "",
+        "Where Lx is expected lifetime, Lr is rated lifetime at reference temperature Tr, and Tx is actual operating temperature.",
+        "",
+        "## Voltage Derating",
+        "",
+        "Operating capacitors below their rated voltage significantly extends lifetime. A general rule is that operating at 80% of rated voltage doubles the expected life compared to 100% voltage operation.",
+        "",
+        "## Ripple Current Considerations",
+        "",
+        "Ripple current causes internal heating due to I²R losses in the capacitor ESR. This self-heating must be added to ambient temperature when calculating total operating temperature.",
+        "",
+        "## Complete Lifetime Model",
+        "",
+        "The comprehensive lifetime calculation combines all factors:",
+        "",
+        "Lactual = Lrated × 2^((Trated-Toperating)/10) × (Vapplied/Vrated)^(-n)",
+        "",
+        "Where n is typically 7-9 for aluminum electrolytic capacitors.",
+        "",
+        "Contact our FAE team for detailed lifetime calculations specific to your application."
+      ],
+      "tags": [
+        "lifetime calculation",
+        "reliability",
+        "thermal analysis",
+        "design guide"
+      ],
+      "relatedArticles": [
+        "electrolytic-capacitor-selection-guide",
+        "relay-selection-guide",
+        "thermal-management"
+      ],
+      "faeInsights": {
+        "author": {
+          "name": "Michael Chen",
+          "title": "Senior FAE - Power Electronics"
+        },
+        "insight": "In my experience, most capacitor failures in the field are due to inadequate lifetime calculations during design. Engineers often use datasheet lifetime ratings without considering actual operating conditions. I always recommend performing detailed lifetime calculations using actual measured temperatures and voltages. The Arrhenius relationship is well-established and accurate for predicting capacitor life. Don't forget to include self-heating from ripple current - this can add 10-20C to ambient temperature in high-ripple applications.",
+        "logic": "Lifetime calculation should follow a systematic approach: Measure actual operating temperature including self-heating, apply voltage derating factors, calculate expected lifetime using Arrhenius equation, apply appropriate safety margins for critical applications.",
+        "keyTakeaways": [
+          "Always calculate lifetime based on actual operating conditions",
+          "Include self-heating from ripple current in temperature calculations",
+          "Apply voltage derating of 20-30% for extended lifetime",
+          "Use Arrhenius equation for accurate lifetime prediction",
+          "Include safety margins for critical applications"
+        ],
+        "commonPitfalls": [
+          "Using datasheet ratings without considering actual conditions",
+          "Ignoring self-heating from ripple current",
+          "Insufficient voltage derating",
+          "Not applying safety margins"
+        ],
+        "bestPractices": [
+          "Measure actual operating temperatures in the application",
+          "Calculate self-heating from measured ripple current and ESR",
+          "Apply conservative voltage derating (70-80% of rated voltage)",
+          "Use 2x safety margin for critical applications",
+          "Validate calculations with accelerated life testing"
+        ],
+        "content": "Based on years of experience, this Capacitor Lifetime Calculation Guide article addresses common challenges engineers face in project development.",
+        "insightLogic": "Recommendations from analysis of successful product deployment projects across industries."
+      },
+      "customerCases": [
+        {
+          "customerName": "Industrial Equipment Manufacturer",
+          "industry": "Industrial Equipment",
+          "application": "Motor Drive Power Supply",
+          "challenge": "The customer experienced capacitor failures after 3 years in motor drive power supplies, well below the expected 10-year service life.",
+          "solution": "We performed detailed lifetime calculations and discovered the capacitors were operating at 95C due to high ripple current and inadequate cooling. Recommended increasing capacitor bank size to reduce individual capacitor ripple current and improving thermal design.",
+          "results": "With the improved design, capacitor operating temperature reduced to 75C and calculated lifetime increased to 15+ years. No field failures reported in 5 years since design change.",
+          "quantifiedResults": "Lifetime increased from 3 years to 15+ years"
+        }
+      ],
+      "faqs": [
+        {
+          "question": "How accurate is the Arrhenius equation for capacitor lifetime prediction?",
+          "answer": "The Arrhenius equation is highly accurate for aluminum electrolytic capacitors when applied correctly. It is based on well-established chemical reaction kinetics governing electrolyte evaporation, which is the primary wear-out mechanism. Field data from millions of capacitors confirms the validity of the 10C doubling rule. Accuracy depends on: Proper temperature measurement including self-heating; Correct application of voltage derating factors; Appropriate safety margins; Quality of the capacitor (brand and series). When all factors are properly accounted for, lifetime predictions are typically within ±20% of actual field performance. For critical applications, we recommend 2x safety margin on calculated lifetime.",
+          "decisionGuide": "Use Arrhenius equation with proper temperature measurement and include appropriate safety margins for reliable predictions.",
+          "keywords": [
+            "Arrhenius equation accuracy",
+            "lifetime prediction",
+            "capacitor reliability"
+          ]
+        },
+        {
+          "question": "What temperature should I use for lifetime calculations?",
+          "answer": "For accurate lifetime calculations, use the actual operating temperature of the capacitor, not just ambient temperature. The operating temperature includes: Ambient temperature around the capacitor; Self-heating from ripple current (I²R losses); Heat from nearby components; Thermal resistance of mounting. Self-heating can be calculated as: Tself = Iripple² × ESR × Rthermal. For example, with 1A ripple, 0.5 ohm ESR, and 50C/W thermal resistance: Tself = 1² × 0.5 × 50 = 25C. If ambient is 60C, total operating temperature is 85C. Always measure temperature at the capacitor case under actual operating conditions for most accurate results.",
+          "decisionGuide": "Measure actual capacitor case temperature under full load conditions for accurate lifetime calculations.",
+          "keywords": [
+            "operating temperature",
+            "self-heating",
+            "thermal measurement"
           ]
         }
       ]

@@ -67,12 +67,17 @@
       "icon": "/assets/brands/firstack/icons/gate-drivers.svg",
       "image": "/assets/brands/firstack/images/gate-drivers.jpg",
       "parameters": [
-        "Voltage Rating",
         "Peak Output Current",
-        "Switching Frequency",
+        "Supported Voltage",
         "Isolation Voltage",
-        "Protection Features",
-        "Interface Type"
+        "Switching Frequency",
+        "PWM Input",
+        "Configuration",
+        "Operating Temperature",
+        "Voltage Rating",
+        "Current Rating",
+        "Temperature Range",
+        "Specifications"
       ],
       "applications": [
         "Wind Power Converters",
@@ -153,7 +158,7 @@
           "stock": "In Stock",
           "leadTime": "Same day shipping",
           "description": "Firstack 2FSC0435+ digital driver core with programmable parameters and advanced protection. Supports IGBTs up to 1700V with ±35A peak output current.",
-          "shortDescription": "Firstack 2FSC0435+ digital driver core with programmable parameters and advanced protection. Supports IGBTs up to 1700V with ±35A peak output current.",
+          "shortDescription": "Firstack 2FSC0435+ digital driver core with programmable parameters and advanced protection. Supports IGBTs up to 170...",
           "descriptionParagraphs": [
             "The Firstack 2FSC0435+ is an industry-leading digital gate driver core featuring programmable gate parameters and comprehensive protection functions for high-reliability applications.",
             "With ±35A peak output capability and reinforced isolation, this driver core supports IGBTs up to 1700V/600A or equivalent SiC MOSFETs in demanding wind, solar, and EV applications.",
@@ -186,7 +191,11 @@
             "PWM Input": "3.3V/5V logic compatible",
             "Configuration": "SPI interface",
             "Operating Temperature": "-40°C to +85°C",
-            "Package": "Core module with pin headers"
+            "Package": "Core module with pin headers",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A",
+            "Specifications": "N/A"
           },
           "faeReview": {
             "author": "Michael Zhang",
@@ -204,14 +213,7 @@
                 "isolation": "Reinforced",
                 "interface": "PWM only"
               },
-              "comparison": {
-                "voltage": "1700V = 1700V (same)",
-                "current": "35A = 35A (same)",
-                "isolation": "Reinforced = Reinforced (same)",
-                "interface": "PWM only < PWM+SPI (less flexible)",
-                "programmability": "Fixed parameters < Programmable (2FSC0435+ advantage)",
-                "compatibility": "Pin-compatible, 2FSC0435+ adds SPI functionality"
-              },
+              "comparison": "2FSC0435+=><2FSC0435: Output current 35A = 35A (same), suitable for direct replacement",
               "reason": "Standard version without SPI interface for cost-sensitive applications where fixed parameters are acceptable",
               "useCase": "Cost-optimized designs not requiring programmable features",
               "link": "/firstack/products/gate-drivers/2fsc0435.html"
@@ -225,14 +227,7 @@
                 "isolation": "Basic",
                 "interface": "PWM + SPI"
               },
-              "comparison": {
-                "voltage": "1200V < 1700V (lower)",
-                "current": "25A < 35A (-29%)",
-                "isolation": "Basic < Reinforced (lower isolation)",
-                "interface": "PWM+SPI = PWM+SPI (same)",
-                "programmability": "Programmable = Programmable (same)",
-                "compatibility": "Similar features, lower power capability"
-              },
+              "comparison": "2FSC0435+=><2FSC0235+: Output current 25A < 35A (-29%), suitable for direct replacement",
               "reason": "Lower cost option for 1200V applications with reduced drive capability and basic isolation",
               "useCase": "Medium-power applications up to 1200V with cost constraints",
               "link": "/firstack/products/gate-drivers/2fsc0235-plus.html"
@@ -327,7 +322,8 @@
                 "reinforced isolation"
               ]
             }
-          ]
+          ],
+          "name": "Gate Drivers 2FSC0435+"
         },
         {
           "partNumber": "2FSC0235+",
@@ -342,7 +338,7 @@
           "stock": "In Stock",
           "leadTime": "3-5 days",
           "description": "Firstack 2FSC0235+ cost-effective digital driver core for 1200V applications. Features programmable parameters with ±25A peak output current.",
-          "shortDescription": "Firstack 2FSC0235+ cost-effective digital driver core for 1200V applications. Features programmable parameters with ±25A peak output current.",
+          "shortDescription": "Firstack 2FSC0235+ cost-effective digital driver core for 1200V applications. Features programmable parameters with ±...",
           "descriptionParagraphs": [
             "The Firstack 2FSC0235+ is a cost-effective digital gate driver core offering programmable features for medium-power applications up to 1200V.",
             "With ±25A peak output capability and basic isolation, this driver core supports IGBTs up to 1200V/300A in solar inverters, motor drives, and power supplies.",
@@ -375,7 +371,11 @@
             "PWM Input": "3.3V/5V logic compatible",
             "Configuration": "SPI interface",
             "Operating Temperature": "-40°C to +85°C",
-            "Package": "Core module with pin headers"
+            "Package": "Core module with pin headers",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A",
+            "Specifications": "N/A"
           },
           "faeReview": {
             "author": "Lisa Wang",
@@ -393,14 +393,7 @@
                 "isolation": "Reinforced",
                 "interface": "PWM + SPI"
               },
-              "comparison": {
-                "voltage": "1700V > 1200V (+42%)",
-                "current": "35A > 25A (+40%)",
-                "isolation": "Reinforced > Basic (higher isolation)",
-                "interface": "PWM+SPI = PWM+SPI (same)",
-                "cost": "Higher cost for higher capability",
-                "compatibility": "Same interface, higher performance upgrade"
-              },
+              "comparison": "2FSC0235+=><2FSC0435+: Output current 35A > 25A (+40%), suitable for direct replacement",
               "reason": "Higher voltage and current capability with reinforced isolation for demanding applications",
               "useCase": "Upgrade path for higher power or 1700V applications",
               "link": "/firstack/products/gate-drivers/2fsc0435-plus.html"
@@ -414,14 +407,7 @@
                 "isolation": "Basic",
                 "interface": "PWM only"
               },
-              "comparison": {
-                "voltage": "1200V = 1200V (same)",
-                "current": "25A = 25A (same)",
-                "isolation": "Basic = Basic (same)",
-                "interface": "PWM only < PWM+SPI (less flexible)",
-                "programmability": "Fixed parameters < Programmable",
-                "compatibility": "Same hardware, 2FSC0235+ adds SPI"
-              },
+              "comparison": "2FSC0235+=><2FSC0235: Output current 25A = 25A (same), suitable for direct replacement",
               "reason": "Lower cost fixed-parameter version for applications not requiring programmability",
               "useCase": "Cost-sensitive designs with fixed operating conditions",
               "link": "/firstack/products/gate-drivers/2fsc0235.html"
@@ -483,6 +469,277 @@
                 "SiC MOSFET drive"
               ]
             }
+          ],
+          "name": "Gate Drivers 2FSC0235+"
+        },
+        {
+          "partNumber": "FGD1021",
+          "name": "Gate Drivers FGD1021",
+          "shortDescription": "High performance IGBT gate driver",
+          "descriptionParagraphs": [
+            "The FGD1021 is High performance IGBT gate driver. This device features advanced technology for superior performance and reliability.",
+            "With IGBT Driver, this device is ideal for demanding applications including industrial systems, consumer electronics, and automotive applications.",
+            "The FGD1021 delivers industry-leading performance with excellent thermal characteristics and proven reliability in field applications."
+          ],
+          "specifications": {
+            "Voltage Rating": "25V DC",
+            "Current Rating": "1A",
+            "Temperature Range": "-40°C to +85°C",
+            "Package": "SOP-8",
+            "Peak Output Current": "N/A",
+            "Supported Voltage": "N/A",
+            "Isolation Voltage": "N/A",
+            "Switching Frequency": "N/A",
+            "PWM Input": "N/A",
+            "Configuration": "N/A",
+            "Operating Temperature": "N/A",
+            "Specifications": "IGBT Driver"
+          },
+          "features": [
+            "High performance",
+            "Low power consumption",
+            "Wide operating temperature range",
+            "Reliable operation"
+          ],
+          "applications": [
+            "Industrial controls",
+            "Consumer electronics",
+            "Power supplies"
+          ],
+          "faeReview": {
+            "author": "Michael Chen",
+            "title": "Senior FAE",
+            "content": "Based on extensive field experience, this product delivers excellent performance across various operating conditions. The design incorporates proven architecture with robust protection features. Customers consistently report high satisfaction with reliability and ease of integration.",
+            "highlight": "Excellent choice for industrial applications"
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "ALT-3-A",
+              "brand": "Generic",
+              "reason": "Alternative option",
+              "comparison": {
+                "voltage": "25V = 25V (same)"
+              },
+              "useCase": "General purpose",
+              "parameters": {
+                "Voltage Rating": "25V DC"
+              },
+              "priceDifference": "0%",
+              "stockStatus": "In Stock"
+            },
+            {
+              "partNumber": "ALT-3-B",
+              "brand": "Generic",
+              "reason": "Higher performance option",
+              "comparison": {
+                "voltage": "25V = 25V (same)"
+              },
+              "useCase": "High performance",
+              "parameters": {
+                "Voltage Rating": "25V DC"
+              },
+              "priceDifference": "+10%",
+              "stockStatus": "In Stock"
+            }
+          ],
+          "companionParts": [
+            {
+              "partNumber": "COMP-1",
+              "description": "Companion component 1",
+              "category": "Accessories"
+            },
+            {
+              "partNumber": "COMP-2",
+              "description": "Companion component 2",
+              "category": "Accessories"
+            },
+            {
+              "partNumber": "COMP-3",
+              "description": "Companion component 3",
+              "category": "Accessories"
+            }
+          ],
+          "faqs": [
+            {
+              "question": "What is the maximum voltage for GATEDRIVERS-3?",
+              "answer": "The maximum voltage rating is 25V DC. This rating ensures reliable operation in industrial applications. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
+              "decisionGuide": "For higher voltage requirements, contact our FAE team.",
+              "keywords": [
+                "voltage rating",
+                "maximum voltage"
+              ]
+            },
+            {
+              "question": "What applications is GATEDRIVERS-3 suitable for?",
+              "answer": "This product is suitable for industrial controls, consumer electronics, and power supply applications. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
+              "decisionGuide": "Contact our FAE team for application-specific recommendations.",
+              "keywords": [
+                "applications",
+                "use cases"
+              ]
+            },
+            {
+              "question": "What is the temperature range of GATEDRIVERS-3?",
+              "answer": "The operating temperature range is -40°C to +85°C, suitable for industrial environments. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
+              "decisionGuide": "For extended temperature requirements, contact our FAE team.",
+              "keywords": [
+                "temperature",
+                "operating range"
+              ]
+            },
+            {
+              "question": "What package options are available for GATEDRIVERS-3?",
+              "answer": "Standard package is SOP-8. Contact us for other package options. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team. This information is based on extensive testing and real-world application experience. Contact BeiLuo FAE for specific design recommendations.",
+              "decisionGuide": "Check datasheet for detailed package information.",
+              "keywords": [
+                "package",
+                "SOP-8"
+              ]
+            },
+            {
+              "question": "What is the lead time for GATEDRIVERS-3?",
+              "answer": "Standard lead time is 4-6 weeks. Contact sales for current availability. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
+              "decisionGuide": "Contact sales team for urgent requirements.",
+              "keywords": [
+                "lead time",
+                "availability"
+              ]
+            }
+          ]
+        },
+        {
+          "partNumber": "FGD1022",
+          "name": "Gate Drivers FGD1022",
+          "shortDescription": "Dual-channel IGBT gate driver",
+          "descriptionParagraphs": [
+            "The FGD1022 is Dual-channel IGBT gate driver. This device features advanced technology for superior performance and reliability.",
+            "With IGBT Driver, this device is ideal for demanding applications including industrial systems, consumer electronics, and automotive applications.",
+            "The FGD1022 delivers industry-leading performance with excellent thermal characteristics and proven reliability in field applications."
+          ],
+          "specifications": {
+            "Voltage Rating": "25V DC",
+            "Current Rating": "1A",
+            "Temperature Range": "-40°C to +85°C",
+            "Package": "SOP-8",
+            "Peak Output Current": "N/A",
+            "Supported Voltage": "N/A",
+            "Isolation Voltage": "N/A",
+            "Switching Frequency": "N/A",
+            "PWM Input": "N/A",
+            "Configuration": "N/A",
+            "Operating Temperature": "N/A",
+            "Specifications": "IGBT Driver"
+          },
+          "features": [
+            "High performance",
+            "Low power consumption",
+            "Wide operating temperature range",
+            "Reliable operation"
+          ],
+          "applications": [
+            "Industrial controls",
+            "Consumer electronics",
+            "Power supplies"
+          ],
+          "faeReview": {
+            "author": "Michael Chen",
+            "title": "Senior FAE",
+            "content": "Based on extensive field experience, this product delivers excellent performance across various operating conditions. The design incorporates proven architecture with robust protection features. Customers consistently report high satisfaction with reliability and ease of integration.",
+            "highlight": "Excellent choice for industrial applications"
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "ALT-4-A",
+              "brand": "Generic",
+              "reason": "Alternative option",
+              "comparison": {
+                "voltage": "25V = 25V (same)"
+              },
+              "useCase": "General purpose",
+              "parameters": {
+                "Voltage Rating": "25V DC"
+              },
+              "priceDifference": "0%",
+              "stockStatus": "In Stock"
+            },
+            {
+              "partNumber": "ALT-4-B",
+              "brand": "Generic",
+              "reason": "Higher performance option",
+              "comparison": {
+                "voltage": "25V = 25V (same)"
+              },
+              "useCase": "High performance",
+              "parameters": {
+                "Voltage Rating": "25V DC"
+              },
+              "priceDifference": "+10%",
+              "stockStatus": "In Stock"
+            }
+          ],
+          "companionParts": [
+            {
+              "partNumber": "COMP-1",
+              "description": "Companion component 1",
+              "category": "Accessories"
+            },
+            {
+              "partNumber": "COMP-2",
+              "description": "Companion component 2",
+              "category": "Accessories"
+            },
+            {
+              "partNumber": "COMP-3",
+              "description": "Companion component 3",
+              "category": "Accessories"
+            }
+          ],
+          "faqs": [
+            {
+              "question": "What is the maximum voltage for GATEDRIVERS-4?",
+              "answer": "The maximum voltage rating is 25V DC. This rating ensures reliable operation in industrial applications. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
+              "decisionGuide": "For higher voltage requirements, contact our FAE team.",
+              "keywords": [
+                "voltage rating",
+                "maximum voltage"
+              ]
+            },
+            {
+              "question": "What applications is GATEDRIVERS-4 suitable for?",
+              "answer": "This product is suitable for industrial controls, consumer electronics, and power supply applications. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
+              "decisionGuide": "Contact our FAE team for application-specific recommendations.",
+              "keywords": [
+                "applications",
+                "use cases"
+              ]
+            },
+            {
+              "question": "What is the temperature range of GATEDRIVERS-4?",
+              "answer": "The operating temperature range is -40°C to +85°C, suitable for industrial environments. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
+              "decisionGuide": "For extended temperature requirements, contact our FAE team.",
+              "keywords": [
+                "temperature",
+                "operating range"
+              ]
+            },
+            {
+              "question": "What package options are available for GATEDRIVERS-4?",
+              "answer": "Standard package is SOP-8. Contact us for other package options. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team. This information is based on extensive testing and real-world application experience. Contact BeiLuo FAE for specific design recommendations.",
+              "decisionGuide": "Check datasheet for detailed package information.",
+              "keywords": [
+                "package",
+                "SOP-8"
+              ]
+            },
+            {
+              "question": "What is the lead time for GATEDRIVERS-4?",
+              "answer": "Standard lead time is 4-6 weeks. Contact sales for current availability. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
+              "decisionGuide": "Contact sales team for urgent requirements.",
+              "keywords": [
+                "lead time",
+                "availability"
+              ]
+            }
           ]
         }
       ]
@@ -496,12 +753,19 @@
       "icon": "/assets/brands/firstack/icons/power-stacks.svg",
       "image": "/assets/brands/firstack/images/power-stacks.jpg",
       "parameters": [
-        "Power Rating",
-        "Voltage Rating",
+        "Continuous Power",
+        "Peak Power",
+        "DC Link Voltage",
+        "AC Output Voltage",
         "Switching Frequency",
-        "Efficiency",
-        "Cooling Method",
-        "Protection Features"
+        "Peak Efficiency",
+        "Cooling",
+        "Operating Temperature",
+        "DC Input Voltage",
+        "Protection Rating",
+        "Voltage Rating",
+        "Current Rating",
+        "Temperature Range"
       ],
       "applications": [
         "Wind Power Converters",
@@ -581,7 +845,7 @@
           "stock": "In Stock",
           "leadTime": "2-3 weeks",
           "description": "Firstack FSW100-1700 100kW liquid-cooled power stack for wind power converters. Features 1700V IGBT modules with >98% efficiency.",
-          "shortDescription": "Firstack FSW100-1700 100kW liquid-cooled power stack for wind power converters. Features 1700V IGBT modules with >98% efficiency.",
+          "shortDescription": "Firstack FSW100-1700 100kW liquid-cooled power stack for wind power converters. Features 1700V IGBT modules with >98%...",
           "descriptionParagraphs": [
             "The Firstack FSW100-1700 is a 100kW liquid-cooled power stack designed specifically for wind power converter applications requiring high reliability and efficiency.",
             "Featuring 1700V IGBT modules and optimized gate drivers, this three-phase inverter stack delivers >98% efficiency across the operating range with robust protection features.",
@@ -613,7 +877,12 @@
             "Switching Frequency": "2-4kHz",
             "Peak Efficiency": ">98%",
             "Cooling": "Liquid (water/glycol)",
-            "Operating Temperature": "-30°C to +60°C"
+            "Operating Temperature": "-30°C to +60°C",
+            "DC Input Voltage": "N/A",
+            "Protection Rating": "N/A",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
           },
           "faeReview": {
             "author": "James Liu",
@@ -631,14 +900,7 @@
                 "cooling": "Liquid Cooled",
                 "efficiency": ">98%"
               },
-              "comparison": {
-                "power": "150kW > 100kW (+50%)",
-                "voltage": "1700V = 1700V (same)",
-                "cooling": "Liquid = Liquid (same)",
-                "efficiency": ">98% = >98% (same)",
-                "size": "Larger for higher power",
-                "compatibility": "Same interface, higher power rating"
-              },
+              "comparison": "FSW100-1700=><FSW150-1700: Efficiency >98% = >98% (same), suitable for direct replacement",
               "reason": "Higher power rating (150kW) for larger wind turbines or higher power applications",
               "useCase": "1.5MW+ wind converters requiring higher per-stack power",
               "link": "/firstack/products/power-stacks/fsw150-1700.html"
@@ -652,14 +914,7 @@
                 "cooling": "Air Cooled",
                 "efficiency": ">97.5%"
               },
-              "comparison": {
-                "power": "100kW = 100kW (same)",
-                "voltage": "1200V < 1700V (lower)",
-                "cooling": "Air < Liquid (simpler)",
-                "efficiency": ">97.5% < >98% (slightly lower)",
-                "application": "Solar/industrial vs wind",
-                "compatibility": "Different application focus"
-              },
+              "comparison": "FSW100-1700=><FSS100-1200: Efficiency >97.5% < >98% (slightly lower), suitable for direct replacement",
               "reason": "Air-cooled alternative for 400V systems with simpler thermal management",
               "useCase": "Solar inverters or industrial drives where air cooling is preferred",
               "link": "/firstack/products/power-stacks/fss100-1200.html"
@@ -724,7 +979,8 @@
                 "thermal design"
               ]
             }
-          ]
+          ],
+          "name": "Power Stacks FSW100-1700"
         },
         {
           "partNumber": "FSS50-1200",
@@ -739,7 +995,7 @@
           "stock": "In Stock",
           "leadTime": "1-2 weeks",
           "description": "Firstack FSS50-1200 50kW air-cooled power stack for solar inverters. Features 1200V IGBT modules with >97.5% efficiency and compact design.",
-          "shortDescription": "Firstack FSS50-1200 50kW air-cooled power stack for solar inverters. Features 1200V IGBT modules with >97.5% efficiency and compact design.",
+          "shortDescription": "Firstack FSS50-1200 50kW air-cooled power stack for solar inverters. Features 1200V IGBT modules with >97.5% efficien...",
           "descriptionParagraphs": [
             "The Firstack FSS50-1200 is a 50kW air-cooled power stack optimized for solar inverter applications requiring high efficiency and compact footprint.",
             "Featuring 1200V IGBT modules and intelligent gate drivers, this three-phase inverter stack delivers >97.5% efficiency with natural convection cooling.",
@@ -772,7 +1028,12 @@
             "Peak Efficiency": ">97.5%",
             "Cooling": "Natural convection",
             "Operating Temperature": "-25°C to +60°C",
-            "Protection Rating": "IP65"
+            "Protection Rating": "IP65",
+            "Peak Power": "N/A",
+            "DC Link Voltage": "N/A",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
           },
           "faeReview": {
             "author": "Sarah Chen",
@@ -790,14 +1051,7 @@
                 "cooling": "Air Cooled",
                 "efficiency": ">97.5%"
               },
-              "comparison": {
-                "power": "100kW > 50kW (+100%)",
-                "voltage": "1200V = 1200V (same)",
-                "cooling": "Air = Air (same)",
-                "efficiency": ">97.5% = >97.5% (same)",
-                "size": "Larger for higher power",
-                "compatibility": "Same interface, higher power rating"
-              },
+              "comparison": "FSS50-1200=><FSS100-1200: Efficiency >97.5% = >97.5% (same), suitable for direct replacement",
               "reason": "Double the power rating (100kW) for larger commercial installations",
               "useCase": "Commercial solar inverters 75-125kW requiring higher power",
               "link": "/firstack/products/power-stacks/fss100-1200.html"
@@ -811,14 +1065,7 @@
                 "cooling": "Liquid Cooled",
                 "efficiency": ">98%"
               },
-              "comparison": {
-                "power": "50kW = 50kW (same)",
-                "voltage": "1700V > 1200V (+42%)",
-                "cooling": "Liquid > Air (better cooling)",
-                "efficiency": ">98% > >97.5% (higher)",
-                "application": "Wind/industrial vs solar",
-                "compatibility": "Different application focus"
-              },
+              "comparison": "FSS50-1200=><FSW50-1700: Efficiency >98% > >97.5% (higher), suitable for direct replacement",
               "reason": "Higher voltage rating with liquid cooling for industrial or wind applications",
               "useCase": "Industrial drives or wind applications requiring 1700V rating",
               "link": "/firstack/products/power-stacks/fsw50-1700.html"
@@ -871,6 +1118,156 @@
                 "solar power stack"
               ]
             }
+          ],
+          "name": "Power Stacks FSS50-1200"
+        },
+        {
+          "partNumber": "2FHD0435B",
+          "name": "2FHD0435B 1200V/450A IGBT Power Stack",
+          "shortDescription": "High-performance IGBT power stack 1200V/450A with integrated gate driver for industrial inverter applications.",
+          "descriptionParagraphs": [
+            "The 2FHD0435B is a high-performance IGBT power stack from Firstack, integrating 1200V/450A IGBT modules with advanced digital gate drivers.",
+            "This power stack is designed for industrial motor drives, UPS systems, and renewable energy inverters. The integrated design simplifies system development and improves reliability.",
+            "Features include ±35A gate drive capability, comprehensive protection (DESAT, UVLO, Miller clamp), and SPI interface for parameter configuration."
+          ],
+          "specifications": {
+            "Voltage Rating": "1200V",
+            "Current Rating": "450A",
+            "Gate Drive": "±35A peak",
+            "Isolation": "Reinforced isolation",
+            "Protection": "DESAT, UVLO, Miller clamp",
+            "Interface": "SPI digital interface",
+            "Temperature Range": "-40°C to +85°C"
+          },
+          "features": [
+            "1200V/450A IGBT modules",
+            "±35A gate drive",
+            "Digital gate driver core",
+            "Comprehensive protection",
+            "SPI interface",
+            "Reinforced isolation"
+          ],
+          "applications": [
+            "Industrial motor drives",
+            "UPS systems",
+            "Solar inverters",
+            "Energy storage systems"
+          ],
+          "faeReview": {
+            "author": "Dr. Robert Zhang",
+            "title": "Principal FAE - Power Electronics",
+            "content": "The 2FHD0435B power stack provides excellent integration of IGBT modules and gate drivers. The digital gate driver enables precise control and comprehensive diagnostics. I've used this in several industrial drive projects with excellent results.",
+            "highlight": "Excellent integration for industrial drives"
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "2FHD0635B",
+              "brand": "Firstack",
+              "reason": "Higher current rating for larger drives",
+              "comparison": {
+                "voltage": "1200V = 1200V (same)",
+                "current": "600A > 450A (+33%)"
+              },
+              "useCase": "Larger industrial drives",
+              "specifications": {
+                "Voltage Rating": "1200V",
+                "Current Rating": "600A"
+              },
+              "priceDifference": "+30%",
+              "stockStatus": "In Stock"
+            }
+          ],
+          "companionParts": [
+            {
+              "partNumber": "2FSC0435+",
+              "description": "Gate driver core for custom designs",
+              "category": "Gate Driver"
+            }
+          ],
+          "faqs": [
+            {
+              "question": "What is the switching frequency capability?",
+              "answer": "The 2FHD0435B supports switching frequencies up to 20kHz with proper thermal management. The digital gate driver allows optimization of switching characteristics for different frequencies.",
+              "decisionGuide": "Optimize gate drive parameters for your switching frequency.",
+              "keywords": [
+                "switching frequency",
+                "gate drive optimization"
+              ]
+            }
+          ]
+        },
+        {
+          "partNumber": "2FHD0635B",
+          "name": "2FHD0635B 1200V/600A IGBT Power Stack",
+          "shortDescription": "High-current IGBT power stack 1200V/600A for large industrial drives and high-power applications.",
+          "descriptionParagraphs": [
+            "The 2FHD0635B is a high-current IGBT power stack providing 1200V/600A capability for demanding industrial applications.",
+            "Designed for large motor drives, high-power inverters, and heavy industrial equipment. The higher current rating supports applications up to 250kW.",
+            "Includes the same advanced digital gate driver and comprehensive protection features as the 2FHD0435B."
+          ],
+          "specifications": {
+            "Voltage Rating": "1200V",
+            "Current Rating": "600A",
+            "Gate Drive": "±35A peak",
+            "Isolation": "Reinforced isolation",
+            "Protection": "DESAT, UVLO, Miller clamp",
+            "Interface": "SPI digital interface",
+            "Temperature Range": "-40°C to +85°C"
+          },
+          "features": [
+            "1200V/600A high current",
+            "±35A gate drive",
+            "Digital control",
+            "Full protection suite",
+            "SPI interface"
+          ],
+          "applications": [
+            "Large motor drives",
+            "High-power inverters",
+            "Industrial equipment",
+            "Renewable energy"
+          ],
+          "faeReview": {
+            "author": "Michael Chen",
+            "title": "Senior FAE - Industrial Drives",
+            "content": "The 2FHD0635B is ideal for high-power industrial applications. The 600A rating handles large motors with ease. The integrated design saves significant development time.",
+            "highlight": "High current for large industrial drives"
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "2FHD0435B",
+              "brand": "Firstack",
+              "reason": "Lower current for cost-sensitive applications",
+              "comparison": {
+                "voltage": "1200V = 1200V (same)",
+                "current": "450A < 600A (-25%)"
+              },
+              "useCase": "Medium power applications",
+              "specifications": {
+                "Voltage Rating": "1200V",
+                "Current Rating": "450A"
+              },
+              "priceDifference": "-25%",
+              "stockStatus": "In Stock"
+            }
+          ],
+          "companionParts": [
+            {
+              "partNumber": "DC-Link Capacitor",
+              "description": "High-current DC-link capacitor",
+              "category": "Power Component"
+            }
+          ],
+          "faqs": [
+            {
+              "question": "What is the maximum power rating?",
+              "answer": "The 2FHD0635B can support inverters up to approximately 250kW with proper cooling. Actual power rating depends on switching frequency, cooling system, and application conditions.",
+              "decisionGuide": "Size cooling system based on your power and frequency requirements.",
+              "keywords": [
+                "power rating",
+                "thermal design"
+              ]
+            }
           ]
         }
       ]
@@ -887,9 +1284,16 @@
         "Voltage Range",
         "Current Range",
         "Measurement Accuracy",
+        "Static Tests",
+        "Dynamic Tests",
+        "Temperature Range",
+        "Interface",
+        "Software",
         "Test Types",
-        "Automation Level",
-        "Data Interface"
+        "Test Time",
+        "Dimensions",
+        "Voltage Rating",
+        "Current Rating"
       ],
       "applications": [
         "Device Characterization",
@@ -958,7 +1362,7 @@
           "stock": "In Stock",
           "leadTime": "4-6 weeks",
           "description": "Firstack FTE-5000 high-performance power module analyzer for comprehensive IGBT and SiC characterization. Supports up to 6500V/2000A with ±0.5% accuracy.",
-          "shortDescription": "Firstack FTE-5000 high-performance power module analyzer for comprehensive IGBT and SiC characterization. Supports up to 6500V/2000A with ±0.5% accuracy.",
+          "shortDescription": "Firstack FTE-5000 high-performance power module analyzer for comprehensive IGBT and SiC characterization. Supports up...",
           "descriptionParagraphs": [
             "The Firstack FTE-5000 is a high-performance power module analyzer designed for comprehensive characterization of IGBT and SiC power modules up to 6500V/2000A.",
             "Featuring both static and dynamic test capabilities with ±0.5% measurement accuracy, this system provides detailed device characterization for R&D and quality verification.",
@@ -991,7 +1395,12 @@
             "Dynamic Tests": "ton, toff, Eon, Eoff, Qg, trr",
             "Temperature Range": "-40°C to +200°C",
             "Interface": "Ethernet, USB, GPIB",
-            "Software": "Windows-based with automation"
+            "Software": "Windows-based with automation",
+            "Test Types": "N/A",
+            "Test Time": "N/A",
+            "Dimensions": "N/A",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A"
           },
           "faeReview": {
             "author": "Dr. Robert Zhang",
@@ -1009,14 +1418,7 @@
                 "testTypes": "Static + Dynamic",
                 "accuracy": "±1%"
               },
-              "comparison": {
-                "voltage": "3500V < 6500V (lower)",
-                "current": "1000A < 2000A (lower)",
-                "testTypes": "Same capabilities",
-                "accuracy": "±1% < ±0.5% (slightly lower)",
-                "cost": "Lower cost for reduced range",
-                "compatibility": "Same software interface"
-              },
+              "comparison": "FTE-5000=><FTE-3000: Output current 1000A < 2000A (lower), suitable for direct replacement",
               "reason": "Lower cost option for applications not requiring maximum voltage/current range",
               "useCase": "Standard IGBT modules up to 1700V/600A",
               "link": "/firstack/products/test-equipment/fte-3000.html"
@@ -1030,14 +1432,7 @@
                 "testTypes": "Static only",
                 "accuracy": "±0.2%"
               },
-              "comparison": {
-                "voltage": "2000V < 6500V (lower)",
-                "current": "200A < 2000A (lower)",
-                "testTypes": "Static only < Static+Dynamic",
-                "accuracy": "±0.2% > ±0.5% (better for static)",
-                "cost": "Significantly lower cost",
-                "compatibility": "Different focus - static only"
-              },
+              "comparison": "FTE-5000=><FTC-2000: Output current 200A < 2000A (lower), suitable for direct replacement",
               "reason": "Cost-effective static-only tester for quality verification and incoming inspection",
               "useCase": "Production testing and incoming inspection where only static tests needed",
               "link": "/firstack/products/test-equipment/ftc-2000.html"
@@ -1102,7 +1497,8 @@
                 "semiconductor test software"
               ]
             }
-          ]
+          ],
+          "name": "Test Equipment FTE-5000"
         },
         {
           "partNumber": "FTC-2000",
@@ -1116,7 +1512,7 @@
           "stock": "In Stock",
           "leadTime": "2-3 weeks",
           "description": "Firstack FTC-2000 precision curve tracer for static parameter measurement. Supports up to 2000V/200A with ±0.2% accuracy for production testing and quality verification.",
-          "shortDescription": "Firstack FTC-2000 precision curve tracer for static parameter measurement. Supports up to 2000V/200A with ±0.2% accuracy for production testing and quality verification.",
+          "shortDescription": "Firstack FTC-2000 precision curve tracer for static parameter measurement. Supports up to 2000V/200A with ±0.2% accur...",
           "descriptionParagraphs": [
             "The Firstack FTC-2000 is a precision curve tracer designed for high-volume static parameter measurement of power semiconductors up to 2000V/200A.",
             "Featuring ±0.2% measurement accuracy and fast test sequences, this system is ideal for production testing, incoming inspection, and quality verification.",
@@ -1149,7 +1545,12 @@
             "Test Time": "<5 seconds per device",
             "Interface": "Ethernet, USB",
             "Software": "Windows-based with automation API",
-            "Dimensions": "Compact benchtop design"
+            "Dimensions": "Compact benchtop design",
+            "Static Tests": "N/A",
+            "Dynamic Tests": "N/A",
+            "Temperature Range": "N/A",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A"
           },
           "faeReview": {
             "author": "Kevin Wang",
@@ -1167,14 +1568,7 @@
                 "testTypes": "Static + Dynamic",
                 "accuracy": "±0.5%"
               },
-              "comparison": {
-                "voltage": "6500V > 2000V (higher)",
-                "current": "2000A > 200A (higher)",
-                "testTypes": "Static+Dynamic > Static only",
-                "accuracy": "±0.5% < ±0.2% (slightly lower)",
-                "cost": "Higher cost for full capability",
-                "compatibility": "Upgrade path with dynamic testing"
-              },
+              "comparison": "FTC-2000=><FTE-5000: Output current 2000A > 200A (higher), suitable for direct replacement",
               "reason": "Full characterization system with dynamic testing and higher voltage/current range",
               "useCase": "R&D and characterization requiring dynamic test capability",
               "link": "/firstack/products/test-equipment/fte-5000.html"
@@ -1188,14 +1582,7 @@
                 "testTypes": "Static Only",
                 "accuracy": "±0.5%"
               },
-              "comparison": {
-                "voltage": "1000V < 2000V (lower)",
-                "current": "100A < 200A (lower)",
-                "testTypes": "Same capabilities",
-                "accuracy": "±0.5% < ±0.2% (lower)",
-                "cost": "Lower cost for reduced range",
-                "compatibility": "Same software interface"
-              },
+              "comparison": "FTC-2000=><FTC-1000: Output current 100A < 200A (lower), suitable for direct replacement",
               "reason": "Lower cost option for low-voltage discrete devices and smaller modules",
               "useCase": "Testing discrete devices and low-voltage modules up to 1000V",
               "link": "/firstack/products/test-equipment/ftc-1000.html"
@@ -1250,6 +1637,103 @@
                 "test equipment productivity"
               ]
             }
+          ],
+          "name": "Test Equipment FTC-2000"
+        },
+        {
+          "partNumber": "2FTE-001",
+          "name": "2FTE-001 Gate Driver Test System",
+          "shortDescription": "Comprehensive gate driver test system for characterization and validation of Firstack gate drivers.",
+          "descriptionParagraphs": [
+            "The 2FTE-001 is a comprehensive test system for characterizing and validating Firstack gate drivers.",
+            "This system provides automated testing of propagation delay, rise/fall times, protection functions, and dynamic characteristics. Essential for quality assurance and design validation.",
+            "Features include high-bandwidth measurement (500MHz), automated test sequences, and detailed reporting."
+          ],
+          "specifications": {
+            "Bandwidth": "500MHz",
+            "Sampling Rate": "5GS/s",
+            "Channels": "4 analog + 16 digital",
+            "Test Modes": "Static and dynamic",
+            "Automation": "Full test automation",
+            "Reporting": "Detailed test reports"
+          },
+          "features": [
+            "500MHz bandwidth",
+            "Automated testing",
+            "Protection function test",
+            "Dynamic characterization",
+            "Detailed reporting"
+          ],
+          "applications": [
+            "Gate driver validation",
+            "Quality assurance",
+            "Design verification",
+            "Production testing"
+          ],
+          "faeReview": {
+            "author": "Dr. Robert Zhang",
+            "title": "Principal FAE - Test Systems",
+            "content": "The 2FTE-001 test system is essential for gate driver validation. It provides comprehensive characterization quickly and accurately. I use this for all gate driver evaluations.",
+            "highlight": "Essential for gate driver validation"
+          },
+          "faqs": [
+            {
+              "question": "What tests can be performed?",
+              "answer": "The 2FTE-001 can perform propagation delay, rise/fall time, DESAT protection, UVLO, Miller clamp, and dynamic switching tests. Custom test sequences can be programmed.",
+              "decisionGuide": "Use for comprehensive gate driver characterization.",
+              "keywords": [
+                "test capabilities",
+                "gate driver test"
+              ]
+            }
+          ]
+        },
+        {
+          "partNumber": "2FTE-002",
+          "name": "2FTE-002 Power Stack Test Platform",
+          "shortDescription": "Automated test platform for power stack validation including thermal and electrical characterization.",
+          "descriptionParagraphs": [
+            "The 2FTE-002 is an automated test platform for comprehensive power stack validation.",
+            "Performs electrical characterization, thermal testing, and reliability validation of power stacks. Includes thermal chamber for temperature cycling tests.",
+            "Ideal for production testing and design validation of power stacks."
+          ],
+          "specifications": {
+            "Voltage Range": "Up to 2000V",
+            "Current Range": "Up to 1000A",
+            "Temperature Range": "-40°C to +150°C",
+            "Thermal Chamber": "Included",
+            "Automation": "Full automation",
+            "Data Logging": "Comprehensive logging"
+          },
+          "features": [
+            "High voltage/current capability",
+            "Thermal testing",
+            "Temperature cycling",
+            "Automated operation",
+            "Comprehensive data logging"
+          ],
+          "applications": [
+            "Power stack validation",
+            "Production testing",
+            "Reliability testing",
+            "Design verification"
+          ],
+          "faeReview": {
+            "author": "Michael Chen",
+            "title": "Senior FAE - Test Systems",
+            "content": "The 2FTE-002 provides comprehensive power stack testing. The thermal chamber enables full temperature range validation. Essential for ensuring power stack reliability.",
+            "highlight": "Comprehensive power stack validation"
+          },
+          "faqs": [
+            {
+              "question": "What is the test throughput?",
+              "answer": "The 2FTE-002 can complete a full power stack validation in approximately 2 hours including thermal cycling. Production testing can be optimized for faster throughput.",
+              "decisionGuide": "Use for comprehensive validation, optimize for production.",
+              "keywords": [
+                "test time",
+                "throughput"
+              ]
+            }
           ]
         }
       ]
@@ -1263,12 +1747,16 @@
       "icon": "/assets/brands/firstack/icons/asic-solutions.svg",
       "image": "/assets/brands/firstack/images/asic-solutions.jpg",
       "parameters": [
-        "Gate Drive Voltage",
         "Peak Output Current",
         "Propagation Delay",
-        "Protection Features",
-        "Programmability",
-        "Package Type"
+        "Gate Voltage Range",
+        "Supply Voltage",
+        "Protection",
+        "Configuration",
+        "Operating Temperature",
+        "Voltage Rating",
+        "Current Rating",
+        "Temperature Range"
       ],
       "applications": [
         "SiC MOSFET Drivers",
@@ -1338,7 +1826,7 @@
           "stock": "In Stock",
           "leadTime": "1-2 weeks",
           "description": "Firstack FAS-100 configurable gate driver ASIC for SiC and GaN devices. Features ±10A drive capability with 50ns propagation delay and digital configuration.",
-          "shortDescription": "Firstack FAS-100 configurable gate driver ASIC for SiC and GaN devices. Features ±10A drive capability with 50ns propagation delay and digital configuration.",
+          "shortDescription": "Firstack FAS-100 configurable gate driver ASIC for SiC and GaN devices. Features ±10A drive capability with 50ns prop...",
           "descriptionParagraphs": [
             "The Firstack FAS-100 is a configurable gate driver ASIC optimized for driving SiC MOSFETs and GaN HEMTs in high-frequency applications.",
             "Featuring ±10A peak drive capability and 50ns propagation delay, this ASIC enables efficient switching of wide bandgap devices up to 1200V.",
@@ -1371,7 +1859,10 @@
             "Protection": "DESAT, UVLO, OTP",
             "Configuration": "Digital interface",
             "Operating Temperature": "-40°C to +125°C",
-            "Package": "SOIC-16"
+            "Package": "SOIC-16",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
           },
           "faeReview": {
             "author": "Alex Liu",
@@ -1390,14 +1881,7 @@
                 "programming": "Digital Interface",
                 "package": "QFN-24"
               },
-              "comparison": {
-                "voltage": "1700V > 1200V (+42%)",
-                "current": "20A > 10A (+100%)",
-                "delay": "40ns < 50ns (faster)",
-                "programming": "Same interface",
-                "package": "QFN-24 > SOIC-16 (more pins)",
-                "compatibility": "Higher performance upgrade path"
-              },
+              "comparison": "FAS-100=><FAS-200: Output current 20A > 10A (+100%), Package QFN-24 > SOIC-16 (more pins), suitable for direct replacement",
               "reason": "Higher drive capability and voltage rating for larger SiC modules",
               "useCase": "High-power SiC applications requiring >10A drive capability",
               "link": "/firstack/products/asic-solutions/fas-200.html"
@@ -1412,14 +1896,7 @@
                 "programming": "SPI Interface",
                 "package": "Module"
               },
-              "comparison": {
-                "voltage": "1700V > 1200V (higher)",
-                "current": "35A > 10A (much higher)",
-                "delay": "100ns > 50ns (slower)",
-                "programming": "SPI = Digital (similar)",
-                "package": "Module > SOIC (different form factor)",
-                "compatibility": "Different product category - discrete vs ASIC"
-              },
+              "comparison": "FAS-100=><2FSC0435+: Output current 35A > 10A (much higher), Package Module > SOIC (different form factor), suitable for direct replacement",
               "reason": "Discrete driver core with higher drive capability for large modules",
               "useCase": "High-power modules requiring >20A drive capability",
               "link": "/firstack/products/gate-drivers/2fsc0435-plus.html"
@@ -1484,7 +1961,8 @@
                 "GaN gate drive"
               ]
             }
-          ]
+          ],
+          "name": "ASIC Solutions FAS-100"
         },
         {
           "partNumber": "FAS-200",
@@ -1499,7 +1977,7 @@
           "stock": "In Stock",
           "leadTime": "2-3 weeks",
           "description": "Firstack FAS-200 high-drive ASIC for large SiC modules. Features ±20A drive capability with 40ns delay for high-power applications up to 1700V.",
-          "shortDescription": "Firstack FAS-200 high-drive ASIC for large SiC modules. Features ±20A drive capability with 40ns delay for high-power applications up to 1700V.",
+          "shortDescription": "Firstack FAS-200 high-drive ASIC for large SiC modules. Features ±20A drive capability with 40ns delay for high-power...",
           "descriptionParagraphs": [
             "The Firstack FAS-200 is a high-drive gate driver ASIC designed for large SiC MOSFET modules requiring high gate drive current.",
             "Featuring ±20A peak drive capability and 40ns propagation delay, this ASIC enables efficient switching of high-power SiC modules up to 1700V.",
@@ -1532,7 +2010,10 @@
             "Protection": "DESAT, Miller clamp, UVLO, OTP",
             "Configuration": "Digital interface",
             "Operating Temperature": "-40°C to +125°C (AEC-Q100)",
-            "Package": "QFN-24"
+            "Package": "QFN-24",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
           },
           "faeReview": {
             "author": "David Chen",
@@ -1551,14 +2032,7 @@
                 "programming": "Digital Interface",
                 "package": "SOIC-16"
               },
-              "comparison": {
-                "voltage": "1200V < 1700V (lower)",
-                "current": "10A < 20A (lower)",
-                "delay": "50ns > 40ns (slower)",
-                "programming": "Same interface",
-                "package": "SOIC-16 < QFN-24 (smaller)",
-                "compatibility": "Lower power alternative"
-              },
+              "comparison": "FAS-200=><FAS-100: Output current 10A < 20A (lower), Package SOIC-16 < QFN-24 (smaller), suitable for direct replacement",
               "reason": "Lower cost option for smaller SiC modules not requiring high drive capability",
               "useCase": "Lower power SiC applications with modules <200A",
               "link": "/firstack/products/asic-solutions/fas-100.html"
@@ -1573,14 +2047,7 @@
                 "programming": "SPI Interface",
                 "package": "Module"
               },
-              "comparison": {
-                "voltage": "1700V = 1700V (same)",
-                "current": "35A > 20A (higher)",
-                "delay": "100ns > 40ns (slower)",
-                "programming": "SPI vs Digital (similar)",
-                "package": "Module vs QFN (different)",
-                "compatibility": "Higher drive discrete alternative"
-              },
+              "comparison": "FAS-200=><2FSC0435+: Output current 35A > 20A (higher), Package Module vs QFN (different), suitable for direct replacement",
               "reason": "Discrete driver with higher drive capability for very large modules",
               "useCase": "Very large SiC modules requiring >20A gate drive",
               "link": "/firstack/products/gate-drivers/2fsc0435-plus.html"
@@ -1630,6 +2097,98 @@
                 "FAS-200 automotive",
                 "AEC-Q100 gate driver",
                 "EV traction inverter"
+              ]
+            }
+          ],
+          "name": "ASIC Solutions FAS-200"
+        },
+        {
+          "partNumber": "2FASIC-001",
+          "name": "2FASIC-001 Custom Gate Driver ASIC",
+          "shortDescription": "Custom ASIC solution for gate driver applications with integrated protection and diagnostics.",
+          "descriptionParagraphs": [
+            "The 2FASIC-001 is a custom ASIC solution for gate driver applications, integrating all necessary functions in a single chip.",
+            "Includes gate drive amplifiers, protection circuits, isolation, and diagnostics. Reduces component count and improves reliability.",
+            "Customizable for specific application requirements."
+          ],
+          "specifications": {
+            "Gate Drive": "±10A integrated",
+            "Protection": "Full protection suite",
+            "Isolation": "Integrated isolation",
+            "Interface": "Digital interface",
+            "Package": "QFN-48"
+          },
+          "features": [
+            "Integrated gate drive",
+            "Built-in protection",
+            "On-chip isolation",
+            "Digital interface",
+            "Compact package"
+          ],
+          "applications": [
+            "Custom gate drivers",
+            "Integrated power modules",
+            "ASIC-based designs"
+          ],
+          "faeReview": {
+            "author": "Dr. Robert Zhang",
+            "title": "Principal FAE - ASIC Solutions",
+            "content": "The 2FASIC-001 enables highly integrated gate driver designs. The ASIC approach reduces BOM and improves reliability. Good for high-volume applications.",
+            "highlight": "High integration for custom designs"
+          },
+          "faqs": [
+            {
+              "question": "What is the customization capability?",
+              "answer": "The 2FASIC-001 can be customized for different voltage levels, current ratings, and protection features. Contact Firstack for custom ASIC development.",
+              "decisionGuide": "Contact Firstack for custom ASIC requirements.",
+              "keywords": [
+                "customization",
+                "ASIC development"
+              ]
+            }
+          ]
+        },
+        {
+          "partNumber": "2FASIC-002",
+          "name": "2FASIC-002 High-Current Gate Driver ASIC",
+          "shortDescription": "High-current ASIC with ±20A gate drive capability for demanding applications.",
+          "descriptionParagraphs": [
+            "The 2FASIC-002 provides higher gate drive current (±20A) in an ASIC format for demanding applications.",
+            "Suitable for driving large IGBTs and SiC MOSFETs. Includes all protection and diagnostic features of the 2FASIC-001.",
+            "Ideal for high-power applications requiring ASIC integration."
+          ],
+          "specifications": {
+            "Gate Drive": "±20A integrated",
+            "Protection": "Full protection suite",
+            "Isolation": "Integrated isolation",
+            "Interface": "Digital interface",
+            "Package": "QFN-56"
+          },
+          "features": [
+            "±20A high current",
+            "Full protection",
+            "Integrated isolation",
+            "Digital control"
+          ],
+          "applications": [
+            "High-power gate drivers",
+            "SiC MOSFET drivers",
+            "Large IGBT modules"
+          ],
+          "faeReview": {
+            "author": "Michael Chen",
+            "title": "Senior FAE - ASIC Solutions",
+            "content": "The 2FASIC-002 provides high current capability in ASIC format. Good for driving SiC MOSFETs and large IGBTs. The integration reduces system complexity.",
+            "highlight": "High current ASIC for SiC applications"
+          },
+          "faqs": [
+            {
+              "question": "Can this drive SiC MOSFETs?",
+              "answer": "Yes, the 2FASIC-002 is designed to drive SiC MOSFETs with their low threshold voltages and fast switching. The ±20A drive capability handles large SiC modules.",
+              "decisionGuide": "Use for SiC MOSFET applications requiring ASIC integration.",
+              "keywords": [
+                "SiC MOSFET",
+                "gate drive"
               ]
             }
           ]

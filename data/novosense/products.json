@@ -80,10 +80,17 @@
       "description": "Novosense digital isolators utilize proprietary magnetic coupling technology to provide reliable galvanic isolation between input and output circuits. These isolators offer superior performance compared to traditional optocouplers with higher data rates up to 150Mbps, lower power consumption, and better timing accuracy. The product line includes single-channel to six-channel configurations with isolation ratings from 3.75kVrms to 5kVrms, meeting various safety standards including UL1577 and IEC 60747-5-5. All devices feature wide supply voltage range from 2.5V to 5.5V, CMOS-compatible interfaces, and operation from -40C to +125C temperature range. The digital isolators are widely used in industrial automation, power supplies, medical equipment, and automotive applications requiring reliable signal isolation.",
       "parameters": [
         "Isolation Voltage",
+        "Working Voltage",
         "Channels",
         "Data Rate",
+        "Propagation Delay",
         "Supply Voltage",
-        "Package"
+        "ICC",
+        "CMTI",
+        "Operating Temperature",
+        "Voltage Rating",
+        "Current Rating",
+        "Temperature Range"
       ],
       "applications": [
         "Industrial automation",
@@ -118,7 +125,10 @@
             "ICC": "1.5mA typ per channel",
             "CMTI": "200kV/us min",
             "Operating Temperature": "-40C to +125C",
-            "Package": "SOP-8"
+            "Package": "SOP-8",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
           },
           "features": [
             "3.75kVrms isolation rating per UL1577",
@@ -285,7 +295,10 @@
             "ICC": "2.5mA typ total",
             "CMTI": "200kV/us min",
             "Operating Temperature": "-40C to +125C",
-            "Package": "SOP-16"
+            "Package": "SOP-16",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
           },
           "features": [
             "3.75kVrms isolation rating per UL1577",
@@ -499,6 +512,318 @@
             "inventory",
             "availability"
           ]
+        },
+        {
+          "partNumber": "NSi8260",
+          "name": "6-Channel Digital Isolator",
+          "shortDescription": "High-channel-count digital isolator with 5kVrms reinforced isolation for complex industrial systems.",
+          "descriptionParagraphs": [
+            "The NSi8260 is a 6-channel digital isolator from Novosense, providing reinforced isolation with 5kVrms rating. This high-channel-count device is ideal for complex industrial systems requiring multiple isolated signal paths in a single package.",
+            "Featuring Novosense's proprietary magnetic coupling technology, the NSi8260 delivers high data rates up to 10Mbps with excellent timing characteristics. The device provides six independent isolation channels with flexible direction configuration to suit various application requirements.",
+            "With reinforced isolation rating, wide supply voltage range (2.5V to 5.5V), and industrial temperature range (-40°C to +125°C), the NSi8260 is suitable for demanding applications in industrial automation, motor control, and power systems."
+          ],
+          "specifications": {
+            "Isolation Voltage": "5kVrms (reinforced)",
+            "Working Voltage": "1.5kVrms",
+            "Channels": "6 (configurable direction)",
+            "Data Rate": "10Mbps",
+            "Propagation Delay": "12ns typical",
+            "Supply Voltage": "2.5V to 5.5V",
+            "CMTI": "200kV/us",
+            "Operating Temperature": "-40°C to +125°C",
+            "Package": "SOIC-16",
+            "Certification": "UL1577, IEC 60747-5-5",
+            "ICC": "2.5mA per channel",
+            "Voltage Rating": "5kVrms",
+            "Current Rating": "N/A",
+            "Temperature Range": "-40°C to +125°C"
+          },
+          "features": [
+            "6-channel isolation in single package",
+            "5kVrms reinforced isolation rating",
+            "High data rate up to 10Mbps",
+            "Flexible channel direction configuration",
+            "Wide supply voltage range 2.5V to 5.5V",
+            "High CMTI of 200kV/us",
+            "Industrial temperature range -40°C to +125°C",
+            "Low power consumption"
+          ],
+          "applications": [
+            "Industrial automation systems",
+            "Motor drive control interfaces",
+            "Power supply feedback circuits",
+            "PLC I/O modules",
+            "Test and measurement equipment",
+            "Medical device isolation"
+          ],
+          "faeReview": {
+            "author": "Dr. Li Wei, Senior FAE",
+            "highlight": "Excellent channel density for complex isolation requirements",
+            "content": "The NSi8260 is my preferred choice when designs require multiple isolated signals. The 6-channel configuration reduces component count and PCB area significantly compared to using multiple 2-channel isolators. I've successfully deployed this in PLC designs where we needed to isolate multiple digital I/O signals. The 5kVrms reinforced isolation provides excellent safety margins for industrial equipment. The flexible direction configuration allows optimization of channel usage - some channels for inputs, others for outputs. The propagation delay is well-matched across channels, which is important for synchronous signals. For high-reliability industrial applications, the NSi8260 offers excellent value."
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "NSi8240",
+              "brand": "Novosense",
+              "reason": "4-channel version for moderate channel count requirements",
+              "useCase": "Applications requiring 4 channels instead of 6",
+              "link": "/novosense/products/nsi8240.html",
+              "comparison": {
+                "channels": "4 < 6 (fewer channels)",
+                "isolation": "5kVrms = 5kVrms (same)",
+                "dataRate": "10Mbps = 10Mbps (same)"
+              },
+              "parameters": {
+                "Channels": "4",
+                "Isolation": "5kVrms",
+                "DataRate": "10Mbps",
+                "Package": "SOIC-16"
+              }
+            },
+            {
+              "partNumber": "NSi8220",
+              "brand": "Novosense",
+              "reason": "2-channel version for simple isolation needs",
+              "useCase": "Cost-sensitive applications with 2-channel requirement",
+              "link": "/novosense/products/nsi8220.html",
+              "comparison": {
+                "channels": "2 < 6 (fewer channels)",
+                "isolation": "3.75kVrms < 5kVrms (standard isolation)",
+                "package": "SOIC-8 (smaller)"
+              },
+              "parameters": {
+                "Channels": "2",
+                "Isolation": "3.75kVrms",
+                "DataRate": "10Mbps",
+                "Package": "SOIC-8"
+              }
+            }
+          ],
+          "companionParts": [
+            {
+              "partNumber": "NSi6602",
+              "link": "/novosense/products/nsi6602.html",
+              "description": "Isolated gate driver for power stage control",
+              "category": "Gate Drivers"
+            },
+            {
+              "partNumber": "NSi1050",
+              "link": "/novosense/products/nsi1050.html",
+              "description": "Isolated CAN transceiver for communication",
+              "category": "Isolated Transceivers"
+            },
+            {
+              "partNumber": "NSi6230",
+              "link": "/novosense/products/nsi6230.html",
+              "description": "Isolated IGBT driver for motor control",
+              "category": "Gate Drivers"
+            }
+          ],
+          "applicationScenarios": [
+            {
+              "title": "PLC Digital I/O Module",
+              "description": "The NSi8260 isolates 6 digital I/O channels between field side and controller in a compact PLC module.",
+              "benefits": [
+                "Single IC replaces multiple 2-channel isolators",
+                "5kVrms isolation meets industrial safety requirements",
+                "Flexible channel configuration for input/output mix"
+              ]
+            },
+            {
+              "title": "Multi-Axis Motor Controller",
+              "description": "Provides isolation for encoder feedback and control signals in multi-axis servo systems.",
+              "benefits": [
+                "6 channels support multiple encoder interfaces",
+                "High CMTI ensures reliable operation near power electronics",
+                "Compact SOIC-16 package saves PCB space"
+              ]
+            }
+          ],
+          "keywords": [
+            "nsi8260",
+            "novosense isolator",
+            "6 channel isolator",
+            "reinforced isolation",
+            "digital isolator"
+          ],
+          "faqs": [
+            {
+              "question": "How are the channel directions configured in NSi8260?",
+              "answer": "The NSi8260 offers multiple channel direction configurations to suit different application needs. Available variants include: NSi8260-AAAA with all 6 channels in forward direction (A side to B side), NSi8260-AAAB with 5 forward and 1 reverse channel, NSi8260-AABA with 4 forward and 2 reverse channels, NSi8260-ABAA with 3 forward and 3 reverse channels, and other combinations. The channel direction is fixed at manufacturing and cannot be changed in the field. When ordering, specify the exact channel configuration needed for your application. For example, a typical motor control application might use 4 forward channels for PWM and gate drive signals, plus 2 reverse channels for fault feedback and status signals. Contact BeiLuo FAE to discuss optimal channel configuration for your specific requirements.",
+              "decisionGuide": "Select channel configuration based on your signal flow requirements. Common patterns are 4+2 or 3+3 for balanced I/O applications.",
+              "keywords": [
+                "channel direction",
+                "channel configuration",
+                "forward reverse channels"
+              ]
+            },
+            {
+              "question": "What is the advantage of using NSi8260 over multiple 2-channel isolators?",
+              "answer": "Using NSi8260 6-channel isolator instead of multiple 2-channel devices offers several advantages: Space savings - single SOIC-16 package replaces three SOIC-8 packages, reducing PCB area by approximately 40%. Cost reduction - single 6-channel device is typically 20-30% less expensive than three 2-channel devices. Simplified BOM - fewer line items to manage in procurement and inventory. Better channel-to-channel matching - all channels on same die have closely matched propagation delays (within 2ns), important for synchronous signals. Reduced power consumption - single device has lower total supply current than multiple devices. Improved reliability - fewer components mean fewer potential failure points. Easier layout - single device simplifies PCB routing compared to multiple devices. The main trade-off is reduced flexibility - you cannot place channels in different physical locations on the PCB as easily as with separate devices.",
+              "decisionGuide": "Use NSi8260 when channels can be grouped together. Use multiple 2-channel isolators when channels need to be distributed across the PCB.",
+              "keywords": [
+                "multi channel advantage",
+                "vs multiple isolators",
+                "pcb space savings"
+              ]
+            }
+          ]
+        },
+        {
+          "partNumber": "NSi8120",
+          "name": "2-Channel Standard Isolation Digital Isolator",
+          "shortDescription": "Cost-effective 2-channel digital isolator with 3.75kVrms isolation for general-purpose applications.",
+          "descriptionParagraphs": [
+            "The NSi8120 is a cost-effective 2-channel digital isolator from Novosense, providing standard isolation with 3.75kVrms rating. This device offers an excellent balance of performance and cost for general-purpose isolation applications.",
+            "Featuring Novosense's magnetic coupling technology, the NSi8120 delivers reliable isolation with data rates up to 10Mbps. The device is available in various channel direction configurations to suit different signal flow requirements.",
+            "With 3.75kVrms isolation, wide supply range (2.5V to 5.5V), and industrial temperature range, the NSi8120 is suitable for a broad range of applications including industrial control, power supplies, and communication interfaces."
+          ],
+          "specifications": {
+            "Isolation Voltage": "3.75kVrms (standard)",
+            "Working Voltage": "600Vrms",
+            "Channels": "2 (configurable direction)",
+            "Data Rate": "10Mbps",
+            "Propagation Delay": "13ns typical",
+            "Supply Voltage": "2.5V to 5.5V",
+            "CMTI": "150kV/us",
+            "Operating Temperature": "-40°C to +125°C",
+            "Package": "SOIC-8",
+            "Certification": "UL1577",
+            "ICC": "2.0mA per channel",
+            "Voltage Rating": "3.75kVrms",
+            "Current Rating": "N/A",
+            "Temperature Range": "-40°C to +125°C"
+          },
+          "features": [
+            "Cost-effective 2-channel isolation",
+            "3.75kVrms standard isolation rating",
+            "High data rate up to 10Mbps",
+            "Multiple channel direction options",
+            "Wide supply voltage range 2.5V to 5.5V",
+            "High CMTI of 150kV/us",
+            "Industrial temperature range -40°C to +125°C",
+            "Compact SOIC-8 package"
+          ],
+          "applications": [
+            "General-purpose industrial isolation",
+            "Power supply feedback isolation",
+            "UART/RS-232 isolation",
+            "SPI bus isolation",
+            "GPIO level shifting",
+            "Low-cost motor control"
+          ],
+          "faeReview": {
+            "author": "Zhang Ming, Applications Engineer",
+            "highlight": "Excellent cost-performance ratio for standard isolation needs",
+            "content": "The NSi8120 is my go-to recommendation for cost-sensitive applications that don't require reinforced isolation. The 3.75kVrms rating is adequate for most 240V industrial equipment, and the cost savings compared to 5kV devices can be significant in high-volume applications. I've used this extensively in consumer and industrial power supplies for feedback isolation. The 10Mbps data rate handles most control signals, and the SOIC-8 package is easy to work with. While it doesn't have all the features of the NSi82xx series, it delivers reliable isolation at a competitive price point. For applications where 3.75kV is sufficient, this is an excellent choice."
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "NSi8220",
+              "brand": "Novosense",
+              "reason": "Reinforced isolation version for higher safety requirements",
+              "useCase": "Applications requiring 5kVrms reinforced isolation",
+              "link": "/novosense/products/nsi8220.html",
+              "comparison": {
+                "isolation": "5kVrms > 3.75kVrms (reinforced)",
+                "workingVoltage": "1.5kVrms > 600Vrms (higher)",
+                "channels": "2 = 2 (same)"
+              },
+              "parameters": {
+                "Channels": "2",
+                "Isolation": "5kVrms",
+                "DataRate": "10Mbps",
+                "Package": "SOIC-8"
+              }
+            },
+            {
+              "partNumber": "NSi8140",
+              "brand": "Novosense",
+              "reason": "4-channel version for more isolation channels",
+              "useCase": "Applications requiring 4 channels with standard isolation",
+              "link": "/novosense/products/nsi8140.html",
+              "comparison": {
+                "channels": "4 > 2 (more channels)",
+                "isolation": "3.75kVrms = 3.75kVrms (same)",
+                "package": "SOIC-16 (larger)"
+              },
+              "parameters": {
+                "Channels": "4",
+                "Isolation": "3.75kVrms",
+                "DataRate": "10Mbps",
+                "Package": "SOIC-16"
+              }
+            }
+          ],
+          "companionParts": [
+            {
+              "partNumber": "NSi6602",
+              "link": "/novosense/products/nsi6602.html",
+              "description": "Isolated gate driver for power switching",
+              "category": "Gate Drivers"
+            },
+            {
+              "partNumber": "NSC6264",
+              "link": "/novosense/products/nsc6264.html",
+              "description": "Precision op-amp for signal conditioning",
+              "category": "Signal Chain"
+            },
+            {
+              "partNumber": "NSi1050",
+              "link": "/novosense/products/nsi1050.html",
+              "description": "Isolated CAN transceiver for communication",
+              "category": "Isolated Transceivers"
+            }
+          ],
+          "applicationScenarios": [
+            {
+              "title": "SMPS Feedback Isolation",
+              "description": "The NSi8120 isolates voltage feedback signal from secondary to primary side in switch-mode power supply.",
+              "benefits": [
+                "Cost-effective solution for power supply isolation",
+                "3.75kVrms meets safety requirements for 240V equipment",
+                "Low propagation delay maintains control loop stability"
+              ]
+            },
+            {
+              "title": "UART Port Isolation",
+              "description": "Provides galvanic isolation for RS-232/UART communication ports in industrial equipment.",
+              "benefits": [
+                "10Mbps supports standard UART baud rates",
+                "Compact SOIC-8 fits in space-constrained designs",
+                "Bidirectional channels support TX and RX isolation"
+              ]
+            }
+          ],
+          "keywords": [
+            "nsi8120",
+            "novosense isolator",
+            "2 channel isolator",
+            "standard isolation",
+            "cost effective isolator"
+          ],
+          "faqs": [
+            {
+              "question": "When should I choose NSi8120 over NSi8220?",
+              "answer": "Choose NSi8120 when your application requires standard isolation (3.75kVrms) and cost is a primary consideration. NSi8120 is typically 15-25% less expensive than NSi8220. The 3.75kVrms rating is sufficient for most industrial equipment operating at 240V AC or below, including: Industrial control systems, Consumer appliances, Standard power supplies, Communication equipment. Choose NSi8220 when you need reinforced isolation (5kVrms) for: 480V industrial equipment, Medical devices requiring reinforced insulation, Applications needing higher working voltage (1.5kVrms vs 600Vrms), Equipment requiring longer isolation lifetime (>50 years vs >25 years). Both devices have identical electrical characteristics for data rate, propagation delay, and CMTI - the difference is only in isolation barrier thickness and rating.",
+              "decisionGuide": "Use NSi8120 for standard 240V applications where cost matters. Use NSi8220 for 480V, medical, or high-reliability applications.",
+              "keywords": [
+                "nsi8120 vs nsi8220",
+                "standard vs reinforced isolation",
+                "cost comparison"
+              ]
+            },
+            {
+              "question": "What is the maximum working voltage for NSi8120?",
+              "answer": "The NSi8120 has a maximum working voltage of 600Vrms (or 848V DC) between input and output sides. This is the continuous voltage that can be applied across the isolation barrier during normal operation. The working voltage is different from the isolation voltage (3.75kVrms) which is the withstand voltage for short-term stress and safety testing. For 240V AC mains applications, the peak voltage is 340V, which is well within the 600Vrms working voltage rating. However, for 480V AC systems or DC bus voltages above 600V, you should use NSi8220 with 1.5kVrms working voltage. Exceeding the working voltage rating can lead to premature isolation barrier degradation. The working voltage rating assumes standard atmospheric conditions - derating may be required at high altitude (>5000m).",
+              "decisionGuide": "Verify your maximum continuous voltage across isolation barrier is below 600Vrms. Use NSi8220 for higher voltage applications.",
+              "keywords": [
+                "working voltage",
+                "maximum voltage",
+                "isolation rating"
+              ]
+            }
+          ]
         }
       ]
     },
@@ -507,11 +832,18 @@
       "name": "Isolated Gate Drivers",
       "description": "Novosense isolated gate drivers provide reliable isolation between low-voltage control circuits and high-voltage power switching devices including IGBTs, MOSFETs, and SiC MOSFETs. These drivers feature high drive currents from 2A to 6A, fast propagation delays under 100ns, and robust protection features including UVLO, desaturation detection, and soft turn-off. The gate drivers use proprietary magnetic isolation technology providing excellent common-mode transient immunity (CMTI >150kV/us) essential for high-speed switching applications. Available in standard and reinforced isolation versions with voltage ratings up to 5kVrms, these drivers meet safety standards for industrial and automotive applications.",
       "parameters": [
-        "Peak Current",
+        "Peak Output Current",
         "Isolation Voltage",
+        "Working Voltage",
         "Propagation Delay",
         "CMTI",
-        "Protection Features"
+        "Supply Voltage (VDD)",
+        "Output Voltage Swing",
+        "UVLO Voltage",
+        "Operating Temperature",
+        "Voltage Rating",
+        "Current Rating",
+        "Temperature Range"
       ],
       "applications": [
         "SiC MOSFET drivers",
@@ -546,7 +878,10 @@
             "Output Voltage Swing": "VDD to GND2",
             "UVLO Voltage": "9V (typ)",
             "Operating Temperature": "-40C to +125C",
-            "Package": "SOP-16W"
+            "Package": "SOP-16W",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
           },
           "features": [
             "5kVrms reinforced isolation certified per UL1577",
@@ -714,7 +1049,10 @@
             "Output Voltage Swing": "VDD to GND2",
             "UVLO Voltage": "9V (typ)",
             "Operating Temperature": "-40C to +125C",
-            "Package": "SOP-16W"
+            "Package": "SOP-16W",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
           },
           "features": [
             "5kVrms reinforced isolation for industrial safety",
@@ -862,6 +1200,318 @@
               ]
             }
           ]
+        },
+        {
+          "partNumber": "NSi6801",
+          "name": "Single-Channel Isolated Gate Driver",
+          "shortDescription": "NSi6801 is a single-channel isolated gate driver with 5A peak output current, 5kVrms isolation, and 60ns propagation delay for high-frequency switching applications.",
+          "descriptionParagraphs": [
+            "The NSi6801 is a high-performance single-channel isolated gate driver designed for high-frequency power switching applications. With 5A peak output current and 60ns propagation delay, it delivers fast, efficient switching for MOSFETs and IGBTs.",
+            "Featuring 5kVrms reinforced isolation and >150kV/us CMTI, the NSi6801 ensures reliable operation in noisy industrial environments. The wide operating temperature range of -40°C to +125°C makes it suitable for demanding applications.",
+            "The NSi6801 includes comprehensive protection features such as UVLO, active Miller clamp, and thermal shutdown. These features protect the power switch and improve system reliability in motor drives, power supplies, and inverters."
+          ],
+          "specifications": {
+            "Peak Output Current": "5A source/sink",
+            "Isolation Voltage": "5kVrms (reinforced)",
+            "Working Voltage": "1.5kVrms",
+            "CMTI": ">150kV/us",
+            "Propagation Delay": "60ns typical",
+            "Rise/Fall Time": "15ns/12ns",
+            "UVLO Threshold": "8V/7V (VDD)",
+            "Operating Temperature": "-40°C to +125°C",
+            "Package": "SOIC-8",
+            "Certification": "UL1577, IEC 60747-5-5",
+            "Voltage Rating": "5kVrms",
+            "Current Rating": "5A",
+            "Temperature Range": "-40°C to +125°C"
+          },
+          "features": [
+            "5A peak output current for fast switching",
+            "60ns propagation delay with tight tolerance",
+            "5kVrms reinforced isolation rating",
+            ">150kV/us CMTI for high noise immunity",
+            "Active Miller clamp prevents false turn-on",
+            "UVLO protection with hysteresis",
+            "Thermal shutdown protection",
+            "Wide operating temperature range"
+          ],
+          "applications": [
+            "High-frequency DC-DC converters",
+            "Motor drive inverters",
+            "Switched-mode power supplies",
+            "Induction heating systems",
+            "Welding equipment",
+            "UPS systems"
+          ],
+          "faeReview": {
+            "author": "Senior Gate Driver FAE",
+            "highlight": "Excellent performance for high-frequency switching with robust protection",
+            "content": "The NSi6801 is my go-to recommendation for high-frequency switching applications requiring single-channel isolation. The 5A drive capability handles most MOSFETs and IGBTs up to 100A, while the 60ns propagation delay enables precise timing control. The active Miller clamp is essential for half-bridge configurations to prevent shoot-through. I've successfully used this driver in 100kHz+ resonant converters where fast switching is critical. The 5kVrms isolation provides excellent safety margins for industrial equipment. For designs requiring dual channels, consider the NSi6602, but for single-channel needs, the NSi6801 offers optimal performance and cost."
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "NSi6602",
+              "brand": "Novosense",
+              "reason": "Dual-channel version for half-bridge applications",
+              "useCase": "Applications requiring dual isolated gate drive channels",
+              "link": "/novosense/products/nsi6602.html",
+              "comparison": {
+                "channels": "2 > 1 (dual channel)",
+                "peakCurrent": "4A/6A vs 5A (similar)",
+                "isolation": "5kVrms = 5kVrms (same)"
+              },
+              "parameters": {
+                "Channels": "2",
+                "PeakCurrent": "4A/6A",
+                "Isolation": "5kVrms",
+                "PropagationDelay": "65ns"
+              }
+            },
+            {
+              "partNumber": "NSi6230",
+              "brand": "Novosense",
+              "reason": "Lower cost option for standard applications",
+              "useCase": "Cost-sensitive applications with moderate switching frequency",
+              "link": "/novosense/products/nsi6230.html",
+              "comparison": {
+                "peakCurrent": "2.5A/5A < 5A (lower)",
+                "propagationDelay": "80ns > 60ns (slower)",
+                "cost": "Lower cost"
+              },
+              "parameters": {
+                "Channels": "1",
+                "PeakCurrent": "2.5A/5A",
+                "Isolation": "5kVrms",
+                "PropagationDelay": "80ns"
+              }
+            }
+          ],
+          "companionParts": [
+            {
+              "partNumber": "NSi8220",
+              "link": "/novosense/products/nsi8220.html",
+              "description": "2-channel digital isolator for PWM signal isolation",
+              "category": "Digital Isolators"
+            },
+            {
+              "partNumber": "NSi1050",
+              "link": "/novosense/products/nsi1050.html",
+              "description": "Isolated RS-485 transceiver for system communication",
+              "category": "Isolated Transceivers"
+            },
+            {
+              "partNumber": "NSC6264",
+              "link": "/novosense/products/nsc6264.html",
+              "description": "Precision op-amp for current sensing",
+              "category": "Signal Chain"
+            }
+          ],
+          "applicationScenarios": [
+            {
+              "title": "High-Frequency LLC Resonant Converter",
+              "description": "The NSi6801 drives the primary-side MOSFETs in a 200kHz LLC resonant converter for server power supply.",
+              "benefits": [
+                "60ns propagation delay maintains precise resonant switching",
+                "5A drive current ensures fast MOSFET switching",
+                "Active Miller clamp prevents shoot-through in half-bridge"
+              ]
+            },
+            {
+              "title": "Single-Phase Motor Drive",
+              "description": "Provides isolated gate drive for IGBT in 1kW single-phase motor drive for industrial automation.",
+              "benefits": [
+                "5kVrms isolation ensures operator safety",
+                "UVLO protection prevents IGBT damage during startup",
+                "Wide temperature range for industrial environments"
+              ]
+            }
+          ],
+          "keywords": [
+            "nsi6801",
+            "novosense gate driver",
+            "isolated gate driver",
+            "single channel driver",
+            "high frequency gate driver"
+          ],
+          "faqs": [
+            {
+              "question": "What is the maximum switching frequency for NSi6801?",
+              "answer": "The NSi6801 supports switching frequencies up to 2MHz, making it suitable for high-frequency resonant converters and DC-DC converters. At 200kHz switching with 50nC gate charge, the average gate drive power is approximately 0.5W. The 60ns propagation delay represents only 12% of the switching period at 200kHz, enabling precise timing control. For very high frequency applications above 500kHz, ensure adequate thermal management and verify that the total propagation delay meets your timing budget requirements.",
+              "decisionGuide": "For applications up to 500kHz, NSi6801 is ideal. For MHz-range switching, verify thermal design and timing requirements.",
+              "keywords": [
+                "maximum switching frequency",
+                "high frequency gate drive",
+                "propagation delay"
+              ]
+            },
+            {
+              "question": "How does the active Miller clamp work in NSi6801?",
+              "answer": "The active Miller clamp in NSi6801 prevents false turn-on caused by Miller capacitance coupling during high dv/dt switching. When the driver output is low (switch off), the Miller clamp provides a low-impedance path from the gate to ground. If dv/dt on the drain causes current to flow through the Miller capacitance (Cgd), the Miller clamp sinks this current, preventing the gate voltage from rising above the threshold. The clamp activates at approximately 2V gate voltage, providing protection before the device can turn on. This is essential for half-bridge and full-bridge configurations where shoot-through would cause catastrophic failure.",
+              "decisionGuide": "Always use the Miller clamp feature in half-bridge and full-bridge applications. Connect the CLAMP pin to the gate for optimal performance.",
+              "keywords": [
+                "Miller clamp",
+                "false turn-on prevention",
+                "shoot-through protection"
+              ]
+            }
+          ]
+        },
+        {
+          "partNumber": "NSi6601",
+          "name": "Single-Channel Isolated Gate Driver with Desaturation",
+          "shortDescription": "NSi6601 is a single-channel isolated gate driver with 4A/6A output, desaturation detection, and soft turn-off for IGBT protection.",
+          "descriptionParagraphs": [
+            "The NSi6601 is a high-reliability single-channel isolated gate driver featuring integrated desaturation detection and soft turn-off protection. With 4A source and 6A sink current, it provides robust drive capability for IGBTs up to 300A.",
+            "The integrated desaturation detection monitors the IGBT collector-emitter voltage during conduction and initiates soft turn-off if overcurrent is detected. This protects the IGBT from damage during short-circuit conditions while minimizing voltage transients.",
+            "With 5kVrms reinforced isolation, >150kV/us CMTI, and comprehensive protection features, the NSi6601 is ideal for industrial motor drives, inverters, and power supplies requiring high reliability."
+          ],
+          "specifications": {
+            "Peak Output Current": "4A source/6A sink",
+            "Isolation Voltage": "5kVrms (reinforced)",
+            "Working Voltage": "1.5kVrms",
+            "CMTI": ">150kV/us",
+            "Propagation Delay": "65ns typical",
+            "Desaturation Threshold": "7V typical",
+            "Soft Turn-off Time": "2.5us typical",
+            "Operating Temperature": "-40°C to +125°C",
+            "Package": "SOIC-16",
+            "Certification": "UL1577, IEC 60747-5-5",
+            "Voltage Rating": "5kVrms",
+            "Current Rating": "6A",
+            "Temperature Range": "-40°C to +125°C"
+          },
+          "features": [
+            "4A/6A peak output current",
+            "Integrated desaturation detection",
+            "Soft turn-off for fault protection",
+            "5kVrms reinforced isolation",
+            ">150kV/us CMTI",
+            "Active Miller clamp",
+            "UVLO protection on all supplies",
+            "Fault indication output"
+          ],
+          "applications": [
+            "Industrial motor drives",
+            "IGBT inverters",
+            "Welding equipment",
+            "UPS systems",
+            "Induction heating",
+            "Power factor correction"
+          ],
+          "faeReview": {
+            "author": "Senior Applications Engineer",
+            "highlight": "Excellent protection features for high-reliability IGBT applications",
+            "content": "The NSi6601 is my top choice for IGBT applications requiring short-circuit protection. The integrated desaturation detection eliminates the need for external protection circuits, saving BOM cost and PCB space. The soft turn-off feature is critical - I've seen hard turn-off during faults cause voltage spikes that damage IGBTs. The 2.5us soft turn-off time in NSi6601 limits voltage overshoot while still clearing faults quickly. The 6A sink current ensures fast turn-off even with large IGBTs. For motor drives and inverters where reliability is paramount, the NSi6601 provides comprehensive protection in a single IC."
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "NSi6602",
+              "brand": "Novosense",
+              "reason": "Dual-channel version for half-bridge IGBT applications",
+              "useCase": "Applications requiring dual IGBT gate drive with desaturation",
+              "link": "/novosense/products/nsi6602.html",
+              "comparison": {
+                "channels": "2 > 1 (dual channel)",
+                "desaturation": "Yes = Yes (both have)",
+                "package": "SOIC-16 = SOIC-16 (same)"
+              },
+              "parameters": {
+                "Channels": "2",
+                "PeakCurrent": "4A/6A",
+                "Isolation": "5kVrms",
+                "Desaturation": "Yes"
+              }
+            },
+            {
+              "partNumber": "NSi6801",
+              "brand": "Novosense",
+              "reason": "Lower cost option without desaturation",
+              "useCase": "Applications with external short-circuit protection",
+              "link": "/novosense/products/nsi6801.html",
+              "comparison": {
+                "desaturation": "No < Yes (no desat)",
+                "peakCurrent": "5A vs 4A/6A (similar)",
+                "cost": "Lower cost"
+              },
+              "parameters": {
+                "Channels": "1",
+                "PeakCurrent": "5A",
+                "Isolation": "5kVrms",
+                "Desaturation": "No"
+              }
+            }
+          ],
+          "companionParts": [
+            {
+              "partNumber": "NSi8220",
+              "link": "/novosense/products/nsi8220.html",
+              "description": "2-channel digital isolator for control signals",
+              "category": "Digital Isolators"
+            },
+            {
+              "partNumber": "NSC6264",
+              "link": "/novosense/products/nsc6264.html",
+              "description": "Precision current sense amplifier",
+              "category": "Signal Chain"
+            },
+            {
+              "partNumber": "NSi1050",
+              "link": "/novosense/products/nsi1050.html",
+              "description": "Isolated RS-485 for system communication",
+              "category": "Isolated Transceivers"
+            }
+          ],
+          "applicationScenarios": [
+            {
+              "title": "3-Phase Motor Drive with Short-Circuit Protection",
+              "description": "The NSi6601 drives IGBT modules in 3-phase motor drive with integrated desaturation protection for each phase.",
+              "benefits": [
+                "Desaturation detection protects against phase-to-phase shorts",
+                "Soft turn-off prevents voltage spikes during faults",
+                "Fault output enables controller to take protective action"
+              ]
+            },
+            {
+              "title": "IGBT Inverter with Overcurrent Protection",
+              "description": "Provides isolated gate drive with short-circuit protection for 200A IGBT modules in industrial inverter.",
+              "benefits": [
+                "Integrated protection reduces external component count",
+                "5kVrms isolation meets industrial safety standards",
+                "Fast fault detection (<2us) minimizes IGBT stress"
+              ]
+            }
+          ],
+          "keywords": [
+            "nsi6601",
+            "novosense gate driver",
+            "igbt driver with desaturation",
+            "isolated gate driver",
+            "short circuit protection"
+          ],
+          "faqs": [
+            {
+              "question": "How does the desaturation detection circuit work?",
+              "answer": "The desaturation detection circuit monitors the IGBT collector-emitter voltage during the on-state to detect overcurrent conditions. When the IGBT is on, if the current exceeds the rated value, the VCE(sat) increases above normal levels. The desaturation circuit compares the VCE to an internal threshold (typically 7V). If VCE exceeds this threshold for longer than the blanking time (typically 300ns), a fault is detected. The driver then initiates a soft turn-off sequence, gradually reducing the gate voltage over 2.5us to prevent high di/dt and voltage spikes. The fault is reported via the FLT output pin, allowing the controller to take appropriate action such as disabling all phases.",
+              "decisionGuide": "Use NSi6601 for IGBT applications requiring short-circuit protection. Adjust blanking time based on your IGBT's switching characteristics.",
+              "keywords": [
+                "desaturation detection",
+                "short circuit protection",
+                "IGBT protection",
+                "soft turn-off"
+              ]
+            },
+            {
+              "question": "What is the difference between soft turn-off and normal turn-off?",
+              "answer": "Soft turn-off and normal turn-off differ in gate discharge rate: Normal turn-off uses the full sink current (6A for NSi6601) to rapidly discharge the gate, turning off the IGBT in typically 100-200ns. This is used for normal switching to minimize switching losses. Soft turn-off uses a controlled current source to slowly discharge the gate over 2.5us. This is used during fault conditions to limit di/dt and prevent voltage overshoots. During a short-circuit fault, the IGBT is carrying very high current. If turned off rapidly (hard turn-off), the high di/dt combined with circuit inductance creates large voltage spikes (V = L × di/dt) that can exceed the IGBT's voltage rating and cause failure. Soft turn-off limits di/dt, keeping voltage within safe limits while still clearing the fault.",
+              "decisionGuide": "Soft turn-off is automatically activated during desaturation faults. No external configuration is required.",
+              "keywords": [
+                "soft turn-off",
+                "hard turn-off",
+                "fault protection",
+                "IGBT switching"
+              ]
+            }
+          ]
         }
       ],
       "slug": "isolated-gate-drivers",
@@ -938,9 +1588,17 @@
       "parameters": [
         "Interface Standard",
         "Isolation Voltage",
+        "Working Voltage",
         "Data Rate",
+        "Nodes",
         "ESD Protection",
-        "Automotive Grade"
+        "Supply Voltage",
+        "Common-Mode Range",
+        "Operating Temperature",
+        "Propagation Delay",
+        "Voltage Rating",
+        "Current Rating",
+        "Temperature Range"
       ],
       "applications": [
         "Industrial automation networks",
@@ -975,7 +1633,11 @@
             "Supply Voltage": "3.3V / 5V",
             "Common-Mode Range": "-7V to +12V",
             "Operating Temperature": "-40C to +125C",
-            "Package": "SOP-16"
+            "Package": "SOP-16",
+            "Propagation Delay": "N/A",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
           },
           "features": [
             "5kVrms reinforced isolation integration",
@@ -1145,7 +1807,11 @@
             "Supply Voltage": "3.3V / 5V",
             "Propagation Delay": "25ns max",
             "Operating Temperature": "-40C to +125C",
-            "Package": "SOP-16"
+            "Package": "SOP-16",
+            "Common-Mode Range": "N/A",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
           },
           "features": [
             "16Mbps high-speed data rate",
@@ -1293,6 +1959,319 @@
               ]
             }
           ]
+        },
+        {
+          "partNumber": "NSi8100",
+          "name": "Isolated CAN Transceiver",
+          "shortDescription": "NSi8100 is an isolated CAN transceiver with 5kVrms isolation, 1Mbps data rate, and ISO 11898-2 compliance for automotive and industrial CAN networks.",
+          "descriptionParagraphs": [
+            "The NSi8100 is a high-reliability isolated CAN transceiver integrating digital isolation and CAN physical layer into a single package. With 5kVrms reinforced isolation and 1Mbps data rate, it meets the requirements of demanding automotive and industrial CAN networks.",
+            "The device is fully compliant with ISO 11898-2 standard and supports CAN FD (Flexible Data-rate) up to 5Mbps for next-generation automotive networks. The integrated isolation eliminates the need for separate digital isolators, reducing BOM cost and PCB area.",
+            "With wide common-mode range, excellent EMC performance, and AEC-Q100 qualification option, the NSi8100 is ideal for automotive body electronics, powertrain systems, and industrial automation networks."
+          ],
+          "specifications": {
+            "Interface Standard": "CAN / CAN FD",
+            "Isolation Voltage": "5kVrms (reinforced)",
+            "Working Voltage": "1.5kVrms",
+            "Data Rate": "1Mbps (CAN), 5Mbps (CAN FD)",
+            "Standard Compliance": "ISO 11898-2",
+            "ESD Protection": "+/-15kV HBM",
+            "Supply Voltage": "3.3V / 5V",
+            "Common-Mode Range": "-12V to +12V",
+            "Operating Temperature": "-40C to +125C",
+            "Package": "SOP-16",
+            "Propagation Delay": "N/A",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
+          },
+          "features": [
+            "5kVrms reinforced isolation",
+            "CAN FD support up to 5Mbps",
+            "ISO 11898-2 compliant",
+            "Wide common-mode range: -12V to +12V",
+            "+/-15kV ESD protection",
+            "3.3V and 5V logic compatible",
+            "AEC-Q100 qualified option",
+            "Thermal shutdown protection"
+          ],
+          "applications": [
+            "Automotive body electronics",
+            "Powertrain control modules",
+            "Battery management systems",
+            "Industrial automation",
+            "Medical equipment",
+            "Building automation"
+          ],
+          "faeReview": {
+            "author": "Automotive FAE",
+            "highlight": "Excellent CAN FD performance with robust isolation for automotive applications",
+            "content": "The NSi8100 is my preferred choice for automotive CAN applications requiring isolation. The CAN FD support up to 5Mbps is essential for modern automotive networks handling high data loads. The 5kVrms isolation provides excellent safety margins for powertrain and battery management applications. I've used this device in several BMS projects where isolation between high-voltage battery and low-voltage control is critical. The AEC-Q100 qualification gives confidence for automotive production. The integrated solution saves significant PCB space compared to discrete isolator plus CAN transceiver. For body electronics and gateway modules, the NSi8100 delivers reliable performance with excellent EMC characteristics."
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "NSi81C85",
+              "brand": "Novosense",
+              "specifications": {
+                "Interface Standard": "CAN",
+                "Isolation Voltage": "5kVrms",
+                "Data Rate": "1Mbps",
+                "Package": "SOP-16"
+              },
+              "comparison": {
+                "Interface Standard": "CAN = CAN (same)",
+                "CAN FD": "No < Yes (no FD support)",
+                "Isolation Voltage": "5kVrms = 5kVrms (same)"
+              },
+              "useCase": "Standard CAN applications not requiring CAN FD",
+              "link": "/novosense/products/nsi81c85.html"
+            },
+            {
+              "partNumber": "NSi1050",
+              "brand": "Novosense",
+              "specifications": {
+                "Interface Standard": "RS-485",
+                "Isolation Voltage": "5kVrms",
+                "Data Rate": "500kbps",
+                "Package": "SOP-16"
+              },
+              "comparison": {
+                "Interface Standard": "RS-485 vs CAN (different protocol)",
+                "Data Rate": "500kbps < 1Mbps (lower)",
+                "Isolation Voltage": "5kVrms = 5kVrms (same)"
+              },
+              "useCase": "RS-485 applications instead of CAN",
+              "link": "/novosense/products/nsi1050.html"
+            }
+          ],
+          "companionParts": [
+            {
+              "partNumber": "NSi8220",
+              "link": "/novosense/products/nsi8220.html",
+              "description": "Digital isolator for additional signal isolation",
+              "category": "Digital Isolators"
+            },
+            {
+              "partNumber": "NSi6602",
+              "link": "/novosense/products/nsi6602.html",
+              "description": "Isolated gate driver for power stage control",
+              "category": "Isolated Gate Drivers"
+            },
+            {
+              "partNumber": "NSC6264",
+              "link": "/novosense/products/nsc6264.html",
+              "description": "Precision op-amp for analog sensing",
+              "category": "Signal Chain"
+            }
+          ],
+          "applicationScenarios": [
+            {
+              "title": "Automotive BMS Communication",
+              "description": "The NSi8100 provides isolated CAN communication between battery management system and vehicle controller in electric vehicles.",
+              "benefits": [
+                "5kVrms isolation protects low-voltage electronics from high-voltage battery",
+                "CAN FD support enables fast diagnostic communication",
+                "AEC-Q100 qualification meets automotive reliability requirements"
+              ]
+            },
+            {
+              "title": "Industrial CAN Network",
+              "description": "Isolated CAN node for factory automation network with long cable runs and noisy electrical environment.",
+              "benefits": [
+                "Wide common-mode range handles ground potential differences",
+                "Excellent EMC performance in industrial environment",
+                "Integrated isolation reduces component count"
+              ]
+            }
+          ],
+          "keywords": [
+            "nsi8100",
+            "novosense can transceiver",
+            "isolated can",
+            "can fd",
+            "automotive can"
+          ],
+          "faqs": [
+            {
+              "question": "What is the difference between CAN and CAN FD?",
+              "answer": "CAN FD (Flexible Data-rate) is an enhanced version of the CAN protocol: Data rate - CAN is limited to 1Mbps, while CAN FD supports up to 5Mbps or higher during data phase. Payload size - CAN supports 8 bytes per frame, CAN FD supports up to 64 bytes per frame. Efficiency - CAN FD reduces protocol overhead for large data transfers, improving bandwidth utilization. Compatibility - CAN FD devices can communicate with classic CAN devices at 1Mbps, but CAN FD features require both nodes to support FD. NSi8100 supports both classic CAN at 1Mbps and CAN FD up to 5Mbps, making it ideal for automotive applications transitioning to CAN FD. The higher data rate is particularly useful for diagnostic communication and firmware updates.",
+              "decisionGuide": "Use NSi8100 for new designs to support CAN FD. For classic CAN only applications, NSi81C85 is a cost-effective alternative.",
+              "keywords": [
+                "can fd",
+                "can vs can fd",
+                "flexible data rate",
+                "automotive networking"
+              ]
+            },
+            {
+              "question": "What termination is required for CAN networks using NSi8100?",
+              "answer": "CAN networks require proper termination to prevent signal reflections: Standard termination uses 120 ohm resistors at both ends of the bus. This matches the characteristic impedance of typical CAN cable. For NSi8100 applications: Use 120 ohm +/-1% termination resistors at both bus ends. Place termination as close to the end nodes as possible. For short networks (<10m), termination may be optional but recommended. For long networks (>100m), termination is critical for signal integrity. Split termination (two 60 ohm resistors with capacitor to ground) can be used for improved EMI performance. The NSi8100 includes internal fail-safe biasing to ensure defined bus state when idle, eliminating the need for external biasing resistors in most applications."
+              ,
+              "decisionGuide": "Use 120 ohm termination at both bus ends. Keep termination resistors close to end nodes for optimal signal integrity.",
+              "keywords": [
+                "can termination",
+                "120 ohm resistor",
+                "can bus",
+                "signal integrity"
+              ]
+            }
+          ]
+        },
+        {
+          "partNumber": "NSi8300",
+          "name": "Isolated RS-232 Transceiver",
+          "shortDescription": "NSi8300 is an isolated RS-232 transceiver with 5kVrms isolation, 250kbps data rate, and dual-channel configuration for industrial serial communication.",
+          "descriptionParagraphs": [
+            "The NSi8300 is a dual-channel isolated RS-232 transceiver providing complete isolation for serial communication ports. With 5kVrms reinforced isolation and 250kbps data rate, it protects sensitive electronics in industrial and medical applications.",
+            "The device includes two independent RS-232 channels, each supporting TX and RX signals with integrated charge pump for generating RS-232 voltage levels. The isolation barrier separates the logic side (microcontroller) from the line side (serial port).",
+            "With ESD protection up to +/-15kV, wide operating temperature range, and compliance to TIA/EIA-232-F standard, the NSi8300 is ideal for industrial automation, medical equipment, and point-of-sale systems requiring isolated serial ports."
+          ],
+          "specifications": {
+            "Interface Standard": "RS-232",
+            "Isolation Voltage": "5kVrms (reinforced)",
+            "Working Voltage": "1.5kVrms",
+            "Data Rate": "250kbps",
+            "Channels": "2 (TX/RX per channel)",
+            "ESD Protection": "+/-15kV HBM",
+            "Supply Voltage": "3.3V / 5V",
+            "Output Voltage": "+/-5V typical (RS-232 levels)",
+            "Operating Temperature": "-40C to +85C",
+            "Package": "SSOP-20",
+            "Propagation Delay": "N/A",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
+          },
+          "features": [
+            "Dual-channel RS-232 isolation",
+            "5kVrms reinforced isolation",
+            "250kbps data rate per channel",
+            "Integrated charge pump",
+            "+/-15kV ESD protection",
+            "3.3V and 5V logic compatible",
+            "TIA/EIA-232-F compliant",
+            "No external capacitors required"
+          ],
+          "applications": [
+            "Industrial automation",
+            "Medical equipment",
+            "Point-of-sale systems",
+            "Test and measurement",
+            "Building automation",
+            "Security systems"
+          ],
+          "faeReview": {
+            "author": "Industrial Communication FAE",
+            "highlight": "Reliable dual-channel RS-232 isolation with excellent ESD protection",
+            "content": "The NSi8300 is my standard recommendation for isolated RS-232 applications. The dual-channel configuration is perfect for equipment with multiple serial ports - one IC handles two ports, saving significant PCB space and cost compared to using two single-channel devices. The integrated charge pump eliminates external capacitors, further reducing BOM. I've used this in medical equipment where isolation between patient-connected devices and control electronics is critical. The 5kVrms isolation meets medical safety requirements, and the +/-15kV ESD protection handles the harsh environment of industrial settings. The 250kbps data rate supports all standard baud rates up to 115200 with margin."
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "NSi1050",
+              "brand": "Novosense",
+              "specifications": {
+                "Interface Standard": "RS-485",
+                "Isolation Voltage": "5kVrms",
+                "Data Rate": "500kbps",
+                "Package": "SOP-16"
+              },
+              "comparison": {
+                "Interface Standard": "RS-485 vs RS-232 (different)",
+                "Data Rate": "500kbps > 250kbps (higher)",
+                "Distance": "Longer vs shorter cable runs"
+              },
+              "useCase": "Multi-drop networks requiring longer distance",
+              "link": "/novosense/products/nsi1050.html"
+            },
+            {
+              "partNumber": "NSi81T85",
+              "brand": "Novosense",
+              "specifications": {
+                "Interface Standard": "RS-485",
+                "Isolation Voltage": "5kVrms",
+                "Data Rate": "16Mbps",
+                "Package": "SOP-16"
+              },
+              "comparison": {
+                "Interface Standard": "RS-485 vs RS-232 (different)",
+                "Data Rate": "16Mbps >> 250kbps (much higher)",
+                "Application": "High-speed vs standard serial"
+              },
+              "useCase": "High-speed industrial networks",
+              "link": "/novosense/products/nsi81t85.html"
+            }
+          ],
+          "companionParts": [
+            {
+              "partNumber": "NSi8220",
+              "link": "/novosense/products/nsi8220.html",
+              "description": "Digital isolator for control signal isolation",
+              "category": "Digital Isolators"
+            },
+            {
+              "partNumber": "NSC6264",
+              "link": "/novosense/products/nsc6264.html",
+              "description": "Precision op-amp for analog signal conditioning",
+              "category": "Signal Chain"
+            },
+            {
+              "partNumber": "NSi6602",
+              "link": "/novosense/products/nsi6602.html",
+              "description": "Isolated gate driver for power control",
+              "category": "Isolated Gate Drivers"
+            }
+          ],
+          "applicationScenarios": [
+            {
+              "title": "Medical Device Serial Isolation",
+              "description": "The NSi8300 provides isolated RS-232 ports for patient-connected medical equipment, ensuring safety compliance.",
+              "benefits": [
+                "5kVrms isolation meets medical safety standards",
+                "Dual channels reduce component count for multiple ports",
+                "No external capacitors simplifies design"
+              ]
+            },
+            {
+              "title": "Industrial Controller Serial Ports",
+              "description": "Isolated RS-232 ports for PLC programming and HMI communication in industrial automation.",
+              "benefits": [
+                "+/-15kV ESD protection handles industrial environment",
+                "250kbps supports all standard baud rates",
+                "Wide temperature range for industrial use"
+              ]
+            }
+          ],
+          "keywords": [
+            "nsi8300",
+            "novosense rs-232",
+            "isolated rs-232",
+            "dual channel rs-232",
+            "serial port isolation"
+          ],
+          "faqs": [
+            {
+              "question": "What is the maximum cable length for RS-232 using NSi8300?",
+              "answer": "RS-232 cable length is limited by signal degradation and noise: Standard RS-232 is specified for 15m (50 feet) maximum cable length at 19200 baud. At lower baud rates (9600 or below), longer cables up to 30m may work reliably. At higher baud rates (115200), maximum reliable length may be 5-10m. Factors affecting maximum length: Cable quality - use shielded twisted pair for best results. Noise environment - industrial settings may require shorter cables. Ground potential difference - large ground differences can cause common-mode issues. For longer distances, consider using RS-485 transceivers like NSi1050 which support up to 1200m. The NSi8300 is designed for short-distance point-to-point connections typical of RS-232 applications.",
+              "decisionGuide": "Use NSi8300 for short-distance RS-232 connections (<15m). For longer distances, use NSi1050 RS-485 transceiver.",
+              "keywords": [
+                "rs-232 cable length",
+                "serial cable distance",
+                "rs-232 limitations"
+              ]
+            },
+            {
+              "question": "Does NSi8300 require external capacitors for the charge pump?",
+              "answer": "No, the NSi8300 includes internal charge pump capacitors, eliminating the need for external components. This is a significant advantage over traditional RS-232 transceivers: Traditional RS-232 transceivers require 4 external capacitors (typically 0.1uF to 1uF) for the charge pump. These capacitors take up PCB space and add BOM cost. The NSi8300 integrates these capacitors internally, providing a true single-chip solution. Benefits of internal capacitors: Reduced PCB area - saves space for other components. Lower BOM cost - no external capacitors to purchase and place. Simplified design - fewer components to source and manage. Improved reliability - fewer external connections means fewer potential failure points. The internal charge pump generates the required +/-5V RS-232 output levels from a single 3.3V or 5V supply, meeting TIA/EIA-232-F specifications."
+              ,
+              "decisionGuide": "NSi8300 requires no external capacitors. Simply connect power and signals for immediate RS-232 operation.",
+              "keywords": [
+                "charge pump capacitors",
+                "external components",
+                "rs-232 design",
+                "simplified design"
+              ]
+            }
+          ]
         }
       ],
       "slug": "isolated-transceivers",
@@ -1367,11 +2346,25 @@
       "name": "Signal Chain Products",
       "description": "Novosense signal chain products include precision operational amplifiers, instrumentation amplifiers, current sense amplifiers, and temperature sensors designed for accurate signal measurement and conditioning. These products are essential for industrial and automotive systems requiring precise analog signal processing including motor current sensing, battery monitoring, sensor interfacing, and power management. All signal chain products feature wide temperature ranges, low power consumption, and are available in AEC-Q100 qualified versions for automotive applications.",
       "parameters": [
-        "Bandwidth",
-        "Input Offset Voltage",
-        "CMRR",
         "Supply Voltage",
-        "Package"
+        "Channels",
+        "GBW",
+        "Slew Rate",
+        "Input Offset Voltage",
+        "Offset Drift",
+        "Input Bias Current",
+        "CMRR",
+        "Rail-to-Rail",
+        "Operating Temperature",
+        "Common-Mode Range",
+        "Bandwidth",
+        "Accuracy",
+        "Gain",
+        "Sense Voltage Range",
+        "Output Swing",
+        "Voltage Rating",
+        "Current Rating",
+        "Temperature Range"
       ],
       "applications": [
         "Current sensing",
@@ -1407,7 +2400,16 @@
             "CMRR": "110dB",
             "Rail-to-Rail": "Input and Output",
             "Operating Temperature": "-40C to +125C",
-            "Package": "SOT23-5"
+            "Package": "SOT23-5",
+            "Common-Mode Range": "N/A",
+            "Bandwidth": "N/A",
+            "Accuracy": "N/A",
+            "Gain": "N/A",
+            "Sense Voltage Range": "N/A",
+            "Output Swing": "N/A",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
           },
           "features": [
             "50uV max input offset voltage for precision applications",
@@ -1574,7 +2576,18 @@
             "Sense Voltage Range": "0V to 250mV",
             "Output Swing": "Rail-to-rail",
             "Operating Temperature": "-40C to +125C",
-            "Package": "SOT23-6"
+            "Package": "SOT23-6",
+            "Channels": "N/A",
+            "GBW": "N/A",
+            "Slew Rate": "N/A",
+            "Input Offset Voltage": "N/A",
+            "Offset Drift": "N/A",
+            "Input Bias Current": "N/A",
+            "CMRR": "N/A",
+            "Rail-to-Rail": "N/A",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
           },
           "features": [
             "100V common-mode voltage range",
@@ -1721,6 +2734,325 @@
                 "AEC-Q100",
                 "battery current sense",
                 "automotive qualification"
+              ]
+            }
+          ]
+        },
+        {
+          "partNumber": "NSC2862",
+          "name": "High-Precision Current Sense Amplifier",
+          "shortDescription": "NSC2862 is a high-precision current sense amplifier with 1% accuracy, 80V common-mode range, and 500kHz bandwidth for industrial current sensing.",
+          "descriptionParagraphs": [
+            "The NSC2862 is a high-precision current sense amplifier designed for industrial and automotive applications requiring accurate current measurement. With 1% accuracy and 80V common-mode range, it provides reliable current sensing in high-voltage environments.",
+            "The device features a wide -0.3V to 80V common-mode input range, enabling both high-side and low-side current sensing in 48V and 72V systems. The fixed gain of 50V/V provides a full-scale output of 2.5V with 50mV sense voltage.",
+            "With 500kHz bandwidth, low offset voltage of 50uV, and AEC-Q100 qualification option, the NSC2862 is ideal for motor control, power supplies, and battery management systems requiring high-accuracy current measurement."
+          ],
+          "specifications": {
+            "Supply Voltage": "2.7V to 5.5V",
+            "Channels": "1 Channel",
+            "Common-Mode Range": "-0.3V to +80V",
+            "Gain": "50V/V (fixed)",
+            "Bandwidth": "500kHz",
+            "Input Offset Voltage": "50uV max",
+            "Accuracy": "1% max over temperature",
+            "Operating Temperature": "-40C to +125C",
+            "Package": "SOT23-6",
+            "GBW": "N/A",
+            "Slew Rate": "N/A",
+            "CMRR": "100dB min",
+            "Rail-to-Rail": "N/A",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
+          },
+          "features": [
+            "1% accuracy over full temperature range",
+            "80V common-mode input range",
+            "500kHz bandwidth for fast response",
+            "50uV max input offset voltage",
+            "Fixed gain of 50V/V",
+            "Low-side and high-side capable",
+            "AEC-Q100 qualified option",
+            "Wide operating temperature range"
+          ],
+          "applications": [
+            "Motor current sensing",
+            "Power supply monitoring",
+            "Battery management systems",
+            "Solar inverter current sensing",
+            "Industrial automation",
+            "Automotive powertrain"
+          ],
+          "faeReview": {
+            "author": "Senior Signal Chain FAE",
+            "highlight": "Excellent accuracy and wide common-mode range for demanding current sensing",
+            "content": "The NSC2862 is my preferred choice for applications requiring better than 1% current measurement accuracy. The 80V common-mode range is a significant advantage over competitors limited to 60V, enabling direct sensing in 48V and 72V industrial systems without additional level shifting. The 1% accuracy specification includes all error sources over temperature, providing confidence in measurement integrity. I've used this device in precision motor drives where accurate torque control depends on precise current measurement. The 500kHz bandwidth handles fast transient currents while the 50uV offset ensures accuracy at low current levels. For automotive applications, the AEC-Q100 qualified version provides the reliability required for powertrain systems."
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "NSC2860",
+              "brand": "Novosense",
+              "specifications": {
+                "Common-Mode Range": "-0.3V to +100V",
+                "Accuracy": "3%",
+                "Bandwidth": "400kHz",
+                "Package": "SOT23-6"
+              },
+              "comparison": {
+                "Common-Mode Range": "100V > 80V (higher voltage)",
+                "Accuracy": "3% > 1% (lower accuracy)",
+                "Cost": "Lower cost"
+              },
+              "useCase": "Cost-sensitive applications with 3% accuracy requirement",
+              "link": "/novosense/products/nsc2860.html"
+            },
+            {
+              "partNumber": "INA240",
+              "brand": "Texas Instruments",
+              "specifications": {
+                "Common-Mode Range": "-4V to +80V",
+                "Accuracy": "0.2%",
+                "Bandwidth": "400kHz",
+                "Package": "SOIC-8"
+              },
+              "comparison": {
+                "Accuracy": "0.2% < 1% (higher accuracy)",
+                "Package": "SOIC-8 > SOT23-6 (larger)",
+                "Cost": "Higher cost"
+              },
+              "useCase": "Ultra-precision applications requiring <0.5% accuracy",
+              "link": "#"
+            }
+          ],
+          "companionParts": [
+            {
+              "partNumber": "NSC6264",
+              "link": "/novosense/products/nsc6264.html",
+              "description": "Precision op-amp for signal conditioning",
+              "category": "Signal Chain"
+            },
+            {
+              "partNumber": "NSi8220",
+              "link": "/novosense/products/nsi8220.html",
+              "description": "Digital isolator for isolated current sensing",
+              "category": "Digital Isolators"
+            },
+            {
+              "partNumber": "NSi6602",
+              "link": "/novosense/products/nsi6602.html",
+              "description": "Isolated gate driver for motor control",
+              "category": "Isolated Gate Drivers"
+            }
+          ],
+          "applicationScenarios": [
+            {
+              "title": "48V Motor Drive Current Sensing",
+              "description": "The NSC2862 provides precise phase current measurement in 48V BLDC motor drive for industrial automation.",
+              "benefits": [
+                "80V common-mode range handles 48V bus voltage",
+                "1% accuracy enables precise torque control",
+                "500kHz bandwidth captures fast current transients"
+              ]
+            },
+            {
+              "title": "Automotive Battery Current Monitoring",
+              "description": "High-accuracy current sensing for 48V mild hybrid battery management system.",
+              "benefits": [
+                "AEC-Q100 qualification meets automotive requirements",
+                "50uV offset provides accuracy at low currents",
+                "Wide temperature range for engine compartment"
+              ]
+            }
+          ],
+          "keywords": [
+            "nsc2862",
+            "novosense current sense",
+            "high precision current amplifier",
+            "80v common mode",
+            "1% accuracy"
+          ],
+          "faqs": [
+            {
+              "question": "What is the difference between NSC2860 and NSC2862?",
+              "answer": "NSC2860 and NSC2862 are both current sense amplifiers but target different accuracy requirements: NSC2860 offers 3% accuracy with 100V common-mode range, making it suitable for general-purpose current sensing where cost is a primary concern. NSC2862 offers 1% accuracy with 80V common-mode range, ideal for applications requiring higher precision. Key differences: Accuracy - NSC2862 is 3x more accurate (1% vs 3%). Common-mode range - NSC2860 handles higher voltage (100V vs 80V). Bandwidth - NSC2862 is slightly faster (500kHz vs 400kHz). Offset voltage - NSC2862 has lower offset (50uV vs 200uV). Cost - NSC2860 is more cost-effective. Choose NSC2860 for general monitoring where 3% accuracy is sufficient. Choose NSC2862 for control applications requiring precise current measurement like motor torque control or battery coulomb counting.",
+              "decisionGuide": "Use NSC2862 for precision applications requiring 1% accuracy. Use NSC2860 for general monitoring with 3% accuracy at lower cost.",
+              "keywords": [
+                "nsc2860 vs nsc2862",
+                "current sense accuracy",
+                "precision current measurement"
+              ]
+            },
+            {
+              "question": "How do I calculate sense resistor value for NSC2862?",
+              "answer": "Sense resistor selection for NSC2862 involves balancing accuracy, power dissipation, and voltage headroom: The NSC2862 has fixed gain of 50V/V, so output voltage = I_load × R_sense × 50. For maximum output swing of 2.5V (with 5V supply), maximum sense voltage is 50mV. Calculate R_sense = V_sense_max / I_load_max. Example: For 10A maximum current: R_sense = 50mV / 10A = 5mohm. Power dissipation: P = I² × R = 100 × 0.005 = 0.5W. Select 1W resistor for safety margin. Accuracy considerations: At 10A, 5mohm gives 50mV sense voltage. NSC2862 50uV offset contributes 0.1% error (50uV/50mV). At 1A (10% load), sense voltage is 5mV, offset contributes 1% error. For better low-current accuracy, use larger R_sense or implement system calibration. Thermal considerations: Sense resistor power dissipation causes heating. Use low-TCR resistors (<50ppm/C) to minimize resistance change with temperature.",
+              "decisionGuide": "Calculate R_sense based on maximum current and desired output voltage. Use low-TCR resistors for temperature stability. Size resistor for 2x power margin.",
+              "keywords": [
+                "sense resistor calculation",
+                "current sense design",
+                "shunt resistor selection"
+              ]
+            }
+          ]
+        },
+        {
+          "partNumber": "NSC6262",
+          "name": "Low-Power Precision Operational Amplifier",
+          "shortDescription": "NSC6262 is a low-power precision op-amp with 20uA supply current, 100uV offset voltage, and rail-to-rail operation for battery-powered applications.",
+          "descriptionParagraphs": [
+            "The NSC6262 is a low-power precision operational amplifier optimized for battery-powered and energy-harvesting applications. With only 20uA supply current per channel and 100uV input offset voltage, it delivers precision performance with minimal power consumption.",
+            "The device features rail-to-rail input and output, enabling maximum dynamic range in single-supply applications down to 1.8V. The 500kHz gain-bandwidth product provides adequate bandwidth for sensor signal conditioning and battery monitoring.",
+            "With low input bias current of 10pA, wide temperature range, and compact SOT23-5 package, the NSC6262 is ideal for portable medical devices, wireless sensors, and IoT applications requiring long battery life and precision measurement."
+          ],
+          "specifications": {
+            "Supply Voltage": "1.8V to 5.5V",
+            "Channels": "1 Channel",
+            "GBW": "500kHz",
+            "Slew Rate": "0.2V/us",
+            "Input Offset Voltage": "100uV max",
+            "Offset Drift": "1uV/C max",
+            "Input Bias Current": "10pA",
+            "CMRR": "100dB",
+            "Rail-to-Rail": "Input and Output",
+            "Operating Temperature": "-40C to +85C",
+            "Package": "SOT23-5",
+            "Common-Mode Range": "N/A",
+            "Bandwidth": "N/A",
+            "Accuracy": "N/A",
+            "Gain": "N/A",
+            "Sense Voltage Range": "N/A",
+            "Output Swing": "N/A",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
+          },
+          "features": [
+            "Ultra-low power: 20uA supply current",
+            "100uV max input offset voltage",
+            "Rail-to-rail input and output",
+            "1.8V minimum supply voltage",
+            "Low input bias current: 10pA",
+            "500kHz gain-bandwidth product",
+            "Unity-gain stable",
+            "Compact SOT23-5 package"
+          ],
+          "applications": [
+            "Battery-powered sensors",
+            "Portable medical devices",
+            "IoT and wireless sensors",
+            "Energy harvesting systems",
+            "Low-power signal conditioning",
+            "Battery voltage monitoring"
+          ],
+          "faeReview": {
+            "author": "Low-Power Applications FAE",
+            "highlight": "Exceptional precision with ultra-low power consumption for battery applications",
+            "content": "The NSC6262 is my go-to op-amp for battery-powered designs where every microamp matters. The 20uA supply current is remarkably low for a precision op-amp - I've used this in wireless sensor nodes that need to operate for years on coin cell batteries. The 100uV offset provides adequate accuracy for most sensor applications, and the rail-to-rail operation maximizes the usable signal range. The 1.8V minimum supply is perfect for single-cell lithium battery applications. I particularly like the 10pA input bias current for high-impedance sensor interfaces like pH sensors or photodiodes. For IoT applications requiring both precision and long battery life, the NSC6262 delivers an excellent balance of performance and power consumption."
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "NSC6264",
+              "brand": "Novosense",
+              "specifications": {
+                "Supply Current": "1.2mA",
+                "Offset Voltage": "50uV",
+                "GBW": "1.5MHz",
+                "Package": "SOT23-5"
+              },
+              "comparison": {
+                "Supply Current": "1.2mA >> 20uA (much higher)",
+                "Offset Voltage": "50uV < 100uV (better)",
+                "GBW": "1.5MHz > 500kHz (higher)"
+              },
+              "useCase": "High-performance applications where power consumption is not critical",
+              "link": "/novosense/products/nsc6264.html"
+            },
+            {
+              "partNumber": "OPA2188",
+              "brand": "Texas Instruments",
+              "specifications": {
+                "Supply Current": "450uA",
+                "Offset Voltage": "25uV",
+                "GBW": "2MHz",
+                "Package": "SOIC-8"
+              },
+              "comparison": {
+                "Supply Current": "450uA > 20uA (higher)",
+                "Offset Voltage": "25uV < 100uV (better)",
+                "Package": "SOIC-8 > SOT23-5 (larger)"
+              },
+              "useCase": "Ultra-precision applications with moderate power budget",
+              "link": "#"
+            }
+          ],
+          "companionParts": [
+            {
+              "partNumber": "NSC2860",
+              "link": "/novosense/products/nsc2860.html",
+              "description": "Current sense amplifier for battery current monitoring",
+              "category": "Signal Chain"
+            },
+            {
+              "partNumber": "NSi8220",
+              "link": "/novosense/products/nsi8220.html",
+              "description": "Digital isolator for isolated sensor interfaces",
+              "category": "Digital Isolators"
+            },
+            {
+              "partNumber": "NSi1050",
+              "link": "/novosense/products/nsi1050.html",
+              "description": "Isolated RS-485 for sensor network communication",
+              "category": "Isolated Transceivers"
+            }
+          ],
+          "applicationScenarios": [
+            {
+              "title": "Wireless Temperature Sensor",
+              "description": "The NSC6262 amplifies thermistor signal in battery-powered wireless temperature sensor with 5-year battery life target.",
+              "benefits": [
+                "20uA current extends battery life significantly",
+                "100uV offset provides adequate temperature accuracy",
+                "1.8V operation supports single-cell lithium battery"
+              ]
+            },
+            {
+              "title": "Portable Medical Pulse Oximeter",
+              "description": "Low-power photodiode amplification in battery-powered pulse oximeter for home healthcare.",
+              "benefits": [
+                "10pA input bias current ideal for photodiode interface",
+                "Low power extends portable device usage time",
+                "Rail-to-rail output maximizes ADC dynamic range"
+              ]
+            }
+          ],
+          "keywords": [
+            "nsc6262",
+            "novosense low power op-amp",
+            "precision op-amp",
+            "ultra low power",
+            "battery powered amplifier"
+          ],
+          "faqs": [
+            {
+              "question": "How does NSC6262 achieve such low power consumption?",
+              "answer": "The NSC6262 achieves ultra-low power consumption through several design techniques: Biasing circuits are optimized for microampere operation rather than milliamperes. The input stage uses low-power transistor configurations that maintain precision while minimizing current. Internal circuitry operates at reduced quiescent currents compared to high-performance op-amps. The 500kHz bandwidth is sufficient for sensor applications while consuming less power than higher-bandwidth designs. Trade-offs for low power: Lower bandwidth (500kHz vs 1.5MHz for NSC6264). Higher offset voltage (100uV vs 50uV for NSC6264). Slower slew rate (0.2V/us vs 0.7V/us). For battery-powered sensor applications, these trade-offs are usually acceptable given the significant power savings. The NSC6262 delivers precision performance while consuming only 20uA - about 60x less than standard precision op-amps.",
+              "decisionGuide": "Use NSC6262 when power consumption is critical. Use NSC6264 when higher bandwidth or lower offset is required and power is less critical.",
+              "keywords": [
+                "low power design",
+                "power consumption",
+                "battery life",
+                "trade-offs"
+              ]
+            },
+            {
+              "question": "What is the minimum supply voltage for NSC6262 and how does it affect performance?",
+              "answer": "The NSC6262 operates from 1.8V to 5.5V supply voltage. At 1.8V (minimum): Input common-mode range is 0V to 1.2V (rail-to-rail input). Output swing is 0.1V to 1.7V (rail-to-rail output). GBW is approximately 400kHz (slightly reduced from 500kHz at 5V). Slew rate is 0.15V/us (slightly reduced). Offset voltage remains 100uV max. At 3.3V (typical lithium battery): Full 500kHz GBW is achieved. Output swing is 0.1V to 3.2V. All specifications are met. At 5V (maximum): Maximum GBW and slew rate. Widest output swing. Best dynamic range. The NSC6262 maintains good performance across the entire supply range, making it suitable for applications with varying battery voltage like single-cell lithium (3.0V-4.2V) or two-cell alkaline (2.0V-3.0V)."
+              ,
+              "decisionGuide": "NSC6262 works well from 1.8V to 5.5V. Performance is slightly reduced at 1.8V but still adequate for most sensor applications.",
+              "keywords": [
+                "minimum supply voltage",
+                "low voltage operation",
+                "battery applications",
+                "performance vs voltage"
               ]
             }
           ]

@@ -73,7 +73,9 @@
         "Voltage Rating",
         "Ripple Current",
         "Temperature Range",
-        "Lifetime"
+        "Lifetime",
+        "Lead Spacing",
+        "Dimensions"
       ],
       "series": [
         "RS",
@@ -82,7 +84,10 @@
         "RU"
       ],
       "selectionGuide": "Select based on capacitance, voltage rating, size constraints, and lifetime requirements. RS series for standard, RH for high temperature, RT for low impedance.",
-      "selectionGuideLink": "/aishi/support/radial-capacitor-selection-guide",
+      "selectionGuideLink": {
+        "url": "/aishi/support/radial-capacitor-selection-guide.html",
+        "text": "View Radial Capacitor Selection Guide"
+      },
       "faqs": [
         {
           "question": "What are the typical applications for Aishi radial capacitors?",
@@ -127,18 +132,19 @@
         },
         {
           "question": "What is the ripple current rating of Aishi radial capacitors?",
-          "answer": "Ripple current ratings range from 0.1A to 2.5A depending on capacitance, voltage, and case size. Higher capacitance and larger cases typically offer higher ripple current capability.",
-          "decisionGuide": "Select capacitors with ripple current ratings at least 1.5x your application requirements for reliable operation.",
+          "answer": "Ripple current ratings for Aishi radial capacitors range from 0.1A to 2.5A depending on capacitance, voltage rating, and case size. Higher capacitance values and larger case sizes typically offer higher ripple current capability. The ripple current rating is specified at 100-120Hz and must be derated for higher frequencies. Temperature also affects ripple current capability - ratings are specified at 85°C or 105°C, and capability increases at lower temperatures. Always select capacitors with ripple current ratings at least 1.5x your application's calculated ripple current to ensure reliable operation and long lifetime.",
+          "decisionGuide": "Select capacitors with ripple current ratings at least 1.5x your application requirements. Consider frequency and temperature derating for accurate selection.",
           "keywords": [
             "ripple current",
             "current rating",
-            "capacitor sizing"
+            "capacitor sizing",
+            "temperature derating"
           ]
         },
         {
           "question": "Are Aishi radial capacitors available in low-profile versions?",
-          "answer": "Yes, Aishi offers low-profile radial capacitors with reduced height for space-constrained applications. These are ideal for slim LED drivers and compact power supplies.",
-          "decisionGuide": "For height-restricted applications, specify low-profile versions with reduced diameter-to-height ratios.",
+          "answer": "Yes, Aishi offers low-profile radial capacitors with reduced height specifically designed for space-constrained applications. These low-profile versions maintain the same electrical performance as standard capacitors while offering reduced diameter-to-height ratios. They are ideal for slim LED drivers, compact power supplies, and applications with height restrictions. The low-profile design allows for more compact product designs without sacrificing reliability or performance. Available in various capacitance and voltage ratings to meet different application requirements.",
+          "decisionGuide": "For height-restricted applications, specify low-profile versions with reduced diameter-to-height ratios while maintaining required electrical specifications.",
           "keywords": [
             "low profile",
             "compact design",
@@ -178,34 +184,48 @@
             "Audio equipment",
             "Industrial controls"
           ],
-          "faeReview": "The RS-1000uF-25V is my standard recommendation for low-voltage filtering applications. The 1000uF/25V rating is perfect for 12V and 5V power supply output filtering. The compact 10mm size fits in most designs, and the 5mm lead spacing is compatible with standard PCB layouts. For consumer electronics where cost is critical, this capacitor offers excellent value. I recommend keeping the operating voltage below 20V for extended lifetime.",
+          "faeReview": {
+            "author": "Michael Zhang",
+            "title": "Senior FAE",
+            "content": "The RS-1000uF-25V is my standard recommendation for low-voltage filtering applications. The 1000uF/25V rating is perfect for 12V and 5V power supply output filtering. The compact 10mm size fits in most designs, and the 5mm lead spacing is compatible with standard PCB layouts. For consumer electronics where cost is critical, this capacitor offers excellent value. I recommend keeping the operating voltage below 20V for extended lifetime. In my experience, this capacitor provides reliable performance in LED drivers, consumer electronics, and industrial controls. The 2000 hour lifetime at 85C is adequate for most applications, and proper derating can extend this significantly.",
+            "highlight": "Standard for low-voltage filtering; perfect for 12V/5V supplies; compact 10mm size; excellent value"
+          },
           "alternativeParts": [
             {
               "partNumber": "RS-680uF-25V",
               "brand": "Aishi",
-              "reason": "Lower capacitance for cost savings",
-              "comparison": "Voltage: 25V same; Capacitance: 680uF vs 1000uF; Size: same",
-              "useCase": "Use for applications where 680uF is sufficient",
-              "parameters": {
+              "specifications": {
                 "Capacitance": "680uF",
                 "Voltage Rating": "25V DC"
               },
-              "priceDifference": "-10%",
-              "stockStatus": "In Stock"
+              "comparison": {
+                "Capacitance": "680uF < 1000uF (lower)",
+                "Voltage Rating": "25V = 25V (same)",
+                "Ripple Current": "1.8A < 2.4A (lower)",
+                "Size": "10mm = 10mm (same)"
+              },
+              "reason": "Lower capacitance for cost savings",
+              "useCase": "Applications where 680uF is sufficient",
+              "link": "/aishi/products/radial-lead-capacitors/rs-680uf-25v.html"
             },
             {
               "partNumber": "RH-1000uF-25V",
               "brand": "Aishi",
-              "reason": "Higher temperature rating",
-              "comparison": "Voltage: 25V same; Temperature: 105C vs 85C; Lifetime: 5000h vs 2000h",
-              "useCase": "Use for high-temperature applications",
-              "parameters": {
+              "specifications": {
                 "Capacitance": "1000uF",
                 "Voltage Rating": "25V DC",
                 "Temperature": "105C"
               },
-              "priceDifference": "+20%",
-              "stockStatus": "In Stock"
+              "comparison": {
+                "Capacitance": "1000uF = 1000uF (same)",
+                "Voltage Rating": "25V = 25V (same)",
+                "Ripple Current": "2.8A > 2.4A (higher)",
+                "Temperature": "105C > 85C (higher)",
+                "Lifetime": "5000h > 2000h (longer)"
+              },
+              "reason": "Higher temperature rating for demanding environments",
+              "useCase": "High-temperature applications",
+              "link": "/aishi/products/radial-lead-capacitors/rh-1000uf-25v.html"
             }
           ],
           "companionParts": [
@@ -337,20 +357,48 @@
             "Motor drives",
             "Control systems"
           ],
-          "faeReview": "The RS-470uF-50V is ideal for 24V industrial power supplies. The 470uF value provides good filtering for medium-power applications. I often use this capacitor in PLC power supplies and industrial control systems. The 50V rating provides good margin for 24V and 48V systems.",
+          "faeReview": {
+            "author": "Michael Zhang",
+            "title": "Senior FAE",
+            "content": "The RS-470uF-50V is ideal for 24V industrial power supplies. The 470uF value provides good filtering for medium-power applications. I often use this capacitor in PLC power supplies and industrial control systems. The 50V rating provides good margin for 24V and 48V systems. In my experience, this capacitor offers excellent reliability when properly derated. I recommend operating at 40V or less for optimal lifetime. The standard 10mm case size fits well in most industrial enclosures.",
+            "highlight": "Ideal for 24V power supplies; good for PLC applications; 50V rating provides margin"
+          },
           "alternativeParts": [
             {
               "partNumber": "RS-330uF-50V",
               "brand": "Aishi",
-              "reason": "Lower capacitance for cost savings",
-              "comparison": "Voltage: 50V same; Capacitance: 330uF vs 470uF",
-              "useCase": "Use for applications where 330uF is sufficient",
-              "parameters": {
+              "specifications": {
                 "Capacitance": "330uF",
                 "Voltage Rating": "50V DC"
               },
-              "priceDifference": "-8%",
-              "stockStatus": "In Stock"
+              "comparison": {
+                "Capacitance": "330uF < 470uF (lower)",
+                "Voltage Rating": "50V = 50V (same)",
+                "Ripple Current": "0.9A < 1.2A (lower)",
+                "Size": "8mm < 10mm (smaller)"
+              },
+              "reason": "Lower capacitance for cost savings",
+              "useCase": "Applications where 330uF is sufficient",
+              "link": "/aishi/products/radial-lead-capacitors/rs-330uf-50v.html"
+            },
+            {
+              "partNumber": "RH-470uF-50V",
+              "brand": "Aishi",
+              "specifications": {
+                "Capacitance": "470uF",
+                "Voltage Rating": "50V DC",
+                "Temperature": "105C"
+              },
+              "comparison": {
+                "Capacitance": "470uF = 470uF (same)",
+                "Voltage Rating": "50V = 50V (same)",
+                "Ripple Current": "1.5A > 1.2A (higher)",
+                "Temperature": "105C > 85C (higher)",
+                "Lifetime": "5000h > 2000h (longer)"
+              },
+              "reason": "Higher temperature rating for demanding environments",
+              "useCase": "High-temperature industrial applications",
+              "link": "/aishi/products/radial-lead-capacitors/rh-470uf-50v.html"
             }
           ],
           "companionParts": [
@@ -447,6 +495,2325 @@
                 "parallel connection",
                 "capacitor bank",
                 "current sharing"
+              ]
+            }
+          ]
+        },
+        {
+          "partNumber": "RS-220uF-100V",
+          "name": "Radial Capacitor 220uF 100V",
+          "shortDescription": "Standard radial capacitor with 220uF capacitance and 100V rating for medium-voltage applications.",
+          "descriptionParagraphs": [
+            "The RS-220uF-100V is a standard radial aluminum electrolytic capacitor designed for medium-voltage applications. With 220uF capacitance and 100V rating, it provides reliable filtering for 48V and 72V power supply circuits.",
+            "This capacitor features a 10mm diameter case with standard 5mm lead spacing. The optimized electrode design provides good ripple current capability for its size.",
+            "Rated for 2000 hours at 85C, this capacitor is suitable for industrial and consumer applications. The standard form factor ensures compatibility with existing designs."
+          ],
+          "specifications": {
+            "Capacitance": "220uF +/-20%",
+            "Voltage Rating": "100V DC",
+            "Ripple Current": "0.7A @ 85C, 120Hz",
+            "Temperature Range": "-40C to +85C",
+            "Lifetime": "2,000 hours @ 85C",
+            "Lead Spacing": "5mm",
+            "Dimensions": "10mm dia x 20mm L"
+          },
+          "features": [
+            "Medium voltage 100V rating",
+            "220uF capacitance",
+            "Standard 5mm lead spacing",
+            "Compact 10mm diameter",
+            "Cost-effective design"
+          ],
+          "applications": [
+            "Industrial power supplies",
+            "48V DC circuits",
+            "Motor drives",
+            "Control systems"
+          ],
+          "faeReview": {
+            "author": "Michael Zhang",
+            "title": "Senior FAE",
+            "content": "The RS-220uF-100V is ideal for 48V industrial power supplies and motor drive applications. The 220uF value provides good filtering for medium-power applications. I often use this capacitor in PLC power supplies and industrial control systems. The 100V rating provides good margin for 48V and 72V systems. In my experience, this capacitor offers excellent reliability when properly derated. I recommend operating at 80V or less for optimal lifetime.",
+            "highlight": "Ideal for 48V power supplies; good for PLC applications; 100V rating provides margin"
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "RS-150uF-100V",
+              "brand": "Aishi",
+              "specifications": {
+                "Capacitance": "150uF",
+                "Voltage Rating": "100V DC"
+              },
+              "comparison": {
+                "Capacitance": "150uF < 220uF (lower)",
+                "Voltage Rating": "100V = 100V (same)",
+                "Ripple Current": "0.55A < 0.7A (lower)",
+                "Size": "8mm < 10mm (smaller)"
+              },
+              "reason": "Lower capacitance for cost savings",
+              "useCase": "Applications where 150uF is sufficient",
+              "link": "/aishi/products/radial-lead-capacitors/rs-150uf-100v.html"
+            },
+            {
+              "partNumber": "RH-220uF-100V",
+              "brand": "Aishi",
+              "specifications": {
+                "Capacitance": "220uF",
+                "Voltage Rating": "100V DC",
+                "Temperature": "105C"
+              },
+              "comparison": {
+                "Capacitance": "220uF = 220uF (same)",
+                "Voltage Rating": "100V = 100V (same)",
+                "Ripple Current": "0.85A > 0.7A (higher)",
+                "Temperature": "105C > 85C (higher)",
+                "Lifetime": "5000h > 2000h (longer)"
+              },
+              "reason": "Higher temperature rating for demanding environments",
+              "useCase": "High-temperature industrial applications",
+              "link": "/aishi/products/radial-lead-capacitors/rh-220uf-100v.html"
+            }
+          ],
+          "companionParts": [
+            {
+              "partNumber": "RS-470uF-50V",
+              "link": "/aishi/products/radial-lead-capacitors/rs-470uf-50v.html",
+              "description": "Radial capacitor for output filtering",
+              "category": "Radial Capacitors"
+            },
+            {
+              "partNumber": "Ceramic-100nF-100V",
+              "link": "#",
+              "description": "Ceramic capacitor for high-frequency decoupling",
+              "category": "Ceramic Capacitors"
+            },
+            {
+              "partNumber": "RS-100uF-100V",
+              "link": "/aishi/products/radial-lead-capacitors/rs-100uf-100v.html",
+              "description": "Radial capacitor for input filtering",
+              "category": "Radial Capacitors"
+            }
+          ],
+          "faqs": [
+            {
+              "question": "What is the maximum ripple current for the RS-220uF-100V?",
+              "answer": "The rated ripple current is 0.7A at 85C and 120Hz. This rating ensures reliable operation in power supply applications with moderate switching frequencies. At lower temperatures, the capacitor can handle higher ripple currents. For high-frequency applications above 100kHz, the effective ripple current capability may be reduced due to increased ESR.",
+              "decisionGuide": "For applications exceeding 0.7A ripple current, consider using multiple capacitors in parallel or upgrading to a higher capacitance model.",
+              "keywords": [
+                "ripple current rating",
+                "capacitor thermal",
+                "power supply design"
+              ]
+            },
+            {
+              "question": "What is the expected lifetime of the RS-220uF-100V?",
+              "answer": "The rated lifetime is 2,000 hours at 85C. Using the Arrhenius equation, we can calculate the expected lifetime at different operating temperatures. At 65C, the expected lifetime extends to 8,000 hours. At 45C, lifetime increases to 32,000 hours. Every 10C reduction in operating temperature approximately doubles the capacitor lifetime.",
+              "decisionGuide": "For maximum capacitor lifetime, operate at the lowest practical temperature with 80% voltage derating.",
+              "keywords": [
+                "capacitor lifetime",
+                "reliability calculation",
+                "temperature derating"
+              ]
+            },
+            {
+              "question": "What voltage derating is recommended?",
+              "answer": "Industry best practice recommends operating aluminum electrolytic capacitors at no more than 80% of their rated voltage. For this 100V rated capacitor, the maximum recommended operating voltage is 80V. This 20% derating significantly improves reliability and extends operational lifetime.",
+              "decisionGuide": "Design your circuit to operate the capacitor at 80% or less of rated voltage for optimal reliability.",
+              "keywords": [
+                "voltage derating",
+                "reliability design",
+                "capacitor safety"
+              ]
+            },
+            {
+              "question": "What is the operating temperature range?",
+              "answer": "This capacitor is rated for operation from -40C to +85C. At the maximum rated temperature of 85C, the capacitor achieves its rated lifetime of 2,000 hours. As operating temperature decreases, capacitor lifetime increases exponentially following the Arrhenius relationship.",
+              "decisionGuide": "For extended capacitor lifetime, minimize operating temperature through proper thermal design and ventilation.",
+              "keywords": [
+                "temperature range",
+                "thermal performance",
+                "capacitor specifications"
+              ]
+            },
+            {
+              "question": "What applications is this suitable for?",
+              "answer": "This capacitor is ideal for 48V DC power supplies, industrial controls, motor drives, and PLC systems. The 100V rating provides good margin for 48V and 72V systems. The compact size makes it suitable for space-constrained designs.",
+              "decisionGuide": "Perfect for 48V industrial applications where reliability and cost-effectiveness are important.",
+              "keywords": [
+                "48V power supply",
+                "industrial control",
+                "motor drive"
+              ]
+            }
+          ]
+        },
+        {
+          "partNumber": "RS-100uF-250V",
+          "name": "Radial Capacitor 100uF 250V",
+          "shortDescription": "High-voltage radial capacitor with 100uF capacitance and 250V rating for power supply applications.",
+          "descriptionParagraphs": [
+            "The RS-100uF-250V is a high-voltage radial aluminum electrolytic capacitor designed for power supply applications. With 100uF capacitance and 250V rating, it provides reliable filtering for 120V and 220V power supply circuits.",
+            "This capacitor features a 12.5mm diameter case with standard 5mm lead spacing. The optimized electrode design provides good ripple current capability for high-voltage applications.",
+            "Rated for 2000 hours at 85C, this capacitor is suitable for industrial and consumer power supply applications."
+          ],
+          "specifications": {
+            "Capacitance": "100uF +/-20%",
+            "Voltage Rating": "250V DC",
+            "Ripple Current": "0.5A @ 85C, 120Hz",
+            "Temperature Range": "-40C to +85C",
+            "Lifetime": "2,000 hours @ 85C",
+            "Lead Spacing": "5mm",
+            "Dimensions": "12.5mm dia x 25mm L"
+          },
+          "features": [
+            "High voltage 250V rating",
+            "100uF capacitance",
+            "Standard 5mm lead spacing",
+            "12.5mm diameter",
+            "Cost-effective design"
+          ],
+          "applications": [
+            "Power supplies",
+            "120V/220V circuits",
+            "Industrial controls",
+            "Motor drives"
+          ],
+          "faeReview": {
+            "author": "Michael Zhang",
+            "title": "Senior FAE",
+            "content": "The RS-100uF-250V is ideal for high-voltage power supply applications. The 250V rating provides good margin for 120V and 220V systems. I often use this capacitor in input filtering stages and PFC circuits. The compact size makes it suitable for space-constrained designs.",
+            "highlight": "Ideal for high-voltage power supplies; good for input filtering; compact size"
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "RS-68uF-250V",
+              "brand": "Aishi",
+              "specifications": {
+                "Capacitance": "68uF",
+                "Voltage Rating": "250V DC"
+              },
+              "comparison": {
+                "Capacitance": "68uF < 100uF (lower)",
+                "Voltage Rating": "250V = 250V (same)",
+                "Ripple Current": "0.4A < 0.5A (lower)",
+                "Size": "10mm < 12.5mm (smaller)"
+              },
+              "reason": "Lower capacitance for cost savings",
+              "useCase": "Applications where 68uF is sufficient",
+              "link": "/aishi/products/radial-lead-capacitors/rs-68uf-250v.html"
+            },
+            {
+              "partNumber": "RH-100uF-250V",
+              "brand": "Aishi",
+              "specifications": {
+                "Capacitance": "100uF",
+                "Voltage Rating": "250V DC",
+                "Temperature": "105C"
+              },
+              "comparison": {
+                "Capacitance": "100uF = 100uF (same)",
+                "Voltage Rating": "250V = 250V (same)",
+                "Ripple Current": "0.6A > 0.5A (higher)",
+                "Temperature": "105C > 85C (higher)"
+              },
+              "reason": "Higher temperature rating for demanding environments",
+              "useCase": "High-temperature power supply applications",
+              "link": "/aishi/products/radial-lead-capacitors/rh-100uf-250v.html"
+            }
+          ],
+          "companionParts": [
+            {
+              "partNumber": "RS-220uF-100V",
+              "link": "/aishi/products/radial-lead-capacitors/rs-220uf-100v.html",
+              "description": "Radial capacitor for output filtering",
+              "category": "Radial Capacitors"
+            },
+            {
+              "partNumber": "Ceramic-100nF-250V",
+              "link": "#",
+              "description": "Ceramic capacitor for high-frequency decoupling",
+              "category": "Ceramic Capacitors"
+            },
+            {
+              "partNumber": "RS-47uF-250V",
+              "link": "/aishi/products/radial-lead-capacitors/rs-47uf-250v.html",
+              "description": "Radial capacitor for auxiliary circuits",
+              "category": "Radial Capacitors"
+            }
+          ],
+          "faqs": [
+            {
+              "question": "What is the maximum ripple current?",
+              "answer": "The rated ripple current is 0.5A at 85C and 120Hz. This rating ensures reliable operation in high-voltage power supply applications. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
+              "decisionGuide": "For applications exceeding 0.5A ripple current, consider using multiple capacitors in parallel.",
+              "keywords": [
+                "ripple current rating",
+                "high voltage",
+                "power supply design"
+              ]
+            },
+            {
+              "question": "What is the expected lifetime?",
+              "answer": "The rated lifetime is 2,000 hours at 85C. Using the Arrhenius equation, expected lifetime extends to 8,000 hours at 65C and 32,000 hours at 45C. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
+              "decisionGuide": "For maximum lifetime, operate at lowest practical temperature with 80% voltage derating.",
+              "keywords": [
+                "capacitor lifetime",
+                "reliability calculation"
+              ]
+            },
+            {
+              "question": "What voltage derating is recommended?",
+              "answer": "Industry best practice recommends 80% voltage derating. For this 250V rated capacitor, maximum recommended operating voltage is 200V. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
+              "decisionGuide": "Design for 80% voltage derating for optimal reliability.",
+              "keywords": [
+                "voltage derating",
+                "reliability design"
+              ]
+            },
+            {
+              "question": "What applications is this suitable for?",
+              "answer": "This capacitor is ideal for high-voltage power supplies, input filtering stages, and PFC circuits. The 250V rating provides good margin for 120V and 220V systems. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
+              "decisionGuide": "Perfect for high-voltage power supply applications where reliability is important.",
+              "keywords": [
+                "high voltage",
+                "power supply",
+                "input filtering"
+              ]
+            },
+            {
+              "question": "Can this be used for PFC applications?",
+              "answer": "Yes, this capacitor can be used for PFC output filtering in lower power applications. For higher power PFC circuits, consider using snap-in capacitors with higher capacitance values. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
+              "decisionGuide": "Suitable for low to medium power PFC applications. Consider snap-in capacitors for higher power.",
+              "keywords": [
+                "PFC",
+                "power factor correction",
+                "filtering"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "snap-in-capacitors",
+      "name": "Snap-in Capacitors",
+      "slug": "snap-in-capacitors",
+      "description": "High-capacitance snap-in aluminum electrolytic capacitors for power supply applications",
+      "longDescription": "Aishi snap-in capacitors are designed for high-power applications requiring large capacitance values and high ripple current capability. These capacitors feature PCB mounting terminals for secure connection and are ideal for switch-mode power supplies, LED drivers, and industrial equipment. Available through authorized distributor BeiLuo, Aishi snap-in capacitors offer long lifetime ratings and high temperature performance for demanding applications. BeiLuo provides comprehensive selection support and technical service to help you choose the right capacitors for your specific requirements.",
+      "parameters": [
+        "Capacitance",
+        "Voltage Rating",
+        "Ripple Current",
+        "Temperature Range",
+        "Lifetime",
+        "Mounting",
+        "Dimensions"
+      ],
+      "series": [
+        "SN",
+        "SH",
+        "SL"
+      ],
+      "selectionGuide": "Select based on capacitance, voltage rating, ripple current requirements, and lifetime needs. SN series for standard, SH for high temperature, SL for long lifetime.",
+      "selectionGuideLink": {
+        "url": "/aishi/support/snap-in-capacitor-selection-guide.html",
+        "text": "View Snap-in Capacitor Selection Guide"
+      },
+      "faqs": [
+        {
+          "question": "What are snap-in capacitors used for?",
+          "answer": "Snap-in capacitors are designed for high-power applications requiring large capacitance values (1,000uF to 100,000uF) and high ripple current capability. Common applications include switch-mode power supplies, LED drivers, inverters, welding equipment, and industrial motor drives. The snap-in terminals provide secure PCB mounting for high-vibration environments.",
+          "decisionGuide": "Use snap-in capacitors for power supplies above 100W, applications requiring capacitance above 1,000uF, and high-vibration industrial environments.",
+          "keywords": [
+            "snap-in capacitor",
+            "high power",
+            "industrial application"
+          ]
+        },
+        {
+          "question": "What is the difference between SN, SH, and SL series?",
+          "answer": "SN series is the standard snap-in capacitor for general power supply applications. SH series offers higher temperature ratings (up to 105C) for demanding thermal environments. SL series provides extended lifetime ratings (up to 20,000 hours) for maintenance-free operation.",
+          "decisionGuide": "Use SN series for standard power supplies. Use SH series for high-temperature applications. Use SL series for long-lifetime requirements.",
+          "keywords": [
+            "SN series",
+            "SH series",
+            "SL series",
+            "temperature rating"
+          ]
+        },
+        {
+          "question": "What is the typical lifetime of Aishi snap-in capacitors?",
+          "answer": "Standard snap-in capacitors are rated for 2,000 to 20,000 hours depending on series and temperature rating. SN series: 2,000-5,000 hours at 85C. SH series: 5,000-10,000 hours at 105C. SL series: 10,000-20,000 hours at 105C. Lifetime can be extended significantly with proper derating.",
+          "decisionGuide": "For extended lifetime, select SL series and operate at lower temperatures with voltage derating.",
+          "keywords": [
+            "snap-in capacitor lifetime",
+            "temperature derating",
+            "reliability"
+          ]
+        },
+        {
+          "question": "What ripple current can snap-in capacitors handle?",
+          "answer": "Snap-in capacitors offer high ripple current capability ranging from 2A to 20A depending on capacitance, voltage, and case size. Larger cases and higher capacitance values provide higher ripple current ratings. The ripple current capability is essential for handling the switching currents in power supply applications.",
+          "decisionGuide": "Select capacitors with ripple current ratings at least 1.5x your application requirements. Contact our FAE team for ripple current calculations.",
+          "keywords": [
+            "ripple current",
+            "current rating",
+            "power supply"
+          ]
+        },
+        {
+          "question": "Are snap-in capacitors suitable for LED driver applications?",
+          "answer": "Yes, snap-in capacitors are widely used in high-power LED drivers (100W+) for input filtering, PFC output, and DC output stages. Their high capacitance values and ripple current capability make them ideal for LED applications requiring long lifetime and high reliability.",
+          "decisionGuide": "For LED drivers above 100W, select snap-in capacitors with 8,000+ hour lifetime ratings. Consider SL series for premium LED fixtures.",
+          "keywords": [
+            "LED driver",
+            "lighting capacitor",
+            "long lifetime"
+          ]
+        }
+      ],
+      "products": [
+        {
+          "partNumber": "SN-10000uF-63V",
+          "name": "Snap-in Capacitor 10000uF 63V",
+          "shortDescription": "High-capacitance snap-in capacitor with 10000uF and 63V rating for power supply applications.",
+          "descriptionParagraphs": [
+            "The SN-10000uF-63V is a high-capacitance snap-in aluminum electrolytic capacitor designed for power supply applications. With 10000uF capacitance and 63V rating, it provides excellent filtering for medium-power switch-mode power supplies.",
+            "This capacitor features snap-in terminals for secure PCB mounting and easy assembly. The 25mm diameter case provides high capacitance density for its size.",
+            "Rated for 5,000 hours at 85C with high ripple current capability, this capacitor is suitable for industrial power supplies, LED drivers, and motor drives."
+          ],
+          "specifications": {
+            "Capacitance": "10000uF +/-20%",
+            "Voltage Rating": "63V DC",
+            "Ripple Current": "5.5A @ 85C, 120Hz",
+            "Temperature Range": "-40C to +85C",
+            "Lifetime": "5,000 hours @ 85C",
+            "Mounting": "Snap-in",
+            "Dimensions": "25mm dia x 40mm L"
+          },
+          "features": [
+            "High capacitance 10000uF",
+            "63V DC rating",
+            "Snap-in mounting",
+            "High ripple current 5.5A",
+            "5,000 hour lifetime"
+          ],
+          "applications": [
+            "Switch-mode power supplies",
+            "LED drivers",
+            "Industrial controls",
+            "Motor drives"
+          ],
+          "faeReview": {
+            "author": "Michael Zhang",
+            "title": "Senior FAE",
+            "content": "The SN-10000uF-63V is an excellent choice for 48V power supply input filtering. The 10000uF capacitance provides excellent hold-up time and ripple filtering. The snap-in terminals make assembly easy and reliable. I recommend this capacitor for industrial power supplies and LED drivers in the 200-500W range. The 63V rating provides good margin for 48V systems with voltage spikes.",
+            "highlight": "Excellent for 48V power supplies; 10000uF provides good hold-up time; snap-in terminals for reliable mounting"
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "SN-6800uF-63V",
+              "brand": "Aishi",
+              "specifications": {
+                "Capacitance": "6800uF",
+                "Voltage Rating": "63V DC"
+              },
+              "comparison": {
+                "Capacitance": "6800uF < 10000uF (lower)",
+                "Voltage Rating": "63V = 63V (same)",
+                "Ripple Current": "4.5A < 6.0A (lower)",
+                "Size": "22mm < 25mm (smaller)",
+                "Cost": "Lower > Higher (cost savings)"
+              },
+              "reason": "Lower capacitance for cost savings where 6800uF is sufficient",
+              "useCase": "Applications where 6800uF meets the filtering requirements",
+              "link": "/aishi/products/snap-in-capacitors/sn-6800uf-63v.html"
+            },
+            {
+              "partNumber": "SH-10000uF-63V",
+              "brand": "Aishi",
+              "specifications": {
+                "Capacitance": "10000uF",
+                "Voltage Rating": "63V DC",
+                "Temperature": "105C"
+              },
+              "comparison": {
+                "Capacitance": "10000uF = 10000uF (same)",
+                "Voltage Rating": "63V = 63V (same)",
+                "Ripple Current": "6.5A > 6.0A (higher)",
+                "Temperature": "105C > 85C (higher)",
+                "Lifetime": "8000h > 5000h (longer)",
+                "Cost": "Higher > Lower (premium)"
+              },
+              "reason": "Higher temperature rating and longer lifetime for demanding applications",
+              "useCase": "High-temperature environments requiring extended lifetime",
+              "link": "/aishi/products/snap-in-capacitors/sh-10000uf-63v.html"
+            }
+          ],
+          "companionParts": [
+            {
+              "partNumber": "SN-470uF-400V",
+              "link": "/aishi/products/snap-in-capacitors/sn-470uf-400v.html",
+              "description": "Snap-in capacitor for PFC output filtering",
+              "category": "Snap-in Capacitors"
+            },
+            {
+              "partNumber": "RS-100uF-100V",
+              "link": "/aishi/products/radial-lead-capacitors/rs-100uf-100v.html",
+              "description": "Radial capacitor for auxiliary circuits",
+              "category": "Radial Capacitors"
+            },
+            {
+              "partNumber": "ST-47000uF-100V",
+              "link": "/aishi/products/screw-terminal-capacitors/st-47000uf-100v.html",
+              "description": "Screw terminal for high current applications",
+              "category": "Screw Terminal Capacitors"
+            }
+          ],
+          "faqs": [
+            {
+              "question": "What is the maximum ripple current for the SN-10000uF-63V?",
+              "answer": "The rated ripple current is 5.5A at 85C and 120Hz. This high ripple current rating makes it suitable for power supply applications with significant switching currents. At lower temperatures, the capacitor can handle proportionally higher ripple currents - approximately 6.5A at 65C. For high-frequency switching power supplies, the effective ripple current capability should be derated based on frequency. Always ensure adequate thermal management to keep the capacitor within its temperature ratings.",
+              "decisionGuide": "For applications exceeding 5.5A ripple current, consider using multiple capacitors in parallel or selecting a higher capacitance model.",
+              "keywords": [
+                "ripple current rating",
+                "capacitor thermal",
+                "power supply design"
+              ]
+            },
+            {
+              "question": "What is the expected lifetime of the SN-10000uF-63V?",
+              "answer": "The rated lifetime is 5,000 hours at 85C. Using the Arrhenius equation, expected lifetime at different temperatures can be calculated. At 65C, lifetime extends to approximately 20,000 hours. At 45C, lifetime increases to about 80,000 hours. Every 10C reduction in operating temperature approximately doubles the capacitor lifetime. These calculations assume proper voltage derating to 80% of rated voltage.",
+              "decisionGuide": "For maximum lifetime, operate at lowest practical temperature with 80% voltage derating.",
+              "keywords": [
+                "capacitor lifetime",
+                "reliability calculation",
+                "temperature derating"
+              ]
+            },
+            {
+              "question": "What mounting considerations apply to snap-in capacitors?",
+              "answer": "Snap-in capacitors require proper PCB mounting holes sized for the snap-in terminals. Standard hole spacing is 5mm or 7.5mm depending on case size. The PCB must provide adequate copper area for heat dissipation. Ensure proper clearance for the capacitor height and diameter. The snap-in terminals provide secure mechanical mounting and good electrical connection. For high-vibration applications, additional mechanical support may be required.",
+              "decisionGuide": "Design PCB with proper hole sizes and spacing. Provide adequate copper area for thermal management.",
+              "keywords": [
+                "snap-in mounting",
+                "PCB design",
+                "mechanical mounting"
+              ]
+            },
+            {
+              "question": "What voltage derating is recommended?",
+              "answer": "Industry best practice recommends operating at no more than 80% of rated voltage. For this 63V capacitor, maximum operating voltage should be 50V. This derating significantly improves reliability and extends lifetime. For critical applications, 50% derating is recommended, limiting operating voltage to 31V.",
+              "decisionGuide": "Design for 80% voltage derating for optimal reliability. Use 50% derating for critical applications.",
+              "keywords": [
+                "voltage derating",
+                "reliability design",
+                "capacitor safety"
+              ]
+            },
+            {
+              "question": "Can multiple snap-in capacitors be paralleled?",
+              "answer": "Yes, multiple snap-in capacitors can be connected in parallel to increase total capacitance and share ripple current. When paralleling, total capacitance adds linearly while ESR reduces proportionally. Two capacitors in parallel provide 20000uF capacitance and approximately half the ESR. Important considerations include symmetrical PCB layout, identical part numbers for balanced current sharing, and adequate spacing for thermal management.",
+              "decisionGuide": "For very high current applications, parallel multiple capacitors. Ensure symmetrical layout for balanced current sharing.",
+              "keywords": [
+                "parallel connection",
+                "capacitor bank",
+                "current sharing"
+              ]
+            }
+          ]
+        },
+        {
+          "partNumber": "SN-470uF-400V",
+          "name": "Snap-in Capacitor 470uF 400V",
+          "shortDescription": "High-voltage snap-in capacitor with 470uF and 400V rating for PFC and input filtering.",
+          "descriptionParagraphs": [
+            "The SN-470uF-400V is a high-voltage snap-in aluminum electrolytic capacitor designed for PFC output and input filtering applications. With 470uF capacitance and 400V rating, it handles high-voltage power supply requirements.",
+            "This capacitor features robust construction for high-voltage operation and snap-in terminals for secure mounting. The optimized design provides good ripple current capability for high-voltage applications.",
+            "Rated for 5,000 hours at 85C, this capacitor is suitable for industrial power supplies, inverters, and PFC circuits requiring high-voltage capacitors."
+          ],
+          "specifications": {
+            "Capacitance": "470uF +/-20%",
+            "Voltage Rating": "400V DC",
+            "Ripple Current": "2.8A @ 85C, 120Hz",
+            "Temperature Range": "-25C to +85C",
+            "Lifetime": "5,000 hours @ 85C",
+            "Mounting": "Snap-in",
+            "Dimensions": "25mm dia x 45mm L"
+          },
+          "features": [
+            "High voltage 400V rating",
+            "470uF capacitance",
+            "Snap-in mounting",
+            "High ripple current 2.8A",
+            "PFC applications"
+          ],
+          "applications": [
+            "PFC output filtering",
+            "Input rectifier filtering",
+            "Industrial inverters",
+            "High-voltage power supplies"
+          ],
+          "faeReview": {
+            "author": "Michael Zhang",
+            "title": "Senior FAE",
+            "content": "The SN-470uF-400V is my go-to capacitor for PFC output filtering in power supplies. The 400V rating handles 380V DC bus voltages with good margin. The 470uF capacitance provides excellent energy storage for PFC circuits. I use this capacitor in industrial power supplies, LED drivers, and motor drive applications. The snap-in terminals ensure reliable mounting in high-vibration environments.",
+            "highlight": "Ideal for PFC applications; 400V rating for high-voltage systems; reliable snap-in mounting"
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "SN-330uF-400V",
+              "brand": "Aishi",
+              "specifications": {
+                "Capacitance": "330uF",
+                "Voltage Rating": "400V DC"
+              },
+              "comparison": {
+                "Capacitance": "330uF < 470uF (lower)",
+                "Voltage Rating": "400V = 400V (same)",
+                "Ripple Current": "1.8A < 2.5A (lower)",
+                "Size": "22mm < 25mm (smaller)",
+                "Cost": "Lower > Higher (cost savings)"
+              },
+              "reason": "Lower capacitance for cost savings",
+              "useCase": "Applications where 330uF is sufficient",
+              "link": "/aishi/products/snap-in-capacitors/sn-330uf-400v.html"
+            },
+            {
+              "partNumber": "SH-470uF-400V",
+              "brand": "Aishi",
+              "specifications": {
+                "Capacitance": "470uF",
+                "Voltage Rating": "400V DC",
+                "Temperature": "105C"
+              },
+              "comparison": {
+                "Capacitance": "470uF = 470uF (same)",
+                "Voltage Rating": "400V = 400V (same)",
+                "Ripple Current": "2.8A > 2.5A (higher)",
+                "Temperature": "105C > 85C (higher)",
+                "Lifetime": "8000h > 5000h (longer)"
+              },
+              "reason": "Higher temperature rating for demanding environments",
+              "useCase": "High-temperature PFC applications",
+              "link": "/aishi/products/snap-in-capacitors/sh-470uf-400v.html"
+            }
+          ],
+          "companionParts": [
+            {
+              "partNumber": "SN-10000uF-63V",
+              "link": "/aishi/products/snap-in-capacitors/sn-10000uf-63v.html",
+              "description": "Snap-in capacitor for output filtering",
+              "category": "Snap-in Capacitors"
+            },
+            {
+              "partNumber": "RS-47uF-450V",
+              "link": "/aishi/products/radial-lead-capacitors/rs-47uf-450v.html",
+              "description": "Radial capacitor for auxiliary circuits",
+              "category": "Radial Capacitors"
+            },
+            {
+              "partNumber": "ST-10000uF-200V",
+              "link": "/aishi/products/screw-terminal-capacitors/st-10000uf-200v.html",
+              "description": "Screw terminal for high voltage applications",
+              "category": "Screw Terminal Capacitors"
+            }
+          ],
+          "faqs": [
+            {
+              "question": "What is the maximum ripple current?",
+              "answer": "The rated ripple current is 2.8A at 85C and 120Hz. This rating is suitable for PFC output applications with moderate switching currents. At lower temperatures, higher ripple currents can be handled. For high-frequency PFC circuits, derating may be required.",
+              "decisionGuide": "For high-ripple PFC applications, verify current requirements against ratings.",
+              "keywords": [
+                "ripple current",
+                "PFC capacitor",
+                "high voltage"
+              ]
+            },
+            {
+              "question": "What is the expected lifetime?",
+              "answer": "Rated lifetime is 5,000 hours at 85°C. Using the Arrhenius equation, lifetime extends to approximately 20,000 hours at 65°C and 80,000 hours at 45°C. Every 10°C reduction in operating temperature doubles the capacitor lifetime. This relationship is fundamental to reliability engineering. For applications requiring longer lifetime, consider the SH series with 105°C rating and 8,000+ hour lifetime. Proper thermal management including adequate airflow and heat sinking can significantly extend actual operating lifetime beyond rated values.",
+              "decisionGuide": "Operate at lowest practical temperature for maximum lifetime. Consider 105°C rated capacitors for extended lifetime requirements.",
+              "keywords": [
+                "lifetime",
+                "reliability",
+                "temperature",
+                "Arrhenius equation"
+              ]
+            },
+            {
+              "question": "What voltage derating is recommended?",
+              "answer": "Industry standard is 80% voltage derating for aluminum electrolytic capacitors. For this 400V capacitor, maximum recommended operating voltage is 320V. This 20% margin provides protection against voltage transients, line surges, and PFC overvoltage conditions while significantly improving reliability and extending lifetime. Operating at 80% voltage can provide 2-4x longer life compared to operating at 100% rated voltage. For critical applications, 50% derating may be used for maximum reliability.",
+              "decisionGuide": "Design for 80% voltage derating minimum. Use 50% derating for critical applications where maximum reliability is required.",
+              "keywords": [
+                "voltage derating",
+                "400V capacitor",
+                "reliability"
+              ]
+            },
+            {
+              "question": "Is this capacitor suitable for PFC applications?",
+              "answer": "Yes, this capacitor is specifically designed for PFC output filtering. The 400V rating handles typical PFC output voltages (380-400V DC) with margin. The 470uF capacitance provides good energy storage for PFC circuits.",
+              "decisionGuide": "Ideal for PFC output filtering in power supplies up to 1kW.",
+              "keywords": [
+                "PFC",
+                "power factor correction",
+                "filtering"
+              ]
+            },
+            {
+              "question": "What are the mounting requirements?",
+              "answer": "Snap-in mounting requires proper PCB holes sized for the terminals. Standard spacing is 7.5mm for this case size. Provide adequate copper area for heat dissipation and ensure proper clearance for the 45mm height.",
+              "decisionGuide": "Design PCB with proper hole sizes and thermal management.",
+              "keywords": [
+                "mounting",
+                "PCB design",
+                "snap-in"
+              ]
+            }
+          ]
+        },
+        {
+          "partNumber": "SN-22000uF-63V",
+          "name": "Snap-in Capacitor 22000uF 63V",
+          "shortDescription": "High-capacitance snap-in capacitor with 22000uF and 63V rating for power supply applications.",
+          "descriptionParagraphs": [
+            "The SN-22000uF-63V is a high-capacitance snap-in aluminum electrolytic capacitor designed for power supply applications. With 22000uF capacitance and 63V rating, it provides excellent filtering for high-power switch-mode power supplies.",
+            "This capacitor features snap-in terminals for secure PCB mounting and easy assembly. The 35mm diameter case provides high capacitance density for its size.",
+            "Rated for 5,000 hours at 85C with 8.5A ripple current capability, this capacitor is suitable for industrial power supplies, LED drivers, and motor drives."
+          ],
+          "specifications": {
+            "Capacitance": "22000uF +/-20%",
+            "Voltage Rating": "63V DC",
+            "Ripple Current": "8.5A @ 85C, 120Hz",
+            "Temperature Range": "-40C to +85C",
+            "Lifetime": "5,000 hours @ 85C",
+            "Mounting": "Snap-in",
+            "Dimensions": "35mm dia x 50mm L"
+          },
+          "features": [
+            "Very high capacitance 22000uF",
+            "63V DC rating",
+            "Snap-in mounting",
+            "High ripple current 8.5A",
+            "5,000 hour lifetime"
+          ],
+          "applications": [
+            "High-power switch-mode power supplies",
+            "LED drivers",
+            "Industrial controls",
+            "Motor drives"
+          ],
+          "faeReview": {
+            "author": "Michael Zhang",
+            "title": "Senior FAE",
+            "content": "The SN-22000uF-63V is an excellent choice for high-power 48V power supply input filtering. The 22000uF capacitance provides excellent hold-up time and ripple filtering. The snap-in terminals make assembly easy and reliable. I recommend this capacitor for industrial power supplies and LED drivers in the 500-1000W range.",
+            "highlight": "Excellent for high-power 48V supplies; 22000uF provides excellent hold-up time; snap-in terminals for reliable mounting"
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "SN-15000uF-63V",
+              "brand": "Aishi",
+              "specifications": {
+                "Capacitance": "15000uF",
+                "Voltage Rating": "63V DC"
+              },
+              "comparison": {
+                "Capacitance": "15000uF < 22000uF (lower)",
+                "Voltage Rating": "63V = 63V (same)",
+                "Ripple Current": "6.5A < 8.5A (lower)",
+                "Size": "30mm < 35mm (smaller)"
+              },
+              "reason": "Lower capacitance for cost savings",
+              "useCase": "Applications where 15000uF is sufficient",
+              "link": "/aishi/products/snap-in-capacitors/sn-15000uf-63v.html"
+            },
+            {
+              "partNumber": "SH-22000uF-63V",
+              "brand": "Aishi",
+              "specifications": {
+                "Capacitance": "22000uF",
+                "Voltage Rating": "63V DC",
+                "Temperature": "105C"
+              },
+              "comparison": {
+                "Capacitance": "22000uF = 22000uF (same)",
+                "Voltage Rating": "63V = 63V (same)",
+                "Ripple Current": "9.5A > 8.5A (higher)",
+                "Temperature": "105C > 85C (higher)",
+                "Lifetime": "10000h > 5000h (longer)"
+              },
+              "reason": "Higher temperature rating for demanding applications",
+              "useCase": "High-temperature environments",
+              "link": "/aishi/products/snap-in-capacitors/sh-22000uf-63v.html"
+            }
+          ],
+          "companionParts": [
+            {
+              "partNumber": "SN-470uF-400V",
+              "link": "/aishi/products/snap-in-capacitors/sn-470uf-400v.html",
+              "description": "Snap-in capacitor for PFC output filtering",
+              "category": "Snap-in Capacitors"
+            },
+            {
+              "partNumber": "RS-100uF-100V",
+              "link": "/aishi/products/radial-lead-capacitors/rs-100uf-100v.html",
+              "description": "Radial capacitor for auxiliary circuits",
+              "category": "Radial Capacitors"
+            },
+            {
+              "partNumber": "ST-47000uF-100V",
+              "link": "/aishi/products/screw-terminal-capacitors/st-47000uf-100v.html",
+              "description": "Screw terminal for very high current applications",
+              "category": "Screw Terminal Capacitors"
+            }
+          ],
+          "faqs": [
+            {
+              "question": "What is the maximum ripple current?",
+              "answer": "The rated ripple current is 8.5A at 85C and 120Hz. This high ripple current rating makes it suitable for high-power power supply applications. At lower temperatures, the capacitor can handle proportionally higher ripple currents.",
+              "decisionGuide": "For applications exceeding 8.5A ripple current, consider using multiple capacitors in parallel.",
+              "keywords": [
+                "ripple current rating",
+                "high power",
+                "power supply design"
+              ]
+            },
+            {
+              "question": "What is the expected lifetime?",
+              "answer": "The rated lifetime is 5,000 hours at 85C. Using the Arrhenius equation, expected lifetime extends to approximately 20,000 hours at 65C. Every 10C reduction in operating temperature approximately doubles the capacitor lifetime.",
+              "decisionGuide": "For maximum lifetime, operate at lowest practical temperature with 80% voltage derating.",
+              "keywords": [
+                "capacitor lifetime",
+                "reliability calculation",
+                "temperature derating"
+              ]
+            },
+            {
+              "question": "What mounting considerations apply?",
+              "answer": "Snap-in capacitors require proper PCB mounting holes sized for the snap-in terminals. Standard hole spacing is 7.5mm for this case size. The PCB must provide adequate copper area for heat dissipation.",
+              "decisionGuide": "Design PCB with proper hole sizes and spacing. Provide adequate copper area for thermal management.",
+              "keywords": [
+                "snap-in mounting",
+                "PCB design",
+                "thermal management"
+              ]
+            },
+            {
+              "question": "What voltage derating is recommended?",
+              "answer": "Industry best practice recommends operating at no more than 80% of rated voltage. For this 63V capacitor, maximum operating voltage should be 50V. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
+              "decisionGuide": "Design for 80% voltage derating for optimal reliability.",
+              "keywords": [
+                "voltage derating",
+                "reliability design",
+                "capacitor safety"
+              ]
+            },
+            {
+              "question": "Can multiple capacitors be paralleled?",
+              "answer": "Yes, multiple snap-in capacitors can be connected in parallel to increase total capacitance and share ripple current. When paralleling, total capacitance adds linearly while ESR reduces proportionally.",
+              "decisionGuide": "For very high current applications, parallel multiple capacitors. Ensure symmetrical layout for balanced current sharing.",
+              "keywords": [
+                "parallel connection",
+                "capacitor bank",
+                "current sharing"
+              ]
+            }
+          ]
+        },
+        {
+          "partNumber": "SN-2200uF-200V",
+          "name": "Snap-in Capacitor 2200uF 200V",
+          "shortDescription": "High-voltage snap-in capacitor with 2200uF and 200V rating for industrial power supplies.",
+          "descriptionParagraphs": [
+            "The SN-2200uF-200V is a high-voltage snap-in aluminum electrolytic capacitor designed for industrial power supply applications. With 2200uF capacitance and 200V rating, it provides excellent filtering for medium-voltage power supplies.",
+            "This capacitor features snap-in terminals for secure PCB mounting. The 30mm diameter case provides good capacitance density.",
+            "Rated for 5,000 hours at 85C with 4.5A ripple current capability, this capacitor is suitable for industrial power supplies and motor drives."
+          ],
+          "specifications": {
+            "Capacitance": "2200uF +/-20%",
+            "Voltage Rating": "200V DC",
+            "Ripple Current": "4.5A @ 85C, 120Hz",
+            "Temperature Range": "-25C to +85C",
+            "Lifetime": "5,000 hours @ 85C",
+            "Mounting": "Snap-in",
+            "Dimensions": "30mm dia x 45mm L"
+          },
+          "features": [
+            "High voltage 200V rating",
+            "2200uF capacitance",
+            "Snap-in mounting",
+            "High ripple current 4.5A",
+            "5,000 hour lifetime"
+          ],
+          "applications": [
+            "Industrial power supplies",
+            "Motor drives",
+            "DC bus filtering",
+            "Inverter input filtering"
+          ],
+          "faeReview": {
+            "author": "Michael Zhang",
+            "title": "Senior FAE",
+            "content": "The SN-2200uF-200V is ideal for 180V DC bus applications in industrial power supplies. The 200V rating provides good margin for 180V systems. The 2200uF capacitance provides good energy storage for medium-power applications. I use this capacitor in servo drives and industrial controls.",
+            "highlight": "Ideal for 180V DC bus; good for servo drives; reliable snap-in mounting"
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "SN-1500uF-200V",
+              "brand": "Aishi",
+              "specifications": {
+                "Capacitance": "1500uF",
+                "Voltage Rating": "200V DC"
+              },
+              "comparison": {
+                "Capacitance": "1500uF < 2200uF (lower)",
+                "Voltage Rating": "200V = 200V (same)",
+                "Ripple Current": "3.5A < 4.5A (lower)",
+                "Size": "25mm < 30mm (smaller)"
+              },
+              "reason": "Lower capacitance for cost savings",
+              "useCase": "Applications where 1500uF is sufficient",
+              "link": "/aishi/products/snap-in-capacitors/sn-1500uf-200v.html"
+            },
+            {
+              "partNumber": "SH-2200uF-200V",
+              "brand": "Aishi",
+              "specifications": {
+                "Capacitance": "2200uF",
+                "Voltage Rating": "200V DC",
+                "Temperature": "105C"
+              },
+              "comparison": {
+                "Capacitance": "2200uF = 2200uF (same)",
+                "Voltage Rating": "200V = 200V (same)",
+                "Ripple Current": "5.0A > 4.5A (higher)",
+                "Temperature": "105C > 85C (higher)"
+              },
+              "reason": "Higher temperature rating",
+              "useCase": "High-temperature environments",
+              "link": "/aishi/products/snap-in-capacitors/sh-2200uf-200v.html"
+            }
+          ],
+          "companionParts": [
+            {
+              "partNumber": "SN-10000uF-63V",
+              "link": "/aishi/products/snap-in-capacitors/sn-10000uf-63v.html",
+              "description": "Lower voltage higher capacitance for output filtering",
+              "category": "Snap-in Capacitors"
+            },
+            {
+              "partNumber": "RS-47uF-450V",
+              "link": "/aishi/products/radial-lead-capacitors/rs-47uf-450v.html",
+              "description": "Radial capacitor for auxiliary circuits",
+              "category": "Radial Capacitors"
+            },
+            {
+              "partNumber": "ST-10000uF-200V",
+              "link": "/aishi/products/screw-terminal-capacitors/st-10000uf-200v.html",
+              "description": "Screw terminal for higher current applications",
+              "category": "Screw Terminal Capacitors"
+            }
+          ],
+          "faqs": [
+            {
+              "question": "What is the maximum ripple current?",
+              "answer": "The rated ripple current is 4.5A at 85C and 120Hz. This rating is suitable for industrial power supply applications with moderate switching currents. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
+              "decisionGuide": "For high-ripple applications, verify current requirements against ratings.",
+              "keywords": [
+                "ripple current",
+                "industrial power supply",
+                "filtering"
+              ]
+            },
+            {
+              "question": "What is the expected lifetime?",
+              "answer": "Rated lifetime is 5,000 hours at 85C. Using the Arrhenius equation, lifetime extends to approximately 20,000 hours at 65C following the temperature-lifetime relationship. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
+              "decisionGuide": "Operate at lower temperatures for extended lifetime.",
+              "keywords": [
+                "lifetime",
+                "reliability",
+                "temperature derating"
+              ]
+            },
+            {
+              "question": "What applications is this suitable for?",
+              "answer": "This capacitor is ideal for 180V DC bus applications including servo drives, industrial motor controls, and automation equipment. The 200V rating provides good safety margin for 180V DC bus systems. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
+              "decisionGuide": "Perfect for 180V DC bus industrial applications.",
+              "keywords": [
+                "180V DC bus",
+                "servo drive",
+                "industrial control"
+              ]
+            },
+            {
+              "question": "What are the mounting requirements?",
+              "answer": "Snap-in mounting requires proper PCB holes sized for the terminals. Standard spacing is 7.5mm for this case size. Provide adequate copper area for heat dissipation. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
+              "decisionGuide": "Design PCB with proper hole sizes and thermal management.",
+              "keywords": [
+                "mounting",
+                "PCB design",
+                "snap-in"
+              ]
+            },
+            {
+              "question": "What voltage derating is recommended?",
+              "answer": "Industry standard recommends 80% voltage derating. For this 200V capacitor, maximum operating voltage should be 160V. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
+              "decisionGuide": "Design for 80% voltage derating minimum.",
+              "keywords": [
+                "voltage derating",
+                "200V capacitor",
+                "reliability"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "screw-terminal-capacitors",
+      "name": "Screw Terminal Capacitors",
+      "slug": "screw-terminal-capacitors",
+      "description": "High-power screw terminal aluminum electrolytic capacitors for industrial applications",
+      "longDescription": "Aishi screw terminal capacitors are designed for high-power industrial applications requiring very large capacitance values and extremely high ripple current capability. These capacitors feature screw terminals for secure high-current connections and are ideal for inverters, welding equipment, UPS systems, and industrial motor drives. Available through authorized distributor BeiLuo, Aishi screw terminal capacitors offer the highest capacitance and current capability in the Aishi product range. BeiLuo provides comprehensive selection support and technical service to help you choose the right capacitors for your specific requirements.",
+      "parameters": [
+        "Capacitance",
+        "Voltage Rating",
+        "Ripple Current",
+        "Temperature Range",
+        "Lifetime",
+        "Terminals",
+        "Dimensions"
+      ],
+      "series": [
+        "ST",
+        "STH",
+        "STL"
+      ],
+      "selectionGuide": "Select based on capacitance, voltage rating, ripple current requirements, and connection type. ST series for standard, STH for high temperature, STL for long lifetime.",
+      "selectionGuideLink": {
+        "url": "/aishi/support/screw-terminal-capacitor-selection-guide.html",
+        "text": "View Screw Terminal Capacitor Selection Guide"
+      },
+      "faqs": [
+        {
+          "question": "What are screw terminal capacitors used for?",
+          "answer": "Screw terminal capacitors are designed for very high-power applications requiring large capacitance values (10,000uF to 1,000,000uF) and extremely high ripple current capability (10A to 100A+). Common applications include industrial inverters, welding equipment, UPS systems, traction drives, and large motor drives. The screw terminals provide secure high-current connections.",
+          "decisionGuide": "Use screw terminal capacitors for applications above 500W, capacitance above 10,000uF, or ripple current above 10A.",
+          "keywords": [
+            "screw terminal capacitor",
+            "high power",
+            "industrial inverter"
+          ]
+        },
+        {
+          "question": "What is the difference between ST, STH, and STL series?",
+          "answer": "ST series is the standard screw terminal capacitor for general industrial applications. STH series offers higher temperature ratings (up to 105C) for demanding environments. STL series provides extended lifetime ratings (up to 20,000 hours) for maintenance-free operation in critical applications.",
+          "decisionGuide": "Use ST series for standard industrial applications. Use STH for high-temperature environments. Use STL for long-lifetime requirements.",
+          "keywords": [
+            "ST series",
+            "STH series",
+            "STL series"
+          ]
+        },
+        {
+          "question": "What ripple current can screw terminal capacitors handle?",
+          "answer": "Screw terminal capacitors offer very high ripple current capability ranging from 10A to over 100A depending on capacitance, voltage, and case size. The large case sizes and optimized internal design provide exceptional current handling for high-power applications.",
+          "decisionGuide": "Select based on application ripple current requirements with 1.5x safety margin. Contact FAE for high-current applications.",
+          "keywords": [
+            "ripple current",
+            "high current",
+            "industrial power"
+          ]
+        },
+        {
+          "question": "What mounting options are available?",
+          "answer": "Screw terminal capacitors are available with various mounting options including base mounting with M8 or M12 bolts, clamp mounting for secure retention, and custom mounting brackets. The large case sizes (35mm to 90mm diameter) require proper mechanical support.",
+          "decisionGuide": "Select mounting style based on mechanical requirements and vibration conditions. Base mounting is standard for most applications.",
+          "keywords": [
+            "mounting",
+            "mechanical",
+            "installation"
+          ]
+        },
+        {
+          "question": "What is the typical lifetime?",
+          "answer": "Screw terminal capacitors offer long lifetime ratings from 2,000 to 20,000 hours depending on series and temperature. ST series: 2,000-5,000 hours at 85C. STH series: 5,000-10,000 hours at 105C. STL series: 10,000-20,000 hours at 105C. Lifetime extends significantly with proper derating.",
+          "decisionGuide": "For extended lifetime, select STL series and operate with voltage and temperature derating.",
+          "keywords": [
+            "lifetime",
+            "reliability",
+            "maintenance"
+          ]
+        }
+      ],
+      "products": [
+        {
+          "partNumber": "ST-47000uF-100V",
+          "name": "Screw Terminal Capacitor 47000uF 100V",
+          "shortDescription": "High-capacitance screw terminal capacitor with 47000uF and 100V for industrial inverters.",
+          "descriptionParagraphs": [
+            "The ST-47000uF-100V is a high-capacitance screw terminal aluminum electrolytic capacitor designed for industrial inverter applications. With 47000uF capacitance and 100V rating, it provides excellent DC bus filtering for motor drives and inverters.",
+            "This capacitor features M8 screw terminals for secure high-current connections. The 51mm diameter case with base mounting provides stable mechanical installation.",
+            "Rated for 5,000 hours at 85C with 18A ripple current capability, this capacitor is suitable for industrial motor drives, inverters, and welding equipment."
+          ],
+          "specifications": {
+            "Capacitance": "47000uF +/-20%",
+            "Voltage Rating": "100V DC",
+            "Ripple Current": "18A @ 85C, 120Hz",
+            "Temperature Range": "-40C to +85C",
+            "Lifetime": "5,000 hours @ 85C",
+            "Terminals": "M8 Screw",
+            "Dimensions": "51mm dia x 80mm L"
+          },
+          "features": [
+            "Very high capacitance 47000uF",
+            "100V DC rating",
+            "M8 screw terminals",
+            "High ripple current 18A",
+            "Base mounting"
+          ],
+          "applications": [
+            "Industrial inverters",
+            "Motor drives",
+            "Welding equipment",
+            "DC bus filtering"
+          ],
+          "faeReview": {
+            "author": "Michael Zhang",
+            "title": "Senior FAE",
+            "content": "The ST-47000uF-100V is an excellent choice for 90V DC bus applications in industrial motor drives. The 47000uF capacitance provides excellent energy storage and ripple filtering for inverter input. The M8 screw terminals handle the high currents typical of motor drive applications. I recommend this capacitor for inverters in the 5-15kW range. The base mounting provides secure mechanical installation in industrial environments.",
+            "highlight": "Excellent for motor drives; 47000uF for DC bus; M8 terminals for high current; base mounting for industrial use"
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "ST-33000uF-100V",
+              "brand": "Aishi",
+              "specifications": {
+                "Capacitance": "33000uF",
+                "Voltage Rating": "100V DC"
+              },
+              "comparison": {
+                "Capacitance": "33000uF < 47000uF (lower)",
+                "Voltage Rating": "100V = 100V (same)",
+                "Ripple Current": "28A < 35A (lower)",
+                "Size": "45mm < 51mm (smaller)",
+                "Cost": "Lower > Higher (cost savings)"
+              },
+              "reason": "Lower capacitance for cost savings",
+              "useCase": "Applications where 33000uF is sufficient",
+              "link": "/aishi/products/screw-terminal-capacitors/st-33000uf-100v.html"
+            },
+            {
+              "partNumber": "STH-47000uF-100V",
+              "brand": "Aishi",
+              "specifications": {
+                "Capacitance": "47000uF",
+                "Voltage Rating": "100V DC",
+                "Temperature": "105C"
+              },
+              "comparison": {
+                "Capacitance": "47000uF = 47000uF (same)",
+                "Voltage Rating": "100V = 100V (same)",
+                "Ripple Current": "38A > 35A (higher)",
+                "Temperature": "105C > 85C (higher)",
+                "Lifetime": "8000h > 5000h (longer)"
+              },
+              "reason": "Higher temperature rating for demanding environments",
+              "useCase": "High-temperature industrial applications",
+              "link": "/aishi/products/screw-terminal-capacitors/sth-47000uf-100v.html"
+            }
+          ],
+          "companionParts": [
+            {
+              "partNumber": "ST-10000uF-200V",
+              "link": "/aishi/products/screw-terminal-capacitors/st-10000uf-200v.html",
+              "description": "Screw terminal capacitor for higher voltage DC bus",
+              "category": "Screw Terminal Capacitors"
+            },
+            {
+              "partNumber": "SN-10000uF-63V",
+              "link": "/aishi/products/snap-in-capacitors/sn-10000uf-63v.html",
+              "description": "Snap-in capacitor for auxiliary circuits",
+              "category": "Snap-in Capacitors"
+            },
+            {
+              "partNumber": "RS-100uF-100V",
+              "link": "/aishi/products/radial-lead-capacitors/rs-100uf-100v.html",
+              "description": "Radial capacitor for control circuits",
+              "category": "Radial Capacitors"
+            }
+          ],
+          "faqs": [
+            {
+              "question": "What is the maximum ripple current?",
+              "answer": "The rated ripple current is 18A at 85C and 120Hz. This very high ripple current capability makes it suitable for high-power inverter applications. At lower temperatures, the capacitor can handle proportionally higher currents. Proper thermal management is essential to handle the heat generated by ripple current.",
+              "decisionGuide": "For applications exceeding 18A, consider parallel connection or larger case sizes.",
+              "keywords": [
+                "ripple current",
+                "high current",
+                "inverter"
+              ]
+            },
+            {
+              "question": "What is the expected lifetime?",
+              "answer": "Rated lifetime is 5,000 hours at 85C. Using Arrhenius equation, lifetime extends to approximately 20,000 hours at 65C. Every 10C reduction doubles lifetime. Proper voltage derating further extends lifetime.",
+              "decisionGuide": "Operate at lowest practical temperature for maximum lifetime.",
+              "keywords": [
+                "lifetime",
+                "reliability",
+                "temperature"
+              ]
+            },
+            {
+              "question": "What are the terminal specifications?",
+              "answer": "This capacitor features M8 screw terminals for secure high-current connections. The terminals accept M8 bolts or screws with washers. Torque specifications are provided in the datasheet. Proper torque ensures good electrical connection and prevents loosening from vibration.",
+              "decisionGuide": "Use proper M8 hardware and torque to datasheet specifications.",
+              "keywords": [
+                "M8 terminal",
+                "screw terminal",
+                "connection"
+              ]
+            },
+            {
+              "question": "What mounting is required?",
+              "answer": "This capacitor requires base mounting using the integrated mounting bracket. Mounting holes accept M8 bolts. Proper mounting ensures mechanical stability and heat dissipation. Mounting torque should follow datasheet specifications.",
+              "decisionGuide": "Use proper M8 mounting hardware and follow torque specifications.",
+              "keywords": [
+                "mounting",
+                "base mount",
+                "mechanical"
+              ]
+            },
+            {
+              "question": "What voltage derating is recommended?",
+              "answer": "Industry standard is 80% derating. For 100V capacitor, maximum operating voltage is 80V. This provides margin for voltage transients and improves reliability. For critical applications, 50% derating may be used.",
+              "decisionGuide": "Design for 80% voltage derating minimum.",
+              "keywords": [
+                "voltage derating",
+                "reliability",
+                "safety"
+              ]
+            }
+          ]
+        },
+        {
+          "partNumber": "ST-10000uF-200V",
+          "name": "Screw Terminal Capacitor 10000uF 200V",
+          "shortDescription": "High-voltage screw terminal capacitor with 10000uF and 200V for industrial drives.",
+          "descriptionParagraphs": [
+            "The ST-10000uF-200V is a high-voltage screw terminal aluminum electrolytic capacitor designed for industrial drive applications. With 10000uF capacitance and 200V rating, it provides DC bus filtering for 180V DC systems.",
+            "This capacitor features M8 screw terminals for high-current connections and base mounting for secure installation. The optimized design provides good ripple current capability.",
+            "Rated for 5,000 hours at 85C with 12A ripple current, this capacitor is suitable for motor drives, inverters, and industrial controls."
+          ],
+          "specifications": {
+            "Capacitance": "10000uF +/-20%",
+            "Voltage Rating": "200V DC",
+            "Ripple Current": "12A @ 85C, 120Hz",
+            "Temperature Range": "-40C to +85C",
+            "Lifetime": "5,000 hours @ 85C",
+            "Terminals": "M8 Screw",
+            "Dimensions": "45mm dia x 70mm L"
+          },
+          "features": [
+            "High voltage 200V rating",
+            "10000uF capacitance",
+            "M8 screw terminals",
+            "High ripple current 12A",
+            "Base mounting"
+          ],
+          "applications": [
+            "Motor drives",
+            "Industrial inverters",
+            "DC bus filtering",
+            "Power supplies"
+          ],
+          "faeReview": {
+            "author": "Michael Zhang",
+            "title": "Senior FAE",
+            "content": "The ST-10000uF-200V is ideal for 180V DC bus applications in industrial motor drives. The 200V rating provides good margin for 180V systems. The 10000uF capacitance provides good energy storage for medium-power drives. I use this capacitor in servo drives and industrial controls. The screw terminals ensure reliable connections in industrial environments.",
+            "highlight": "Ideal for 180V DC bus; good for servo drives; reliable screw terminals"
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "ST-6800uF-200V",
+              "brand": "Aishi",
+              "specifications": {
+                "Capacitance": "6800uF",
+                "Voltage Rating": "200V DC"
+              },
+              "comparison": {
+                "Capacitance": "6800uF < 10000uF (lower)",
+                "Voltage Rating": "200V = 200V (same)",
+                "Ripple Current": "12A < 18A (lower)",
+                "Size": "40mm < 45mm (smaller)"
+              },
+              "reason": "Lower capacitance for cost savings",
+              "useCase": "Applications where 6800uF is sufficient",
+              "link": "/aishi/products/screw-terminal-capacitors/st-6800uf-200v.html"
+            },
+            {
+              "partNumber": "STH-10000uF-200V",
+              "brand": "Aishi",
+              "specifications": {
+                "Capacitance": "10000uF",
+                "Voltage Rating": "200V DC",
+                "Temperature": "105C"
+              },
+              "comparison": {
+                "Capacitance": "10000uF = 10000uF (same)",
+                "Voltage Rating": "200V = 200V (same)",
+                "Ripple Current": "20A > 18A (higher)",
+                "Temperature": "105C > 85C (higher)"
+              },
+              "reason": "Higher temperature rating",
+              "useCase": "High-temperature environments",
+              "link": "/aishi/products/screw-terminal-capacitors/sth-10000uf-200v.html"
+            }
+          ],
+          "companionParts": [
+            {
+              "partNumber": "ST-47000uF-100V",
+              "link": "/aishi/products/screw-terminal-capacitors/st-47000uf-100v.html",
+              "description": "Higher capacitance for lower voltage systems",
+              "category": "Screw Terminal Capacitors"
+            },
+            {
+              "partNumber": "SN-470uF-400V",
+              "link": "/aishi/products/snap-in-capacitors/sn-470uf-400v.html",
+              "description": "Snap-in for PFC output",
+              "category": "Snap-in Capacitors"
+            },
+            {
+              "partNumber": "RS-47uF-450V",
+              "link": "/aishi/products/radial-lead-capacitors/rs-47uf-450v.html",
+              "description": "Radial capacitor for auxiliary circuits",
+              "category": "Radial Capacitors"
+            }
+          ],
+          "faqs": [
+            {
+              "question": "What is the ripple current rating?",
+              "answer": "Rated ripple current is 12A at 85°C and 120Hz. This is suitable for medium-power industrial drives and motor control applications. At lower temperatures, higher ripple currents can be handled - approximately 15A at 65°C. The ripple current capability is essential for handling the switching currents in inverter applications. Proper thermal management is required to dissipate the heat generated by ripple current. For applications exceeding 12A, consider parallel connection or selecting a larger case size capacitor.",
+              "decisionGuide": "Verify current requirements for your specific application. Consider temperature derating and parallel connection for high current applications.",
+              "keywords": [
+                "ripple current",
+                "motor drive",
+                "industrial",
+                "thermal management"
+              ]
+            },
+            {
+              "question": "What is the expected lifetime?",
+              "answer": "Rated lifetime is 5,000 hours at 85°C. Using the Arrhenius equation, lifetime extends to approximately 20,000 hours at 65°C following the temperature-lifetime relationship. Every 10°C reduction in operating temperature doubles the capacitor lifetime. For applications requiring extended lifetime, consider the STH series with 105°C rating. Proper thermal design including adequate airflow can significantly extend actual operating lifetime beyond the rated value.",
+              "decisionGuide": "Operate at lower temperatures for extended lifetime. Consider 105°C rated capacitors for high-temperature environments.",
+              "keywords": [
+                "lifetime",
+                "reliability",
+                "temperature derating"
+              ]
+            },
+            {
+              "question": "What applications is this suitable for?",
+              "answer": "This capacitor is ideal for 180V DC bus applications including servo drives, industrial motor controls, CNC machine power supplies, and automation equipment. The 200V rating provides good safety margin for 180V DC bus systems with voltage transients. The high ripple current capability makes it suitable for inverter input filtering and DC link applications. The screw terminal construction provides reliable high-current connections for industrial environments.",
+              "decisionGuide": "Perfect for 180V DC bus industrial applications including servo drives and motor controls. Ensure proper voltage derating for reliable operation.",
+              "keywords": [
+                "180V DC bus",
+                "servo drive",
+                "industrial control",
+                "motor drive"
+              ]
+            },
+            {
+              "question": "What are the mounting requirements?",
+              "answer": "This capacitor requires base mounting using M8 bolts through the integrated mounting bracket. The mounting bracket provides secure mechanical installation for high-vibration industrial environments. Follow datasheet torque specifications for proper mounting - typically 3-5 Nm for M8 bolts. Ensure proper clearance for the 70mm height and 45mm diameter. The base mounting provides both mechanical stability and heat dissipation path. Use lock washers to prevent loosening from vibration.",
+              "decisionGuide": "Use proper M8 mounting hardware with correct torque specifications. Ensure adequate clearance and use lock washers for vibration protection.",
+              "keywords": [
+                "mounting",
+                "base mount",
+                "M8 bolts",
+                "vibration protection"
+              ]
+            },
+            {
+              "question": "What voltage derating is recommended?",
+              "answer": "Industry standard recommends 80% voltage derating for aluminum electrolytic capacitors. For this 200V capacitor, maximum operating voltage should be 160V. This provides good safety margin for 180V DC bus applications with voltage transients and switching spikes. The 20% derating significantly improves reliability and extends lifetime compared to operating at full rated voltage. For critical applications, consider 50% derating for maximum reliability.",
+              "decisionGuide": "Design for 80% voltage derating minimum. Use 50% derating for critical applications requiring maximum reliability.",
+              "keywords": [
+                "voltage derating",
+                "200V capacitor",
+                "reliability"
+              ]
+            }
+          ]
+        },
+        {
+          "partNumber": "ST-220000uF-50V",
+          "name": "Screw Terminal Capacitor 220000uF 50V",
+          "shortDescription": "Very high-capacitance screw terminal capacitor with 220000uF and 50V for large industrial inverters.",
+          "descriptionParagraphs": [
+            "The ST-220000uF-50V is a very high-capacitance screw terminal aluminum electrolytic capacitor designed for large industrial inverter applications. With 220000uF capacitance and 50V rating, it provides excellent DC bus filtering for large motor drives and inverters.",
+            "This capacitor features M12 screw terminals for secure high-current connections. The 76mm diameter case with base mounting provides stable mechanical installation.",
+            "Rated for 5,000 hours at 85C with 45A ripple current capability, this capacitor is suitable for large industrial motor drives, inverters, and welding equipment."
+          ],
+          "specifications": {
+            "Capacitance": "220000uF +/-20%",
+            "Voltage Rating": "50V DC",
+            "Ripple Current": "45A @ 85C, 120Hz",
+            "Temperature Range": "-40C to +85C",
+            "Lifetime": "5,000 hours @ 85C",
+            "Terminals": "M12 Screw",
+            "Dimensions": "76mm dia x 120mm L"
+          },
+          "features": [
+            "Extremely high capacitance 220000uF",
+            "50V DC rating",
+            "M12 screw terminals",
+            "Very high ripple current 45A",
+            "Base mounting"
+          ],
+          "applications": [
+            "Large industrial inverters",
+            "High-power motor drives",
+            "Welding equipment",
+            "DC bus filtering"
+          ],
+          "faeReview": {
+            "author": "Michael Zhang",
+            "title": "Senior FAE",
+            "content": "The ST-220000uF-50V is an excellent choice for large 48V DC bus applications in industrial motor drives. The 220000uF capacitance provides excellent energy storage and ripple filtering for large inverter input. The M12 screw terminals handle the very high currents typical of large motor drive applications. I recommend this capacitor for inverters in the 50-100kW range.",
+            "highlight": "Excellent for large motor drives; 220000uF for DC bus; M12 terminals for very high current"
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "ST-150000uF-50V",
+              "brand": "Aishi",
+              "specifications": {
+                "Capacitance": "150000uF",
+                "Voltage Rating": "50V DC"
+              },
+              "comparison": {
+                "Capacitance": "150000uF < 220000uF (lower)",
+                "Voltage Rating": "50V = 50V (same)",
+                "Ripple Current": "35A < 45A (lower)",
+                "Size": "63mm < 76mm (smaller)"
+              },
+              "reason": "Lower capacitance for cost savings",
+              "useCase": "Applications where 150000uF is sufficient",
+              "link": "/aishi/products/screw-terminal-capacitors/st-150000uf-50v.html"
+            },
+            {
+              "partNumber": "STH-220000uF-50V",
+              "brand": "Aishi",
+              "specifications": {
+                "Capacitance": "220000uF",
+                "Voltage Rating": "50V DC",
+                "Temperature": "105C"
+              },
+              "comparison": {
+                "Capacitance": "220000uF = 220000uF (same)",
+                "Voltage Rating": "50V = 50V (same)",
+                "Ripple Current": "50A > 45A (higher)",
+                "Temperature": "105C > 85C (higher)"
+              },
+              "reason": "Higher temperature rating for demanding environments",
+              "useCase": "High-temperature industrial applications",
+              "link": "/aishi/products/screw-terminal-capacitors/sth-220000uf-50v.html"
+            }
+          ],
+          "companionParts": [
+            {
+              "partNumber": "ST-47000uF-100V",
+              "link": "/aishi/products/screw-terminal-capacitors/st-47000uf-100v.html",
+              "description": "Higher voltage capacitor for multi-voltage systems",
+              "category": "Screw Terminal Capacitors"
+            },
+            {
+              "partNumber": "SN-22000uF-63V",
+              "link": "/aishi/products/snap-in-capacitors/sn-22000uf-63v.html",
+              "description": "Snap-in capacitor for auxiliary circuits",
+              "category": "Snap-in Capacitors"
+            },
+            {
+              "partNumber": "RS-100uF-100V",
+              "link": "/aishi/products/radial-lead-capacitors/rs-100uf-100v.html",
+              "description": "Radial capacitor for control circuits",
+              "category": "Radial Capacitors"
+            }
+          ],
+          "faqs": [
+            {
+              "question": "What is the maximum ripple current?",
+              "answer": "The rated ripple current is 45A at 85C and 120Hz. This very high ripple current capability makes it suitable for large high-power inverter applications. At lower temperatures, the capacitor can handle proportionally higher currents.",
+              "decisionGuide": "For applications exceeding 45A, consider parallel connection or larger case sizes.",
+              "keywords": [
+                "ripple current",
+                "high current",
+                "large inverter"
+              ]
+            },
+            {
+              "question": "What is the expected lifetime?",
+              "answer": "Rated lifetime is 5,000 hours at 85C. Using Arrhenius equation, lifetime extends to approximately 20,000 hours at 65C. Every 10C reduction doubles lifetime. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
+              "decisionGuide": "Operate at lowest practical temperature for maximum lifetime.",
+              "keywords": [
+                "lifetime",
+                "reliability",
+                "temperature"
+              ]
+            },
+            {
+              "question": "What are the terminal specifications?",
+              "answer": "This capacitor features M12 screw terminals for secure high-current connections. The terminals accept M12 bolts or screws with washers. Proper torque ensures good electrical connection. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
+              "decisionGuide": "Use proper M12 hardware and torque to datasheet specifications.",
+              "keywords": [
+                "M12 terminal",
+                "screw terminal",
+                "connection"
+              ]
+            },
+            {
+              "question": "What mounting is required?",
+              "answer": "This capacitor requires base mounting using the integrated mounting bracket. Mounting holes accept M12 bolts. Proper mounting ensures mechanical stability and heat dissipation. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
+              "decisionGuide": "Use proper M12 mounting hardware and follow torque specifications.",
+              "keywords": [
+                "mounting",
+                "base mount",
+                "mechanical"
+              ]
+            },
+            {
+              "question": "What voltage derating is recommended?",
+              "answer": "Industry standard is 80% derating. For 50V capacitor, maximum operating voltage is 40V. This provides margin for voltage transients and improves reliability. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
+              "decisionGuide": "Design for 80% voltage derating minimum.",
+              "keywords": [
+                "voltage derating",
+                "reliability",
+                "safety"
+              ]
+            }
+          ]
+        },
+        {
+          "partNumber": "ST-3300uF-450V",
+          "name": "Screw Terminal Capacitor 3300uF 450V",
+          "shortDescription": "High-voltage screw terminal capacitor with 3300uF and 450V for high-voltage industrial drives.",
+          "descriptionParagraphs": [
+            "The ST-3300uF-450V is a high-voltage screw terminal aluminum electrolytic capacitor designed for high-voltage industrial drive applications. With 3300uF capacitance and 450V rating, it provides DC bus filtering for 400V DC systems.",
+            "This capacitor features M8 screw terminals for high-current connections and base mounting for secure installation. The optimized design provides good ripple current capability.",
+            "Rated for 5,000 hours at 85C with 10A ripple current, this capacitor is suitable for high-voltage motor drives and industrial controls."
+          ],
+          "specifications": {
+            "Capacitance": "3300uF +/-20%",
+            "Voltage Rating": "450V DC",
+            "Ripple Current": "10A @ 85C, 120Hz",
+            "Temperature Range": "-25C to +85C",
+            "Lifetime": "5,000 hours @ 85C",
+            "Terminals": "M8 Screw",
+            "Dimensions": "51mm dia x 80mm L"
+          },
+          "features": [
+            "Very high voltage 450V rating",
+            "3300uF capacitance",
+            "M8 screw terminals",
+            "High ripple current 10A",
+            "Base mounting"
+          ],
+          "applications": [
+            "High-voltage motor drives",
+            "Industrial inverters",
+            "DC bus filtering",
+            "Power supplies"
+          ],
+          "faeReview": {
+            "author": "Michael Zhang",
+            "title": "Senior FAE",
+            "content": "The ST-3300uF-450V is ideal for 400V DC bus applications in high-voltage industrial motor drives. The 450V rating provides good margin for 400V systems. The 3300uF capacitance provides good energy storage for high-voltage drives. I use this capacitor in large servo drives and industrial controls.",
+            "highlight": "Ideal for 400V DC bus; good for large servo drives; reliable screw terminals"
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "ST-2200uF-450V",
+              "brand": "Aishi",
+              "specifications": {
+                "Capacitance": "2200uF",
+                "Voltage Rating": "450V DC"
+              },
+              "comparison": {
+                "Capacitance": "2200uF < 3300uF (lower)",
+                "Voltage Rating": "450V = 450V (same)",
+                "Ripple Current": "7.5A < 10A (lower)",
+                "Size": "45mm < 51mm (smaller)"
+              },
+              "reason": "Lower capacitance for cost savings",
+              "useCase": "Applications where 2200uF is sufficient",
+              "link": "/aishi/products/screw-terminal-capacitors/st-2200uf-450v.html"
+            },
+            {
+              "partNumber": "STH-3300uF-450V",
+              "brand": "Aishi",
+              "specifications": {
+                "Capacitance": "3300uF",
+                "Voltage Rating": "450V DC",
+                "Temperature": "105C"
+              },
+              "comparison": {
+                "Capacitance": "3300uF = 3300uF (same)",
+                "Voltage Rating": "450V = 450V (same)",
+                "Ripple Current": "11A > 10A (higher)",
+                "Temperature": "105C > 85C (higher)"
+              },
+              "reason": "Higher temperature rating",
+              "useCase": "High-temperature environments",
+              "link": "/aishi/products/screw-terminal-capacitors/sth-3300uf-450v.html"
+            }
+          ],
+          "companionParts": [
+            {
+              "partNumber": "ST-220000uF-50V",
+              "link": "/aishi/products/screw-terminal-capacitors/st-220000uf-50v.html",
+              "description": "Very high capacitance for lower voltage systems",
+              "category": "Screw Terminal Capacitors"
+            },
+            {
+              "partNumber": "SN-470uF-400V",
+              "link": "/aishi/products/snap-in-capacitors/sn-470uf-400v.html",
+              "description": "Snap-in for PFC output",
+              "category": "Snap-in Capacitors"
+            },
+            {
+              "partNumber": "RS-47uF-450V",
+              "link": "/aishi/products/radial-lead-capacitors/rs-47uf-450v.html",
+              "description": "Radial capacitor for auxiliary circuits",
+              "category": "Radial Capacitors"
+            }
+          ],
+          "faqs": [
+            {
+              "question": "What is the ripple current rating?",
+              "answer": "Rated ripple current is 10A at 85C and 120Hz. This is suitable for high-voltage industrial drives and motor control applications. At lower temperatures, higher ripple currents can be handled. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
+              "decisionGuide": "Verify current requirements for your specific application.",
+              "keywords": [
+                "ripple current",
+                "motor drive",
+                "industrial"
+              ]
+            },
+            {
+              "question": "What is the expected lifetime?",
+              "answer": "Rated lifetime is 5,000 hours at 85C. Using the Arrhenius equation, lifetime extends to approximately 20,000 hours at 65C. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
+              "decisionGuide": "Operate at lower temperatures for extended lifetime.",
+              "keywords": [
+                "lifetime",
+                "reliability",
+                "temperature derating"
+              ]
+            },
+            {
+              "question": "What applications is this suitable for?",
+              "answer": "This capacitor is ideal for 400V DC bus applications including large servo drives, industrial motor controls, and high-voltage automation equipment. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
+              "decisionGuide": "Perfect for 400V DC bus industrial applications.",
+              "keywords": [
+                "400V DC bus",
+                "servo drive",
+                "industrial control"
+              ]
+            },
+            {
+              "question": "What are the mounting requirements?",
+              "answer": "This capacitor requires base mounting using M8 bolts through the integrated mounting bracket. Follow datasheet torque specifications. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
+              "decisionGuide": "Use proper M8 mounting hardware with correct torque specifications.",
+              "keywords": [
+                "mounting",
+                "base mount",
+                "M8 bolts"
+              ]
+            },
+            {
+              "question": "What voltage derating is recommended?",
+              "answer": "Industry standard recommends 80% voltage derating. For this 450V capacitor, maximum operating voltage should be 360V. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
+              "decisionGuide": "Design for 80% voltage derating minimum.",
+              "keywords": [
+                "voltage derating",
+                "450V capacitor",
+                "reliability"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "solid-polymer-capacitors",
+      "name": "Solid Polymer Capacitors",
+      "slug": "solid-polymer-capacitors",
+      "description": "High-performance solid polymer aluminum capacitors with ultra-low ESR and long lifetime",
+      "longDescription": "Aishi solid polymer capacitors offer superior performance with ultra-low ESR, high ripple current capability, and extremely long lifetime. Unlike traditional electrolytic capacitors, solid polymer capacitors use a conductive polymer instead of liquid electrolyte, eliminating the risk of drying out and providing stable performance over time. Available through authorized distributor BeiLuo, these capacitors are ideal for high-frequency switching power supplies, computer motherboards, and high-reliability applications. BeiLuo provides comprehensive selection support and technical service to help you choose the right capacitors for your specific requirements.",
+      "parameters": [
+        "Capacitance",
+        "Voltage Rating",
+        "ESR",
+        "Ripple Current",
+        "Temperature Range",
+        "Lifetime",
+        "Mounting",
+        "Dimensions"
+      ],
+      "series": [
+        "SP",
+        "SPH"
+      ],
+      "selectionGuide": "Select based on capacitance, voltage rating, ESR requirements, and ripple current needs. SP series for standard, SPH for high temperature.",
+      "selectionGuideLink": {
+        "url": "/aishi/support/solid-polymer-capacitor-selection-guide.html",
+        "text": "View Solid Polymer Capacitor Selection Guide"
+      },
+      "faqs": [
+        {
+          "question": "What are the advantages of solid polymer capacitors?",
+          "answer": "Solid polymer capacitors offer ultra-low ESR (10x lower than electrolytic), much higher ripple current capability, longer lifetime (no drying out), stable capacitance over temperature, and no risk of leakage. They are ideal for high-frequency applications and where reliability is critical.",
+          "decisionGuide": "Use solid polymer capacitors for high-frequency switching supplies, high-reliability applications, and where low ESR is critical.",
+          "keywords": [
+            "solid polymer",
+            "low ESR",
+            "high reliability"
+          ]
+        },
+        {
+          "question": "What is the typical ESR of solid polymer capacitors?",
+          "answer": "Solid polymer capacitors offer ESR values 10-50 times lower than equivalent electrolytic capacitors. Typical ESR ranges from 5mOhm to 50mOhm depending on capacitance and voltage rating. This ultra-low ESR enables much higher ripple current capability and better filtering at high frequencies.",
+          "decisionGuide": "For applications requiring lowest ESR, select solid polymer capacitors over electrolytic.",
+          "keywords": [
+            "ESR",
+            "equivalent series resistance",
+            "low impedance"
+          ]
+        },
+        {
+          "question": "What is the lifetime of solid polymer capacitors?",
+          "answer": "Solid polymer capacitors offer extremely long lifetime ratings from 10,000 to 100,000+ hours. Unlike electrolytic capacitors, they do not dry out over time since they use solid polymer instead of liquid electrolyte. This makes them ideal for applications requiring maintenance-free operation over many years.",
+          "decisionGuide": "For applications requiring 10+ year lifetime, solid polymer capacitors are the best choice.",
+          "keywords": [
+            "lifetime",
+            "reliability",
+            "maintenance free"
+          ]
+        },
+        {
+          "question": "Are solid polymer capacitors more expensive?",
+          "answer": "Yes, solid polymer capacitors typically cost 3-5x more than equivalent electrolytic capacitors. However, the superior performance, longer lifetime, and higher reliability often justify the cost in critical applications. The total cost of ownership may be lower when considering replacement and maintenance costs.",
+          "decisionGuide": "Consider total cost of ownership including reliability and maintenance when selecting solid polymer capacitors.",
+          "keywords": [
+            "cost",
+            "price",
+            "total cost of ownership"
+          ]
+        },
+        {
+          "question": "What applications benefit most from solid polymer capacitors?",
+          "answer": "Applications benefiting most include high-frequency switching power supplies (100kHz+), computer motherboards and graphics cards, server power supplies, telecom equipment, automotive electronics, and any application where low ESR, high ripple current, and long lifetime are critical.",
+          "decisionGuide": "Use solid polymer for high-frequency, high-reliability, and critical applications.",
+          "keywords": [
+            "applications",
+            "switching power supply",
+            "high frequency"
+          ]
+        }
+      ],
+      "products": [
+        {
+          "partNumber": "SP-470uF-16V",
+          "name": "Solid Polymer Capacitor 470uF 16V SMD",
+          "shortDescription": "Ultra-low ESR solid polymer capacitor with 470uF and 16V rating for high-frequency applications.",
+          "descriptionParagraphs": [
+            "The SP-470uF-16V is a high-performance solid polymer aluminum capacitor designed for high-frequency applications. With 470uF capacitance and ultra-low ESR of just 8mOhm, it provides exceptional filtering for switching power supplies.",
+            "This surface-mount capacitor features a compact 8x8mm case size suitable for high-density PCB designs. The solid polymer construction eliminates the risk of drying out and provides extremely long lifetime.",
+            "Rated for 100,000 hours at 105C with 8A ripple current capability, this capacitor is ideal for computer motherboards, graphics cards, and high-reliability power supplies."
+          ],
+          "specifications": {
+            "Capacitance": "470uF +/-20%",
+            "Voltage Rating": "16V DC",
+            "ESR": "8mOhm max @ 100kHz",
+            "Ripple Current": "8A @ 105C, 100kHz",
+            "Temperature Range": "-55C to +105C",
+            "Lifetime": "100,000 hours @ 105C",
+            "Mounting": "SMD",
+            "Dimensions": "8mm x 8mm x 8mm L"
+          },
+          "features": [
+            "Ultra-low ESR 8mOhm",
+            "High ripple current 8A",
+            "100,000 hour lifetime",
+            "SMD mounting",
+            "Compact 8x8mm size"
+          ],
+          "applications": [
+            "Computer motherboards",
+            "Graphics cards",
+            "High-frequency power supplies",
+            "Telecom equipment"
+          ],
+          "faeReview": {
+            "author": "Michael Zhang",
+            "title": "Senior FAE",
+            "content": "The SP-470uF-16V is my top recommendation for high-frequency DC-DC converters and VRM applications. The 8mOhm ESR is exceptional - about 20x lower than an equivalent electrolytic capacitor. This translates to much better filtering and significantly lower ripple voltage. The 8A ripple current capability handles the high switching currents in modern processors. I've used this capacitor in server motherboards and graphics cards with excellent results. The 100,000 hour lifetime means it will outlast most other components in the system.",
+            "highlight": "Ultra-low 8mOhm ESR; 8A ripple current; 100,000 hour lifetime; ideal for VRM applications"
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "SP-330uF-16V",
+              "brand": "Aishi",
+              "specifications": {
+                "Capacitance": "330uF",
+                "Voltage Rating": "16V DC",
+                "ESR": "10mOhm"
+              },
+              "comparison": {
+                "Capacitance": "330uF < 470uF (lower)",
+                "Voltage Rating": "16V = 16V (same)",
+                "ESR": "10mOhm > 8mOhm (higher)",
+                "Ripple Current": "6A < 8A (lower)",
+                "Size": "6.3mm < 8mm (smaller)",
+                "Cost": "Lower > Higher (cost savings)"
+              },
+              "reason": "Lower capacitance and slightly higher ESR for cost savings",
+              "useCase": "Applications where 330uF is sufficient",
+              "link": "/aishi/products/solid-polymer-capacitors/sp-330uf-16v.html"
+            },
+            {
+              "partNumber": "RS-1000uF-16V",
+              "brand": "Aishi",
+              "specifications": {
+                "Capacitance": "1000uF",
+                "Voltage Rating": "16V DC",
+                "ESR": "160mOhm"
+              },
+              "comparison": {
+                "Capacitance": "1000uF > 470uF (higher)",
+                "Voltage Rating": "16V = 16V (same)",
+                "ESR": "160mOhm > 8mOhm (much higher)",
+                "Ripple Current": "1.5A < 8A (much lower)",
+                "Lifetime": "2000h < 100000h (shorter)",
+                "Cost": "Much lower > Higher (budget option)"
+              },
+              "reason": "Higher capacitance at much lower cost but much higher ESR",
+              "useCase": "Cost-sensitive applications where ESR is not critical",
+              "link": "/aishi/products/radial-lead-capacitors/rs-1000uf-16v.html"
+            }
+          ],
+          "companionParts": [
+            {
+              "partNumber": "SP-100uF-25V",
+              "link": "/aishi/products/solid-polymer-capacitors/sp-100uf-25v.html",
+              "description": "Solid polymer for input filtering",
+              "category": "Solid Polymer Capacitors"
+            },
+            {
+              "partNumber": "Ceramic-10uF-25V",
+              "link": "#",
+              "description": "Ceramic for high-frequency decoupling",
+              "category": "Ceramic Capacitors"
+            },
+            {
+              "partNumber": "RS-100uF-50V",
+              "link": "/aishi/products/radial-lead-capacitors/rs-100uf-50v.html",
+              "description": "Radial capacitor for auxiliary circuits",
+              "category": "Radial Capacitors"
+            }
+          ],
+          "faqs": [
+            {
+              "question": "What makes solid polymer capacitors different from electrolytic?",
+              "answer": "Solid polymer capacitors use a conductive solid polymer instead of liquid electrolyte. This provides ultra-low ESR (5-50mOhm vs 50-500mOhm for electrolytic), much higher ripple current capability, longer lifetime (no drying out), stable performance over temperature, and no risk of leakage. The trade-off is higher cost (3-5x) and typically lower maximum voltage ratings.",
+              "decisionGuide": "Use solid polymer when low ESR, high ripple current, and long lifetime are critical. Use electrolytic for cost-sensitive applications.",
+              "keywords": [
+                "solid polymer vs electrolytic",
+                "ESR comparison",
+                "capacitor technology"
+              ]
+            },
+            {
+              "question": "What is the ESR and why is it important?",
+              "answer": "ESR (Equivalent Series Resistance) is the resistive component of a capacitor's impedance. This capacitor has just 8mOhm ESR - about 20x lower than an equivalent electrolytic capacitor. Low ESR is critical because it reduces ripple voltage, minimizes power dissipation (heat), and improves filtering effectiveness at high frequencies. In VRM applications, low ESR directly translates to better voltage regulation and lower ripple.",
+              "decisionGuide": "For high-frequency applications, always select capacitors with lowest practical ESR.",
+              "keywords": [
+                "ESR",
+                "equivalent series resistance",
+                "ripple voltage"
+              ]
+            },
+            {
+              "question": "What is the ripple current capability?",
+              "answer": "Rated ripple current is 8A at 105C and 100kHz. This exceptional ripple current capability is enabled by the ultra-low ESR. The capacitor can handle the high switching currents typical of modern DC-DC converters without excessive heating. At lower temperatures, even higher ripple currents can be supported.",
+              "decisionGuide": "The 8A rating is suitable for high-current VRM and DC-DC applications.",
+              "keywords": [
+                "ripple current",
+                "current rating",
+                "VRM"
+              ]
+            },
+            {
+              "question": "How long will this capacitor last?",
+              "answer": "Rated lifetime is 100,000 hours at 105C - that's over 11 years of continuous operation at maximum temperature. Since solid polymer capacitors don't dry out like electrolytics, they maintain their performance throughout their lifetime. At typical operating temperatures of 60-80C, expected lifetime extends to 200,000-400,000+ hours (20-45+ years). This makes them essentially maintenance-free for most applications.",
+              "decisionGuide": "For applications requiring 10+ year lifetime, solid polymer is the best choice.",
+              "keywords": [
+                "lifetime",
+                "reliability",
+                "maintenance free"
+              ]
+            },
+            {
+              "question": "Is this capacitor suitable for VRM applications?",
+              "answer": "Yes, this capacitor is specifically designed for VRM (Voltage Regulator Module) applications in computers and servers. The ultra-low 8mOhm ESR provides excellent voltage regulation and low ripple for CPU and GPU power delivery. The 8A ripple current capability handles the high transient currents in modern processors. The compact SMD package fits in the tight spaces typical of motherboard designs.",
+              "decisionGuide": "Ideal for VRM, CPU power, GPU power, and high-current DC-DC applications.",
+              "keywords": [
+                "VRM",
+                "voltage regulator",
+                "CPU power",
+                "GPU power"
+              ]
+            }
+          ]
+        },
+        {
+          "partNumber": "SP-100uF-25V",
+          "name": "Solid Polymer Capacitor 100uF 25V SMD",
+          "shortDescription": "Ultra-low ESR solid polymer capacitor with 100uF and 25V for high-frequency filtering.",
+          "descriptionParagraphs": [
+            "The SP-100uF-25V is a high-performance solid polymer aluminum capacitor designed for high-frequency filtering applications. With 100uF capacitance and ultra-low ESR of 15mOhm, it provides excellent decoupling for switching power supplies.",
+            "This surface-mount capacitor features a compact 6.3x6.3mm case size for high-density designs. The solid polymer construction provides stable performance and extremely long lifetime.",
+            "Rated for 100,000 hours at 105C with 4A ripple current, this capacitor is ideal for distributed power systems and high-reliability electronics."
+          ],
+          "specifications": {
+            "Capacitance": "100uF +/-20%",
+            "Voltage Rating": "25V DC",
+            "ESR": "15mOhm max @ 100kHz",
+            "Ripple Current": "4A @ 105C, 100kHz",
+            "Temperature Range": "-55C to +105C",
+            "Lifetime": "100,000 hours @ 105C",
+            "Mounting": "SMD",
+            "Dimensions": "6.3mm x 6.3mm x 6mm L"
+          },
+          "features": [
+            "Ultra-low ESR 15mOhm",
+            "High ripple current 4A",
+            "100,000 hour lifetime",
+            "SMD mounting",
+            "Compact 6.3x6.3mm size"
+          ],
+          "applications": [
+            "Distributed power systems",
+            "DC-DC converters",
+            "High-frequency filtering",
+            "Telecom equipment"
+          ],
+          "faeReview": {
+            "author": "Michael Zhang",
+            "title": "Senior FAE",
+            "content": "The SP-100uF-25V is excellent for input filtering in DC-DC converters and distributed power systems. The 15mOhm ESR provides excellent high-frequency filtering. The compact 6.3mm size fits well in space-constrained designs. I use this capacitor for 12V and 24V input filtering with great results. The 100,000 hour lifetime ensures long-term reliability.",
+            "highlight": "Excellent for input filtering; 15mOhm ESR; compact size; 100,000 hour lifetime"
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "SP-68uF-25V",
+              "brand": "Aishi",
+              "specifications": {
+                "Capacitance": "68uF",
+                "Voltage Rating": "25V DC"
+              },
+              "comparison": {
+                "Capacitance": "68uF < 100uF (lower)",
+                "Voltage Rating": "25V = 25V (same)",
+                "Ripple Current": "3.5A < 5A (lower)",
+                "Size": "5mm < 6.3mm (smaller)"
+              },
+              "reason": "Lower capacitance for smaller size",
+              "useCase": "Space-constrained applications",
+              "link": "/aishi/products/solid-polymer-capacitors/sp-68uf-25v.html"
+            },
+            {
+              "partNumber": "RS-220uF-25V",
+              "brand": "Aishi",
+              "specifications": {
+                "Capacitance": "220uF",
+                "Voltage Rating": "25V DC",
+                "ESR": "180mOhm"
+              },
+              "comparison": {
+                "Capacitance": "220uF > 100uF (higher)",
+                "Voltage Rating": "25V = 25V (same)",
+                "ESR": "180mOhm > 15mOhm (much higher)",
+                "Ripple Current": "0.8A < 5A (much lower)",
+                "Lifetime": "2000h < 100000h (shorter)"
+              },
+              "reason": "Higher capacitance but much higher ESR and shorter lifetime",
+              "useCase": "Cost-sensitive applications where ESR is not critical",
+              "link": "/aishi/products/radial-lead-capacitors/rs-220uf-25v.html"
+            }
+          ],
+          "companionParts": [
+            {
+              "partNumber": "SP-470uF-16V",
+              "link": "/aishi/products/solid-polymer-capacitors/sp-470uf-16v.html",
+              "description": "Higher capacitance for output filtering",
+              "category": "Solid Polymer Capacitors"
+            },
+            {
+              "partNumber": "Ceramic-1uF-50V",
+              "link": "#",
+              "description": "Ceramic for high-frequency decoupling",
+              "category": "Ceramic Capacitors"
+            },
+            {
+              "partNumber": "RS-47uF-50V",
+              "link": "/aishi/products/radial-lead-capacitors/rs-47uf-50v.html",
+              "description": "Radial capacitor for auxiliary circuits",
+              "category": "Radial Capacitors"
+            }
+          ],
+          "faqs": [
+            {
+              "question": "What is the ESR of this capacitor?",
+              "answer": "The ESR (Equivalent Series Resistance) is 15mOhm maximum at 100kHz. This is approximately 10-15x lower than an equivalent aluminum electrolytic capacitor. The ultra-low ESR provides excellent filtering at high frequencies and minimizes power dissipation and heat generation. Low ESR is critical for high-frequency switching applications as it directly affects voltage ripple and power efficiency. In DC-DC converter applications, the low ESR helps maintain tight voltage regulation during load transients.",
+              "decisionGuide": "The 15mOhm ESR is excellent for high-frequency filtering applications. Select solid polymer capacitors when lowest ESR is required.",
+              "keywords": [
+                "ESR",
+                "low impedance",
+                "filtering",
+                "power dissipation"
+              ]
+            },
+            {
+              "question": "What is the ripple current rating?",
+              "answer": "Rated ripple current is 4A at 105°C and 100kHz. This high ripple current capability is enabled by the ultra-low ESR of 15mOhm. The capacitor can handle the high switching currents typical of DC-DC converters without excessive heating. At lower temperatures, even higher ripple currents can be supported - approximately 5A at 85°C. This makes the capacitor suitable for input filtering in DC-DC converters and distributed power systems where high ripple currents are present.",
+              "decisionGuide": "4A rating is suitable for most DC-DC converter input filtering applications. Consider temperature derating for accurate selection.",
+              "keywords": [
+                "ripple current",
+                "input filtering",
+                "DC-DC"
+              ]
+            },
+            {
+              "question": "What is the expected lifetime?",
+              "answer": "Rated lifetime is 100,000 hours at 105C. At typical operating temperatures of 60-80C, expected lifetime extends to 200,000-400,000+ hours. Solid polymer capacitors don't dry out, maintaining performance over time.",
+              "decisionGuide": "Essentially maintenance-free for most applications.",
+              "keywords": [
+                "lifetime",
+                "reliability"
+              ]
+            },
+            {
+              "question": "What applications is this suitable for?",
+              "answer": "Ideal for 12V and 24V input filtering in DC-DC converters, distributed power systems, and telecom equipment. The 25V rating provides good margin for 24V systems. The compact size fits well in space-constrained designs.",
+              "decisionGuide": "Perfect for input filtering in 12V/24V systems.",
+              "keywords": [
+                "input filtering",
+                "DC-DC converter",
+                "distributed power"
+              ]
+            },
+            {
+              "question": "How does this compare to electrolytic capacitors?",
+              "answer": "Compared to electrolytic: ESR is 10-15x lower (15mOhm vs 150-250mOhm), ripple current is 5-10x higher (4A vs 0.5-1A), lifetime is 50x longer (100,000h vs 2,000h), but cost is 3-5x higher. The performance advantages often justify the cost in critical applications.",
+              "decisionGuide": "Choose solid polymer when performance and reliability are critical; choose electrolytic for cost-sensitive applications.",
+              "keywords": [
+                "comparison",
+                "solid polymer vs electrolytic"
+              ]
+            }
+          ]
+        },
+        {
+          "partNumber": "SP-220uF-35V",
+          "name": "Solid Polymer Capacitor 220uF 35V SMD",
+          "shortDescription": "Ultra-low ESR solid polymer capacitor with 220uF and 35V for high-frequency DC-DC converters.",
+          "descriptionParagraphs": [
+            "The SP-220uF-35V is a high-performance solid polymer aluminum capacitor designed for high-frequency DC-DC converter applications. With 220uF capacitance and ultra-low ESR of 12mOhm, it provides excellent filtering for switching power supplies.",
+            "This surface-mount capacitor features a compact 6.3x6.3mm case size for high-density designs. The solid polymer construction provides stable performance and extremely long lifetime.",
+            "Rated for 100,000 hours at 105C with 5A ripple current, this capacitor is ideal for 12V and 24V DC-DC converters and high-reliability electronics."
+          ],
+          "specifications": {
+            "Capacitance": "220uF +/-20%",
+            "Voltage Rating": "35V DC",
+            "ESR": "12mOhm max @ 100kHz",
+            "Ripple Current": "5A @ 105C, 100kHz",
+            "Temperature Range": "-55C to +105C",
+            "Lifetime": "100,000 hours @ 105C",
+            "Mounting": "SMD",
+            "Dimensions": "6.3mm x 6.3mm x 8mm L"
+          },
+          "features": [
+            "Ultra-low ESR 12mOhm",
+            "High ripple current 5A",
+            "100,000 hour lifetime",
+            "SMD mounting",
+            "Compact 6.3x6.3mm size"
+          ],
+          "applications": [
+            "12V/24V DC-DC converters",
+            "Distributed power systems",
+            "High-frequency filtering",
+            "Telecom equipment"
+          ],
+          "faeReview": {
+            "author": "Michael Zhang",
+            "title": "Senior FAE",
+            "content": "The SP-220uF-35V is excellent for 12V and 24V DC-DC converter output filtering. The 12mOhm ESR provides excellent high-frequency filtering and low ripple voltage. The 35V rating provides good margin for 24V systems. I use this capacitor in point-of-load converters and distributed power systems with great results.",
+            "highlight": "Excellent for DC-DC converters; 12mOhm ESR; 35V rating for 24V systems; compact size"
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "SP-150uF-35V",
+              "brand": "Aishi",
+              "specifications": {
+                "Capacitance": "150uF",
+                "Voltage Rating": "35V DC"
+              },
+              "comparison": {
+                "Capacitance": "150uF < 220uF (lower)",
+                "Voltage Rating": "35V = 35V (same)",
+                "Ripple Current": "4A < 5A (lower)",
+                "Size": "5mm < 6.3mm (smaller)"
+              },
+              "reason": "Lower capacitance for smaller size",
+              "useCase": "Space-constrained applications",
+              "link": "/aishi/products/solid-polymer-capacitors/sp-150uf-35v.html"
+            },
+            {
+              "partNumber": "RS-470uF-35V",
+              "brand": "Aishi",
+              "specifications": {
+                "Capacitance": "470uF",
+                "Voltage Rating": "35V DC",
+                "ESR": "200mOhm"
+              },
+              "comparison": {
+                "Capacitance": "470uF > 220uF (higher)",
+                "Voltage Rating": "35V = 35V (same)",
+                "ESR": "200mOhm > 12mOhm (much higher)",
+                "Ripple Current": "0.5A < 5A (much lower)",
+                "Lifetime": "2000h < 100000h (shorter)"
+              },
+              "reason": "Higher capacitance but much higher ESR and shorter lifetime",
+              "useCase": "Cost-sensitive applications where ESR is not critical",
+              "link": "/aishi/products/radial-lead-capacitors/rs-470uf-35v.html"
+            }
+          ],
+          "companionParts": [
+            {
+              "partNumber": "SP-100uF-25V",
+              "link": "/aishi/products/solid-polymer-capacitors/sp-100uf-25v.html",
+              "description": "Lower capacitance for input filtering",
+              "category": "Solid Polymer Capacitors"
+            },
+            {
+              "partNumber": "Ceramic-4.7uF-50V",
+              "link": "#",
+              "description": "Ceramic for very high-frequency decoupling",
+              "category": "Ceramic Capacitors"
+            },
+            {
+              "partNumber": "RS-100uF-50V",
+              "link": "/aishi/products/radial-lead-capacitors/rs-100uf-50v.html",
+              "description": "Radial capacitor for bulk capacitance",
+              "category": "Radial Capacitors"
+            }
+          ],
+          "faqs": [
+            {
+              "question": "What is the ESR of this capacitor?",
+              "answer": "The ESR is 12mOhm maximum at 100kHz. This ultra-low ESR provides excellent filtering at high frequencies and minimizes power dissipation. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
+              "decisionGuide": "The 12mOhm ESR is excellent for DC-DC converter applications.",
+              "keywords": [
+                "ESR",
+                "low impedance",
+                "filtering"
+              ]
+            },
+            {
+              "question": "What is the ripple current rating?",
+              "answer": "Rated ripple current is 5A at 105C and 100kHz. This high ripple current capability is enabled by the ultra-low ESR. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
+              "decisionGuide": "5A rating is suitable for most DC-DC converter applications.",
+              "keywords": [
+                "ripple current",
+                "DC-DC converter"
+              ]
+            },
+            {
+              "question": "What is the expected lifetime?",
+              "answer": "Rated lifetime is 100,000 hours at 105C. At typical operating temperatures of 60-80C, expected lifetime extends to 200,000-400,000+ hours. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
+              "decisionGuide": "Essentially maintenance-free for most applications.",
+              "keywords": [
+                "lifetime",
+                "reliability"
+              ]
+            },
+            {
+              "question": "What applications is this suitable for?",
+              "answer": "Ideal for 12V and 24V DC-DC converter output filtering, point-of-load converters, and distributed power systems. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
+              "decisionGuide": "Perfect for DC-DC converter output filtering.",
+              "keywords": [
+                "DC-DC converter",
+                "output filtering",
+                "POL"
+              ]
+            },
+            {
+              "question": "How does this compare to electrolytic capacitors?",
+              "answer": "Compared to electrolytic: ESR is 15-20x lower, ripple current is 5-10x higher, lifetime is 50x longer, but cost is 3-5x higher. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
+              "decisionGuide": "Choose solid polymer when performance and reliability are critical.",
+              "keywords": [
+                "comparison",
+                "solid polymer vs electrolytic"
+              ]
+            }
+          ]
+        },
+        {
+          "partNumber": "SP-68uF-50V",
+          "name": "Solid Polymer Capacitor 68uF 50V SMD",
+          "shortDescription": "Ultra-low ESR solid polymer capacitor with 68uF and 50V for high-frequency decoupling.",
+          "descriptionParagraphs": [
+            "The SP-68uF-50V is a high-performance solid polymer aluminum capacitor designed for high-frequency decoupling applications. With 68uF capacitance and ultra-low ESR of 18mOhm, it provides excellent decoupling for high-speed digital circuits.",
+            "This surface-mount capacitor features a compact 5x5mm case size for high-density PCB designs. The solid polymer construction provides stable performance and extremely long lifetime.",
+            "Rated for 100,000 hours at 105C with 3.5A ripple current, this capacitor is ideal for FPGA power supplies and high-speed digital systems."
+          ],
+          "specifications": {
+            "Capacitance": "68uF +/-20%",
+            "Voltage Rating": "50V DC",
+            "ESR": "18mOhm max @ 100kHz",
+            "Ripple Current": "3.5A @ 105C, 100kHz",
+            "Temperature Range": "-55C to +105C",
+            "Lifetime": "100,000 hours @ 105C",
+            "Mounting": "SMD",
+            "Dimensions": "5mm x 5mm x 6mm L"
+          },
+          "features": [
+            "Ultra-low ESR 18mOhm",
+            "High ripple current 3.5A",
+            "100,000 hour lifetime",
+            "SMD mounting",
+            "Compact 5x5mm size"
+          ],
+          "applications": [
+            "FPGA power supplies",
+            "High-speed digital circuits",
+            "High-frequency decoupling",
+            "Telecom equipment"
+          ],
+          "faeReview": {
+            "author": "Michael Zhang",
+            "title": "Senior FAE",
+            "content": "The SP-68uF-50V is excellent for FPGA and high-speed digital circuit decoupling. The 18mOhm ESR provides excellent high-frequency performance. The compact 5mm size fits well in space-constrained designs near high-speed ICs. I use this capacitor for decoupling FPGAs and processors with great results.",
+            "highlight": "Excellent for FPGA decoupling; 18mOhm ESR; compact 5mm size; high-frequency performance"
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "SP-47uF-50V",
+              "brand": "Aishi",
+              "specifications": {
+                "Capacitance": "47uF",
+                "Voltage Rating": "50V DC"
+              },
+              "comparison": {
+                "Capacitance": "47uF < 68uF (lower)",
+                "Voltage Rating": "50V = 50V (same)",
+                "Ripple Current": "2.8A < 3.5A (lower)",
+                "Size": "4mm < 5mm (smaller)"
+              },
+              "reason": "Lower capacitance for smaller size",
+              "useCase": "Space-constrained applications",
+              "link": "/aishi/products/solid-polymer-capacitors/sp-47uf-50v.html"
+            },
+            {
+              "partNumber": "Ceramic-22uF-50V",
+              "brand": "Generic",
+              "specifications": {
+                "Capacitance": "22uF",
+                "Voltage Rating": "50V DC",
+                "ESR": "5mOhm"
+              },
+              "comparison": {
+                "Capacitance": "22uF < 68uF (lower)",
+                "Voltage Rating": "50V = 50V (same)",
+                "ESR": "5mOhm < 18mOhm (lower)",
+                "Ripple Current": "5A > 3.5A (higher)",
+                "Cost": "Lower > Higher (cost savings)"
+              },
+              "reason": "Lower ESR and cost but much lower capacitance",
+              "useCase": "Very high-frequency decoupling where capacitance is less critical",
+              "link": "#"
+            }
+          ],
+          "companionParts": [
+            {
+              "partNumber": "SP-220uF-35V",
+              "link": "/aishi/products/solid-polymer-capacitors/sp-220uf-35v.html",
+              "description": "Higher capacitance for bulk decoupling",
+              "category": "Solid Polymer Capacitors"
+            },
+            {
+              "partNumber": "Ceramic-1uF-50V",
+              "link": "#",
+              "description": "Ceramic for very high-frequency decoupling",
+              "category": "Ceramic Capacitors"
+            },
+            {
+              "partNumber": "RS-22uF-50V",
+              "link": "/aishi/products/radial-lead-capacitors/rs-22uf-50v.html",
+              "description": "Radial capacitor for auxiliary circuits",
+              "category": "Radial Capacitors"
+            }
+          ],
+          "faqs": [
+            {
+              "question": "What is the ESR of this capacitor?",
+              "answer": "The ESR is 18mOhm maximum at 100kHz. This low ESR provides excellent high-frequency decoupling performance. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
+              "decisionGuide": "The 18mOhm ESR is excellent for high-frequency decoupling applications.",
+              "keywords": [
+                "ESR",
+                "decoupling",
+                "high frequency"
+              ]
+            },
+            {
+              "question": "What is the ripple current rating?",
+              "answer": "Rated ripple current is 3.5A at 105C and 100kHz. This is suitable for FPGA and processor decoupling applications. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
+              "decisionGuide": "3.5A rating is suitable for most digital circuit decoupling.",
+              "keywords": [
+                "ripple current",
+                "decoupling",
+                "FPGA"
+              ]
+            },
+            {
+              "question": "What is the expected lifetime?",
+              "answer": "Rated lifetime is 100,000 hours at 105C. At typical operating temperatures, expected lifetime extends to 200,000+ hours. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
+              "decisionGuide": "Essentially maintenance-free for digital electronics.",
+              "keywords": [
+                "lifetime",
+                "reliability"
+              ]
+            },
+            {
+              "question": "What applications is this suitable for?",
+              "answer": "Ideal for FPGA power supplies, processor decoupling, and high-speed digital circuits where low ESR is critical. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
+              "decisionGuide": "Perfect for high-speed digital decoupling applications.",
+              "keywords": [
+                "FPGA",
+                "processor",
+                "decoupling",
+                "digital"
+              ]
+            },
+            {
+              "question": "What package size is this?",
+              "answer": "This capacitor is in a compact 5mm x 5mm x 6mm SMD package, ideal for high-density PCB designs near high-speed ICs. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
+              "decisionGuide": "Compact size fits well in space-constrained designs.",
+              "keywords": [
+                "package",
+                "SMD",
+                "compact"
               ]
             }
           ]

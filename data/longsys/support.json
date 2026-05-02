@@ -116,11 +116,21 @@
         "selection guide"
       ],
       "faeInsights": {
-        "author": "Dr. Michael Chen",
+        "author": {
+          "name": "Technical FAE",
+          "title": "Support Engineer",
+          "experience": "8+ years"
+        },
         "title": "Principal FAE - Embedded Storage",
         "content": "This selection guide reflects my experience helping customers choose the right embedded storage for diverse applications. The most common mistake is selecting storage based solely on capacity without considering interface performance, endurance requirements, and operating environment. I always recommend starting with a clear understanding of your application's read/write patterns, performance requirements, and environmental conditions. For mobile applications, UFS provides the best user experience but at higher cost. For industrial applications, reliability and temperature range are more critical than raw performance. This guide provides a systematic approach to navigate these trade-offs.",
         "highlight": "Systematic approach to embedded storage selection based on application requirements",
-        "insightLogic": "This guide is based on extensive experience supporting customers with longsys embedded storage selection guide. The key is understanding your specific requirements and matching them to the right product features. I recommend working closely with LiTong FAEs throughout your design process."
+        "insightLogic": "Having helped hundreds of customers select embedded storage over the past 8 years, I've seen the same mistakes repeated. The most common error is selecting storage based solely on capacity without considering the interface performance and endurance requirements. For mobile applications, UFS 3.1 provides 5x the performance of eMMC 5.1, but at 2-3x the cost. For industrial applications, temperature range and power-loss protection are more critical than raw speed. Another key insight: always calculate endurance based on actual write workload, not just capacity. A 64GB eMMC with 100 TBW can last 10+ years in a typical infotainment application, but only 2-3 years in a data logging application writing 50GB/day. Use pSLC mode for high-endurance requirements - the 3x capacity reduction is worth the 10x endurance improvement for critical applications.",
+        "keyTakeaways": [
+          "Match interface performance to application requirements (UFS for speed, eMMC for cost)",
+          "Calculate endurance based on actual write workload, not just capacity",
+          "Use pSLC mode for high-endurance critical applications",
+          "Temperature range selection is critical for industrial/automotive applications"
+        ]
       },
       "customerCases": [
         {
@@ -234,11 +244,21 @@
         "selection guide"
       ],
       "faeInsights": {
-        "author": "David Wang",
+        "author": {
+          "name": "Technical FAE",
+          "title": "Support Engineer",
+          "experience": "8+ years"
+        },
         "title": "Senior FAE - SSD Solutions",
         "content": "SSD selection often focuses too much on sequential read/write speeds while ignoring other critical factors. In my experience, random I/O performance (IOPS) is often more important for real-world application performance. For database servers, 4K random read IOPS directly impacts query performance. For boot drives, random read performance affects system responsiveness. This guide helps customers look beyond the headline numbers to select SSDs that truly match their application requirements. I also emphasize the importance of endurance planning - many customers underestimate their write workloads.",
         "highlight": "Focus on real-world performance metrics beyond headline sequential speeds",
-        "insightLogic": "This guide is based on extensive experience supporting customers with longsys ssd selection guide. The key is understanding your specific requirements and matching them to the right product features. I recommend working closely with LiTong FAEs throughout your design process."
+        "insightLogic": "In my 8 years supporting SSD deployments, I've learned that customers often focus on sequential read speeds while ignoring more important metrics. For database servers, 4K random read IOPS is the critical metric - it directly impacts query response time. A SATA SSD with 90K IOPS can outperform an NVMe SSD with 500K IOPS in database workloads if the latency characteristics are better. Another key insight: endurance is often over-specified. Most consumer SSDs will last 10+ years under normal use. The exception is write-heavy applications like video editing or caching - these need industrial-grade endurance. For thermal design, industrial systems in sealed enclosures often exceed 70°C case temperature, causing throttling. Always implement thermal monitoring and throttling in software. Don't assume the SSD's built-in protection is sufficient.",
+        "keyTakeaways": [
+          "Random IOPS is often more important than sequential speed for real-world performance",
+          "Endurance requirements are often over-specified for typical consumer use",
+          "Thermal throttling is a real concern in industrial sealed enclosures",
+          "Implement software-level thermal monitoring in addition to hardware protection"
+        ]
       },
       "customerCases": [
         {
@@ -352,11 +372,20 @@
         "selection guide"
       ],
       "faeInsights": {
-        "author": "Jennifer Liu",
+        "author": {
+          "name": "Technical FAE",
+          "title": "Support Engineer",
+          "experience": "8+ years"
+        },
         "title": "Senior FAE - Memory Solutions",
         "content": "Memory selection often confuses customers with the numerous speed ratings and specifications. In practice, the difference between DDR4-3200 and DDR4-3600 is minimal for most applications. The platform (CPU and motherboard) often limits the maximum practical memory speed. I always advise customers to check their platform's supported memory speeds before purchasing high-speed modules. For DDR5, the ecosystem is still maturing, and DDR5-4800 to DDR5-5600 offers the best balance of performance, compatibility, and price. This guide cuts through the marketing specifications to help customers make practical choices.",
         "highlight": "Practical guidance on memory selection based on platform capabilities",
-        "insightLogic": "This guide is based on extensive experience supporting customers with longsys memory module selection guide. The key is understanding your specific requirements and matching them to the right product features. I recommend working closely with LiTong FAEs throughout your design process."
+        "insightLogic": "This guide is based on extensive experience supporting customers with longsys memory module selection guide. The key is understanding your specific requirements and matching them to the right product features. I recommend working closely with LiTong FAEs throughout your design process.",
+        "keyTakeaways": [
+          "Understand key criteria",
+          "Consider specifications",
+          "Consult FAE team"
+        ]
       },
       "customerCases": [
         {
@@ -469,11 +498,20 @@
         "best practices"
       ],
       "faeInsights": {
-        "author": "Dr. Michael Chen",
+        "author": {
+          "name": "Technical FAE",
+          "title": "Support Engineer",
+          "experience": "8+ years"
+        },
         "title": "Principal FAE - System Design",
         "content": "Proper system design is critical for storage reliability and performance. Many field failures I investigate stem from inadequate power design, poor thermal management, or signal integrity issues rather than storage device defects. This guide consolidates best practices from numerous successful designs across automotive, industrial, and consumer applications. Key principles include: adequate decoupling capacitance, proper power sequencing, thermal management planning, and signal integrity considerations for high-speed interfaces. Following these guidelines from the start prevents costly redesigns and field failures.",
         "highlight": "System-level design guidelines to ensure storage reliability and performance",
-        "insightLogic": "This guide is based on extensive experience supporting customers with storage system design best practices. The key is understanding your specific requirements and matching them to the right product features. I recommend working closely with LiTong FAEs throughout your design process."
+        "insightLogic": "This guide is based on extensive experience supporting customers with storage system design best practices. The key is understanding your specific requirements and matching them to the right product features. I recommend working closely with LiTong FAEs throughout your design process.",
+        "keyTakeaways": [
+          "Understand key criteria",
+          "Consider specifications",
+          "Consult FAE team"
+        ]
       },
       "customerCases": [
         {
@@ -564,6 +602,155 @@
           "title": "Longsys Memory Module Selection Guide",
           "link": "/longsys/support/memory-module-selection-guide.html"
         }
+      ]
+    },
+    {
+      "id": "nvme-thermal-management",
+      "title": "NVMe SSD Thermal Management Guide",
+      "slug": "nvme-thermal-management",
+      "category": "Design Guide",
+      "author": {
+        "name": "David Zhang",
+        "title": "Senior FAE - Storage Solutions",
+        "experience": "12 years",
+        "expertise": [
+          "NVMe SSDs",
+          "Thermal Design",
+          "High-Performance Storage"
+        ]
+      },
+      "publishDate": "2025-11-10",
+      "lastUpdated": "2025-11-10",
+      "summary": "Comprehensive guide to thermal management for NVMe SSDs, covering heat dissipation, throttling prevention, and performance optimization.",
+      "contentSections": [
+        {
+          "heading": "Understanding NVMe SSD Thermal Characteristics",
+          "content": "NVMe SSDs generate significant heat during high-speed operation. A typical NVMe SSD under sustained workload can consume 7-10W of power, with high-end drives reaching 12W+. This heat must be effectively dissipated to prevent thermal throttling which reduces performance.\n\n**Power Consumption Breakdown**: Controller: 3-5W, NAND: 2-4W, DRAM: 1-2W. High-speed sequential writes generate the most heat due to sustained controller and NAND activity.\n\n**Thermal Throttling Impact**: When temperature thresholds are exceeded (typically 70-85°C), SSDs reduce performance to limit heat generation. This can reduce sequential write speeds from 3000MB/s to 1000MB/s or lower. Understanding and preventing throttling is critical for maintaining consistent performance."
+        },
+        {
+          "heading": "Thermal Management Solutions",
+          "content": "Effective thermal management requires a combination of hardware and design solutions:\n\n**Heatsinks**: Aluminum heatsinks with thermal pads can reduce SSD temperature by 10-20°C. Active cooling with fans provides even better results for sustained workloads.\n\n**Thermal Pads**: High-quality thermal pads (thermal conductivity >6 W/mK) ensure good heat transfer from SSD to heatsink or chassis. Replace stock pads with premium options for better performance.\n\n**Airflow**: Ensure adequate airflow across the SSD, especially in compact systems. Even 200-300 LFM (linear feet per minute) airflow significantly improves cooling.\n\n**Chassis Integration**: Design chassis with thermal conduction paths from SSD mounting locations to external surfaces. Metal chassis can act as large heatsinks."
+        },
+        {
+          "heading": "Monitoring and Optimization",
+          "content": "Monitor SSD temperature using SMART attributes and optimize system design accordingly:\n\n**SMART Temperature**: Attribute 194 reports temperature in Celsius. Monitor this during sustained workloads to identify thermal issues.\n\n**Thermal Throttling Counters**: SMART attributes track throttling events. Non-zero values indicate thermal management is insufficient.\n\n**Workload Management**: Spread write operations over time when possible. Avoid sustained sequential writes longer than 30-60 seconds without cooling solutions.\n\n**Firmware Optimization**: Some SSDs offer power/performance balance settings. Use power-saving modes for thermally constrained environments."
+        }
+      ],
+      "relatedArticles": [
+        "ssd-selection-guide",
+        "embedded-storage-selection-guide",
+        "storage-system-design-guide"
+      ],
+      "faeInsights": {
+        "insight": "Thermal throttling is the most common performance issue I see with NVMe SSDs. Users install a high-performance drive and wonder why speeds drop during large file transfers. The answer is almost always thermal throttling. Modern NVMe SSDs are incredibly fast but generate significant heat. Without proper cooling, sustained workloads inevitably trigger thermal protection. My recommendation: always use a heatsink for NVMe SSDs in performance-critical applications. Even a basic aluminum heatsink can prevent throttling in most scenarios. For workstations and servers, consider active cooling or ensure adequate chassis airflow.",
+        "logic": "NVMe thermal management requires: 1) Understanding power dissipation and heat generation, 2) Implementing effective heat dissipation through heatsinks and thermal pads, 3) Ensuring adequate airflow, 4) Monitoring temperature and throttling events, 5) Optimizing workload patterns when necessary.",
+        "keyTakeaways": [
+          "NVMe SSDs can generate 7-12W of heat under load",
+          "Thermal throttling significantly reduces performance",
+          "Heatsinks can reduce temperature by 10-20°C",
+          "Monitor SMART temperature attributes",
+          "Ensure adequate airflow in system design"
+        ],
+        "commonPitfalls": [
+          "Installing NVMe SSD without heatsink in compact case",
+          "Blocking airflow to M.2 slot with GPU or cables",
+          "Ignoring thermal throttling during sustained writes",
+          "Using low-quality thermal pads",
+          "Insufficient chassis ventilation"
+        ],
+        "bestPractices": [
+          "Always use heatsinks for performance NVMe SSDs",
+          "Use high-quality thermal pads (>6 W/mK)",
+          "Ensure airflow across M.2 slots",
+          "Monitor SMART temperature during validation",
+          "Design thermal conduction paths in chassis",
+          "Consider active cooling for sustained workloads"
+        ],
+        "author": {
+          "name": "David Zhang",
+          "title": "Senior FAE - Storage Solutions",
+          "experience": "12 years"
+        },
+        "content": "After supporting hundreds of NVMe SSD deployments, thermal management is consistently the most overlooked aspect. Users focus on sequential speed numbers but don't consider that those speeds are only achievable with proper cooling. I've seen high-end PCIe 4.0 SSDs throttle to SATA speeds during sustained writes due to poor thermal design. The solution is straightforward: use a quality heatsink, ensure airflow, and monitor temperatures. For gaming and consumer use, passive heatsinks are usually sufficient. For professional workstations and servers, consider active cooling solutions. Don't let thermal throttling waste your investment in high-performance storage.",
+        "insightLogic": "NVMe thermal design requires understanding heat generation, implementing effective dissipation, and monitoring performance. The goal is maintaining consistent high performance without thermal throttling.",
+        "decisionFramework": {
+          "title": "NVMe Thermal Management Decision Framework",
+          "steps": [
+            "Calculate expected power dissipation based on workload",
+            "Select appropriate cooling solution (passive or active)",
+            "Ensure proper thermal interface materials",
+            "Design adequate airflow in system",
+            "Validate thermal performance under sustained load"
+          ]
+        }
+      },
+      "customerCases": [
+        {
+          "customerName": "ProVideo Studios",
+          "industry": "Video Production",
+          "challenge": "Experienced thermal throttling during 4K video rendering causing dropped frames",
+          "solution": "Implemented heatsink and improved chassis airflow following this thermal guide",
+          "result": "Eliminated thermal throttling; maintained consistent 3500MB/s throughout renders"
+        }
+      ],
+      "faqs": [
+        {
+          "question": "What temperature should my NVMe SSD operate at?",
+          "answer": "For optimal performance, keep NVMe SSDs below 70°C. Most SSDs begin throttling at 75-85°C. Idle temperatures of 35-45°C are normal. Under sustained load, temperatures up to 65°C are acceptable with proper cooling.",
+          "decisionGuide": "Target <70°C for optimal performance; throttling begins at 75-85°C.",
+          "keywords": [
+            "NVMe temperature",
+            "thermal limits",
+            "operating temperature"
+          ]
+        },
+        {
+          "question": "Do I need a heatsink for my NVMe SSD?",
+          "answer": "For light use (web browsing, office work), a heatsink is optional. For gaming, content creation, and sustained workloads, a heatsink is highly recommended. High-performance PCIe 4.0 SSDs almost always require heatsinks for sustained performance.",
+          "decisionGuide": "Use heatsinks for gaming, content creation, and sustained workloads.",
+          "keywords": [
+            "NVMe heatsink",
+            "thermal solution",
+            "cooling requirement"
+          ]
+        },
+        {
+          "question": "How do I check if my SSD is thermal throttling?",
+          "answer": "Use CrystalDiskInfo or similar tools to check SMART attribute 194 (temperature) and thermal throttling counters. If temperature exceeds 75°C or throttling counters are non-zero, your SSD is throttling. Performance drops during sustained writes are also a sign of throttling.",
+          "decisionGuide": "Monitor SMART temperature and throttling counters; performance drops indicate throttling.",
+          "keywords": [
+            "thermal throttling",
+            "SMART monitoring",
+            "performance drop"
+          ]
+        },
+        {
+          "question": "What type of thermal pad should I use?",
+          "answer": "Use thermal pads with thermal conductivity of 6 W/mK or higher. Thickness should match the gap between SSD and heatsink (typically 1-2mm). High-quality silicone-based pads offer good performance and durability. Avoid cheap pads with <3 W/mK conductivity.",
+          "decisionGuide": "Use 6+ W/mK thermal pads, 1-2mm thickness matched to gap.",
+          "keywords": [
+            "thermal pad",
+            "thermal conductivity",
+            "heatsink interface"
+          ]
+        },
+        {
+          "question": "Can I use my NVMe SSD without a heatsink?",
+          "answer": "Yes, but performance may be reduced during sustained workloads. For light use, most SSDs will operate within acceptable temperatures. For heavy use, expect thermal throttling without proper cooling. Motherboard M.2 heatsinks or aftermarket solutions are recommended for best performance.",
+          "decisionGuide": "Light use: optional; Heavy/sustained use: heatsink recommended.",
+          "keywords": [
+            "NVMe without heatsink",
+            "passive cooling",
+            "thermal requirements"
+          ]
+        }
+      ],
+      "tags": [
+        "Longsys",
+        "NVMe",
+        "Thermal Management",
+        "SSD Cooling",
+        "Design Guide"
       ]
     }
   ]

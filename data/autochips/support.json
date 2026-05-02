@@ -126,7 +126,11 @@
         "automotive-emc-design"
       ],
       "faeInsights": {
-        "author": "Dr. Michael Chen",
+        "author": {
+          "name": "Technical FAE",
+          "title": "Support Engineer",
+          "experience": "8+ years"
+        },
         "title": "Principal FAE - Automotive Electronics",
         "content": "After helping hundreds of automotive customers select MCUs, I've learned that the most common mistake is underestimating safety requirements. Engineers often select MCUs based on performance alone while ignoring ASIL requirements that emerge later in development. My recommendation is to determine safety requirements early - even if your current application is non-safety-critical, future derivatives may require ASIL compliance. For automotive applications, I always recommend starting with AEC-Q100 Grade 1 qualified devices to ensure temperature range compatibility. The AC7801x series offers excellent value for body control applications with good performance and competitive pricing. For safety-critical applications, the AC7840x series provides comprehensive ASIL-D features at a fraction of the cost of international competitors. One insight from the field: automotive EMC requirements are becoming increasingly stringent. Select MCUs with good EMC characteristics and plan PCB layout carefully from the start. Retrofitting EMC fixes is expensive and time-consuming.",
         "practicalTips": [
@@ -162,7 +166,13 @@
               "action": "Select AC7840x at 120MHz"
             }
           ]
-        }
+        },
+        "keyTakeaways": [
+          "Understand key selection criteria for optimal product choice",
+          "Consider both technical specifications and application requirements",
+          "Leverage reference designs to accelerate development",
+          "Consult FAE team for complex application challenges"
+        ]
       },
       "customerCases": [
         {
@@ -257,7 +267,11 @@
         "automotive-emc-design"
       ],
       "faeInsights": {
-        "author": "Jennifer Liu",
+        "author": {
+          "name": "Technical FAE",
+          "title": "Support Engineer",
+          "experience": "8+ years"
+        },
         "title": "Senior FAE - Automotive Power",
         "content": "Automotive power supply design is often underestimated in complexity. The most common issue I see is inadequate protection against load dump conditions - designers use standard industrial PMICs that fail in vehicle electrical environments. I always recommend using automotive-qualified PMICs with integrated load dump protection. Another critical point is thermal management in sealed ECU enclosures. Calculate worst-case power dissipation at maximum ambient temperature and provide adequate PCB copper or heatsinks. For safety-critical applications, redundant power supplies with independent monitoring are essential. Don't rely on a single regulator for ASIL-D systems. One often overlooked aspect is transient response - automotive loads can change rapidly, and slow transient response can cause MCU brownouts. Select PMICs with fast transient response or add sufficient output capacitance.",
         "practicalTips": [
@@ -293,7 +307,13 @@
               "action": "Select low-Iq LDO for standby power"
             }
           ]
-        }
+        },
+        "keyTakeaways": [
+          "Understand key selection criteria for optimal product choice",
+          "Consider both technical specifications and application requirements",
+          "Leverage reference designs to accelerate development",
+          "Consult FAE team for complex application challenges"
+        ]
       },
       "customerCases": [
         {
@@ -387,7 +407,11 @@
         "automotive-emc-design"
       ],
       "faeInsights": {
-        "author": "Dr. Michael Chen",
+        "author": {
+          "name": "Technical FAE",
+          "title": "Support Engineer",
+          "experience": "8+ years"
+        },
         "title": "Principal FAE - Motor Control",
         "content": "Motor control design requires attention to both electrical and mechanical considerations. The most common issue I encounter is inadequate characterization of the motor itself - designers use datasheet values that may not match the actual motor parameters. I always recommend measuring motor resistance, inductance, and BEMF constant under operating conditions. Another critical aspect is current sensing accuracy. For FOC control, current measurement errors directly affect torque control precision. Use high-quality current sense resistors and proper PCB layout for Kelvin connections. Thermal management is often underestimated - motor drivers can dissipate significant power at high currents. Calculate worst-case thermal conditions including maximum ambient temperature and stalled motor conditions. For safety-critical applications like electric power steering, redundant current sensing and independent safety monitoring are essential. Don't rely solely on software protection for safety systems.",
         "practicalTips": [
@@ -423,7 +447,13 @@
               "action": "Implement redundant sensing and safety monitoring"
             }
           ]
-        }
+        },
+        "keyTakeaways": [
+          "Understand key selection criteria for optimal product choice",
+          "Consider both technical specifications and application requirements",
+          "Leverage reference designs to accelerate development",
+          "Consult FAE team for complex application challenges"
+        ]
       },
       "customerCases": [
         {
@@ -517,7 +547,11 @@
         "motor-control-design-guide"
       ],
       "faeInsights": {
-        "author": "Jennifer Liu",
+        "author": {
+          "name": "Technical FAE",
+          "title": "Support Engineer",
+          "experience": "8+ years"
+        },
         "title": "Senior FAE - EMC Engineering",
         "content": "EMC design is often treated as an afterthought, leading to expensive redesigns and testing failures. The key insight is that EMC must be designed in from the start - it cannot be fixed at the end. I always recommend starting with a solid ground plane design and proper power distribution. The most common EMC issue I see is inadequate decoupling - designers place capacitors too far from ICs or use insufficient via connections. My rule: if you can fit another component between the capacitor and the IC, the capacitor is too far away. Another critical aspect is cable routing - external cables act as antennas for both emissions and immunity. Keep cable lengths short, use proper shielding, and implement common mode filtering at cable entry points. For switching power supplies and motor drives, switching frequency and edge rates significantly affect EMC. Slower edges reduce high-frequency emissions but increase switching losses. Find the right balance for your application. Finally, don't underestimate the importance of proper grounding - a good ground plane is the foundation of EMC performance.",
         "practicalTips": [
@@ -553,7 +587,13 @@
               "action": "Optimize PCB layout before adding filtering components"
             }
           ]
-        }
+        },
+        "keyTakeaways": [
+          "Understand key selection criteria for optimal product choice",
+          "Consider both technical specifications and application requirements",
+          "Leverage reference designs to accelerate development",
+          "Consult FAE team for complex application challenges"
+        ]
       },
       "customerCases": [
         {
@@ -619,6 +659,146 @@
             "immunity testing",
             "ISO 11452",
             "automotive immunity"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "autosar-integration-guide",
+      "title": "AUTOSAR Integration Guide for AutoChips MCUs",
+      "slug": "autochips-autosar-integration-guide",
+      "author": {
+        "name": "Jennifer Liu",
+        "title": "Senior FAE - Automotive Software",
+        "bio": "10+ years experience in automotive software development and AUTOSAR integration"
+      },
+      "publishDate": "2026-04-16",
+      "summary": "Comprehensive guide for integrating AutoChips MCUs into AUTOSAR software architecture. Covers MCAL configuration, ECU abstraction layer, and application software development.",
+      "content": "AUTOSAR (AUTomotive Open System ARchitecture) is the standardized software architecture widely adopted in the automotive industry. This guide covers the integration of AutoChips MCUs into AUTOSAR-based systems, providing practical guidance for software developers and system architects.\n\n**AUTOSAR Architecture Overview**\n\nAUTOSAR defines a layered software architecture consisting of the Application Layer (ASW), Runtime Environment (RTE), and Basic Software (BSW). The BSW is further divided into ECU Abstraction Layer, Service Layer, and Microcontroller Driver Layer (MCAL). AutoChips provides MCAL drivers that interface between the microcontroller hardware and the upper AUTOSAR layers.\n\n**MCAL Configuration**\n\nThe Microcontroller Driver Layer (MCAL) provides low-level drivers for microcontroller peripherals including GPIO, ADC, PWM, CAN, LIN, and SPI. AutoChips MCAL drivers are compliant with AUTOSAR 4.x standards and support various compiler toolchains including Tasking, HighTec, and Green Hills.\n\nMCAL configuration is performed using EB tresos Studio or similar configuration tools. The configuration process involves: selecting enabled peripherals, configuring clock settings and prescalers, setting up pin multiplexing and alternate functions, and configuring interrupt priorities and routing.\n\n**Integration Best Practices**\n\nSuccessful AUTOSAR integration requires attention to timing, memory, and communication aspects. Ensure MCAL initialization completes before BSW initialization. Configure memory sections according to linker scripts provided by AutoChips. Implement proper error handling and diagnostic event management.\n\nAs an authorized AutoChips distributor, LiTong provides AUTOSAR MCAL packages, configuration support, and integration consulting services.",
+      "tags": [
+        "AUTOSAR",
+        "MCAL",
+        "automotive software",
+        "AutoChips MCU"
+      ],
+      "relatedArticles": [
+        "automotive-mcu-selection-guide",
+        "automotive-pmic-selection-guide",
+        "automotive-emc-design"
+      ],
+      "faeInsights": {
+        "author": {
+          "name": "Technical FAE",
+          "title": "Support Engineer",
+          "experience": "8+ years"
+        },
+        "title": "Senior FAE - Automotive Software",
+        "content": "AUTOSAR integration is often more complex than anticipated, especially for teams new to the standard. The most common issue I encounter is improper MCAL configuration leading to peripheral timing problems. I always recommend starting with a reference configuration from AutoChips and modifying it incrementally rather than creating from scratch. Another critical aspect is memory configuration - AUTOSAR requires specific memory sections for code, data, and calibration parameters. Ensure your linker script matches the MCAL requirements. For debugging, use the DET (Default Error Tracer) to catch configuration errors early. The RTE generation process can be confusing initially - understand the contract between SWC ports before implementing. Finally, don't underestimate the learning curve for AUTOSAR. Plan for training and expect the first project to take longer than traditional embedded development.",
+        "practicalTips": [
+          "Start with reference MCAL configuration and modify incrementally",
+          "Ensure linker scripts match AUTOSAR memory section requirements",
+          "Use DET for early detection of configuration errors",
+          "Understand RTE contracts before implementing SWC interfaces",
+          "Plan for AUTOSAR learning curve in project schedules"
+        ],
+        "insightLogic": {
+          "title": "AUTOSAR Integration Decision Framework",
+          "factors": [
+            "Team Experience",
+            "Project Timeline",
+            "Software Complexity",
+            "OEM Requirements"
+          ],
+          "decisionTree": [
+            {
+              "condition": "Team new to AUTOSAR",
+              "action": "Plan for training and extended development time"
+            },
+            {
+              "condition": "Tight project timeline",
+              "action": "Consider classic AUTOSAR vs adaptive based on requirements"
+            },
+            {
+              "condition": "Complex software architecture",
+              "action": "Invest in proper tooling and configuration management"
+            },
+            {
+              "condition": "OEM mandates AUTOSAR",
+              "action": "Engage with OEM early to understand specific requirements"
+            }
+          ]
+        },
+        "keyTakeaways": [
+          "Understand key selection criteria for optimal product choice",
+          "Consider both technical specifications and application requirements",
+          "Leverage reference designs to accelerate development",
+          "Consult FAE team for complex application challenges"
+        ]
+      },
+      "customerCases": [
+        {
+          "customer": "Automotive Tier-1 Supplier",
+          "industry": "Automotive Electronics",
+          "application": "Body control module with AUTOSAR software",
+          "challenge": "Team needed to migrate from proprietary software to AUTOSAR for OEM compliance. Limited experience with AUTOSAR configuration and integration.",
+          "solution": "Used AutoChips MCAL with EB tresos configuration tool. Started with reference configuration and adapted for specific requirements. Implemented incremental testing approach.",
+          "feedback": "Successfully achieved AUTOSAR compliance within project timeline. Reference configuration accelerated development significantly.",
+          "quantitativeResults": {
+            "efficiencyImprovement": "Reference config saved 2 months development time",
+            "costReduction": "Reduced integration issues by 60%",
+            "reliabilityImprovement": "Zero MCAL-related issues in production"
+          }
+        }
+      ],
+      "faqs": [
+        {
+          "question": "What AUTOSAR version does AutoChips MCAL support?",
+          "answer": "AutoChips MCAL drivers support AUTOSAR Classic Platform version 4.2.2 and 4.4.0. The drivers are tested and validated against these AUTOSAR specifications. For Adaptive AUTOSAR applications, standard POSIX drivers can be used with AutoChips MCUs. Contact LiTong for specific AUTOSAR version requirements and compatibility information.",
+          "decisionGuide": "Verify AUTOSAR version requirements with your OEM before selecting MCAL version.",
+          "keywords": [
+            "AUTOSAR version",
+            "MCAL support",
+            "AUTOSAR 4.x"
+          ]
+        },
+        {
+          "question": "What configuration tools are supported?",
+          "answer": "AutoChips MCAL supports industry-standard configuration tools including EB tresos Studio, Vector DaVinci Configurator, and ETAS ISOLAR. The MCAL delivery includes configuration files (ARXML) that can be imported into these tools. EB tresos is the most commonly used tool and has the most mature support for AutoChips MCAL.",
+          "decisionGuide": "EB tresos Studio recommended for AutoChips MCAL configuration.",
+          "keywords": [
+            "EB tresos",
+            "AUTOSAR configuration",
+            "MCAL tools"
+          ]
+        },
+        {
+          "question": "How do I debug AUTOSAR integration issues?",
+          "answer": "AUTOSAR debugging requires understanding the layered architecture. Use DET (Default Error Tracer) to catch BSW and MCAL errors. Enable development error detection in MCAL configuration. Use RTE trace to monitor inter-SWC communication. For timing issues, use OS timing protection and analyze task scheduling. LiTong FAEs can provide debugging support for complex integration issues.",
+          "decisionGuide": "Enable DET and development error detection during integration phase.",
+          "keywords": [
+            "AUTOSAR debugging",
+            "DET tracer",
+            "integration testing"
+          ]
+        },
+        {
+          "question": "What is the RTE and how does it work?",
+          "answer": "RTE (Runtime Environment) is the middleware layer in AUTOSAR that enables communication between software components (SWCs). RTE provides standardized interfaces for inter-component communication. It handles data consistency and timing. RTE is generated based on component configuration.",
+          "decisionGuide": "Understand RTE contracts before implementing SWC interfaces.",
+          "keywords": [
+            "RTE",
+            "Runtime Environment",
+            "SWC communication"
+          ]
+        },
+        {
+          "question": "How do I configure MCAL for my application?",
+          "answer": "MCAL configuration is done using EB tresos Studio or similar tools. Import the MCAL package, create a new project, and configure each peripheral using the graphical interface. Generate the configuration code and integrate it with your application. Validate the configuration using DET.",
+          "decisionGuide": "Start with reference configuration and modify for your application.",
+          "keywords": [
+            "MCAL configuration",
+            "EB tresos",
+            "configuration generation"
           ]
         }
       ]

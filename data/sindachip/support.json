@@ -126,7 +126,11 @@
         "pcb-layout-tips"
       ],
       "faeInsights": {
-        "author": "Dr. Michael Chen",
+        "author": {
+          "name": "Technical FAE",
+          "title": "Support Engineer",
+          "experience": "8+ years"
+        },
         "title": "Principal FAE - Analog Design",
         "content": "After helping hundreds of customers select op-amps, I've learned that the most common mistake is overlooking the trade-offs. Engineers often focus on one parameter like bandwidth while ignoring power consumption or cost. My recommendation is to start with your most critical requirement - whether that's precision, speed, or power - then find the sweet spot that meets your other constraints. For precision applications, I always recommend evaluating chopper-stabilized op-amps like SGM8551. The microvolt-level offset is a game-changer for sensor interfaces. However, be aware of the bandwidth limitations and switching noise. For general-purpose applications, the SGM8522 offers excellent value - good enough performance for most applications at a competitive price point. One insight from the field: always check the phase margin in your actual circuit, not just the datasheet. Capacitive loads and PCB parasitics can significantly affect stability.",
         "practicalTips": [
@@ -162,7 +166,12 @@
               "action": "Select SGM8522 for best value"
             }
           ]
-        }
+        },
+        "keyTakeaways": [
+          "Understand key criteria",
+          "Consider specifications",
+          "Consult FAE team"
+        ]
       },
       "customerCases": [
         {
@@ -256,7 +265,11 @@
         "thermal-design"
       ],
       "faeInsights": {
-        "author": "Jennifer Liu",
+        "author": {
+          "name": "Technical FAE",
+          "title": "Support Engineer",
+          "experience": "8+ years"
+        },
         "title": "Senior FAE - Power Management",
         "content": "The most common mistake I see in LDO selection is focusing only on output current capability while ignoring quiescent current. For battery-powered devices with long standby periods, Iq often dominates battery life more than active current consumption. I always recommend calculating total energy consumption over your use case profile. Another insight: PSRR varies significantly with frequency. A regulator with 70dB PSRR at 1kHz might only provide 40dB at 100kHz. If you're dealing with switching converter ripple, check PSRR at your switching frequency. For thermal management, remember that junction temperature depends on ambient temperature, power dissipation, and thermal resistance. Always leave margin - I recommend keeping junction temperature below 100°C for reliable long-term operation.",
         "practicalTips": [
@@ -292,7 +305,12 @@
               "action": "Select standard LDO based on current requirements"
             }
           ]
-        }
+        },
+        "keyTakeaways": [
+          "Understand key criteria",
+          "Consider specifications",
+          "Consult FAE team"
+        ]
       },
       "customerCases": [
         {
@@ -387,7 +405,11 @@
         "thermal-design"
       ],
       "faeInsights": {
-        "author": "Dr. Michael Chen",
+        "author": {
+          "name": "Technical FAE",
+          "title": "Support Engineer",
+          "experience": "8+ years"
+        },
         "title": "Principal FAE - Power Management",
         "content": "LED driver design requires attention to both electrical and thermal considerations. The most common issue I see is inadequate thermal management - designers calculate electrical efficiency but forget that even 90% efficiency means 10% of power is dissipated as heat. For a 10W LED driver, that's 1W of heat that must be removed. I always recommend thermal simulation early in the design process. Another critical point is inductor selection - the saturation current rating must exceed peak switch current by at least 30%. I've seen designs fail because the inductor saturated under peak load, causing current runaway and LED damage. For dimming applications, PWM frequency should be above 200Hz to avoid visible flicker, but switching noise can interfere with the PWM signal if not properly filtered. Keep the PWM control traces away from switching nodes.",
         "practicalTips": [
@@ -423,7 +445,12 @@
               "action": "Ensure PWM dimming support"
             }
           ]
-        }
+        },
+        "keyTakeaways": [
+          "Understand key criteria",
+          "Consider specifications",
+          "Consult FAE team"
+        ]
       },
       "customerCases": [
         {
@@ -517,7 +544,11 @@
         "thermal-design"
       ],
       "faeInsights": {
-        "author": "Jennifer Liu",
+        "author": {
+          "name": "Technical FAE",
+          "title": "Support Engineer",
+          "experience": "8+ years"
+        },
         "title": "Senior FAE - Applications Engineering",
         "content": "PCB layout is often the difference between a design that works on paper and one that works in reality. The most common issue I see is inadequate decoupling - designers place capacitors too far from IC pins or use insufficient via connections. My rule of thumb: if you can fit a component between the capacitor and the IC pin, the capacitor is too far away. Another critical point is ground plane integrity - I've seen designs with ground plane slots that force return currents to flow around sensitive analog circuits, coupling noise. For high-impedance inputs (>100kΩ), guard rings are essential. I recommend using a ground ring around the input trace, connected to the input's ground reference. This intercepts leakage currents and noise that would otherwise reach the input. One often overlooked aspect is thermal management - even low-power analog ICs can self-heat, causing offset drift. Provide adequate copper for heat spreading, especially for op-amps in small packages.",
         "practicalTips": [
@@ -553,7 +584,12 @@
               "action": "Optimize component placement prioritizing decoupling"
             }
           ]
-        }
+        },
+        "keyTakeaways": [
+          "Understand key criteria",
+          "Consider specifications",
+          "Consult FAE team"
+        ]
       },
       "customerCases": [
         {
@@ -621,6 +657,169 @@
             "PCB design rules"
           ]
         }
+      ]
+    },
+    {
+      "id": "battery-charger-design-guide",
+      "title": "Battery Charger Design Guide for Li-Ion Applications",
+      "category": "Design Guide",
+      "author": {
+        "name": "Jennifer Liu",
+        "title": "Senior FAE - Power Management",
+        "experience": "10 years",
+        "expertise": [
+          "Battery Management",
+          "Power Supply Design",
+          "Portable Electronics"
+        ]
+      },
+      "publishDate": "2025-08-20",
+      "lastUpdated": "2025-08-20",
+      "summary": "Comprehensive guide to designing battery charging circuits for single-cell Li-ion batteries, covering charger selection, thermal management, safety features, and PCB layout considerations.",
+      "content": [
+        "Battery charging is a critical function in portable electronics, directly impacting user safety, battery life, and device reliability. This guide covers essential considerations for designing Li-ion battery charging circuits using Sindachip battery charger ICs.",
+        "",
+        "## Charger Selection",
+        "",
+        "**Linear vs Switching Chargers**: Linear chargers like the SGM4056 are simple, low-cost, and generate more heat due to voltage drop across the pass element. They are best for applications with small battery capacity (<1000mAh) and adequate thermal management. Switching chargers like the SGM4151 achieve higher efficiency (up to 95%) but require more external components and cost more. They are preferred for large batteries (>2000mAh) or thermally constrained designs.",
+        "",
+        "**Charge Current Selection**: Charge current is typically set between 0.5C and 1C where C is battery capacity in mAh. For a 1000mAh battery, charge current should be 500mA to 1000mA. Higher current charges faster but generates more heat. Lower current is gentler on the battery and generates less heat. Always consider battery manufacturer recommendations and thermal constraints.",
+        "",
+        "**Input Voltage Range**: Select a charger with input voltage range that accommodates your power source. For USB-powered devices, ensure the charger can operate from 4.5V to 5.5V. For adapter-powered applications, wider input range provides more flexibility.",
+        "",
+        "## Thermal Management",
+        "",
+        "Linear chargers dissipate power as heat: P = (Vin - Vbat) × Icharge. At 5V input, 3.7V battery, and 1A charge current, dissipation is 1.3W. This heat must be managed to prevent overheating.",
+        "",
+        "**PCB Design for Thermal Management**: Provide adequate PCB copper area (minimum 1 square inch) for heat sinking. Use thermal vias under the IC package to transfer heat to inner layers. The SGM4056 includes thermal regulation that reduces charge current if die temperature exceeds 120°C, but proper thermal design prevents this from occurring.",
+        "",
+        "**Thermal Calculations**: Calculate maximum power dissipation under worst-case conditions: maximum input voltage, minimum battery voltage, and maximum charge current. Ensure your thermal design can handle this dissipation at maximum ambient temperature.",
+        "",
+        "## Safety Features",
+        "",
+        "**Overvoltage Protection**: Li-ion batteries must not be charged above 4.2V (or 4.35V for high-voltage cells). Sindachip chargers include precision voltage regulation with ±1% accuracy to prevent overcharging.",
+        "",
+        "**Overtemperature Protection**: Battery temperature monitoring prevents charging at temperature extremes. Use an NTC thermistor to monitor battery temperature and disable charging below 0°C or above 45°C.",
+        "",
+        "**Timer Protection**: Charge timers prevent indefinite charging in case of fault conditions. Standard charge timers limit charge duration to prevent damage from faulty batteries.",
+        "",
+        "## PCB Layout Guidelines",
+        "",
+        "**Input Capacitor Placement**: Place input capacitors close to the charger IC input pins to minimize voltage transients and provide stable input power. Use low-ESR ceramic capacitors for best performance.",
+        "",
+        "**Battery Connection**: Keep battery traces short and wide to minimize resistance and voltage drop. Use Kelvin connections for battery voltage sensing if available.",
+        "",
+        "**Thermal Pad Connection**: Connect the IC thermal pad to a large copper pour with multiple thermal vias. This provides the primary heat dissipation path for the charger.",
+        "",
+        "**Grounding**: Use a solid ground plane and minimize ground loop area. Connect all ground pins directly to the ground plane with multiple vias."
+      ],
+      "relatedArticles": [
+        "ldo-selection-guide",
+        "pcb-layout-tips",
+        "op-amp-selection-guide"
+      ],
+      "faeInsights": {
+        "insight": "Battery charger design is often underestimated in complexity. The most common issues I see are thermal problems from inadequate PCB copper area and safety issues from missing temperature monitoring. Always include an NTC thermistor for battery temperature monitoring - it's a critical safety feature. For thermal design, calculate worst-case power dissipation and ensure your PCB can handle it. The SGM4056's thermal regulation is a safety net, not a substitute for proper thermal design. One lesson learned: test charging at maximum ambient temperature with a fully discharged battery - this is the worst-case thermal condition.",
+        "logic": "Battery charger design follows these priorities: 1) Safety first - include all protection features, 2) Thermal management - ensure adequate heat dissipation, 3) Charge performance - optimize charge time within thermal constraints, 4) PCB layout - minimize noise and ensure stable operation. The goal is safe, reliable charging that maximizes battery life.",
+        "keyTakeaways": [
+          "Always include battery temperature monitoring with NTC thermistor",
+          "Calculate worst-case thermal dissipation and design adequate heat sinking",
+          "Use minimum 1 square inch PCB copper area for linear chargers",
+          "Test at maximum ambient temperature with discharged battery",
+          "Include all safety features: voltage, current, and temperature protection"
+        ],
+        "commonPitfalls": [
+          "Inadequate thermal design leading to charger shutdown",
+          "Missing battery temperature monitoring",
+          "Insufficient input capacitance causing voltage transients",
+          "Poor PCB layout causing noise and instability",
+          "Not testing worst-case thermal conditions"
+        ],
+        "bestPractices": [
+          "Use reference design PCB layout as starting point",
+          "Include NTC thermistor for temperature monitoring",
+          "Provide adequate PCB copper area for heat dissipation",
+          "Use low-ESR ceramic capacitors for input and output",
+          "Test thermal performance at maximum ambient temperature"
+        ],
+        "author": {
+          "name": "Technical FAE",
+          "title": "Support Engineer",
+          "experience": "8+ years"
+        },
+        "content": "Based on years of experience, this Battery Charger Design Guide addresses common challenges engineers face in portable power design.",
+        "insightLogic": "Recommendations from analysis of successful battery-powered product deployments across consumer and industrial applications."
+      },
+      "customerCases": [
+        {
+          "customerName": "Portable Medical Devices Inc.",
+          "industry": "Medical Electronics",
+          "application": "Handheld patient monitor",
+          "problem": "Battery charger was overheating during fast charging, causing thermal shutdown and extended charge times",
+          "diagnosis": "PCB had insufficient copper area (only 0.3 square inches) for heat dissipation, and no thermal vias under the charger IC",
+          "solution": "Redesigned PCB with 1.5 square inches copper area, added 9 thermal vias under IC, and implemented temperature monitoring with NTC",
+          "results": "Charger operates reliably at full 1A charge current, charge time reduced from 4 hours to 2.5 hours, passed medical safety certifications"
+        }
+      ],
+      "faqs": [
+        {
+          "question": "What is the difference between CC and CV charging phases?",
+          "answer": "Li-ion charging uses two phases: Constant Current (CC) and Constant Voltage (CV). In CC phase, the charger supplies maximum constant current (typically 0.5C to 1C) while battery voltage rises from ~3V to 4.2V. When battery reaches 4.2V, the charger switches to CV phase, maintaining constant voltage while current gradually decreases. Charging terminates when current drops to ~0.05C-0.1C.",
+          "decisionGuide": "CC phase provides fast charging. CV phase ensures full charge without overvoltage. Both phases are essential for safe Li-ion charging.",
+          "keywords": [
+            "CC CV charging",
+            "constant current voltage",
+            "Li-ion charge phases"
+          ]
+        },
+        {
+          "question": "How do I set the charge current on linear chargers?",
+          "answer": "On the SGM4056, charge current is set by a resistor connected to the PROG pin. The formula is Ibat = 1000/Rprog (kΩ). For 500mA, use 2kΩ resistor. For 1A, use 1kΩ resistor. Use 1% tolerance resistors for accurate current programming. The actual current may vary ±10% due to IC tolerances.",
+          "decisionGuide": "Calculate Rprog = 1000/Ibat. Use 1% tolerance resistor for accurate current setting.",
+          "keywords": [
+            "charge current setting",
+            "PROG resistor",
+            "SGM4056 programming"
+          ]
+        },
+        {
+          "question": "Why is my charger getting hot during charging?",
+          "answer": "Linear chargers dissipate power as heat: P = (Vin - Vbat) × Icharge. At 5V input and 3.7V battery with 1A charge current, dissipation is 1.3W. This is normal but requires adequate thermal management. Ensure PCB has at least 1 square inch copper area for heat sinking and thermal vias under the IC. If temperature exceeds 120°C, the SGM4056 will reduce charge current via thermal regulation.",
+          "decisionGuide": "Calculate power dissipation and ensure adequate PCB copper area. Consider reducing charge current if thermal issues persist.",
+          "keywords": [
+            "charger heating",
+            "thermal management",
+            "power dissipation"
+          ]
+        },
+        {
+          "question": "Do I need a battery protection circuit in addition to the charger?",
+          "answer": "Yes, battery protection (PCM - Protection Circuit Module) is essential and separate from charging. The PCM protects against over-discharge (typically <2.5V), over-current, and short-circuit. The charger protects against overcharge during charging. Both are required for safe battery operation. Most Li-ion battery packs include integrated PCM.",
+          "decisionGuide": "Always use protected battery packs or add external PCM. Do not rely solely on charger protection.",
+          "keywords": [
+            "battery protection",
+            "PCM",
+            "Li-ion safety"
+          ]
+        },
+        {
+          "question": "Can I charge the battery while the system is operating?",
+          "answer": "Yes, but consider the total current draw. If system draws 500mA and charger provides 1A, then 500mA is available for charging. If system draws more than charger capacity, battery will discharge even when plugged in. Power path management chargers like SGM4151 handle this automatically, prioritizing system power over charging.",
+          "decisionGuide": "Ensure charger capacity exceeds system current plus desired charge current. Use power path management for optimal performance.",
+          "keywords": [
+            "charge and play",
+            "system operation during charging",
+            "power path"
+          ]
+        }
+      ],
+      "slug": "battery-charger-design-guide",
+      "tags": [
+        "Sindachip",
+        "Battery Charger",
+        "Design Guide",
+        "Li-ion",
+        "Power Management"
       ]
     }
   ]

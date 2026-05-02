@@ -1,0 +1,919 @@
+{
+  "articles": [
+    {
+      "id": "automotive-ethernet-selection",
+      "slug": "automotive-ethernet-selection",
+      "title": "Automotive Ethernet PHY Selection Guide",
+      "name": "Automotive Ethernet PHY Selection Guide",
+      "summary": "Comprehensive guide for selecting the right Jisemi automotive Ethernet PHY based on bandwidth, safety, and application requirements.",
+      "description": "This guide helps engineers navigate Jisemi's automotive Ethernet PHY portfolio to select the optimal device for their specific automotive networking requirements.",
+      "content": [
+        "This technical reference document provides detailed information about jisemi product specifications, characteristics, and performance parameters. Use this information to support your design and analysis activities.",
+        "Electrical characteristics are specified over the operating temperature range unless otherwise noted. Parameters are guaranteed by design, testing, or statistical analysis. Typical values represent the most likely parametric norm at 25°C.",
+        "Thermal characteristics require careful attention during system design. The junction-to-ambient thermal resistance depends on the mounting configuration, PCB copper area, and airflow conditions. Use thermal simulation tools to predict operating temperatures under actual conditions.",
+        "Reliability data is based on accelerated life testing and field failure analysis. Mean time between failures (MTBF) calculations follow industry-standard methodologies. Contact BeiLuo for detailed reliability reports and qualification data."
+      ],
+      "category": "Technical Guide",
+      "tags": [
+        "automotive Ethernet",
+        "PHY selection",
+        "100BASE-T1",
+        "1000BASE-T1",
+        "application note"
+      ],
+      "author": {
+        "name": "David Zhang",
+        "title": "Senior FAE - Automotive Connectivity",
+        "bio": "David has over 15 years of experience in automotive networking and has supported numerous OEM and Tier 1 designs."
+      },
+      "publishDate": "2024-01-15",
+      "faqs": [
+        {
+          "question": "How do I choose between 100BASE-T1 and 1000BASE-T1?",
+          "answer": "Choose 100BASE-T1 for applications with bandwidth requirements below 50 Mbps sustained, such as body electronics, diagnostics, and basic infotainment. Choose 1000BASE-T1 for camera systems, ADAS, and high-resolution displays requiring 100-500 Mbps. Consider future expansion needs - if bandwidth requirements may grow, select the higher speed option. 1000BASE-T1 PHYs can typically operate at 100 Mbps for compatibility with legacy systems.",
+          "decisionGuide": "Calculate your current bandwidth needs and add 50% margin for future expansion; select the lowest speed grade that meets this requirement.",
+          "keywords": [
+            "100BASE-T1",
+            "1000BASE-T1",
+            "bandwidth selection",
+            "speed grade"
+          ]
+        },
+        {
+          "question": "What is the maximum cable length for automotive Ethernet?",
+          "answer": "Maximum cable length depends on data rate and cable quality. For 100BASE-T1: up to 15m with UTP, up to 25m with coaxial. For 1000BASE-T1: up to 15m with UTP, up to 25m with coaxial. For MultiGBASE-T1: up to 15m with high-quality coaxial. These are typical values - actual performance depends on cable characteristics, connector quality, and environmental conditions. Always validate with actual cables in your application environment.",
+          "decisionGuide": "Use high-quality coaxial cable for maximum reach; validate actual performance with your specific cable and connectors.",
+          "keywords": [
+            "cable length",
+            "reach",
+            "UTP",
+            "coaxial",
+            "signal integrity"
+          ]
+        },
+        {
+          "question": "How do I implement functional safety with automotive Ethernet?",
+          "answer": "Functional safety implementation requires systematic approach: 1) Conduct hazard analysis and risk assessment to determine ASIL requirements. 2) Select PHYs with appropriate ASIL support and safety features. 3) Implement end-to-end safety mechanisms including CRC, sequence counters, and timeout monitoring. 4) Design redundant paths for ASIL-D applications. 5) Validate diagnostic coverage through fault injection testing. 6) Document safety case following ISO 26262 process. Jisemi provides safety manuals and FMEDA to support this process.",
+          "decisionGuide": "Engage functional safety experts early; use Jisemi safety documentation and follow ISO 26262 development process.",
+          "keywords": [
+            "functional safety",
+            "ISO 26262",
+            "ASIL",
+            "safety mechanisms",
+            "FMEDA"
+          ]
+        },
+        {
+          "question": "What EMC considerations apply to automotive Ethernet?",
+          "answer": "Automotive Ethernet must meet stringent EMC requirements including CISPR 25 Class 5 for emissions and ISO 11452 for immunity. Key design considerations: 1) Use proper cable shielding and termination. 2) Implement common-mode chokes for noise suppression. 3) Follow PCB layout guidelines for high-speed signals. 4) Use filtered connectors for power entry. 5) Validate EMC performance early with pre-compliance testing. Jisemi PHYs include integrated EMC features, but system-level design is critical for meeting OEM requirements.",
+          "decisionGuide": "Follow automotive EMC design guidelines and test early; engage EMC experts for complex systems.",
+          "keywords": [
+            "EMC",
+            "EMI",
+            "CISPR 25",
+            "automotive EMC",
+            "shielding"
+          ]
+        },
+        {
+          "question": "Can automotive Ethernet coexist with other vehicle networks?",
+          "answer": "Yes, automotive Ethernet is designed to coexist with CAN, LIN, and FlexRay networks. Ethernet serves as the high-speed backbone while legacy networks handle lower-speed communication. Gateways translate between protocols, enabling gradual migration to Ethernet-based architectures. Consider transition strategy when designing new vehicle platforms - maintain legacy networks for compatibility while adding Ethernet for new high-bandwidth functions.",
+          "decisionGuide": "Plan gateway architecture for protocol translation; maintain legacy networks during transition period.",
+          "keywords": [
+            "gateway",
+            "CAN",
+            "LIN",
+            "FlexRay",
+            "network architecture",
+            "migration"
+          ]
+        }
+      ],
+      "faeInsight": {
+        "summary": "The most common mistake in automotive Ethernet PHY selection is underestimating future bandwidth requirements. Always include margin for feature expansion and select PHYs with appropriate safety support from the start.",
+        "keyPoints": [
+          "Include 50% bandwidth margin for future expansion",
+          "Select appropriate ASIL level early in design",
+          "Validate cable and connector choices with actual hardware",
+          "Test EMC performance early in development",
+          "Plan for coexistence with legacy networks"
+        ],
+        "commonIssues": [
+          "Insufficient bandwidth for future feature expansion",
+          "Inadequate functional safety support",
+          "Poor cable quality affecting signal integrity",
+          "EMC failures due to inadequate shielding"
+        ],
+        "bestPractices": [
+          "Use Jisemi evaluation boards for initial validation",
+          "Follow automotive Ethernet design guidelines",
+          "Implement comprehensive production testing",
+          "Engage functional safety experts early"
+        ]
+      },
+      "faeInsights": {
+        "author": {
+          "name": "Technical FAE",
+          "title": "Support Engineer",
+          "experience": "8+ years"
+        },
+        "title": "Senior FAE - Automotive Connectivity",
+        "content": "In my experience supporting automotive Ethernet designs, the most critical factor for success is proper system-level design rather than just PHY selection. While Jisemi PHYs provide excellent performance margin, the overall network architecture, cable quality, and PCB layout determine actual system performance. I always emphasize the importance of using quality cables and connectors - this is often the weakest link in the system. For EMC, proper shielding termination and common-mode filtering are essential. When implementing functional safety, start with a thorough hazard analysis and select ASIL-appropriate PHYs from the beginning - retrofitting safety later is much more difficult. Finally, validate EMC performance early with pre-compliance testing to avoid surprises at the end of the project.",
+        "keyPoints": [
+          "System-level design is more important than individual component selection",
+          "Cable and connector quality significantly impacts performance",
+          "Proper shielding and filtering are essential for EMC",
+          "Start functional safety planning early in the design cycle",
+          "Validate EMC performance early with pre-compliance testing"
+        ],
+        "commonIssues": [
+          "Poor cable quality causing signal degradation",
+          "Inadequate shielding termination affecting EMC",
+          "Insufficient bandwidth planning for future features",
+          "Late-stage EMC failures requiring redesign"
+        ],
+        "bestPractices": [
+          "Use automotive-grade cables and connectors",
+          "Implement proper shielding and grounding",
+          "Plan bandwidth with 50% margin for expansion",
+          "Test EMC early and often during development"
+        ],
+        "insightLogic": "Based on 15+ years of automotive networking experience and numerous successful Ethernet deployments",
+        "keyTakeaways": [
+          "Understand key criteria",
+          "Consider specifications",
+          "Consult FAE team"
+        ]
+      },
+      "customerCase": {
+        "industry": "Automotive",
+        "customer": "European Tier 1 supplier",
+        "challenge": "Needed to select appropriate Ethernet PHYs for new ADAS platform with 8 cameras and gateway functionality, requiring 1 Gbps bandwidth and ASIL-B support.",
+        "solution": "Selected JL5001 1000BASE-T1 PHYs based on bandwidth requirements and ASIL-B support. Validated cable and connector choices with Jisemi evaluation boards.",
+        "results": [
+          "Successfully achieved 1 Gbps throughput with margin",
+          "Passed EMC testing on first attempt",
+          "Achieved ASIL-B safety rating",
+          "Met all OEM requirements"
+        ],
+        "testimonial": "Following the selection guide helped us make the right choice the first time. The JL5001 exceeded our performance expectations.",
+        "testimonialAuthor": "ADAS Hardware Lead"
+      },
+      "customerCases": [
+        {
+          "industry": "Automotive",
+          "customer": "European Tier 1 supplier",
+          "challenge": "Needed to select appropriate Ethernet PHYs for new ADAS platform with 8 cameras and gateway functionality, requiring 1 Gbps bandwidth and ASIL-B support.",
+          "solution": "Selected JL5001 1000BASE-T1 PHYs based on bandwidth requirements and ASIL-B support. Validated cable and connector choices with Jisemi evaluation boards.",
+          "results": [
+            "Successfully achieved 1 Gbps throughput with margin",
+            "Passed EMC testing on first attempt",
+            "Achieved ASIL-B safety rating",
+            "Met all OEM requirements"
+          ],
+          "testimonial": "Following the selection guide helped us make the right choice the first time.",
+          "testimonialAuthor": "ADAS Hardware Lead",
+          "feedback": "Excellent guidance that saved us significant development time"
+        }
+      ],
+      "relatedArticles": [
+        {
+          "id": "serdes-selection",
+          "title": "SerDes Selection Guide for Camera Applications",
+          "link": "/jisemi/support/serdes-selection.html"
+        },
+        {
+          "id": "pcb-layout-guidelines",
+          "title": "PCB Layout Guidelines for High-Speed Ethernet",
+          "link": "/jisemi/support/pcb-layout-guidelines.html"
+        },
+        {
+          "id": "emc-design-guide",
+          "title": "EMC Design Guide for Automotive Ethernet",
+          "link": "/jisemi/support/emc-design-guide.html"
+        }
+      ]
+    },
+    {
+      "id": "serdes-selection",
+      "slug": "serdes-selection",
+      "title": "SerDes Selection Guide for Camera Applications",
+      "name": "SerDes Selection Guide for Camera Applications",
+      "summary": "Guide for selecting Jisemi SerDes solutions based on resolution, cable type, and application requirements.",
+      "description": "This application note provides guidance on selecting the appropriate Jisemi SerDes device for automotive camera and display applications.",
+      "content": [
+        "This technical reference document provides detailed information about jisemi product specifications, characteristics, and performance parameters. Use this information to support your design and analysis activities.",
+        "Electrical characteristics are specified over the operating temperature range unless otherwise noted. Parameters are guaranteed by design, testing, or statistical analysis. Typical values represent the most likely parametric norm at 25°C.",
+        "Thermal characteristics require careful attention during system design. The junction-to-ambient thermal resistance depends on the mounting configuration, PCB copper area, and airflow conditions. Use thermal simulation tools to predict operating temperatures under actual conditions.",
+        "Reliability data is based on accelerated life testing and field failure analysis. Mean time between failures (MTBF) calculations follow industry-standard methodologies. Contact BeiLuo for detailed reliability reports and qualification data."
+      ],
+      "category": "Application Note",
+      "tags": [
+        "SerDes",
+        "camera",
+        "video transmission",
+        "power-over-coax",
+        "design guide"
+      ],
+      "author": {
+        "name": "Michael Liu",
+        "title": "Senior FAE - Camera Systems",
+        "bio": "Michael specializes in automotive camera systems and has supported numerous surround-view and ADAS camera designs."
+      },
+      "publishDate": "2024-01-20",
+      "faqs": [
+        {
+          "question": "How do I calculate SerDes bandwidth requirements?",
+          "answer": "Calculate bandwidth based on video resolution, frame rate, and bit depth. Formula: Bandwidth = Resolution × Frame Rate × Bit Depth × 1.2 (overhead). For example: 1080p (1920×1080) at 30fps with 12-bit color: 1920 × 1080 × 30 × 12 × 1.2 = ~900 Mbps. Add 20-30% margin for cable losses and future expansion. Control channel bandwidth is typically negligible compared to video.",
+          "decisionGuide": "Calculate exact bandwidth for your resolution and frame rate, then add 30% margin for cable losses and expansion.",
+          "keywords": [
+            "bandwidth calculation",
+            "resolution",
+            "frame rate",
+            "bit depth"
+          ]
+        },
+        {
+          "question": "What is the difference between coaxial and STP cable for SerDes?",
+          "answer": "Coaxial cable provides better signal integrity due to controlled impedance and shielding, enabling longer reach and higher data rates. It also supports power-over-coax for camera power delivery. STP is lower cost but has higher attenuation and crosstalk, limiting reach and bandwidth. Use coaxial for camera applications requiring power delivery or long reach (>10m). Use STP for cost-sensitive short-distance applications.",
+          "decisionGuide": "Use coaxial for camera applications with power-over-coax; use STP for short-distance cost-sensitive applications.",
+          "keywords": [
+            "coaxial cable",
+            "STP",
+            "cable selection",
+            "power-over-coax"
+          ]
+        },
+        {
+          "question": "How do I implement power-over-coax correctly?",
+          "answer": "Power-over-coax implementation requires: 1) PoC filters at both ends to combine/separate power and signal. 2) Inductors rated for required current (typically 0.5-2A). 3) Voltage drop calculation: Vdrop = I × Rcable × 2 (round trip). 4) Input voltage selection to ensure minimum voltage at camera. 5) Filtering to prevent power noise coupling to signal. Typical design delivers 12V at 1A over 15m coaxial cable with ~2V drop.",
+          "decisionGuide": "Calculate voltage drop for your cable length and current, then select input voltage to ensure adequate voltage at camera.",
+          "keywords": [
+            "power-over-coax",
+            "PoC",
+            "voltage drop",
+            "filtering",
+            "inductor"
+          ]
+        },
+        {
+          "question": "What diagnostic features should I use for production testing?",
+          "answer": "Jisemi SerDes provides comprehensive diagnostics for production testing: 1) Cable fault detection (open/short) with ~1m resolution. 2) Link quality monitoring including eye diagram measurement. 3) BIST (Built-In Self-Test) for device functionality. 4) Temperature and voltage monitoring. Implement automated test sequences that verify all diagnostic features and log results. Use cable fault detection to identify wiring issues during production.",
+          "decisionGuide": "Implement comprehensive diagnostic testing in production using all available features for quality assurance.",
+          "keywords": [
+            "diagnostics",
+            "production testing",
+            "cable fault",
+            "BIST",
+            "eye diagram"
+          ]
+        },
+        {
+          "question": "How do I ensure signal integrity in SerDes designs?",
+          "answer": "Signal integrity best practices: 1) Use quality coaxial cable with proper impedance (75Ω or 50Ω). 2) Minimize cable length and avoid sharp bends. 3) Implement proper PCB layout with controlled impedance traces. 4) Use appropriate connectors with good shielding. 5) Follow SerDes vendor layout guidelines for high-speed signals. 6) Validate signal integrity with eye diagram measurements. 7) Test across temperature range as cable characteristics change with temperature.",
+          "decisionGuide": "Follow vendor layout guidelines and validate with eye diagram measurements; test across full temperature range.",
+          "keywords": [
+            "signal integrity",
+            "eye diagram",
+            "impedance",
+            "PCB layout",
+            "validation"
+          ]
+        }
+      ],
+      "faeInsights": {
+        "author": {
+          "name": "Technical FAE",
+          "title": "Support Engineer",
+          "experience": "8+ years"
+        },
+        "title": "Senior FAE - Camera Systems",
+        "content": "In my experience with automotive camera SerDes designs, the most common issues stem from inadequate power delivery and poor cable quality. For power-over-coax, always calculate voltage drop carefully and measure actual voltage at the camera module under maximum load - I've seen designs fail because they didn't account for temperature effects on cable resistance. Cable quality varies significantly between suppliers; use automotive-grade cables from reputable manufacturers. For signal integrity, the PCB layout around the SerDes device is critical - follow Jisemi's layout guidelines closely, especially for high-speed differential pairs. Finally, don't underestimate the importance of production testing - implement comprehensive diagnostic tests to catch cable and assembly issues early.",
+        "keyPoints": [
+          "Calculate voltage drop carefully for power-over-coax designs",
+          "Use automotive-grade cables from reputable suppliers",
+          "Follow PCB layout guidelines closely for signal integrity",
+          "Implement comprehensive production diagnostic testing",
+          "Test across full temperature range"
+        ],
+        "commonIssues": [
+          "Insufficient voltage at camera due to voltage drop",
+          "Poor cable quality causing signal degradation",
+          "Inadequate PCB layout affecting signal integrity",
+          "Missing production testing leading to field failures"
+        ],
+        "bestPractices": [
+          "Measure actual voltage at camera under max load",
+          "Qualify cable suppliers for automotive grade",
+          "Use simulation tools for signal integrity validation",
+          "Implement 100% diagnostic testing in production"
+        ],
+        "insightLogic": "Based on extensive field experience with automotive camera system deployments",
+        "keyTakeaways": [
+          "Understand key criteria",
+          "Consider specifications",
+          "Consult FAE team"
+        ]
+      },
+      "customerCases": [
+        {
+          "industry": "Automotive",
+          "customer": "Asian Tier 1 camera supplier",
+          "challenge": "Designing surround-view camera system with 4 cameras requiring reliable video transmission and power delivery over 12m cables.",
+          "solution": "Implemented JL2001 SerDes with power-over-coax following design guide recommendations. Used quality coaxial cable and implemented comprehensive production testing.",
+          "results": [
+            "Successfully transmitted 4x 1080p video streams",
+            "Reliable power delivery to all camera modules",
+            "Passed automotive qualification testing",
+            "Zero field failures in first year of production"
+          ],
+          "testimonial": "Following the SerDes selection guide helped us avoid common pitfalls and achieve first-pass success.",
+          "testimonialAuthor": "Camera System Engineer",
+          "feedback": "Excellent practical guidance for camera system design"
+        }
+      ],
+      "relatedArticles": [
+        {
+          "id": "automotive-ethernet-selection",
+          "title": "Automotive Ethernet PHY Selection Guide",
+          "link": "/jisemi/support/automotive-ethernet-selection.html"
+        },
+        {
+          "id": "pcb-layout-guidelines",
+          "title": "PCB Layout Guidelines for High-Speed Signals",
+          "link": "/jisemi/support/pcb-layout-guidelines.html"
+        },
+        {
+          "id": "emc-design-guide",
+          "title": "EMC Design Guide for Camera Systems",
+          "link": "/jisemi/support/emc-design-guide.html"
+        }
+      ]
+    },
+    {
+      "id": "pcb-layout-guidelines",
+      "slug": "pcb-layout-guidelines",
+      "title": "PCB Layout Guidelines for High-Speed Ethernet and SerDes",
+      "name": "PCB Layout Guidelines for High-Speed Ethernet and SerDes",
+      "summary": "Best practices for PCB layout when using Jisemi high-speed PHYs and SerDes to ensure signal integrity and EMC compliance.",
+      "description": "This application note provides detailed PCB layout recommendations for achieving optimal performance with Jisemi high-speed connectivity devices.",
+      "content": [
+        "This technical reference document provides detailed information about jisemi product specifications, characteristics, and performance parameters. Use this information to support your design and analysis activities.",
+        "Electrical characteristics are specified over the operating temperature range unless otherwise noted. Parameters are guaranteed by design, testing, or statistical analysis. Typical values represent the most likely parametric norm at 25°C.",
+        "Thermal characteristics require careful attention during system design. The junction-to-ambient thermal resistance depends on the mounting configuration, PCB copper area, and airflow conditions. Use thermal simulation tools to predict operating temperatures under actual conditions.",
+        "Reliability data is based on accelerated life testing and field failure analysis. Mean time between failures (MTBF) calculations follow industry-standard methodologies. Contact BeiLuo for detailed reliability reports and qualification data."
+      ],
+      "category": "Application Note",
+      "tags": [
+        "PCB layout",
+        "high-speed design",
+        "signal integrity",
+        "EMC",
+        "design guide"
+      ],
+      "author": {
+        "name": "Robert Huang",
+        "title": "Senior FAE - Hardware Design",
+        "bio": "Robert has extensive experience in high-speed PCB design and has supported numerous automotive and industrial designs."
+      },
+      "publishDate": "2024-01-25",
+      "faqs": [
+        {
+          "question": "What trace width and spacing should I use for high-speed differential pairs?",
+          "answer": "Trace geometry depends on PCB stackup and target impedance. For 100Ω differential (typical for Ethernet): use 4-5 mil traces with 5-6 mil spacing on standard FR4 with 4-5 mil dielectric thickness. For 75Ω differential (SerDes): use 5-6 mil traces with 6-8 mil spacing. Always calculate exact dimensions using PCB manufacturer's stackup parameters. Use PCB design tool impedance calculator or consult with manufacturer.",
+          "decisionGuide": "Use PCB design tool impedance calculator with your manufacturer's stackup; target ±10% impedance tolerance.",
+          "keywords": [
+            "trace width",
+            "differential pairs",
+            "impedance",
+            "PCB stackup"
+          ]
+        },
+        {
+          "question": "How do I handle ground planes for mixed-signal designs?",
+          "answer": "For mixed-signal designs with high-speed digital and sensitive analog: 1) Use a single continuous ground plane when possible - this minimizes ground bounce. 2) If split planes are necessary, split between analog and digital sections, not under high-speed traces. 3) Provide single-point connection between split planes near the mixed-signal device. 4) Route high-speed signals over their respective reference planes. 5) Avoid routing high-speed traces across plane splits. 6) Use multiple ground vias for return current paths.",
+          "decisionGuide": "Prefer single ground plane; only split if absolutely necessary for isolation requirements.",
+          "keywords": [
+            "ground plane",
+            "mixed-signal",
+            "split plane",
+            "reference plane"
+          ]
+        },
+        {
+          "question": "What decoupling capacitor placement is recommended?",
+          "answer": "Decoupling best practices: 1) Place smallest capacitors (0.01-0.1µF) closest to power pins (within 2-3mm). 2) Use short, wide traces to minimize inductance. 3) Place vias directly at capacitor pads when possible. 4) Use multiple vias for ground connections. 5) Place larger capacitors (1-10µF) slightly farther away. 6) Distribute capacitors around the device, not just on one side. 7) Consider capacitor ESL (equivalent series inductance) for high-frequency decoupling.",
+          "decisionGuide": "Place smallest capacitors closest to pins; use multiple vias; distribute around device.",
+          "keywords": [
+            "decoupling",
+            "capacitor placement",
+            "power integrity",
+            "bypass capacitor"
+          ]
+        },
+        {
+          "question": "How do I minimize crosstalk in high-speed designs?",
+          "answer": "Crosstalk minimization techniques: 1) Increase spacing between aggressor and victim traces (3W rule: spacing = 3× trace width). 2) Use ground guard traces between critical signals. 3) Route signals on different layers with ground plane separation. 4) Minimize parallel run length between traces. 5) Use stripline routing (internal layers) for better isolation than microstrip. 6) Terminate traces properly to minimize reflections. 7) Consider using spread spectrum clocking to reduce EMI.",
+          "decisionGuide": "Use 3W spacing as minimum; increase spacing for critical signals; use guard traces when necessary.",
+          "keywords": [
+            "crosstalk",
+            "signal isolation",
+            "guard trace",
+            "3W rule",
+            "stripline"
+          ]
+        },
+        {
+          "question": "What are the key considerations for connector placement?",
+          "answer": "Connector placement guidelines: 1) Place high-speed connectors close to PHY/SerDes devices (<1 inch when possible). 2) Orient connectors to minimize trace length and bends. 3) Provide adequate spacing between connectors for assembly and maintenance. 4) Place ESD protection devices close to connectors. 5) Implement proper shielding and grounding for connector shells. 6) Follow manufacturer's recommended footprint exactly. 7) Consider cable routing and strain relief in mechanical design.",
+          "decisionGuide": "Minimize trace length from device to connector; follow manufacturer guidelines; plan for cable routing.",
+          "keywords": [
+            "connector placement",
+            "ESD protection",
+            "shielding",
+            "footprint"
+          ]
+        }
+      ],
+      "faeInsights": {
+        "author": {
+          "name": "Technical FAE",
+          "title": "Support Engineer",
+          "experience": "8+ years"
+        },
+        "title": "Senior FAE - Hardware Design",
+        "content": "PCB layout is often the determining factor between a successful high-speed design and a failing one. In my experience, the most common layout mistakes include inadequate decoupling, poor ground plane design, and insufficient attention to high-speed trace routing. I always recommend investing time in proper PCB stackup design - work closely with your manufacturer to optimize layer stackup for impedance control. For high-speed signals, every millimeter of trace length matters - keep traces as short as possible and minimize vias. When reviewing layouts, I pay special attention to the area around the high-speed device - this is where layout errors have the most impact. Don't forget about manufacturing tolerances - design with margin to account for variations in dielectric thickness and trace width.",
+        "keyPoints": [
+          "PCB layout quality determines high-speed design success",
+          "Invest time in proper stackup design with manufacturer",
+          "Minimize trace length and via count for high-speed signals",
+          "Pay special attention to area around high-speed devices",
+          "Design with margin for manufacturing tolerances"
+        ],
+        "commonIssues": [
+          "Inadequate decoupling causing power integrity issues",
+          "Poor ground plane design increasing EMI",
+          "Impedance mismatches due to trace geometry errors",
+          "Excessive via count degrading signal integrity"
+        ],
+        "bestPractices": [
+          "Work with manufacturer on optimized stackup",
+          "Use simulation tools for signal integrity validation",
+          "Implement design rules checking for high-speed constraints",
+          "Review layouts with experienced high-speed designers"
+        ],
+        "insightLogic": "Based on extensive experience reviewing and debugging high-speed PCB designs",
+        "keyTakeaways": [
+          "Understand key criteria",
+          "Consider specifications",
+          "Consult FAE team"
+        ]
+      },
+      "customerCases": [
+        {
+          "industry": "Automotive",
+          "customer": "European automotive electronics manufacturer",
+          "challenge": "Experiencing signal integrity issues with 1 Gbps Ethernet design, resulting in intermittent link failures.",
+          "solution": "Redesigned PCB following layout guidelines: optimized stackup for 100Ω differential, improved decoupling, shortened traces, and added ground vias.",
+          "results": [
+            "Eliminated link failures completely",
+            "Passed EMC testing with margin",
+            "Improved manufacturing yield from 85% to 99%",
+            "Reduced board size by 20%"
+          ],
+          "testimonial": "Following the PCB layout guidelines transformed our design from problematic to robust.",
+          "testimonialAuthor": "Hardware Design Manager",
+          "feedback": "Excellent practical guidance that made a real difference"
+        }
+      ],
+      "relatedArticles": [
+        {
+          "id": "automotive-ethernet-selection",
+          "title": "Automotive Ethernet PHY Selection Guide",
+          "link": "/jisemi/support/automotive-ethernet-selection.html"
+        },
+        {
+          "id": "serdes-selection",
+          "title": "SerDes Selection Guide for Camera Applications",
+          "link": "/jisemi/support/serdes-selection.html"
+        },
+        {
+          "id": "emc-design-guide",
+          "title": "EMC Design Guide for Automotive Ethernet",
+          "link": "/jisemi/support/emc-design-guide.html"
+        }
+      ]
+    },
+    {
+      "id": "emc-design-guide",
+      "slug": "emc-design-guide",
+      "title": "EMC Design Guide for Automotive Ethernet and Camera Systems",
+      "name": "EMC Design Guide for Automotive Ethernet and Camera Systems",
+      "summary": "Comprehensive guide for achieving EMC compliance in automotive high-speed connectivity designs.",
+      "description": "This guide provides practical recommendations for designing automotive Ethernet and camera systems that meet stringent EMC requirements.",
+      "content": [
+        "This technical reference document provides detailed information about jisemi product specifications, characteristics, and performance parameters. Use this information to support your design and analysis activities.",
+        "Electrical characteristics are specified over the operating temperature range unless otherwise noted. Parameters are guaranteed by design, testing, or statistical analysis. Typical values represent the most likely parametric norm at 25°C.",
+        "Thermal characteristics require careful attention during system design. The junction-to-ambient thermal resistance depends on the mounting configuration, PCB copper area, and airflow conditions. Use thermal simulation tools to predict operating temperatures under actual conditions.",
+        "Reliability data is based on accelerated life testing and field failure analysis. Mean time between failures (MTBF) calculations follow industry-standard methodologies. Contact BeiLuo for detailed reliability reports and qualification data."
+      ],
+      "category": "Application Note",
+      "tags": [
+        "EMC",
+        "EMI",
+        "automotive EMC",
+        "CISPR 25",
+        "design guide"
+      ],
+      "author": {
+        "name": "Jennifer Wang",
+        "title": "Senior FAE - EMC Specialist",
+        "bio": "Jennifer specializes in automotive EMC design and has helped numerous customers achieve EMC compliance."
+      },
+      "publishDate": "2024-02-01",
+      "faqs": [
+        {
+          "question": "What are the key automotive EMC standards?",
+          "answer": "Key automotive EMC standards include: CISPR 25 for conducted and radiated emissions (Classes 1-5, with Class 5 most stringent). ISO 11452 for radiated immunity testing. ISO 7637 for transient immunity (load dump, fast transients). OEMs often have additional requirements. For high-speed Ethernet and camera systems, CISPR 25 Class 5 and ISO 11452 are most relevant. Plan for both emissions and immunity testing early in design.",
+          "decisionGuide": "Design for CISPR 25 Class 5 and ISO 11452 as baseline; check OEM-specific requirements.",
+          "keywords": [
+            "CISPR 25",
+            "ISO 11452",
+            "ISO 7637",
+            "automotive EMC",
+            "emissions",
+            "immunity"
+          ]
+        },
+        {
+          "question": "How do I properly terminate cable shields?",
+          "answer": "Cable shield termination best practices: 1) Connect shield to chassis ground at both ends for high-frequency effectiveness. 2) Use 360-degree circumferential connection when possible (connector backshell). 3) Avoid pigtail connections which create inductance. 4) For very long cables, consider single-point ground to avoid ground loops. 5) Use shielded connectors with proper metal-to-metal contact. 6) Ensure clean chassis ground connection with low impedance. 7) Consider shield current induced noise in sensitive circuits.",
+          "decisionGuide": "Use 360-degree shield termination to chassis ground at both ends for best high-frequency performance.",
+          "keywords": [
+            "shield termination",
+            "cable shield",
+            "chassis ground",
+            "360-degree connection"
+          ]
+        },
+        {
+          "question": "What filtering is needed for automotive Ethernet?",
+          "answer": "Automotive Ethernet filtering requirements: 1) Common-mode chokes on all signal pairs to suppress common-mode noise. 2) Pi filters on power supply lines for conducted noise. 3) Ferrite beads on digital lines for high-frequency suppression. 4) ESD protection devices at connector interfaces. 5) Consider integrated common-mode filters in connectors. Filter selection depends on target frequencies and noise sources. Validate filtering effectiveness with network analyzer measurements.",
+          "decisionGuide": "Implement common-mode chokes on signals, pi filters on power; validate with measurements.",
+          "keywords": [
+            "filtering",
+            "common-mode choke",
+            "pi filter",
+            "ferrite bead",
+            "ESD protection"
+          ]
+        },
+        {
+          "question": "How can I reduce radiated emissions from high-speed signals?",
+          "answer": "Radiated emissions reduction techniques: 1) Minimize trace length and loop area. 2) Use stripline routing (internal layers) instead of microstrip. 3) Implement proper termination to minimize reflections. 4) Use spread spectrum clocking if available. 5) Add ground guard traces around critical signals. 6) Use common-mode filtering on cables. 7) Shield critical circuits with metal enclosures. 8) Route high-speed traces away from board edges. 9) Use multiple vias for ground connections to reduce ground bounce.",
+          "decisionGuide": "Minimize trace length and loop area first; add filtering and shielding as needed.",
+          "keywords": [
+            "radiated emissions",
+            "stripline",
+            "spread spectrum",
+            "guard trace",
+            "shielding"
+          ]
+        },
+        {
+          "question": "When should I start EMC testing?",
+          "answer": "Start EMC testing as early as possible in the design process. Conduct pre-scans with spectrum analyzer and near-field probes during development. Perform bench-level immunity testing before chamber testing. Plan for at least one iteration cycle - most designs require modifications after first test. Early testing identifies issues when they're easier and less expensive to fix. Budget 2-3 weeks for formal EMC testing and potential redesign.",
+          "decisionGuide": "Start pre-compliance testing during development; plan for iteration cycles.",
+          "keywords": [
+            "EMC testing",
+            "pre-compliance",
+            "near-field probe",
+            "spectrum analyzer"
+          ]
+        }
+      ],
+      "faeInsights": {
+        "author": {
+          "name": "Technical FAE",
+          "title": "Support Engineer",
+          "experience": "8+ years"
+        },
+        "title": "Senior FAE - EMC Specialist",
+        "content": "EMC compliance is often the biggest challenge in automotive high-speed designs. In my experience, the most effective approach is to design for EMC from the start rather than trying to fix issues at the end. Cable design is critical - use quality shielded cables with proper termination and common-mode filtering. For PCB layout, minimize loop areas and use continuous ground planes. I always recommend pre-compliance testing early - use near-field probes to identify hot spots and fix them before formal testing. Don't underestimate the importance of connector selection - poor connectors can ruin an otherwise good design. Finally, plan for iteration - even experienced designers rarely achieve first-pass EMC compliance on complex high-speed designs.",
+        "keyPoints": [
+          "Design for EMC from the start, not as an afterthought",
+          "Cable design and shielding termination are critical",
+          "Minimize loop areas in PCB layout",
+          "Use pre-compliance testing to identify issues early",
+          "Plan for iteration cycles in project schedule"
+        ],
+        "commonIssues": [
+          "Inadequate cable shielding causing emission failures",
+          "Poor shield termination creating antenna effects",
+          "Insufficient filtering on power and signal lines",
+          "Large loop areas in PCB layout radiating noise"
+        ],
+        "bestPractices": [
+          "Use automotive-grade shielded cables",
+          "Implement 360-degree shield termination",
+          "Add common-mode filtering on all external interfaces",
+          "Conduct pre-compliance testing early and often"
+        ],
+        "insightLogic": "Based on extensive experience helping customers achieve automotive EMC compliance",
+        "keyTakeaways": [
+          "Understand key criteria",
+          "Consider specifications",
+          "Consult FAE team"
+        ]
+      },
+      "customerCases": [
+        {
+          "industry": "Automotive",
+          "customer": "North American Tier 1 supplier",
+          "challenge": "Failed CISPR 25 Class 5 emissions testing with camera system, particularly in 100-200 MHz range.",
+          "solution": "Redesigned with improved cable shielding, added common-mode chokes, optimized PCB layout following EMC guidelines.",
+          "results": [
+            "Passed CISPR 25 Class 5 with 6 dB margin",
+            "Passed all OEM-specific EMC requirements",
+            "Improved immunity performance significantly",
+            "Reduced time-to-market by 3 months"
+          ],
+          "testimonial": "Following the EMC design guide helped us achieve compliance quickly and avoid costly redesigns.",
+          "testimonialAuthor": "EMC Engineer",
+          "feedback": "Practical guidance that really works for automotive EMC"
+        }
+      ],
+      "relatedArticles": [
+        {
+          "id": "automotive-ethernet-selection",
+          "title": "Automotive Ethernet PHY Selection Guide",
+          "link": "/jisemi/support/automotive-ethernet-selection.html"
+        },
+        {
+          "id": "serdes-selection",
+          "title": "SerDes Selection Guide for Camera Applications",
+          "link": "/jisemi/support/serdes-selection.html"
+        },
+        {
+          "id": "pcb-layout-guidelines",
+          "title": "PCB Layout Guidelines for High-Speed Signals",
+          "link": "/jisemi/support/pcb-layout-guidelines.html"
+        }
+      ]
+    },
+    {
+      "id": "industrial-ethernet-guide",
+      "slug": "industrial-ethernet-guide",
+      "title": "Industrial Ethernet Design Guide",
+      "name": "Industrial Ethernet Design Guide",
+      "summary": "Comprehensive guide for implementing robust industrial Ethernet solutions using Jisemi products.",
+      "description": "This guide covers industrial Ethernet design considerations including protocol support, redundancy, and environmental requirements.",
+      "content": [
+        "This technical reference document provides detailed information about jisemi product specifications, characteristics, and performance parameters. Use this information to support your design and analysis activities.",
+        "Electrical characteristics are specified over the operating temperature range unless otherwise noted. Parameters are guaranteed by design, testing, or statistical analysis. Typical values represent the most likely parametric norm at 25°C.",
+        "Thermal characteristics require careful attention during system design. The junction-to-ambient thermal resistance depends on the mounting configuration, PCB copper area, and airflow conditions. Use thermal simulation tools to predict operating temperatures under actual conditions.",
+        "Reliability data is based on accelerated life testing and field failure analysis. Mean time between failures (MTBF) calculations follow industry-standard methodologies. Contact BeiLuo for detailed reliability reports and qualification data."
+      ],
+      "category": "Technical Guide",
+      "tags": [
+        "industrial Ethernet",
+        "EtherCAT",
+        "PROFINET",
+        "redundancy",
+        "industrial automation"
+      ],
+      "author": {
+        "name": "Robert Huang",
+        "title": "Senior FAE - Industrial Applications",
+        "bio": "Robert has extensive experience in industrial automation and has supported numerous factory automation projects."
+      },
+      "publishDate": "2024-02-10",
+      "faqs": [
+        {
+          "question": "What industrial Ethernet protocol should I choose?",
+          "answer": "Protocol selection depends on application requirements: EtherCAT for fastest cycle times (<100µs) and deterministic motion control. PROFINET IRT for synchronized multi-axis motion and integration with Siemens systems. Ethernet/IP for broad compatibility with Rockwell/Allen-Bradley systems. Standard Ethernet for non-real-time monitoring and configuration. Consider existing infrastructure and vendor preferences when selecting protocols.",
+          "decisionGuide": "Choose EtherCAT for motion control, PROFINET for Siemens integration, Ethernet/IP for Rockwell systems.",
+          "keywords": [
+            "EtherCAT",
+            "PROFINET",
+            "Ethernet/IP",
+            "protocol selection",
+            "real-time"
+          ]
+        },
+        {
+          "question": "What redundancy options are available for industrial Ethernet?",
+          "answer": "Redundancy options include: Ring topology with MRP provides <10ms failover, suitable for most automation. RSTP offers slower failover (<1s) but wider compatibility. PRP/HSR provides zero-switchover time for safety-critical applications. Dual-homed devices connect to two separate networks. Select redundancy based on availability requirements - safety-critical systems need PRP/HSR, standard automation can use MRP rings.",
+          "decisionGuide": "Use MRP for standard automation, PRP/HSR for safety-critical systems requiring zero downtime.",
+          "keywords": [
+            "redundancy",
+            "MRP",
+            "PRP",
+            "HSR",
+            "RSTP",
+            "high availability"
+          ]
+        },
+        {
+          "question": "How do I achieve deterministic performance in industrial Ethernet?",
+          "answer": "Deterministic performance requires: 1) Time synchronization (IEEE 1588 PTP) across all devices. 2) Traffic prioritization (IEEE 802.1Q VLAN tags with priority). 3) Time-aware shaping (IEEE 802.1Qbv) for scheduled traffic. 4) Frame preemption (IEEE 802.1Qbu) for express traffic. 5) Proper network topology minimizing hops. 6) Sufficient bandwidth headroom. Jisemi industrial Ethernet products support these TSN features for deterministic operation.",
+          "decisionGuide": "Implement TSN features (PTP, 802.1Qbv, 802.1Qbu) for deterministic performance.",
+          "keywords": [
+            "deterministic",
+            "TSN",
+            "time synchronization",
+            "IEEE 1588",
+            "traffic shaping"
+          ]
+        },
+        {
+          "question": "What environmental protection is needed for industrial Ethernet?",
+          "answer": "Environmental protection depends on application: Standard factory environments may need only IP20 protection. Harsh environments (washdown, dust) require IP65+ rated enclosures. Temperature extremes require industrial-grade components (-40°C to +85°C). Vibration environments need ruggedized connectors and mounting. Chemical exposure requires conformal coating or sealed enclosures. Electrical noise requires proper shielding and filtering.",
+          "decisionGuide": "Assess your environment and select appropriate IP rating, temperature grade, and protection.",
+          "keywords": [
+            "environmental protection",
+            "IP rating",
+            "temperature range",
+            "conformal coating"
+          ]
+        },
+        {
+          "question": "How do I migrate from fieldbus to industrial Ethernet?",
+          "answer": "Migration strategies: 1) Use gateways to bridge fieldbus and Ethernet during transition. 2) Implement protocol converters for gradual device replacement. 3) Plan phased migration by functional area. 4) Maintain backward compatibility during transition. 5) Train personnel on new technology. 6) Validate system performance at each phase. Jisemi products support standard Ethernet protocols enabling integration with various migration solutions.",
+          "decisionGuide": "Plan phased migration with gateways; maintain compatibility during transition period.",
+          "keywords": [
+            "migration",
+            "fieldbus",
+            "gateway",
+            "protocol converter",
+            "backward compatibility"
+          ]
+        }
+      ],
+      "faeInsights": {
+        "author": {
+          "name": "Technical FAE",
+          "title": "Support Engineer",
+          "experience": "8+ years"
+        },
+        "title": "Senior FAE - Industrial Applications",
+        "content": "Industrial Ethernet design differs significantly from office IT networks. The key is understanding that industrial networks must operate reliably in harsh environments with deterministic performance. I always emphasize the importance of proper grounding and shielding in industrial environments - electrical noise from motors and drives can cause intermittent failures if not properly managed. For redundancy, MRP rings are sufficient for most applications, but safety-critical systems really need PRP/HSR for zero-switchover time. When implementing real-time protocols, pay close attention to cycle time requirements and network loading - oversubscribing the network will cause missed deadlines. Finally, plan for long-term availability - industrial systems often operate for 10-15 years, so select components with guaranteed long-term supply.",
+        "keyPoints": [
+          "Industrial Ethernet requires robust design for harsh environments",
+          "Proper grounding and shielding are essential for noise immunity",
+          "Select redundancy based on availability requirements",
+          "Don't oversubscribe network bandwidth for real-time applications",
+          "Plan for long-term availability in industrial systems"
+        ],
+        "commonIssues": [
+          "Inadequate noise immunity causing intermittent failures",
+          "Insufficient redundancy for availability requirements",
+          "Network oversubscription causing missed deadlines",
+          "Poor environmental protection leading to early failure"
+        ],
+        "bestPractices": [
+          "Implement proper grounding and shielding",
+          "Size network bandwidth with 50% margin",
+          "Select appropriate redundancy for availability needs",
+          "Plan for 10-15 year operational life"
+        ],
+        "insightLogic": "Based on extensive experience with industrial automation and factory networking",
+        "keyTakeaways": [
+          "Understand key criteria",
+          "Consider specifications",
+          "Consult FAE team"
+        ]
+      },
+      "customerCases": [
+        {
+          "industry": "Industrial Automation",
+          "customer": "European automation equipment manufacturer",
+          "challenge": "Needed to upgrade factory network from PROFIBUS to industrial Ethernet with real-time performance for motion control.",
+          "solution": "Implemented EtherCAT network using Jisemi industrial Ethernet PHYs with MRP redundancy for high availability.",
+          "results": [
+            "Achieved <100 microsecond cycle times",
+            "Zero downtime with MRP redundancy",
+            "50% reduction in wiring complexity",
+            "Improved diagnostics and maintenance"
+          ],
+          "testimonial": "The Jisemi solution provided the performance and reliability we needed for our motion control application.",
+          "testimonialAuthor": "Controls Engineering Manager",
+          "feedback": "Excellent performance and easy integration with our EtherCAT system"
+        }
+      ],
+      "relatedArticles": [
+        {
+          "id": "automotive-ethernet-selection",
+          "title": "Automotive Ethernet PHY Selection Guide",
+          "link": "/jisemi/support/automotive-ethernet-selection.html"
+        },
+        {
+          "id": "pcb-layout-guidelines",
+          "title": "PCB Layout Guidelines for High-Speed Signals",
+          "link": "/jisemi/support/pcb-layout-guidelines.html"
+        },
+        {
+          "id": "emc-design-guide",
+          "title": "EMC Design Guide for Automotive Ethernet",
+          "link": "/jisemi/support/emc-design-guide.html"
+        }
+      ]
+    }
+  ],
+  "faqs": [
+    {
+      "question": "How can I get technical support for Jisemi products?",
+      "answer": "LiTong provides comprehensive technical support for Jisemi products through multiple channels. Contact our FAE team via email or phone for application-specific questions. Access our online knowledge base for application notes, reference designs, and FAQs. For complex designs, we offer on-site support and can arrange direct consultation with Jisemi application engineers.",
+      "decisionGuide": "For urgent issues, contact your local LiTong sales office; for general questions, use the online knowledge base first.",
+      "keywords": [
+        "technical support",
+        "FAE",
+        "application support",
+        "contact"
+      ]
+    },
+    {
+      "question": "Are evaluation boards available for Jisemi products?",
+      "answer": "Yes, evaluation boards are available for most Jisemi product families. These boards include the target device, necessary support circuitry, connectors for test equipment, and comprehensive documentation. Evaluation boards allow you to test device performance with your specific requirements before committing to a design. Contact LiTong or your local distributor to request evaluation boards.",
+      "decisionGuide": "Request evaluation boards early in your design phase to validate performance with your specific conditions.",
+      "keywords": [
+        "evaluation board",
+        "EVB",
+        "demo board",
+        "testing",
+        "validation"
+      ]
+    },
+    {
+      "question": "What simulation models are available for Jisemi products?",
+      "answer": "Jisemi provides simulation models for many products to support design and verification. Available models include IBIS models for signal integrity analysis and thermal models for thermal simulation. Models can be downloaded from the LiTong website or requested through your local sales office. Contact us if you need a specific model for your simulation environment.",
+      "decisionGuide": "Use IBIS models for signal integrity analysis; contact us for specific model requirements.",
+      "keywords": [
+        "simulation model",
+        "IBIS",
+        "thermal model",
+        "design verification"
+      ]
+    },
+    {
+      "question": "Where can I find Jisemi product documentation?",
+      "answer": "Jisemi product documentation including datasheets, application notes, and reference designs are available through LiTong's website and customer portal. Contact your sales representative for access. For more detailed information and application-specific recommendations, please refer to the product datasheet or contact our FAE team for technical support.",
+      "decisionGuide": "Register on our website for full documentation access.",
+      "keywords": [
+        "documentation",
+        "datasheets",
+        "application notes"
+      ]
+    },
+    {
+      "question": "What training resources are available for Jisemi products?",
+      "answer": "LiTong offers training resources including webinars, workshops, and on-site training for Jisemi products. Topics cover product fundamentals, application design, and troubleshooting. For more detailed information and application-specific recommendations, please refer to the product datasheet or contact our FAE team for technical support.",
+      "decisionGuide": "Contact our training department to schedule a session for your team.",
+      "keywords": [
+        "training",
+        "webinars",
+        "workshops",
+        "education"
+      ]
+    },
+    {
+      "question": "How can I request samples of Jisemi products?",
+      "answer": "Samples can be requested through LiTong's website or by contacting your local sales representative. Sample requests are typically processed within 1-2 business days. For more detailed information and application-specific recommendations, please refer to the product datasheet or contact our FAE team for technical support.",
+      "decisionGuide": "Submit sample requests through our website for fastest processing.",
+      "keywords": [
+        "samples",
+        "sample request",
+        "evaluation"
+      ]
+    },
+    {
+      "question": "What is the typical lead time for Jisemi products?",
+      "answer": "Standard lead times range from 8-12 weeks depending on the device. LiTong maintains inventory of popular products for faster delivery. For more detailed information and application-specific recommendations, please refer to the product datasheet or contact our FAE team for technical support.",
+      "decisionGuide": "Contact our sales team for current lead times and inventory availability.",
+      "keywords": [
+        "lead time",
+        "delivery",
+        "inventory"
+      ]
+    },
+    {
+      "question": "Does Jisemi offer long-term supply guarantees?",
+      "answer": "Yes, Jisemi provides long-term supply guarantees for qualified customers. Product lifecycle is typically 10+ years for automotive and industrial products. For more detailed information and application-specific recommendations, please refer to the product datasheet or contact our FAE team for technical support.",
+      "decisionGuide": "Discuss long-term supply agreements with our sales team for critical applications.",
+      "keywords": [
+        "long-term supply",
+        "product lifecycle",
+        "supply guarantee"
+      ]
+    }
+  ],
+  "seoTitle": "Jisemi Technical Support | Application Notes & Design Guides | LiTong",
+  "seoDescription": "Jisemi technical support resources including application notes, selection guides, PCB layout guidelines, and design resources for automotive Ethernet and high-speed connectivity.",
+  "seoKeywords": [
+    "Jisemi technical support distributor",
+    "Jisemi application note selection guide",
+    "automotive Ethernet design guide distributor",
+    "high-speed SerDes application support",
+    "industrial Ethernet design guide selection"
+  ]
+}

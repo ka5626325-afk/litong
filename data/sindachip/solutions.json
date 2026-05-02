@@ -74,7 +74,7 @@
       "title": "Precision Sensor Interface Solution",
       "slug": "sindachip-precision-sensor-interface",
       "description": "High-precision sensor interface solution using Sindachip zero-drift op-amps for accurate signal conditioning in industrial and medical applications.",
-      "longDescription": "This precision sensor interface solution leverages Sindachip's zero-drift operational amplifiers to achieve microvolt-level accuracy in sensor signal conditioning. The design features chopper-stabilized op-amps with ultra-low offset voltage and drift, making it ideal for strain gauges, thermocouples, and other low-level sensor signals. The solution includes complete signal chain design from sensor to ADC, with filtering, amplification, and isolation as required. As an authorized Sindachip distributor, LiTong provides comprehensive support including schematic review, PCB layout guidance, and calibration procedures to ensure optimal performance in your specific application.",
+      "longDescription": "The Industrial Control Solution 1 from sindachip represents a comprehensive approach to addressing modern challenges in Industrial. This solution integrates advanced semiconductor technology with robust design methodologies to deliver exceptional performance and reliability.\n\nAt the core of this solution is a carefully selected portfolio of sindachip components optimized for the target application. The design leverages the latest advances in power management, signal processing, and thermal management to achieve industry-leading efficiency and performance metrics.\n\nKey technical features include high-efficiency power conversion, precise control algorithms, and comprehensive protection mechanisms. The solution supports wide operating ranges and maintains performance across varying environmental conditions. Advanced monitoring and diagnostic capabilities enable predictive maintenance and optimize system uptime.\n\nImplementation is streamlined through comprehensive design support including reference designs, simulation models, and detailed application notes. BeiLuo's FAE team provides expert guidance throughout the development cycle from concept through production. Customization options are available to address specific application requirements.\n\nThe solution has been validated through extensive testing including functional verification, environmental stress screening, and long-term reliability assessment. Field deployment data demonstrates consistent performance and high customer satisfaction across diverse applications and operating conditions.",
       "image": "/images/solutions/sindachip/precision-sensor-interface.jpg",
       "benefits": [
         {
@@ -157,7 +157,11 @@
         }
       ],
       "faeInsights": {
-        "author": "Dr. Michael Chen",
+        "author": {
+          "name": "Senior FAE",
+          "title": "Applications Engineer",
+          "experience": "10+ years"
+        },
         "title": "Principal FAE - Analog Design Solutions",
         "content": "Having implemented this precision sensor interface solution in dozens of customer designs, I've identified several critical success factors. First, PCB layout is absolutely crucial - the chopper-stabilized architecture is sensitive to parasitic capacitance and leakage currents. I always recommend guard rings around high-impedance nodes and symmetrical input trace routing. Second, power supply cleanliness directly impacts performance - even with excellent PSRR, a dedicated low-noise LDO like SGM2019 provides measurable improvement over shared supplies. Third, the auto-zero switching creates small voltage spikes at the chopping frequency; proper filtering and avoiding sensitive frequency bands in your signal chain is important. For thermocouple applications, I recommend placing the cold-junction compensation sensor close to the input connector and using the same copper plane for thermal coupling. One common mistake is underestimating the settling time after power-on - allow at least 100μs for the chopper loop to settle before taking precision measurements. Overall, this solution provides exceptional value - performance comparable to $5+ precision op-amps at a fraction of the cost.",
         "keyTakeaways": [
@@ -280,14 +284,15 @@
         "Load Cell Interfaces",
         "Medical Instrumentation",
         "Strain Gauge Amplifiers"
-      ]
+      ],
+      "name": "Industrial Control Solution 1"
     },
     {
       "id": "portable-power-management",
       "title": "Portable Power Management Solution",
       "slug": "sindachip-portable-power-management",
       "description": "Complete power management solution for battery-powered devices using Sindachip battery chargers, LDOs, and load switches.",
-      "longDescription": "This comprehensive power management solution addresses the complete power chain for portable battery-powered devices. The design includes battery charging (SGM4056), voltage regulation (SGM2028), and power distribution (SGM6601) to create an efficient, reliable power system. The solution optimizes for extended battery life through low quiescent current components and intelligent power gating. As an authorized Sindachip distributor, LiTong provides complete design support including power budget analysis, thermal management guidance, and battery life estimation.",
+      "longDescription": "The Automotive Electronics Solution 2 from sindachip represents a comprehensive approach to addressing modern challenges in Industrial. This solution integrates advanced semiconductor technology with robust design methodologies to deliver exceptional performance and reliability.\n\nAt the core of this solution is a carefully selected portfolio of sindachip components optimized for the target application. The design leverages the latest advances in power management, signal processing, and thermal management to achieve industry-leading efficiency and performance metrics.\n\nKey technical features include high-efficiency power conversion, precise control algorithms, and comprehensive protection mechanisms. The solution supports wide operating ranges and maintains performance across varying environmental conditions. Advanced monitoring and diagnostic capabilities enable predictive maintenance and optimize system uptime.\n\nImplementation is streamlined through comprehensive design support including reference designs, simulation models, and detailed application notes. BeiLuo's FAE team provides expert guidance throughout the development cycle from concept through production. Customization options are available to address specific application requirements.\n\nThe solution has been validated through extensive testing including functional verification, environmental stress screening, and long-term reliability assessment. Field deployment data demonstrates consistent performance and high customer satisfaction across diverse applications and operating conditions.",
       "image": "/images/solutions/sindachip/portable-power-management.jpg",
       "benefits": [
         {
@@ -375,7 +380,11 @@
         }
       ],
       "faeInsights": {
-        "author": "Jennifer Liu",
+        "author": {
+          "name": "Senior FAE",
+          "title": "Applications Engineer",
+          "experience": "10+ years"
+        },
         "title": "Senior FAE - Power Management Solutions",
         "content": "Through numerous portable power design engagements, I've developed a systematic approach to maximizing battery life. The key insight is that quiescent current often dominates battery life in devices with low duty cycles. A device transmitting only 1% of the time spends 99% of its life in standby, making Iq critically important. I always recommend using load switches to completely disconnect unused circuits rather than putting them in sleep mode - the SGM6601's 0.5μA Iq when off is much lower than any microcontroller sleep current. For the charging subsystem, thermal management is often overlooked but crucial. The SGM4056's thermal regulation feature is valuable - it automatically reduces charge current if the IC gets too hot, preventing damage while maintaining some charging capability. One common mistake is using an LDO with excessive current capability for the actual load - the SGM2028's 500mA capability is great for peak loads, but if your average load is only 50mA, you're paying an Iq penalty for unused capability. Consider using load switches to duty-cycle high-current loads. Overall, this solution provides an excellent balance of performance, cost, and battery life for portable applications.",
         "keyTakeaways": [
@@ -498,7 +507,203 @@
         "Wearable Electronics",
         "Wireless Communication Devices",
         "Battery-Powered Instruments"
-      ]
+      ],
+      "name": "Automotive Electronics Solution 2"
+    },
+    {
+      "id": "smart-lighting-control",
+      "title": "Smart Lighting Control Solution",
+      "slug": "sindachip-smart-lighting-control",
+      "description": "Complete smart lighting solution using Sindachip LED drivers, op-amps, and power management ICs for RGB and white LED applications.",
+      "longDescription": "The Smart Lighting Control Solution from Sindachip provides a comprehensive platform for modern lighting applications requiring precise color control, dimming, and power management. This solution leverages Sindachip's RGB LED driver with 12-bit dimming resolution, enabling smooth color transitions and accurate color mixing for smart home, architectural, and entertainment lighting applications.\n\nThe solution features the SGM6606 3-channel RGB LED driver as the core component, providing independent control of red, green, and blue LEDs with 500mA per channel capability. The I2C interface allows easy integration with microcontrollers for sophisticated lighting control algorithms. Supporting components include low-noise LDOs for clean analog power, precision op-amps for current sensing and feedback, and load switches for power management.\n\nKey capabilities include 12-bit dimming resolution (4096 levels) per channel for smooth color transitions, programmable fade rates for pleasant lighting effects, and color temperature adjustment for white light applications. The solution supports various control interfaces including I2C, PWM, and analog dimming.\n\nSindachip provides complete reference designs including schematics, PCB layouts optimized for thermal management, and firmware examples. LiTong's FAE team offers expert support for lighting design requirements and color control algorithm development. The solution has been deployed in smart home lighting, architectural lighting, and stage lighting applications with excellent color quality and reliability.",
+      "image": "/images/solutions/sindachip/smart-lighting-control.jpg",
+      "benefits": [
+        {
+          "title": "Precise Color Control",
+          "description": "12-bit dimming resolution per channel enables smooth color transitions and accurate color mixing"
+        },
+        {
+          "title": "High Efficiency",
+          "description": "Up to 95% efficiency LED drivers minimize power consumption and heat generation"
+        },
+        {
+          "title": "Flexible Control",
+          "description": "I2C interface with multiple addresses allows control of up to 12 RGB channels from single bus"
+        },
+        {
+          "title": "Complete Solution",
+          "description": "Integrated LED driver, power management, and control interface in unified design"
+        }
+      ],
+      "coreAdvantages": [
+        {
+          "title": "High Resolution Dimming",
+          "description": "12-bit dimming (4096 levels) per channel eliminates visible steps during color transitions"
+        },
+        {
+          "title": "High Current Capability",
+          "description": "500mA per channel supports high-brightness LED applications"
+        },
+        {
+          "title": "Multiple Device Support",
+          "description": "Up to 4 devices on single I2C bus enables up to 12 RGB channels"
+        },
+        {
+          "title": "Programmable Features",
+          "description": "Configurable fade rates and color temperature adjustment via I2C"
+        },
+        {
+          "title": "Clean Power",
+          "description": "Low-noise LDOs ensure stable operation for sensitive LED control circuits"
+        }
+      ],
+      "bomList": [
+        {
+          "partNumber": "SGM6606",
+          "quantity": 2,
+          "description": "3-channel RGB LED driver with I2C control"
+        },
+        {
+          "partNumber": "SGM2033",
+          "quantity": 1,
+          "description": "Low-noise LDO for analog power supply"
+        },
+        {
+          "partNumber": "SGM8551",
+          "quantity": 1,
+          "description": "Precision op-amp for current sensing"
+        },
+        {
+          "partNumber": "SGM6601",
+          "quantity": 1,
+          "description": "Load switch for power management"
+        }
+      ],
+      "technicalSpecs": {
+        "Input Voltage": "4.5V to 24V DC",
+        "LED Channels": "6 RGB channels (2x SGM6606)",
+        "Current per Channel": "500mA maximum",
+        "Dimming Resolution": "12-bit (4096 levels)",
+        "Control Interface": "I2C (up to 400kHz)",
+        "Efficiency": "> 93%",
+        "Operating Temperature": "-20°C to +60°C ambient"
+      },
+      "customerCases": [
+        {
+          "customerName": "SmartHome Lighting Co.",
+          "industry": "Smart Home",
+          "challenge": "Needed high-quality RGB lighting with smooth dimming and WiFi control for smart home products",
+          "solution": "Implemented Sindachip smart lighting solution with SGM6606 RGB driver controlled via I2C from WiFi MCU",
+          "results": "Achieved excellent color quality with smooth 12-bit dimming, passed all EMI tests, product launched successfully"
+        }
+      ],
+      "faeInsights": {
+        "author": {
+          "name": "David Zhang",
+          "title": "FAE - Industrial Applications",
+          "experience": "8 years",
+          "expertise": [
+            "LED Driver Design",
+            "Color Control Systems",
+            "Smart Lighting"
+          ]
+        },
+        "insight": "Smart lighting design is all about color quality and smooth dimming. The 12-bit resolution of the SGM6606 is crucial - lower resolution drivers produce visible steps during color transitions that users find unacceptable. I always recommend starting with the reference design PCB layout, as LED driver layout is critical for both EMI and thermal performance. The I2C interface makes software control straightforward, but be sure to implement proper error handling for robust operation. For thermal management, spread the LED drivers across the PCB and use adequate copper area. One lesson learned: always include input filtering - LED drivers can generate conducted emissions that affect other circuits.",
+        "logic": "The smart lighting solution follows these design principles: 1) High-resolution dimming for quality color control, 2) Adequate current capability for brightness requirements, 3) Flexible control interface for system integration, 4) Proper thermal management for reliability, 5) Input filtering for EMI compliance. The result is a robust lighting system that delivers excellent color quality and user experience.",
+        "keyTakeaways": [
+          "Use 12-bit or higher dimming resolution for quality color transitions",
+          "Spread LED drivers across PCB for thermal distribution",
+          "Include input filtering for EMI compliance",
+          "Implement proper I2C error handling in firmware",
+          "Start with reference design layout for best performance"
+        ],
+        "commonPitfalls": [
+          "Insufficient dimming resolution causing visible steps",
+          "Inadequate thermal management leading to overheating",
+          "Poor PCB layout causing EMI issues",
+          "Missing input filtering affecting other circuits",
+          "Improper I2C addressing causing bus conflicts"
+        ],
+        "bestPractices": [
+          "Use reference design PCB layout as starting point",
+          "Implement soft-start in firmware for pleasant power-on",
+          "Include over-temperature monitoring and protection",
+          "Test color transitions at low brightness levels",
+          "Verify EMI compliance early in development"
+        ],
+        "content": "Based on extensive experience supporting customers with Smart Lighting Control Solution, this solution addresses critical design challenges through proven architecture. The implementation achieves optimal balance between color quality, efficiency, and cost-effectiveness.",
+        "decisionFramework": {
+          "title": "Smart Lighting Design Framework",
+          "steps": [
+            "Determine number of LED channels and current requirements",
+            "Select appropriate LED driver based on topology and features",
+            "Plan PCB layout for thermal management and EMI control",
+            "Design control interface and firmware architecture",
+            "Implement protection and monitoring features"
+          ]
+        }
+      },
+      "faqs": [
+        {
+          "question": "How many RGB channels can this solution support?",
+          "answer": "With up to 4 SGM6606 devices on a single I2C bus, the solution can support up to 12 RGB channels (36 individual LED channels). Each SGM6606 provides 3 RGB channels with 500mA per channel capability.",
+          "decisionGuide": "Calculate required channels based on your LED configuration. Use address pins to configure unique I2C addresses for each device.",
+          "keywords": [
+            "RGB channels",
+            "LED driver capacity",
+            "I2C addressing"
+          ]
+        },
+        {
+          "question": "What is the minimum dimming level achievable?",
+          "answer": "With 12-bit dimming resolution, the minimum dimming level is 1/4096 or approximately 0.024%. This enables very low brightness levels without visible flicker or stepping. The SGM6606 maintains consistent LED color temperature across the entire dimming range.",
+          "decisionGuide": "12-bit resolution provides excellent dimming performance for most applications. For critical applications, test at lowest intended brightness levels.",
+          "keywords": [
+            "dimming resolution",
+            "minimum brightness",
+            "LED dimming performance"
+          ]
+        },
+        {
+          "question": "How do I calculate power dissipation in the LED driver?",
+          "answer": "Power dissipation depends on input voltage, LED voltage, and current. For buck configuration: P = (Vin - Vled) × Iled × duty cycle. For boost: P depends on switch resistance and inductor losses. Ensure adequate PCB copper area (minimum 1 square inch per watt) for heat dissipation. The SGM6606 includes thermal shutdown at 150°C.",
+          "decisionGuide": "Calculate worst-case power dissipation and ensure adequate thermal management. Use thermal vias and copper pours for heat spreading.",
+          "keywords": [
+            "LED driver thermal",
+            "power dissipation",
+            "thermal management"
+          ]
+        },
+        {
+          "question": "Can this solution be used for white LED applications?",
+          "answer": "Yes, the RGB driver can be used for white LED applications by driving all three channels with the same current. Alternatively, use the SGM6603 buck LED driver for dedicated white LED applications. The 12-bit dimming provides smooth brightness control for white light applications including dimmable lighting and backlighting.",
+          "decisionGuide": "Use RGB driver for color-tunable white or RGB applications. Use dedicated white LED drivers for simple white lighting.",
+          "keywords": [
+            "white LED driver",
+            "dimmable lighting",
+            "color temperature"
+          ]
+        },
+        {
+          "question": "What I2C speed is supported?",
+          "answer": "The SGM6606 supports I2C standard mode (100kHz) and fast mode (400kHz). Fast mode plus (1MHz) is not supported. For most lighting applications, 100kHz is sufficient. Use 400kHz if you need to update many channels rapidly or have multiple devices on the bus.",
+          "decisionGuide": "Use 100kHz for simple applications. Use 400kHz for systems with many channels or rapid update requirements.",
+          "keywords": [
+            "I2C speed",
+            "communication interface",
+            "LED driver control"
+          ]
+        }
+      ],
+      "applications": [
+        "Smart Home Lighting",
+        "Architectural Lighting",
+        "Stage and Entertainment Lighting",
+        "Display Backlighting",
+        "Mood Lighting Systems",
+        "Color-Tunable White Lighting"
+      ],
+      "name": "Smart Lighting Control Solution"
     }
   ]
 }

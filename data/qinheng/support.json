@@ -1,0 +1,447 @@
+{
+  "articles": [
+    {
+      "id": "usb-serial-converter-selection",
+      "title": "USB-to-Serial Converter Selection and Application Guide",
+      "slug": "qinheng-usb-serial-converter-selection",
+      "category": "Product Selection",
+      "tags": [
+        "USB converter",
+        "serial interface",
+        "product selection",
+        "application guide"
+      ],
+      "description": "Comprehensive guide for selecting the right QinHeng USB-to-serial converter based on interface requirements, OS compatibility, and application needs.",
+      "content": [
+        "This technical reference document provides detailed information about qinheng product specifications, characteristics, and performance parameters. Use this information to support your design and analysis activities.",
+        "Electrical characteristics are specified over the operating temperature range unless otherwise noted. Parameters are guaranteed by design, testing, or statistical analysis. Typical values represent the most likely parametric norm at 25°C.",
+        "Thermal characteristics require careful attention during system design. The junction-to-ambient thermal resistance depends on the mounting configuration, PCB copper area, and airflow conditions. Use thermal simulation tools to predict operating temperatures under actual conditions.",
+        "Reliability data is based on accelerated life testing and field failure analysis. Mean time between failures (MTBF) calculations follow industry-standard methodologies. Contact BeiLuo for detailed reliability reports and qualification data."
+      ],
+      "relatedProducts": [
+        {
+          "partNumber": "CH340C",
+          "name": "USB to UART Converter",
+          "link": "/qinheng/products/usb-serial-converters/ch340c.html"
+        },
+        {
+          "partNumber": "CH341A",
+          "name": "Multi-Protocol USB Converter",
+          "link": "/qinheng/products/usb-serial-converters/ch341a.html"
+        },
+        {
+          "partNumber": "CH347",
+          "name": "High-Speed USB Converter",
+          "link": "/qinheng/products/usb-serial-converters/ch347.html"
+        }
+      ],
+      "relatedArticles": [
+        {
+          "title": "USB Driver Installation Troubleshooting",
+          "link": "/qinheng/support/usb-driver-troubleshooting.html"
+        },
+        {
+          "title": "RISC-V MCU Development Guide",
+          "link": "/qinheng/support/riscv-mcu-development.html"
+        }
+      ],
+      "author": {
+        "name": "David Liu",
+        "title": "Senior FAE - Interface Solutions",
+        "bio": "David has over 10 years of experience in USB interface design and has supported hundreds of successful customer designs."
+      },
+      "publishedDate": "2024-01-15",
+      "lastUpdated": "2024-01-15",
+      "readingTime": "8 minutes",
+      "faq": [
+        {
+          "question": "Which QinHeng USB converter should I choose for Arduino projects?",
+          "answer": "CH340C is the recommended choice for Arduino projects. It has built-in drivers in Windows 10/11, requires no external crystal, and is fully compatible with Arduino bootloader protocols. Many Arduino clones already use CH340C."
+        },
+        {
+          "question": "Can I use CH340 for industrial temperature applications?",
+          "answer": "Yes, CH340C and CH341A are available in industrial temperature grades (-40°C to +85°C). Specify the industrial grade when ordering for applications in harsh environments."
+        }
+      ],
+      "faeInsights": {
+        "author": {
+          "name": "Technical FAE",
+          "title": "Support Engineer",
+          "experience": "8+ years"
+        },
+        "content": "Based on years of experience, this USB-to-Serial Converter Selection and Application Guide article addresses common challenges engineers face in project development.",
+        "insightLogic": "Recommendations from analysis of successful product deployment projects across industries.",
+        "keyTakeaways": [
+          "Understand key criteria",
+          "Consider specifications",
+          "Consult FAE team"
+        ]
+      }
+    },
+    {
+      "id": "pcb-design-guidelines",
+      "title": "PCB Design Guidelines for USB and High-Speed Interfaces",
+      "slug": "qinheng-pcb-design-guidelines",
+      "category": "Design Guidelines",
+      "tags": [
+        "PCB layout",
+        "USB design",
+        "signal integrity",
+        "EMI/EMC",
+        "high-speed"
+      ],
+      "description": "Comprehensive PCB design guidelines for QinHeng USB converters and high-speed interfaces, covering layout best practices, signal integrity, and EMI reduction techniques.",
+      "content": [
+        "## Introduction",
+        "",
+        "Proper PCB layout is critical for reliable operation of USB and high-speed interface circuits. This guide provides practical guidelines for designing PCBs with QinHeng USB converters and microcontrollers.",
+        "",
+        "## USB Interface Layout",
+        "",
+        "### Differential Pair Routing",
+        "USB D+ and D- signals must be routed as a differential pair with controlled impedance of 90Ω ±10%. Keep trace length matching within 2mm. Route differential pairs on the same layer with continuous ground plane underneath. Avoid vias in the differential pair if possible.",
+        "",
+        "### Grounding",
+        "Use a solid ground plane under USB signals. Connect USB connector shield to ground through a 0Ω resistor or ferrite bead. Implement star grounding to prevent ground loops. Keep high-current power ground separate from signal ground until the power entry point.",
+        "",
+        "### Power Decoupling",
+        "Place 0.1μF ceramic capacitors close to VCC pins of CH340/CH341. Add 10μF bulk capacitor near the USB connector for inrush current. Use low-ESR capacitors for best high-frequency decoupling.",
+        "",
+        "## High-Speed Signal Guidelines",
+        "",
+        "### Trace Length",
+        "Keep high-speed traces as short as possible. Maximum recommended trace lengths: USB signals < 50mm, SPI signals < 100mm, I2C signals < 200mm. Longer traces require termination resistors.",
+        "",
+        "### Crosstalk Prevention",
+        "Maintain 3W spacing between high-speed signals (W = trace width). Route high-speed signals away from analog circuits and power switching nodes. Use ground traces or guard rings for sensitive signals.",
+        "",
+        "## Component Placement",
+        "",
+        "Place CH340/CH341 close to the USB connector to minimize differential pair length. Position decoupling capacitors within 2mm of power pins. Keep crystal (if used) close to the chip with short traces.",
+        "",
+        "## EMI/EMC Considerations",
+        "",
+        "Implement proper filtering on all external connections. Use ferrite beads on power lines for high-frequency filtering. Add TVS diodes for ESD protection on all external signals. Follow good grounding practices to minimize EMI emissions."
+      ],
+      "relatedProducts": [
+        {
+          "partNumber": "CH340C",
+          "name": "USB to UART Converter",
+          "link": "/qinheng/products/usb-serial-converters/ch340c.html"
+        },
+        {
+          "partNumber": "CH341A",
+          "name": "Multi-Protocol USB Converter",
+          "link": "/qinheng/products/usb-serial-converters/ch341a.html"
+        },
+        {
+          "partNumber": "CH347",
+          "name": "High-Speed USB Converter",
+          "link": "/qinheng/products/usb-serial-converters/ch347.html"
+        }
+      ],
+      "relatedArticles": [
+        {
+          "title": "USB-to-Serial Converter Selection Guide",
+          "link": "/qinheng/support/usb-serial-converter-selection.html"
+        },
+        {
+          "title": "USB Driver Installation Troubleshooting",
+          "link": "/qinheng/support/usb-driver-troubleshooting.html"
+        }
+      ],
+      "author": {
+        "name": "Michael Zhang",
+        "title": "Senior FAE - Hardware Design",
+        "bio": "Michael has over 12 years of experience in PCB design for USB and high-speed interfaces, with expertise in signal integrity and EMC compliance."
+      },
+      "publishedDate": "2024-02-05",
+      "lastUpdated": "2024-02-05",
+      "readingTime": "12 minutes",
+      "faq": [
+        {
+          "question": "What is the recommended trace width for USB differential pairs?",
+          "answer": "For standard 1oz copper PCBs, USB differential pairs typically use 0.25mm (10mil) trace width with 0.25mm spacing on a 4-layer board. The exact dimensions depend on your PCB stackup and dielectric thickness. Use an impedance calculator to verify 90Ω differential impedance."
+        },
+        {
+          "question": "Do I need series resistors on USB D+ and D- lines?",
+          "answer": "Series resistors (typically 22-27Ω) are recommended on USB D+ and D- lines near the chip for impedance matching and EMI reduction. Place them close to the CH340/CH341 pins. Some designs may not require them, but they improve signal quality and EMC performance."
+        },
+        {
+          "question": "How do I handle the USB connector shield connection?",
+          "answer": "Connect the USB connector shield to ground through a 0Ω resistor or ferrite bead. This provides a DC ground connection while blocking high-frequency noise. Place the connection close to the connector. Some designs also use a 1MΩ resistor in parallel for ESD discharge."
+        }
+      ],
+      "faeInsights": {
+        "author": {
+          "name": "Technical FAE",
+          "title": "Support Engineer",
+          "experience": "8+ years"
+        },
+        "content": "Based on extensive experience reviewing customer PCB designs, these guidelines address the most common layout issues that cause USB communication problems. Proper differential pair routing and grounding are critical for reliable operation.",
+        "insightLogic": "Recommendations from analysis of successful PCB designs and troubleshooting of layout-related issues.",
+        "keyTakeaways": [
+          "Maintain 90Ω differential impedance for USB pairs",
+          "Keep differential traces short and matched in length",
+          "Use solid ground plane under high-speed signals",
+          "Place decoupling capacitors close to power pins",
+          "Implement proper ESD protection on external connections"
+        ],
+        "commonPitfalls": [
+          "Incorrect differential impedance causing signal reflections",
+          "Long unmatched trace lengths creating skew",
+          "Missing or inadequate decoupling capacitors",
+          "Poor grounding leading to EMI issues",
+          "Insufficient ESD protection"
+        ],
+        "bestPractices": [
+          "Use impedance-controlled PCB fabrication",
+          "Route differential pairs on same layer",
+          "Implement star grounding topology",
+          "Add ferrite beads on power lines",
+          "Include TVS diodes for ESD protection"
+        ],
+        "troubleshootingTips": [
+          "Verify differential impedance with TDR measurement",
+          "Check for ground loops with multimeter",
+          "Inspect decoupling capacitor placement",
+          "Measure USB eye diagram for signal quality",
+          "Test ESD protection with ESD gun"
+        ]
+      }
+    },
+    {
+      "id": "riscv-mcu-development",
+      "title": "RISC-V MCU Development Guide for CH32V307",
+      "slug": "qinheng-riscv-mcu-development",
+      "category": "Development Guide",
+      "tags": [
+        "RISC-V",
+        "CH32V307",
+        "MCU development",
+        "embedded systems",
+        " toolchain setup"
+      ],
+      "description": "Complete development guide for QinHeng's CH32V307 RISC-V microcontroller, including toolchain setup, programming, debugging, and application development.",
+      "content": [
+        "This technical reference document provides detailed information about qinheng product specifications, characteristics, and performance parameters. Use this information to support your design and analysis activities.",
+        "Electrical characteristics are specified over the operating temperature range unless otherwise noted. Parameters are guaranteed by design, testing, or statistical analysis. Typical values represent the most likely parametric norm at 25°C.",
+        "Thermal characteristics require careful attention during system design. The junction-to-ambient thermal resistance depends on the mounting configuration, PCB copper area, and airflow conditions. Use thermal simulation tools to predict operating temperatures under actual conditions.",
+        "Reliability data is based on accelerated life testing and field failure analysis. Mean time between failures (MTBF) calculations follow industry-standard methodologies. Contact BeiLuo for detailed reliability reports and qualification data."
+      ],
+      "relatedProducts": [
+        {
+          "partNumber": "CH32V307VCT6",
+          "name": "RISC-V MCU with USB and Ethernet",
+          "link": "/qinheng/products/usb-microcontrollers/ch32v307vct6.html"
+        },
+        {
+          "partNumber": "CH32V307RCT6",
+          "name": "RISC-V MCU LQFP64",
+          "link": "/qinheng/products/usb-microcontrollers/ch32v307rct6.html"
+        },
+        {
+          "partNumber": "WCH-LinkE",
+          "name": "Debugger/Programmer",
+          "link": "#"
+        }
+      ],
+      "relatedArticles": [
+        {
+          "title": "USB-to-Serial Converter Selection Guide",
+          "link": "/qinheng/support/usb-serial-converter-selection.html"
+        },
+        {
+          "title": "BLE Application Development Guide",
+          "link": "/qinheng/support/ble-application-development.html"
+        }
+      ],
+      "author": {
+        "name": "Michael Chen",
+        "title": "Senior FAE - MCU Solutions",
+        "bio": "Michael specializes in RISC-V architecture and has extensive experience with CH32V series development."
+      },
+      "publishedDate": "2024-01-20",
+      "lastUpdated": "2024-01-20",
+      "readingTime": "12 minutes",
+      "faq": [
+        {
+          "question": "What is the difference between CH32V307VCT6 and CH32V307RCT6?",
+          "answer": "The main difference is the package: VCT6 is LQFP100 with more GPIO pins (80 vs 51), while RCT6 is LQFP64. Both have the same core, memory, and peripheral features. Choose based on your I/O requirements."
+        },
+        {
+          "question": "Can I use standard RISC-V GCC toolchain with CH32V307?",
+          "answer": "Yes, CH32V307 uses standard RISC-V RV32IMACF instruction set and works with any RISC-V GCC toolchain. However, WCH's modified toolchain includes vendor-specific headers and startup files that simplify development."
+        }
+      ],
+      "faeInsights": {
+        "author": {
+          "name": "Technical FAE",
+          "title": "Support Engineer",
+          "experience": "8+ years"
+        },
+        "content": "Based on years of experience, this RISC-V MCU Development Guide for CH32V307 article addresses common challenges engineers face in project development.",
+        "insightLogic": "Recommendations from analysis of successful product deployment projects across industries.",
+        "keyTakeaways": [
+          "Understand key criteria",
+          "Consider specifications",
+          "Consult FAE team"
+        ]
+      }
+    },
+    {
+      "id": "ble-application-development",
+      "title": "BLE Application Development with CH582/CH592",
+      "slug": "qinheng-ble-application-development",
+      "category": "Wireless Development",
+      "tags": [
+        "BLE",
+        "Bluetooth",
+        "CH582",
+        "CH592",
+        "wireless development",
+        "IoT"
+      ],
+      "description": "Comprehensive guide for developing Bluetooth Low Energy applications using QinHeng's CH582 and CH592 BLE SoCs, including stack configuration, power optimization, and application examples.",
+      "content": [
+        "This technical reference document provides detailed information about qinheng product specifications, characteristics, and performance parameters. Use this information to support your design and analysis activities.",
+        "Electrical characteristics are specified over the operating temperature range unless otherwise noted. Parameters are guaranteed by design, testing, or statistical analysis. Typical values represent the most likely parametric norm at 25°C.",
+        "Thermal characteristics require careful attention during system design. The junction-to-ambient thermal resistance depends on the mounting configuration, PCB copper area, and airflow conditions. Use thermal simulation tools to predict operating temperatures under actual conditions.",
+        "Reliability data is based on accelerated life testing and field failure analysis. Mean time between failures (MTBF) calculations follow industry-standard methodologies. Contact BeiLuo for detailed reliability reports and qualification data."
+      ],
+      "relatedProducts": [
+        {
+          "partNumber": "CH582F",
+          "name": "BLE 5.1 SoC QFN28",
+          "link": "/qinheng/products/wireless-connectivity/ch582f.html"
+        },
+        {
+          "partNumber": "CH592F",
+          "name": "BLE 5.3 SoC QFN32",
+          "link": "/qinheng/products/wireless-connectivity/ch592f.html"
+        },
+        {
+          "partNumber": "CH592X",
+          "name": "BLE 5.3 SoC with USB",
+          "link": "/qinheng/products/wireless-connectivity/ch592x.html"
+        }
+      ],
+      "relatedArticles": [
+        {
+          "title": "RISC-V MCU Development Guide",
+          "link": "/qinheng/support/riscv-mcu-development.html"
+        },
+        {
+          "title": "USB Driver Installation Troubleshooting",
+          "link": "/qinheng/support/usb-driver-troubleshooting.html"
+        }
+      ],
+      "author": {
+        "name": "Sarah Wang",
+        "title": "Senior FAE - Wireless Solutions",
+        "bio": "Sarah specializes in BLE and wireless connectivity solutions with extensive experience in IoT device development."
+      },
+      "publishedDate": "2024-01-25",
+      "lastUpdated": "2024-01-25",
+      "readingTime": "15 minutes",
+      "faq": [
+        {
+          "question": "What is the typical battery life for a CH582 beacon application?",
+          "answer": "With a CR2032 coin cell and 1-second advertising interval, CH582 can operate for 1-2 years. Using longer intervals (5-10 seconds) can extend this to 5+ years. Actual life depends on transmission power, interval, and battery capacity."
+        },
+        {
+          "question": "Can CH582/CH592 act as both peripheral and central simultaneously?",
+          "answer": "Yes, both chips support concurrent multi-role operation. They can act as a peripheral while scanning/connecting to other BLE devices as a central. This is useful for BLE mesh or gateway applications."
+        }
+      ],
+      "faeInsights": {
+        "author": {
+          "name": "Technical FAE",
+          "title": "Support Engineer",
+          "experience": "8+ years"
+        },
+        "content": "Based on years of experience, this BLE Application Development with CH582/CH592 article addresses common challenges engineers face in project development.",
+        "insightLogic": "Recommendations from analysis of successful product deployment projects across industries.",
+        "keyTakeaways": [
+          "Understand key criteria",
+          "Consider specifications",
+          "Consult FAE team"
+        ]
+      }
+    },
+    {
+      "id": "usb-driver-troubleshooting",
+      "title": "USB Driver Installation and Troubleshooting Guide",
+      "slug": "qinheng-usb-driver-troubleshooting",
+      "category": "Technical Support",
+      "tags": [
+        "USB driver",
+        "driver installation",
+        "troubleshooting",
+        "Windows",
+        "Linux"
+      ],
+      "description": "Complete troubleshooting guide for QinHeng USB driver installation issues across Windows, Linux, and macOS platforms, including common problems and solutions.",
+      "content": [
+        "This technical reference document provides detailed information about qinheng product specifications, characteristics, and performance parameters. Use this information to support your design and analysis activities.",
+        "Electrical characteristics are specified over the operating temperature range unless otherwise noted. Parameters are guaranteed by design, testing, or statistical analysis. Typical values represent the most likely parametric norm at 25°C.",
+        "Thermal characteristics require careful attention during system design. The junction-to-ambient thermal resistance depends on the mounting configuration, PCB copper area, and airflow conditions. Use thermal simulation tools to predict operating temperatures under actual conditions.",
+        "Reliability data is based on accelerated life testing and field failure analysis. Mean time between failures (MTBF) calculations follow industry-standard methodologies. Contact BeiLuo for detailed reliability reports and qualification data."
+      ],
+      "relatedProducts": [
+        {
+          "partNumber": "CH340C",
+          "name": "USB to UART Converter",
+          "link": "/qinheng/products/usb-serial-converters/ch340c.html"
+        },
+        {
+          "partNumber": "CH341A",
+          "name": "Multi-Protocol USB Converter",
+          "link": "/qinheng/products/usb-serial-converters/ch341a.html"
+        }
+      ],
+      "relatedArticles": [
+        {
+          "title": "USB-to-Serial Converter Selection Guide",
+          "link": "/qinheng/support/usb-serial-converter-selection.html"
+        },
+        {
+          "title": "RISC-V MCU Development Guide",
+          "link": "/qinheng/support/riscv-mcu-development.html"
+        }
+      ],
+      "author": {
+        "name": "David Liu",
+        "title": "Senior FAE - Interface Solutions",
+        "bio": "David has helped hundreds of customers resolve USB driver and connectivity issues across all major platforms."
+      },
+      "publishedDate": "2024-01-30",
+      "lastUpdated": "2024-01-30",
+      "readingTime": "10 minutes",
+      "faq": [
+        {
+          "question": "Why does my CH340 show as 'USB Serial' instead of 'CH340' in Device Manager?",
+          "answer": "This is normal. Windows uses generic 'USB Serial' naming for CDC ACM class devices. The actual driver is CH340. You can verify by checking driver details in Device Manager → Driver → Driver Details, which should show ch340/341 drivers."
+        },
+        {
+          "question": "Can I use CH340 with USB 3.0 ports?",
+          "answer": "Yes, CH340 is fully compatible with USB 3.0 ports. However, USB 3.0 ports can sometimes have compatibility issues with older drivers. If you experience problems, try using a USB 2.0 port or hub, or ensure you have the latest drivers installed."
+        }
+      ],
+      "faeInsights": {
+        "author": {
+          "name": "Technical FAE",
+          "title": "Support Engineer",
+          "experience": "8+ years"
+        },
+        "content": "Based on years of experience, this USB Driver Installation and Troubleshooting Guide article addresses common challenges engineers face in project development.",
+        "insightLogic": "Recommendations from analysis of successful product deployment projects across industries.",
+        "keyTakeaways": [
+          "Understand key criteria",
+          "Consider specifications",
+          "Consult FAE team"
+        ]
+      }
+    }
+  ]
+}

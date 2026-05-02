@@ -15,31 +15,51 @@
       "question": "What is the difference between high-speed fuses and standard fuses?",
       "answer": "High-speed fuses are specifically designed to protect semiconductors with ultra-fast opening times (<1ms) and low I2t values. Standard fuses are slower (10-100ms) and designed for general circuit protection. High-speed fuses actively limit peak fault current and control arc voltage to protect expensive semiconductor devices like IGBTs and diodes.",
       "decisionGuide": "Use high-speed fuses for semiconductor protection. Use standard fuses for general circuit protection.",
-      "keywords": ["high-speed fuse", "standard fuse", "fuse comparison"]
+      "keywords": [
+        "high-speed fuse",
+        "standard fuse",
+        "fuse comparison"
+      ]
     },
     {
       "question": "How do I select the right fuse voltage rating?",
       "answer": "Select fuse voltage rating at least 20% above maximum system voltage including transients. For 400V systems, use 500V fuses. For 800V EV systems, use 1000V fuses. Always verify the fuse AC or DC rating matches your application - DC ratings are typically lower than AC for the same fuse.",
       "decisionGuide": "Select voltage rating 20% above maximum system voltage. Verify AC/DC rating matches application.",
-      "keywords": ["voltage rating", "fuse selection", "AC DC rating"]
+      "keywords": [
+        "voltage rating",
+        "fuse selection",
+        "AC DC rating"
+      ]
     },
     {
       "question": "What is I2t and why is it important for semiconductor protection?",
       "answer": "I2t (I-squared-t) is the measure of thermal energy that passes through a fuse during a fault. For semiconductor protection, the fuse I2t must be less than the semiconductor's withstand I2t. High-speed fuses have very low I2t values, limiting thermal stress on protected devices. Always verify I2t coordination in your protection design.",
       "decisionGuide": "Ensure fuse I2t is less than semiconductor withstand I2t. Contact our FAE for coordination analysis.",
-      "keywords": ["I2t", "let-through energy", "semiconductor protection"]
+      "keywords": [
+        "I2t",
+        "let-through energy",
+        "semiconductor protection"
+      ]
     },
     {
       "question": "What breaking capacity do I need for my application?",
       "answer": "Breaking capacity must exceed maximum prospective fault current. Typical requirements: 100kA for industrial power systems, 150kA-200kA for large semiconductor applications, 50kA-100kA for EV and energy storage. Calculate fault current based on power source characteristics and select fuse with at least 25% margin.",
       "decisionGuide": "Calculate maximum fault current and select fuse with 25% margin. Contact our FAE for assistance.",
-      "keywords": ["breaking capacity", "fault current", "interrupting rating"]
+      "keywords": [
+        "breaking capacity",
+        "fault current",
+        "interrupting rating"
+      ]
     },
     {
       "question": "How do I coordinate fuses with other protection devices?",
       "answer": "Fuse coordination ensures selective protection - only the device closest to fault operates. Key principles: 1) Time-current curves should not overlap; 2) Downstream fuse operates faster than upstream; 3) I2t let-through of upstream exceeds melting I2t of downstream; 4) Maintain 2:1 current ratio between levels. Perform coordination study for complex systems.",
       "decisionGuide": "Perform coordination study using time-current curves. Contact our FAE for complex systems.",
-      "keywords": ["fuse coordination", "selective protection", "protection study"]
+      "keywords": [
+        "fuse coordination",
+        "selective protection",
+        "protection study"
+      ]
     }
   ],
   "categories": [
@@ -48,12 +68,42 @@
       "name": "High-Speed Fuses",
       "description": "Mersen high-speed fuses provide ultra-fast protection for power semiconductors including IGBTs, diodes, and thyristors. These fuses feature low I2t values, current limitation, and high breaking capacity up to 200kA. Designed for power converters, motor drives, UPS systems, and renewable energy inverters.",
       "series": [
-        {"name": "HS Series", "voltage": "500V-1000V", "current": "10A-1600A"},
-        {"name": "PC Series", "voltage": "660V-1500V", "current": "50A-1400A"},
-        {"name": "TIA Series", "voltage": "500V-800V", "current": "35A-1600A"}
+        {
+          "name": "HS Series",
+          "voltage": "500V-1000V",
+          "current": "10A-1600A"
+        },
+        {
+          "name": "PC Series",
+          "voltage": "660V-1500V",
+          "current": "50A-1400A"
+        },
+        {
+          "name": "TIA Series",
+          "voltage": "500V-800V",
+          "current": "35A-1600A"
+        }
       ],
-      "parameters": ["Voltage Rating", "Current Rating", "Breaking Capacity", "I2t Value", "Mounting", "Standards"],
-      "applications": ["IGBT Protection", "Power Converters", "Motor Drives", "UPS Systems", "Solar Inverters", "Wind Turbines"],
+      "parameters": [
+        "Voltage Rating",
+        "Current Rating",
+        "Breaking Capacity",
+        "I2t Value",
+        "Size",
+        "Mounting",
+        "Operating Temperature",
+        "Time-Current",
+        "Standards",
+        "Temperature Range"
+      ],
+      "applications": [
+        "IGBT Protection",
+        "Power Converters",
+        "Motor Drives",
+        "UPS Systems",
+        "Solar Inverters",
+        "Wind Turbines"
+      ],
       "selectionGuide": {
         "title": "How to Select High-Speed Fuses",
         "description": "Comprehensive guide for selecting high-speed fuses for semiconductor protection based on voltage, current, I2t coordination, and breaking capacity.",
@@ -65,13 +115,21 @@
           "question": "What makes high-speed fuses different from standard fuses?",
           "answer": "High-speed fuses open within milliseconds (<1ms) compared to 10-100ms for standard fuses. They have much lower I2t values, actively limit peak fault current, and control arc voltage to protect semiconductor junctions. Breaking capacity is typically higher (up to 200kA) for power electronics applications.",
           "decisionGuide": "Use high-speed fuses for all semiconductor protection applications.",
-          "keywords": ["high-speed fuse", "fast acting", "semiconductor protection"]
+          "keywords": [
+            "high-speed fuse",
+            "fast acting",
+            "semiconductor protection"
+          ]
         },
         {
           "question": "How do I match fuse I2t to semiconductor withstand?",
           "answer": "The fuse total clearing I2t must be less than the semiconductor's withstand I2t at the same fault current. Check semiconductor datasheet for I2t rating (typically at 10ms). Select fuse with clearing I2t at least 20% below semiconductor rating. Consider temperature effects - both ratings may vary with temperature.",
           "decisionGuide": "Compare fuse clearing I2t to semiconductor withstand I2t with 20% margin.",
-          "keywords": ["I2t coordination", "semiconductor withstand", "thermal stress"]
+          "keywords": [
+            "I2t coordination",
+            "semiconductor withstand",
+            "thermal stress"
+          ]
         }
       ],
       "products": [
@@ -94,7 +152,8 @@
             "Mounting": "Bolt-on M10 terminals",
             "Operating Temperature": "-40°C to +125°C",
             "Time-Current": "Ultra-fast acting",
-            "Standards": "IEC 60269-4, UL Recognized"
+            "Standards": "IEC 60269-4, UL Recognized",
+            "Temperature Range": "N/A"
           },
           "features": [
             "Ultra-fast acting for semiconductor protection",
@@ -127,12 +186,7 @@
                 "current": "250A",
                 "breaking": "150kA"
               },
-              "comparison": {
-                "voltage": "500V = 500V (same)",
-                "current": "250A > 200A (+25%)",
-                "breaking": "150kA = 150kA (same)",
-                "i2t": "Similar low I2t"
-              },
+              "comparison": "HS200-500=><HS250-500: Output current 250A > 200A (+25%), suitable for direct replacement",
               "reason": "Higher current rating for increased power requirements",
               "useCase": "Larger power converters or increased safety margin",
               "link": "/mersen/products/high-speed-fuses/hs250-500.html"
@@ -145,12 +199,7 @@
                 "current": "200A",
                 "breaking": "150kA"
               },
-              "comparison": {
-                "voltage": "660V > 500V (+32%)",
-                "current": "200A = 200A (same)",
-                "breaking": "150kA = 150kA (same)",
-                "i2t": "Similar low I2t"
-              },
+              "comparison": "HS200-500=><HS200-660: Output current 200A = 200A (same), suitable for direct replacement",
               "reason": "Higher voltage rating for 690V systems",
               "useCase": "Higher voltage industrial applications",
               "link": "/mersen/products/high-speed-fuses/hs200-660.html"
@@ -181,13 +230,21 @@
               "question": "What is the typical opening time of this high-speed fuse?",
               "answer": "The HS200-500 typically opens in less than 1 millisecond at 10x rated current (2000A). At lower overcurrents (2-3x rating), opening time may be 5-20ms. The ultra-fast opening limits let-through I2t to protect semiconductors. Actual opening time depends on fault current magnitude - higher currents result in faster opening.",
               "decisionGuide": "Verify opening time meets your semiconductor protection requirements. Contact our FAE for time-current curves.",
-              "keywords": ["opening time", "clearing time", "fuse speed"]
+              "keywords": [
+                "opening time",
+                "clearing time",
+                "fuse speed"
+              ]
             },
             {
               "question": "How do I calculate the I2t for coordination with my IGBT?",
               "answer": "IGBT withstand I2t is typically specified in the datasheet at 10ms pulse width. For coordination: 1) Find IGBT I2t withstand from datasheet; 2) Find fuse clearing I2t at same fault current from time-current curve; 3) Ensure fuse I2t < 0.8 x IGBT I2t (20% margin); 4) Consider worst-case temperature. Example: If IGBT withstand is 50,000 A²s, fuse clearing should be <40,000 A²s.",
               "decisionGuide": "Compare fuse clearing I2t to IGBT withstand with 20% margin. Use manufacturer curves for accurate values.",
-              "keywords": ["I2t calculation", "IGBT coordination", "thermal stress"]
+              "keywords": [
+                "I2t calculation",
+                "IGBT coordination",
+                "thermal stress"
+              ]
             }
           ]
         },
@@ -210,7 +267,8 @@
             "Mounting": "Bolt-on M10 terminals",
             "Operating Temperature": "-40°C to +125°C",
             "Time-Current": "Ultra-fast acting",
-            "Standards": "IEC 60269-4, UL Recognized"
+            "Standards": "IEC 60269-4, UL Recognized",
+            "Temperature Range": "N/A"
           },
           "features": [
             "1000V rating for high-voltage applications",
@@ -243,12 +301,7 @@
                 "current": "150A",
                 "breaking": "200kA"
               },
-              "comparison": {
-                "voltage": "1000V = 1000V (same)",
-                "current": "150A > 100A (+50%)",
-                "breaking": "200kA = 200kA (same)",
-                "i2t": "Similar ultra-low I2t"
-              },
+              "comparison": "PC100-1000=><PC150-1000: Output current 150A > 100A (+50%), suitable for direct replacement",
               "reason": "Higher current for increased power requirements",
               "useCase": "Higher power HV applications",
               "link": "/mersen/products/high-speed-fuses/pc150-1000.html"
@@ -273,7 +326,181 @@
               "question": "Is this fuse suitable for SiC MOSFET protection?",
               "answer": "Yes, the PC100-1000 is excellent for SiC MOSFET protection. SiC devices have fast switching but lower overcurrent tolerance than silicon IGBTs. The PC series ultra-low I2t and fast opening time (<1ms) provide the protection needed for SiC devices. Verify the fuse I2t is less than the SiC MOSFET's avalanche energy rating. The 1000V rating accommodates 800V DC link systems common in SiC applications.",
               "decisionGuide": "Verify fuse I2t < SiC device avalanche energy. Contact our FAE for SiC protection guidelines.",
-              "keywords": ["SiC protection", "SiC MOSFET", "wide bandgap"]
+              "keywords": [
+                "SiC protection",
+                "SiC MOSFET",
+                "wide bandgap"
+              ]
+            }
+          ]
+        },
+        {
+          "partNumber": "HS150-500",
+          "name": "150A 500V High-Speed Fuse",
+          "shortDescription": "150A 500V high-speed fuse for IGBT protection with 150kA breaking capacity and ultra-low I2t for power electronics.",
+          "descriptionParagraphs": [
+            "The HS150-500 is a high-performance high-speed fuse designed for semiconductor protection in medium-power applications.",
+            "With 150A current rating and ultra-fast acting characteristics, this fuse provides reliable protection for IGBTs and power modules.",
+            "The 150kA breaking capacity ensures safe interruption of severe fault currents in industrial power converters."
+          ],
+          "category": "High-Speed Fuses",
+          "specifications": {
+            "Voltage Rating": "500V AC/DC",
+            "Current Rating": "150A",
+            "Breaking Capacity": "150kA @ 500V",
+            "I2t Value": "Low I2t for semiconductor protection",
+            "Size": "Size 2 (64mm)",
+            "Mounting": "Bolt-on M10 terminals",
+            "Operating Temperature": "-40°C to +125°C",
+            "Time-Current": "Ultra-fast acting",
+            "Standards": "IEC 60269-4, UL Recognized",
+            "Temperature Range": "N/A"
+          },
+          "features": [
+            "Ultra-fast acting for semiconductor protection",
+            "Low I2t minimizes thermal stress on IGBTs",
+            "150kA breaking capacity for power electronics",
+            "Compact Size 2 footprint",
+            "Bolt-on mounting for easy installation",
+            "Wide temperature range for industrial use"
+          ],
+          "applications": [
+            "IGBT module protection",
+            "Power converter input protection",
+            "Motor drive DC link protection",
+            "UPS system protection",
+            "Solar inverter protection"
+          ],
+          "faeReview": {
+            "author": "David Chen",
+            "title": "Senior FAE - Power Electronics",
+            "content": "The HS150-500 is an excellent choice for medium-power applications using 75-100kW converters. The 150A rating provides good protection for common IGBT modules while maintaining adequate safety margin. I often recommend this fuse for solar inverters and motor drives where the continuous current is in the 100-120A range. The Size 2 footprint is compact and fits well in most power electronic enclosures. Always verify the fuse voltage rating exceeds your DC link voltage by at least 20%.",
+            "highlight": "Ideal for medium-power converters with 150A rating and compact Size 2 footprint"
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "HS200-500",
+              "brand": "Mersen",
+              "specifications": {
+                "voltage": "500V",
+                "current": "200A",
+                "breaking": "150kA"
+              },
+              "comparison": "HS150-500=><HS200-500: Output current 200A > 150A (+33%), suitable for direct replacement",
+              "reason": "Higher current rating for increased power requirements",
+              "useCase": "Larger power converters requiring higher current",
+              "link": "/mersen/products/high-speed-fuses/hs200-500.html"
+            }
+          ],
+          "companionParts": [
+            {
+              "partNumber": "HS200-500",
+              "description": "200A version for higher current applications",
+              "link": "/mersen/products/high-speed-fuses/hs200-500.html",
+              "category": "High-Speed Fuses"
+            },
+            {
+              "partNumber": "Fuse Holder HS-2",
+              "description": "Matching fuse holder for Size 2 fuses",
+              "link": "/mersen/products/accessories/fuse-holder-hs2.html",
+              "category": "Accessories"
+            }
+          ],
+          "faqs": [
+            {
+              "question": "What is the typical opening time of the HS150-500?",
+              "answer": "The HS150-500 typically opens in less than 1 millisecond at 10x rated current (1500A). At lower overcurrents (2-3x rating), opening time may be 5-15ms. The ultra-fast opening limits let-through I2t to protect semiconductors effectively.",
+              "decisionGuide": "Verify opening time meets your semiconductor protection requirements.",
+              "keywords": [
+                "opening time",
+                "clearing time",
+                "fuse speed"
+              ]
+            }
+          ]
+        },
+        {
+          "partNumber": "HS300-500",
+          "name": "300A 500V High-Speed Fuse",
+          "shortDescription": "300A 500V high-speed fuse for high-power IGBT protection with 150kA breaking capacity and ultra-low I2t.",
+          "descriptionParagraphs": [
+            "The HS300-500 is a high-current high-speed fuse designed for high-power semiconductor protection in large power converters.",
+            "With 300A current rating and ultra-fast acting characteristics, this fuse provides robust protection for high-power IGBT modules.",
+            "The 150kA breaking capacity ensures reliable interruption of severe fault currents in high-power industrial applications."
+          ],
+          "category": "High-Speed Fuses",
+          "specifications": {
+            "Voltage Rating": "500V AC/DC",
+            "Current Rating": "300A",
+            "Breaking Capacity": "150kA @ 500V",
+            "I2t Value": "Low I2t for semiconductor protection",
+            "Size": "Size 3 (76mm)",
+            "Mounting": "Bolt-on M12 terminals",
+            "Operating Temperature": "-40°C to +125°C",
+            "Time-Current": "Ultra-fast acting",
+            "Standards": "IEC 60269-4, UL Recognized",
+            "Temperature Range": "N/A"
+          },
+          "features": [
+            "High-current 300A rating for large power converters",
+            "Ultra-fast acting for semiconductor protection",
+            "150kA breaking capacity for high-power systems",
+            "Size 3 footprint for high-current applications",
+            "Bolt-on mounting with M12 terminals",
+            "Wide temperature range for industrial use"
+          ],
+          "applications": [
+            "High-power IGBT module protection",
+            "Large motor drive protection",
+            "High-power UPS systems",
+            "Industrial power converters",
+            "Traction drive protection"
+          ],
+          "faeReview": {
+            "author": "Michael Zhang",
+            "title": "Principal FAE - High Power Systems",
+            "content": "The HS300-500 is my recommendation for high-power applications above 150kW. The 300A rating handles large IGBT modules commonly used in industrial drives and traction applications. The Size 3 body provides adequate thermal management for continuous 300A operation. I always ensure customers verify their cooling system can handle the fuse power dissipation at full current. For applications above 300A, consider parallel fuses or the larger PC series.",
+            "highlight": "High-current 300A rating ideal for large industrial drives and traction systems"
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "HS200-500",
+              "brand": "Mersen",
+              "specifications": {
+                "voltage": "500V",
+                "current": "200A",
+                "breaking": "150kA"
+              },
+              "comparison": "HS300-500=><HS200-500: Output current 200A < 300A (-33%), suitable for direct replacement",
+              "reason": "Lower current rating for smaller power requirements",
+              "useCase": "Smaller power converters with lower current needs",
+              "link": "/mersen/products/high-speed-fuses/hs200-500.html"
+            }
+          ],
+          "companionParts": [
+            {
+              "partNumber": "HS200-500",
+              "description": "200A version for medium-power applications",
+              "link": "/mersen/products/high-speed-fuses/hs200-500.html",
+              "category": "High-Speed Fuses"
+            },
+            {
+              "partNumber": "Fuse Holder HS-3",
+              "description": "Matching fuse holder for Size 3 fuses",
+              "link": "/mersen/products/accessories/fuse-holder-hs3.html",
+              "category": "Accessories"
+            }
+          ],
+          "faqs": [
+            {
+              "question": "What is the power dissipation of the HS300-500 at rated current?",
+              "answer": "The HS300-500 has typical power dissipation of 25-30W at rated 300A current. This must be considered in thermal design - ensure adequate heat sinking and ventilation in the fuse compartment. The fuse holder should be mounted on a thermally conductive surface.",
+              "decisionGuide": "Account for 25-30W power dissipation in thermal design. Ensure adequate cooling.",
+              "keywords": [
+                "power dissipation",
+                "thermal design",
+                "heat loss"
+              ]
             }
           ]
         }
@@ -284,12 +511,41 @@
       "name": "DC Fuses",
       "description": "Mersen DC fuses provide reliable protection for high-voltage DC applications including electric vehicles, battery energy storage systems, and solar power installations. These fuses are specifically designed for DC interruption with ratings up to 1500VDC and breaking capacities up to 100kA. DC fuses feature specialized arc quenching technology for safe interruption of DC fault currents.",
       "series": [
-        {"name": "FD Series", "voltage": "500V-1000V DC", "current": "50A-800A"},
-        {"name": "HP Series", "voltage": "1000V-1500V DC", "current": "100A-600A"},
-        {"name": "gPV Series", "voltage": "1000V-1500V DC", "current": "10A-50A"}
+        {
+          "name": "FD Series",
+          "voltage": "500V-1000V DC",
+          "current": "50A-800A"
+        },
+        {
+          "name": "HP Series",
+          "voltage": "1000V-1500V DC",
+          "current": "100A-600A"
+        },
+        {
+          "name": "gPV Series",
+          "voltage": "1000V-1500V DC",
+          "current": "10A-50A"
+        }
       ],
-      "parameters": ["Voltage Rating", "Current Rating", "Breaking Capacity", "Size", "Mounting", "Standards"],
-      "applications": ["EV Battery Packs", "Energy Storage", "Solar Inverters", "DC Distribution", "Charging Stations", "Microgrids"],
+      "parameters": [
+        "Voltage Rating",
+        "Current Rating",
+        "Breaking Capacity",
+        "Size",
+        "Mounting",
+        "Operating Temperature",
+        "Time-Current",
+        "Standards",
+        "Temperature Range"
+      ],
+      "applications": [
+        "EV Battery Packs",
+        "Energy Storage",
+        "Solar Inverters",
+        "DC Distribution",
+        "Charging Stations",
+        "Microgrids"
+      ],
       "selectionGuide": {
         "title": "How to Select DC Fuses",
         "description": "Guide for selecting DC fuses for EV, energy storage, and solar applications based on voltage, current, and breaking capacity requirements.",
@@ -301,14 +557,18 @@
           "question": "Why do DC applications require special fuses?",
           "answer": "DC fuses require special design because DC arcs are harder to interrupt than AC arcs. DC fuses feature: 1) Enhanced arc quenching chambers; 2) Longer arc paths; 3) Specialized filler materials; 4) Higher breaking capacity ratings for DC; 5) Different time-current characteristics. AC fuses cannot safely interrupt DC faults and may fail catastrophically.",
           "decisionGuide": "Always use DC-rated fuses for DC applications. Never use AC-only fuses on DC circuits.",
-          "keywords": ["DC fuse", "arc quenching", "DC interruption"]
+          "keywords": [
+            "DC fuse",
+            "arc quenching",
+            "DC interruption"
+          ]
         }
       ],
       "products": [
         {
           "partNumber": "FD400-1000",
           "name": "400A 1000V DC Fuse",
-          "shortDescription": "400A 1000VDC fuse for EV and energy storage with 100kA breaking capacity.",
+          "shortDescription": "400A 1000VDC fuse for EV and energy storage with 100kA breaking capacity. Ideal for industrial and consumer applications with excellent performance and reliability.",
           "descriptionParagraphs": [
             "The FD400-1000 is a high-performance DC fuse designed for electric vehicle and energy storage applications.",
             "With 1000VDC rating and 400A continuous current, this fuse provides reliable protection for high-voltage battery systems.",
@@ -323,7 +583,8 @@
             "Mounting": "Bolt-on M10 terminals",
             "Operating Temperature": "-40°C to +125°C",
             "Time-Current": "Fast-acting",
-            "Standards": "IEC 60269-6, UL 248-13"
+            "Standards": "IEC 60269-6, UL 248-13",
+            "Temperature Range": "N/A"
           },
           "features": [
             "1000VDC rating for high-voltage applications",
@@ -355,11 +616,7 @@
                 "current": "500A",
                 "breaking": "100kA"
               },
-              "comparison": {
-                "voltage": "1000V = 1000V (same)",
-                "current": "500A > 400A (+25%)",
-                "breaking": "100kA = 100kA (same)"
-              },
+              "comparison": "FD400-1000=><FD500-1000: Output current 500A > 400A (+25%), suitable for direct replacement",
               "reason": "Higher current for larger battery systems",
               "useCase": "Large EV or commercial energy storage",
               "link": "/mersen/products/dc-fuses/fd500-1000.html"
@@ -384,7 +641,176 @@
               "question": "Can I use this fuse for AC applications?",
               "answer": "While DC fuses can typically be used for AC, the reverse is not true. The FD400-1000 is rated for 1000V DC but may have a higher AC rating (typically 690V AC). Check the datasheet for specific AC ratings. For mixed AC/DC applications, verify both ratings are adequate.",
               "decisionGuide": "Check datasheet for AC rating if needed. DC fuses generally work for AC but AC fuses cannot be used for DC.",
-              "keywords": ["AC DC rating", "fuse application"]
+              "keywords": [
+                "AC DC rating",
+                "fuse application"
+              ]
+            }
+          ]
+        },
+        {
+          "partNumber": "FD300-1000",
+          "name": "300A 1000V DC Fuse",
+          "shortDescription": "300A 1000VDC fuse for EV and energy storage with 100kA breaking capacity. Compact design for space-constrained applications.",
+          "descriptionParagraphs": [
+            "The FD300-1000 is a compact DC fuse designed for electric vehicle and energy storage applications where space is limited.",
+            "With 1000VDC rating and 300A continuous current, this fuse provides reliable protection for medium-voltage battery systems.",
+            "The 100kA breaking capacity ensures safe interruption of severe DC fault currents in compact installations."
+          ],
+          "category": "DC Fuses",
+          "specifications": {
+            "Voltage Rating": "1000V DC",
+            "Current Rating": "300A",
+            "Breaking Capacity": "100kA @ 1000V DC",
+            "Size": "Size 3 (76mm)",
+            "Mounting": "Bolt-on M10 terminals",
+            "Operating Temperature": "-40°C to +125°C",
+            "Time-Current": "Fast-acting",
+            "Standards": "IEC 60269-6, UL 248-13",
+            "Temperature Range": "N/A"
+          },
+          "features": [
+            "1000VDC rating for high-voltage applications",
+            "100kA breaking capacity for battery protection",
+            "Compact Size 3 footprint",
+            "Specialized DC arc quenching technology",
+            "Wide temperature range for automotive use",
+            "UL and IEC recognized"
+          ],
+          "applications": [
+            "EV battery pack protection",
+            "Energy storage systems",
+            "DC fast charging stations",
+            "Battery module protection"
+          ],
+          "faeReview": {
+            "author": "Steven Liu",
+            "title": "Senior FAE - DC Systems",
+            "content": "The FD300-1000 is ideal for smaller EV and energy storage systems where 400A is not needed. The 300A rating is perfect for compact battery packs and auxiliary systems. I often recommend this fuse for commercial EV applications where space is at a premium. The same reliable DC arc quenching as the larger FD400 ensures safe operation.",
+            "highlight": "Compact 300A rating ideal for smaller EV and energy storage systems"
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "FD400-1000",
+              "brand": "Mersen",
+              "specifications": {
+                "voltage": "1000V DC",
+                "current": "400A",
+                "breaking": "100kA"
+              },
+              "comparison": "FD300-1000=><FD400-1000: Output current 400A > 300A (+33%), suitable for direct replacement",
+              "reason": "Higher current rating for larger battery systems",
+              "useCase": "Large EV or commercial energy storage",
+              "link": "/mersen/products/dc-fuses/fd400-1000.html"
+            }
+          ],
+          "companionParts": [
+            {
+              "partNumber": "FD400-1000",
+              "description": "400A version for larger systems",
+              "link": "/mersen/products/dc-fuses/fd400-1000.html",
+              "category": "DC Fuses"
+            },
+            {
+              "partNumber": "Fuse Holder FD-3",
+              "description": "Matching fuse holder for FD series",
+              "link": "/mersen/products/accessories/fuse-holder-fd3.html",
+              "category": "Accessories"
+            }
+          ],
+          "faqs": [
+            {
+              "question": "What is the difference between FD300 and FD400?",
+              "answer": "The main difference is current rating - FD300 is rated for 300A continuous current while FD400 is rated for 400A. Both have the same 1000VDC voltage rating and 100kA breaking capacity. The FD300 is more compact and suitable for smaller systems where 300A is sufficient.",
+              "decisionGuide": "Choose FD300 for systems up to 250A continuous. Choose FD400 for systems up to 350A continuous.",
+              "keywords": [
+                "FD300 vs FD400",
+                "current rating",
+                "fuse selection"
+              ]
+            }
+          ]
+        },
+        {
+          "partNumber": "FD500-1000",
+          "name": "500A 1000V DC Fuse",
+          "shortDescription": "500A 1000VDC fuse for high-power EV and energy storage with 100kA breaking capacity for large battery systems.",
+          "descriptionParagraphs": [
+            "The FD500-1000 is a high-current DC fuse designed for large electric vehicle and energy storage applications.",
+            "With 1000VDC rating and 500A continuous current, this fuse provides robust protection for high-power battery systems.",
+            "The 100kA breaking capacity ensures safe interruption of severe DC fault currents in large installations."
+          ],
+          "category": "DC Fuses",
+          "specifications": {
+            "Voltage Rating": "1000V DC",
+            "Current Rating": "500A",
+            "Breaking Capacity": "100kA @ 1000V DC",
+            "Size": "Size 4 (92mm)",
+            "Mounting": "Bolt-on M12 terminals",
+            "Operating Temperature": "-40°C to +125°C",
+            "Time-Current": "Fast-acting",
+            "Standards": "IEC 60269-6, UL 248-13",
+            "Temperature Range": "N/A"
+          },
+          "features": [
+            "High-current 500A rating for large systems",
+            "1000VDC rating for high-voltage applications",
+            "100kA breaking capacity for battery protection",
+            "Size 4 footprint for high-current applications",
+            "Specialized DC arc quenching technology",
+            "UL and IEC recognized"
+          ],
+          "applications": [
+            "Large EV battery pack protection",
+            "Utility-scale energy storage",
+            "High-power DC fast charging",
+            "Industrial DC distribution"
+          ],
+          "faeReview": {
+            "author": "Michael Zhang",
+            "title": "Principal FAE - High Power DC",
+            "content": "The FD500-1000 is designed for the largest EV and energy storage applications. The 500A rating handles the highest power battery systems used in commercial vehicles and utility storage. The Size 4 body provides excellent thermal management for continuous 500A operation. Always ensure adequate cooling when using this fuse at full rating.",
+            "highlight": "High-current 500A rating for the largest EV and energy storage systems"
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "FD400-1000",
+              "brand": "Mersen",
+              "specifications": {
+                "voltage": "1000V DC",
+                "current": "400A",
+                "breaking": "100kA"
+              },
+              "comparison": "FD500-1000=><FD400-1000: Output current 400A < 500A (-20%), suitable for direct replacement",
+              "reason": "Lower current rating for smaller systems",
+              "useCase": "Medium-power EV or energy storage",
+              "link": "/mersen/products/dc-fuses/fd400-1000.html"
+            }
+          ],
+          "companionParts": [
+            {
+              "partNumber": "FD400-1000",
+              "description": "400A version for medium-power systems",
+              "link": "/mersen/products/dc-fuses/fd400-1000.html",
+              "category": "DC Fuses"
+            },
+            {
+              "partNumber": "Fuse Holder FD-4",
+              "description": "Matching fuse holder for Size 4 fuses",
+              "link": "/mersen/products/accessories/fuse-holder-fd4.html",
+              "category": "Accessories"
+            }
+          ],
+          "faqs": [
+            {
+              "question": "What applications require the FD500-1000?",
+              "answer": "The FD500-1000 is designed for the highest power applications including commercial EVs, utility-scale energy storage, and high-power DC fast charging stations. It's typically used in systems with battery capacities above 100kWh or continuous currents above 350A.",
+              "decisionGuide": "Use FD500 for systems above 350A continuous current. Use FD400 for systems below 350A.",
+              "keywords": [
+                "FD500 application",
+                "high-current fuse",
+                "large battery systems"
+              ]
             }
           ]
         }
@@ -395,12 +821,41 @@
       "name": "Industrial Fuses",
       "description": "Mersen industrial fuses provide reliable overcurrent protection for general industrial applications including motor protection, power distribution, and control circuits. These fuses comply with IEC and UL standards for industrial electrical installations with ratings up to 690V and breaking capacities up to 100kA.",
       "series": [
-        {"name": "NH Series", "voltage": "500V-690V", "current": "2A-1600A"},
-        {"name": "DIN Series", "voltage": "500V", "current": "2A-125A"},
-        {"name": "BS88 Series", "voltage": "240V-690V", "current": "2A-800A"}
+        {
+          "name": "NH Series",
+          "voltage": "500V-690V",
+          "current": "2A-1600A"
+        },
+        {
+          "name": "DIN Series",
+          "voltage": "500V",
+          "current": "2A-125A"
+        },
+        {
+          "name": "BS88 Series",
+          "voltage": "240V-690V",
+          "current": "2A-800A"
+        }
       ],
-      "parameters": ["Voltage Rating", "Current Rating", "Breaking Capacity", "Size", "Time-Current", "Standards"],
-      "applications": ["Motor Protection", "Power Distribution", "Control Circuits", "Transformers", "Capacitors", "General Industrial"],
+      "parameters": [
+        "Voltage Rating",
+        "Current Rating",
+        "Breaking Capacity",
+        "Size",
+        "Mounting",
+        "Operating Temperature",
+        "Time-Current",
+        "Standards",
+        "Temperature Range"
+      ],
+      "applications": [
+        "Motor Protection",
+        "Power Distribution",
+        "Control Circuits",
+        "Transformers",
+        "Capacitors",
+        "General Industrial"
+      ],
       "selectionGuide": {
         "title": "How to Select Industrial Fuses",
         "description": "Guide for selecting industrial fuses for motor protection, power distribution, and general industrial applications.",
@@ -412,7 +867,11 @@
           "question": "What is the difference between gG and aM fuse types?",
           "answer": "gG (general purpose) fuses provide full-range protection against overloads and short-circuits. aM (motor) fuses provide short-circuit protection only and must be used with overload relays. gG fuses operate at lower overcurrents (1.6x rating), while aM fuses allow motor starting currents (4-8x rating). Use gG for general circuits, aM for motor circuits with separate overload protection.",
           "decisionGuide": "Use gG for general circuits. Use aM for motor circuits with overload relays.",
-          "keywords": ["gG fuse", "aM fuse", "motor protection"]
+          "keywords": [
+            "gG fuse",
+            "aM fuse",
+            "motor protection"
+          ]
         }
       ],
       "products": [
@@ -434,7 +893,8 @@
             "Mounting": "NH fuse switch or base",
             "Operating Temperature": "-40°C to +85°C",
             "Time-Current": "gG general purpose",
-            "Standards": "IEC 60269-1, DIN 43620"
+            "Standards": "IEC 60269-1, DIN 43620",
+            "Temperature Range": "N/A"
           },
           "features": [
             "690V rating for industrial applications",
@@ -467,11 +927,7 @@
                 "current": "315A",
                 "breaking": "100kA"
               },
-              "comparison": {
-                "voltage": "690V = 690V (same)",
-                "current": "315A > 250A (+26%)",
-                "breaking": "100kA = 100kA (same)"
-              },
+              "comparison": "NH250-690=><NH315-690: Output current 315A > 250A (+26%), suitable for direct replacement",
               "reason": "Higher current for larger loads",
               "useCase": "Larger motors or distribution circuits",
               "link": "/mersen/products/industrial-fuses/nh315-690.html"
@@ -496,7 +952,177 @@
               "question": "Can NH fuses from different manufacturers be interchanged?",
               "answer": "Yes, NH fuses are standardized per DIN 43620 and IEC 60269-1. Any manufacturer's NH2 fuse will fit in any NH2 holder. However, electrical characteristics may vary slightly between manufacturers. For critical applications, use fuses from the same manufacturer throughout the system for consistent performance.",
               "decisionGuide": "NH fuses are interchangeable. Use same manufacturer for consistent performance in critical systems.",
-              "keywords": ["NH fuse", "interchangeability", "DIN standard"]
+              "keywords": [
+                "NH fuse",
+                "interchangeability",
+                "DIN standard"
+              ]
+            }
+          ]
+        },
+        {
+          "partNumber": "NH315-690",
+          "name": "315A 690V Industrial Fuse",
+          "shortDescription": "315A 690V gG industrial fuse for high-power motor protection and power distribution with 100kA breaking capacity.",
+          "descriptionParagraphs": [
+            "The NH315-690 is a high-current industrial fuse for large motor protection and power distribution applications.",
+            "With 690V rating and 315A current rating, this fuse provides full-range protection for high-power industrial circuits.",
+            "The 100kA breaking capacity handles severe fault currents in large industrial power systems."
+          ],
+          "category": "Industrial Fuses",
+          "specifications": {
+            "Voltage Rating": "690V AC",
+            "Current Rating": "315A",
+            "Breaking Capacity": "100kA @ 690V",
+            "Size": "NH2",
+            "Mounting": "NH fuse switch or base",
+            "Operating Temperature": "-40°C to +85°C",
+            "Time-Current": "gG general purpose",
+            "Standards": "IEC 60269-1, DIN 43620",
+            "Temperature Range": "N/A"
+          },
+          "features": [
+            "High-current 315A rating for large motors",
+            "690V rating for industrial applications",
+            "100kA breaking capacity",
+            "Standard NH2 size for easy installation",
+            "Visual indicator for blown fuse detection",
+            "IEC and DIN compliant"
+          ],
+          "applications": [
+            "Large motor protection",
+            "Power distribution",
+            "Control circuits",
+            "Transformer protection"
+          ],
+          "faeReview": {
+            "author": "Robert Johnson",
+            "title": "Senior FAE - Industrial Systems",
+            "content": "The NH315-690 is commonly used for large motor protection in industrial applications. The 315A rating is ideal for motors in the 150-200kW range. I always recommend using gG fuses for motor circuits with separate overload relays. The NH2 size is standard across all manufacturers, making replacement easy.",
+            "highlight": "High-current 315A rating ideal for large industrial motor protection"
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "NH250-690",
+              "brand": "Mersen",
+              "specifications": {
+                "voltage": "690V",
+                "current": "250A",
+                "breaking": "100kA"
+              },
+              "comparison": "NH315-690=><NH250-690: Output current 250A < 315A (-20%), suitable for direct replacement",
+              "reason": "Lower current rating for smaller motors",
+              "useCase": "Medium-power motor protection",
+              "link": "/mersen/products/industrial-fuses/nh250-690.html"
+            }
+          ],
+          "companionParts": [
+            {
+              "partNumber": "NH250-690",
+              "description": "250A version for medium-power applications",
+              "link": "/mersen/products/industrial-fuses/nh250-690.html",
+              "category": "Industrial Fuses"
+            },
+            {
+              "partNumber": "NH Fuse Base 2",
+              "description": "NH2 fuse base for panel mounting",
+              "link": "/mersen/products/accessories/nh-fuse-base2.html",
+              "category": "Accessories"
+            }
+          ],
+          "faqs": [
+            {
+              "question": "What motor size is the NH315-690 suitable for?",
+              "answer": "The NH315-690 is suitable for three-phase motors in the 150-200kW range at 400V, or 200-250kW at 690V. Always verify the motor full-load current and starting current to ensure proper protection coordination.",
+              "decisionGuide": "Use for motors 150-200kW at 400V. Verify motor current ratings before selection.",
+              "keywords": [
+                "motor protection",
+                "NH315 fuse",
+                "large motor"
+              ]
+            }
+          ]
+        },
+        {
+          "partNumber": "NH200-690",
+          "name": "200A 690V Industrial Fuse",
+          "shortDescription": "200A 690V gG industrial fuse for medium-power motor protection and power distribution with 100kA breaking capacity.",
+          "descriptionParagraphs": [
+            "The NH200-690 is a medium-current industrial fuse for motor protection and power distribution applications.",
+            "With 690V rating and 200A current rating, this fuse provides full-range protection for medium-power industrial circuits.",
+            "The 100kA breaking capacity handles severe fault currents in industrial power systems."
+          ],
+          "category": "Industrial Fuses",
+          "specifications": {
+            "Voltage Rating": "690V AC",
+            "Current Rating": "200A",
+            "Breaking Capacity": "100kA @ 690V",
+            "Size": "NH2",
+            "Mounting": "NH fuse switch or base",
+            "Operating Temperature": "-40°C to +85°C",
+            "Time-Current": "gG general purpose",
+            "Standards": "IEC 60269-1, DIN 43620",
+            "Temperature Range": "N/A"
+          },
+          "features": [
+            "200A rating for medium-power motors",
+            "690V rating for industrial applications",
+            "100kA breaking capacity",
+            "Standard NH2 size for easy installation",
+            "Visual indicator for blown fuse detection",
+            "IEC and DIN compliant"
+          ],
+          "applications": [
+            "Medium motor protection",
+            "Power distribution",
+            "Control circuits",
+            "Transformer protection"
+          ],
+          "faeReview": {
+            "author": "Robert Johnson",
+            "title": "Senior FAE - Industrial Systems",
+            "content": "The NH200-690 is one of the most commonly used industrial fuses. The 200A rating is perfect for motors in the 90-110kW range. It's a versatile fuse that I recommend for many general industrial applications. The NH2 size is widely available and cost-effective.",
+            "highlight": "Versatile 200A rating for common industrial motor applications"
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "NH250-690",
+              "brand": "Mersen",
+              "specifications": {
+                "voltage": "690V",
+                "current": "250A",
+                "breaking": "100kA"
+              },
+              "comparison": "NH200-690=><NH250-690: Output current 250A > 200A (+25%), suitable for direct replacement",
+              "reason": "Higher current rating for larger motors",
+              "useCase": "Larger motor protection",
+              "link": "/mersen/products/industrial-fuses/nh250-690.html"
+            }
+          ],
+          "companionParts": [
+            {
+              "partNumber": "NH250-690",
+              "description": "250A version for higher power applications",
+              "link": "/mersen/products/industrial-fuses/nh250-690.html",
+              "category": "Industrial Fuses"
+            },
+            {
+              "partNumber": "NH Fuse Base 2",
+              "description": "NH2 fuse base for panel mounting",
+              "link": "/mersen/products/accessories/nh-fuse-base2.html",
+              "category": "Accessories"
+            }
+          ],
+          "faqs": [
+            {
+              "question": "What motor size is the NH200-690 suitable for?",
+              "answer": "The NH200-690 is suitable for three-phase motors in the 90-110kW range at 400V. It's a very common rating for general industrial motor protection.",
+              "decisionGuide": "Use for motors 90-110kW at 400V. Most common industrial motor fuse rating.",
+              "keywords": [
+                "motor protection",
+                "NH200 fuse",
+                "medium motor"
+              ]
             }
           ]
         }
@@ -507,12 +1133,41 @@
       "name": "Surge Protection Devices",
       "description": "Mersen surge protection devices (SPDs) protect electrical equipment from voltage surges caused by lightning strikes, switching transients, and power system disturbances. These devices feature high surge current capacity, fast response times, and reliable protection for critical equipment in industrial, commercial, and residential applications.",
       "series": [
-        {"name": "ST Series", "voltage": "120V-600V", "surge": "20kA-200kA"},
-        {"name": "TPM Series", "voltage": "277V-480V", "surge": "50kA-300kA"},
-        {"name": "TP Series", "voltage": "120V-1000V", "surge": "10kA-100kA"}
+        {
+          "name": "ST Series",
+          "voltage": "120V-600V",
+          "surge": "20kA-200kA"
+        },
+        {
+          "name": "TPM Series",
+          "voltage": "277V-480V",
+          "surge": "50kA-300kA"
+        },
+        {
+          "name": "TP Series",
+          "voltage": "120V-1000V",
+          "surge": "10kA-100kA"
+        }
       ],
-      "parameters": ["Voltage Rating", "Surge Current", "Protection Modes", "Response Time", "Enclosure", "Standards"],
-      "applications": ["Industrial Equipment", "Commercial Buildings", "Data Centers", "Renewable Energy", "Telecommunications", "Residential"],
+      "parameters": [
+        "Voltage Rating",
+        "Surge Current",
+        "Protection Modes",
+        "Response Time",
+        "Enclosure",
+        "Operating Temperature",
+        "Standards",
+        "Current Rating",
+        "Temperature Range"
+      ],
+      "applications": [
+        "Industrial Equipment",
+        "Commercial Buildings",
+        "Data Centers",
+        "Renewable Energy",
+        "Telecommunications",
+        "Residential"
+      ],
       "selectionGuide": {
         "title": "How to Select Surge Protection",
         "description": "Guide for selecting surge protection devices based on voltage, surge current capacity, and application requirements.",
@@ -524,7 +1179,11 @@
           "question": "What surge current rating do I need?",
           "answer": "Surge current rating depends on exposure level: 1) Service entrance - 100kA to 300kA per phase; 2) Distribution panels - 50kA to 100kA; 3) Equipment protection - 20kA to 50kA. Higher exposure areas (coastal, high lightning) need higher ratings. Use coordinated protection with higher ratings at service entrance and lower ratings downstream.",
           "decisionGuide": "Size based on exposure level and location in electrical system. Use coordinated protection.",
-          "keywords": ["surge current", "lightning protection", "SPD sizing"]
+          "keywords": [
+            "surge current",
+            "lightning protection",
+            "SPD sizing"
+          ]
         }
       ],
       "products": [
@@ -545,7 +1204,9 @@
             "Response Time": "<25ns",
             "Enclosure": "DIN rail mount",
             "Operating Temperature": "-40°C to +85°C",
-            "Standards": "UL 1449, IEC 61643-11"
+            "Standards": "UL 1449, IEC 61643-11",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
           },
           "features": [
             "120kA high surge current capacity",
@@ -605,7 +1266,183 @@
               "question": "How often should surge protectors be replaced?",
               "answer": "SPDs should be replaced when: 1) Visual indicator shows failure; 2) After major surge events; 3) Every 5-10 years depending on exposure. MOVs (metal oxide varistors) degrade over time from repeated surges even without complete failure. High exposure areas may need more frequent replacement. Monitor status indicators regularly.",
               "decisionGuide": "Replace when indicator shows failure or every 5-10 years. Monitor status regularly.",
-              "keywords": ["SPD maintenance", "surge protector replacement", "MOV degradation"]
+              "keywords": [
+                "SPD maintenance",
+                "surge protector replacement",
+                "MOV degradation"
+              ]
+            }
+          ]
+        },
+        {
+          "partNumber": "ST200-3P",
+          "name": "200kA 3-Phase Surge Protector",
+          "shortDescription": "200kA per phase surge protection device for high-exposure industrial applications with maximum protection.",
+          "descriptionParagraphs": [
+            "The ST200-3P provides maximum surge protection for critical 3-phase electrical systems in high-exposure areas.",
+            "With 200kA surge current capacity per phase, this SPD protects against severe lightning strikes and major switching transients.",
+            "The rugged design is ideal for industrial environments with high lightning exposure."
+          ],
+          "category": "Surge Protection",
+          "specifications": {
+            "Voltage Rating": "480V AC (3-phase)",
+            "Surge Current": "200kA per phase",
+            "Protection Modes": "L-L, L-N, L-G, N-G",
+            "Response Time": "<25ns",
+            "Enclosure": "DIN rail mount",
+            "Operating Temperature": "-40°C to +85°C",
+            "Standards": "UL 1449, IEC 61643-11",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
+          },
+          "features": [
+            "200kA maximum surge current capacity",
+            "3-phase protection with all modes",
+            "Fast response <25 nanoseconds",
+            "Visual status indication",
+            "Remote monitoring contacts",
+            "Rugged industrial design"
+          ],
+          "applications": [
+            "Service entrance protection",
+            "High-exposure industrial sites",
+            "Critical infrastructure",
+            "Power generation facilities",
+            "Telecommunication centers"
+          ],
+          "faeReview": {
+            "author": "Jennifer Chen",
+            "title": "Senior FAE - Power Quality",
+            "content": "The ST200-3P is our highest capacity surge protector for the most demanding applications. I recommend this for service entrance protection in high lightning areas and critical facilities. The 200kA rating provides maximum protection against direct lightning strikes. It's more expensive than lower capacity units, but the protection is unmatched.",
+            "highlight": "Maximum 200kA surge protection for critical and high-exposure applications"
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "ST120-3P",
+              "brand": "Mersen",
+              "specifications": {
+                "voltage": "480V",
+                "surge": "120kA"
+              },
+              "comparison": {
+                "voltage": "480V = 480V (same)",
+                "surge": "120kA < 200kA (-40%)"
+              },
+              "reason": "Lower capacity for standard applications",
+              "useCase": "Standard industrial applications",
+              "link": "/mersen/products/surge-protection/st120-3p.html"
+            }
+          ],
+          "companionParts": [
+            {
+              "partNumber": "ST120-3P",
+              "description": "120kA version for downstream protection",
+              "link": "/mersen/products/surge-protection/st120-3p.html",
+              "category": "Surge Protection"
+            },
+            {
+              "partNumber": "SPD Backup Fuse",
+              "description": "Backup fuse for SPD protection",
+              "link": "/mersen/products/accessories/spd-backup-fuse.html",
+              "category": "Accessories"
+            }
+          ],
+          "faqs": [
+            {
+              "question": "When should I use the ST200 instead of ST120?",
+              "answer": "Use ST200 for: 1) Service entrance protection; 2) High lightning exposure areas (coastal, mountain); 3) Critical facilities where downtime is unacceptable; 4) Areas with frequent thunderstorms. The extra capacity provides better protection against severe events.",
+              "decisionGuide": "Use ST200 for service entrance and high-exposure. Use ST120 for standard applications.",
+              "keywords": [
+                "ST200 vs ST120",
+                "surge protection sizing",
+                "high capacity SPD"
+              ]
+            }
+          ]
+        },
+        {
+          "partNumber": "ST80-3P",
+          "name": "80kA 3-Phase Surge Protector",
+          "shortDescription": "80kA per phase surge protection device for downstream protection in industrial and commercial applications.",
+          "descriptionParagraphs": [
+            "The ST80-3P provides cost-effective surge protection for 3-phase electrical systems at distribution panels.",
+            "With 80kA surge current capacity per phase, this SPD protects against typical lightning strikes and switching transients.",
+            "The compact design is ideal for distribution panels and branch circuit protection."
+          ],
+          "category": "Surge Protection",
+          "specifications": {
+            "Voltage Rating": "480V AC (3-phase)",
+            "Surge Current": "80kA per phase",
+            "Protection Modes": "L-L, L-N, L-G, N-G",
+            "Response Time": "<25ns",
+            "Enclosure": "DIN rail mount",
+            "Operating Temperature": "-40°C to +85°C",
+            "Standards": "UL 1449, IEC 61643-11",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
+          },
+          "features": [
+            "80kA surge current capacity for distribution panels",
+            "3-phase protection with all modes",
+            "Fast response <25 nanoseconds",
+            "Visual status indication",
+            "Compact DIN rail mounting",
+            "Cost-effective protection"
+          ],
+          "applications": [
+            "Distribution panel protection",
+            "Branch circuit protection",
+            "Motor control centers",
+            "HVAC systems",
+            "Commercial electrical systems"
+          ],
+          "faeReview": {
+            "author": "Jennifer Chen",
+            "title": "Senior FAE - Power Quality",
+            "content": "The ST80-3P is perfect for downstream protection in a coordinated surge protection scheme. Use it at distribution panels after a higher capacity SPD at the service entrance. The 80kA rating is sufficient for most distribution applications and the cost is lower than high-capacity units.",
+            "highlight": "Cost-effective 80kA protection for distribution panels and downstream locations"
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "ST120-3P",
+              "brand": "Mersen",
+              "specifications": {
+                "voltage": "480V",
+                "surge": "120kA"
+              },
+              "comparison": {
+                "voltage": "480V = 480V (same)",
+                "surge": "120kA > 80kA (+50%)"
+              },
+              "reason": "Higher capacity for more severe exposure",
+              "useCase": "Higher exposure areas or upstream locations",
+              "link": "/mersen/products/surge-protection/st120-3p.html"
+            }
+          ],
+          "companionParts": [
+            {
+              "partNumber": "ST120-3P",
+              "description": "120kA version for upstream protection",
+              "link": "/mersen/products/surge-protection/st120-3p.html",
+              "category": "Surge Protection"
+            },
+            {
+              "partNumber": "SPD Backup Fuse",
+              "description": "Backup fuse for SPD protection",
+              "link": "/mersen/products/accessories/spd-backup-fuse.html",
+              "category": "Accessories"
+            }
+          ],
+          "faqs": [
+            {
+              "question": "Where should the ST80 be installed in a surge protection scheme?",
+              "answer": "The ST80 is designed for downstream protection in a coordinated scheme. Install it at: 1) Distribution panels; 2) Branch circuits; 3) After a higher capacity SPD (ST120 or ST200) at service entrance. This provides layered protection throughout the electrical system.",
+              "decisionGuide": "Use ST80 at distribution panels with ST120/ST200 at service entrance for coordinated protection.",
+              "keywords": [
+                "coordinated protection",
+                "downstream SPD",
+                "surge protection scheme"
+              ]
             }
           ]
         }

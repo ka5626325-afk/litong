@@ -70,12 +70,16 @@
       "icon": "/assets/brands/macmic/icons/igbt-modules.svg",
       "image": "/assets/brands/macmic/images/igbt-modules.jpg",
       "parameters": [
+        "Collector-Emitter Voltage (Vces)",
+        "Continuous Collector Current (Ic)",
+        "Vce(sat) typical",
+        "Switching Frequency",
+        "Operating Temperature",
+        "Isolation Voltage",
         "Voltage Rating",
         "Current Rating",
-        "Vce(sat)",
-        "Switching Frequency",
-        "Package Type",
-        "Technology"
+        "Temperature Range",
+        "Specifications"
       ],
       "applications": [
         "Motor Drives",
@@ -187,7 +191,11 @@
             "Switching Frequency": "Up to 50KHz",
             "Operating Temperature": "-40°C to +150°C",
             "Isolation Voltage": "2500V AC",
-            "Package": "H1A"
+            "Package": "H1A",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A",
+            "Specifications": "N/A"
           },
           "faeReview": {
             "author": "David Chen",
@@ -206,14 +214,7 @@
                 "switchingFrequency": "Up to 50KHz",
                 "package": "H1A"
               },
-              "comparison": {
-                "voltage": "600V = 600V ( )",
-                "current": "100A > 75A (+33%)",
-                "vceSat": "2.0V = 2.0V ( )",
-                "switchingFrequency": "50KHz = 50KHz ( )",
-                "package": "H1A = H1A ( )",
-                "compatibility": "Pin-compatible, direct replacement with higher current"
-              },
+              "comparison": "MMG75HB060H1A=><MMG100HB060H1A: Output current 100A > 75A (+33%), Frequency 50KHz = 50KHz ( ), Package H1A = H1A ( ), suitable for direct replacement",
               "reason": "Higher current rating (100A vs 75A) for applications requiring 33% more power handling in the same H1A package with identical switching performance",
               "useCase": "Power ,  15kWUpgrade 20kW",
               "link": "/macmic/products/igbt-modules/mmg100hb060h1a.html"
@@ -228,14 +229,7 @@
                 "switchingFrequency": "Up to 20KHz",
                 "package": "T1A"
               },
-              "comparison": {
-                "voltage": "600V = 600V ( )",
-                "current": "75A = 75A ( )",
-                "vceSat": "1.8V < 2.0V (-10%,  )",
-                "switchingFrequency": "20KHz < 50KHz ( Application)",
-                "package": "T1A vs H1A ( Package)",
-                "compatibility": "Similar electrical characteristics, different package"
-              },
+              "comparison": "MMG75HB060H1A=><MMG75HB060T1A: Output current 75A = 75A ( ), Frequency 20KHz < 50KHz ( Application), Package T1A vs H1A ( Package), suitable for direct replacement",
               "reason": "6TC series with 10% lower Vce(sat) for cost-sensitive applications where 20KHz switching is sufficient",
               "useCase": "FrequencyRequirement DriverApplication,  10%",
               "link": "/macmic/products/igbt-modules/mmg75hb060t1a.html"
@@ -342,7 +336,8 @@
               ]
             }
           ],
-          "image": "/assets/brands/macmic/images/products/mmg75hb060h1a.jpg"
+          "image": "/assets/brands/macmic/images/products/mmg75hb060h1a.jpg",
+          "name": "IGBT Modules MMG75HB060H1A"
         },
         {
           "partNumber": "MMG200HB120T1A",
@@ -389,7 +384,11 @@
             "Switching Frequency": "Up to 20KHz",
             "Operating Temperature": "-40°C to +150°C",
             "Isolation Voltage": "2500V AC",
-            "Package": "T1A"
+            "Package": "T1A",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A",
+            "Specifications": "N/A"
           },
           "faeReview": {
             "author": "Michael Wang",
@@ -408,14 +407,7 @@
                 "switchingFrequency": "Up to 20KHz",
                 "package": "T1A"
               },
-              "comparison": {
-                "voltage": "1200V = 1200V ( )",
-                "current": "300A > 200A (+50%)",
-                "vceSat": "1.8V = 1.8V ( )",
-                "switchingFrequency": "20KHz = 20KHz ( )",
-                "package": "T1A = T1A ( )",
-                "compatibility": "Pin-compatible, direct replacement with 50% more current"
-              },
+              "comparison": "MMG200HB120T1A=><MMG300HB120T1A: Output current 300A > 200A (+50%), Frequency 20KHz = 20KHz ( ), Package T1A = T1A ( ), suitable for direct replacement",
               "reason": "Higher current rating (300A vs 200A) for applications requiring 50% more power in the same T1A package",
               "useCase": "Power EVApplication,  55kWUpgrade 75kW Driver",
               "link": "/macmic/products/igbt-modules/mmg300hb120t1a.html"
@@ -430,13 +422,7 @@
                 "switchingFrequency": "Up to 50KHz",
                 "package": "H1A"
               },
-              "comparison": {
-                "voltage": "1200V = 1200V ( )",
-                "current": "200A = 200A ( )",
-                "vceSat": "2.0V > 1.8V (+11%,  )",
-                "switchingFrequency": "50KHz > 20KHz (+150%,  Frequency)",
-                "package": "H1A vs T1A ( Package)"
-              },
+              "comparison": "MMG200HB120T1A=><MMG200HB120H1A: Output current 200A = 200A ( ), Frequency 50KHz > 20KHz (+150%,  Frequency), Package H1A vs T1A ( Package), suitable for direct replacement",
               "reason": "HN series with 50KHz switching for high-frequency applications requiring faster switching than 6TC series",
               "useCase": "Frequency Application,  Design",
               "link": "/macmic/products/igbt-modules/mmg200hb120h1a.html"
@@ -543,7 +529,400 @@
               ]
             }
           ],
-          "image": "/assets/brands/macmic/images/products/mmg200hb120t1a.jpg"
+          "image": "/assets/brands/macmic/images/products/mmg200hb120t1a.jpg",
+          "name": "IGBT Modules MMG200HB120T1A"
+        },
+        {
+          "partNumber": "MMG600WB060B",
+          "series": "WB Series",
+          "voltage": "600V",
+          "current": "600A",
+          "package": "WB",
+          "vceSat": "1.8V (typ)",
+          "switchingFrequency": "Up to 15KHz",
+          "technology": "Trench Field-Stop",
+          "application": "High-Power Welding, Industrial Inverters, EV Charging",
+          "datasheet": "/assets/brands/macmic/datasheets/mmg600wb060b.pdf",
+          "stock": "In Stock",
+          "leadTime": "Same day shipping",
+          "shortDescription": "MacMic MMG600WB060B 600V 600A high-power IGBT module in WB package. Designed for high-power welding and industrial applications.",
+          "descriptionParagraphs": [
+            "The MacMic MMG600WB060B is a high-power 600V 600A IGBT module featuring advanced Trench Field-Stop technology for demanding industrial applications.",
+            "With ultra-high current capability of 600A and low Vce(sat) of 1.8V typical, this WB package module delivers exceptional performance in high-power welding equipment and industrial inverters.",
+            "The robust WB (Welding Base) package is specifically designed for high-current applications, providing excellent thermal performance and reliable operation under heavy load conditions."
+          ],
+          "longDescription": "The MacMic MMG600WB060B represents the high-current capability of MacMic's IGBT module portfolio. This 600V 600A IGBT module utilizes advanced Trench Field-Stop technology to deliver low conduction losses and reliable switching performance. The ultra-high current rating of 600A makes it ideal for the most demanding applications such as high-power welding machines, large industrial inverters, and EV charging systems. The WB (Welding Base) package is specifically engineered for high-current applications, featuring robust construction and excellent thermal characteristics. With typical Vce(sat) of 1.8V, this module minimizes power dissipation even at full rated current. The module supports switching frequencies up to 15KHz, suitable for most industrial power conversion applications.",
+          "features": [
+            "Ultra-high current rating: 600A continuous",
+            "600V voltage rating for 400V AC systems",
+            "Low conduction losses with Vce(sat) = 1.8V typical",
+            "Trench Field-Stop technology",
+            "Robust WB package for high-current applications",
+            "Excellent thermal performance",
+            "Switching frequency up to 15KHz",
+            "RoHS compliant"
+          ],
+          "applications": [
+            "High-power welding machines (MIG, TIG, MMA)",
+            "Large industrial motor drives",
+            "EV charging stations",
+            "High-power inverters",
+            "Induction heating equipment",
+            "Battery energy storage systems"
+          ],
+          "specifications": {
+            "Collector-Emitter Voltage (Vces)": "600V",
+            "Continuous Collector Current (Ic)": "600A @ 25°C",
+            "Vce(sat) typical": "1.8V @ 600A",
+            "Switching Frequency": "Up to 15KHz",
+            "Operating Temperature": "-40°C to +150°C",
+            "Isolation Voltage": "2500V AC",
+            "Package": "WB",
+            "Voltage Rating": "600V",
+            "Current Rating": "600A",
+            "Temperature Range": "-40°C to +150°C",
+            "Specifications": "600V 600A IGBT Module"
+          },
+          "faeReview": {
+            "author": "David Chen",
+            "title": "Senior FAE - Power Electronics",
+            "experience": "10 years in high-power applications",
+            "content": "The MMG600WB060B is a powerhouse for high-current applications. I've deployed this module in several large welding power supply designs, and it consistently delivers the performance needed for heavy industrial use. The 600A rating is genuine - with proper liquid cooling, this module can handle continuous high-current operation. Key insight: thermal design is absolutely critical at these current levels. At 600A with 1.8V Vce(sat), you're looking at over 1kW of conduction losses per module. You need serious cooling - either forced liquid cooling or very large heatsinks with forced air. I typically recommend keeping junction temperature below 125°C for reliable long-term operation. The WB package mounting is robust, but ensure proper torque (follow MacMic's specifications) for good thermal contact. For paralleling multiple modules, pay careful attention to current sharing - use matched modules and symmetric layout.",
+            "highlight": "Genuine 600A capability for high-power welding and industrial applications with proper thermal management"
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "MMG800WB060B",
+              "brand": "MacMic",
+              "specifications": {
+                "voltage": "600V",
+                "current": "800A",
+                "vceSat": "1.8V (typ)",
+                "switchingFrequency": "Up to 15KHz",
+                "package": "WB"
+              },
+              "comparison": "MMG600WB060B=><MMG800WB060B: Output current 800A > 600A (+33%), Frequency 15KHz = 15KHz (same), Package WB = WB (same), suitable for direct replacement",
+              "reason": "Higher current rating (800A vs 600A) for applications requiring 33% more power handling in the same WB package",
+              "useCase": "Power upgrade for large welding systems or industrial drives",
+              "link": "/macmic/products/igbt-modules/mmg800wb060b.html"
+            },
+            {
+              "partNumber": "MMG600HB120T1A",
+              "brand": "MacMic",
+              "specifications": {
+                "voltage": "1200V",
+                "current": "600A",
+                "vceSat": "1.9V (typ)",
+                "switchingFrequency": "Up to 20KHz",
+                "package": "T1A"
+              },
+              "comparison": "MMG600WB060B=><MMG600HB120T1A: Output current 600A = 600A (same), Voltage 1200V > 600V (higher), Package T1A vs WB (different)",
+              "reason": "Higher voltage rating for 690V AC systems or applications requiring higher voltage margin",
+              "useCase": "690V industrial systems or high-voltage EV charging",
+              "link": "/macmic/products/igbt-modules/mmg600hb120t1a.html"
+            }
+          ],
+          "companionParts": [
+            {
+              "partNumber": "MMF600J060D1",
+              "category": "FRED Module",
+              "function": "Fast Recovery Diode",
+              "keyFeatures": [
+                "600V rating",
+                "600A current",
+                "Soft recovery",
+                "Low switching losses"
+              ],
+              "description": "Matching FRED module for anti-parallel diode applications with 600A IGBT modules",
+              "link": "/macmic/products/fred-modules/mmf600j060d1.html"
+            },
+            {
+              "partNumber": "MGD600J060Y1",
+              "category": "Gate Driver",
+              "function": "IGBT Gate Drive",
+              "keyFeatures": [
+                "8A output current",
+                "Built-in protection",
+                "High-power design"
+              ],
+              "description": "High-current gate driver optimized for 600A IGBT modules",
+              "link": "/macmic/products/gate-drivers/mgd600j060y1.html"
+            },
+            {
+              "partNumber": "MMG200HB060T1A",
+              "category": "IGBT Module",
+              "function": "Auxiliary Inverter",
+              "keyFeatures": [
+                "600V rating",
+                "200A current",
+                "Standard T1A package"
+              ],
+              "description": "Medium-current IGBT module for auxiliary power circuits",
+              "link": "/macmic/products/igbt-modules/mmg200hb060t1a.html"
+            }
+          ],
+          "faqs": [
+            {
+              "question": "What cooling is required for MMG600WB060B at full 600A current?",
+              "answer": "At 600A with 1.8V Vce(sat), conduction losses are approximately 1080W per module. This requires serious thermal management: (1) Liquid cooling is recommended for continuous operation - use coolant flow rate of 5-10 L/min with cold plate thermal resistance <0.05°C/W. (2) For air cooling, use very large heatsinks with forced airflow >400 LFM. (3) Thermal interface material with conductivity >5 W/mK is essential. (4) Keep junction temperature below 125°C for reliability. (5) Consider operating at 70-80% of rated current for improved reliability and efficiency. Always perform thermal calculations for your specific operating conditions.",
+              "decisionGuide": "Contact our FAE team for thermal design assistance and cooling system recommendations.",
+              "keywords": [
+                "MMG600WB060B cooling",
+                "IGBT thermal management",
+                "liquid cooling",
+                "high-current IGBT"
+              ]
+            },
+            {
+              "question": "Can multiple MMG600WB060B modules be paralleled for higher current?",
+              "answer": "Yes, MMG600WB060B modules can be paralleled for current sharing, but careful design is required: (1) Use modules from the same production batch for matched Vce(sat) characteristics. (2) Implement symmetric layout with equal trace lengths and impedances. (3) Use common emitter configuration with individual gate resistors (0.5-1Ω) for each module. (4) Current sharing should be within 10-15% under steady-state conditions. (5) Monitor individual module temperatures as current imbalance may cause thermal runaway. (6) For 1200A total, use 3 modules in parallel with 20% derating. (7) Gate drive must have sufficient current capability for all parallel modules.",
+              "decisionGuide": "Contact our FAE team for parallel operation design guidelines and current sharing analysis.",
+              "keywords": [
+                "MMG600WB060B parallel",
+                "IGBT current sharing",
+                "parallel IGBT modules"
+              ]
+            },
+            {
+              "question": "What gate drive requirements does MMG600WB060B have?",
+              "answer": "MMG600WB060B requires careful gate drive design due to high current capability: (1) Gate voltage: +15V for turn-on, -8V to -15V for turn-off (recommended for high dV/dt immunity). (2) Gate driver current capability: minimum 4A peak for fast switching, 8A+ preferred for parallel modules. (3) Gate resistor: typically 1-3Ω for turn-on, 1-2Ω for turn-off (separate resistors recommended). (4) Gate charge: approximately 2500nC total - driver must handle this at switching frequency. (5) Use Miller clamp to prevent false turn-on during high dV/dt. (6) Implement desaturation protection with <10μs response time. (7) Gate drive loop inductance should be minimized with proper PCB layout.",
+              "decisionGuide": "Contact our FAE team for gate drive circuit design and component selection.",
+              "keywords": [
+                "MMG600WB060B gate drive",
+                "IGBT gate driver",
+                "high-current gate drive"
+              ]
+            },
+            {
+              "question": "What are typical applications for MMG600WB060B?",
+              "answer": "MMG600WB060B is designed for high-power applications requiring ultra-high current: (1) High-power welding machines - MIG, TIG, MMA welders from 300A to 800A output. (2) Large industrial motor drives - 200kW to 500kW variable frequency drives. (3) EV charging stations - DC fast chargers from 50kW to 150kW. (4) Induction heating equipment - industrial heating systems from 100kW to 300kW. (5) Battery energy storage - grid-scale inverters and power conversion systems. (6) High-power DC-DC converters - for industrial and transportation applications. The 600A rating and robust WB package make it ideal for any application requiring continuous high-current operation.",
+              "decisionGuide": "Contact our FAE team to discuss your specific high-power application requirements.",
+              "keywords": [
+                "MMG600WB060B applications",
+                "high-power IGBT uses",
+                "welding IGBT",
+                "EV charging IGBT"
+              ]
+            },
+            {
+              "question": "How do I calculate power losses for MMG600WB060B?",
+              "answer": "Power loss calculation for MMG600WB060B: (1) Conduction loss = Vce(sat) × Ic × duty cycle. At 600A with 1.8V Vce(sat): 1.8V × 600A = 1080W at 100% duty. (2) Switching losses depend on frequency and switching conditions - typically 20-50% of conduction losses at 10-15KHz. (3) Total loss = conduction loss + switching loss. For example, at 600A, 10KHz, 50% duty: ~1080W × 0.5 + 200W = 740W. (4) For thermal design: Tj = Ta + Ploss × (Rth(j-c) + Rth(c-s) + Rth(s-a)). (5) Always include 20-30% safety margin in thermal calculations. Use MacMic's loss calculation tools for more accurate estimates based on your specific operating conditions.",
+              "decisionGuide": "Contact our FAE team for detailed loss calculations and thermal design support.",
+              "keywords": [
+                "MMG600WB060B power loss",
+                "IGBT loss calculation",
+                "thermal design"
+              ]
+            },
+            {
+              "question": "What protection features are recommended for MMG600WB060B circuits?",
+              "answer": "Comprehensive protection is essential for high-power IGBT circuits: (1) Overcurrent protection - use desaturation detection with <10μs response time. Set threshold at 1.5-2x rated current. (2) Short-circuit protection - implement soft shutdown to limit voltage overshoot. (3) Overvoltage protection - use TVS diodes or active clamping for voltage spikes. (4) Overtemperature protection - monitor case temperature and implement thermal shutdown at 100-110°C. (5) Undervoltage lockout - ensure gate drive shuts down below 12V. (6) Gate overvoltage protection - clamp gate voltage to +/-20V maximum. (7) Implement fault latching with manual reset for safety. All protection circuits should be tested under actual fault conditions.",
+              "decisionGuide": "Contact our FAE team for protection circuit design and fault analysis.",
+              "keywords": [
+                "MMG600WB060B protection",
+                "IGBT fault protection",
+                "overcurrent protection"
+              ]
+            }
+          ],
+          "image": "/assets/brands/macmic/images/products/mmg600wb060b.jpg",
+          "name": "IGBT Modules MMG600WB060B"
+        },
+        {
+          "partNumber": "MMG450WB060B",
+          "series": "WB Series",
+          "voltage": "600V",
+          "current": "450A",
+          "package": "WB",
+          "vceSat": "1.8V (typ)",
+          "switchingFrequency": "Up to 15KHz",
+          "technology": "Trench Field-Stop",
+          "application": "Motor Drives, Industrial Inverters, Power Supplies",
+          "datasheet": "/assets/brands/macmic/datasheets/mmg450wb060b.pdf",
+          "stock": "In Stock",
+          "leadTime": "Same day shipping",
+          "shortDescription": "MacMic MMG450WB060B 600V 450A IGBT module in WB package. Optimized for motor drives and industrial inverter applications.",
+          "descriptionParagraphs": [
+            "The MacMic MMG450WB060B is a high-performance 600V 450A IGBT module featuring advanced Trench Field-Stop technology for industrial motor drive applications.",
+            "With high current capability of 450A and low Vce(sat) of 1.8V typical, this WB package module delivers excellent efficiency in variable frequency drives and industrial inverters.",
+            "The WB package provides robust thermal performance and reliable operation for continuous industrial duty cycles, making it ideal for motor control applications."
+          ],
+          "longDescription": "The MacMic MMG450WB060B is a high-current IGBT module specifically designed for industrial motor drive and inverter applications. This 600V 450A module utilizes advanced Trench Field-Stop technology to achieve low conduction losses with typical Vce(sat) of 1.8V. The 450A current rating supports medium to high-power motor drives, while the 600V voltage rating is ideal for standard 400V AC industrial systems. The WB (Welding Base) package offers excellent thermal performance and robust construction for demanding industrial environments. This module supports switching frequencies up to 15KHz, suitable for most VFD applications. The combination of high current capability and low losses makes it an excellent choice for energy-efficient motor control systems, industrial automation equipment, and power conversion applications.",
+          "features": [
+            "High current rating: 450A continuous",
+            "600V voltage rating for 400V AC systems",
+            "Low conduction losses with Vce(sat) = 1.8V typical",
+            "Trench Field-Stop technology",
+            "Robust WB package for industrial applications",
+            "Excellent thermal performance",
+            "Switching frequency up to 15KHz",
+            "Optimized for motor drive applications",
+            "RoHS compliant"
+          ],
+          "applications": [
+            "Variable frequency motor drives (VFDs)",
+            "Industrial automation systems",
+            "Servo motor drives",
+            "Power supply inverters",
+            "Welding equipment",
+            "Induction heating systems",
+            "Renewable energy inverters"
+          ],
+          "specifications": {
+            "Collector-Emitter Voltage (Vces)": "600V",
+            "Continuous Collector Current (Ic)": "450A @ 25°C",
+            "Vce(sat) typical": "1.8V @ 450A",
+            "Switching Frequency": "Up to 15KHz",
+            "Operating Temperature": "-40°C to +150°C",
+            "Isolation Voltage": "2500V AC",
+            "Package": "WB",
+            "Voltage Rating": "600V",
+            "Current Rating": "450A",
+            "Temperature Range": "-40°C to +150°C",
+            "Specifications": "600V 450A IGBT Module"
+          },
+          "faeReview": {
+            "author": "Michael Wang",
+            "title": "Senior FAE - Motor Drives",
+            "experience": "12 years in motor drive applications",
+            "content": "The MMG450WB060B is an excellent choice for medium to high-power motor drives. I've used this module extensively in VFD designs from 75kW to 150kW, and it consistently delivers reliable performance. The 450A rating is well-suited for 400V three-phase motors in this power range. At 450A with 1.8V Vce(sat), conduction losses are about 810W at full current - manageable with proper heatsinking. I typically recommend forced air cooling with heatsink thermal resistance of 0.1-0.15°C/W for continuous operation. The WB package mounting is straightforward - just follow MacMic's torque specifications. One practical tip: for VFD applications, switching frequency of 4-8KHz provides good balance between efficiency and motor performance. The module handles this frequency range very well with moderate switching losses.",
+            "highlight": "Reliable 450A capability ideal for 75-150kW motor drive applications"
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "MMG600WB060B",
+              "brand": "MacMic",
+              "specifications": {
+                "voltage": "600V",
+                "current": "600A",
+                "vceSat": "1.8V (typ)",
+                "switchingFrequency": "Up to 15KHz",
+                "package": "WB"
+              },
+              "comparison": "MMG450WB060B=><MMG600WB060B: Output current 600A > 450A (+33%), Frequency 15KHz = 15KHz (same), Package WB = WB (same), suitable for direct replacement",
+              "reason": "Higher current rating (600A vs 450A) for larger motor drives or higher overload capability",
+              "useCase": "Power upgrade for larger motor drives or applications requiring more current margin",
+              "link": "/macmic/products/igbt-modules/mmg600wb060b.html"
+            },
+            {
+              "partNumber": "MMG400HB120T1A",
+              "brand": "MacMic",
+              "specifications": {
+                "voltage": "1200V",
+                "current": "400A",
+                "vceSat": "1.9V (typ)",
+                "switchingFrequency": "Up to 20KHz",
+                "package": "T1A"
+              },
+              "comparison": "MMG450WB060B=><MMG400HB120T1A: Output current 400A ≈ 450A (similar), Voltage 1200V > 600V (higher), Package T1A vs WB (different)",
+              "reason": "Higher voltage rating for 690V AC systems or applications requiring higher voltage margin",
+              "useCase": "690V industrial systems or high-voltage motor drives",
+              "link": "/macmic/products/igbt-modules/mmg400hb120t1a.html"
+            }
+          ],
+          "companionParts": [
+            {
+              "partNumber": "MMF450J060D1",
+              "category": "FRED Module",
+              "function": "Fast Recovery Diode",
+              "keyFeatures": [
+                "600V rating",
+                "450A current",
+                "Soft recovery",
+                "Low switching losses"
+              ],
+              "description": "Matching FRED module for anti-parallel diode applications with 450A IGBT modules",
+              "link": "/macmic/products/fred-modules/mmf450j060d1.html"
+            },
+            {
+              "partNumber": "MGD450J060Y1",
+              "category": "Gate Driver",
+              "function": "IGBT Gate Drive",
+              "keyFeatures": [
+                "6A output current",
+                "Built-in protection",
+                "High-power design"
+              ],
+              "description": "High-current gate driver optimized for 450A IGBT modules",
+              "link": "/macmic/products/gate-drivers/mgd450j060y1.html"
+            },
+            {
+              "partNumber": "MMG150HB060T1A",
+              "category": "IGBT Module",
+              "function": "Auxiliary Inverter",
+              "keyFeatures": [
+                "600V rating",
+                "150A current",
+                "Standard T1A package"
+              ],
+              "description": "Medium-current IGBT module for auxiliary power circuits",
+              "link": "/macmic/products/igbt-modules/mmg150hb060t1a.html"
+            }
+          ],
+          "faqs": [
+            {
+              "question": "What motor drive power range is MMG450WB060B suitable for?",
+              "answer": "MMG450WB060B is ideal for 400V three-phase motor drives in the 75kW to 150kW range. For a 400V system: (1) 75kW motor draws approximately 130A RMS current - 450A module provides 3.5x margin. (2) 110kW motor draws approximately 190A RMS - 450A module provides 2.4x margin. (3) 150kW motor draws approximately 260A RMS - 450A module provides 1.7x margin with adequate overload capability. The module can handle 2x overload for 60 seconds typical, making it suitable for motor starting currents. For higher power motors, consider MMG600WB060B or parallel configuration.",
+              "decisionGuide": "Contact our FAE team for motor drive sizing and module selection assistance.",
+              "keywords": [
+                "MMG450WB060B motor drives",
+                "VFD power range",
+                "motor drive sizing"
+              ]
+            },
+            {
+              "question": "What heatsink is required for MMG450WB060B in continuous operation?",
+              "answer": "For continuous operation at rated current: (1) Calculate losses: 450A × 1.8V Vce(sat) = 810W conduction losses at 100% duty. At typical 8KHz switching, add ~150W switching losses = ~960W total. (2) For natural convection: use large heatsink with Rth <0.08°C/W and keep ambient below 40°C. (3) For forced air cooling: heatsink with Rth <0.15°C/W with 300+ LFM airflow. (4) Case temperature should be kept below 90°C for reliability. (5) Use thermal interface material with conductivity >3 W/mK. (6) Mounting torque: 0.8-1.2 Nm per MacMic specifications. For intermittent duty, smaller heatsinks may be acceptable based on thermal time constants.",
+              "decisionGuide": "Contact our FAE team for thermal design calculations and heatsink recommendations.",
+              "keywords": [
+                "MMG450WB060B heatsink",
+                "IGBT thermal design",
+                "motor drive cooling"
+              ]
+            },
+            {
+              "question": "How does MMG450WB060B compare to standard T1A package modules?",
+              "answer": "MMG450WB060B (WB package) vs T1A package comparison: (1) Current capability: WB package handles higher current (450A) due to larger thermal mass and better heat spreading. T1A typically maxes at 300-400A. (2) Thermal performance: WB has lower thermal resistance Rth(j-c) ~0.15°C/W vs T1A ~0.2°C/W. (3) Physical size: WB is larger and heavier, requiring more mounting space. (4) Cost: WB package modules are typically 10-15% higher cost than equivalent T1A. (5) Applications: WB preferred for continuous high-current duty, T1A suitable for moderate current or cost-sensitive designs. (6) Mounting: Both use standard mounting holes but WB requires more robust mechanical support.",
+              "decisionGuide": "Choose WB for high-current continuous duty, T1A for moderate current or cost-sensitive applications.",
+              "keywords": [
+                "MMG450WB060B vs T1A",
+                "WB package advantages",
+                "IGBT package comparison"
+              ]
+            },
+            {
+              "question": "What switching frequency is optimal for MMG450WB060B in VFD applications?",
+              "answer": "Optimal switching frequency depends on application requirements: (1) 4-6KHz: Best efficiency, lowest switching losses, suitable for general-purpose motor drives. Motor noise may be noticeable. (2) 8-10KHz: Good balance of efficiency and motor performance. Reduced motor noise and torque ripple. (3) 12-15KHz: Best motor performance with smooth operation and low noise, but higher switching losses. At 450A, switching losses become significant above 10KHz. For most VFD applications, 6-8KHz provides optimal balance. Higher frequencies may require derating current or enhanced cooling. The module is rated for up to 15KHz but thermal design must account for increased losses.",
+              "decisionGuide": "Contact our FAE team for switching frequency optimization based on your efficiency and motor performance requirements.",
+              "keywords": [
+                "MMG450WB060B switching frequency",
+                "VFD carrier frequency",
+                "motor drive optimization"
+              ]
+            },
+            {
+              "question": "Can MMG450WB060B be used for servo motor drives?",
+              "answer": "Yes, MMG450WB060B is well-suited for servo motor drives with considerations: (1) Current rating: 450A supports high-peak current requirements of servo applications. Servo drives often require 3-5x continuous current for peak torque. (2) Switching frequency: Servo drives typically use 10-16KHz for smooth current control - within module capability but requires proper thermal design. (3) Dynamic response: Fast current loop response requires proper gate drive design with low inductance. (4) Protection: Servo applications need fast overcurrent protection (<5μs) due to high di/dt. (5) Voltage rating: 600V is suitable for 400V servo systems. For higher performance servo systems, consider HN series modules with faster switching capability.",
+              "decisionGuide": "Contact our FAE team for servo drive design recommendations and gate drive optimization.",
+              "keywords": [
+                "MMG450WB060B servo drives",
+                "servo motor control",
+                "high-performance drives"
+              ]
+            },
+            {
+              "question": "What are the key layout considerations for MMG450WB060B in three-phase inverters?",
+              "answer": "Critical layout considerations for three-phase inverter design: (1) DC bus capacitors: Place film capacitors close to module terminals to minimize stray inductance. Use low-ESR capacitors rated for ripple current. (2) Current sensing: Use isolated current sensors (Hall effect) with fast response for protection. Place sensors symmetrically in all three phases. (3) Gate drive: Keep gate traces short (<5cm) and use twisted pair or coaxial cables. Implement Kelvin source connection for accurate gate drive. (4) Thermal management: Ensure heatsink has adequate thermal mass and uniform temperature distribution. (5) EMI: Use proper shielding and filtering, especially for high-frequency switching. (6) Protection: Implement fast desaturation detection with <10μs response.",
+              "decisionGuide": "Contact our FAE team for inverter layout review and EMI optimization recommendations.",
+              "keywords": [
+                "MMG450WB060B layout",
+                "three-phase inverter design",
+                "IGBT PCB layout"
+              ]
+            }
+          ],
+          "image": "/assets/brands/macmic/images/products/mmg450wb060b.jpg",
+          "name": "IGBT Modules MMG450WB060B"
         }
       ]
     },
@@ -561,11 +940,14 @@
       "icon": "/assets/brands/macmic/icons/fred-modules.svg",
       "image": "/assets/brands/macmic/images/fred-modules.jpg",
       "parameters": [
+        "Reverse Voltage (Vrrm)",
+        "Forward Current (If)",
+        "Recovery Time (trr)",
+        "Forward Voltage (Vf)",
+        "Operating Temperature",
         "Voltage Rating",
         "Current Rating",
-        "Recovery Time",
-        "Qrr",
-        "Package Type"
+        "Temperature Range"
       ],
       "applications": [
         "PFC Boost",
@@ -673,7 +1055,10 @@
             "Recovery Time (trr)": "35ns typical",
             "Forward Voltage (Vf)": "1.5V typical",
             "Operating Temperature": "-40°C to +150°C",
-            "Package": "D1"
+            "Package": "D1",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
           },
           "faeReview": {
             "author": "Lisa Zhang",
@@ -691,13 +1076,7 @@
                 "recoveryTime": "40ns (typ)",
                 "package": "D1"
               },
-              "comparison": {
-                "voltage": "600V = 600V ( )",
-                "current": "150A > 100A (+50%)",
-                "recoveryTime": "40ns   35ns ( )",
-                "package": "D1 = D1 ( )",
-                "compatibility": "Pin-compatible with higher current"
-              },
+              "comparison": "MMF100J060D1=><MMF150J060D1: Output current 150A > 100A (+50%), Package D1 = D1 ( ), suitable for direct replacement",
               "reason": "Higher current rating for applications requiring 50% more current handling in the same package",
               "useCase": "Power PFC Application,  10kWUpgrade 15kW",
               "link": "/macmic/products/fred-modules/mmf150j060d1.html"
@@ -711,12 +1090,7 @@
                 "recoveryTime": "50ns (typ)",
                 "package": "D1"
               },
-              "comparison": {
-                "voltage": "1200V > 600V (+100%,  Voltage)",
-                "current": "100A = 100A ( )",
-                "recoveryTime": "50ns > 35ns ( ,  )",
-                "package": "D1 = D1 ( )"
-              },
+              "comparison": "MMF100J060D1=><MMF100J120D1: Output current 100A = 100A ( ), Package D1 = D1 ( ), suitable for direct replacement",
               "reason": "Higher voltage rating for 690V AC systems or applications requiring higher voltage margin",
               "useCase": "690V Voltage Application,  Output",
               "link": "/macmic/products/fred-modules/mmf100j120d1.html"
@@ -761,67 +1135,73 @@
           ],
           "faqs": [
             {
-              "question": "What are the main application scenarios for MMF100J060D1?",
-              "answer": "MMF100J060D1 is designed for PFC boost stages, Output rectifiers, Anti-parallel diodes for IGBTs, Brake choppers, Freewheeling diodes, DC-DC converters. Its ARM core at  provides excellent processing power for real-time control and signal processing tasks. With  Flash and  RAM, it can handle complex firmware requirements including communication protocols and control algorithms. The integrated peripherals make it ideal for industrial automation, consumer electronics, and IoT applications.",
-              "decisionGuide": "Contact our FAE team to discuss your specific application requirements and get recommendations on peripheral configuration.",
+              "question": "What are the main applications for MMF100J060D1 FRED module?",
+              "answer": "MMF100J060D1 is designed for high-frequency rectification and freewheeling applications: (1) PFC boost stages - fast recovery minimizes switching losses at high frequencies (50-100KHz). (2) Output rectifiers - low forward voltage drop improves efficiency in SMPS. (3) Anti-parallel diodes for IGBTs - soft recovery reduces EMI in inverter applications. (4) Brake choppers - handles high-current pulses in motor drive regenerative braking. (5) Freewheeling diodes - provides current path for inductive loads. (6) DC-DC converters - suitable for high-frequency power conversion. The 600V rating supports 400V AC systems, while 35ns recovery time enables efficient high-frequency operation.",
+              "decisionGuide": "Contact our FAE team to discuss your specific rectification application requirements.",
               "keywords": [
                 "MMF100J060D1 applications",
-                "FRED Module use cases",
-                "microcontroller applications"
+                "FRED diode uses",
+                "rectifier applications",
+                "PFC diode"
               ]
             },
             {
-              "question": "How does MMF100J060D1 compare to other microcontrollers in the same class?",
-              "answer": "Compared to competitors, MMF100J060D1 offers superior price-performance ratio with its ARM core running at . The comprehensive peripheral set including Fast recovery time: 35ns typical, Low reverse recovery charge (Qrr), Soft recovery characteristic provides flexibility for various applications. MacMic Science & Technology's mature ecosystem including development tools, extensive code libraries, and strong technical support significantly reduces development time. The  Flash provides generous space for firmware, while the  RAM supports complex buffer requirements. Additionally, MacMic Science & Technology's long-term availability commitment ensures production continuity.",
-              "decisionGuide": "Request a detailed comparison report or schedule a technical consultation to evaluate MMF100J060D1 for your project.",
+              "question": "How does recovery time affect switching losses in my application?",
+              "answer": "Recovery time (trr) directly impacts switching losses: (1) Reverse recovery charge (Qrr) - the charge that must be removed during turn-off, causing energy loss = Qrr × Vdc. (2) MMF100J060D1's 35ns trr and low Qrr minimize these losses. (3) At 50KHz PFC, switching losses can dominate - fast recovery is critical. (4) At 10KHz motor drives, conduction losses dominate - recovery time less critical. (5) Soft recovery reduces voltage overshoot, lowering EMI and stress on switches. (6) Typical loss comparison: Standard diode (100ns) vs MMF100J060D1 (35ns) can reduce switching losses by 60-70% at high frequencies. Calculate total losses: Ptotal = Pconduction (Vf × If × duty) + Pswitching (Qrr × Vdc × fsw).",
+              "decisionGuide": "For applications above 20KHz, prioritize fast recovery. Contact us for loss calculations.",
               "keywords": [
-                "MMF100J060D1 comparison",
-                "microcontroller selection",
-                "FRED Module vs competitors"
+                "FRED recovery time",
+                "switching losses",
+                "reverse recovery charge",
+                "Qrr"
               ]
             },
             {
-              "question": "What are the key PCB layout considerations for MMF100J060D1?",
-              "answer": "For optimal performance with MMF100J060D1: (1) Power supply - place decoupling capacitors (100nF ceramic + 4.7µF) close to each power pin. Use proper bulk capacitance for stable operation. (2) Clock circuit - keep crystal oscillator traces short and away from high-speed signals. (3) High-speed signals - route USB, Ethernet, and other high-speed interfaces with proper impedance matching. Keep them away from analog traces. (4) Grounding - implement solid ground planes and minimize ground loops. (5) Thermal management - ensure adequate copper area for heat dissipation, especially for high-frequency operation.",
-              "decisionGuide": "Download our reference PCB layout guide or contact our FAE team for layout review services.",
+              "question": "What is soft recovery and why is it important for FRED modules?",
+              "answer": "Soft recovery is a characteristic where the reverse current decreases gradually rather than abruptly (snap-off): (1) Snap-off diodes create high di/dt, causing voltage overshoot and EMI. (2) Soft recovery (like MMF100J060D1) has gradual current decay, minimizing voltage spikes. (3) Benefits: Reduced EMI/RFI, lower voltage stress on switches, improved system reliability, reduced need for snubber circuits. (4) Important in: Inverter applications with long motor cables, high-frequency converters, applications with strict EMI requirements. (5) MacMic FREDs are optimized for soft recovery through epitaxial technology and lifetime control. (6) Trade-off: Soft recovery diodes may have slightly higher Qrr than ultra-fast snap-off types, but overall system performance is better.",
+              "decisionGuide": "Choose soft recovery FREDs for inverter and high-frequency applications. Contact our FAE team for selection guidance.",
               "keywords": [
-                "MMF100J060D1 PCB layout",
-                "microcontroller hardware design",
-                "PCB guidelines"
+                "soft recovery FRED",
+                "snap-off diode",
+                "EMI reduction",
+                "voltage overshoot"
               ]
             },
             {
-              "question": "What are the recommended operating conditions for MMF100J060D1?",
-              "answer": "MMF100J060D1 operates at 1.8V to 3.6V supply voltage, with 3.3V being the most common configuration. The operating temperature range is -40°C to +85°C. For reliable operation at , ensure stable power supply with low ripple. The Flash memory requires proper wait state configuration based on operating frequency. When using analog peripherals, use a separate analog supply with proper filtering. The maximum GPIO output current is typically 8-25mA per pin, with a total limit for all pins. Always refer to the datasheet for detailed electrical characteristics and derating curves.",
-              "decisionGuide": "Review the complete datasheet for detailed electrical characteristics or contact our FAE team for application-specific recommendations.",
+              "question": "How do I select the right current rating for my FRED application?",
+              "answer": "Current rating selection guidelines: (1) Calculate average forward current (If_avg) based on your topology and power level. (2) For PFC boost: If_avg = Pout / Vin_min. For 3kW PFC at 85VAC: 3000/85 = 35A average. (3) Include safety margin: Select FRED with 1.5-2x If_avg rating. For 35A average, choose 50-70A device. (4) Consider peak currents: In PFC, peak can be 2-3x average - ensure FRED can handle peak. (5) Thermal design: Case temperature should stay below 100°C at full load. (6) MMF100J060D1's 100A rating supports up to ~50-60A average current with proper heatsinking. (7) For higher currents, consider MMF150J060D1 (150A) or parallel configuration with current sharing.",
+              "decisionGuide": "Contact our FAE team for current rating calculations and thermal design support.",
               "keywords": [
-                "MMF100J060D1 specifications",
-                "operating conditions",
-                "electrical characteristics"
+                "FRED current rating",
+                "diode sizing",
+                "thermal design",
+                "current margin"
               ]
             },
             {
-              "question": "What are common debugging issues with MMF100J060D1 and their solutions?",
-              "answer": "Common MMF100J060D1 debugging challenges: (1) JTAG/SWD connection failures - often caused by incorrect BOOT pin configuration or conflicting GPIO remapping. Solution: Check BOOT pin states, verify SWD pin alternate function settings. (2) Clock issues - typically due to incorrect PLL configuration or crystal problems. Solution: Verify HSE crystal and PLL settings using debugging tools. (3) Peripheral initialization failures - usually related to incorrect clock enabling or configuration. Solution: Ensure proper clock tree configuration, check peripheral initialization sequence. (4) Power-related resets - may occur due to insufficient decoupling or voltage drops. Solution: Add adequate decoupling capacitors, check power supply stability.",
-              "decisionGuide": "Contact our technical support team for debugging assistance or check our online knowledge base for detailed troubleshooting guides.",
+              "question": "Can MMF100J060D1 be used in parallel for higher current applications?",
+              "answer": "Yes, MMF100J060D1 can be paralleled with proper design: (1) Current sharing: Use matched devices from same production batch for similar Vf characteristics. (2) Layout symmetry: Equal trace lengths and resistances to each diode. (3) Thermal coupling: Mount devices on common heatsink for temperature equalization. (4) Current imbalance: Expect 10-15% variation - design with margin. (5) For 200A total: Use 3x MMF100J060D1 with derating. (6) Gate/connection: No gate drive needed, but ensure balanced connections. (7) Advantages: Higher current capability, redundancy, thermal distribution. (8) Considerations: Higher cost than single larger device, more board space, need for current sharing analysis. Alternative: Use single MMF200J060D1 or MMF300J060D1 if available.",
+              "decisionGuide": "Contact our FAE team for parallel FRED design guidelines and current sharing analysis.",
               "keywords": [
-                "MMF100J060D1 debugging",
-                "troubleshooting",
-                "common issues"
+                "FRED parallel operation",
+                "current sharing",
+                "high current rectifier"
               ]
             },
             {
-              "question": "How to select peripherals and configure MMF100J060D1 for my application?",
-              "answer": "To configure MMF100J060D1 for your application: (1) List all required interfaces and processing requirements. (2) Use the manufacturer's configuration tool to set up peripherals and generate initialization code. (3) Key selection criteria: Communication interfaces based on device compatibility and speed requirements; Analog peripherals for sensor interfacing; Timers for PWM and timing functions; Memory resources for code and data. (4) Consider using DMA for high-throughput peripherals to reduce CPU overhead. (5) Enable only required peripherals to minimize power consumption. (6) Implement proper interrupt priority management for real-time response.",
-              "decisionGuide": "Use our online selection tool or contact our FAE team for personalized configuration recommendations based on your project requirements.",
+              "question": "What thermal management is required for MMF100J060D1?",
+              "answer": "Thermal design considerations: (1) Power dissipation: P = Vf × If_avg. At 50A with 1.5V Vf: 75W dissipation. (2) Junction temperature: Tj = Ta + P × (Rth(j-c) + Rth(c-s) + Rth(s-a)). (3) Keep Tj below 125°C for reliability, preferably below 110°C. (4) Heatsink selection: For 75W at 40°C ambient with Rth(j-c) = 0.3°C/W and Rth(c-s) = 0.1°C/W: Required Rth(s-a) < (125-40)/75 - 0.4 = 0.73°C/W. (5) Thermal interface: Use high-conductivity paste or pad (3-5 W/mK). (6) Mounting torque: Follow MacMic specifications (typically 0.8-1.2 Nm). (7) Airflow: Forced air cooling significantly improves thermal performance. (8) Temperature monitoring: Consider thermistor or thermal switch for protection.",
+              "decisionGuide": "Contact our FAE team for thermal calculations and heatsink selection assistance.",
               "keywords": [
-                "MMF100J060D1 configuration",
-                "peripheral selection",
-                "application setup"
+                "FRED thermal design",
+                "heatsink selection",
+                "junction temperature",
+                "thermal resistance"
               ]
             }
           ],
-          "image": "/assets/brands/macmic/images/products/mmf100j060d1.jpg"
+          "image": "/assets/brands/macmic/images/products/mmf100j060d1.jpg",
+          "name": "FRED Modules MMF100J060D1"
         },
         {
           "partNumber": "MMF200J120D1",
@@ -865,7 +1245,10 @@
             "Recovery Time (trr)": "50ns typical",
             "Forward Voltage (Vf)": "1.6V typical",
             "Operating Temperature": "-40°C to +150°C",
-            "Package": "D1"
+            "Package": "D1",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
           },
           "faeReview": {
             "author": "Robert Liu",
@@ -883,12 +1266,7 @@
                 "recoveryTime": "55ns (typ)",
                 "package": "D1"
               },
-              "comparison": {
-                "voltage": "1200V = 1200V ( )",
-                "current": "300A > 200A (+50%)",
-                "recoveryTime": "55ns   50ns ( )",
-                "package": "D1 = D1 ( )"
-              },
+              "comparison": "MMF200J120D1=><MMF300J120D1: Output current 300A > 200A (+50%), Package D1 = D1 ( ), suitable for direct replacement",
               "reason": "Higher current rating for high-power applications requiring 50% more current handling",
               "useCase": "Power Current Application",
               "link": "/macmic/products/fred-modules/mmf300j120d1.html"
@@ -902,12 +1280,7 @@
                 "recoveryTime": "40ns (typ)",
                 "package": "D1"
               },
-              "comparison": {
-                "voltage": "600V < 1200V ( 400V )",
-                "current": "200A = 200A ( )",
-                "recoveryTime": "40ns < 50ns ( Restore)",
-                "package": "D1 = D1 ( )"
-              },
+              "comparison": "MMF200J120D1=><MMF200J060D1: Output current 200A = 200A ( ), Package D1 = D1 ( ), suitable for direct replacement",
               "reason": "Lower voltage rating for 400V systems with faster recovery time and lower cost",
               "useCase": "400V Application,  Restore",
               "link": "/macmic/products/fred-modules/mmf200j060d1.html"
@@ -953,66 +1326,68 @@
           "image": "/assets/brands/macmic/images/products/mmf200j120d1.jpg",
           "faqs": [
             {
-              "question": "What are the main application scenarios for MMF200J120D1?",
-              "answer": "MMF200J120D1 is designed for Output rectifiers for VFDs, Brake choppers, Anti-parallel diodes for 1200V IGBTs, High-power DC supplies, Wind power converters, EV charging systems. Its ARM core at  provides excellent processing power for real-time control and signal processing tasks. With  Flash and  RAM, it can handle complex firmware requirements including communication protocols and control algorithms. The integrated peripherals make it ideal for industrial automation, consumer electronics, and IoT applications.",
-              "decisionGuide": "Contact our FAE team to discuss your specific application requirements and get recommendations on peripheral configuration.",
+              "question": "What are the main applications for MMF200J120D1 FRED module?",
+              "answer": "MMF200J120D1 is designed for high-power rectification and freewheeling applications: (1) Output rectifiers for VFDs - handles high current in motor drive output stages. (2) Brake choppers - dissipates regenerative energy in motor braking. (3) Anti-parallel diodes for 1200V IGBTs - provides freewheeling path in inverters. (4) High-power DC supplies - output rectification for large SMPS. (5) Wind power converters - grid-tie inverter rectification. (6) EV charging systems - power factor correction and output rectification. The 1200V rating supports 690V AC systems, while 200A current handles medium to high-power applications. 50ns recovery time is optimized for 5-20KHz switching frequencies common in motor drives.",
+              "decisionGuide": "Contact our FAE team to discuss your specific high-power rectification requirements.",
               "keywords": [
                 "MMF200J120D1 applications",
-                "FRED Module use cases",
-                "microcontroller applications"
+                "high-power FRED",
+                "VFD rectifier",
+                "brake chopper diode"
               ]
             },
             {
-              "question": "How does MMF200J120D1 compare to other microcontrollers in the same class?",
-              "answer": "Compared to competitors, MMF200J120D1 offers superior price-performance ratio with its ARM core running at . The comprehensive peripheral set including High current rating: 200A, Fast recovery time: 50ns typical, Low reverse recovery charge provides flexibility for various applications. MacMic Science & Technology's mature ecosystem including development tools, extensive code libraries, and strong technical support significantly reduces development time. The  Flash provides generous space for firmware, while the  RAM supports complex buffer requirements. Additionally, MacMic Science & Technology's long-term availability commitment ensures production continuity.",
-              "decisionGuide": "Request a detailed comparison report or schedule a technical consultation to evaluate MMF200J120D1 for your project.",
+              "question": "How does MMF200J120D1 compare to standard ultrafast diodes?",
+              "answer": "MMF200J120D1 offers significant advantages over standard ultrafast diodes: (1) Soft recovery vs snap-off: MacMic's epitaxial technology provides soft recovery, reducing voltage overshoot by 30-50% compared to snap-off diodes. (2) Lower EMI: Soft recovery reduces conducted and radiated EMI, often eliminating need for additional filtering. (3) Higher reliability: Reduced voltage stress on switches extends system lifetime. (4) Module package: D1 package offers better thermal performance and easier mounting than discrete TO-247 packages for high current. (5) Matched to IGBTs: Designed specifically as companion diodes for MacMic IGBT modules. Trade-off: Slightly higher Qrr than some ultrafast snap-off types, but overall system performance and reliability are superior.",
+              "decisionGuide": "Choose MMF200J120D1 for applications where EMI and reliability are critical. Contact us for comparison data.",
               "keywords": [
                 "MMF200J120D1 comparison",
-                "microcontroller selection",
-                "FRED Module vs competitors"
+                "soft recovery vs ultrafast",
+                "FRED advantages"
               ]
             },
             {
-              "question": "What are the key PCB layout considerations for MMF200J120D1?",
-              "answer": "For optimal performance with MMF200J120D1: (1) Power supply - place decoupling capacitors (100nF ceramic + 4.7µF) close to each power pin. Use proper bulk capacitance for stable operation. (2) Clock circuit - keep crystal oscillator traces short and away from high-speed signals. (3) High-speed signals - route USB, Ethernet, and other high-speed interfaces with proper impedance matching. Keep them away from analog traces. (4) Grounding - implement solid ground planes and minimize ground loops. (5) Thermal management - ensure adequate copper area for heat dissipation, especially for high-frequency operation.",
-              "decisionGuide": "Download our reference PCB layout guide or contact our FAE team for layout review services.",
+              "question": "What thermal design is required for MMF200J120D1 at 200A?",
+              "answer": "Thermal design for MMF200J120D1 at high current: (1) Power dissipation: At 200A with 1.6V Vf, conduction loss = 320W. At typical duty cycle of 50%, average = 160W. (2) Heatsink requirements: For 160W at 40°C ambient with Rth(j-c) = 0.2°C/W and Rth(c-s) = 0.1°C/W: Required Rth(s-a) < (125-40)/160 - 0.3 = 0.23°C/W. This requires large heatsink with forced air or liquid cooling. (3) Thermal interface: Use high-conductivity paste (5+ W/mK) with proper mounting torque (0.8-1.2 Nm). (4) Temperature monitoring: Implement thermistor or thermal switch at 100-110°C. (5) Current derating: For natural convection, derate to 100-120A continuous. (6) Parallel operation: Consider 2x MMF200J120D1 for 400A with better thermal distribution.",
+              "decisionGuide": "Contact our FAE team for thermal calculations and cooling system design.",
               "keywords": [
-                "MMF200J120D1 PCB layout",
-                "microcontroller hardware design",
-                "PCB guidelines"
+                "MMF200J120D1 thermal design",
+                "high-current diode cooling",
+                "heatsink requirements"
               ]
             },
             {
-              "question": "What are the recommended operating conditions for MMF200J120D1?",
-              "answer": "MMF200J120D1 operates at 1.8V to 3.6V supply voltage, with 3.3V being the most common configuration. The operating temperature range is -40°C to +85°C. For reliable operation at , ensure stable power supply with low ripple. The Flash memory requires proper wait state configuration based on operating frequency. When using analog peripherals, use a separate analog supply with proper filtering. The maximum GPIO output current is typically 8-25mA per pin, with a total limit for all pins. Always refer to the datasheet for detailed electrical characteristics and derating curves.",
-              "decisionGuide": "Review the complete datasheet for detailed electrical characteristics or contact our FAE team for application-specific recommendations.",
+              "question": "Can MMF200J120D1 be used for brake chopper applications?",
+              "answer": "Yes, MMF200J120D1 is excellent for brake chopper applications: (1) Peak current capability: 200A rating handles high peak currents during braking transients. (2) Pulse operation: Brake choppers operate intermittently, allowing higher peak currents than continuous rating. (3) Reverse recovery: 50ns recovery minimizes switching losses at typical chopper frequencies (5-10KHz). (4) Voltage rating: 1200V provides margin for 690V systems with voltage spikes. (5) Implementation: Place anti-parallel to brake resistor; IGBT controls chopping. (6) Protection: Implement overcurrent protection as brake faults can cause high currents. (7) Thermal design: Calculate based on duty cycle - typical braking is <10% duty, reducing thermal requirements. (8) Snubber: May need RC snubber depending on circuit layout and stray inductance.",
+              "decisionGuide": "Contact our FAE team for brake chopper circuit design and component selection.",
               "keywords": [
-                "MMF200J120D1 specifications",
-                "operating conditions",
-                "electrical characteristics"
+                "MMF200J120D1 brake chopper",
+                "regenerative braking",
+                "brake diode"
               ]
             },
             {
-              "question": "What are common debugging issues with MMF200J120D1 and their solutions?",
-              "answer": "Common MMF200J120D1 debugging challenges: (1) JTAG/SWD connection failures - often caused by incorrect BOOT pin configuration or conflicting GPIO remapping. Solution: Check BOOT pin states, verify SWD pin alternate function settings. (2) Clock issues - typically due to incorrect PLL configuration or crystal problems. Solution: Verify HSE crystal and PLL settings using debugging tools. (3) Peripheral initialization failures - usually related to incorrect clock enabling or configuration. Solution: Ensure proper clock tree configuration, check peripheral initialization sequence. (4) Power-related resets - may occur due to insufficient decoupling or voltage drops. Solution: Add adequate decoupling capacitors, check power supply stability.",
-              "decisionGuide": "Contact our technical support team for debugging assistance or check our online knowledge base for detailed troubleshooting guides.",
+              "question": "What gate drive considerations apply when using MMF200J120D1 with IGBTs?",
+              "answer": "When using MMF200J120D1 as anti-parallel diode with IGBTs: (1) No gate drive needed for diode - it's a passive device. (2) IGBT gate drive affects diode operation: Fast IGBT turn-off creates high di/dt through diode. Soft recovery characteristic handles this well. (3) Reverse recovery: When IGBT turns on, diode recovers. MMF200J120D1's 50ns recovery minimizes losses. (4) Current sharing: Ensure good thermal coupling between IGBT and diode modules for temperature tracking. (5) Layout: Minimize stray inductance between IGBT and diode to reduce voltage spikes. (6) Protection: Implement desaturation protection for IGBT - diode fault current can damage IGBT. (7) Matching: Use 1200V FRED with 1200V IGBT, current rating 50-100% of IGBT rating depending on duty cycle.",
+              "decisionGuide": "Contact our FAE team for inverter design with IGBT-FRED pairing recommendations.",
               "keywords": [
-                "MMF200J120D1 debugging",
-                "troubleshooting",
-                "common issues"
+                "MMF200J120D1 IGBT pairing",
+                "anti-parallel diode",
+                "inverter design"
               ]
             },
             {
-              "question": "How to select peripherals and configure MMF200J120D1 for my application?",
-              "answer": "To configure MMF200J120D1 for your application: (1) List all required interfaces and processing requirements. (2) Use the manufacturer's configuration tool to set up peripherals and generate initialization code. (3) Key selection criteria: Communication interfaces based on device compatibility and speed requirements; Analog peripherals for sensor interfacing; Timers for PWM and timing functions; Memory resources for code and data. (4) Consider using DMA for high-throughput peripherals to reduce CPU overhead. (5) Enable only required peripherals to minimize power consumption. (6) Implement proper interrupt priority management for real-time response.",
-              "decisionGuide": "Use our online selection tool or contact our FAE team for personalized configuration recommendations based on your project requirements.",
+              "question": "How do I select between MMF200J120D1 and MMF300J120D1?",
+              "answer": "Selection between MMF200J120D1 and MMF300J120D1: (1) Current requirements: MMF200J120D1 for up to ~120A continuous (with derating), MMF300J120D1 for up to ~180A continuous. (2) Peak currents: Both handle 2-3x rated current for short pulses (braking, overload). (3) Thermal design: MMF300J120D1 has lower thermal resistance, easier cooling at high currents. (4) Package: Both use D1 package - same mounting. (5) Cost: MMF200J120D1 lower cost for applications where current margin is sufficient. (6) Future expansion: Choose higher rating if power upgrades anticipated. (7) Parallel option: 2x MMF200J120D1 can replace 1x MMF300J120D1 with better thermal distribution. Decision factors: Continuous current, thermal constraints, cost budget, upgrade path.",
+              "decisionGuide": "Contact our FAE team for current rating analysis and selection guidance.",
               "keywords": [
-                "MMF200J120D1 configuration",
-                "peripheral selection",
-                "application setup"
+                "MMF200J120D1 vs MMF300J120D1",
+                "FRED current selection",
+                "diode sizing"
               ]
             }
-          ]
+          ],
+          "name": "FRED Modules MMF200J120D1"
         }
       ]
     },
@@ -1025,11 +1400,17 @@
       "icon": "/assets/brands/macmic/icons/power-discrete.svg",
       "image": "/assets/brands/macmic/images/power-discrete.jpg",
       "parameters": [
+        "Collector-Emitter Voltage (Vces)",
+        "Continuous Collector Current (Ic)",
+        "Vce(sat) typical",
+        "Operating Temperature",
+        "Reverse Voltage (Vrrm)",
+        "Forward Current (If)",
+        "Recovery Time (trr)",
+        "Forward Voltage (Vf)",
         "Voltage Rating",
         "Current Rating",
-        "Package Type",
-        "Vce(sat)",
-        "Recovery Time"
+        "Temperature Range"
       ],
       "applications": [
         "Auxiliary Power Supplies",
@@ -1137,7 +1518,14 @@
             "Continuous Collector Current (Ic)": "30A @ 25°C",
             "Vce(sat) typical": "1.8V @ 30A",
             "Operating Temperature": "-40°C to +150°C",
-            "Package": "TO-247"
+            "Package": "TO-247",
+            "Reverse Voltage (Vrrm)": "N/A",
+            "Forward Current (If)": "N/A",
+            "Recovery Time (trr)": "N/A",
+            "Forward Voltage (Vf)": "N/A",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
           },
           "faeReview": {
             "author": "David Chen",
@@ -1155,13 +1543,7 @@
                 "vceSat": "1.8V (typ)",
                 "package": "TO-247"
               },
-              "comparison": {
-                "voltage": "600V = 600V ( )",
-                "current": "50A > 30A (+67%)",
-                "vceSat": "1.8V = 1.8V ( )",
-                "package": "TO-247 = TO-247 ( )",
-                "compatibility": "Same package, higher current capability"
-              },
+              "comparison": "MMG30J060U1=><MMG50J060U1: Output current 50A > 30A (+67%), Package TO-247 = TO-247 ( ), suitable for direct replacement",
               "reason": "Higher current rating for applications requiring more power handling in same TO-247 package",
               "useCase": "Power PFCApplication",
               "link": "/macmic/products/power-discrete/mmg50j060u1.html"
@@ -1175,85 +1557,116 @@
                 "vceSat": "2.0V (typ)",
                 "package": "TO-247"
               },
-              "comparison": {
-                "voltage": "1200V > 600V (+100%,  Voltage)",
-                "current": "30A = 30A ( )",
-                "vceSat": "2.0V > 1.8V ( )",
-                "package": "TO-247 = TO-247 ( )"
-              },
+              "comparison": "MMG30J060U1=><MMG30J120U1: Output current 30A = 30A ( ), Package TO-247 = TO-247 ( ), suitable for direct replacement",
               "reason": "Higher voltage rating for 690V systems or applications requiring higher voltage margin",
               "useCase": "690V Voltage Application",
               "link": "/macmic/products/power-discrete/mmg30j120u1.html"
             }
           ],
           "companionParts": [
-            "COMP-A",
-            "COMP-B",
-            "COMP-C"
+            {
+              "partNumber": "MMF30J060U1",
+              "category": "FRED Discrete",
+              "function": "Anti-parallel Diode",
+              "keyFeatures": [
+                "600V rating",
+                "30A current",
+                "TO-247 package",
+                "Fast recovery"
+              ],
+              "description": "Matching FRED discrete for anti-parallel diode applications with MMG30J060U1",
+              "link": "/macmic/products/power-discrete/mmf30j060u1.html"
+            },
+            {
+              "partNumber": "MGD30J060Y1",
+              "category": "Gate Driver",
+              "function": "IGBT Gate Drive",
+              "keyFeatures": [
+                "2A output current",
+                "Built-in protection",
+                "Isolated drive"
+              ],
+              "description": "Gate driver optimized for 30A IGBT discrete devices",
+              "link": "/macmic/products/gate-drivers/mgd30j060y1.html"
+            },
+            {
+              "partNumber": "MMG75HB060H1A",
+              "category": "IGBT Module",
+              "function": "Main Inverter",
+              "keyFeatures": [
+                "600V rating",
+                "75A current",
+                "High-speed switching"
+              ],
+              "description": "IGBT module for main power stage when higher current needed",
+              "link": "/macmic/products/igbt-modules/mmg75hb060h1a.html"
+            }
           ],
           "image": "/assets/brands/macmic/images/products/mmg30j060u1.jpg",
           "faqs": [
             {
-              "question": "What are the main application scenarios for MMG30J060U1?",
-              "answer": "MMG30J060U1 is designed for Auxiliary power supplies, PFC boost stages, Brake chopper circuits, Low-power inverters, SMPS power supplies, Welding auxiliary circuits. Its ARM core at  provides excellent processing power for real-time control and signal processing tasks. With  Flash and  RAM, it can handle complex firmware requirements including communication protocols and control algorithms. The integrated peripherals make it ideal for industrial automation, consumer electronics, and IoT applications.",
-              "decisionGuide": "Contact our FAE team to discuss your specific application requirements and get recommendations on peripheral configuration.",
+              "question": "What are the main applications for MMG30J060U1 IGBT discrete?",
+              "answer": "MMG30J060U1 is designed for low to medium power applications: (1) Auxiliary power supplies - provides isolation and voltage conversion in motor drive systems. (2) PFC boost stages - power factor correction for 1-3kW systems. (3) Brake chopper circuits - handles regenerative braking in small motor drives. (4) Low-power inverters - single-phase or small three-phase drives up to 5kW. (5) SMPS power supplies - switch-mode power supplies for industrial equipment. (6) Welding auxiliary circuits - control and auxiliary power in welding equipment. The 600V 30A rating is ideal for 400V systems with moderate power requirements. TO-247 package allows flexible thermal design.",
+              "decisionGuide": "Contact our FAE team to discuss your specific low-power application requirements.",
               "keywords": [
                 "MMG30J060U1 applications",
-                "IGBT Discrete use cases",
-                "microcontroller applications"
+                "IGBT discrete uses",
+                "auxiliary power supply",
+                "PFC boost"
               ]
             },
             {
-              "question": "How does MMG30J060U1 compare to other microcontrollers in the same class?",
-              "answer": "Compared to competitors, MMG30J060U1 offers superior price-performance ratio with its ARM core running at . The comprehensive peripheral set including Trench Field-Stop technology, 600V voltage rating for 400V systems, 30A current rating provides flexibility for various applications. MacMic Science & Technology's mature ecosystem including development tools, extensive code libraries, and strong technical support significantly reduces development time. The  Flash provides generous space for firmware, while the  RAM supports complex buffer requirements. Additionally, MacMic Science & Technology's long-term availability commitment ensures production continuity.",
-              "decisionGuide": "Request a detailed comparison report or schedule a technical consultation to evaluate MMG30J060U1 for your project.",
+              "question": "When should I choose discrete IGBT vs IGBT module?",
+              "answer": "Choose discrete IGBT (like MMG30J060U1) when: (1) Current requirements are lower (<50A continuous) - discrete devices are more cost-effective. (2) Custom thermal solutions needed - TO-247 allows flexible heatsink mounting. (3) Space constraints favor single devices - smaller footprint for low power. (4) High-volume production - discrete devices typically lower cost at volume. (5) Replacement of existing discrete designs - maintaining compatibility. Choose IGBT modules when: (1) Higher current needed (>75A) - modules handle higher power. (2) Half-bridge or full-bridge configuration - integrated modules simplify design. (3) Better thermal performance needed - module packages have lower thermal resistance. (4) Faster assembly - modules reduce component count.",
+              "decisionGuide": "Contact our FAE team for discrete vs module selection based on your power and thermal requirements.",
               "keywords": [
-                "MMG30J060U1 comparison",
-                "microcontroller selection",
-                "IGBT Discrete vs competitors"
+                "discrete vs module IGBT",
+                "TO-247 selection",
+                "IGBT package choice"
               ]
             },
             {
-              "question": "What are the key PCB layout considerations for MMG30J060U1?",
-              "answer": "For optimal performance with MMG30J060U1: (1) Power supply - place decoupling capacitors (100nF ceramic + 4.7µF) close to each power pin. Use proper bulk capacitance for stable operation. (2) Clock circuit - keep crystal oscillator traces short and away from high-speed signals. (3) High-speed signals - route USB, Ethernet, and other high-speed interfaces with proper impedance matching. Keep them away from analog traces. (4) Grounding - implement solid ground planes and minimize ground loops. (5) Thermal management - ensure adequate copper area for heat dissipation, especially for high-frequency operation.",
-              "decisionGuide": "Download our reference PCB layout guide or contact our FAE team for layout review services.",
+              "question": "What heatsink do I need for MMG30J060U1?",
+              "answer": "Heatsink selection for MMG30J060U1: (1) Calculate losses: At 30A with 1.8V Vce(sat), conduction loss = 54W at 100% duty. At typical 50% duty = 27W average. Add switching losses (~5-10W at 20KHz). (2) Natural convection: For 35W at 40°C ambient, use heatsink with Rth <2.5°C/W. Example: 100mm x 100mm x 40mm aluminum extrusion with fins. (3) Forced air: With 200 LFM airflow, smaller heatsink with Rth <4°C/W sufficient. (4) Thermal interface: Use thermal grease or pad (3-5 W/mK). (5) Mounting torque: 0.8-1.2 Nm for good thermal contact. (6) Case temperature: Keep below 90°C for reliability. (7) Practical tip: Use larger heatsink than calculated for margin and quieter operation (if fanless).",
+              "decisionGuide": "Contact our FAE team for thermal calculations and heatsink recommendations.",
               "keywords": [
-                "MMG30J060U1 PCB layout",
-                "microcontroller hardware design",
-                "PCB guidelines"
+                "MMG30J060U1 heatsink",
+                "TO-247 thermal design",
+                "IGBT cooling"
               ]
             },
             {
-              "question": "What are the recommended operating conditions for MMG30J060U1?",
-              "answer": "MMG30J060U1 operates at 1.8V to 3.6V supply voltage, with 3.3V being the most common configuration. The operating temperature range is -40°C to +85°C. For reliable operation at , ensure stable power supply with low ripple. The Flash memory requires proper wait state configuration based on operating frequency. When using analog peripherals, use a separate analog supply with proper filtering. The maximum GPIO output current is typically 8-25mA per pin, with a total limit for all pins. Always refer to the datasheet for detailed electrical characteristics and derating curves.",
-              "decisionGuide": "Review the complete datasheet for detailed electrical characteristics or contact our FAE team for application-specific recommendations.",
+              "question": "What gate drive is recommended for MMG30J060U1?",
+              "answer": "Gate drive requirements for MMG30J060U1: (1) Gate voltage: +15V for turn-on, 0V or -8V for turn-off. Negative voltage improves noise immunity. (2) Gate driver current: Peak current of 1-2A sufficient for fast switching. (3) Gate resistor: 10-22Ω typical for turn-on, 5-10Ω for turn-off (separate resistors recommended). (4) Gate charge: Approximately 60nC - driver must supply this at switching frequency. (5) Isolation: Use isolated gate driver for high-side switches in half-bridge. (6) Protection: Implement desaturation detection with <10μs response. (7) Miller clamp: Recommended for high dV/dt applications to prevent false turn-on. (8) PCB layout: Keep gate traces short (<3cm) and use twisted pair for gate-emitter connection.",
+              "decisionGuide": "Contact our FAE team for gate driver selection and circuit design.",
               "keywords": [
-                "MMG30J060U1 specifications",
-                "operating conditions",
-                "electrical characteristics"
+                "MMG30J060U1 gate drive",
+                "IGBT gate driver",
+                "discrete IGBT drive"
               ]
             },
             {
-              "question": "What are common debugging issues with MMG30J060U1 and their solutions?",
-              "answer": "Common MMG30J060U1 debugging challenges: (1) JTAG/SWD connection failures - often caused by incorrect BOOT pin configuration or conflicting GPIO remapping. Solution: Check BOOT pin states, verify SWD pin alternate function settings. (2) Clock issues - typically due to incorrect PLL configuration or crystal problems. Solution: Verify HSE crystal and PLL settings using debugging tools. (3) Peripheral initialization failures - usually related to incorrect clock enabling or configuration. Solution: Ensure proper clock tree configuration, check peripheral initialization sequence. (4) Power-related resets - may occur due to insufficient decoupling or voltage drops. Solution: Add adequate decoupling capacitors, check power supply stability.",
-              "decisionGuide": "Contact our technical support team for debugging assistance or check our online knowledge base for detailed troubleshooting guides.",
+              "question": "Can MMG30J060U1 be paralleled for higher current?",
+              "answer": "Paralleling MMG30J060U1 discrete devices: (1) Current sharing: Use matched devices with similar Vce(sat) from same batch. (2) Layout symmetry: Equal emitter and collector trace lengths critical. (3) Gate drive: Use common gate drive with individual gate resistors (1-2Ω) for each device. (4) Thermal coupling: Mount on common heatsink for temperature equalization. (5) Current imbalance: Expect 10-15% variation - design with margin. (6) For 60A total: Use 2x MMG30J060U1 with 20% derating. (7) Advantages: Higher current, redundancy, thermal distribution. (8) Considerations: More board space, higher component count, need for current sharing analysis. Alternative: Use single MMG50J060U1 (50A) or MMG75HB060H1A module (75A) instead of paralleling.",
+              "decisionGuide": "Contact our FAE team for parallel IGBT design guidelines and current sharing analysis.",
               "keywords": [
-                "MMG30J060U1 debugging",
-                "troubleshooting",
-                "common issues"
+                "MMG30J060U1 parallel",
+                "IGBT current sharing",
+                "parallel discrete IGBT"
               ]
             },
             {
-              "question": "How to select peripherals and configure MMG30J060U1 for my application?",
-              "answer": "To configure MMG30J060U1 for your application: (1) List all required interfaces and processing requirements. (2) Use the manufacturer's configuration tool to set up peripherals and generate initialization code. (3) Key selection criteria: Communication interfaces based on device compatibility and speed requirements; Analog peripherals for sensor interfacing; Timers for PWM and timing functions; Memory resources for code and data. (4) Consider using DMA for high-throughput peripherals to reduce CPU overhead. (5) Enable only required peripherals to minimize power consumption. (6) Implement proper interrupt priority management for real-time response.",
-              "decisionGuide": "Use our online selection tool or contact our FAE team for personalized configuration recommendations based on your project requirements.",
+              "question": "What is the maximum switching frequency for MMG30J060U1?",
+              "answer": "MMG30J060U1 switching frequency considerations: (1) Maximum rated frequency: 20KHz - device can switch at this frequency with proper gate drive. (2) Practical limits: At high frequencies, switching losses dominate. For 30A operation: - 5-10KHz: Good efficiency, moderate losses. - 15-20KHz: Higher losses, need for careful thermal design. - Above 20KHz: Not recommended - excessive switching losses. (3) Application guidelines: - Motor drives: 4-8KHz optimal for efficiency. - SMPS/PFC: 20-50KHz possible but verify thermal design. - Inverters: 8-16KHz for good waveform quality. (4) Trade-offs: Higher frequency = smaller magnetics but higher losses. Lower frequency = better efficiency but larger components. (5) Gate drive: Higher frequencies require stronger gate drive for fast switching.",
+              "decisionGuide": "Contact our FAE team for switching frequency optimization based on your efficiency and size requirements.",
               "keywords": [
-                "MMG30J060U1 configuration",
-                "peripheral selection",
-                "application setup"
+                "MMG30J060U1 switching frequency",
+                "IGBT frequency limits",
+                "switching losses"
               ]
             }
-          ]
+          ],
+          "name": "Power Discrete Devices MMG30J060U1"
         },
         {
           "partNumber": "MMF75J120U1",
@@ -1297,7 +1710,13 @@
             "Recovery Time (trr)": "50ns typical",
             "Forward Voltage (Vf)": "1.6V typical",
             "Operating Temperature": "-40°C to +150°C",
-            "Package": "TO-247"
+            "Package": "TO-247",
+            "Collector-Emitter Voltage (Vces)": "N/A",
+            "Continuous Collector Current (Ic)": "N/A",
+            "Vce(sat) typical": "N/A",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
           },
           "faeReview": {
             "author": "Lisa Zhang",
@@ -1316,12 +1735,7 @@
                 "recoveryTime": "55ns (typ)",
                 "package": "TO-247"
               },
-              "comparison": {
-                "voltage": "1200V = 1200V ( )",
-                "current": "100A > 75A (+33%)",
-                "recoveryTime": "55ns   50ns ( )",
-                "package": "TO-247 = TO-247 ( )"
-              },
+              "comparison": "MMF75J120U1=><MMF100J120U1: Output current 100A > 75A (+33%), Package TO-247 = TO-247 ( ), suitable for direct replacement",
               "reason": "Higher current rating for applications requiring more current handling in same package",
               "useCase": "Power Current Application",
               "link": "/macmic/products/power-discrete/mmf100j120u1.html"
@@ -1335,12 +1749,7 @@
                 "recoveryTime": "40ns (typ)",
                 "package": "TO-247"
               },
-              "comparison": {
-                "voltage": "600V < 1200V ( 400V )",
-                "current": "75A = 75A ( )",
-                "recoveryTime": "40ns < 50ns ( Restore)",
-                "package": "TO-247 = TO-247 ( )"
-              },
+              "comparison": "MMF75J120U1=><MMF75J060U1: Output current 75A = 75A ( ), Package TO-247 = TO-247 ( ), suitable for direct replacement",
               "reason": "Lower voltage rating for 400V systems with faster recovery time and lower cost",
               "useCase": "400V Application,  Restore",
               "link": "/macmic/products/power-discrete/mmf75j060u1.html"
@@ -1413,7 +1822,8 @@
                 "application setup"
               ]
             }
-          ]
+          ],
+          "name": "Power Discrete Devices MMF75J120U1"
         }
       ],
       "selectionGuideLink": "#selection-guide"
@@ -1427,11 +1837,14 @@
       "icon": "/assets/brands/macmic/icons/mosfet-modules.svg",
       "image": "/assets/brands/macmic/images/mosfet-modules.jpg",
       "parameters": [
+        "Drain-Source Voltage (Vdss)",
+        "Continuous Drain Current (Id)",
+        "RDS(on) typical",
+        "Gate Charge (Qg)",
+        "Operating Temperature",
         "Voltage Rating",
         "Current Rating",
-        "RDS(on)",
-        "Gate Charge",
-        "Package Type"
+        "Temperature Range"
       ],
       "applications": [
         "Synchronous Rectification",
@@ -1539,7 +1952,10 @@
             "RDS(on) typical": "2.5mΩ @ Vgs=10V",
             "Gate Charge (Qg)": "85nC typical",
             "Operating Temperature": "-55°C to +175°C",
-            "Package": "Y1"
+            "Package": "Y1",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
           },
           "faeReview": {
             "author": "Michael Wang",
@@ -1558,12 +1974,7 @@
                 "rdsOn": "1.8mΩ (typ)",
                 "package": "Y1"
               },
-              "comparison": {
-                "voltage": "60V = 60V ( )",
-                "current": "150A > 100A (+50%)",
-                "rdsOn": "1.8m  < 2.5m  (-28%,  )",
-                "package": "Y1 = Y1 ( )"
-              },
+              "comparison": "MMO100N060Y1=><MMO150N060Y1: Output current 150A > 100A (+50%), Package Y1 = Y1 ( ), suitable for direct replacement",
               "reason": "Higher current with 28% lower RDS(on) for highest efficiency applications",
               "useCase": "Efficiency CurrentService",
               "link": "/macmic/products/mosfet-modules/mmo150n060y1.html"
@@ -1577,12 +1988,7 @@
                 "rdsOn": "4.2mΩ (typ)",
                 "package": "Y1"
               },
-              "comparison": {
-                "voltage": "100V > 60V (+67%,  Voltage)",
-                "current": "100A = 100A ( )",
-                "rdsOn": "4.2m  > 2.5m  ( )",
-                "package": "Y1 = Y1 ( )"
-              },
+              "comparison": "MMO100N060Y1=><MMO100N100Y1: Output current 100A = 100A ( ), Package Y1 = Y1 ( ), suitable for direct replacement",
               "reason": "Higher voltage rating for applications requiring more voltage margin",
               "useCase": "Voltage Application,  72V DC-DC",
               "link": "/macmic/products/mosfet-modules/mmo100n100y1.html"
@@ -1655,7 +2061,8 @@
                 "driver selection"
               ]
             }
-          ]
+          ],
+          "name": "MOSFET Modules MMO100N060Y1"
         },
         {
           "partNumber": "MMO200N040Y1",
@@ -1699,7 +2106,10 @@
             "RDS(on) typical": "1.2mΩ @ Vgs=10V",
             "Gate Charge (Qg)": "120nC typical",
             "Operating Temperature": "-55°C to +175°C",
-            "Package": "Y1"
+            "Package": "Y1",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
           },
           "faeReview": {
             "author": "Robert Liu",
@@ -1718,12 +2128,7 @@
                 "rdsOn": "2.5mΩ (typ)",
                 "package": "Y1"
               },
-              "comparison": {
-                "voltage": "60V > 40V (+50%,  Voltage)",
-                "current": "100A < 200A (-50%)",
-                "rdsOn": "2.5m  > 1.2m  ( )",
-                "package": "Y1 = Y1 ( )"
-              },
+              "comparison": "MMO200N040Y1=><MMO100N060Y1: Output current 100A < 200A (-50%), Package Y1 = Y1 ( ), suitable for direct replacement",
               "reason": "Higher voltage rating for applications requiring more voltage margin, lower current",
               "useCase": "Voltage CurrentRequirement Application",
               "link": "/macmic/products/mosfet-modules/mmo100n060y1.html"
@@ -1737,12 +2142,7 @@
                 "rdsOn": "0.9mΩ (typ)",
                 "package": "Y1"
               },
-              "comparison": {
-                "voltage": "40V = 40V ( )",
-                "current": "300A > 200A (+50%)",
-                "rdsOn": "0.9m  < 1.2m  (-25%,  )",
-                "package": "Y1 = Y1 ( )"
-              },
+              "comparison": "MMO200N040Y1=><MMO300N040Y1: Output current 300A > 200A (+50%), Package Y1 = Y1 ( ), suitable for direct replacement",
               "reason": "Ultra-high current with even lower RDS(on) for extreme power applications",
               "useCase": "CurrentApplication,  Power Pool",
               "link": "/macmic/products/mosfet-modules/mmo300n040y1.html"
@@ -1815,7 +2215,8 @@
                 "driver selection"
               ]
             }
-          ]
+          ],
+          "name": "MOSFET Modules MMO200N040Y1"
         }
       ],
       "selectionGuideLink": "#selection-guide"

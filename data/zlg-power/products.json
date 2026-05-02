@@ -87,11 +87,18 @@
         }
       ],
       "parameters": [
-        "Input Voltage",
+        "Input Voltage Range",
         "Output Voltage",
-        "Power Rating",
+        "Output Power",
         "Isolation Voltage",
-        "Efficiency"
+        "Efficiency",
+        "Switching Frequency",
+        "Operating Temperature",
+        "Dimensions",
+        "Input Voltage",
+        "Voltage Rating",
+        "Current Rating",
+        "Temperature Range"
       ],
       "selectionGuide": {
         "title": "How to Select ZLG Power Isolated DC-DC Converters",
@@ -221,7 +228,11 @@
             "Switching Frequency": "100kHz typical",
             "Operating Temperature": "-40C to +85C",
             "Package": "SIP-7",
-            "Dimensions": "19.5 x 7.0 x 10.0 mm"
+            "Dimensions": "19.5 x 7.0 x 10.0 mm",
+            "Input Voltage": "N/A",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
           },
           "faeReview": {
             "author": "Michael Chen",
@@ -257,10 +268,7 @@
                 "isolation": "1500V DC",
                 "package": "SIP-7"
               },
-              "comparison": {
-                "power": "1W = 1W (same)",
-                "package": "SIP-7 = SIP-7 (same)"
-              },
+              "comparison": "E_UHB-1W=><B_S-1W: Package SIP-7 = SIP-7 (same), suitable for direct replacement",
               "reason": "Cost-effective alternative for applications with regulated input voltage and lower isolation requirements",
               "useCase": "Cost-sensitive industrial applications with stable 5V, 12V, or 24V input",
               "link": "/zlg-power/products/isolated-dc-dc/b_s-1w.html"
@@ -368,7 +376,8 @@
                 "temperature"
               ]
             }
-          ]
+          ],
+          "name": "Isolated DC-DC Converters E_UHB-1W"
         },
         {
           "partNumber": "B_S-1W",
@@ -417,7 +426,11 @@
             "Switching Frequency": "100kHz typical",
             "Operating Temperature": "-40C to +85C",
             "Package": "SIP-7",
-            "Dimensions": "19.5 x 7.0 x 10.0 mm"
+            "Dimensions": "19.5 x 7.0 x 10.0 mm",
+            "Input Voltage Range": "N/A",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
           },
           "faeReview": {
             "author": "David Wang",
@@ -436,10 +449,7 @@
                 "isolation": "3000V DC",
                 "package": "SIP-7"
               },
-              "comparison": {
-                "power": "1W = 1W (same)",
-                "package": "SIP-7 = SIP-7 (same)"
-              },
+              "comparison": "B_S-1W=><E_UHB-1W: Package SIP-7 = SIP-7 (same), suitable for direct replacement",
               "reason": "Ultra-wide input and higher isolation for applications with varying input or safety requirements",
               "useCase": "Upgrade for battery-powered or unregulated input applications requiring higher isolation",
               "link": "/zlg-power/products/isolated-dc-dc/e_uhb-1w.html"
@@ -561,7 +571,8 @@
                 "high power"
               ]
             }
-          ]
+          ],
+          "name": "Isolated DC-DC Converters B_S-1W"
         }
       ]
     },
@@ -591,9 +602,13 @@
       "parameters": [
         "Input Voltage",
         "Output Voltage",
-        "Power Rating",
+        "Output Power",
         "Efficiency",
-        "PFC"
+        "Operating Temperature",
+        "Power Factor",
+        "Voltage Rating",
+        "Current Rating",
+        "Temperature Range"
       ],
       "selectionGuide": {
         "title": "How to Select ZLG Power AC-DC Modules",
@@ -711,7 +726,11 @@
             "Output Power": "25W",
             "Efficiency": "Up to 85%",
             "Operating Temperature": "-25C to +70C",
-            "Package": "PCB Mount"
+            "Package": "PCB Mount",
+            "Power Factor": "N/A",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
           },
           "faeReview": {
             "author": "Michael Chen",
@@ -729,12 +748,7 @@
                 "efficiency": "88%",
                 "package": "PCB Mount"
               },
-              "comparison": {
-                "voltage": "85-264V AC = 85-264V AC",
-                "power": "25W = 25W",
-                "efficiency": "88% > 85% (+3%)",
-                "package": "PCB Mount = PCB Mount"
-              },
+              "comparison": "LH-25W=><LHE-25W: Efficiency 88% > 85% (+3%), Package PCB Mount = PCB Mount, suitable for direct replacement",
               "reason": "Higher efficiency alternative with same power rating",
               "useCase": "Applications requiring higher efficiency",
               "link": "/zlg-power/products/ac-dc-power/lhe-25w.html"
@@ -748,12 +762,7 @@
                 "efficiency": "86%",
                 "package": "PCB Mount"
               },
-              "comparison": {
-                "voltage": "85-264V AC = 85-264V AC",
-                "power": "40W > 25W (+60%)",
-                "efficiency": "86% > 85%",
-                "package": "PCB Mount = PCB Mount"
-              },
+              "comparison": "LH-25W=><LH-40W: Efficiency 86% > 85%, Package PCB Mount = PCB Mount, suitable for direct replacement",
               "reason": "Higher power rating for larger load requirements",
               "useCase": "Upgrade when 25W is insufficient",
               "link": "/zlg-power/products/ac-dc-power/lh-40w.html"
@@ -840,7 +849,8 @@
                 "ZLG Power"
               ]
             }
-          ]
+          ],
+          "name": "AC-DC Power Supplies LH-25W"
         },
         {
           "partNumber": "LHE-60W",
@@ -885,7 +895,10 @@
             "Power Factor": ">0.95",
             "Efficiency": "Up to 90%",
             "Operating Temperature": "-30C to +70C",
-            "Package": "Open Frame"
+            "Package": "Open Frame",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
           },
           "faeReview": {
             "author": "David Wang",
@@ -903,12 +916,7 @@
                 "efficiency": "86%",
                 "package": "Open Frame"
               },
-              "comparison": {
-                "voltage": "85-264V AC = 85-264V AC",
-                "power": "60W = 60W",
-                "efficiency": "86% < 90%",
-                "package": "Open Frame = Open Frame"
-              },
+              "comparison": "LHE-60W=><LH-60W: Efficiency 86% < 90%, Package Open Frame = Open Frame, suitable for direct replacement",
               "reason": "Lower cost alternative without PFC for non-critical applications",
               "useCase": "Cost-sensitive applications without harmonic requirements",
               "link": "/zlg-power/products/ac-dc-power/lh-60w.html"
@@ -922,12 +930,7 @@
                 "efficiency": "91%",
                 "package": "Open Frame"
               },
-              "comparison": {
-                "voltage": "85-264V AC = 85-264V AC",
-                "power": "100W > 60W (+67%)",
-                "efficiency": "91% > 90%",
-                "package": "Open Frame = Open Frame"
-              },
+              "comparison": "LHE-60W=><LHE-100W: Efficiency 91% > 90%, Package Open Frame = Open Frame, suitable for direct replacement",
               "reason": "Higher power with even better efficiency for larger applications",
               "useCase": "Upgrade for 80-100W applications",
               "link": "/zlg-power/products/ac-dc-power/lhe-100w.html"
@@ -1012,7 +1015,8 @@
                 "ZLG Power"
               ]
             }
-          ]
+          ],
+          "name": "AC-DC Power Supplies LHE-60W"
         }
       ]
     },
@@ -1044,7 +1048,11 @@
         "Output Voltage",
         "Output Current",
         "Efficiency",
-        "Package"
+        "Switching Frequency",
+        "Operating Temperature",
+        "Voltage Rating",
+        "Current Rating",
+        "Temperature Range"
       ],
       "selectionGuide": {
         "title": "How to Select ZLG Power POL Converters",
@@ -1162,7 +1170,10 @@
             "Efficiency": "Up to 95%",
             "Switching Frequency": "500kHz",
             "Operating Temperature": "-40C to +85C",
-            "Package": "SMD"
+            "Package": "SMD",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
           },
           "faeReview": {
             "author": "Michael Chen",
@@ -1181,13 +1192,7 @@
                 "efficiency": "96%",
                 "package": "DIP"
               },
-              "comparison": {
-                "voltage": "Same options = Same options (similar)",
-                "output": "Same range = Same range (similar)",
-                "current": "10A = 10A",
-                "efficiency": "96% > 95%",
-                "package": "DIP = SMD (different)"
-              },
+              "comparison": "KWS-10A=><KWT-10A: Output current 10A = 10A, Efficiency 96% > 95%, Package DIP = SMD (different), suitable for direct replacement",
               "reason": "Higher efficiency alternative in DIP package",
               "useCase": "Applications preferring through-hole package",
               "link": "/zlg-power/products/non-isolated-pol/kwt-10a.html"
@@ -1202,13 +1207,7 @@
                 "efficiency": "96%",
                 "package": "SMD"
               },
-              "comparison": {
-                "voltage": "Same options = Same options (similar)",
-                "output": "Same range = Same range (similar)",
-                "current": "20A > 10A (+100%)",
-                "efficiency": "96% > 95%",
-                "package": "SMD = SMD"
-              },
+              "comparison": "KWS-10A=><KWS-20A: Output current 20A > 10A (+100%), Efficiency 96% > 95%, Package SMD = SMD, suitable for direct replacement",
               "reason": "Double current capability for higher power processors",
               "useCase": "Upgrade for processors requiring >10A",
               "link": "/zlg-power/products/non-isolated-pol/kws-20a.html"
@@ -1293,7 +1292,8 @@
                 "ZLG Power"
               ]
             }
-          ]
+          ],
+          "name": "Non-isolated POL Converters KWS-10A"
         },
         {
           "partNumber": "KWT-20A",
@@ -1338,7 +1338,10 @@
             "Efficiency": "Up to 96%",
             "Switching Frequency": "500kHz",
             "Operating Temperature": "-40C to +85C",
-            "Package": "DIP"
+            "Package": "DIP",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
           },
           "faeReview": {
             "author": "David Wang",
@@ -1357,13 +1360,7 @@
                 "efficiency": "96%",
                 "package": "SMD"
               },
-              "comparison": {
-                "voltage": "Same options = Same options (similar)",
-                "output": "Same range = Same range (similar)",
-                "current": "20A = 20A",
-                "efficiency": "96% = 96%",
-                "package": "SMD = DIP (different)"
-              },
+              "comparison": "KWT-20A=><KWS-20A: Output current 20A = 20A, Efficiency 96% = 96%, Package SMD = DIP (different), suitable for direct replacement",
               "reason": "SMD alternative for space-constrained applications",
               "useCase": "Applications preferring surface mount",
               "link": "/zlg-power/products/non-isolated-pol/kws-20a.html"
@@ -1378,13 +1375,7 @@
                 "efficiency": "96%",
                 "package": "DIP"
               },
-              "comparison": {
-                "voltage": "Same options = Same options (similar)",
-                "output": "Same range = Same range (similar)",
-                "current": "30A > 20A (+50%)",
-                "efficiency": "96% = 96%",
-                "package": "DIP = DIP"
-              },
+              "comparison": "KWT-20A=><KWT-30A: Output current 30A > 20A (+50%), Efficiency 96% = 96%, Package DIP = DIP, suitable for direct replacement",
               "reason": "Higher current for AI accelerators and GPUs",
               "useCase": "Upgrade for 25-30A processor applications",
               "link": "/zlg-power/products/non-isolated-pol/kwt-30a.html"
@@ -1469,7 +1460,8 @@
                 "ZLG Power"
               ]
             }
-          ]
+          ],
+          "name": "Non-isolated POL Converters KWT-20A"
         }
       ]
     },
@@ -1495,11 +1487,16 @@
         }
       ],
       "parameters": [
-        "Power Range",
-        "Input/Output Voltage",
+        "Input Voltage",
+        "Output Voltage",
+        "Output Power",
         "Isolation",
-        "Package",
-        "Environmental"
+        "Efficiency",
+        "Operating Temperature",
+        "Safety",
+        "Voltage Rating",
+        "Current Rating",
+        "Temperature Range"
       ],
       "selectionGuide": {
         "title": "Custom Power Module Design Process",
@@ -1617,7 +1614,11 @@
             "Output Power": "Customer Specified",
             "Isolation": "Customer Specified",
             "Efficiency": "Customer Specified",
-            "Operating Temperature": "Customer Specified"
+            "Operating Temperature": "Customer Specified",
+            "Safety": "N/A",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
           },
           "faeReview": {
             "author": "Senior Engineering Team",
@@ -1634,11 +1635,7 @@
                 "current": "Standard",
                 "package": "Standard"
               },
-              "comparison": {
-                "voltage": "Wide Range = Wide Range (similar)",
-                "current": "Standard = Standard (similar)",
-                "package": "Standard = Standard (same)"
-              },
+              "comparison": "CUSTOM-DC-100W=><ALT-DC-100W: Output current Standard = Standard (similar), Package Standard = Standard (same), suitable for direct replacement",
               "reason": "Alternative configuration with similar electrical characteristics",
               "useCase": "Suitable for applications requiring equivalent performance",
               "link": "#"
@@ -1651,11 +1648,7 @@
                 "current": "Enhanced",
                 "package": "Standard"
               },
-              "comparison": {
-                "voltage": "Wide Range = Wide Range (similar)",
-                "current": "Enhanced > Standard (+20%)",
-                "package": "Standard = Standard (same)"
-              },
+              "comparison": "CUSTOM-DC-100W=><CUSTOM-DC-100W-H: Output current Enhanced > Standard (+20%), Package Standard = Standard (same), suitable for direct replacement",
               "reason": "Higher current rating for demanding applications",
               "useCase": "Recommended for systems with higher power requirements",
               "link": "#"
@@ -1735,7 +1728,8 @@
                 "ZLG Power"
               ]
             }
-          ]
+          ],
+          "name": "Custom Power Solutions CUSTOM-DC-100W"
         },
         {
           "partNumber": "CUSTOM-AC-300W",
@@ -1779,7 +1773,11 @@
             "Output Power": "Customer Specified",
             "Efficiency": "Customer Specified",
             "Safety": "Customer Specified",
-            "Operating Temperature": "Customer Specified"
+            "Operating Temperature": "Customer Specified",
+            "Isolation": "N/A",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
           },
           "faeReview": {
             "author": "Senior Engineering Team",
@@ -1796,11 +1794,7 @@
                 "current": "Standard",
                 "package": "Standard"
               },
-              "comparison": {
-                "voltage": "Wide Range = Wide Range (similar)",
-                "current": "Standard = Standard (similar)",
-                "package": "Standard = Standard (same)"
-              },
+              "comparison": "CUSTOM-AC-300W=><ALT-AC-300W: Output current Standard = Standard (similar), Package Standard = Standard (same), suitable for direct replacement",
               "reason": "Alternative configuration with similar electrical characteristics",
               "useCase": "Suitable for applications requiring equivalent performance",
               "link": "#"
@@ -1813,11 +1807,7 @@
                 "current": "Enhanced",
                 "package": "Standard"
               },
-              "comparison": {
-                "voltage": "Wide Range = Wide Range (similar)",
-                "current": "Enhanced > Standard (+20%)",
-                "package": "Standard = Standard (same)"
-              },
+              "comparison": "CUSTOM-AC-300W=><CUSTOM-AC-300W-H: Output current Enhanced > Standard (+20%), Package Standard = Standard (same), suitable for direct replacement",
               "reason": "Higher current rating for demanding applications",
               "useCase": "Recommended for systems with higher power requirements",
               "link": "#"
@@ -1898,7 +1888,8 @@
                 "ZLG Power"
               ]
             }
-          ]
+          ],
+          "name": "Custom Power Solutions CUSTOM-AC-300W"
         }
       ]
     }

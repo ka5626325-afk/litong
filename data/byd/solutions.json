@@ -1,305 +1,623 @@
 {
   "solutions": [
     {
-      "id": "solution-1",
-      "name": "新能源汽车电控系统方案",
-      "title": "新能源汽车电控系统方案",
-      "description": "BYD IGBT SiCPower Solution,  ,  Pool .",
-      "image": "/images/solutions/ev-control-system.jpg",
+      "id": "ev-motor-drive",
+      "name": "New Energy Vehicle Motor Drive Solution",
+      "title": "New Energy Vehicle Motor Drive Solution - BYD IGBT/SiC Power Modules",
+      "description": "New energy vehicle motor drive system solution based on BYD IGBT and SiC MOSFET power modules, covering 400V/800V platforms, supporting 75kW-200kW power levels.",
+      "image": "/images/solutions/ev-motor-drive.jpg",
       "applications": [
-        "纯电动汽车",
-        "Force",
-        "商用车",
-        "特种车辆"
+        "Battery Electric Vehicles (BEV)",
+        "Plug-in Hybrid Electric Vehicles (PHEV)",
+        "Commercial Vehicle Electric Drive Systems",
+        "Electric Forklifts/Special Vehicles"
       ],
-      "technicalSpecs": [
-        {
-          "label": "Voltage",
-          "value": "400V/800V"
-        },
-        {
-          "label": "Power",
-          "value": "150kW"
-        },
-        {
-          "label": "Efficiency",
-          "value": "≥98%"
-        },
-        {
-          "label": "Temperature",
-          "value": "-40°C ~ +85°C"
-        },
-        {
-          "label": "防护等级",
-          "value": "IP67"
-        },
-        {
-          "label": "EMC",
-          "value": "Class 5"
-        }
-      ],
+      "technicalSpecs": {
+        "Voltage Platform": "400V/800V",
+        "Power Range": "75kW-200kW",
+        "Peak Efficiency": "≥98.5%",
+        "Switching Frequency": "10-20kHz(IGBT)/50-100kHz(SiC)",
+        "Operating Temperature": "-40°C ~ +85°C",
+        "Protection Class": "IP67"
+      },
       "bomList": [
         {
-          "partNumber": "BYD-IGBT-1200V-100A",
-          "description": "IGBTPower",
+          "partNumber": "BG300F08A13L5",
+          "description": "750V 300A IGBT module for 400V platform main drive",
           "quantity": "6"
         },
         {
-          "partNumber": "BYD-SiC-1200V-80mΩ",
-          "description": "SiC MOSFET",
-          "quantity": "12"
+          "partNumber": "BG150G12F13L4",
+          "description": "1200V 150A IGBT module for 800V platform main drive",
+          "quantity": "6"
         },
         {
-          "partNumber": "BYD-BMS-16S",
-          "description": "Pool IC",
-          "quantity": "1"
+          "partNumber": "BM600F12B34U2",
+          "description": "1200V 400A SiC module for high-performance 800V systems",
+          "quantity": "6"
         },
         {
-          "partNumber": "BYD-VCU-400V",
-          "description": "整车控制器",
-          "quantity": "1"
+          "partNumber": "BG400F08A13L5",
+          "description": "750V 400A IGBT module for high-power commercial vehicle main drive",
+          "quantity": "6"
         }
       ],
       "coreAdvantages": [
         {
-          "title": "Performance",
-          "description": "Optimized for best performance"
+          "title": "High Efficiency",
+          "description": "IGBT solution efficiency ≥98%, SiC solution efficiency ≥98.5%, reducing energy consumption and extending driving range"
         },
         {
-          "title": "Reliability",
-          "description": "Designed for long-term operation"
+          "title": "Automotive Grade Reliability",
+          "description": "All power modules are AEC-Q101 qualified, meeting ISO 26262 functional safety requirements"
         },
         {
-          "title": "Support",
-          "description": "Full technical support provided"
+          "title": "Full Platform Coverage",
+          "description": "Products cover 400V and 800V voltage platforms, supporting passenger vehicles to commercial vehicles"
         },
         {
-          "title": "Integration",
-          "description": "Easy system integration"
+          "title": "Technical Support",
+          "description": "Complete gate drive design, thermal management solutions, and EMC optimization guidance"
         },
         {
-          "title": "Quality",
-          "description": "High-quality components"
+          "title": "Mass Production Verified",
+          "description": "Large-scale mass production verification in BYD's own vehicles, reliable quality"
         }
       ],
       "faqs": [
         {
-          "question": "Support Type ?",
-          "answer": ",  ,  Force . Support400V 800V Voltage ,  Customer Customize Power Solution."
+          "question": "How to select power modules for 400V and 800V platforms?",
+          "answer": "For 400V platforms, we recommend 750V IGBT modules (such as BG300F08A13L5) to provide sufficient voltage margin. For 800V platforms, we recommend 1200V modules, with options for IGBT (BG150G12F13L4) or SiC (BM600F12B34U2). SiC offers higher efficiency but at a higher cost, while IGBT provides better cost-effectiveness.",
+          "decisionGuide": "Contact our FAE team for module selection based on your power level, efficiency requirements, and cost budget.",
+          "keywords": [
+            "400V platform",
+            "800V platform",
+            "IGBT selection",
+            "SiC selection"
+          ]
         },
         {
-          "question": "SiC IGBTYes Advantage?",
-          "answer": "SiC MOSFET Yes Resistance ,  Efficiency 3-5%, Support Frequency,  Volume 30-40%,  Requirement ."
+          "question": "What are the main differences between IGBT and SiC solutions?",
+          "answer": "Main differences: (1) Efficiency: SiC is 0.5-1% higher. (2) Switching frequency: SiC supports 50-100kHz, IGBT is suitable for 10-20kHz. (3) System size: SiC reduces volume by 30-40%. (4) Cost: SiC has higher module cost. We recommend SiC for high-efficiency, high-power-density applications, and IGBT for cost-sensitive applications.",
+          "decisionGuide": "Evaluate the balance between efficiency gains and cost increase. Our FAE can provide ROI analysis.",
+          "keywords": [
+            "IGBT vs SiC",
+            "solution comparison",
+            "efficiency",
+            "cost"
+          ]
         },
         {
-          "question": "Secure Yes ?",
-          "answer": "ISO 26262StandardDesign,  ASIL-D Secure Requirement.  , SecureMonitoring Design,  Secure ."
+          "question": "How to design thermal management for power modules?",
+          "answer": "Thermal management design points: (1) Heatsink thermal resistance <0.15K/W (IGBT) or <0.10K/W (SiC). (2) Phase change materials or high-performance thermal grease recommended. (3) Liquid cooling for high-power continuous operation. (4) Thermal simulation for worst-case verification. We provide thermal simulation models and design guidance.",
+          "decisionGuide": "Provide your cooling conditions and operating requirements, our FAE can perform thermal calculations and heatsink selection.",
+          "keywords": [
+            "thermal management",
+            "heatsink",
+            "thermal resistance",
+            "liquid cooling"
+          ]
         },
         {
-          "question": "YesNo Software Support?",
-          "answer": "Yes ,  Software (SDK),  Driver, AUTOSARArchitectureSupport, Application Algorithm Tool.  Technology SupportService."
+          "question": "How to design gate drive circuits?",
+          "answer": "Gate drive design: (1) IGBT: +15V/-8V, gate resistor 5-15Ω. (2) SiC: +18V/-4V, gate resistor 2-8Ω. (3) Use isolated gate drivers with CMTI >100V/ns. (4) Gate loop inductance <10nH. (5) Active Miller clamp configuration. We provide recommended driver models and reference circuit designs.",
+          "decisionGuide": "Contact FAE for gate drive reference design and PCB layout guidelines.",
+          "keywords": [
+            "gate drive",
+            "driver circuit",
+            "IGBT driver",
+            "SiC driver"
+          ]
         },
         {
-          "question": "PeriodYes ?",
-          "answer": "Standard Period 8-12 ,  HardwareDesign, Software Verification.  Customize ,  12-16 .  Service,  4 ."
+          "question": "Do you provide reference designs and evaluation boards?",
+          "answer": "Yes, we provide complete reference designs: (1) 75kW/400V reference design (based on BG300F08A13L5). (2) 150kW/800V reference design (based on BG150G12F13L4). (3) 200kW high-performance reference design (based on BM600F12B34U2). Includes schematics, BOM, PCB files, and control software.",
+          "decisionGuide": "Contact sales for evaluation boards and reference design materials.",
+          "keywords": [
+            "reference design",
+            "evaluation board",
+            "demo board"
+          ]
         },
         {
-          "question": "Technical Support?",
-          "answer": "Customer FAEEngineering , Technical Support ,  Technical Support.  ,  Engineering Support."
+          "question": "What is the development cycle and technical support?",
+          "answer": "Development cycle: (1) Evaluation phase: 2-4 weeks (using evaluation boards). (2) Prototype design: 4-8 weeks. (3) Testing and verification: 4-6 weeks. Technical support: (1) FAE on-site support. (2) Online technical support. (3) Thermal simulation and EMC analysis. (4) Failure analysis support.",
+          "decisionGuide": "Provide your project schedule, we will develop a supporting technical support plan.",
+          "keywords": [
+            "development cycle",
+            "technical support",
+            "FAE support"
+          ]
         }
       ],
-      "slug": "solution-1",
-      "longDescription": "BYD IGBT SiCPower Solution,  ,  Pool . This solution provides comprehensive support and guidance for your application needs.",
+      "slug": "ev-motor-drive",
+      "longDescription": "The New Energy Vehicle Motor Drive Solution from byd represents a comprehensive approach to addressing modern challenges in Industrial. This solution integrates advanced semiconductor technology with robust design methodologies to deliver exceptional performance and reliability.\n\nAt the core of this solution is a carefully selected portfolio of byd components optimized for the target application. The design leverages the latest advances in power management, signal processing, and thermal management to achieve industry-leading efficiency and performance metrics.\n\nKey technical features include high-efficiency power conversion, precise control algorithms, and comprehensive protection mechanisms. The solution supports wide operating ranges and maintains performance across varying environmental conditions. Advanced monitoring and diagnostic capabilities enable predictive maintenance and optimize system uptime.\n\nImplementation is streamlined through comprehensive design support including reference designs, simulation models, and detailed application notes. BeiLuo's FAE team provides expert guidance throughout the development cycle from concept through production. Customization options are available to address specific application requirements.\n\nThe solution has been validated through extensive testing including functional verification, environmental stress screening, and long-term reliability assessment. Field deployment data demonstrates consistent performance and high customer satisfaction across diverse applications and operating conditions.",
       "benefits": [
-        "High performance and reliability",
-        "Comprehensive technical support",
-        "Easy integration and deployment",
-        "Cost-effective solution"
+        "High efficiency: IGBT ≥98%, SiC ≥98.5%, improving driving range",
+        "High reliability: AEC-Q101 certified, automotive grade quality",
+        "Full series coverage: From 75kW to 200kW, passenger to commercial vehicles",
+        "Complete support: Reference designs, thermal simulation, and FAE technical support",
+        "Mass production verified: Large-scale application verification in BYD's own vehicles"
       ],
       "customerCases": [
         {
-          "customer": "Industrial Customer",
-          "industry": "Industrial",
-          "challenge": "Needed reliable solution",
-          "solution": "Implemented our solution",
-          "results": "Achieved expected performance"
+          "customer": "Major New Energy Vehicle OEM",
+          "industry": "New Energy Vehicles",
+          "challenge": "Developing 150kW/800V electric drive system requiring high efficiency and reliability",
+          "solution": "Adopted BG150G12F13L4 IGBT module with optimized gate drive and thermal management design",
+          "results": "System efficiency reached 98.2%, passed all automotive tests, now in mass production",
+          "result": "Achieved significant performance improvement and cost reduction with enhanced reliability."
         },
         {
-          "customer": "Commercial Customer",
-          "industry": "Commercial",
-          "challenge": "Cost-sensitive application",
-          "solution": "Optimized solution design",
-          "results": "Met cost targets"
+          "customer": "Commercial Vehicle Manufacturer",
+          "industry": "Commercial Vehicles",
+          "challenge": "Developing 200kW/400V commercial vehicle electric drive requiring high power and overload capability",
+          "solution": "Adopted BG400F08A13L5 high-current IGBT module with liquid cooling system design",
+          "results": "Peak power 220kW, continuous power 200kW, meeting commercial vehicle heavy-load requirements",
+          "result": "Achieved significant performance improvement and cost reduction with enhanced reliability."
         }
       ],
       "faeInsights": {
-        "author": "FAE Team",
-        "content": "This solution provides excellent performance for target applications.",
+        "author": {
+          "name": "Senior FAE",
+          "title": "Applications Engineer",
+          "experience": "10+ years"
+        },
+        "content": "In new energy vehicle motor drive applications, the performance and reliability of BYD power modules have been fully verified. Key design points: (1) Select 750V or 1200V modules based on voltage platform. (2) Thermal design must have sufficient margin, especially for continuous high-power operation. (3) Gate drive design must be standardized to avoid false turn-on. (4) PCB layout must minimize parasitic inductance. Our team has extensive experience in electric drive system design and can provide full technical support to customers.",
         "keyTakeaways": [
-          "Follow design guidelines",
-          "Consider environmental factors"
-        ]
+          "Select appropriate power module specifications based on voltage platform",
+          "Thermal design must fully consider continuous operation and worst-case scenarios",
+          "Gate drive and PCB layout are critical for reliability",
+          "Make full use of FAE resources to reduce development risks"
+        ],
+        "decisionFramework": {
+          "steps": [
+            "Determine voltage platform (400V or 800V)",
+            "Calculate power requirements and select module current rating",
+            "Design thermal management system with adequate margin",
+            "Design gate drive circuit with proper protection",
+            "Optimize PCB layout for minimal parasitic inductance"
+          ],
+          "matrix": {
+            "75-150kW/400V": "BG300F08A13L5 (IGBT)",
+            "150-200kW/400V": "BG400F08A13L5 (IGBT)",
+            "100-150kW/800V": "BG150G12F13L4 (IGBT)",
+            "150-200kW/800V": "BM600F12B34U2 (SiC)"
+          }
+        }
       }
     },
     {
-      "id": "solution-2",
-      "name": "智能照明控制系统方案",
-      "title": "智能照明控制系统方案",
-      "description": "BYD PowerLED ,  ,  Scenario.",
-      "image": "/images/solutions/smart-lighting.jpg",
+      "id": "ev-charging",
+      "name": "Electric Vehicle Charging Station Solution",
+      "title": "Electric Vehicle Charging Station Solution - BYD SiC High-Efficiency Fast Charging",
+      "description": "Electric vehicle DC fast charging solution based on BYD SiC MOSFET modules, supporting 30kW-350kW power levels, achieving high-efficiency, high-power-density charging systems.",
+      "image": "/images/solutions/ev-charging.jpg",
       "applications": [
-        "商业照明",
-        "工业照明",
-        "智能家居",
-        "Total"
+        "Public DC Fast Charging Stations",
+        "Commercial Charging Stations",
+        "Highway Charging Networks",
+        "Fleet Charging Facilities"
       ],
-      "technicalSpecs": [
-        {
-          "label": "InputVoltage",
-          "value": "AC 85-265V"
-        },
-        {
-          "label": "LEDPower",
-          "value": "3W-100W"
-        },
-        {
-          "label": "光效",
-          "value": "≥130lm/W"
-        },
-        {
-          "label": "Scope",
-          "value": "2700K-6500K"
-        },
-        {
-          "label": "Scope",
-          "value": "1%-100%"
-        },
-        {
-          "label": "Protocol",
-          "value": "Zigbee/WiFi/BLE"
-        }
-      ],
+      "technicalSpecs": {
+        "Power Level": "30kW-350kW",
+        "Output Voltage": "200V-1000V",
+        "Peak Efficiency": "≥99%",
+        "Switching Frequency": "50-100kHz",
+        "Power Density": "≥3kW/L",
+        "Cooling Method": "Forced Air/Liquid"
+      },
       "bomList": [
         {
-          "partNumber": "BYD-LED-3W-White",
-          "description": "PowerLED",
-          "quantity": "12"
+          "partNumber": "BM300F12B34U2",
+          "description": "1200V 300A SiC module for 30-60kW charging stations",
+          "quantity": "6"
         },
         {
-          "partNumber": "BYD-OPT-Slot-5mm",
-          "description": "槽型光电传感器",
-          "quantity": "2"
+          "partNumber": "BM600F12B34U2",
+          "description": "1200V 400A SiC module for 60-120kW charging stations",
+          "quantity": "6"
         },
         {
-          "partNumber": "BYD-WIFI-MOD-ESP",
-          "description": "WiFi",
-          "quantity": "1"
+          "partNumber": "BM840F12B34U2",
+          "description": "1200V 500A SiC module for 120-180kW fast charging",
+          "quantity": "6"
+        },
+        {
+          "partNumber": "BM950F12B34U2",
+          "description": "1200V 550A SiC module for 180-350kW ultra-fast charging",
+          "quantity": "6"
         }
       ],
       "coreAdvantages": [
         {
-          "title": "Performance",
-          "description": "Optimized for best performance"
+          "title": "Ultra-High Efficiency",
+          "description": "SiC technology achieves ≥99% peak efficiency, 1-2% higher than IGBT solutions, significantly reducing operating costs"
         },
         {
-          "title": "Reliability",
-          "description": "Designed for long-term operation"
+          "title": "High Power Density",
+          "description": "High-frequency switching achieves 3kW/L+ power density, reducing charging station footprint"
         },
         {
-          "title": "Support",
-          "description": "Full technical support provided"
+          "title": "Wide Voltage Output",
+          "description": "Supports 200V-1000V wide range output, compatible with various electric vehicles"
         },
         {
-          "title": "Integration",
-          "description": "Easy system integration"
+          "title": "Modular Design",
+          "description": "30kW standard power modules, flexible paralleling for different power levels"
         },
         {
-          "title": "Quality",
-          "description": "High-quality components"
+          "title": "Complete Certification",
+          "description": "Compliant with national, European, and American charging standards, supporting CCS/CHAdeMO/GB/T"
         }
       ],
       "faqs": [
         {
-          "question": "ApplicationScenario?",
-          "answer": ",  ,  ,  ,  Scenario.  ApplicationScenarioCustomize ,  ."
+          "question": "How to select SiC modules for different power level charging stations?",
+          "answer": "Power level and module selection: (1) 30-60kW: BM300F12B34U2. (2) 60-120kW: BM600F12B34U2. (3) 120-180kW: BM840F12B34U2. (4) 180-350kW: BM950F12B34U2. Multi-module paralleling is also possible, such as 2x BM600 for 240kW.",
+          "decisionGuide": "Contact FAE for optimal selection based on target power level and cost budget.",
+          "keywords": [
+            "charging station selection",
+            "SiC module",
+            "power level"
+          ]
         },
         {
-          "question": "Implementation ?",
-          "answer": ",  Environment Implementation . SupportZigbee, WiFi, Bluetooth Protocol,  ."
+          "question": "What are the advantages of SiC charging stations compared to IGBT?",
+          "answer": "SiC charging station advantages: (1) Higher efficiency: 99% vs 97%, saving approximately $5000/year in electricity for a single 120kW charger. (2) 3x higher power density, saving footprint. (3) Supports higher switching frequency, reducing magnetic component size. (4) Lower cooling requirements. (5) Lower cooling costs.",
+          "decisionGuide": "Calculate TCO (Total Cost of Ownership). SiC solutions typically recover the cost premium within 2-3 years.",
+          "keywords": [
+            "SiC advantages",
+            "charging station efficiency",
+            "TCO analysis"
+          ]
         },
         {
-          "question": "LED LifetimeYes ?",
-          "answer": "BYD LED ,  items L70Lifetime 50000 .  Design Driver,  ."
+          "question": "How to design thermal management for charging stations?",
+          "answer": "Thermal management solutions: (1) 30-60kW: Forced air cooling, heatsink thermal resistance <0.15K/W. (2) 60-120kW: Enhanced air cooling or liquid cooling. (3) 120kW+: Liquid cooling recommended, heatsink thermal resistance <0.08K/W. SiC has lower losses, cooling requirements are 30-40% lower than IGBT.",
+          "decisionGuide": "Provide power level and environmental conditions, FAE can perform thermal simulation and heatsink design.",
+          "keywords": [
+            "thermal management",
+            "liquid cooling",
+            "air cooling",
+            "heatsink design"
+          ]
         },
         {
-          "question": "YesNoSupport ?",
-          "answer": "Yes , Support1-100%None ,  2700K-6500K .  APP Scenario ,  ,  ,  ."
+          "question": "Is V2G (Vehicle-to-Grid) functionality supported?",
+          "answer": "Yes, SiC module-based topology supports bidirectional power flow for V2G functionality. Requires bidirectional control algorithms and grid interface design. We provide bidirectional charging station reference designs supporting grid-connected and off-grid modes.",
+          "decisionGuide": "V2G applications require additional grid certification. Contact FAE for detailed design solutions.",
+          "keywords": [
+            "V2G",
+            "bidirectional charging",
+            "vehicle-to-grid"
+          ]
         },
         {
-          "question": "Configure ?",
-          "answer": "Design ,  Modular ,  . Configure APP ,  ,  10min Configure.  Guide Tutorial."
+          "question": "What are the EMC design considerations for charging stations?",
+          "answer": "EMC design points: (1) SiC's high dv/dt requires special attention to EMI suppression. (2) Use shielded gate drive and common-mode filtering. (3) Proper PCB layout and grounding design. (4) Input/output filter design. We provide EMC optimization guidance and pre-testing support.",
+          "decisionGuide": "EMC issues can be prevented at the design stage. Early design review with FAE is recommended.",
+          "keywords": [
+            "EMC design",
+            "EMI suppression",
+            "dv/dt"
+          ]
+        },
+        {
+          "question": "Do you provide complete charging station solutions?",
+          "answer": "We provide power module-level solutions including: (1) Power modules and drivers. (2) Power unit reference designs (30kW modules). (3) Control algorithms and communication protocol stacks. (4) Complete system integration guidance. Customers can quickly develop their own brand charging stations based on this.",
+          "decisionGuide": "Contact sales for charging station power unit reference design materials.",
+          "keywords": [
+            "complete solution",
+            "power unit",
+            "reference design"
+          ]
         }
       ],
-      "slug": "solution-2",
-      "longDescription": "BYD PowerLED ,  ,  Scenario. This solution provides comprehensive support and guidance for your application needs.",
+      "slug": "ev-charging",
+      "longDescription": "The Electric Vehicle Charging Station Solution from byd represents a comprehensive approach to addressing modern challenges in Industrial. This solution integrates advanced semiconductor technology with robust design methodologies to deliver exceptional performance and reliability.\n\nAt the core of this solution is a carefully selected portfolio of byd components optimized for the target application. The design leverages the latest advances in power management, signal processing, and thermal management to achieve industry-leading efficiency and performance metrics.\n\nKey technical features include high-efficiency power conversion, precise control algorithms, and comprehensive protection mechanisms. The solution supports wide operating ranges and maintains performance across varying environmental conditions. Advanced monitoring and diagnostic capabilities enable predictive maintenance and optimize system uptime.\n\nImplementation is streamlined through comprehensive design support including reference designs, simulation models, and detailed application notes. BeiLuo's FAE team provides expert guidance throughout the development cycle from concept through production. Customization options are available to address specific application requirements.\n\nThe solution has been validated through extensive testing including functional verification, environmental stress screening, and long-term reliability assessment. Field deployment data demonstrates consistent performance and high customer satisfaction across diverse applications and operating conditions.",
       "benefits": [
-        "High performance and reliability",
-        "Comprehensive technical support",
-        "Easy integration and deployment",
-        "Cost-effective solution"
+        "Ultra-high efficiency: ≥99% peak efficiency, reducing operating costs",
+        "High power density: 3kW/L+, saving footprint",
+        "Wide voltage range: 200V-1000V, compatible with various vehicle types",
+        "Modular architecture: 30kW standard modules, flexible expansion",
+        "Complete support: Reference designs and EMC optimization guidance"
       ],
       "customerCases": [
         {
-          "customer": "Industrial Customer",
-          "industry": "Industrial",
-          "challenge": "Needed reliable solution",
-          "solution": "Implemented our solution",
-          "results": "Achieved expected performance"
+          "customer": "Major Charging Network Operator",
+          "industry": "Charging Infrastructure",
+          "challenge": "Building 120kW DC fast charging station requiring high efficiency to reduce operating costs",
+          "solution": "Adopted BM600F12B34U2 SiC module, designed high-efficiency charging module",
+          "results": "System efficiency reached 99.2%, power density 3.5kW/L, annual operating costs reduced by 15%",
+          "result": "Achieved significant performance improvement and cost reduction with enhanced reliability."
         },
         {
-          "customer": "Commercial Customer",
-          "industry": "Commercial",
-          "challenge": "Cost-sensitive application",
-          "solution": "Optimized solution design",
-          "results": "Met cost targets"
+          "customer": "Highway Service Area Operator",
+          "industry": "Charging Infrastructure",
+          "challenge": "Deploying 350kW ultra-fast charging requiring fast charging and compact design",
+          "solution": "Adopted BM950F12B34U2 high-power SiC module with liquid cooling design",
+          "results": "Peak power 350kW, 10-80% charging time <15 minutes, footprint reduced by 40%",
+          "result": "Achieved significant performance improvement and cost reduction with enhanced reliability."
         }
       ],
       "faeInsights": {
-        "author": "FAE Team",
-        "content": "This solution provides excellent performance for target applications.",
+        "author": {
+          "name": "Senior FAE",
+          "title": "Applications Engineer",
+          "experience": "10+ years"
+        },
+        "content": "The advantages of SiC technology in charging station applications are very significant. Key design experience: (1) Fully utilize SiC's high-frequency characteristics to reduce magnetic component size. (2) Pay attention to EMI issues caused by high dv/dt, ensure proper filtering and shielding. (3) Thermal design must have margin, especially for high-temperature summer environments. (4) Gate drive must be reliable, negative voltage turn-off is essential. Our reference designs have been fully verified and can help customers achieve fast time-to-market.",
         "keyTakeaways": [
-          "Follow design guidelines",
-          "Consider environmental factors"
-        ]
+          "SiC's high-frequency characteristics can significantly reduce system size",
+          "High dv/dt requires attention to EMC design",
+          "Thermal design must consider worst-case environmental conditions",
+          "Reference designs can accelerate product time-to-market"
+        ],
+        "decisionFramework": {
+          "steps": [
+            "Determine target power level and voltage range",
+            "Select appropriate SiC module based on current requirements",
+            "Design thermal management system (air or liquid cooling)",
+            "Design gate drive with proper protection features",
+            "Implement EMC filtering and shielding"
+          ],
+          "matrix": {
+            "30-60kW": "BM300F12B34U2",
+            "60-120kW": "BM600F12B34U2",
+            "120-180kW": "BM840F12B34U2",
+            "180-350kW": "BM950F12B34U2"
+          }
+        }
+      }
+    },
+    {
+      "id": "solar-inverter",
+      "name": "Solar Inverter Solution",
+      "title": "Solar Inverter Solution - BYD IGBT/SiC High-Efficiency Conversion",
+      "description": "Solar inverter solution based on BYD IGBT and SiC MOSFET, supporting string and central inverters, covering 3kW-250kW power levels, achieving high-efficiency photovoltaic power generation.",
+      "image": "/images/solutions/solar-inverter.jpg",
+      "applications": [
+        "Residential Solar Systems",
+        "Commercial and Industrial Distributed Solar",
+        "Large-Scale Ground-Mounted Power Plants",
+        "Energy Storage Inverters"
+      ],
+      "technicalSpecs": {
+        "Power Range": "3kW-250kW",
+        "Max Efficiency": "≥99%",
+        "MPPT Voltage Range": "200V-1500V",
+        "Switching Frequency": "16-100kHz",
+        "Power Factor": ">0.99",
+        "THDi": "<3%"
+      },
+      "bomList": [
+        {
+          "partNumber": "BG200I07N10H6",
+          "description": "650V 200A I-Type three-level module for 3-10kW residential inverters",
+          "quantity": "4"
+        },
+        {
+          "partNumber": "BG300F08A13L5",
+          "description": "750V 300A IGBT module for 10-50kW string inverters",
+          "quantity": "6"
+        },
+        {
+          "partNumber": "BG150G12F13L4",
+          "description": "1200V 150A IGBT module for 50-100kW inverters",
+          "quantity": "6"
+        },
+        {
+          "partNumber": "BM600F12B34U2",
+          "description": "1200V 400A SiC module for 100-250kW high-efficiency inverters",
+          "quantity": "6"
+        }
+      ],
+      "coreAdvantages": [
+        {
+          "title": "High Efficiency",
+          "description": "IGBT solution efficiency ≥98.5%, SiC solution efficiency ≥99%, maximizing power generation revenue"
+        },
+        {
+          "title": "Wide MPPT Range",
+          "description": "Supports 200V-1500V wide voltage range, adapting to various module configurations"
+        },
+        {
+          "title": "Three-Level Topology",
+          "description": "I-Type modules support three-level topology, reducing losses and EMI"
+        },
+        {
+          "title": "High Reliability",
+          "description": "Industrial and automotive grade products, 25+ year design life"
+        },
+        {
+          "title": "Complete Support",
+          "description": "MPPT algorithms, grid-tie control, and thermal design support"
+        }
+      ],
+      "faqs": [
+        {
+          "question": "How to select power modules for different power level solar inverters?",
+          "answer": "Selection recommendations: (1) 3-10kW residential: BG200I07N10H6 (three-level). (2) 10-50kW string: BG300F08A13L5. (3) 50-100kW: BG150G12F13L4. (4) 100-250kW: BM600F12B34U2 (SiC). Three-level topology is suitable for applications pursuing high efficiency.",
+          "decisionGuide": "Contact FAE for selection based on power level, efficiency targets, and cost budget.",
+          "keywords": [
+            "solar inverter",
+            "power module selection",
+            "three-level topology"
+          ]
+        },
+        {
+          "question": "What are the advantages of three-level topology compared to two-level?",
+          "answer": "Three-level topology advantages: (1) Switching losses reduced by 50%. (2) Better output voltage waveform quality, lower THD. (3) Reduced EMI, smaller filter size. (4) Efficiency improvement of 0.5-1%. BG200I07N10H6 is an I-Type module specifically designed for three-level topology.",
+          "decisionGuide": "High-efficiency requirements (>98.5%) recommend three-level topology.",
+          "keywords": [
+            "three-level topology",
+            "two-level",
+            "topology comparison"
+          ]
+        },
+        {
+          "question": "What are the special thermal design requirements for solar inverters?",
+          "answer": "Thermal design requirements: (1) Outdoor applications must consider ambient temperatures above 45°C. (2) High altitude areas have reduced cooling capacity. (3) Dust environments require sealed designs. (4) Recommended thermal resistance: IGBT <0.15K/W, SiC <0.10K/W. We provide thermal design guidance for outdoor applications.",
+          "decisionGuide": "Provide installation environment and altitude information, FAE can perform thermal simulation and design optimization.",
+          "keywords": [
+            "thermal design",
+            "outdoor application",
+            "high altitude",
+            "cooling"
+          ]
+        },
+        {
+          "question": "What is the value of SiC in solar inverters?",
+          "answer": "SiC value in solar: (1) Efficiency improvement of 0.5-1%, 25-year power generation increase of 2-4%. (2) Higher switching frequency, smaller magnetic components. (3) Fanless design becomes possible, improving reliability. (4) Particularly suitable for high-power and high-temperature environments.",
+          "decisionGuide": "Calculate ROI of SiC solution based on 25-year power generation revenue increase vs cost increase.",
+          "keywords": [
+            "SiC value",
+            "power generation revenue",
+            "ROI analysis"
+          ]
+        },
+        {
+          "question": "Do you provide MPPT and grid-tie control algorithm support?",
+          "answer": "Yes, we provide: (1) MPPT control algorithm reference code. (2) Grid synchronization and power control algorithms. (3) Anti-islanding protection implementation. (4) Grid adaptability design (low voltage ride-through, etc.). Helping customers quickly complete control software development.",
+          "decisionGuide": "Contact FAE for control algorithm reference code and technical documentation.",
+          "keywords": [
+            "MPPT algorithm",
+            "grid-tie control",
+            "control software"
+          ]
+        },
+        {
+          "question": "Are the same power modules applicable to energy storage inverters?",
+          "answer": "Yes, power modules are also applicable to energy storage inverters. Energy storage application characteristics: (1) Requires bidirectional power flow. (2) Frequent charge/discharge cycles, high reliability requirements. (3) SiC's high efficiency and long life are particularly suitable for energy storage. We provide energy storage inverter reference designs.",
+          "decisionGuide": "Energy storage applications require bidirectional control and battery management. Contact FAE for energy storage solutions.",
+          "keywords": [
+            "energy storage inverter",
+            "bidirectional conversion",
+            "PCS"
+          ]
+        }
+      ],
+      "slug": "solar-inverter",
+      "longDescription": "The Solar Inverter Solution from byd represents a comprehensive approach to addressing modern challenges in Industrial. This solution integrates advanced semiconductor technology with robust design methodologies to deliver exceptional performance and reliability.\n\nAt the core of this solution is a carefully selected portfolio of byd components optimized for the target application. The design leverages the latest advances in power management, signal processing, and thermal management to achieve industry-leading efficiency and performance metrics.\n\nKey technical features include high-efficiency power conversion, precise control algorithms, and comprehensive protection mechanisms. The solution supports wide operating ranges and maintains performance across varying environmental conditions. Advanced monitoring and diagnostic capabilities enable predictive maintenance and optimize system uptime.\n\nImplementation is streamlined through comprehensive design support including reference designs, simulation models, and detailed application notes. BeiLuo's FAE team provides expert guidance throughout the development cycle from concept through production. Customization options are available to address specific application requirements.\n\nThe solution has been validated through extensive testing including functional verification, environmental stress screening, and long-term reliability assessment. Field deployment data demonstrates consistent performance and high customer satisfaction across diverse applications and operating conditions.",
+      "benefits": [
+        "High efficiency: IGBT ≥98.5%, SiC ≥99%, maximizing power generation revenue",
+        "Wide MPPT range: 200V-1500V, adapting to various modules",
+        "Three-level topology: Reducing losses and EMI, improving efficiency",
+        "Long life design: 25+ year design life",
+        "Complete support: Control algorithms and thermal design guidance"
+      ],
+      "customerCases": [
+        {
+          "customer": "Solar Inverter Manufacturer",
+          "industry": "Solar Energy",
+          "challenge": "Developing 50kW string inverter requiring high efficiency and low cost",
+          "solution": "Adopted BG300F08A13L5 IGBT module with two-level topology design",
+          "results": "Maximum efficiency 98.7%, China efficiency 98.4%, cost reduced by 20%",
+          "result": "Achieved significant performance improvement and cost reduction with enhanced reliability."
+        },
+        {
+          "customer": "Large-Scale Power Plant Developer",
+          "industry": "Solar Energy",
+          "challenge": "250kW central inverter pursuing maximum power generation efficiency",
+          "solution": "Adopted BM600F12B34U2 SiC module with three-level topology",
+          "results": "Maximum efficiency 99.1%, 25-year power generation revenue increased by 3%",
+          "result": "Achieved significant performance improvement and cost reduction with enhanced reliability."
+        }
+      ],
+      "faeInsights": {
+        "author": {
+          "name": "Senior FAE",
+          "title": "Applications Engineer",
+          "experience": "10+ years"
+        },
+        "content": "Solar inverter applications have extremely high requirements for efficiency and reliability. Key design experience: (1) Three-level topology has significant advantages in medium-to-high-power applications and is worth considering. (2) Thermal design must fully consider harsh outdoor environments. (3) MPPT algorithm efficiency directly affects power generation revenue and requires careful optimization. (4) Grid-tie control must meet various national grid standards. Our reference designs have been verified in multiple projects and can help customers quickly develop efficient inverters.",
+        "keyTakeaways": [
+          "Three-level topology can significantly improve efficiency and reduce EMI",
+          "Outdoor thermal design must consider high temperature and dust environments",
+          "MPPT and grid-tie control algorithms require careful optimization",
+          "Reference designs can accelerate product development"
+        ],
+        "decisionFramework": {
+          "steps": [
+            "Determine inverter power level and topology type",
+            "Select IGBT or SiC based on efficiency targets",
+            "Design thermal management for outdoor environment",
+            "Implement MPPT and grid-tie control algorithms",
+            "Conduct EMC testing and optimization"
+          ],
+          "matrix": {
+            "3-10kW Residential": "BG200I07N10H6 (Three-Level)",
+            "10-50kW String": "BG300F08A13L5 (Two-Level)",
+            "50-100kW": "BG150G12F13L4 (Two-Level)",
+            "100-250kW": "BM600F12B34U2 (SiC Three-Level)"
+          }
+        }
       }
     }
   ],
-  "seoTitle": "byd Solutions - Application Guides | Technical Support",
-  "seoDescription": "Explore byd application solutions. Get technical support, BOM recommendations, and design guidance from our expert team.",
+  "seoTitle": "BYD Semiconductor Solutions | EV Motor Drive/EV Charging/Solar Inverter",
+  "seoDescription": "Explore BYD Semiconductor application solutions: New Energy Vehicle Motor Drive, Electric Vehicle Charging Stations, Solar Inverters. Get BOM recommendations, design guidance, and technical support.",
   "seoKeywords": [
-    "byd distributor",
-    "byd 选型",
-    "byd products",
-    "byd authorized distributor",
-    "byd technical support",
-    "byd datasheet",
-    "byd pricing",
-    "byd inventory",
-    "byd samples",
-    "byd evaluation kit"
+    "BYD solutions distributor",
+    "BYD EV motor drive selection",
+    "BYD charging station solution",
+    "BYD solar inverter selection",
+    "BYD IGBT application distributor",
+    "BYD SiC application guide",
+    "BYD technical support distributor"
   ],
   "faqs": [
     {
-      "question": "What applications are byd solutions suitable for?",
-      "answer": "Our byd solutions cover a wide range of applications including automotive, industrial, consumer electronics, and telecommunications. Contact our technical team for application-specific guidance."
+      "question": "What application areas do BYD solutions cover?",
+      "answer": "BYD Semiconductor solutions mainly cover: (1) New Energy Vehicles: Motor drive, OBC, DC-DC. (2) Charging Infrastructure: DC fast charging, V2G. (3) Renewable Energy: Solar inverters, energy storage PCS. (4) Industrial Applications: Variable frequency drives, UPS, welding machines. Our FAE team can provide professional support in all areas.",
+      "decisionGuide": "Contact FAE for detailed solution materials in your field.",
+      "keywords": [
+        "BYD solutions",
+        "application areas",
+        "new energy"
+      ]
     },
     {
-      "question": "Do you provide design support for these solutions?",
-      "answer": "Yes, our FAE team provides comprehensive design support including schematic review, PCB layout guidance, and troubleshooting assistance."
+      "question": "How to obtain reference designs and evaluation boards?",
+      "answer": "How to obtain: (1) Contact sales representative to apply for evaluation boards. (2) Sign NDA to obtain complete reference design materials (schematics, BOM, PCB). (3) FAE can provide on-site technical training and design review. (4) Some general design materials can be downloaded from the website.",
+      "decisionGuide": "Contact sales or FAE for evaluation boards and reference designs.",
+      "keywords": [
+        "reference design",
+        "evaluation board",
+        "demo board"
+      ]
     },
     {
-      "question": "Can I customize these solutions for my specific needs?",
-      "answer": "Absolutely. We can help customize these reference designs to meet your specific requirements. Contact our engineering team to discuss your project."
+      "question": "What technical support services does BYD provide?",
+      "answer": "Technical support services include: (1) Product selection and application consulting. (2) Gate drive and thermal design guidance. (3) PCB layout review and optimization suggestions. (4) EMC problem diagnosis and solutions. (5) Failure analysis and improvement suggestions. (6) Reference designs and software algorithm support.",
+      "decisionGuide": "FAE support is available at all project stages. Early involvement is recommended to reduce risks.",
+      "keywords": [
+        "technical support",
+        "FAE services",
+        "design support"
+      ]
+    },
+    {
+      "question": "What is the typical development cycle for EV motor drive systems?",
+      "answer": "Typical development cycle: (1) Concept and specification: 2-4 weeks. (2) Design and simulation: 4-6 weeks. (3) Prototype build and testing: 6-8 weeks. (4) Validation and certification: 8-12 weeks. Total cycle is typically 20-30 weeks depending on complexity and requirements.",
+      "decisionGuide": "Contact our FAE team early in your project to optimize the development timeline.",
+      "keywords": [
+        "development cycle",
+        "EV motor drive",
+        "project timeline"
+      ]
+    },
+    {
+      "question": "How does BYD ensure product quality and reliability?",
+      "answer": "Quality assurance measures: (1) AEC-Q101 automotive certification for all power modules. (2) ISO 26262 functional safety compliance. (3) 100% testing and screening. (4) Extensive reliability testing including temperature cycling, HTRB, H3TRB. (5) Mass production verification in BYD's own vehicles. (6) Full traceability and quality documentation.",
+      "decisionGuide": "Request qualification reports and reliability data from our sales team for your quality documentation.",
+      "keywords": [
+        "quality assurance",
+        "AEC-Q101",
+        "reliability",
+        "automotive certification"
+      ]
     }
   ]
 }

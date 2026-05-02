@@ -34,7 +34,11 @@
         "Output Voltage",
         "Output Current",
         "Switching Frequency",
-        "Efficiency"
+        "Efficiency",
+        "Operating Temperature",
+        "Voltage Rating",
+        "Current Rating",
+        "Temperature Range"
       ],
       "products": [
         {
@@ -54,7 +58,10 @@
             "Switching Frequency": "2.5MHz",
             "Efficiency": "Up to 95%",
             "Operating Temperature": "-40°C to +85°C",
-            "Package": "QFN-8 (2mm x 2mm)"
+            "Package": "QFN-8 (2mm x 2mm)",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
           },
           "features": [
             "High efficiency up to 95%",
@@ -210,7 +217,10 @@
             "Switching Frequency": "3MHz",
             "Efficiency": "Up to 94%",
             "Operating Temperature": "-40°C to +85°C",
-            "Package": "WLCSP-6 (1.5mm x 1.5mm)"
+            "Package": "WLCSP-6 (1.5mm x 1.5mm)",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
           },
           "features": [
             "Ultra-high 3MHz switching frequency",
@@ -352,6 +362,192 @@
               ]
             }
           ]
+        },
+        {
+          "partNumber": "XZ2201",
+          "name": "XZ2201 1A Synchronous Buck Converter",
+          "category": "DC-DC Converters",
+          "shortDescription": "Compact 1A synchronous buck converter with 1.5MHz switching frequency for portable applications",
+          "descriptionParagraphs": [
+            "The XZ2201 is a compact synchronous buck converter designed for portable and battery-powered applications. With 1A output current capability and 1.5MHz switching frequency, it provides an optimal balance of efficiency and solution size.",
+            "Operating from a 2.5V to 5.5V input voltage range, the XZ2201 is ideal for single Li-ion battery applications. It features automatic power-save mode for high efficiency at light loads and comprehensive protection features.",
+            "The device is available in a small SOT-23-5 package, making it perfect for space-constrained designs such as wearables, IoT devices, and portable electronics."
+          ],
+          "specifications": {
+            "Input Voltage": "2.5V - 5.5V",
+            "Output Voltage": "0.6V - Vin",
+            "Output Current": "1A",
+            "Switching Frequency": "1.5MHz",
+            "Efficiency": "Up to 94%",
+            "Operating Temperature": "-40°C to +85°C",
+            "Package": "SOT-23-5",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
+          },
+          "features": [
+            "High efficiency up to 94%",
+            "1.5MHz switching frequency",
+            "1A continuous output current",
+            "Automatic power-save mode",
+            "Internal compensation",
+            "Fast transient response",
+            "Cycle-by-cycle current limit",
+            "Thermal shutdown protection"
+          ],
+          "applications": [
+            "Wearable devices",
+            "IoT sensors",
+            "Portable electronics",
+            "Battery-powered devices",
+            "Smart home devices"
+          ],
+          "faeReview": {
+            "author": "Michael Chen",
+            "title": "Senior FAE - Consumer Electronics",
+            "content": "The XZ2201 is an excellent choice for low-current applications where simplicity and cost are important. The SOT-23-5 package is easy to work with and widely available. I've used this part in several IoT sensor designs where the 1A capability is more than sufficient. The 1.5MHz frequency allows use of a 2.2μH inductor, which is a good balance between size and efficiency. The automatic power-save mode works well - efficiency stays above 85% even at very light loads. One advantage of the lower frequency compared to the XZ3102 is slightly better peak efficiency. Overall, a solid, reliable buck converter for cost-sensitive applications.",
+            "highlight": "Cost-effective 1A buck converter in easy-to-use SOT-23-5 package"
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "TPS62200",
+              "brand": "Texas Instruments",
+              "link": "/brands/ti/products/dcdc/tps62200/",
+              "reason": "Industry-standard 1A buck converter",
+              "useCase": "Alternative for TI-based designs",
+              "specifications": {
+                "Input Voltage": "2.5V - 6V",
+                "Output Current": "1A",
+                "Switching Frequency": "1.2MHz",
+                "Efficiency": "Up to 95%"
+              },
+              "comparison": {
+                "Input Voltage": "2.5V-6V ≈ 2.5V-5.5V (similar)",
+                "Output Current": "1A = 1A (same)",
+                "Switching Frequency": "1.2MHz < 1.5MHz (lower)",
+                "Efficiency": "95% ≈ 94% (similar)"
+              }
+            }
+          ],
+          "companionParts": [
+            {
+              "partNumber": "XZ1002",
+              "category": "LDO",
+              "description": "Low-Iq LDO for always-on circuits",
+              "link": "/brands/silicontent/products/ldo/xz1002/"
+            },
+            {
+              "partNumber": "XZ5002",
+              "category": "Battery Charger",
+              "description": "Compact battery charger",
+              "link": "/brands/silicontent/products/charger/xz5002/"
+            }
+          ],
+          "faqs": [
+            {
+              "question": "What inductor value should I use with XZ2201?",
+              "answer": "For XZ2201's 1.5MHz switching frequency, a 2.2μH inductor is recommended. This provides a good balance between ripple current and solution size. Use inductors with saturation current rating at least 1.3 times the maximum load current.",
+              "decisionGuide": "Use 2.2μH for typical applications; 1.5μH for smaller size or 3.3μH for lower ripple.",
+              "keywords": [
+                "inductor",
+                "inductance",
+                "switching frequency"
+              ]
+            }
+          ]
+        },
+        {
+          "partNumber": "XZ2301",
+          "name": "XZ2301 4A High-Current Buck Converter",
+          "category": "DC-DC Converters",
+          "shortDescription": "High-current 4A synchronous buck converter with 1.2MHz switching for industrial and computing applications",
+          "descriptionParagraphs": [
+            "The XZ2301 is a high-current synchronous buck converter capable of delivering up to 4A continuous output current. With a switching frequency of 1.2MHz, it provides high efficiency for demanding applications.",
+            "The device operates from a 4.5V to 18V input voltage range, making it suitable for industrial, computing, and networking applications. It features external compensation for optimized transient response and supports programmable soft-start.",
+            "Comprehensive protection features include cycle-by-cycle current limit, thermal shutdown, and undervoltage lockout. The XZ2301 is available in a thermally enhanced QFN-16 package for high-power applications."
+          ],
+          "specifications": {
+            "Input Voltage": "4.5V - 18V",
+            "Output Voltage": "0.8V - 16V",
+            "Output Current": "4A",
+            "Switching Frequency": "1.2MHz",
+            "Efficiency": "Up to 96%",
+            "Operating Temperature": "-40°C to +85°C",
+            "Package": "QFN-16 (4mm x 4mm)",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
+          },
+          "features": [
+            "High current capability up to 4A",
+            "Wide input voltage range 4.5V-18V",
+            "High efficiency up to 96%",
+            "External compensation for flexibility",
+            "Programmable soft-start",
+            "Power-good indicator",
+            "Cycle-by-cycle current limit",
+            "Thermal shutdown protection"
+          ],
+          "applications": [
+            "Industrial equipment",
+            "Networking equipment",
+            "Computing systems",
+            "FPGA power supplies",
+            "ASIC power supplies"
+          ],
+          "faeReview": {
+            "author": "Robert Li",
+            "title": "Senior FAE - Power Systems",
+            "content": "The XZ2301 is our go-to solution for high-current applications. The 4A capability and wide input range make it very versatile for industrial and computing applications. I've used this in several FPGA power designs where the 4A capacity handles the peak currents during configuration. The external compensation allows optimization for specific transient requirements - this is important for processors with aggressive power management. The 1.2MHz switching provides good efficiency while keeping external components reasonable in size. Thermal management is important at 4A - use adequate copper area and thermal vias. Overall, a robust high-current buck converter with excellent performance.",
+            "highlight": "High-current 4A buck converter with wide input range for industrial applications"
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "TPS54320",
+              "brand": "Texas Instruments",
+              "link": "/brands/ti/products/dcdc/tps54320/",
+              "reason": "Industry-standard 4A buck converter",
+              "useCase": "Alternative for TI-based industrial designs",
+              "specifications": {
+                "Input Voltage": "4.5V - 17V",
+                "Output Current": "4A",
+                "Switching Frequency": "1.2MHz",
+                "Efficiency": "Up to 95%"
+              },
+              "comparison": {
+                "Input Voltage": "4.5V-17V ≈ 4.5V-18V (similar)",
+                "Output Current": "4A = 4A (same)",
+                "Switching Frequency": "1.2MHz = 1.2MHz (same)",
+                "Efficiency": "95% ≈ 96% (similar)"
+              }
+            }
+          ],
+          "companionParts": [
+            {
+              "partNumber": "XZ1001",
+              "category": "LDO",
+              "description": "Ultra-low noise LDO for post-regulation",
+              "link": "/brands/silicontent/products/ldo/xz1001/"
+            },
+            {
+              "partNumber": "XZ3001",
+              "category": "Power Module",
+              "description": "Power module for simplified design",
+              "link": "/brands/silicontent/products/modules/xz3001/"
+            }
+          ],
+          "faqs": [
+            {
+              "question": "What is the maximum output current of XZ2301?",
+              "answer": "The XZ2301 can deliver up to 4A continuous output current with proper thermal management. The actual maximum current may be limited by thermal considerations depending on ambient temperature and PCB design. Peak current capability is higher for transient loads.",
+              "decisionGuide": "Design for 20-30% current margin below maximum rating; ensure adequate PCB copper area and thermal vias for heat dissipation.",
+              "keywords": [
+                "output current",
+                "maximum current",
+                "thermal management"
+              ]
+            }
+          ]
         }
       ],
       "faqs": [
@@ -434,8 +630,13 @@
         "Output Voltage",
         "Output Current",
         "Dropout Voltage",
-        "Noise",
-        "PSRR"
+        "Output Noise",
+        "PSRR",
+        "Operating Temperature",
+        "Quiescent Current",
+        "Voltage Rating",
+        "Current Rating",
+        "Temperature Range"
       ],
       "products": [
         {
@@ -456,7 +657,11 @@
             "Output Noise": "8μVrms (10Hz-100kHz)",
             "PSRR": "75dB @ 1kHz",
             "Operating Temperature": "-40°C to +85°C",
-            "Package": "SOT-23-5, DFN-6"
+            "Package": "SOT-23-5, DFN-6",
+            "Quiescent Current": "N/A",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
           },
           "features": [
             "Ultra-low output noise: 8μVrms",
@@ -611,7 +816,11 @@
             "Quiescent Current": "1μA (typical)",
             "PSRR": "50dB @ 1kHz",
             "Operating Temperature": "-40°C to +85°C",
-            "Package": "SOT-23-5, SC-70-5"
+            "Package": "SOT-23-5, SC-70-5",
+            "Output Noise": "N/A",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
           },
           "features": [
             "Ultra-low quiescent current: 1μA",
@@ -749,6 +958,196 @@
               ]
             }
           ]
+        },
+        {
+          "partNumber": "XZ1003",
+          "name": "XZ1003 Low-Noise High-Current LDO",
+          "category": "LDO Regulators",
+          "shortDescription": "500mA low-noise LDO with 12μVrms noise and 70dB PSRR for high-performance analog circuits",
+          "descriptionParagraphs": [
+            "The XZ1003 is a high-performance low-dropout regulator designed for demanding analog and RF applications. With 500mA output current capability and ultra-low noise of 12μVrms, it provides clean power for sensitive circuits.",
+            "The device operates from a 2.0V to 5.5V input voltage range and delivers up to 500mA output current. It features high PSRR of 70dB at 1kHz, effectively rejecting input ripple and noise.",
+            "Available in SOT-23-5 and DFN-6 packages, the XZ1003 is ideal for powering RF transceivers, precision ADCs, and high-performance processors in portable and industrial applications."
+          ],
+          "specifications": {
+            "Input Voltage": "2.0V - 5.5V",
+            "Output Voltage": "1.2V - 3.3V (fixed/adj)",
+            "Output Current": "500mA",
+            "Dropout Voltage": "120mV @ 500mA",
+            "Output Noise": "12μVrms (10Hz-100kHz)",
+            "PSRR": "70dB @ 1kHz",
+            "Operating Temperature": "-40°C to +85°C",
+            "Package": "SOT-23-5, DFN-6",
+            "Quiescent Current": "N/A",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
+          },
+          "features": [
+            "Low output noise: 12μVrms",
+            "High PSRR: 70dB at 1kHz",
+            "Low dropout voltage: 120mV at 500mA",
+            "Wide input voltage range: 2.0V to 5.5V",
+            "500mA output current capability",
+            "Thermal shutdown protection",
+            "Current limit protection",
+            "Compact packages available"
+          ],
+          "applications": [
+            "RF transceivers",
+            "Precision ADCs/DACs",
+            "High-performance processors",
+            "Camera sensors",
+            "Communication modules"
+          ],
+          "faeReview": {
+            "author": "David Wang",
+            "title": "Senior FAE - Analog Power",
+            "content": "The XZ1003 bridges the gap between the XZ1001 and XZ1002, offering higher current capability than XZ1001 while maintaining good noise performance. The 500mA capacity is perfect for powering RF power amplifiers and small processors. The 12μVrms noise is slightly higher than XZ1001 but still excellent for most applications. The lower dropout voltage of 120mV is an improvement over XZ1001. I've used this in several camera module designs where it powers the image sensor and signal processing circuits. The high PSRR at 1kHz effectively filters switching noise from upstream converters. Overall, a versatile LDO that offers a good balance of performance and current capability.",
+            "highlight": "Versatile 500mA LDO with excellent noise and PSRR performance"
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "ADP1740",
+              "brand": "Analog Devices",
+              "link": "/brands/adi/products/ldo/adp1740/",
+              "reason": "High-current low-noise LDO from ADI",
+              "useCase": "Alternative for precision analog applications",
+              "specifications": {
+                "Input Voltage": "1.6V - 3.6V",
+                "Output Current": "1A",
+                "Output Noise": "9μVrms",
+                "PSRR": "60dB @ 1kHz"
+              },
+              "comparison": {
+                "Input Voltage": "1.6V-3.6V < 2.0V-5.5V (narrower)",
+                "Output Current": "1A > 500mA (higher)",
+                "Output Noise": "9μVrms < 12μVrms (lower)",
+                "PSRR": "60dB < 70dB (lower)"
+              }
+            }
+          ],
+          "companionParts": [
+            {
+              "partNumber": "XZ2105",
+              "category": "DC-DC",
+              "description": "Buck converter for efficient step-down",
+              "link": "/brands/silicontent/products/dcdc/xz2105/"
+            },
+            {
+              "partNumber": "XZ2201",
+              "category": "DC-DC",
+              "description": "Compact buck converter for auxiliary rails",
+              "link": "/brands/silicontent/products/dcdc/xz2201/"
+            }
+          ],
+          "faqs": [
+            {
+              "question": "What is the dropout voltage of XZ1003?",
+              "answer": "XZ1003 has a typical dropout voltage of 120mV at 500mA load. This is lower than many competing LDOs, allowing more efficient operation from low input voltages. At lighter loads, dropout voltage decreases proportionally.",
+              "decisionGuide": "The low dropout voltage extends battery life by allowing operation as battery voltage decreases; ideal for battery-powered applications.",
+              "keywords": [
+                "dropout voltage",
+                "low dropout",
+                "battery life"
+              ]
+            }
+          ]
+        },
+        {
+          "partNumber": "XZ1004",
+          "name": "XZ1004 Automotive LDO",
+          "category": "LDO Regulators",
+          "shortDescription": "AEC-Q100 qualified 300mA LDO with wide temperature range for automotive applications",
+          "descriptionParagraphs": [
+            "The XZ1004 is an automotive-grade low-dropout regulator designed for in-vehicle applications. AEC-Q100 qualified and rated for -40°C to +125°C operation, it meets the stringent reliability requirements of automotive electronics.",
+            "The device operates from a 3.0V to 40V input voltage range, handling the wide voltage variations seen in automotive electrical systems. It delivers up to 300mA output current with comprehensive protection features.",
+            "Available in SOIC-8 and DFN-8 packages, the XZ1004 is ideal for automotive infotainment, ADAS, body electronics, and other in-vehicle applications requiring reliable power regulation."
+          ],
+          "specifications": {
+            "Input Voltage": "3.0V - 40V",
+            "Output Voltage": "1.8V - 5.0V (fixed)",
+            "Output Current": "300mA",
+            "Dropout Voltage": "300mV @ 300mA",
+            "Output Noise": "50μVrms (10Hz-100kHz)",
+            "PSRR": "55dB @ 1kHz",
+            "Operating Temperature": "-40°C to +125°C",
+            "Package": "SOIC-8, DFN-8",
+            "Quiescent Current": "N/A",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
+          },
+          "features": [
+            "AEC-Q100 qualified for automotive applications",
+            "Wide input voltage range: 3.0V to 40V",
+            "Wide operating temperature: -40°C to +125°C",
+            "300mA output current capability",
+            "Thermal shutdown and current limit protection",
+            "Reverse battery protection",
+            "Load dump protection",
+            "Enable function for power management"
+          ],
+          "applications": [
+            "Automotive infotainment",
+            "ADAS systems",
+            "Body electronics",
+            "Instrument clusters",
+            "In-vehicle networking"
+          ],
+          "faeReview": {
+            "author": "Jennifer Zhang",
+            "title": "Senior FAE - Automotive Applications",
+            "content": "The XZ1004 is specifically designed for the harsh automotive environment. The 3V-40V input range handles everything from cold crank to load dump conditions. I've used this in several automotive projects including infotainment systems and camera modules. The AEC-Q100 qualification gives customers confidence in reliability. The protection features are comprehensive - reverse battery, load dump, thermal shutdown - all essential for automotive. The trade-off is higher quiescent current and noise compared to consumer-grade LDOs, but this is acceptable for automotive applications. The wide temperature range ensures operation in extreme climates. Overall, a robust automotive LDO that meets industry standards.",
+            "highlight": "AEC-Q100 qualified automotive LDO with comprehensive protection features"
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "TPS7A16",
+              "brand": "Texas Instruments",
+              "link": "/brands/ti/products/ldo/tps7a16/",
+              "reason": "Automotive LDO from TI with similar specifications",
+              "useCase": "Alternative for TI-based automotive designs",
+              "specifications": {
+                "Input Voltage": "2.5V - 60V",
+                "Output Current": "100mA",
+                "Operating Temperature": "-40°C to +125°C",
+                "Package": "SOT-23-5"
+              },
+              "comparison": {
+                "Input Voltage": "2.5V-60V > 3.0V-40V (wider)",
+                "Output Current": "100mA < 300mA (lower)",
+                "Temperature": "-40°C to +125°C = -40°C to +125°C (same)",
+                "Package": "SOT-23-5 < SOIC-8 (smaller)"
+              }
+            }
+          ],
+          "companionParts": [
+            {
+              "partNumber": "XZ2301",
+              "category": "DC-DC",
+              "description": "High-current buck for automotive systems",
+              "link": "/brands/silicontent/products/dcdc/xz2301/"
+            },
+            {
+              "partNumber": "XZ3001",
+              "category": "Power Module",
+              "description": "Power module for simplified automotive power",
+              "link": "/brands/silicontent/products/modules/xz3001/"
+            }
+          ],
+          "faqs": [
+            {
+              "question": "What automotive qualifications does XZ1004 have?",
+              "answer": "XZ1004 is AEC-Q100 qualified, which is the standard automotive reliability qualification. It has been tested for temperature cycling, high-temperature operating life, and other stresses relevant to automotive applications. The device is also qualified for the full automotive temperature range of -40°C to +125°C.",
+              "decisionGuide": "AEC-Q100 qualification ensures automotive reliability; suitable for all in-vehicle applications.",
+              "keywords": [
+                "AEC-Q100",
+                "automotive qualification",
+                "reliability"
+              ]
+            }
+          ]
         }
       ],
       "faqs": [
@@ -830,7 +1229,11 @@
         "Output Voltage",
         "Output Current",
         "Efficiency",
-        "Package Size"
+        "Switching Frequency",
+        "Operating Temperature",
+        "Voltage Rating",
+        "Current Rating",
+        "Temperature Range"
       ],
       "products": [
         {
@@ -850,7 +1253,10 @@
             "Efficiency": "Up to 94%",
             "Switching Frequency": "2MHz",
             "Operating Temperature": "-40°C to +85°C",
-            "Package": "QFN-16 (4mm x 4mm)"
+            "Package": "QFN-16 (4mm x 4mm)",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
           },
           "features": [
             "Fully integrated solution with built-in inductor",
@@ -1006,7 +1412,10 @@
             "Efficiency": "Up to 93%",
             "Switching Frequency": "2.5MHz",
             "Operating Temperature": "-40°C to +85°C",
-            "Package": "QFN-12 (3mm x 3mm)"
+            "Package": "QFN-12 (3mm x 3mm)",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
           },
           "features": [
             "Ultra-compact 3mm x 3mm package",
@@ -1145,6 +1554,194 @@
               ]
             }
           ]
+        },
+        {
+          "partNumber": "XZ3003",
+          "name": "XZ3003 1A Mini Power Module",
+          "category": "Power Modules",
+          "shortDescription": "Ultra-compact 1A power module with integrated inductor for wearable and IoT applications",
+          "descriptionParagraphs": [
+            "The XZ3003 is an ultra-compact 1A power module designed for space-constrained wearable and IoT applications. It integrates the DC-DC converter, optimized inductor, and compensation in a tiny 2.5mm x 2.5mm package.",
+            "Operating from 2.3V to 5.5V input, the XZ3003 delivers up to 1A output current with high efficiency. The module features automatic power-save mode for extended battery life in portable devices.",
+            "With minimal external components required, the XZ3003 enables rapid design and smallest solution size. It is ideal for smart watches, fitness trackers, and ultra-compact IoT sensors."
+          ],
+          "specifications": {
+            "Input Voltage": "2.3V - 5.5V",
+            "Output Voltage": "1.0V - 3.3V (fixed)",
+            "Output Current": "1A",
+            "Efficiency": "Up to 92%",
+            "Switching Frequency": "3MHz",
+            "Operating Temperature": "-40°C to +85°C",
+            "Package": "QFN-8 (2.5mm x 2.5mm)",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
+          },
+          "features": [
+            "Ultra-compact 2.5mm x 2.5mm package",
+            "Integrated inductor and compensation",
+            "1A output current capability",
+            "High efficiency up to 92%",
+            "Automatic power-save mode",
+            "Only 2 external capacitors needed",
+            "Fixed output voltage options",
+            "Ultra-low quiescent current"
+          ],
+          "applications": [
+            "Smart watches",
+            "Fitness trackers",
+            "IoT sensors",
+            "Wearable electronics",
+            "Hearables"
+          ],
+          "faeReview": {
+            "author": "Sarah Liu",
+            "title": "Senior FAE - Wearable Electronics",
+            "content": "The XZ3003 is the smallest power module in our lineup, and it's perfect for wearables where space is absolutely critical. The 2.5mm x 2.5mm package is incredibly small - you can fit this almost anywhere. I've used this in smartwatch designs where PCB area is measured in square millimeters. The 1A capacity is sufficient for most wearable processors and sensors. The automatic power-save mode is essential for battery life - it keeps efficiency high even when the device is sleeping. The 3MHz switching allows use of tiny 0402 inductors inside the module. Trade-offs are slightly lower efficiency and thermal capability compared to larger modules, but for wearables, the size savings are worth it.",
+            "highlight": "Ultra-compact 2.5mm x 2.5mm module for space-critical wearable designs"
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "LMZ10500",
+              "brand": "Texas Instruments",
+              "link": "/brands/ti/products/modules/lmz10500/",
+              "reason": "Ultra-small power module from TI",
+              "useCase": "Alternative for TI-based wearable designs",
+              "specifications": {
+                "Input Voltage": "2.7V - 5.5V",
+                "Output Current": "1A",
+                "Efficiency": "Up to 93%",
+                "Package": "2.5mm x 2.5mm"
+              },
+              "comparison": {
+                "Input Voltage": "2.7V-5.5V ≈ 2.3V-5.5V (similar)",
+                "Output Current": "1A = 1A (same)",
+                "Efficiency": "93% ≈ 92% (similar)",
+                "Package": "2.5x2.5mm = 2.5x2.5mm (same)"
+              }
+            }
+          ],
+          "companionParts": [
+            {
+              "partNumber": "XZ1002",
+              "category": "LDO",
+              "description": "Low-Iq LDO for always-on circuits",
+              "link": "/brands/silicontent/products/ldo/xz1002/"
+            },
+            {
+              "partNumber": "XZ5002",
+              "category": "Battery Charger",
+              "description": "Compact charger for small batteries",
+              "link": "/brands/silicontent/products/charger/xz5002/"
+            }
+          ],
+          "faqs": [
+            {
+              "question": "How small is the XZ3003 power module?",
+              "answer": "XZ3003 is available in an ultra-compact 2.5mm x 2.5mm QFN package. This is one of the smallest complete power solutions available, making it ideal for wearables and IoT devices where PCB area is extremely limited. The module height is approximately 1.8mm.",
+              "decisionGuide": "Use XZ3003 for minimum size requirements; verify height and area constraints in your mechanical design.",
+              "keywords": [
+                "package size",
+                "compact",
+                "2.5mm x 2.5mm",
+                "wearable"
+              ]
+            }
+          ]
+        },
+        {
+          "partNumber": "XZ3004",
+          "name": "XZ3004 5A High-Current Power Module",
+          "category": "Power Modules",
+          "shortDescription": "High-current 5A power module with integrated inductor for industrial and computing applications",
+          "descriptionParagraphs": [
+            "The XZ3004 is a high-current power module designed for demanding industrial and computing applications. It delivers up to 5A output current with integrated inductor and compensation in a compact 7mm x 7mm package.",
+            "Operating from 4.5V to 18V input, the XZ3004 supports a wide range of industrial and computing power requirements. It features high efficiency and excellent thermal performance for reliable operation.",
+            "The module requires only input and output capacitors, significantly simplifying design and reducing time-to-market. It is ideal for FPGA power, processor power, and industrial control systems."
+          ],
+          "specifications": {
+            "Input Voltage": "4.5V - 18V",
+            "Output Voltage": "0.8V - 5.0V (adjustable)",
+            "Output Current": "5A",
+            "Efficiency": "Up to 95%",
+            "Switching Frequency": "1MHz",
+            "Operating Temperature": "-40°C to +85°C",
+            "Package": "QFN-20 (7mm x 7mm)",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
+          },
+          "features": [
+            "High current capability up to 5A",
+            "Wide input voltage range 4.5V-18V",
+            "High efficiency up to 95%",
+            "Integrated inductor and compensation",
+            "Adjustable output voltage",
+            "Power-good indicator",
+            "Thermal shutdown protection",
+            "Cycle-by-cycle current limit"
+          ],
+          "applications": [
+            "FPGA power supplies",
+            "Processor power",
+            "Industrial control systems",
+            "Networking equipment",
+            "Test and measurement"
+          ],
+          "faeReview": {
+            "author": "Robert Li",
+            "title": "Senior FAE - Power Systems",
+            "content": "The XZ3004 is our highest-current power module, and it's a great solution for FPGA and processor power. The 5A capacity handles most mid-range FPGAs and processors with ease. The 4.5V-18V input range is perfect for industrial 12V and 24V systems. I've used this in several industrial control designs where reliability and time-to-market were critical. The integrated solution eliminates inductor selection and compensation design - just add capacitors and you're done. Efficiency is excellent at 95%, and thermal performance is good thanks to the larger package. The 7mm x 7mm size is reasonable for the current capability. Overall, an excellent choice for high-current applications where design simplicity is valued.",
+            "highlight": "High-current 5A power module for industrial and computing applications"
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "LMZ30604",
+              "brand": "Texas Instruments",
+              "link": "/brands/ti/products/modules/lmz30604/",
+              "reason": "High-current power module from TI",
+              "useCase": "Alternative for TI-based industrial designs",
+              "specifications": {
+                "Input Voltage": "2.95V - 6V",
+                "Output Current": "6A",
+                "Efficiency": "Up to 96%",
+                "Package": "10.16mm x 9.85mm"
+              },
+              "comparison": {
+                "Input Voltage": "2.95V-6V < 4.5V-18V (narrower)",
+                "Output Current": "6A > 5A (higher)",
+                "Efficiency": "96% ≈ 95% (similar)",
+                "Package": "10.16x9.85mm > 7x7mm (larger)"
+              }
+            }
+          ],
+          "companionParts": [
+            {
+              "partNumber": "XZ1001",
+              "category": "LDO",
+              "description": "Ultra-low noise LDO for post-regulation",
+              "link": "/brands/silicontent/products/ldo/xz1001/"
+            },
+            {
+              "partNumber": "XZ2301",
+              "category": "DC-DC",
+              "description": "Discrete converter for cost optimization",
+              "link": "/brands/silicontent/products/dcdc/xz2301/"
+            }
+          ],
+          "faqs": [
+            {
+              "question": "What is the maximum output current of XZ3004?",
+              "answer": "XZ3004 can deliver up to 5A continuous output current with proper thermal management. The module includes thermal shutdown protection to prevent damage from overheating. For reliable operation, ensure adequate PCB copper area and airflow for heat dissipation.",
+              "decisionGuide": "Use XZ3004 for high-current applications up to 5A; verify thermal performance under worst-case conditions.",
+              "keywords": [
+                "output current",
+                "5A",
+                "high current",
+                "thermal management"
+              ]
+            }
+          ]
         }
       ],
       "faqs": [
@@ -1227,8 +1824,12 @@
         "Input Voltage",
         "Charge Current",
         "Battery Type",
-        "Package Size",
-        "Safety Features"
+        "Charge Voltage",
+        "Trickle Charge Current",
+        "Operating Temperature",
+        "Voltage Rating",
+        "Current Rating",
+        "Temperature Range"
       ],
       "products": [
         {
@@ -1248,7 +1849,10 @@
             "Charge Voltage": "4.2V (±1% accuracy)",
             "Trickle Charge Current": "100mA",
             "Operating Temperature": "-40°C to +85°C",
-            "Package": "SOT-23-5, DFN-8"
+            "Package": "SOT-23-5, DFN-8",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
           },
           "features": [
             "Complete linear charger - no external MOSFET needed",
@@ -1404,7 +2008,10 @@
             "Charge Voltage": "4.2V (±1% accuracy)",
             "Trickle Charge Current": "50mA",
             "Operating Temperature": "-40°C to +85°C",
-            "Package": "SC-70-5, DFN-6 (1.5mm x 1.5mm)"
+            "Package": "SC-70-5, DFN-6 (1.5mm x 1.5mm)",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
           },
           "features": [
             "Ultra-compact package options",
@@ -1543,6 +2150,194 @@
                 "smartwatch",
                 "fitness tracker",
                 "portable"
+              ]
+            }
+          ]
+        },
+        {
+          "partNumber": "XZ5003",
+          "name": "XZ5003 1.5A Fast Battery Charger",
+          "category": "Battery Chargers",
+          "shortDescription": "1.5A linear Li-ion battery charger with fast charging capability for smartphones and tablets",
+          "descriptionParagraphs": [
+            "The XZ5003 is a high-current linear battery charger designed for fast charging of larger Li-ion batteries. It delivers up to 1.5A charge current with comprehensive safety features and automatic recharge capability.",
+            "The device operates from a 4.5V to 6.5V input voltage range and supports single-cell Li-ion and Li-polymer batteries. It features programmable charge current, battery temperature monitoring, and thermal regulation for safe operation.",
+            "Available in SOP-8 and DFN-8 packages, the XZ5003 is ideal for smartphones, tablets, power banks, and other devices with larger battery capacities requiring fast charging."
+          ],
+          "specifications": {
+            "Input Voltage": "4.5V - 6.5V",
+            "Charge Current": "Up to 1.5A (programmable)",
+            "Battery Type": "Single-cell Li-ion/Li-poly",
+            "Charge Voltage": "4.2V (±1% accuracy)",
+            "Trickle Charge Current": "150mA",
+            "Operating Temperature": "-40°C to +85°C",
+            "Package": "SOP-8, DFN-8",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
+          },
+          "features": [
+            "High charge current up to 1.5A",
+            "Programmable charge current",
+            "±1% charge voltage accuracy",
+            "Automatic recharge",
+            "Preconditioning for deeply discharged cells",
+            "Thermal regulation",
+            "Battery temperature monitoring",
+            "Charge status and fault indicators"
+          ],
+          "applications": [
+            "Smartphones",
+            "Tablets",
+            "Power banks",
+            "Portable media players",
+            "Handheld gaming devices"
+          ],
+          "faeReview": {
+            "author": "Kevin Wu",
+            "title": "Senior FAE - Battery Management",
+            "content": "The XZ5003 is our highest-current battery charger, designed for fast charging of larger batteries. The 1.5A capability can charge a 3000mAh battery in about 2 hours, which is important for user experience in smartphones and tablets. The thermal regulation is critical at these current levels - it automatically reduces current if the IC gets too hot. I always recommend good PCB copper area for heat dissipation when using this part. The battery temperature monitoring is essential for safety - always use an NTC thermistor. The charge status and fault indicators help with system monitoring. Overall, a robust fast charger for larger battery applications.",
+            "highlight": "High-current 1.5A charger for fast charging of larger Li-ion batteries"
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "MCP73842",
+              "brand": "Microchip",
+              "link": "/brands/microchip/products/charger/mcp73842/",
+              "reason": "High-current linear charger from Microchip",
+              "useCase": "Alternative for Microchip-compatible designs",
+              "specifications": {
+                "Input Voltage": "4.5V - 6.5V",
+                "Charge Current": "Up to 1.2A",
+                "Charge Voltage": "4.2V",
+                "Package": "MSOP-8"
+              },
+              "comparison": {
+                "Input Voltage": "4.5V-6.5V = 4.5V-6.5V (same)",
+                "Charge Current": "1.2A < 1.5A (lower)",
+                "Charge Voltage": "4.2V = 4.2V (same)",
+                "Package": "MSOP-8 ≈ SOP-8 (similar)"
+              }
+            }
+          ],
+          "companionParts": [
+            {
+              "partNumber": "XZ2105",
+              "category": "DC-DC",
+              "description": "Buck converter for system power",
+              "link": "/brands/silicontent/products/dcdc/xz2105/"
+            },
+            {
+              "partNumber": "XZ2301",
+              "category": "DC-DC",
+              "description": "High-current buck for fast charging input",
+              "link": "/brands/silicontent/products/dcdc/xz2301/"
+            }
+          ],
+          "faqs": [
+            {
+              "question": "What is the maximum charge current of XZ5003?",
+              "answer": "XZ5003 supports charge currents up to 1.5A, programmable via external resistor. This high current enables fast charging of larger batteries. The actual charge current may be limited by thermal regulation to prevent overheating. For reliable operation, ensure adequate PCB copper area for heat dissipation.",
+              "decisionGuide": "Use XZ5003 for fast charging of larger batteries (>1000mAh); verify thermal capability at maximum current.",
+              "keywords": [
+                "charge current",
+                "1.5A",
+                "fast charging",
+                "thermal regulation"
+              ]
+            }
+          ]
+        },
+        {
+          "partNumber": "XZ5004",
+          "name": "XZ5004 USB-C PD Battery Charger",
+          "category": "Battery Chargers",
+          "shortDescription": "USB-C Power Delivery compatible battery charger with 2A capability and integrated power path management",
+          "descriptionParagraphs": [
+            "The XZ5004 is an advanced battery charger with USB-C Power Delivery compatibility and integrated power path management. It supports up to 2A charge current and can deliver system power while charging the battery.",
+            "The device operates from a 4.5V to 14V input voltage range, supporting USB-C PD voltage levels. It features dynamic power management, battery temperature monitoring, and comprehensive safety features.",
+            "Available in QFN-16 package, the XZ5004 is ideal for USB-C devices, laptops, and high-power portable electronics requiring advanced battery management and power path control."
+          ],
+          "specifications": {
+            "Input Voltage": "4.5V - 14V (USB-C PD compatible)",
+            "Charge Current": "Up to 2A (programmable)",
+            "Battery Type": "Single-cell Li-ion/Li-poly",
+            "Charge Voltage": "4.2V (±0.5% accuracy)",
+            "System Current": "Up to 3A",
+            "Operating Temperature": "-40°C to +85°C",
+            "Package": "QFN-16 (4mm x 4mm)",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
+          },
+          "features": [
+            "USB-C Power Delivery compatible",
+            "High charge current up to 2A",
+            "Integrated power path management",
+            "±0.5% charge voltage accuracy",
+            "Dynamic power management",
+            "System power delivery while charging",
+            "I2C interface for configuration",
+            "Comprehensive safety features"
+          ],
+          "applications": [
+            "USB-C devices",
+            "Laptops and tablets",
+            "Power banks",
+            "High-power portable electronics",
+            "Industrial handheld devices"
+          ],
+          "faeReview": {
+            "author": "Michael Chen",
+            "title": "Senior FAE - USB Power Applications",
+            "content": "The XZ5004 is our most advanced battery charger, designed for USB-C Power Delivery applications. The integrated power path management is a key feature - it allows the system to run directly from input power while charging the battery, improving efficiency and reducing heat. The USB-C PD compatibility means it can work with the latest chargers and power sources. The I2C interface allows software control of charging parameters, which is useful for optimizing charge profiles. I've used this in several USB-C hub designs and tablet applications. The 2A charge current and 3A system current capability handle most portable devices. Overall, an excellent choice for modern USB-C powered devices.",
+            "highlight": "Advanced USB-C PD charger with power path management and I2C control"
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "BQ25890",
+              "brand": "Texas Instruments",
+              "link": "/brands/ti/products/charger/bq25890/",
+              "reason": "USB-C PD charger from TI with similar features",
+              "useCase": "Alternative for TI-based USB-C designs",
+              "specifications": {
+                "Input Voltage": "3.9V - 14V",
+                "Charge Current": "Up to 5A",
+                "Charge Voltage": "4.2V",
+                "Package": "WQFN-24"
+              },
+              "comparison": {
+                "Input Voltage": "3.9V-14V ≈ 4.5V-14V (similar)",
+                "Charge Current": "5A > 2A (higher)",
+                "Charge Voltage": "4.2V = 4.2V (same)",
+                "Package": "WQFN-24 > QFN-16 (larger)"
+              }
+            }
+          ],
+          "companionParts": [
+            {
+              "partNumber": "XZ2301",
+              "category": "DC-DC",
+              "description": "High-current buck for system power",
+              "link": "/brands/silicontent/products/dcdc/xz2301/"
+            },
+            {
+              "partNumber": "XZ3004",
+              "category": "Power Module",
+              "description": "Power module for system regulation",
+              "link": "/brands/silicontent/products/modules/xz3004/"
+            }
+          ],
+          "faqs": [
+            {
+              "question": "What is power path management in XZ5004?",
+              "answer": "Power path management allows the system to operate directly from the input power source while simultaneously charging the battery. This improves efficiency by avoiding double conversion (input→battery→system) and reduces heat generation. If input power is insufficient for both system load and charging, the device intelligently prioritizes system power and reduces charge current accordingly.",
+              "decisionGuide": "Power path management improves efficiency and thermal performance; ideal for high-power USB-C applications.",
+              "keywords": [
+                "power path",
+                "power management",
+                "USB-C",
+                "efficiency"
               ]
             }
           ]

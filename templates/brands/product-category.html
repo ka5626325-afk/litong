@@ -480,21 +480,61 @@
                       <% category.products.forEach(function(product) { %>
                         <tr data-series="<%= product.series || '' %>">
                           <td>
-                            <a href="/<%= brand.name.toLowerCase() %>/products/<%= product.partNumber.toLowerCase() %>.html" class="part-number">
+                            <% var productSlug = product.slug || product.partNumber.toLowerCase().replace(/[^a-z0-9]+/g, '-'); %>
+                            <a href="/<%= brand.name.toLowerCase() %>/products/<%= category.id %>/<%= productSlug %>.html" class="part-number">
                               <%= product.partNumber %>
                             </a>
                           </td>
                           <% if (category.parameters && category.parameters.length > 0) { %>
                             <% category.parameters.slice(0, 5).forEach(function(param) { %>
                               <td>
-                                <%= product.specifications && product.specifications[param] ? product.specifications[param] : (product.paramValues && product.paramValues[param] ? product.paramValues[param] : '-') %>
+                                <% 
+                                  // 动态查找参数值
+                                  var paramValue = '-';
+                                  
+                                  // 1. 直接匹配 product 字段
+                                  if (product[param]) {
+                                    paramValue = product[param];
+                                  }
+                                  // 2. 匹配 specifications 中的字段
+                                  else if (product.specifications && product.specifications[param]) {
+                                    paramValue = product.specifications[param];
+                                  }
+                                  // 3. 匹配 paramValues 中的字段
+                                  else if (product.paramValues && product.paramValues[param]) {
+                                    paramValue = product.paramValues[param];
+                                  }
+                                  // 4. 大小写不敏感匹配 product 字段
+                                  else {
+                                    var paramLower = param.toLowerCase().replace(/[()\s-]/g, '');
+                                    var productKeys = Object.keys(product);
+                                    for (var i = 0; i < productKeys.length; i++) {
+                                      if (productKeys[i].toLowerCase().replace(/[()\s-]/g, '') === paramLower) {
+                                        paramValue = product[productKeys[i]];
+                                        break;
+                                      }
+                                    }
+                                    // 5. 大小写不敏感匹配 specifications 字段
+                                    if (paramValue === '-' && product.specifications) {
+                                      var specKeys = Object.keys(product.specifications);
+                                      for (var j = 0; j < specKeys.length; j++) {
+                                        if (specKeys[j].toLowerCase().replace(/[()\s-]/g, '') === paramLower) {
+                                          paramValue = product.specifications[specKeys[j]];
+                                          break;
+                                        }
+                                      }
+                                    }
+                                  }
+                                %>
+                                <%= paramValue %>
                               </td>
                             <% }); %>
                           <% } %>
-                          <td><%= product.specifications && product.specifications['Package'] ? product.specifications['Package'] : (product.package || '-') %></td>
+                          <td><%= product.package || (product.specifications && product.specifications['Package']) || '-' %></td>
                           <td><span class="stock-status in-stock"><%= product.stock || 'In Stock' %></span></td>
                           <td>
-                            <a href="/<%= brand.name.toLowerCase() %>/products/<%= product.partNumber.toLowerCase() %>.html" class="action-btn">View Details</a>
+                            <% var productSlug = product.slug || product.partNumber.toLowerCase().replace(/[^a-z0-9]+/g, '-'); %>
+                            <a href="/<%= brand.name.toLowerCase() %>/products/<%= category.id %>/<%= productSlug %>.html" class="action-btn">View Details</a>
                           </td>
                         </tr>
                       <% }); %>

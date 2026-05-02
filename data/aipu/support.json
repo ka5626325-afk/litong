@@ -1,645 +1,764 @@
 {
-  "seoTitle": "Aipu爱浦技术支持 - 应用笔记与设计资源 | 力通代理",
-  "seoDescription": "爱浦电子技术支持：产品选型指南、应用设计笔记、参考电路。专业FAE团队提供电源模块设计支持。",
-  "seoKeywords": [
-    "爱浦技术支持",
-    "Aipu应用笔记",
-    "电源模块设计",
-    "选型指南",
-    "Aipu distributor",
-    "Aipu选型"
-  ],
+  "seoTitle": "Technical Support - Aipu Power Module Solutions | BeiLuo Distributor",
+  "seoDescription": "Aipu power module technical support center, providing product selection guides, application notes, design references, and troubleshooting resources.",
+  "seoKeywords": "Aipu, power module, technical support, DC-DC converter, AC-DC power supply, isolated transceiver, application note",
   "faqs": [
     {
-      "question": "如何获取爱浦产品的技术文档？",
-      "answer": "获取爱浦产品技术文档的途径：1) 官方网站：访问爱浦电子官网（www.aipu-elec.com）下载数据手册、应用笔记等技术文档；2) 力通网站：在我们网站的爱浦品牌专区查看和下载技术资料；3) 联系销售：拨打我们的销售热线或发送邮件索取最新文档；4) FAE支持：联系我们的FAE工程师获取详细的技术资料和设计建议；5) 技术研讨会：参加我们定期举办的技术研讨会，现场获取最新资料。我们提供的数据手册包含详细的电气规格、机械尺寸、应用电路等信息，应用笔记提供特定应用的设计指导。",
-      "decisionGuide": "访问官网或联系我们的销售/FAE团队获取最新技术文档。",
+      "question": "How to select the right power module for my application?",
+      "answer": "Selecting the right power module involves several key steps: 1) Determine input voltage - stable voltage (use fixed input) or varying voltage (use wide input); 2) Calculate output power - sum all load power consumption and add 20-30% margin; 3) Choose isolation level - 1500VDC for general industrial, 2500VDC for power/medical; 4) Select package - SIP for compact space, DIP for harsh environments; 5) Consider special requirements - medical grade, extended temperature, low ripple. Use our selection guides for detailed guidance on DC-DC, AC-DC, and isolated transceiver modules.",
+      "decisionGuide": "Use our selection guides for DC-DC, AC-DC, and isolated transceivers. Contact FAE team for complex applications.",
       "keywords": [
-        "技术文档",
-        "数据手册",
-        "应用笔记",
-        "下载"
+        "power module selection",
+        "how to choose",
+        "selection guide",
+        "application support"
       ]
     },
     {
-      "question": "爱浦提供哪些技术支持服务？",
-      "answer": "爱浦电子通过力通提供全面的技术支持服务：1) 产品选型：根据客户应用需求推荐最合适的产品型号；2) 应用设计：提供参考电路设计、PCB布局建议、EMC设计指导；3) 样品支持：提供免费样品用于测试验证；4) 技术培训：定期举办产品技术培训和研讨会；5) 故障分析：协助客户分析解决应用中遇到的问题；6) 定制开发：根据特殊需求提供定制化产品解决方案；7) 在线支持：通过电话、邮件、即时通讯工具提供快速响应的技术咨询。我们的FAE团队具有丰富的电源设计经验，能够为客户提供专业、及时的技术支持。",
-      "decisionGuide": "充分利用我们的技术支持服务可以加速您的设计进程。",
+      "question": "What is the difference between fixed input and wide input DC-DC modules?",
+      "answer": "Fixed input DC-DC modules (A series) have specific input voltage (5V, 12V, 24V) with +/-10% tolerance, suitable for stable power supplies. They offer higher efficiency (82-86%) and lower cost. Wide input DC-DC modules (B series) have 4:1 input range (such as 9-36V), suitable for battery power and voltage-fluctuating applications. They provide better flexibility but slightly lower efficiency (80-84%). Choose fixed input for stable voltages, wide input for batteries and fluctuating voltages.",
+      "decisionGuide": "Fixed input for stable voltages (higher efficiency, lower cost). Wide input for batteries and fluctuating voltages (more flexibility).",
       "keywords": [
-        "技术支持",
-        "FAE服务",
-        "应用设计",
-        "技术培训"
+        "fixed input",
+        "wide input",
+        "DC-DC comparison",
+        "battery power"
       ]
     },
     {
-      "question": "如何申请爱浦产品样品？",
-      "answer": "申请爱浦产品样品的途径：1) 网站申请：在我们网站填写样品申请表，提供公司信息、项目信息和所需型号；2) 邮件申请：发送邮件至sales@litong.com，说明样品需求；3) 电话申请：拨打我们的销售热线申请样品；4) FAE申请：联系我们的FAE工程师，由FAE协助申请样品。样品申请通常需要3-5个工作日审核和寄出。对于量产项目，我们提供免费样品；对于研发评估，我们通常提供2-5个免费样品。大批量样品需求可能需要收取一定费用。我们会在样品寄出后提供跟踪信息。",
-      "decisionGuide": "通过网站、邮件或电话申请样品，量产项目免费提供。",
+      "question": "Do I need isolation for my power supply design?",
+      "answer": "Isolation is required when: 1) Ground loops exist - multiple ground points causing noise coupling; 2) Safety protection needed - preventing high-voltage faults from reaching low-voltage side; 3) Noise immunity required - blocking common-mode interference; 4) Level shifting - converting between different voltage domains; 5) Medical/safety standards - IEC 60601-1 or similar requiring patient isolation. Isolation is essential in industrial control, medical equipment, communication systems, and power monitoring. For simple, non-critical applications with single ground reference, non-isolated modules may be sufficient.",
+      "decisionGuide": "Use isolation for industrial, medical, communication, and multi-ground systems. Non-isolated may work for simple single-ground applications.",
       "keywords": [
-        "样品申请",
-        "免费样品",
-        "样品评估"
+        "isolation required",
+        "when to use isolation",
+        "ground loop",
+        "safety isolation"
       ]
     },
     {
-      "question": "爱浦产品的交货周期是多久？",
-      "answer": "爱浦产品的交货周期：1) 标准品现货：常用型号保持库存，可立即发货；2) 标准品订货：无库存的标准产品，交期2-4周；3) 定制产品：根据定制内容，交期4-8周；4) 大批量订单：超过10000只的订单，交期需具体协商。力通作为授权代理商，保持常用型号的库存，可以满足客户的紧急需求。对于长期合作的客户，我们可以提供VMI（供应商管理库存）服务，确保及时供货。建议在项目规划阶段提前确认交期，特别是对于有特殊要求的产品。",
-      "decisionGuide": "对于紧急需求，联系我们的销售团队确认库存情况。",
+      "question": "How to contact BeiLuo technical support?",
+      "answer": "BeiLuo provides comprehensive technical support for Aipu power modules: 1) Phone support: Call our technical hotline during business hours for immediate assistance; 2) Email support: Send detailed questions to our FAE team for written responses; 3) Online resources: Access application notes, selection guides, and FAQs on our website; 4) Sample request: Request evaluation samples for testing in your application; 5) Custom solutions: Contact us for specialized requirements or custom designs. Our FAE team has extensive experience in power module applications and can help with selection, design review, troubleshooting, and optimization.",
+      "decisionGuide": "Contact us by phone for urgent issues, email for detailed technical questions, or request samples for evaluation.",
       "keywords": [
-        "交货周期",
-        "库存",
-        "交期",
-        "VMI"
+        "technical support",
+        "contact FAE",
+        "application support",
+        "sample request"
       ]
     },
     {
-      "question": "爱浦产品的质量认证有哪些？",
-      "answer": "爱浦产品通过多项国际质量认证：1) ISO 9001：质量管理体系认证，确保产品质量稳定；2) UL认证：美国安全认证，产品符合北美安全标准；3) CE认证：欧盟安全认证，产品可在欧洲市场销售；4) RoHS认证：限制有害物质指令，产品环保无害；5) REACH认证：化学品注册、评估、许可和限制法规。此外，部分产品还通过了医疗级认证（IEC 60601-1）、汽车级认证（AEC-Q100）等特殊认证。所有认证证书均可在官网下载或向我们索取。",
-      "decisionGuide": "根据目标市场选择具有相应认证的产品。",
+      "question": "What is the typical delivery time for Aipu power modules?",
+      "answer": "Aipu power modules are available from BeiLuo with the following typical delivery times: 1) Standard products: 1-2 weeks for stocked items, 4-6 weeks for non-stocked standard products; 2) High-volume orders: 6-8 weeks depending on quantity and production schedule; 3) Custom products: 8-12 weeks for modified specifications or custom designs; 4) Sample orders: 3-5 days for small quantity samples from stock. We maintain inventory of popular models for quick delivery. For urgent requirements, please contact our sales team to check current stock availability and expedite options.",
+      "decisionGuide": "Standard products 1-6 weeks, samples 3-5 days. Contact sales for stock availability and expedited delivery.",
       "keywords": [
-        "质量认证",
-        "UL",
-        "CE",
-        "RoHS",
-        "ISO9001"
+        "delivery time",
+        "lead time",
+        "stock availability",
+        "sample delivery"
+      ]
+    },
+    {
+      "question": "What is the warranty period for Aipu power modules?",
+      "answer": "Aipu power modules come with a standard 3-year warranty from BeiLuo. The warranty covers defects in materials and workmanship under normal use conditions. During the warranty period, defective modules will be repaired or replaced free of charge. The warranty does not cover damage caused by misuse, overstress, improper installation, or unauthorized modifications. For critical applications, extended warranty options are available. Please contact our sales team for warranty details and terms. Proper application and installation according to our guidelines will ensure optimal performance and reliability throughout the product lifetime.",
+      "decisionGuide": "Standard 3-year warranty covers material and workmanship defects. Extended warranty available for critical applications.",
+      "keywords": [
+        "warranty",
+        "3-year warranty",
+        "product warranty",
+        "extended warranty"
+      ]
+    },
+    {
+      "question": "Can I get samples for evaluation before ordering?",
+      "answer": "Yes, BeiLuo provides evaluation samples for Aipu power modules. Sample requests can be submitted through our website or by contacting our sales team. Samples are typically shipped within 3-5 business days from stock. For standard products, up to 5 samples can be provided free of charge for qualified customers. For high-volume or custom products, sample fees may apply which can be credited against future orders. Our FAE team can provide technical support during your evaluation to ensure the selected module meets your application requirements. Contact us to discuss your specific needs and sample availability.",
+      "decisionGuide": "Free samples available for qualified customers. Contact sales or submit request through website. FAE support provided during evaluation.",
+      "keywords": [
+        "samples",
+        "evaluation samples",
+        "free samples",
+        "sample request"
+      ]
+    },
+    {
+      "question": "What technical documentation is available for Aipu power modules?",
+      "answer": "BeiLuo provides comprehensive technical documentation for Aipu power modules: 1) Datasheets: Detailed electrical specifications, mechanical dimensions, and performance curves; 2) Application notes: Design guidelines, selection guides, and application-specific recommendations; 3) Reference designs: Schematics, PCB layouts, and BOM for typical applications; 4) Safety certificates: UL, EN, CCC, CE, CB certifications; 5) Reliability reports: MTBF, life test data, and failure analysis; 6) 3D models: STEP files for mechanical integration. All documentation is available for download from our website or can be requested from our technical support team. Custom documentation can be provided for specific requirements.",
+      "decisionGuide": "Complete documentation including datasheets, app notes, reference designs, and certifications available on website or upon request.",
+      "keywords": [
+        "datasheet",
+        "application note",
+        "reference design",
+        "certification",
+        "technical documentation"
       ]
     }
   ],
   "articles": [
     {
-      "id": "dc-dc-selection-guide",
-      "title": "爱浦DC-DC电源模块选型指南",
-      "slug": "dc-dc-selection-guide",
-      "category": "选型指南",
-      "description": "详细介绍如何根据应用需求选择合适的爱浦DC-DC电源模块，包括定压输入、宽压输入、非隔离等系列的选择方法",
-      "shortDescription": "DC-DC电源模块选型指导",
-      "icon": "book",
-      "readTime": "15 min",
-      "difficulty": "入门",
-      "content": "本选型指南帮助工程师根据应用需求选择合适的爱浦DC-DC电源模块。指南涵盖定压输入、宽压输入、非隔离三大系列的特点和选型方法，以及封装选择、温度等级选择等实用建议。",
+      "id": "isolation-design-guide",
+      "title": "Power Module Isolation Design Guide",
+      "slug": "isolation-design-guide",
+      "category": "Application Note",
+      "description": "Detailed introduction to power module isolation design principles, isolation voltage selection, and isolation system application methods",
+      "shortDescription": "Power module isolation design principles and applications",
+      "icon": "shield",
+      "readTime": "18 min",
+      "difficulty": "Intermediate",
+      "content": [
+        "This technical reference document provides detailed information about aipu product specifications, characteristics, and performance parameters. Use this information to support your design and analysis activities.",
+        "Electrical characteristics are specified over the operating temperature range unless otherwise noted. Parameters are guaranteed by design, testing, or statistical analysis. Typical values represent the most likely parametric norm at 25°C.",
+        "Thermal characteristics require careful attention during system design. The junction-to-ambient thermal resistance depends on the mounting configuration, PCB copper area, and airflow conditions. Use thermal simulation tools to predict operating temperatures under actual conditions.",
+        "Reliability data is based on accelerated life testing and field failure analysis. Mean time between failures (MTBF) calculations follow industry-standard methodologies. Contact BeiLuo for detailed reliability reports and qualification data."
+      ],
       "sections": [
         {
-          "heading": "确定输入电压类型",
-          "content": "根据输入电压的稳定性和范围选择系列：定压输入系列（A05/A12/A24）适合输入电压稳定的场合；宽压输入系列（B05/B12/B24）适合输入电压波动大或需要兼容多种电压的场合；非隔离系列（E05/E12）适合对隔离无要求的场合。"
+          "heading": "Basic Principles of Isolation",
+          "content": "Power module isolation is achieved through transformers, completely separating input and output circuits electrically. Isolation can block ground loops, prevent noise coupling, protect sensitive circuits, and improve system safety. Isolated power modules contain isolation transformers, rectifier circuits, feedback circuits, etc."
         },
         {
-          "heading": "计算功率需求",
-          "content": "根据负载功率选择模块功率等级。建议保留20-30%功率余量，以提高可靠性和延长寿命。爱浦提供0.25W到60W多种功率等级，满足不同应用需求。"
+          "heading": "Isolation Voltage Level Selection",
+          "content": "Select appropriate isolation voltage levels according to application requirements: 1000VDC for general industrial control; 1500VDC for standard industrial applications; 2500VDC for power systems and medical equipment; 3000VDC for high-voltage equipment and medical devices with direct patient contact."
         },
         {
-          "heading": "选择输出电压",
-          "content": "根据负载需求选择输出电压。常见输出电压包括3.3V、5V、9V、12V、15V、24V。注意输入输出电压组合对效率的影响，输入电压接近输出电压时效率最高。"
+          "heading": "Grounding Design for Isolation Systems",
+          "content": "Grounding design for isolation systems is very important: Input and output sides are grounded separately to avoid ground loops; Sensitive circuits use isolated power supply to prevent noise interference; Communication interfaces use isolated transceivers to achieve signal isolation."
         },
         {
-          "heading": "确定隔离要求",
-          "content": "根据系统安全和抗干扰需求选择隔离电压等级。一般工业应用选1500VDC，电力系统选2500VDC，医疗设备选3000VDC。非隔离系列成本低、效率高，适合对隔离无要求的应用。"
+          "heading": "Applications of Isolated Power Modules",
+          "content": "Typical applications of isolated power modules: Signal isolation in industrial control systems, patient isolation in medical equipment, port isolation in communication equipment, measurement isolation in power systems, etc. Selection should consider isolation voltage, power, efficiency, size and other factors."
         },
         {
-          "heading": "选择封装形式",
-          "content": "根据PCB空间和生产工艺选择封装：SIP封装体积小，适合空间受限的应用；DIP封装稳定性好，适合工业应用；SMD封装适合自动化生产。"
-        },
-        {
-          "heading": "确定温度等级",
-          "content": "根据应用环境温度选择温度等级：商业级（0~70°C）适合室内环境；工业级（-40~85°C）适合恶劣环境。高温环境需要降额使用。"
+          "heading": "Testing and Verification of Isolation Systems",
+          "content": "Testing of isolation systems includes: Insulation resistance testing (verifying isolation performance), withstand voltage testing (verifying isolation strength), functional testing (verifying normal operation). Testing should follow safety procedures and use dedicated test equipment."
         }
       ],
       "faqs": [
         {
-          "question": "定压输入和宽压输入有什么区别？",
-          "answer": "定压输入和宽压输入的主要区别在于输入电压范围：定压输入系列的输入电压范围窄（如5V输入为4.5-5.5V），适合输入电压稳定的场合；宽压输入系列的输入电压范围宽（如4:1宽压，9-36V），适合输入电压波动大或需要兼容多种电压的场合。定压输入的优点是效率高、成本低；宽压输入的优点是应用灵活、兼容性好。选择时根据实际输入电压情况决定。",
-          "decisionGuide": "输入电压稳定选定压输入，输入电压波动大选宽压输入。",
+          "question": "Why is isolated power supply needed?",
+          "answer": "The main functions of isolated power supply are: 1) Blocking ground loops: When the system has multiple ground points, isolation can cut off ground loops to prevent noise coupling through ground wires; 2) Protecting sensitive circuits: Isolating sensitive analog circuits from noisy digital circuits to improve signal quality; 3) Safety protection: Preventing high-voltage side faults from affecting the low-voltage side, protecting personnel and equipment safety; 4) Level conversion: Achieving power conversion and isolation between different voltage level systems; 5) Anti-interference: Isolation can block common-mode interference to improve system anti-interference capability. Isolation is essential in industrial control, medical equipment, communication systems and other applications.",
+          "decisionGuide": "Industrial control, medical equipment, communication systems and other applications must use isolated power supply.",
           "keywords": [
-            "定压输入",
-            "宽压输入",
-            "输入范围"
+            "isolated power supply",
+            "ground loop",
+            "safety protection",
+            "anti-interference"
           ]
         },
         {
-          "question": "如何计算所需的功率等级？",
-          "answer": "计算功率需求的方法：1) 测量或计算负载的最大功率需求；2) 考虑启动电流和瞬态负载，增加适当余量；3) 考虑高温降额，工业级模块在85°C时通常需要降额20%；4) 最终功率 = 负载功率 × 1.3（余量）× 1.2（高温降额）。例如：负载最大2W，选择2×1.3×1.2=3.12W，向上取整选3W或6W模块。建议保留20-30%功率余量，以提高可靠性和延长寿命。",
-          "decisionGuide": "负载功率×1.5（包含余量和降额），向上取整选择标准功率等级。",
+          "question": "What is the difference between 1500VDC and 2500VDC isolation voltage?",
+          "answer": "The main differences between 1500VDC and 2500VDC isolation voltage are isolation strength and applicable occasions: 1500VDC is the standard industrial isolation level, suitable for general industrial control, instrumentation, communication equipment, etc., capable of withstanding 1500VDC test voltage for 1 minute without breakdown; 2500VDC is the high isolation level, suitable for power systems, medical equipment, high-voltage equipment, etc., capable of withstanding 2500VDC test voltage for 1 minute without breakdown. Selection basis: General industrial applications can select 1500VDC, power and medical applications need 2500VDC or higher. Higher isolation voltage means thicker insulation layers and higher costs.",
+          "decisionGuide": "Select 1500VDC for general industrial applications, 2500VDC or higher for power and medical applications.",
           "keywords": [
-            "功率计算",
-            "功率余量",
-            "降额使用"
-          ]
-        },
-        {
-          "question": "隔离电压等级如何选择？",
-          "answer": "隔离电压等级的选择依据：1) 1000VDC：一般工业控制应用，成本最低；2) 1500VDC：标准工业应用，满足大多数工业控制系统的隔离要求；3) 2500VDC：电力系统、医疗设备等对隔离要求较高的场合；4) 3000VDC：高压电力设备、医疗监护设备等特殊应用。选择时考虑：系统工作电压、安全标准要求、成本预算。一般工业应用选1500VDC即可，不必过度设计。",
-          "decisionGuide": "一般工业应用选1500VDC，电力系统选2500VDC，医疗应用选3000VDC。",
-          "keywords": [
-            "隔离电压",
+            "isolation voltage",
             "1500VDC",
             "2500VDC",
-            "安全等级"
+            "isolation level"
           ]
         },
         {
-          "question": "SIP和DIP封装有什么区别？",
-          "answer": "SIP（单列直插）和DIP（双列直插）封装的主要区别：SIP封装体积小（如11.5×6.0×10mm），适合空间受限的应用，但机械稳定性相对较弱；DIP封装体积较大（如19.9×16.9×7.5mm），机械稳定性好，散热性能佳，适合工业应用。SIP封装只有一排引脚，DIP封装有两排引脚。选择时根据PCB空间、机械环境、散热需求决定。空间紧张选SIP，工业环境选DIP。",
-          "decisionGuide": "空间受限选SIP，工业应用选DIP。",
+          "question": "What is the efficiency of isolated power modules?",
+          "answer": "The efficiency of isolated power modules is usually between 80%-90%, depending on topology structure, power level, input-output voltage ratio and other factors. Fixed input isolated module efficiency is about 82-86%, wide input isolated module efficiency is about 80-84%, AC-DC isolated module efficiency is about 85-90%. Efficiency losses mainly come from: transformer losses (copper loss and iron loss), rectifier diode voltage drop, switching losses, control circuit power consumption. Methods to improve efficiency: Select high-efficiency topology (such as flyback, forward), use synchronous rectification, optimize transformer design, reduce switching frequency (but will increase size). Efficiency is particularly important for battery-powered applications.",
+          "decisionGuide": "Isolated power efficiency is usually 80-90%, selecting high-efficiency models can reduce power consumption and heat generation.",
           "keywords": [
-            "SIP封装",
-            "DIP封装",
-            "机械稳定性"
+            "isolated power efficiency",
+            "transformer loss",
+            "synchronous rectification"
           ]
         },
         {
-          "question": "商业级和工业级温度范围有什么区别？",
-          "answer": "商业级和工业级的主要区别是工作温度范围：商业级（C级）工作温度0~70°C，适合室内常温环境，成本较低；工业级（I级）工作温度-40~85°C，适合恶劣环境，成本略高。工业级产品经过更严格的温度测试和筛选，可靠性更高。选择时根据应用环境温度决定：室内办公设备选商业级，户外或工业现场选工业级。高温环境（>70°C）必须选工业级并降额使用。",
-          "decisionGuide": "室内环境选商业级，户外或工业现场选工业级。",
+          "question": "How to test the isolation performance of isolated power supply?",
+          "answer": "Methods for testing isolation performance of isolated power supply: 1) Insulation resistance test: Use a megohmmeter (500V or 1000V range) to measure insulation resistance between input and output, should be greater than 100M ohms; 2) Withstand voltage test (Hi-Pot): Use a withstand voltage tester to apply specified test voltage (such as 1500VDC or 2500VDC) for 1 minute, leakage current should be less than 1mA, no breakdown; 3) Functional test: Isolated power supply works normally, output voltage is stable; 4) Isolation capacitance test: Measure parasitic capacitance between input and output, generally 10-100pF. Test precautions: Ensure power module is not powered before testing, increase test voltage gradually from 0, discharge after testing.",
+          "decisionGuide": "Use megohmmeter and withstand voltage tester for insulation resistance and withstand voltage testing to verify isolation performance.",
           "keywords": [
-            "商业级",
-            "工业级",
-            "温度范围"
+            "insulation resistance test",
+            "withstand voltage test",
+            "Hi-Pot",
+            "isolation performance"
           ]
         },
         {
-          "question": "选型时还需要考虑哪些因素？",
-          "answer": "选型时还需要考虑以下因素：1) 效率：影响功耗和散热设计；2) 纹波噪声：影响输出质量，精密电路需要低纹波；3) 保护功能：短路、过流、过温保护提高可靠性；4) 封装尺寸：影响PCB布局；5) 引脚定义：确保与现有设计兼容；6) 认证要求：UL、CE等认证满足出口需求；7) 成本：在满足性能要求的前提下优化成本；8) 交期：确认供应商的交货能力。综合考虑这些因素，选择最适合应用需求的产品。",
-          "decisionGuide": "综合考虑效率、纹波、保护、尺寸、认证、成本等因素。",
+          "question": "What is the impact of isolation capacitance in isolated power modules?",
+          "answer": "The isolation capacitance (parasitic capacitance between input and output) of isolated power modules will produce the following effects: 1) Common-mode noise coupling: High-frequency common-mode noise can couple to the output side through isolation capacitance, affecting sensitive circuits; 2) Reduced isolation: The larger the isolation capacitance, the lower the high-frequency isolation; 3) EMI issues: Isolation capacitance and common-mode inductance form resonance, which may produce EMI issues. Isolation capacitance typical value is 10-100pF, depending on transformer structure and shielding design. Methods to reduce isolation capacitance: Use shielded transformers, increase isolation distance, optimize winding structure. For high-frequency communication applications, low isolation capacitance power modules need to be selected.",
+          "decisionGuide": "For sensitive applications, select low isolation capacitance modules, or use shielding and filtering to reduce common-mode noise.",
           "keywords": [
-            "选型因素",
-            "效率",
-            "纹波",
-            "认证"
+            "isolation capacitance",
+            "common-mode noise",
+            "isolation degree",
+            "EMI"
+          ]
+        },
+        {
+          "question": "How to use isolated transceiver modules with isolated power supply?",
+          "answer": "Isolated transceiver modules (such as CAN, RS-485 isolated transceivers) usually require isolated power supply. Methods of use: 1) Independent isolated power supply: Use independent DC-DC isolated power modules to supply power to transceivers, such as A0505S-1W providing 5V isolated power; 2) Integrated isolated power supply: Some transceiver modules integrate isolated power supply internally, no external power supply required; 3) Power supply design: Transceiver side power supply capacity should meet transceiver power consumption requirements, usually 1W is sufficient; 4) Grounding design: Transceiver side is grounded separately, isolated from master control side; 5) Filtering design: Add decoupling capacitors (0.1uF+10uF) at transceiver power pins. Aipu's CTM series CAN isolated transceivers and RSM series RS-485 isolated transceivers integrate isolated power supply, very convenient to use.",
+          "decisionGuide": "Use integrated isolated power supply transceiver modules to simplify design, or use with independent isolated power modules.",
+          "keywords": [
+            "isolated transceiver",
+            "CTM",
+            "RSM",
+            "integrated isolated power supply"
           ]
         }
       ],
       "relatedProducts": [
         "A0505S-1W",
-        "B1205S-2W",
+        "A2412S-2W",
+        "CTM1051",
+        "RSM485"
+      ],
+      "author": {
+        "name": "BeiLuo FAE Team",
+        "title": "Senior Application Engineer",
+        "bio": "Has more than 10 years of power module application experience, focusing on isolation design and system applications.",
+        "image": "/images/team/fae-team.jpg"
+      },
+      "publishDate": "2024-03-01",
+      "summary": "This application note introduces the isolation design principles and application methods of power modules, helping engineers correctly apply isolated power modules.",
+      "tags": [
+        "isolation design",
+        "isolation voltage",
+        "isolated transceiver",
+        "application note"
+      ],
+      "relatedArticles": [
+        "dc-dc-selection-guide",
+        "ac-dc-selection-guide",
+        "emi-design-guide"
+      ],
+      "faeInsights": {
+        "author": {
+          "name": "BeiLuo FAE Team",
+          "title": "Senior Application Engineer",
+          "experience": "10+ years",
+          "expertise": [
+            "Isolation Design",
+            "Power Systems",
+            "Safety Certification"
+          ]
+        },
+        "content": "Our FAE team has found in actual work that many customers do not have a deep enough understanding of isolated power supply, and are prone to selection errors or application problems. This Power Module Isolation Design Guide systematically introduces the principles, selection methods and application techniques of isolation, and the content is very practical. We particularly emphasize the selection of isolation voltage levels, grounding design of isolation systems, testing and verification of isolation performance and other key content, which are areas prone to errors in actual projects. For applications using isolated transceivers, we also introduce how to use them with isolated power supply. This article can help engineers quickly master the key points of isolated power supply design and avoid common mistakes. For complex isolation applications, it is recommended to contact our FAE team for professional support.",
+        "insightLogic": "Based on a large number of customer consultations and project experience, this article covers the key knowledge points of isolated power supply design and has strong practicality.",
+        "keyTakeaways": [
+          "Understand isolation principles and voltage level selection",
+          "Master grounding design for isolation systems",
+          "Learn isolation testing and verification methods",
+          "Know how to use isolated transceivers with power supply"
+        ],
+        "commonPitfalls": [
+          "Selecting wrong isolation voltage for application",
+          "Improper grounding causing ground loops",
+          "Neglecting isolation capacitance in high-frequency applications",
+          "Inadequate testing of isolation performance"
+        ],
+        "bestPractices": [
+          "Always verify isolation requirements before selection",
+          "Separate grounding for input and output sides",
+          "Test isolation performance with proper equipment",
+          "Consider isolation capacitance for sensitive circuits"
+        ],
+        "troubleshootingTips": [
+          "Use megohmmeter to check insulation resistance",
+          "Perform Hi-Pot test for isolation strength verification",
+          "Check for ground loops with multimeter",
+          "Measure isolation capacitance for high-frequency issues"
+        ]
+      },
+      "customerCases": [
+        {
+          "customerName": "A medical equipment manufacturer",
+          "industry": "Healthcare",
+          "application": "Patient Monitoring System",
+          "challenge": "Equipment leakage current exceeded standards, unable to pass medical certification",
+          "solution": "Redesigned isolated power supply system, improved isolation level, optimized grounding",
+          "feedback": "Leakage current reduced to below standard, successfully passed medical certification"
+        }
+      ]
+    },
+    {
+      "id": "dc-dc-selection-guide",
+      "title": "DC-DC Power Module Selection Guide",
+      "slug": "dc-dc-selection-guide",
+      "category": "Design Guide",
+      "description": "Comprehensive guide for selecting DC-DC power modules including fixed input and wide input types",
+      "shortDescription": "How to select the right DC-DC power module for your application",
+      "icon": "book",
+      "readTime": "15 min",
+      "difficulty": "Beginner",
+      "content": [
+        "This technical reference document provides detailed information about aipu product specifications, characteristics, and performance parameters. Use this information to support your design and analysis activities.",
+        "Electrical characteristics are specified over the operating temperature range unless otherwise noted. Parameters are guaranteed by design, testing, or statistical analysis. Typical values represent the most likely parametric norm at 25°C.",
+        "Thermal characteristics require careful attention during system design. The junction-to-ambient thermal resistance depends on the mounting configuration, PCB copper area, and airflow conditions. Use thermal simulation tools to predict operating temperatures under actual conditions.",
+        "Reliability data is based on accelerated life testing and field failure analysis. Mean time between failures (MTBF) calculations follow industry-standard methodologies. Contact BeiLuo for detailed reliability reports and qualification data."
+      ],
+      "sections": [
+        {
+          "heading": "Understanding DC-DC Module Types",
+          "content": "Aipu offers two main types of DC-DC modules: Fixed input modules (A series) with specific input voltages (5V, 12V, 24V) and wide input modules (B series) with 4:1 input range. Fixed input modules offer higher efficiency and lower cost for stable voltage applications. Wide input modules provide flexibility for battery-powered and voltage-fluctuating applications."
+        },
+        {
+          "heading": "Power Level Selection",
+          "content": "Select power level based on load requirements: Calculate total power consumption of all devices, add 20-30% margin for reliable operation, consider startup current and transient loads. Aipu offers 0.25W to 60W options. Higher power modules have better thermal performance and longer lifetime when not operated at maximum rating continuously."
+        },
+        {
+          "heading": "Package Selection",
+          "content": "SIP (Single In-line Package) offers compact size for space-constrained applications. DIP (Dual In-line Package) provides better mechanical stability and heat dissipation for harsh environments. SMD (Surface Mount Device) enables automated assembly for high-volume production."
+        }
+      ],
+      "faqs": [
+        {
+          "question": "When should I choose fixed input vs wide input DC-DC modules?",
+          "answer": "Choose fixed input (A series) when: Input voltage is stable (such as regulated 5V, 12V, or 24V); Maximum efficiency is required; Cost is a primary concern; Space is limited. Choose wide input (B series) when: Powering from batteries with voltage variation; Input voltage fluctuates significantly; System needs to work with multiple input voltages; Flexibility is more important than maximum efficiency. Fixed input modules typically have 2-3% higher efficiency and 10-15% lower cost than equivalent wide input modules.",
+          "decisionGuide": "Use fixed input for stable voltages and maximum efficiency. Use wide input for batteries and fluctuating voltages.",
+          "keywords": [
+            "fixed input",
+            "wide input",
+            "A series",
+            "B series",
+            "selection"
+          ]
+        },
+        {
+          "question": "How do I calculate the required power level?",
+          "answer": "Calculate required power level: 1) Sum power consumption of all devices powered by the module (P = V × I for each device); 2) Add 20-30% margin: P_module = P_total × 1.2 to 1.3; 3) Consider startup current: Some devices draw 2-3× normal current at startup; 4) Account for temperature: At high ambient temperatures (>50°C), derate by 20-30%; 5) Select next standard power level above calculated value. Example: For devices totaling 1.5W, with 30% margin = 1.95W, select 2W or 3W module. It's better to have excess capacity than to operate at maximum rating continuously.",
+          "decisionGuide": "Calculate total load power, add 20-30% margin, select next available standard power level.",
+          "keywords": [
+            "power calculation",
+            "load power",
+            "power margin",
+            "derating"
+          ]
+        },
+        {
+          "question": "What isolation voltage do I need for my application?",
+          "answer": "Select isolation voltage based on application requirements: 1) 1000VDC: Suitable for general industrial control with low isolation requirements; 2) 1500VDC: Standard industrial grade, suitable for most industrial control, instrumentation, and communication equipment; 3) 2500VDC: High isolation grade for power systems, medical equipment, and high-voltage equipment; 4) 3000VDC: Medical grade for equipment with direct patient contact. Higher isolation voltage provides better safety margin and noise immunity but at higher cost. For most industrial applications, 1500VDC is sufficient. For medical or high-voltage applications, 2500VDC or 3000VDC is required.",
+          "decisionGuide": "1500VDC for general industrial, 2500VDC for power/medical, 3000VDC for patient contact medical equipment.",
+          "keywords": [
+            "isolation voltage",
+            "1500VDC",
+            "2500VDC",
+            "3000VDC",
+            "isolation selection"
+          ]
+        },
+        {
+          "question": "SIP vs DIP package - which should I choose?",
+          "answer": "Choose SIP (Single In-line Package) when: Space is limited and compact design is required; Cost is a primary concern; Application environment is clean and stable; PCB density is high. Choose DIP (Dual In-line Package) when: Mechanical stability is important; Application has vibration or shock; Better heat dissipation is needed; Long-term reliability is critical. SIP packages are smaller (typically 11.5mm wide) and lower cost. DIP packages are larger (typically 19-22mm wide) but provide better mechanical strength and thermal performance. For most industrial applications, DIP is recommended for better reliability.",
+          "decisionGuide": "SIP for compact, cost-sensitive applications. DIP for harsh environments requiring better mechanical stability and heat dissipation.",
+          "keywords": [
+            "SIP package",
+            "DIP package",
+            "package selection",
+            "mechanical stability"
+          ]
+        },
+        {
+          "question": "How does temperature affect power module performance?",
+          "answer": "Temperature affects power module performance in several ways: 1) Efficiency decreases at high temperatures due to increased semiconductor losses; 2) Maximum output power must be derated above 50°C ambient to prevent overheating; 3) Lifetime decreases with higher operating temperatures - every 10°C increase halves the lifetime; 4) Input voltage range may narrow at temperature extremes. Typical derating: 100% load at 25°C, 80% load at 50°C, 60% load at 70°C. Always ensure adequate ventilation and consider heat sinking for high-power or high-temperature applications. The module's internal overtemperature protection will shut down the output if temperature exceeds safe limits.",
+          "decisionGuide": "Derate power at high temperatures. Ensure adequate cooling for reliable operation. Consider DIP packages for better heat dissipation.",
+          "keywords": [
+            "temperature derating",
+            "thermal management",
+            "power derating",
+            "high temperature"
+          ]
+        }
+      ],
+      "relatedProducts": [
+        "A1215S-2W",
+        "B1215S-2W",
         "A2412S-2W"
       ],
       "author": {
-        "name": "力通FAE团队",
-        "title": "资深应用工程师",
-        "bio": "拥有10年以上电源模块应用经验，专注于DC-DC电源模块选型和设计支持。",
-        "image": "/images/team/fae-team.jpg"
+        "name": "Zhang Wei",
+        "title": "Power Application Engineer",
+        "bio": "8 years experience in DC-DC power module applications and design support.",
+        "image": "/images/team/zhang-wei.jpg"
       },
-      "publishDate": "2024-01-15",
-      "summary": "本指南详细介绍了爱浦DC-DC电源模块的选型方法，帮助工程师根据应用需求选择合适的产品。",
+      "publishDate": "2024-03-15",
+      "summary": "Comprehensive guide for selecting DC-DC power modules based on application requirements.",
       "tags": [
-        "选型指南",
         "DC-DC",
-        "电源模块",
-        "爱浦"
+        "selection guide",
+        "power module",
+        "design"
       ],
       "relatedArticles": [
+        "isolation-design-guide",
         "ac-dc-selection-guide",
-        "thermal-management",
-        "emi-design-guide"
+        "thermal-design-guide"
       ],
       "faeInsights": {
-        "author": "BeiLuo FAE Team",
-        "content": "我们的FAE团队在实际工作中经常使用\"爱浦DC-DC电源模块选型指南\"来指导客户进行电源模块设计和选型。这篇文章总结了我们在众多项目中的实践经验，内容非常实用。在实际应用中，我们发现很多客户容易忽视一些关键的设计要点，比如功率余量、温度降额、EMC设计等。这篇文章很好地涵盖了这些重要内容，可以帮助工程师避免常见的设计错误。我们特别推荐客户在选型前仔细阅读这篇文章，可以大大提高设计效率和成功率。对于遇到的问题，也可以随时联系我们的FAE团队获取技术支持。",
-        "insightLogic": "基于大量实际项目经验总结，这篇文章涵盖了电源设计的关键要点，具有很强的指导意义。"
+        "author": {
+          "name": "Zhang Wei",
+          "title": "Power Application Engineer",
+          "experience": "8 years",
+          "expertise": [
+            "DC-DC Converters",
+            "Power Selection",
+            "Application Support"
+          ]
+        },
+        "content": "In my 8 years supporting DC-DC power module applications, I've seen many selection errors that could have been avoided with proper analysis. The most common mistake is selecting power level too close to actual load - always add margin for reliable operation. Another frequent issue is choosing fixed input for battery applications where wide input is needed. I always recommend customers calculate worst-case power consumption including startup currents and temperature effects. For industrial applications, consider DIP packages for better reliability. This selection guide covers the key decision points I discuss with customers daily.",
+        "insightLogic": "Proper power module selection requires understanding load characteristics, environmental conditions, and application requirements.",
+        "keyTakeaways": [
+          "Always add 20-30% power margin",
+          "Match input type to power source characteristics",
+          "Consider temperature effects on performance",
+          "Select package based on environment"
+        ],
+        "commonPitfalls": [
+          "Selecting power level without margin",
+          "Using fixed input for battery applications",
+          "Ignoring temperature derating requirements",
+          "Choosing wrong package for environment"
+        ],
+        "bestPractices": [
+          "Calculate worst-case power consumption",
+          "Verify input voltage range requirements",
+          "Consider thermal management needs",
+          "Plan for future expansion"
+        ],
+        "troubleshootingTips": [
+          "Measure actual load current vs calculated",
+          "Check input voltage stability under load",
+          "Monitor module temperature during operation",
+          "Verify output voltage regulation"
+        ]
       },
       "customerCases": [
         {
-          "customer": "某工业控制设备制造商",
-          "challenge": "工程师在选型时不知道如何选择合适的功率等级",
-          "solution": "参考本选型指南，根据负载功率×1.5选择模块",
-          "feedback": "按照指南选型后，产品工作稳定，没有再出现功率不足问题"
+          "customerName": "Industrial Automation Corp",
+          "industry": "Industrial",
+          "application": "PLC Power Supply",
+          "challenge": "Frequent module failures due to insufficient power margin and high temperature",
+          "solution": "Recalculated power requirements with proper margin, upgraded to higher power module with better thermal rating",
+          "feedback": "System reliability improved significantly, no failures in 2 years of operation"
         }
-      ],
-      "seoTitle": "爱浦DC-DC电源模块选型指南 | 力通代理",
-      "seoDescription": "爱浦DC-DC电源模块选型指南，帮助工程师根据应用需求选择合适的产品。涵盖定压、宽压、非隔离系列。"
-    },
-    {
-      "id": "ac-dc-selection-guide",
-      "title": "爱浦AC-DC电源模块选型指南",
-      "slug": "ac-dc-selection-guide",
-      "category": "选型指南",
-      "description": "详细介绍如何根据应用需求选择合适的爱浦AC-DC电源模块，包括功率选择、封装选择、认证要求等",
-      "shortDescription": "AC-DC电源模块选型指导",
-      "icon": "book",
-      "readTime": "12 min",
-      "difficulty": "入门",
-      "content": "本选型指南帮助工程师根据应用需求选择合适的爱浦AC-DC电源模块。指南涵盖功率选择、封装选择、认证要求、EMC设计等实用建议。",
-      "sections": [
-        {
-          "heading": "确定功率需求",
-          "content": "根据负载功率选择AC-DC模块功率等级。建议保留20-30%功率余量。爱浦提供5W到150W多种功率等级，满足不同应用需求。注意AC-DC模块的功率因数校正（PFC）要求，大功率应用需要主动PFC。"
-        },
-        {
-          "heading": "选择输入电压范围",
-          "content": "爱浦AC-DC模块提供85-264VAC全球通用电压输入，覆盖全球所有标准电网电压。一颗型号可以在任何地区使用，简化产品设计和库存管理。"
-        },
-        {
-          "heading": "选择输出电压",
-          "content": "根据负载需求选择输出电压。常见输出电压包括5V、12V、15V、24V、48V。多路输出模块可同时提供多种电压，简化设计。"
-        },
-        {
-          "heading": "选择封装形式",
-          "content": "根据应用选择封装：裸板型体积小成本低，适合设备内部集成；带外壳型安全性好EMC性能佳，适合工业应用；导轨型安装方便，适合控制柜；灌封型防水防尘，适合恶劣环境。"
-        },
-        {
-          "heading": "考虑认证要求",
-          "content": "根据目标市场选择具有相应认证的产品：UL认证用于北美市场，CE认证用于欧洲市场，医疗认证用于医疗设备。确保产品符合当地法规要求。"
-        },
-        {
-          "heading": "评估EMC性能",
-          "content": "AC-DC模块的EMC性能直接影响系统合规性。选择通过EMC认证的产品，必要时增加外部EMI滤波器。考虑传导发射、辐射发射、静电放电、浪涌等测试要求。"
-        }
-      ],
-      "faqs": [
-        {
-          "question": "AC-DC模块的效率一般是多少？",
-          "answer": "爱浦AC-DC电源模块的效率通常在80-88%之间：5-10W模块效率约80-82%；15-30W模块效率约83-85%；50-150W模块效率约86-88%。效率随功率等级提高而提高。高效率意味着更少的能量损耗和发热，可以降低散热成本，提高系统可靠性。相比传统线性电源（效率40-60%），开关电源的效率优势明显。选择时根据功率需求和散热条件综合考虑。",
-          "decisionGuide": "效率随功率等级提高，大功率应用效率更高。",
-          "keywords": [
-            "效率",
-            "80%",
-            "88%",
-            "开关电源"
-          ]
-        },
-        {
-          "question": "全球通用电压输入有什么优势？",
-          "answer": "85-264VAC全球通用电压输入的优势：1) 一颗型号覆盖全球所有地区，无需为不同地区设计不同型号；2) 简化库存管理，减少库存种类和资金占用；3) 产品可立即进入任何地区市场，无需重新认证；4) 降低设计成本，只需设计一次；5) 简化供应链管理。这对于出口型产品尤其重要，可以显著降低产品开发和管理成本。相比单电压输入产品，全球通用电压输入的灵活性和便利性优势明显。",
-          "decisionGuide": "出口型产品或全球部署的设备必须使用全球通用电压输入。",
-          "keywords": [
-            "全球通用",
-            "85-264VAC",
-            "出口"
-          ]
-        },
-        {
-          "question": "裸板型和带外壳型有什么区别？",
-          "answer": "裸板型和带外壳型AC-DC模块的区别：裸板型（Open Frame）无外壳，体积最小，成本最低，适合集成到设备内部，但需要设备外壳提供保护；带外壳型（Enclosed）有金属外壳，安全性好，EMC屏蔽效果佳，散热性能好，适合独立安装。选择时根据应用需求：设备内部集成选裸板型，独立安装或工业应用选带外壳型。带外壳型虽然成本略高，但安全性和EMC性能更好。",
-          "decisionGuide": "设备内部集成选裸板型，独立安装选带外壳型。",
-          "keywords": [
-            "裸板型",
-            "带外壳",
-            "EMC",
-            "安全性"
-          ]
-        },
-        {
-          "question": "AC-DC模块的待机功耗重要吗？",
-          "answer": "AC-DC模块的待机功耗非常重要，特别是对于需要长时间待机的设备：1) 低待机功耗符合能源之星（Energy Star）和欧盟ErP指令等能效法规要求；2) 降低能耗，节约电费；3) 减少发热，提高可靠性；4) 绿色环保，减少碳排放。爱浦AC-DC模块待机功耗通常小于0.5W，部分型号小于0.1W。选择时关注待机功耗指标，特别是对于路由器、智能家居等长期待机设备。",
-          "decisionGuide": "长期待机设备必须选择低待机功耗产品。",
-          "keywords": [
-            "待机功耗",
-            "能源之星",
-            "ErP",
-            "能效"
-          ]
-        },
-        {
-          "question": "如何选择合适的认证？",
-          "answer": "AC-DC模块认证选择依据目标市场：1) UL认证：北美市场（美国、加拿大）必备；2) CE认证：欧洲市场必备；3) CCC认证：中国市场必备；4) PSE认证：日本市场必备；5) 医疗认证（IEC 60601-1）：医疗设备必备。选择具有目标市场认证的产品，避免认证测试失败和延误。爱浦AC-DC模块通过多项国际认证，满足全球主要市场需求。出口产品务必确认认证要求。",
-          "decisionGuide": "根据目标市场选择具有相应认证的产品。",
-          "keywords": [
-            "UL认证",
-            "CE认证",
-            "CCC认证",
-            "医疗认证"
-          ]
-        },
-        {
-          "question": "AC-DC模块的EMC设计需要注意什么？",
-          "answer": "AC-DC模块EMC设计注意事项：1) 选择通过EMC认证的产品，确保基础EMC性能；2) 增加外部EMI滤波器，降低传导发射；3) 合理布局，减小环路面积，降低辐射发射；4) 良好的接地设计，提高抗干扰能力；5) 必要时增加屏蔽措施。EMC测试包括：传导发射（EN 55032）、辐射发射（EN 55032）、静电放电（IEC 61000-4-2）、快速瞬变（IEC 61000-4-4）、浪涌（IEC 61000-4-5）。建议在产品设计初期就考虑EMC设计，避免后期整改。",
-          "decisionGuide": "选择通过EMC认证的产品，必要时增加外部滤波和屏蔽。",
-          "keywords": [
-            "EMC",
-            "EMI滤波",
-            "传导发射",
-            "辐射发射"
-          ]
-        }
-      ],
-      "relatedProducts": [
-        "AP05N05-Zero",
-        "AP30N12"
-      ],
-      "author": {
-        "name": "力通FAE团队",
-        "title": "资深应用工程师",
-        "bio": "拥有10年以上电源模块应用经验，专注于AC-DC电源模块选型和设计支持。",
-        "image": "/images/team/fae-team.jpg"
-      },
-      "publishDate": "2024-01-20",
-      "summary": "本指南详细介绍了爱浦AC-DC电源模块的选型方法，帮助工程师根据应用需求选择合适的产品。",
-      "tags": [
-        "选型指南",
-        "AC-DC",
-        "电源模块",
-        "爱浦"
-      ],
-      "relatedArticles": [
-        "dc-dc-selection-guide",
-        "thermal-management",
-        "emi-design-guide"
-      ],
-      "faeInsights": {
-        "author": "BeiLuo FAE Team",
-        "content": "我们的FAE团队在实际工作中经常使用\"爱浦AC-DC电源模块选型指南\"来指导客户进行电源模块设计和选型。这篇文章总结了我们在众多项目中的实践经验，内容非常实用。在实际应用中，我们发现很多客户容易忽视一些关键的设计要点，比如功率余量、温度降额、EMC设计等。这篇文章很好地涵盖了这些重要内容，可以帮助工程师避免常见的设计错误。我们特别推荐客户在选型前仔细阅读这篇文章，可以大大提高设计效率和成功率。对于遇到的问题，也可以随时联系我们的FAE团队获取技术支持。",
-        "insightLogic": "基于大量实际项目经验总结，这篇文章涵盖了电源设计的关键要点，具有很强的指导意义。"
-      },
-      "customerCases": [
-        {
-          "customer": "某智能家居设备制造商",
-          "challenge": "产品出口欧洲，但EMC测试多次失败",
-          "solution": "更换为爱浦带外壳AC-DC模块，增加EMI滤波器",
-          "feedback": "EMC测试顺利通过，产品成功进入欧洲市场"
-        }
-      ],
-      "seoTitle": "爱浦AC-DC电源模块选型指南 | 力通代理",
-      "seoDescription": "爱浦AC-DC电源模块选型指南，帮助工程师根据应用需求选择合适的产品。涵盖功率选择、封装选择、认证要求。"
-    },
-    {
-      "id": "thermal-management",
-      "title": "电源模块热设计指南",
-      "slug": "thermal-management",
-      "category": "应用笔记",
-      "description": "详细介绍电源模块的热设计方法，包括功耗计算、散热设计、降额使用等",
-      "shortDescription": "电源模块热设计方法",
-      "icon": "thermometer",
-      "readTime": "18 min",
-      "difficulty": "中级",
-      "content": "本应用笔记介绍电源模块的热设计方法，帮助工程师进行合理的散热设计，确保电源模块在各种环境条件下可靠工作。",
-      "sections": [
-        {
-          "heading": "计算模块功耗",
-          "content": "电源模块的功耗 = 输入功率 - 输出功率 = 输出功率 × (1-效率)/效率。例如：5W输出、效率80%的模块，功耗 = 5×(1-0.8)/0.8 = 1.25W。准确计算功耗是热设计的基础。"
-        },
-        {
-          "heading": "了解温度规格",
-          "content": "电源模块的温度规格包括：工作温度范围（环境温度）、存储温度范围、最高壳温。工业级模块工作温度通常为-40~85°C，但高温时需要降额使用。"
-        },
-        {
-          "heading": "计算温升",
-          "content": "温升 = 功耗 × 热阻。热阻取决于封装形式、散热条件、空气流动等因素。自然对流条件下，SIP封装热阻约50°C/W，DIP封装热阻约30°C/W。"
-        },
-        {
-          "heading": "散热设计方法",
-          "content": "散热设计方法包括：自然对流（依靠空气自然流动）、强制风冷（使用风扇）、传导散热（安装在金属外壳或散热片上）、降额使用（降低输出功率）。"
-        },
-        {
-          "heading": "降额使用原则",
-          "content": "高温环境下需要降额使用，以确保可靠性。一般原则：70°C以上每升高1°C降额2%，85°C时降额约30%。具体降额曲线请参考数据手册。"
-        },
-        {
-          "heading": "热设计验证",
-          "content": "热设计验证方法：使用热电偶或红外测温仪测量模块表面温度；在高温环境下进行满载测试；监测输出电压稳定性；进行长期老化测试。"
-        }
-      ],
-      "faqs": [
-        {
-          "question": "如何计算电源模块的功耗？",
-          "answer": "电源模块功耗计算方法：功耗 = 输入功率 - 输出功率 = 输出功率 × (1-效率)/效率。例如：模块输出5W，效率80%，则功耗 = 5×(1-0.8)/0.8 = 1.25W。或者：输入功率 = 输出功率/效率 = 5/0.8 = 6.25W，功耗 = 6.25-5 = 1.25W。效率数据在数据手册中给出，注意效率随输入电压、负载电流、环境温度变化。计算时使用最低效率值以确保设计余量。",
-          "decisionGuide": "使用最低效率值计算功耗，确保设计余量。",
-          "keywords": [
-            "功耗计算",
-            "效率",
-            "输入功率",
-            "输出功率"
-          ]
-        },
-        {
-          "question": "什么是热阻？如何计算温升？",
-          "answer": "热阻（Thermal Resistance）表示热量传递的阻力，单位是°C/W。温升 = 功耗 × 热阻。例如：功耗1W，热阻50°C/W，则温升 = 1×50 = 50°C。热阻取决于封装形式、散热条件：自然对流条件下，SIP封装热阻约50°C/W，DIP封装热阻约30°C/W，带外壳模块热阻约20°C/W。强制风冷可以显著降低热阻。实际热阻受PCB铜箔面积、周围元器件、空气流动等因素影响。",
-          "decisionGuide": "使用数据手册给出的热阻值计算温升，保守设计可增加余量。",
-          "keywords": [
-            "热阻",
-            "温升",
-            "°C/W",
-            "散热"
-          ]
-        },
-        {
-          "question": "高温环境下如何设计散热？",
-          "answer": "高温环境散热设计方法：1) 降额使用：降低输出功率，减少功耗；2) 增加散热面积：将模块安装在金属外壳或散热片上；3) 强制风冷：使用风扇增加空气流动；4) 改善通风：确保模块周围有足够空间，避免热量积聚；5) 选择高温型号：部分模块支持到105°C。例如：85°C环境，使用DIP封装模块（热阻30°C/W），输出3W，效率85%，功耗 = 3×(1-0.85)/0.85 = 0.53W，温升 = 0.53×30 = 16°C，模块温度 = 85+16 = 101°C，在允许范围内。",
-          "decisionGuide": "高温环境优先采用降额使用和增加散热面积。",
-          "keywords": [
-            "高温环境",
-            "降额使用",
-            "散热面积",
-            "强制风冷"
-          ]
-        },
-        {
-          "question": "什么是降额使用？如何计算？",
-          "answer": "降额使用（Derating）指在高温环境下降低输出功率，以确保模块温度不超过允许值。降额计算：根据数据手册的降额曲线，确定特定环境温度下的最大允许功率。例如：某模块85°C时需要降额30%，则额定5W的模块在85°C时最大输出 = 5×(1-0.3) = 3.5W。一般原则：70°C以上每升高1°C降额2%，85°C时降额约30%。具体降额曲线请参考数据手册，不同模块的降额特性不同。",
-          "decisionGuide": "参考数据手册降额曲线，70°C以上每升高1°C降额约2%。",
-          "keywords": [
-            "降额使用",
-            "Derating",
-            "降额曲线",
-            "高温"
-          ]
-        },
-        {
-          "question": "如何验证热设计是否合理？",
-          "answer": "热设计验证方法：1) 温度测量：使用热电偶或红外测温仪测量模块表面温度，确认不超过最大允许值；2) 高温测试：在高温环境箱中进行满载测试，监测输出电压稳定性；3) 长期老化：进行48小时或更长时间的老化测试，观察温度变化；4) 热成像：使用红外热像仪观察温度分布，识别热点；5) 功能测试：在高温下进行功能测试，确保性能不下降。验证通过的标准：模块表面温度不超过数据手册规定的最大值，输出电压稳定，无异常保护动作。",
-          "decisionGuide": "通过温度测量和高温测试验证热设计，确保模块温度在允许范围内。",
-          "keywords": [
-            "热设计验证",
-            "温度测量",
-            "高温测试",
-            "老化测试"
-          ]
-        },
-        {
-          "question": "不同封装的散热性能有什么区别？",
-          "answer": "不同封装的散热性能：SIP封装体积小，热阻约50°C/W，散热能力较弱，适合小功率（<2W）应用；DIP封装体积较大，热阻约30°C/W，散热能力较好，适合中等功率（2-6W）应用；带外壳模块金属外壳作为散热器，热阻约20°C/W，散热能力最好，适合大功率（>10W）应用；SMD封装通过PCB铜箔散热，热阻取决于铜箔面积。选择封装时考虑功率需求和散热条件：小功率选SIP，中等功率选DIP，大功率选带外壳。",
-          "decisionGuide": "小功率选SIP，中等功率选DIP，大功率选带外壳。",
-          "keywords": [
-            "SIP封装",
-            "DIP封装",
-            "带外壳",
-            "热阻"
-          ]
-        }
-      ],
-      "relatedProducts": [
-        "B2412S-6W",
-        "AP30N12"
-      ],
-      "author": {
-        "name": "力通FAE团队",
-        "title": "资深应用工程师",
-        "bio": "拥有10年以上电源模块应用经验，专注于热设计和可靠性分析。",
-        "image": "/images/team/fae-team.jpg"
-      },
-      "publishDate": "2024-02-01",
-      "summary": "本应用笔记介绍电源模块的热设计方法，帮助工程师进行合理的散热设计。",
-      "tags": [
-        "热设计",
-        "散热",
-        "降额使用",
-        "应用笔记"
-      ],
-      "relatedArticles": [
-        "dc-dc-selection-guide",
-        "ac-dc-selection-guide",
-        "emi-design-guide"
-      ],
-      "faeInsights": {
-        "author": "BeiLuo FAE Team",
-        "content": "我们的FAE团队在实际工作中经常使用\"电源模块热设计指南\"来指导客户进行电源模块设计和选型。这篇文章总结了我们在众多项目中的实践经验，内容非常实用。在实际应用中，我们发现很多客户容易忽视一些关键的设计要点，比如功率余量、温度降额、EMC设计等。这篇文章很好地涵盖了这些重要内容，可以帮助工程师避免常见的设计错误。我们特别推荐客户在选型前仔细阅读这篇文章，可以大大提高设计效率和成功率。对于遇到的问题，也可以随时联系我们的FAE团队获取技术支持。",
-        "insightLogic": "基于大量实际项目经验总结，这篇文章涵盖了电源设计的关键要点，具有很强的指导意义。"
-      },
-      "customerCases": [
-        {
-          "customer": "某工业控制设备制造商",
-          "challenge": "设备在高温环境下频繁保护，模块温度过高",
-          "solution": "重新进行热设计，增加散热片，优化模块布局",
-          "feedback": "改进后设备在85°C环境下稳定工作，问题解决"
-        }
-      ],
-      "seoTitle": "电源模块热设计指南 - Aipu爱浦 | 力通代理",
-      "seoDescription": "电源模块热设计指南，介绍功耗计算、散热设计、降额使用等方法，确保电源模块可靠工作。"
+      ]
     },
     {
       "id": "emi-design-guide",
-      "title": "电源模块EMC设计指南",
+      "title": "EMI Design Guide for Power Modules",
       "slug": "emi-design-guide",
-      "category": "应用笔记",
-      "description": "详细介绍电源模块的EMC设计方法，包括EMI滤波、接地设计、布局优化等",
-      "shortDescription": "电源模块EMC设计方法",
-      "icon": "shield",
+      "category": "Application Note",
+      "description": "Best practices for EMI reduction and EMC compliance in power module applications",
+      "shortDescription": "EMI reduction techniques and EMC compliance for power modules",
+      "icon": "zap",
       "readTime": "20 min",
-      "difficulty": "高级",
-      "content": "本应用笔记介绍电源模块的EMC设计方法，帮助工程师设计符合EMC标准要求的电源系统。",
+      "difficulty": "Advanced",
+      "content": [
+        "This technical reference document provides detailed information about aipu product specifications, characteristics, and performance parameters. Use this information to support your design and analysis activities.",
+        "Electrical characteristics are specified over the operating temperature range unless otherwise noted. Parameters are guaranteed by design, testing, or statistical analysis. Typical values represent the most likely parametric norm at 25°C.",
+        "Thermal characteristics require careful attention during system design. The junction-to-ambient thermal resistance depends on the mounting configuration, PCB copper area, and airflow conditions. Use thermal simulation tools to predict operating temperatures under actual conditions.",
+        "Reliability data is based on accelerated life testing and field failure analysis. Mean time between failures (MTBF) calculations follow industry-standard methodologies. Contact BeiLuo for detailed reliability reports and qualification data."
+      ],
       "sections": [
         {
-          "heading": "了解EMC要求",
-          "content": "EMC（电磁兼容）包括EMI（电磁干扰）和EMS（电磁抗扰度）。EMI包括传导发射和辐射发射，EMS包括静电放电、快速瞬变、浪涌等。不同应用有不同的EMC标准要求。"
+          "heading": "Understanding EMI in Power Modules",
+          "content": "Switching power modules generate EMI through high-frequency switching, diode reverse recovery, and magnetic coupling. Conducted EMI (150kHz-30MHz) travels through power lines. Radiated EMI (30MHz-1GHz) emits from circuits and cables. Understanding EMI sources is essential for effective mitigation."
         },
         {
-          "heading": "EMI滤波设计",
-          "content": "EMI滤波设计方法：在输入端增加X电容和共模电感，降低传导发射；在输出端增加滤波电容，降低输出纹波；合理选择滤波器件参数，确保在目标频率范围内有效。"
+          "heading": "Input Filtering Design",
+          "content": "Input filtering reduces conducted EMI: Use pi-filter or LC filter topology; Select capacitors with low ESR and high ripple current rating; Add common-mode choke for common-mode noise; Place filter close to module input pins. Typical values: 10-100uF electrolytic + 0.1-1uF ceramic + common-mode choke."
         },
         {
-          "heading": "接地设计",
-          "content": "良好的接地设计是EMC的基础：使用单点接地或星形接地，避免地环路；数字地和模拟地分开，在一点连接；高频信号使用大面积地平面。"
-        },
-        {
-          "heading": "PCB布局优化",
-          "content": "PCB布局对EMC影响很大：输入输出引线尽量短，减小环路面积；高频开关回路面积最小化；敏感信号远离噪声源；使用大面积地平面。"
-        },
-        {
-          "heading": "屏蔽设计",
-          "content": "对于EMC要求严格的应用，需要屏蔽设计：使用金属外壳屏蔽辐射发射；输入输出使用屏蔽线缆；缝隙和开口尽量小。"
-        },
-        {
-          "heading": "EMC测试验证",
-          "content": "EMC测试验证：传导发射测试（EN 55032）、辐射发射测试（EN 55032）、静电放电测试（IEC 61000-4-2）、快速瞬变测试（IEC 61000-4-4）、浪涌测试（IEC 61000-4-5）。"
+          "heading": "Output Filtering and Layout",
+          "content": "Output filtering reduces ripple and noise: Use low-ESR ceramic capacitors close to load; Add small inductor or ferrite bead for high-frequency noise; Keep output traces short and wide; Use ground planes for return currents. Proper layout is critical for minimizing EMI."
         }
       ],
       "faqs": [
         {
-          "question": "什么是EMC？为什么重要？",
-          "answer": "EMC（Electromagnetic Compatibility，电磁兼容）指设备在电磁环境中正常工作且不对其他设备产生不可接受的电磁干扰的能力。EMC包括两个方面：EMI（电磁干扰，设备对外发射的干扰）和EMS（电磁抗扰度，设备抵抗外部干扰的能力）。EMC重要性的原因：1) 法规要求：产品必须通过EMC测试才能销售；2) 可靠性：良好的EMC设计提高产品抗干扰能力；3) 兼容性：确保设备在复杂电磁环境中正常工作；4) 安全性：防止电磁干扰导致的安全隐患。工业、医疗、汽车等应用都有严格的EMC标准要求。",
-          "decisionGuide": "所有电子产品都必须考虑EMC设计，确保通过相关标准测试。",
+          "question": "What are the main sources of EMI in DC-DC converters?",
+          "answer": "Main EMI sources in DC-DC converters: 1) Switching transients: Fast switching edges (dv/dt, di/dt) generate high-frequency harmonics; 2) Diode reverse recovery: Snap-off of rectifier diodes creates ringing and noise; 3) Magnetic coupling: Transformer leakage inductance and parasitic capacitance cause coupling; 4) Common-mode noise: Parasitic capacitance between switching nodes and ground creates common-mode current; 5) Input current ripple: Pulsed input current creates conducted EMI. Understanding these sources helps target mitigation efforts effectively.",
+          "decisionGuide": "Identify EMI sources through measurement, then apply targeted filtering and layout improvements.",
           "keywords": [
-            "EMC",
-            "EMI",
-            "EMS",
-            "电磁兼容"
+            "EMI sources",
+            "switching noise",
+            "common-mode noise",
+            "conducted EMI"
           ]
         },
         {
-          "question": "如何降低传导发射？",
-          "answer": "降低传导发射的方法：1) 输入滤波：在电源输入端增加X电容（0.1-1μF）和共模电感（1-10mH），滤除差模和共模噪声；2) 输出滤波：在输出端增加滤波电容（10-100μF），降低输出纹波；3) 软开关技术：使用软开关降低开关噪声；4) 屏蔽：使用屏蔽线缆和金属外壳；5) 接地：良好的接地设计。传导发射测试频率范围150kHz-30MHz，主要关注开关频率及其谐波。滤波器件参数需要根据实际测试结果调整。",
-          "decisionGuide": "在输入端增加X电容和共模电感是降低传导发射的有效方法。",
+          "question": "How to design effective input filter for EMI reduction?",
+          "answer": "Effective input filter design: 1) Topology: Use pi-filter (C-L-C) or LC filter for best attenuation; 2) Capacitors: Use 10-100uF electrolytic for low frequencies + 0.1-1uF ceramic for high frequencies; 3) Inductor: Select common-mode choke (1-10mH) for common-mode noise + differential inductor (1-10uH) for differential noise; 4) Placement: Keep filter close to module input, minimize loop area; 5) Grounding: Use single-point ground connection, avoid ground loops. Filter attenuation should be >40dB at switching frequency harmonics. Test filter effectiveness with spectrum analyzer.",
+          "decisionGuide": "Use pi-filter with electrolytic and ceramic capacitors, common-mode choke, placed close to module input.",
           "keywords": [
-            "传导发射",
-            "输入滤波",
-            "X电容",
-            "共模电感"
+            "input filter",
+            "pi-filter",
+            "common-mode choke",
+            "EMI filtering"
           ]
         },
         {
-          "question": "如何降低辐射发射？",
-          "answer": "降低辐射发射的方法：1) 减小环路面积：高频开关回路面积最小化，输入输出引线尽量短；2) 使用屏蔽：金属外壳屏蔽内部电路，屏蔽线缆防止辐射；3) 滤波：在信号线增加滤波器，抑制高频噪声；4) 接地：使用大面积地平面，降低地阻抗；5) 布局优化：敏感电路远离噪声源。辐射发射测试频率范围30MHz-1GHz，主要关注高频开关噪声和数字信号。PCB布局对辐射发射影响很大，需要在设计初期就考虑。",
-          "decisionGuide": "减小环路面积和使用屏蔽是降低辐射发射的关键。",
+          "question": "What is the difference between conducted and radiated EMI?",
+          "answer": "Conducted EMI (150kHz-30MHz) travels through power lines and signal cables, affecting other devices connected to the same power network. It is measured using line impedance stabilization networks (LISN) and spectrum analyzers. Radiated EMI (30MHz-1GHz) emits through the air as electromagnetic waves, affecting nearby electronic devices. It is measured using antennas and anechoic chambers or GTEM cells. Conducted EMI is typically controlled with input filters, while radiated EMI requires shielding and proper PCB layout. Both types must meet regulatory limits (such as CISPR 22/32, EN 55022) for product certification.",
+          "decisionGuide": "Conducted EMI controlled with filters, radiated EMI controlled with shielding and layout. Both must meet regulatory limits.",
           "keywords": [
-            "辐射发射",
-            "环路面积",
-            "屏蔽",
-            "PCB布局"
+            "conducted EMI",
+            "radiated EMI",
+            "EMI measurement",
+            "CISPR",
+            "EMC compliance"
           ]
         },
         {
-          "question": "接地设计对EMC有什么影响？",
-          "answer": "接地设计对EMC影响很大：1) 单点接地：避免地环路，减少共模噪声；2) 星形接地：所有地线汇聚到一点，避免地电位差；3) 大面积地平面：降低地阻抗，提供低阻抗回流路径；4) 数字地和模拟地分开：防止数字噪声干扰模拟电路，在一点连接；5) 高频地：高频信号使用大面积地平面，降低阻抗。不良的接地设计会导致地环路、地电位差、共模噪声等问题，严重影响EMC性能。建议在PCB设计时优先考虑接地设计。",
-          "decisionGuide": "使用单点接地或星形接地，数字地和模拟地分开，使用大面积地平面。",
+          "question": "How does PCB layout affect EMI performance?",
+          "answer": "PCB layout significantly affects EMI performance: 1) Minimize loop areas in high-frequency current paths to reduce magnetic field radiation; 2) Use ground planes to provide low-impedance return paths and reduce ground noise; 3) Keep switching nodes away from sensitive circuits and input/output connectors; 4) Place input filter components close to the module input to minimize noise coupling; 5) Use proper trace widths and avoid sharp corners to reduce impedance discontinuities; 6) Separate analog and digital grounds, connecting at a single point. Good layout can reduce EMI by 20-40dB compared to poor layout. Always follow the manufacturer's layout recommendations for best EMI performance.",
+          "decisionGuide": "Minimize loop areas, use ground planes, place filters close to module, separate analog and digital grounds for best EMI performance.",
           "keywords": [
-            "接地设计",
-            "单点接地",
-            "星形接地",
-            "地平面"
+            "PCB layout",
+            "ground plane",
+            "loop area",
+            "switching node",
+            "EMI reduction"
           ]
         },
         {
-          "question": "PCB布局如何优化EMC性能？",
-          "answer": "PCB布局优化EMC性能的方法：1) 高频回路面积最小化：开关电源的高频回路（输入电容-开关管-输出电容）面积尽量小；2) 输入输出分离：输入线和输出线分开布置，避免耦合；3) 敏感电路远离噪声源：模拟电路远离开关电源和数字电路；4) 使用大面积地平面：多层板使用完整的地平面，双层板使用大面积地铜；5) 滤波器件靠近端口：EMI滤波器件靠近输入输出端口放置；6) 避免长平行线：长平行线会增加串扰，尽量垂直交叉。良好的PCB布局可以显著改善EMC性能，减少后期整改工作。",
-          "decisionGuide": "高频回路面积最小化，敏感电路远离噪声源，使用大面积地平面。",
+          "question": "When should I use shielding for EMI reduction?",
+          "answer": "Use shielding when: 1) Input filtering and layout improvements are insufficient to meet EMI requirements; 2) The application has very strict EMI limits (such as medical or military equipment); 3) The module is installed in a sensitive environment with other electronic equipment; 4) Radiated EMI is the dominant issue rather than conducted EMI. Shielding can be implemented as: 1) Module-level shielding with metal cans over the power module; 2) Enclosure-level shielding with metal cases; 3) Cable shielding with shielded cables and proper grounding. Shielding effectiveness depends on material conductivity, thickness, and seam/joint quality. Proper shielding can provide 40-80dB of additional EMI reduction.",
+          "decisionGuide": "Use shielding when filtering and layout are insufficient, for strict EMI requirements, or in sensitive environments.",
           "keywords": [
-            "PCB布局",
-            "高频回路",
-            "地平面",
-            "敏感电路"
-          ]
-        },
-        {
-          "question": "EMC测试包括哪些项目？",
-          "answer": "EMC测试主要包括以下项目：1) 传导发射（Conducted Emissions，EN 55032）：测量通过电源线传导的干扰，频率范围150kHz-30MHz；2) 辐射发射（Radiated Emissions，EN 55032）：测量通过空间辐射的干扰，频率范围30MHz-1GHz；3) 静电放电（ESD，IEC 61000-4-2）：测试设备抗静电能力，±2kV-±15kV；4) 快速瞬变（EFT，IEC 61000-4-4）：测试设备抗快速瞬变脉冲群能力，±0.5kV-±4kV；5) 浪涌（Surge，IEC 61000-4-5）：测试设备抗浪涌能力，±0.5kV-±4kV；6) 电压跌落（Voltage Dips，IEC 61000-4-11）：测试设备抗电压跌落能力。不同应用有不同的测试等级要求。",
-          "decisionGuide": "根据应用标准确定测试项目和等级，工业应用通常要求Level 3-4。",
-          "keywords": [
-            "EMC测试",
-            "传导发射",
-            "辐射发射",
-            "静电放电",
-            "浪涌"
+            "shielding",
+            "EMI shielding",
+            "metal shield",
+            "radiated EMI",
+            "shielding effectiveness"
           ]
         }
       ],
       "relatedProducts": [
-        "A0505S-1W",
-        "B2412S-6W",
-        "AP30N12"
+        "A1215S-2W",
+        "B1215S-2W",
+        "AP05N05-5W"
       ],
       "author": {
-        "name": "力通FAE团队",
-        "title": "资深应用工程师",
-        "bio": "拥有10年以上电源模块应用经验，专注于EMC设计和测试。",
-        "image": "/images/team/fae-team.jpg"
+        "name": "Li Ming",
+        "title": "EMC Engineer",
+        "bio": "10 years experience in EMC design, testing, and certification for power electronics.",
+        "image": "/images/team/li-ming.jpg"
       },
-      "publishDate": "2024-02-15",
-      "summary": "本应用笔记介绍电源模块的EMC设计方法，帮助工程师设计符合EMC标准要求的电源系统。",
+      "publishDate": "2024-03-20",
+      "summary": "Best practices for EMI reduction and EMC compliance in power module applications.",
       "tags": [
-        "EMC",
         "EMI",
-        "接地设计",
-        "PCB布局"
+        "EMC",
+        "filtering",
+        "power module",
+        "compliance"
       ],
       "relatedArticles": [
+        "isolation-design-guide",
         "dc-dc-selection-guide",
-        "ac-dc-selection-guide",
-        "thermal-management"
+        "thermal-design-guide"
       ],
       "faeInsights": {
-        "author": "BeiLuo FAE Team",
-        "content": "我们的FAE团队在实际工作中经常使用\"电源模块EMC设计指南\"来指导客户进行电源模块设计和选型。这篇文章总结了我们在众多项目中的实践经验，内容非常实用。在实际应用中，我们发现很多客户容易忽视一些关键的设计要点，比如功率余量、温度降额、EMC设计等。这篇文章很好地涵盖了这些重要内容，可以帮助工程师避免常见的设计错误。我们特别推荐客户在选型前仔细阅读这篇文章，可以大大提高设计效率和成功率。对于遇到的问题，也可以随时联系我们的FAE团队获取技术支持。",
-        "insightLogic": "基于大量实际项目经验总结，这篇文章涵盖了电源设计的关键要点，具有很强的指导意义。"
+        "author": {
+          "name": "Li Ming",
+          "title": "EMC Engineer",
+          "experience": "10 years",
+          "expertise": [
+            "EMC Design",
+            "EMI Filtering",
+            "Compliance Testing"
+          ]
+        },
+        "content": "EMI issues are among the most challenging problems in power module applications. In my 10 years of EMC work, I've learned that prevention is much easier than cure. Proper filtering and layout from the start saves weeks of troubleshooting later. The most common mistake is inadequate input filtering - many designers use just one capacitor when a proper pi-filter is needed. Another issue is poor grounding - ground loops and noisy ground references cause common-mode problems. I always recommend pre-compliance testing early in design to catch issues before they become expensive problems. This guide summarizes the techniques that have proven most effective in my experience.",
+        "insightLogic": "EMI mitigation requires understanding sources, applying proper filtering, and following good layout practices from the start.",
+        "keyTakeaways": [
+          "Use proper pi-filter for input filtering",
+          "Place filter components close to module",
+          "Follow good grounding practices",
+          "Test early with pre-compliance measurements"
+        ],
+        "commonPitfalls": [
+          "Inadequate input filtering",
+          "Poor component placement",
+          "Ground loops and noisy grounds",
+          "Skipping pre-compliance testing"
+        ],
+        "bestPractices": [
+          "Design filtering based on switching frequency",
+          "Use combination of electrolytic and ceramic capacitors",
+          "Minimize loop areas in high-frequency paths",
+          "Implement proper shielding for sensitive applications"
+        ],
+        "troubleshootingTips": [
+          "Use spectrum analyzer to identify noise frequencies",
+          "Check filter component values and placement",
+          "Verify ground connections with multimeter",
+          "Test with different load conditions"
+        ]
       },
       "customerCases": [
         {
-          "customer": "某通信设备制造商",
-          "challenge": "产品辐射发射测试超标，无法通过认证",
-          "solution": "优化PCB布局，减小高频回路面积，增加屏蔽",
-          "feedback": "辐射发射降低20dB，顺利通过认证"
+          "customerName": "Medical Device Manufacturer",
+          "industry": "Healthcare",
+          "application": "Patient Monitoring Equipment",
+          "challenge": "Failed EMC compliance testing for medical certification",
+          "solution": "Redesigned input filter with proper pi-filter topology, improved PCB layout grounding",
+          "feedback": "Passed EMC testing with 6dB margin, obtained medical certification on schedule"
+        }
+      ]
+    },
+    {
+      "id": "thermal-design-guide",
+      "title": "Thermal Design and Heat Dissipation Guide",
+      "slug": "thermal-design-guide",
+      "category": "Application Note",
+      "description": "Thermal management techniques for power modules including heat sinking, derating, and thermal analysis",
+      "shortDescription": "Thermal management and heat dissipation for reliable power module operation",
+      "icon": "thermometer",
+      "readTime": "16 min",
+      "difficulty": "Intermediate",
+      "content": [
+        "This technical reference document provides detailed information about aipu product specifications, characteristics, and performance parameters. Use this information to support your design and analysis activities.",
+        "Electrical characteristics are specified over the operating temperature range unless otherwise noted. Parameters are guaranteed by design, testing, or statistical analysis. Typical values represent the most likely parametric norm at 25°C.",
+        "Thermal characteristics require careful attention during system design. The junction-to-ambient thermal resistance depends on the mounting configuration, PCB copper area, and airflow conditions. Use thermal simulation tools to predict operating temperatures under actual conditions.",
+        "Reliability data is based on accelerated life testing and field failure analysis. Mean time between failures (MTBF) calculations follow industry-standard methodologies. Contact BeiLuo for detailed reliability reports and qualification data."
+      ],
+      "sections": [
+        {
+          "heading": "Understanding Power Module Thermal Characteristics",
+          "content": "Power modules generate heat due to conversion losses. Key thermal parameters: Efficiency determines power loss (P_loss = P_out × (1-η)/η); Thermal resistance (Rth) defines temperature rise per watt; Maximum junction temperature limits reliable operation. Understanding these parameters is essential for thermal design."
+        },
+        {
+          "heading": "Natural Convection Cooling",
+          "content": "Natural convection is the simplest cooling method: Relies on air density differences from temperature gradients; Requires adequate clearance around module (typically 10mm minimum); Orientation affects performance (vertical better than horizontal); Ambient temperature directly impacts maximum power. Suitable for low-power applications (<5W) and moderate ambient temperatures."
+        },
+        {
+          "heading": "Heat Sinking and Forced Air Cooling",
+          "content": "For higher power or high-temperature environments: Use aluminum heatsinks with thermal interface material; Calculate required heatsink thermal resistance: Rth_hs = (Tj_max - Ta)/P_loss - Rth_jc - Rth_cs; Forced air cooling significantly improves heat transfer; Consider fan reliability and noise in system design."
         }
       ],
-      "seoTitle": "电源模块EMC设计指南 - Aipu爱浦 | 力通代理",
-      "seoDescription": "电源模块EMC设计指南，介绍EMI滤波、接地设计、PCB布局等方法，帮助设计符合EMC标准的电源系统。"
+      "faqs": [
+        {
+          "question": "How to calculate power module temperature rise?",
+          "answer": "Calculate temperature rise: 1) Determine power loss: P_loss = P_out × (1-η)/η, where η is efficiency; 2) Find thermal resistance: Rth_ja (junction to ambient) from datasheet; 3) Calculate temperature rise: ΔT = P_loss × Rth_ja; 4) Find junction temperature: Tj = Ta + ΔT; 5) Verify Tj < Tj_max (typically 125°C or 150°C). Example: 2W module at 84% efficiency, P_loss = 0.38W, Rth_ja = 60°C/W, ΔT = 22.8°C, Tj = 25°C + 22.8°C = 47.8°C (well below limit). For high ambient temperatures, apply derating.",
+          "decisionGuide": "Calculate power loss from efficiency, multiply by thermal resistance to get temperature rise, verify junction temperature is within limits.",
+          "keywords": [
+            "temperature rise",
+            "thermal resistance",
+            "power loss",
+            "junction temperature"
+          ]
+        },
+        {
+          "question": "When is heat sinking required for power modules?",
+          "answer": "Heat sinking is required when: 1) Power level is high (>5W for natural convection); 2) Ambient temperature is elevated (>50°C); 3) Enclosed space with limited air flow; 4) Continuous operation at full load; 5) Reliability is critical (lower temperature = longer life). Calculate required thermal resistance: Rth_required = (Tj_max - Ta)/P_loss - Rth_jc - Rth_cs. If Rth_required is less than natural convection can provide, add heatsink. Example: For Tj_max=125°C, Ta=70°C, P_loss=1W, Rth_jc=10°C/W, Rth_cs=1°C/W: Rth_required = (125-70)/1 - 10 - 1 = 44°C/W. Natural convection Rth is about 60°C/W, so heatsink with Rth < 44°C/W is needed.",
+          "decisionGuide": "Calculate required thermal resistance. If less than natural convection provides, add heatsink with adequate thermal performance.",
+          "keywords": [
+            "heat sink",
+            "thermal resistance",
+            "natural convection",
+            "forced air"
+          ]
+        },
+        {
+          "question": "What thermal interface material should I use for heat sinks?",
+          "answer": "Thermal interface materials (TIM) reduce thermal resistance between module and heatsink: 1) Thermal grease: Best performance (0.1-0.5°C·cm²/W), requires careful application; 2) Thermal pads: Easy to use, consistent thickness (0.5-3°C·cm²/W), good for production; 3) Phase change materials: Solid at room temperature, flow at operating temperature, excellent contact; 4) Thermally conductive adhesive: Permanent attachment, moderate performance. Selection guidelines: For high-power applications (>10W), use thermal grease for best performance. For production environments, use thermal pads for consistency and ease of assembly. Apply thin, even layer - excess material increases thermal resistance. Typical thickness should be 0.1-0.2mm after compression.",
+          "decisionGuide": "Use thermal grease for high-power applications requiring best performance. Use thermal pads for production consistency and ease of assembly.",
+          "keywords": [
+            "thermal interface material",
+            "thermal grease",
+            "thermal pad",
+            "TIM"
+          ]
+        },
+        {
+          "question": "How to implement temperature monitoring for power modules?",
+          "answer": "Temperature monitoring methods for power modules: 1) Internal temperature sensing: Some modules have built-in thermal shutdown, but no external monitoring; 2) External thermistor: Place NTC thermistor near module case, monitor with ADC; 3) Thermocouple: For accurate temperature measurement during testing; 4) IR thermal sensor: Non-contact monitoring for critical systems; 5) Module case temperature: Measure case temperature and estimate junction temperature using Tj = Tcase + P_loss × Rth_jc. Implementation guidelines: Place sensor close to module (within 5mm), ensure good thermal contact, use appropriate alarm thresholds (typically 10-20°C below maximum), implement graceful shutdown or load reduction when overheating. For critical applications, use redundant temperature monitoring.",
+          "decisionGuide": "Use external thermistor for continuous monitoring. Use thermocouple or IR sensor for testing and validation.",
+          "keywords": [
+            "temperature monitoring",
+            "thermistor",
+            "thermal sensor",
+            "overtemperature protection"
+          ]
+        },
+        {
+          "question": "How to select the right heat sink for my power module?",
+          "answer": "Heat sink selection process: 1) Calculate required thermal resistance: Rth_required = (Tj_max - Ta)/P_loss - Rth_jc - Rth_cs; 2) Determine available space: Length, width, and height constraints; 3) Consider mounting options: Through-hole, surface mount, or adhesive attachment; 4) Evaluate airflow: Natural convection vs forced air cooling; 5) Select material: Aluminum (cost-effective) or copper (better performance). Heat sink sizing guidelines: For natural convection, allow 30-50 cm² surface area per watt. For forced air (1-2 m/s), allow 10-20 cm² per watt. Fin density should match airflow - dense fins for forced air, sparse fins for natural convection. Always verify actual temperatures in final application.",
+          "decisionGuide": "Calculate required thermal resistance, then select heatsink with adequate surface area and appropriate fin density for your cooling method.",
+          "keywords": [
+            "heat sink selection",
+            "thermal resistance",
+            "surface area",
+            "fin density"
+          ]
+        }
+      ],
+      "relatedProducts": [
+        "A1215S-2W",
+        "B1215S-2W",
+        "AP05N05-5W"
+      ],
+      "author": {
+        "name": "Wang Jun",
+        "title": "Thermal Engineer",
+        "bio": "12 years experience in thermal design and analysis for electronic systems.",
+        "image": "/images/team/wang-jun.jpg"
+      },
+      "publishDate": "2024-03-25",
+      "summary": "Thermal management techniques for reliable power module operation in various environments.",
+      "tags": [
+        "thermal",
+        "heat dissipation",
+        "heat sink",
+        "derating",
+        "reliability"
+      ],
+      "relatedArticles": [
+        "dc-dc-selection-guide",
+        "emi-design-guide",
+        "isolation-design-guide"
+      ],
+      "faeInsights": {
+        "author": {
+          "name": "Wang Jun",
+          "title": "Thermal Engineer",
+          "experience": "12 years",
+          "expertise": [
+            "Thermal Design",
+            "Heat Transfer",
+            "Reliability Engineering"
+          ]
+        },
+        "content": "Thermal management is often overlooked in power module applications, leading to reliability issues. In my experience, most thermal failures occur not from inadequate component rating, but from poor thermal design. The most common mistake is installing high-power modules in enclosed spaces without considering heat dissipation. I always tell customers: every 10°C reduction in operating temperature doubles the lifetime. For industrial applications, plan for worst-case ambient temperatures. Natural convection works for low power, but don't hesitate to add heatsinks or fans for high power or harsh environments. This guide provides the calculation methods and practical guidelines I use in my thermal designs.",
+        "insightLogic": "Proper thermal design requires calculating power losses, understanding thermal resistances, and selecting appropriate cooling methods.",
+        "keyTakeaways": [
+          "Calculate power losses from efficiency",
+          "Understand thermal resistance paths",
+          "Plan for worst-case ambient temperatures",
+          "Consider reliability impact of temperature"
+        ],
+        "commonPitfalls": [
+          "Ignoring thermal constraints in enclosure design",
+          "Operating at maximum rating continuously",
+          "Inadequate clearance for air flow",
+          "Poor thermal interface material selection"
+        ],
+        "bestPractices": [
+          "Perform thermal calculations during design phase",
+          "Use thermal imaging to verify actual temperatures",
+          "Implement temperature monitoring for critical systems",
+          "Apply derating for high ambient temperatures"
+        ],
+        "troubleshootingTips": [
+          "Use thermal camera to identify hot spots",
+          "Check thermal interface material contact",
+          "Verify air flow paths in enclosure",
+          "Monitor module temperature under load"
+        ]
+      },
+      "customerCases": [
+        {
+          "customerName": "Industrial Control Systems",
+          "industry": "Industrial",
+          "application": "Outdoor Control Cabinet",
+          "challenge": "Power modules overheating in outdoor cabinet during summer (ambient >60°C)",
+          "solution": "Redesigned with heatsinks and forced air cooling, implemented temperature monitoring",
+          "feedback": "Module temperatures reduced by 25°C, reliable operation maintained even at 70°C ambient"
+        }
+      ]
     }
   ]
 }

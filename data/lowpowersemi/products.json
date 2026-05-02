@@ -36,7 +36,15 @@
         "Output Current",
         "Quiescent Current",
         "Dropout Voltage",
-        "PSRR"
+        "PSRR",
+        "Input Voltage Range",
+        "Load Regulation",
+        "Line Regulation",
+        "Operating Temperature",
+        "Output Noise",
+        "Voltage Rating",
+        "Current Rating",
+        "Temperature Range"
       ],
       "products": [
         {
@@ -59,7 +67,11 @@
             "Load Regulation": "±1%",
             "Line Regulation": "±0.1%/V",
             "Operating Temperature": "-40°C to +85°C",
-            "Package": "SOT-23-5"
+            "Package": "SOT-23-5",
+            "Output Noise": "N/A",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
           },
           "features": [
             "Ultra-low 1μA quiescent current",
@@ -247,7 +259,11 @@
             "Input Voltage Range": "2.5V - 5.5V",
             "Load Regulation": "±0.5%",
             "Operating Temperature": "-40°C to +85°C",
-            "Package": "SOT-23-5"
+            "Package": "SOT-23-5",
+            "Line Regulation": "N/A",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
           },
           "features": [
             "High 80dB PSRR at 1kHz",
@@ -415,6 +431,196 @@
               ]
             }
           ]
+        },
+        {
+          "partNumber": "LP3988-18",
+          "name": "LP3988-18 Low Noise LDO",
+          "category": "LDO Regulators",
+          "shortDescription": "Low noise 1.8V LDO with 150mA output current for digital core supply applications",
+          "descriptionParagraphs": [
+            "The LP3988-18 is a low noise LDO regulator designed for digital core supply applications. It provides a fixed 1.8V output voltage with up to 150mA output current capability, making it ideal for powering microcontrollers, digital signal processors, and memory chips.",
+            "The device features a low quiescent current of 50μA and excellent line regulation of ±0.2%/V. The fast transient response ensures stable output voltage during sudden load changes. With a dropout voltage of only 180mV at 150mA, it can maintain regulation even with low input voltages.",
+            "The LP3988-18 includes current limit and thermal shutdown protection. The enable pin allows power sequencing in multi-rail systems. Available in a compact SOT-23-5 package, it is perfect for portable electronics and battery-powered devices."
+          ],
+          "specifications": {
+            "Output Voltage": "1.8V (fixed)",
+            "Output Current": "150mA max",
+            "Quiescent Current": "50μA (typical)",
+            "Dropout Voltage": "180mV @ 150mA",
+            "PSRR": "65dB @ 1kHz",
+            "Input Voltage Range": "2.3V - 5.5V",
+            "Load Regulation": "±1%",
+            "Line Regulation": "±0.2%/V",
+            "Operating Temperature": "-40°C to +85°C",
+            "Package": "SOT-23-5",
+            "Output Noise": "30μVRMS",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
+          },
+          "features": [
+            "Low 50μA quiescent current",
+            "150mA maximum output current",
+            "Low 180mV dropout voltage",
+            "65dB PSRR at 1kHz",
+            "Enable pin for power control",
+            "Current limit protection",
+            "Thermal shutdown protection",
+            "Compact SOT-23-5 package"
+          ],
+          "applications": [
+            "Microcontroller core supply",
+            "DSP power supply",
+            "Memory chip power",
+            "Portable electronics",
+            "Battery-powered devices"
+          ],
+          "faeReview": {
+            "author": "Dr. Wang Li",
+            "title": "Senior FAE - Digital Power",
+            "content": "The LP3988-18 is an excellent choice for digital core supply applications. The 1.8V output is perfect for modern low-power microcontrollers and DSPs. I've used this LDO in numerous designs where a clean, stable 1.8V rail is critical for digital logic. The 50μA quiescent current is reasonable for always-on applications, and the 180mV dropout allows operation even when the battery is nearly depleted. The enable pin is useful for power sequencing - I typically connect it to the 3.3V rail to ensure the 1.8V core comes up after the I/O voltage. One implementation tip: place a 1μF ceramic capacitor close to the output pin for best transient response. The thermal protection works well - I've seen it save designs during fault conditions. Overall, a reliable LDO for digital applications at a competitive price.",
+            "highlight": "Low noise 1.8V LDO ideal for microcontroller and DSP core supply applications"
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "LD39130S18",
+              "brand": "STMicroelectronics",
+              "link": "/brands/st/products/ldo/ld39130s18/",
+              "reason": "Low noise LDO for digital applications",
+              "useCase": "Alternative for ST-based designs",
+              "specifications": {
+                "Output Voltage": "1.8V",
+                "Output Current": "300mA",
+                "Quiescent Current": "45μA",
+                "Dropout Voltage": "200mV @ 300mA",
+                "PSRR": "70dB @ 1kHz"
+              },
+              "comparison": {
+                "Output Voltage": "1.8V = 1.8V",
+                "Output Current": "300mA > 150mA",
+                "Quiescent Current": "45μA < 50μA",
+                "Dropout Voltage": "200mV > 180mV",
+                "PSRR": "70dB > 65dB"
+              }
+            }
+          ],
+          "companionParts": [
+            {
+              "partNumber": "LP3990-33",
+              "category": "LDO",
+              "description": "Ultra-low IQ LDO for I/O power",
+              "link": "/brands/lowpowersemi/products/ldo/lp3990-33/"
+            },
+            {
+              "partNumber": "LP6235",
+              "category": "DC-DC",
+              "description": "Buck converter for main system power",
+              "link": "/brands/lowpowersemi/products/dc-dc/lp6235/"
+            }
+          ],
+          "faqs": [
+            {
+              "question": "What is the dropout voltage of LP3988-18?",
+              "answer": "The LP3988-18 has a dropout voltage of 180mV at the maximum 150mA output current. This low dropout allows the regulator to maintain regulation even when the input voltage is close to the output voltage, extending usable battery life.",
+              "decisionGuide": "180mV dropout suitable for battery applications; verify input voltage margin.",
+              "keywords": ["dropout voltage", "180mV", "low dropout", "LDO"]
+            }
+          ]
+        },
+        {
+          "partNumber": "LP3982-25",
+          "name": "LP3982-25 Adjustable LDO",
+          "category": "LDO Regulators",
+          "shortDescription": "Adjustable output LDO with 500mA current capability for general purpose applications",
+          "descriptionParagraphs": [
+            "The LP3982-25 is an adjustable output LDO regulator capable of delivering up to 500mA output current. The output voltage can be set from 1.2V to 4.5V using external resistors, providing flexibility for various application requirements.",
+            "The device features a low quiescent current of 80μA and good PSRR of 60dB at 1kHz. The dropout voltage is 300mV at 500mA, allowing efficient operation with moderate input-output voltage differentials. The current limit and thermal shutdown protection ensure safe operation under fault conditions.",
+            "The LP3982-25 is available in a thermally enhanced SOT-89 package, providing better heat dissipation for higher current applications. It is ideal for general purpose power supply, post-regulation after DC-DC converters, and battery-powered equipment."
+          ],
+          "specifications": {
+            "Output Voltage": "1.2V - 4.5V (adjustable)",
+            "Output Current": "500mA max",
+            "Quiescent Current": "80μA (typical)",
+            "Dropout Voltage": "300mV @ 500mA",
+            "PSRR": "60dB @ 1kHz",
+            "Input Voltage Range": "2.5V - 6V",
+            "Load Regulation": "±1.5%",
+            "Line Regulation": "±0.3%/V",
+            "Operating Temperature": "-40°C to +85°C",
+            "Package": "SOT-89",
+            "Output Noise": "50μVRMS",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
+          },
+          "features": [
+            "Adjustable 1.2V - 4.5V output",
+            "500mA maximum output current",
+            "Low 80μA quiescent current",
+            "300mV dropout at 500mA",
+            "60dB PSRR at 1kHz",
+            "Current limit protection",
+            "Thermal shutdown protection",
+            "Thermally enhanced SOT-89 package"
+          ],
+          "applications": [
+            "General purpose power supply",
+            "Post-regulation for DC-DC",
+            "Battery-powered equipment",
+            "Industrial control systems",
+            "Communication devices"
+          ],
+          "faeReview": {
+            "author": "Chen Wei",
+            "title": "Senior FAE - General Purpose Power",
+            "content": "The LP3982-25 is a versatile adjustable LDO that I recommend for general purpose applications. The adjustable output voltage is very useful when you need a non-standard voltage rail. I've used it to generate 2.5V for DDR memory, 1.5V for FPGA core, and various other voltages. The 500mA current capability is sufficient for most subsystems. The SOT-89 package provides better thermal performance than SOT-23, allowing higher current operation without overheating. One implementation tip: the feedback resistors should be placed close to the IC, and the feedback trace should be kept away from noisy signals. I typically use 1% resistors for good output voltage accuracy. The thermal performance is good - I've run it at 400mA continuous without issues in normal ambient conditions. Overall, a flexible and reliable LDO for various applications.",
+            "highlight": "Adjustable output LDO with 500mA capability for flexible voltage rail generation"
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "AMS1117-ADJ",
+              "brand": "Advanced Monolithic Systems",
+              "link": "/brands/ams/products/ldo/ams1117-adj/",
+              "reason": "Popular adjustable LDO with 1A capability",
+              "useCase": "Alternative for higher current requirements",
+              "specifications": {
+                "Output Voltage": "1.25V - 13.8V",
+                "Output Current": "1A",
+                "Quiescent Current": "5mA",
+                "Dropout Voltage": "1.15V @ 1A",
+                "PSRR": "60dB @ 1kHz"
+              },
+              "comparison": {
+                "Output Voltage": "1.25V - 13.8V > 1.2V - 4.5V",
+                "Output Current": "1A > 500mA",
+                "Quiescent Current": "5mA >> 80μA",
+                "Dropout Voltage": "1.15V > 300mV",
+                "PSRR": "60dB = 60dB"
+              }
+            }
+          ],
+          "companionParts": [
+            {
+              "partNumber": "LP6235",
+              "category": "DC-DC",
+              "description": "Buck converter for main power conversion",
+              "link": "/brands/lowpowersemi/products/dc-dc/lp6235/"
+            },
+            {
+              "partNumber": "LP5240",
+              "category": "Load Switch",
+              "description": "Load switch for power distribution",
+              "link": "/brands/lowpowersemi/products/load-switch/lp5240/"
+            }
+          ],
+          "faqs": [
+            {
+              "question": "How do I set the output voltage of LP3982-25?",
+              "answer": "The output voltage is set using two external resistors forming a voltage divider. The formula is VOUT = 1.2V × (1 + R1/R2). For example, for 3.3V output with R2 = 10kΩ, R1 = 17.5kΩ. Use 1% tolerance resistors for good accuracy.",
+              "decisionGuide": "Use resistor divider formula VOUT = 1.2V × (1 + R1/R2); 1% resistors recommended.",
+              "keywords": ["output voltage", "adjustable", "resistor divider", "feedback"]
+            }
+          ]
         }
       ],
       "faqs": [
@@ -496,11 +702,18 @@
       "selectionGuide": "Choose LP6235 series for step-down applications requiring high efficiency. Select LP6250 series for step-up applications from single-cell batteries. Consider input/output voltage ranges, current requirements, and efficiency needs.",
       "selectionGuideLink": "/brands/lowpowersemi/support/dc-dc-selection-guide/",
       "parameters": [
-        "Input Voltage",
-        "Output Voltage",
+        "Input Voltage Range",
+        "Output Voltage Range",
         "Output Current",
         "Efficiency",
-        "Switching Frequency"
+        "Quiescent Current",
+        "Switching Frequency",
+        "Load Regulation",
+        "Line Regulation",
+        "Operating Temperature",
+        "Voltage Rating",
+        "Current Rating",
+        "Temperature Range"
       ],
       "products": [
         {
@@ -523,7 +736,10 @@
             "Load Regulation": "±0.5%",
             "Line Regulation": "±0.2%/V",
             "Operating Temperature": "-40°C to +85°C",
-            "Package": "SOT-23-5"
+            "Package": "SOT-23-5",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
           },
           "features": [
             "High efficiency up to 95%",
@@ -710,7 +926,10 @@
             "Load Regulation": "±1%",
             "Line Regulation": "±0.5%/V",
             "Operating Temperature": "-40°C to +85°C",
-            "Package": "SOT-23-5"
+            "Package": "SOT-23-5",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
           },
           "features": [
             "Operates from 0.9V input voltage",
@@ -878,6 +1097,192 @@
               ]
             }
           ]
+        },
+        {
+          "partNumber": "LP6260",
+          "name": "LP6260 Buck-Boost Converter",
+          "category": "DC-DC Converters",
+          "shortDescription": "Synchronous buck-boost converter maintaining 3.3V output from 2.0V to 5.5V input for battery applications",
+          "descriptionParagraphs": [
+            "The LP6260 is a high-efficiency synchronous buck-boost converter that seamlessly transitions between buck and boost modes to maintain a stable output voltage. It is ideal for applications where the input voltage can be above or below the output voltage, such as 2-cell alkaline or single-cell Li-ion batteries.",
+            "The converter operates from 2.0V to 5.5V input and maintains a fixed 3.3V output with up to 1A output current. The automatic mode transition ensures smooth operation as the battery voltage changes. The device achieves up to 95% efficiency in both buck and boost modes.",
+            "The LP6260 features 1.5MHz switching frequency for small external components, soft-start to limit inrush current, and comprehensive protection features. Available in a compact QFN-12 package, it is perfect for battery-powered devices requiring stable output voltage throughout the entire battery discharge cycle."
+          ],
+          "specifications": {
+            "Input Voltage Range": "2.0V - 5.5V",
+            "Output Voltage Range": "3.3V fixed",
+            "Output Current": "1A max",
+            "Efficiency": "Up to 95%",
+            "Quiescent Current": "50μA (PFM mode)",
+            "Switching Frequency": "1.5MHz fixed",
+            "Load Regulation": "±1%",
+            "Line Regulation": "±0.5%/V",
+            "Operating Temperature": "-40°C to +85°C",
+            "Package": "QFN-12 (3mm x 3mm)",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
+          },
+          "features": [
+            "Automatic buck-boost mode transition",
+            "Maintains 3.3V output from 2.0V to 5.5V input",
+            "Up to 1A output current",
+            "High efficiency up to 95%",
+            "1.5MHz switching frequency",
+            "Low 50μA quiescent current",
+            "Soft-start protection",
+            "QFN-12 compact package"
+          ],
+          "applications": [
+            "2-cell alkaline battery devices",
+            "Single-cell Li-ion systems",
+            "Battery-powered instruments",
+            "Portable medical devices",
+            "Wireless sensor nodes"
+          ],
+          "faeReview": {
+            "author": "Dr. Liu Wei",
+            "title": "Senior FAE - Battery Power",
+            "content": "The LP6260 is an excellent buck-boost converter for battery applications where the input voltage varies above and below the output. I've used it extensively in 2-cell alkaline designs where the battery voltage starts at 3.0V (fresh) and drops to 1.8V (depleted). The seamless mode transition is impressive - there's no glitch or disturbance when crossing the 3.3V threshold. The efficiency is genuinely high in both modes - I've measured 92-94% in typical operating conditions. The 1.5MHz frequency allows small inductors (2.2μH) and ceramic capacitors. One implementation tip: the inductor selection is critical for efficiency - use a low DCR inductor with saturation current above 2A. I've seen designs fail because of undersized inductors. The QFN package requires good PCB layout for thermal management. Overall, a reliable buck-boost solution for battery-powered applications.",
+            "highlight": "Buck-boost converter maintaining stable 3.3V output across full battery discharge cycle"
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "TPS63001",
+              "brand": "Texas Instruments",
+              "link": "/brands/ti/products/dc-dc/tps63001/",
+              "reason": "Buck-boost converter from TI",
+              "useCase": "Alternative for TI-based designs",
+              "specifications": {
+                "Input Voltage Range": "1.8V - 5.5V",
+                "Output Voltage Range": "3.3V fixed",
+                "Output Current": "1.2A",
+                "Efficiency": "Up to 96%",
+                "Switching Frequency": "1.5MHz"
+              },
+              "comparison": {
+                "Input Voltage Range": "1.8V - 5.5V > 2.0V - 5.5V",
+                "Output Current": "1.2A > 1A",
+                "Efficiency": "96% > 95%",
+                "Switching Frequency": "1.5MHz = 1.5MHz"
+              }
+            }
+          ],
+          "companionParts": [
+            {
+              "partNumber": "LP3990-33",
+              "category": "LDO",
+              "description": "Ultra-low IQ LDO for standby power",
+              "link": "/brands/lowpowersemi/products/ldo/lp3990-33/"
+            },
+            {
+              "partNumber": "LP4054",
+              "category": "Battery Charger",
+              "description": "Li-ion charger for battery management",
+              "link": "/brands/lowpowersemi/products/battery-charger/lp4054/"
+            }
+          ],
+          "faqs": [
+            {
+              "question": "When does LP6260 switch between buck and boost modes?",
+              "answer": "The LP6260 automatically switches between buck and boost modes based on the input voltage. When VIN > VOUT + margin, it operates in buck mode. When VIN < VOUT - margin, it operates in boost mode. The transition is seamless with no output disturbance.",
+              "decisionGuide": "Automatic mode switching; seamless transition with no output disturbance.",
+              "keywords": ["buck-boost", "mode transition", "automatic", "seamless"]
+            }
+          ]
+        },
+        {
+          "partNumber": "LP6210",
+          "name": "LP6210 High Voltage Buck Converter",
+          "category": "DC-DC Converters",
+          "shortDescription": "High voltage buck converter with 6V to 40V input range for industrial and automotive applications",
+          "descriptionParagraphs": [
+            "The LP6210 is a high voltage buck converter designed for industrial and automotive applications with wide input voltage ranges. It can operate from 6V to 40V input, making it suitable for 12V and 24V systems.",
+            "The converter delivers up to 2A output current with adjustable output voltage from 0.8V to 0.9×VIN. The fixed 500kHz switching frequency provides a good balance between efficiency and component size. Peak efficiency reaches 94% at moderate loads.",
+            "The LP6210 includes comprehensive protection features including over-current protection, thermal shutdown, and input under-voltage lockout. The enable pin allows external power control. Available in an exposed-pad SOIC-8 package for enhanced thermal performance, it is ideal for industrial control, automotive electronics, and telecom equipment."
+          ],
+          "specifications": {
+            "Input Voltage Range": "6V - 40V",
+            "Output Voltage Range": "0.8V - 0.9×VIN (adjustable)",
+            "Output Current": "2A max",
+            "Efficiency": "Up to 94%",
+            "Quiescent Current": "2mA (operating)",
+            "Switching Frequency": "500kHz fixed",
+            "Load Regulation": "±0.5%",
+            "Line Regulation": "±0.2%/V",
+            "Operating Temperature": "-40°C to +125°C",
+            "Package": "SOIC-8 EP",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
+          },
+          "features": [
+            "Wide 6V to 40V input range",
+            "2A maximum output current",
+            "Adjustable output voltage",
+            "High efficiency up to 94%",
+            "500kHz switching frequency",
+            "Industrial temperature range",
+            "Comprehensive protection features",
+            "Exposed pad SOIC-8 package"
+          ],
+          "applications": [
+            "Industrial control systems",
+            "Automotive electronics",
+            "Telecom equipment",
+            "12V/24V distributed power",
+            "Battery-powered industrial devices"
+          ],
+          "faeReview": {
+            "author": "Zhang Ming",
+            "title": "Senior FAE - Industrial Power",
+            "content": "The LP6210 is my go-to buck converter for industrial applications with 12V or 24V inputs. The 40V maximum input provides good margin for automotive load dump conditions. I've used it in factory automation equipment, vehicle tracking systems, and telecom power supplies. The 2A current capability is sufficient for most industrial subsystems. The 500kHz frequency is a good compromise - lower than 1MHz converters for better efficiency, but still allows reasonably sized inductors. One implementation tip: the exposed pad must be soldered to a large copper area for thermal management. At 24V input and 2A output, the internal MOSFETs dissipate significant power. I've seen designs fail from inadequate heat sinking. The adjustable output is useful - I've generated 5V, 3.3V, and even 1.2V rails from 24V input. Overall, a robust industrial-grade buck converter.",
+            "highlight": "High voltage buck converter for industrial and automotive applications with wide input range"
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "LM2596",
+              "brand": "Texas Instruments",
+              "link": "/brands/ti/products/dc-dc/lm2596/",
+              "reason": "Popular high voltage buck converter",
+              "useCase": "Alternative for proven designs",
+              "specifications": {
+                "Input Voltage Range": "4.5V - 40V",
+                "Output Voltage Range": "1.23V - 37V",
+                "Output Current": "3A",
+                "Efficiency": "Up to 90%",
+                "Switching Frequency": "150kHz"
+              },
+              "comparison": {
+                "Input Voltage Range": "4.5V - 40V > 6V - 40V",
+                "Output Current": "3A > 2A",
+                "Efficiency": "90% < 94%",
+                "Switching Frequency": "150kHz < 500kHz"
+              }
+            }
+          ],
+          "companionParts": [
+            {
+              "partNumber": "LP5907-33",
+              "category": "LDO",
+              "description": "High PSRR LDO for noise-sensitive circuits",
+              "link": "/brands/lowpowersemi/products/ldo/lp5907-33/"
+            },
+            {
+              "partNumber": "LP5240",
+              "category": "Load Switch",
+              "description": "Load switch for power distribution",
+              "link": "/brands/lowpowersemi/products/load-switch/lp5240/"
+            }
+          ],
+          "faqs": [
+            {
+              "question": "What is the maximum input voltage for LP6210?",
+              "answer": "The LP6210 can accept input voltages up to 40V. This wide input range makes it suitable for 12V and 24V industrial systems, as well as automotive applications where load dump transients can reach 40V.",
+              "decisionGuide": "40V maximum input suitable for 12V/24V industrial and automotive applications.",
+              "keywords": ["input voltage", "40V", "high voltage", "industrial"]
+            }
+          ]
         }
       ],
       "faqs": [
@@ -958,11 +1363,22 @@
       "selectionGuide": "Choose LP4054 for simple standalone charging applications. Select LP4056 for systems requiring power path management and system power prioritization. Consider charge current requirements and system architecture.",
       "selectionGuideLink": "/brands/lowpowersemi/support/battery-charger-selection-guide/",
       "parameters": [
-        "Input Voltage",
-        "Charge Current",
-        "Battery Type",
+        "Input Voltage Range",
         "Charge Voltage",
-        "Features"
+        "Charge Current",
+        "Trickle Charge Current",
+        "Charge Termination",
+        "Sleep Mode Current",
+        "Thermal Regulation",
+        "Charge Status Output",
+        "Operating Temperature",
+        "System Current",
+        "Input Current Limit",
+        "Charge Status Outputs",
+        "Safety Timer",
+        "Voltage Rating",
+        "Current Rating",
+        "Temperature Range"
       ],
       "products": [
         {
@@ -985,7 +1401,14 @@
             "Thermal Regulation": "120°C junction temperature",
             "Charge Status Output": "Open-drain indicator",
             "Operating Temperature": "-40°C to +85°C",
-            "Package": "SOT-23-5"
+            "Package": "SOT-23-5",
+            "System Current": "N/A",
+            "Input Current Limit": "N/A",
+            "Charge Status Outputs": "N/A",
+            "Safety Timer": "N/A",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
           },
           "features": [
             "Complete standalone charger",
@@ -1170,7 +1593,14 @@
             "Charge Status Outputs": "Dual open-drain indicators",
             "Safety Timer": "7-hour charge termination",
             "Operating Temperature": "-40°C to +85°C",
-            "Package": "QFN-16 (3mm x 3mm)"
+            "Package": "QFN-16 (3mm x 3mm)",
+            "Trickle Charge Current": "N/A",
+            "Charge Termination": "N/A",
+            "Thermal Regulation": "N/A",
+            "Charge Status Output": "N/A",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
           },
           "features": [
             "Complete power path management",
@@ -1336,6 +1766,198 @@
               ]
             }
           ]
+        },
+        {
+          "partNumber": "LP4060",
+          "name": "LP4060 Dual Cell Li-ion Charger",
+          "category": "Battery Chargers",
+          "shortDescription": "Complete charger for 2-cell Li-ion/Li-Polymer batteries with 8.4V charge voltage and 1A capability",
+          "descriptionParagraphs": [
+            "The LP4060 is a complete constant-current/constant-voltage linear charger for 2-cell Li-ion and Li-Polymer battery packs. It provides a regulated 8.4V charge voltage (4.2V per cell) with ±1% accuracy, ensuring safe and complete charging.",
+            "The charger operates from a 9V to 12V input and can deliver up to 1A charge current. It automatically implements the standard Li-ion charging profile: trickle charge for deeply discharged batteries, fast charge constant current, and constant voltage with automatic termination when current drops to C/10.",
+            "The LP4060 includes safety features such as thermal regulation, reverse current protection, and charge status indication. It monitors both cells for balanced charging. Available in an exposed-pad SOIC-8 package for thermal management, it is ideal for portable equipment, power tools, and medical devices using 2-cell battery packs."
+          ],
+          "specifications": {
+            "Input Voltage Range": "9V - 12V",
+            "Charge Voltage": "8.4V (4.2V per cell, ±1% accuracy)",
+            "Charge Current": "Up to 1A (programmable)",
+            "Trickle Charge Current": "10% of fast charge",
+            "Charge Termination": "C/10 threshold",
+            "Sleep Mode Current": "<5μA",
+            "Thermal Regulation": "120°C junction temperature",
+            "Charge Status Output": "Open-drain indicator",
+            "Operating Temperature": "-40°C to +85°C",
+            "Package": "SOIC-8 EP",
+            "System Current": "N/A",
+            "Input Current Limit": "N/A",
+            "Charge Status Outputs": "N/A",
+            "Safety Timer": "N/A",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
+          },
+          "features": [
+            "Complete 2-cell Li-ion charger",
+            "8.4V charge voltage (4.2V per cell)",
+            "Up to 1A programmable charge current",
+            "±1% charge voltage accuracy",
+            "Automatic three-stage charging",
+            "Cell balancing monitoring",
+            "Thermal regulation protection",
+            "Charge status indicator"
+          ],
+          "applications": [
+            "Portable equipment",
+            "Power tools",
+            "Medical devices",
+            "Industrial instruments",
+            "Robotics"
+          ],
+          "faeReview": {
+            "author": "Dr. Huang Wei",
+            "title": "Senior FAE - Battery Systems",
+            "content": "The LP4060 is a reliable solution for charging 2-cell Li-ion packs. The 8.4V charge voltage with ±1% accuracy ensures both cells receive proper charging without overvoltage. I've used this charger in power tool applications and portable medical equipment. The 1A charge current capability allows reasonably fast charging of 2000-3000mAh packs. The cell balancing monitoring is a key feature - it helps prevent one cell from overcharging while the other is undercharged. One implementation tip: the exposed pad must be soldered to a large copper area for thermal management. At 1A charge current from 12V input, the power dissipation is (12V - 8.4V) × 1A = 3.6W, which requires good heat sinking. I've seen designs fail from inadequate thermal management. The charge status pin is useful for driving an LED or connecting to a microcontroller. Overall, a solid 2-cell charger solution.",
+            "highlight": "Complete 2-cell Li-ion charger with cell balancing monitoring and 1A capability"
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "BQ2057WSN",
+              "brand": "Texas Instruments",
+              "link": "/brands/ti/products/battery-charger/bq2057wsn/",
+              "reason": "2-cell Li-ion charger from TI",
+              "useCase": "Alternative for TI-based designs",
+              "specifications": {
+                "Input Voltage Range": "8.2V - 15V",
+                "Charge Voltage": "8.4V",
+                "Charge Current": "Up to 1.5A",
+                "Package": "SOIC-8"
+              },
+              "comparison": {
+                "Input Voltage Range": "8.2V - 15V > 9V - 12V",
+                "Charge Current": "1.5A > 1A",
+                "Charge Voltage": "8.4V = 8.4V",
+                "Package": "SOIC-8 < SOIC-8 EP"
+              }
+            }
+          ],
+          "companionParts": [
+            {
+              "partNumber": "LP6210",
+              "category": "DC-DC",
+              "description": "Buck converter for system power from 12V",
+              "link": "/brands/lowpowersemi/products/dc-dc/lp6210/"
+            },
+            {
+              "partNumber": "LP5907-33",
+              "category": "LDO",
+              "description": "High PSRR LDO for sensitive circuits",
+              "link": "/brands/lowpowersemi/products/ldo/lp5907-33/"
+            }
+          ],
+          "faqs": [
+            {
+              "question": "Does LP4060 balance the two cells?",
+              "answer": "The LP4060 monitors both cells during charging to detect imbalance conditions. While it doesn't actively balance the cells (which would require additional circuitry), it can indicate when cell imbalance is detected. For applications requiring active balancing, external balancing circuits should be added.",
+              "decisionGuide": "Monitors cell balance; add external active balancing if required for your application.",
+              "keywords": ["cell balancing", "2-cell", "monitoring", "Li-ion"]
+            }
+          ]
+        },
+        {
+          "partNumber": "LP4070",
+          "name": "LP4070 USB Charger with OVP",
+          "category": "Battery Chargers",
+          "shortDescription": "Li-ion battery charger with integrated over-voltage protection for USB applications",
+          "descriptionParagraphs": [
+            "The LP4070 is a highly integrated Li-ion battery charger designed specifically for USB-powered applications. It includes built-in over-voltage protection (OVP) up to 28V, protecting the device from faulty USB adapters and voltage spikes.",
+            "The charger operates from 4.5V to 6.5V input and provides a regulated 4.2V charge voltage with ±1% accuracy. It supports up to 800mA charge current, programmable via external resistor. The device is USB-compliant with 100mA and 500mA input current limiting.",
+            "The LP4070 includes comprehensive protection features: over-voltage protection, thermal regulation, reverse current blocking, and short-circuit protection. The charge status output indicates charging and completion states. Available in a compact SOT-23-6 package, it is ideal for smartphones, Bluetooth devices, and other USB-powered portable electronics."
+          ],
+          "specifications": {
+            "Input Voltage Range": "4.5V - 6.5V",
+            "Charge Voltage": "4.2V (±1% accuracy)",
+            "Charge Current": "Up to 800mA (programmable)",
+            "Trickle Charge Current": "10% of fast charge",
+            "Charge Termination": "C/10 threshold",
+            "Sleep Mode Current": "<2μA",
+            "Thermal Regulation": "120°C junction temperature",
+            "Charge Status Output": "Open-drain indicator",
+            "Operating Temperature": "-40°C to +85°C",
+            "Package": "SOT-23-6",
+            "System Current": "N/A",
+            "Input Current Limit": "100mA/500mA USB compliant",
+            "Charge Status Outputs": "N/A",
+            "Safety Timer": "N/A",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
+          },
+          "features": [
+            "Integrated over-voltage protection (28V)",
+            "USB-compliant input current limiting",
+            "Up to 800mA programmable charge current",
+            "±1% charge voltage accuracy",
+            "Automatic charging with C/10 termination",
+            "Thermal regulation protection",
+            "Reverse current blocking",
+            "Compact SOT-23-6 package"
+          ],
+          "applications": [
+            "Smartphones",
+            "Bluetooth headsets",
+            "Portable media players",
+            "USB-powered devices",
+            "Wearable electronics"
+          ],
+          "faeReview": {
+            "author": "Li Wei",
+            "title": "Senior FAE - USB Power",
+            "content": "The LP4070 is my recommended charger for USB-powered applications due to its integrated over-voltage protection. I've seen too many devices damaged by faulty USB chargers that output 12V or higher instead of 5V. The LP4070's 28V OVP rating provides excellent protection. The USB-compliant current limiting is important - it prevents overloading USB ports during enumeration. The 800mA charge current is sufficient for most single-cell applications. One implementation tip: the OVP feature is automatic and requires no external components, but you should still use a quality USB cable to minimize voltage drops. The SOT-23-6 package is compact but can handle the power dissipation for 500mA charging. I've used this charger in numerous smartphone accessory designs with excellent reliability. The charge status pin is useful for LED indicators. Overall, a well-protected USB charger solution.",
+            "highlight": "USB charger with integrated over-voltage protection for robust portable applications"
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "MCP73832",
+              "brand": "Microchip",
+              "link": "/brands/microchip/products/battery-charger/mcp73832/",
+              "reason": "Miniature Li-ion charger for USB",
+              "useCase": "Alternative for compact designs",
+              "specifications": {
+                "Input Voltage Range": "3.75V - 6V",
+                "Charge Voltage": "4.2V",
+                "Charge Current": "Up to 550mA",
+                "Package": "SOT-23-5"
+              },
+              "comparison": {
+                "Input Voltage Range": "3.75V - 6V < 4.5V - 6.5V",
+                "Charge Current": "550mA < 800mA",
+                "Charge Voltage": "4.2V = 4.2V",
+                "Package": "SOT-23-5 < SOT-23-6"
+              }
+            }
+          ],
+          "companionParts": [
+            {
+              "partNumber": "LP6235",
+              "category": "DC-DC",
+              "description": "Buck converter for system power",
+              "link": "/brands/lowpowersemi/products/dc-dc/lp6235/"
+            },
+            {
+              "partNumber": "LP5240",
+              "category": "Load Switch",
+              "description": "Load switch for USB power control",
+              "link": "/brands/lowpowersemi/products/load-switch/lp5240/"
+            }
+          ],
+          "faqs": [
+            {
+              "question": "What over-voltage protection does LP4070 provide?",
+              "answer": "The LP4070 includes integrated over-voltage protection that can withstand input voltages up to 28V. If the input voltage exceeds approximately 6.8V, the charger shuts down to protect the battery and internal circuitry. This protects against faulty USB chargers and voltage transients.",
+              "decisionGuide": "28V OVP rating protects against faulty chargers; automatic shutdown above 6.8V.",
+              "keywords": ["over-voltage protection", "OVP", "28V", "protection"]
+            }
+          ]
         }
       ],
       "faqs": [
@@ -1416,11 +2038,19 @@
       "selectionGuide": "Choose LP5240 for simple on/off switching applications. Select LP5241 for applications requiring slew rate control to limit inrush current. Consider current requirements, on-resistance, and protection features for your specific application.",
       "selectionGuideLink": "/brands/lowpowersemi/support/ldo-selection-guide/",
       "parameters": [
-        "Input Voltage",
+        "Input Voltage Range",
         "Current Rating",
         "On-Resistance",
-        "Slew Rate",
-        "Protection"
+        "Quiescent Current",
+        "Turn-On Time",
+        "Turn-Off Time",
+        "Enable Threshold",
+        "Thermal Shutdown",
+        "Operating Temperature",
+        "Slew Rate Control",
+        "Over-Current Protection",
+        "Voltage Rating",
+        "Temperature Range"
       ],
       "products": [
         {
@@ -1443,7 +2073,11 @@
             "Enable Threshold": "1.2V typical",
             "Thermal Shutdown": "150°C",
             "Operating Temperature": "-40°C to +85°C",
-            "Package": "SOT-23-5"
+            "Package": "SOT-23-5",
+            "Slew Rate Control": "N/A",
+            "Over-Current Protection": "N/A",
+            "Voltage Rating": "N/A",
+            "Temperature Range": "N/A"
           },
           "features": [
             "Low 60mΩ on-resistance",
@@ -1628,7 +2262,11 @@
             "Slew Rate Control": "External capacitor",
             "Over-Current Protection": "1.8A typical",
             "Operating Temperature": "-40°C to +85°C",
-            "Package": "SOT-23-6"
+            "Package": "SOT-23-6",
+            "Enable Threshold": "N/A",
+            "Thermal Shutdown": "N/A",
+            "Voltage Rating": "N/A",
+            "Temperature Range": "N/A"
           },
           "features": [
             "Programmable slew rate control",
@@ -1790,6 +2428,192 @@
                 "quiescent current",
                 "power gating"
               ]
+            }
+          ]
+        },
+        {
+          "partNumber": "LP5242",
+          "name": "LP5242 Dual Channel Load Switch",
+          "category": "Load Switches",
+          "shortDescription": "Dual channel load switch with independent enable controls for multi-rail power distribution",
+          "descriptionParagraphs": [
+            "The LP5242 is a dual channel load switch that integrates two independent load switches in a single package. Each channel can support up to 1.5A continuous current with 70mΩ on-resistance, making it ideal for multi-rail power distribution applications.",
+            "The device operates from 1.2V to 5.5V input voltage range. Each channel has its own active-high enable pin, allowing independent control of two power rails. The independent control is useful for power sequencing and selective power gating in complex systems.",
+            "The LP5242 includes thermal shutdown protection for each channel and reverse current blocking. The fast turn-on time of 80μs and turn-off time of 8μs enable quick power switching. Available in a compact SOT-23-6 package, it is perfect for space-constrained designs requiring dual power switches."
+          ],
+          "specifications": {
+            "Input Voltage Range": "1.2V - 5.5V",
+            "Current Rating": "1.5A per channel",
+            "On-Resistance": "70mΩ typical",
+            "Quiescent Current": "0.8μA (disabled)",
+            "Turn-On Time": "80μs typical",
+            "Turn-Off Time": "8μs typical",
+            "Enable Threshold": "1.0V typical",
+            "Thermal Shutdown": "150°C per channel",
+            "Operating Temperature": "-40°C to +85°C",
+            "Package": "SOT-23-6",
+            "Slew Rate Control": "N/A",
+            "Over-Current Protection": "N/A",
+            "Voltage Rating": "N/A",
+            "Temperature Range": "N/A"
+          },
+          "features": [
+            "Dual independent channels",
+            "1.5A per channel current capability",
+            "Low 70mΩ on-resistance",
+            "Independent enable pins",
+            "Fast 80μs turn-on time",
+            "Ultra-low 0.8μA disabled current",
+            "Per-channel thermal protection",
+            "Compact SOT-23-6 package"
+          ],
+          "applications": [
+            "Multi-rail power distribution",
+            "Power sequencing",
+            "Dual sensor power control",
+            "Memory power switching",
+            "Dual peripheral control"
+          ],
+          "faeReview": {
+            "author": "Wang Chen",
+            "title": "Senior FAE - Power Distribution",
+            "content": "The LP5242 is an excellent solution when you need two independent load switches but board space is limited. The dual channel integration saves significant board area compared to using two single switches. I've used this in designs powering dual memory banks, separate sensor subsystems, and dual peripheral interfaces. The 70mΩ on-resistance is reasonable for the dual-channel capability. The independent enables are useful for power sequencing - you can turn on different rails in the correct order. One implementation tip: the two channels share a common input pin, so both rails must be powered from the same voltage source. If you need switches for different voltage rails, use two LP5240s instead. The thermal protection is per-channel, so a fault on one channel doesn't affect the other. The SOT-23-6 package is compact but manageable for hand soldering. Overall, a space-saving dual load switch solution.",
+            "highlight": "Dual channel load switch saving board space for multi-rail power distribution"
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "TPS22966",
+              "brand": "Texas Instruments",
+              "link": "/brands/ti/products/load-switch/tps22966/",
+              "reason": "Dual channel load switch from TI",
+              "useCase": "Alternative for TI-based designs",
+              "specifications": {
+                "Input Voltage Range": "0.8V - 5.5V",
+                "Current Rating": "2A per channel",
+                "On-Resistance": "50mΩ",
+                "Package": "WSON-8"
+              },
+              "comparison": {
+                "Input Voltage Range": "0.8V - 5.5V > 1.2V - 5.5V",
+                "Current Rating": "2A > 1.5A",
+                "On-Resistance": "50mΩ < 70mΩ",
+                "Package": "WSON-8 > SOT-23-6"
+              }
+            }
+          ],
+          "companionParts": [
+            {
+              "partNumber": "LP3990-33",
+              "category": "LDO",
+              "description": "Ultra-low IQ LDO for regulated power",
+              "link": "/brands/lowpowersemi/products/ldo/lp3990-33/"
+            },
+            {
+              "partNumber": "LP6235",
+              "category": "DC-DC",
+              "description": "Buck converter for main system power",
+              "link": "/brands/lowpowersemi/products/dc-dc/lp6235/"
+            }
+          ],
+          "faqs": [
+            {
+              "question": "Can the two channels of LP5242 be used independently?",
+              "answer": "Yes, the two channels have independent enable pins and can be controlled separately. However, both channels share a common input voltage pin, so they must be powered from the same voltage rail. The outputs are independent and can power different loads.",
+              "decisionGuide": "Independent control possible; both channels share common input voltage.",
+              "keywords": ["dual channel", "independent", "enable", "control"]
+            }
+          ]
+        },
+        {
+          "partNumber": "LP5245",
+          "name": "LP5245 High Current Load Switch",
+          "category": "Load Switches",
+          "shortDescription": "High current load switch with 4A capability and 35mΩ on-resistance for power hungry applications",
+          "descriptionParagraphs": [
+            "The LP5265 is a high current load switch designed for power-hungry applications requiring high current capability with minimal voltage drop. It can support continuous currents up to 4A with low 35mΩ on-resistance.",
+            "The device operates from 2.5V to 5.5V input voltage range. The active-high enable pin allows software control of the power rail. The fast turn-on time of 150μs enables quick power delivery to high-performance subsystems.",
+            "The LP5245 includes comprehensive protection features: thermal shutdown, reverse current blocking, and under-voltage lockout. The exposed-pad DFN-8 package provides excellent thermal performance for high-current operation. It is ideal for powering application processors, motor drivers, and high-power sensors."
+          ],
+          "specifications": {
+            "Input Voltage Range": "2.5V - 5.5V",
+            "Current Rating": "4A continuous",
+            "On-Resistance": "35mΩ typical",
+            "Quiescent Current": "2μA (disabled)",
+            "Turn-On Time": "150μs typical",
+            "Turn-Off Time": "15μs typical",
+            "Enable Threshold": "1.2V typical",
+            "Thermal Shutdown": "150°C",
+            "Operating Temperature": "-40°C to +85°C",
+            "Package": "DFN-8 (3mm x 3mm) EP",
+            "Slew Rate Control": "N/A",
+            "Over-Current Protection": "N/A",
+            "Voltage Rating": "N/A",
+            "Temperature Range": "N/A"
+          },
+          "features": [
+            "High 4A current capability",
+            "Low 35mΩ on-resistance",
+            "2.5V to 5.5V input range",
+            "Active-high enable pin",
+            "Fast 150μs turn-on time",
+            "2μA disabled current",
+            "Thermal shutdown protection",
+            "Exposed pad DFN-8 package"
+          ],
+          "applications": [
+            "Application processor power",
+            "Motor driver supply",
+            "High-power sensors",
+            "Power amplifier supply",
+            "High-current subsystems"
+          ],
+          "faeReview": {
+            "author": "Dr. Liu Ming",
+            "title": "Senior FAE - High Current Power",
+            "content": "The LP5245 is my recommendation for high current load switching applications. The 4A capability with 35mΩ on-resistance means only 140mV drop at full current - excellent for maintaining voltage to power-hungry loads. I've used this switch for application processors, motor drivers, and RF power amplifiers. The exposed pad DFN package is essential for thermal management - at 4A with 35mΩ, the power dissipation is 560mW, which requires good heat sinking. One implementation tip: solder the exposed pad to a large copper pour with multiple thermal vias to inner ground planes. I've seen the thermal shutdown activate when the pad wasn't properly soldered. The enable pin has hysteresis to prevent chatter. The 150μs turn-on time is reasonable for most applications. Overall, a high-performance load switch for demanding applications.",
+            "highlight": "High current load switch with 4A capability and low 35mΩ on-resistance"
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "TPS22965",
+              "brand": "Texas Instruments",
+              "link": "/brands/ti/products/load-switch/tps22965/",
+              "reason": "High current load switch from TI",
+              "useCase": "Alternative for high current applications",
+              "specifications": {
+                "Input Voltage Range": "0.8V - 5.5V",
+                "Current Rating": "6A",
+                "On-Resistance": "24mΩ",
+                "Package": "WSON-8"
+              },
+              "comparison": {
+                "Input Voltage Range": "0.8V - 5.5V > 2.5V - 5.5V",
+                "Current Rating": "6A > 4A",
+                "On-Resistance": "24mΩ < 35mΩ",
+                "Package": "WSON-8 = DFN-8"
+              }
+            }
+          ],
+          "companionParts": [
+            {
+              "partNumber": "LP6235",
+              "category": "DC-DC",
+              "description": "Buck converter for main power conversion",
+              "link": "/brands/lowpowersemi/products/dc-dc/lp6235/"
+            },
+            {
+              "partNumber": "LP5907-33",
+              "category": "LDO",
+              "description": "High PSRR LDO for sensitive circuits",
+              "link": "/brands/lowpowersemi/products/ldo/lp5907-33/"
+            }
+          ],
+          "faqs": [
+            {
+              "question": "What is the maximum current for LP5245?",
+              "answer": "The LP5245 can support continuous currents up to 4A. At this current level, proper thermal management is critical. The exposed pad must be soldered to a large copper area with thermal vias to dissipate the heat generated (P = I² × R = 4A² × 35mΩ = 560mW).",
+              "decisionGuide": "4A maximum current; requires proper thermal management with exposed pad soldered to copper pour.",
+              "keywords": ["current rating", "4A", "thermal management", "high current"]
             }
           ]
         }

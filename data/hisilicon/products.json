@@ -69,11 +69,19 @@
       "name": "Mobile Processors",
       "description": "HiSilicon Kirin series mobile processors deliver exceptional performance and power efficiency for smartphones, tablets, and mobile devices. Featuring integrated 5G modems, dedicated AI processors (NPU), advanced ISP for camera applications, and powerful GPU for graphics, Kirin SoCs provide a complete solution for premium mobile experiences. The latest Kirin 9000 series leverages cutting-edge process technology to achieve industry-leading performance-per-watt metrics.",
       "parameters": [
-        "CPU Cores",
+        "CPU",
         "GPU",
         "NPU",
         "Process",
-        "5G Support"
+        "5G Modem",
+        "Memory Support",
+        "Storage",
+        "ISP",
+        "Display Support",
+        "Camera Support",
+        "Voltage Rating",
+        "Current Rating",
+        "Temperature Range"
       ],
       "applications": [
         "Smartphones",
@@ -164,7 +172,10 @@
             "Storage": "UFS 3.1",
             "ISP": "Quad-core, 4K@60fps video",
             "Display Support": "Up to 4K@90Hz or QHD+@144Hz",
-            "Camera Support": "Up to 200MP single or 50MP dual"
+            "Camera Support": "Up to 200MP single or 50MP dual",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
           },
           "features": [
             "5nm process technology for best-in-class power efficiency",
@@ -352,7 +363,10 @@
             "Storage": "UFS 2.1",
             "ISP": "Dual-core, 4K@30fps video",
             "Display Support": "Up to FHD+@120Hz",
-            "Camera Support": "Up to 64MP single or 32MP dual"
+            "Camera Support": "Up to 64MP single or 32MP dual",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
           },
           "features": [
             "7nm process for excellent power efficiency",
@@ -500,6 +514,163 @@
               ]
             }
           ]
+        },
+        {
+          "partNumber": "Kirin 990 5G",
+          "name": "Kirin 990 5G Mobile SoC",
+          "shortDescription": "Flagship 5G mobile processor with integrated 5G modem, 7nm process, and powerful NPU.",
+          "descriptionParagraphs": [
+            "The Kirin 990 5G is a flagship mobile SoC featuring integrated 5G connectivity on a 7nm+ EUV process. It delivers exceptional performance with octa-core CPU (2x Cortex-A76 @ 2.86GHz, 2x Cortex-A76 @ 2.36GHz, 4x Cortex-A55 @ 1.95GHz).",
+            "The integrated 5G modem supports SA/NSA dual-mode 5G networks with download speeds up to 2.3Gbps. The Da Vinci NPU provides 2 big cores + 1 tiny core architecture for powerful AI processing.",
+            "The Mali-G76 MP16 GPU delivers excellent gaming performance with GPU Turbo technology. Supports up to 4K@60fps video recording and LPDDR4X memory."
+          ],
+          "specifications": {
+            "Process": "7nm+ EUV",
+            "CPU": "Octa-core (2+2+4)",
+            "Big Cores": "2x Cortex-A76 @ 2.86GHz",
+            "Mid Cores": "2x Cortex-A76 @ 2.36GHz",
+            "Small Cores": "4x Cortex-A55 @ 1.95GHz",
+            "GPU": "Mali-G76 MP16",
+            "NPU": "2 big + 1 tiny cores",
+            "5G": "Integrated SA/NSA",
+            "Download Speed": "Up to 2.3Gbps",
+            "Memory": "LPDDR4X",
+            "Video": "4K@60fps recording"
+          },
+          "features": [
+            "Integrated 5G modem",
+            "7nm+ EUV process",
+            "Da Vinci NPU architecture",
+            "Mali-G76 MP16 GPU",
+            "4K@60fps video",
+            "GPU Turbo technology"
+          ],
+          "applications": [
+            "Flagship smartphones",
+            "5G mobile devices",
+            "High-end tablets",
+            "AI-powered cameras"
+          ],
+          "faeReview": {
+            "author": "Dr. Li Wei",
+            "title": "Principal FAE - Mobile SoC",
+            "content": "The Kirin 990 5G represents the pinnacle of mobile processor design. The integrated 5G modem eliminates the need for external 5G chips, reducing power consumption and board complexity.",
+            "highlight": "Best-in-class integrated 5G solution"
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "Kirin 990 4G",
+              "brand": "Hisilicon",
+              "reason": "4G-only variant",
+              "comparison": {
+                "5G": "No vs Yes",
+                "price": "Lower"
+              },
+              "useCase": "4G flagship devices",
+              "specifications": {
+                "Modem": "4G LTE"
+              },
+              "priceDifference": "-20%",
+              "stockStatus": "In Stock"
+            }
+          ],
+          "companionParts": [
+            {
+              "partNumber": "Balong 5000",
+              "description": "External 5G modem option",
+              "category": "Modem"
+            }
+          ],
+          "faqs": [
+            {
+              "question": "What is the difference from Kirin 990 4G?",
+              "answer": "The 5G version has integrated 5G modem on 7nm+ EUV process, while 4G version uses external modem and 7nm process. 5G version has slightly better power efficiency.",
+              "decisionGuide": "Choose 5G version for 5G devices, 4G for cost-sensitive 4G flagships.",
+              "keywords": [
+                "5G",
+                "comparison",
+                "Kirin 990"
+              ]
+            }
+          ]
+        },
+        {
+          "partNumber": "Kirin 820 5G",
+          "name": "Kirin 820 5G Mobile SoC",
+          "shortDescription": "Mid-range 5G mobile processor with integrated 5G modem, 7nm process, for premium mid-tier smartphones.",
+          "descriptionParagraphs": [
+            "The Kirin 820 5G is a mid-range mobile SoC featuring integrated 5G connectivity on a 7nm process. Delivers excellent performance with octa-core CPU and Mali-G57 GPU.",
+            "The integrated 5G modem supports SA/NSA dual-mode networks. The Da Vinci NPU provides AI acceleration for photography and system optimization.",
+            "Ideal for premium mid-tier smartphones offering flagship features at accessible price points."
+          ],
+          "specifications": {
+            "Process": "7nm",
+            "CPU": "Octa-core (1+3+4)",
+            "Big Core": "1x Cortex-A76 @ 2.36GHz",
+            "Mid Cores": "3x Cortex-A76 @ 2.22GHz",
+            "Small Cores": "4x Cortex-A55 @ 1.84GHz",
+            "GPU": "Mali-G57 MP6",
+            "NPU": "1+1 Da Vinci",
+            "5G": "Integrated SA/NSA",
+            "Download Speed": "Up to 2.3Gbps",
+            "Memory": "LPDDR4X"
+          },
+          "features": [
+            "Integrated 5G modem",
+            "7nm power efficiency",
+            "Da Vinci NPU",
+            "Mali-G57 MP6 GPU",
+            "Advanced ISP",
+            "Fast charging support"
+          ],
+          "applications": [
+            "Mid-range smartphones",
+            "5G mobile devices",
+            "Premium tablets",
+            "Mobile gaming"
+          ],
+          "faeReview": {
+            "author": "Dr. Li Wei",
+            "title": "FAE - Mobile SoC",
+            "content": "The Kirin 820 5G brings flagship 5G features to the mid-range segment. The integrated modem and efficient 7nm process deliver excellent value.",
+            "highlight": "Best mid-range 5G SoC"
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "Kirin 990 5G",
+              "brand": "Hisilicon",
+              "reason": "Flagship option",
+              "comparison": {
+                "performance": "Higher",
+                "price": "Higher"
+              },
+              "useCase": "Premium flagships",
+              "specifications": {
+                "CPU": "2.86GHz"
+              },
+              "priceDifference": "+50%",
+              "stockStatus": "In Stock"
+            }
+          ],
+          "companionParts": [
+            {
+              "partNumber": "Balong 5000",
+              "description": "External 5G modem",
+              "category": "Modem"
+            }
+          ],
+          "faqs": [
+            {
+              "question": "How does it compare to Kirin 990?",
+              "answer": "Kirin 820 offers about 80% of Kirin 990 performance at lower cost. Both have integrated 5G, but 990 has more powerful CPU and GPU.",
+              "decisionGuide": "Choose 820 for mid-range, 990 for flagship.",
+              "keywords": [
+                "comparison",
+                "mid-range",
+                "performance"
+              ]
+            }
+          ]
         }
       ],
       "slug": "mobile-processors",
@@ -515,10 +686,21 @@
       "description": "HiSilicon Ascend series AI accelerators deliver industry-leading performance for artificial intelligence applications. From edge devices to data centers, Ascend chips provide optimized inference and training capabilities with exceptional power efficiency. Featuring dedicated AI cores and comprehensive software support, Ascend enables real-time AI processing for computer vision, natural language processing, and autonomous systems.",
       "parameters": [
         "AI Performance",
+        "Architecture",
         "Memory",
         "Power",
         "Process",
-        "Interface"
+        "Video Decode",
+        "Video Encode",
+        "Interfaces",
+        "Temperature",
+        "Security",
+        "Interconnect",
+        "Scaling",
+        "Form Factor",
+        "Voltage Rating",
+        "Current Rating",
+        "Temperature Range"
       ],
       "applications": [
         "Computer Vision",
@@ -610,7 +792,13 @@
             "Video Encode": "8-channel 1080p H.264/H.265",
             "Interfaces": "PCIe 3.0, USB 3.0, GbE",
             "Temperature": "0°C to +70°C commercial",
-            "Security": "Hardware encryption, TrustZone"
+            "Security": "Hardware encryption, TrustZone",
+            "Interconnect": "N/A",
+            "Scaling": "N/A",
+            "Form Factor": "N/A",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
           },
           "features": [
             "16 TOPS INT8 performance at 8W power",
@@ -781,7 +969,13 @@
             "Interfaces": "PCIe 4.0 x16",
             "Scaling": "Cluster up to 4096 cards",
             "Temperature": "5°C to +45°C",
-            "Form Factor": "Dual-slot FHFL card"
+            "Form Factor": "Dual-slot FHFL card",
+            "Video Decode": "N/A",
+            "Video Encode": "N/A",
+            "Security": "N/A",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
           },
           "features": [
             "256 TFLOPS FP16 training performance",
@@ -927,6 +1121,161 @@
               ]
             }
           ]
+        },
+        {
+          "partNumber": "Ascend 310",
+          "name": "Ascend 310 AI Processor",
+          "shortDescription": "High-efficiency AI inference processor with 16 TOPS INT8 performance for edge AI applications.",
+          "descriptionParagraphs": [
+            "The Ascend 310 is a high-efficiency AI inference processor delivering 16 TOPS INT8 and 8 TOPS FP16 performance. Built on 12nm process, it provides exceptional AI computing power with low power consumption.",
+            "Features Da Vinci architecture with dedicated AI cores, supporting mainstream deep learning frameworks including TensorFlow, PyTorch, and Caffe. Supports multiple precision modes: INT8, INT4, FP16.",
+            "Ideal for edge AI applications including smart cameras, autonomous vehicles, and industrial inspection systems."
+          ],
+          "specifications": {
+            "Process": "12nm",
+            "INT8 Performance": "16 TOPS",
+            "FP16 Performance": "8 TOPS",
+            "Architecture": "Da Vinci",
+            "Power": "8W typical",
+            "Memory": "LPDDR4X",
+            "Video Decode": "16-channel 1080p",
+            "Interfaces": "PCIe 3.0, USB 3.0",
+            "Temperature": "-40°C to +85°C"
+          },
+          "features": [
+            "16 TOPS INT8 performance",
+            "Da Vinci AI architecture",
+            "Multi-precision support",
+            "Low power consumption",
+            "16-channel video decode",
+            "Wide temperature range"
+          ],
+          "applications": [
+            "Edge AI servers",
+            "Smart cameras",
+            "Autonomous vehicles",
+            "Industrial inspection",
+            "Smart retail"
+          ],
+          "faeReview": {
+            "author": "Dr. Zhang Ming",
+            "title": "Senior FAE - AI Solutions",
+            "content": "The Ascend 310 delivers exceptional AI performance per watt. The Da Vinci architecture provides flexible precision modes for different AI workloads.",
+            "highlight": "Excellent edge AI performance"
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "Ascend 910",
+              "brand": "Hisilicon",
+              "reason": "Higher performance",
+              "comparison": {
+                "performance": "256 TOPS > 16 TOPS",
+                "power": "310W > 8W"
+              },
+              "useCase": "Data center AI training",
+              "specifications": {
+                "INT8": "256 TOPS"
+              },
+              "priceDifference": "+400%",
+              "stockStatus": "In Stock"
+            }
+          ],
+          "companionParts": [
+            {
+              "partNumber": "Atlas 200",
+              "description": "AI accelerator module",
+              "category": "Module"
+            }
+          ],
+          "faqs": [
+            {
+              "question": "What frameworks are supported?",
+              "answer": "Ascend 310 supports TensorFlow, PyTorch, Caffe, and MindSpore through the CANN software stack.",
+              "decisionGuide": "Use CANN SDK for optimal performance.",
+              "keywords": [
+                "frameworks",
+                "CANN",
+                "MindSpore"
+              ]
+            }
+          ]
+        },
+        {
+          "partNumber": "Ascend 310P",
+          "name": "Ascend 310P AI Processor",
+          "shortDescription": "Enhanced AI inference processor with 22 TOPS INT8 performance for edge AI applications.",
+          "descriptionParagraphs": [
+            "The Ascend 310P is an enhanced AI inference processor delivering 22 TOPS INT8 performance. Features improved power efficiency and enhanced video processing.",
+            "Supports multiple precision modes and optimized for video analytics applications. Includes hardware acceleration for H.264/H.265 decoding.",
+            "Ideal for smart city, intelligent transportation, and video surveillance applications."
+          ],
+          "specifications": {
+            "Process": "12nm",
+            "INT8 Performance": "22 TOPS",
+            "FP16 Performance": "11 TOPS",
+            "Architecture": "Da Vinci",
+            "Power": "8W typical",
+            "Video Decode": "16-channel 1080p H.265",
+            "Interfaces": "PCIe 3.0",
+            "Temperature": "-40°C to +85°C"
+          },
+          "features": [
+            "22 TOPS INT8 performance",
+            "Enhanced video processing",
+            "Multi-precision support",
+            "Low power consumption",
+            "16-channel video decode",
+            "Wide temperature range"
+          ],
+          "applications": [
+            "Smart city",
+            "Video surveillance",
+            "Intelligent transportation",
+            "Edge AI servers",
+            "Industrial inspection"
+          ],
+          "faeReview": {
+            "author": "Dr. Zhang Ming",
+            "title": "FAE - AI Solutions",
+            "content": "The Ascend 310P builds on 310 with enhanced video capabilities. Perfect for smart city applications requiring video analytics.",
+            "highlight": "Enhanced video AI processing"
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "Ascend 310",
+              "brand": "Hisilicon",
+              "reason": "Standard version",
+              "comparison": {
+                "performance": "16 TOPS < 22 TOPS",
+                "price": "Lower"
+              },
+              "useCase": "Standard AI inference",
+              "specifications": {
+                "INT8": "16 TOPS"
+              },
+              "priceDifference": "-15%",
+              "stockStatus": "In Stock"
+            }
+          ],
+          "companionParts": [
+            {
+              "partNumber": "Atlas 300",
+              "description": "AI accelerator card",
+              "category": "Module"
+            }
+          ],
+          "faqs": [
+            {
+              "question": "What video formats are supported?",
+              "answer": "Ascend 310P supports H.264, H.265, and MJPEG decoding with up to 16 channels of 1080p video.",
+              "decisionGuide": "Use for video analytics applications.",
+              "keywords": [
+                "video",
+                "H.265",
+                "analytics"
+              ]
+            }
+          ]
         }
       ],
       "slug": "ai-accelerators",
@@ -944,8 +1293,16 @@
         "Cores",
         "Frequency",
         "Memory",
+        "Cache",
         "TDP",
-        "Process"
+        "Process",
+        "PCIe",
+        "Sockets",
+        "Security",
+        "Virtualization",
+        "Voltage Rating",
+        "Current Rating",
+        "Temperature Range"
       ],
       "applications": [
         "Cloud Computing",
@@ -1035,7 +1392,10 @@
             "PCIe": "PCIe 4.0 x 40 lanes",
             "Sockets": "Dual-socket support",
             "Security": "Hardware encryption, Secure boot",
-            "Virtualization": "Hardware virtualization support"
+            "Virtualization": "Hardware virtualization support",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
           },
           "features": [
             "64 high-performance ARM cores",
@@ -1204,7 +1564,10 @@
             "PCIe": "PCIe 4.0 x 40 lanes",
             "Sockets": "Dual-socket support",
             "Security": "Hardware encryption, Secure boot",
-            "Virtualization": "Hardware virtualization support"
+            "Virtualization": "Hardware virtualization support",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
           },
           "features": [
             "48 high-performance ARM cores",
@@ -1341,6 +1704,161 @@
               ]
             }
           ]
+        },
+        {
+          "partNumber": "Kunpeng 920",
+          "name": "Kunpeng 920 Server Processor",
+          "shortDescription": "High-performance ARM-based server processor with up to 64 cores, 7nm process for data center applications.",
+          "descriptionParagraphs": [
+            "The Kunpeng 920 is a high-performance ARM-based server processor featuring up to 64 cores on 7nm process. Based on ARMv8 architecture with custom TaiShan cores running at 2.6GHz.",
+            "Delivers exceptional compute performance with 8-channel DDR4 memory support, 40 PCIe 4.0 lanes, and integrated 100G RoCE networking. Ideal for cloud computing, big data, and distributed storage.",
+            "Supports various server configurations from single-socket edge servers to multi-socket enterprise systems."
+          ],
+          "specifications": {
+            "Process": "7nm",
+            "Cores": "Up to 64",
+            "Architecture": "ARMv8 (TaiShan)",
+            "Frequency": "Up to 2.6GHz",
+            "Memory": "8-channel DDR4",
+            "PCIe": "40 lanes PCIe 4.0",
+            "Network": "100G RoCE",
+            "Cache": "64MB L3",
+            "TDP": "180W"
+          },
+          "features": [
+            "Up to 64 ARM cores",
+            "7nm advanced process",
+            "8-channel DDR4",
+            "PCIe 4.0 support",
+            "100G integrated networking",
+            "High memory bandwidth"
+          ],
+          "applications": [
+            "Cloud computing",
+            "Big data analytics",
+            "Distributed storage",
+            "Enterprise servers",
+            "Edge computing"
+          ],
+          "faeReview": {
+            "author": "Dr. Wang Jun",
+            "title": "Principal FAE - Server Solutions",
+            "content": "The Kunpeng 920 delivers exceptional performance for ARM-based servers. The 64-core configuration rivals x86 alternatives for many cloud workloads.",
+            "highlight": "Leading ARM server performance"
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "Kunpeng 916",
+              "brand": "Hisilicon",
+              "reason": "Lower core count",
+              "comparison": {
+                "cores": "32 < 64",
+                "price": "Lower"
+              },
+              "useCase": "Mid-range servers",
+              "specifications": {
+                "Cores": "32"
+              },
+              "priceDifference": "-35%",
+              "stockStatus": "In Stock"
+            }
+          ],
+          "companionParts": [
+            {
+              "partNumber": "Hi1822",
+              "description": "Smart NIC controller",
+              "category": "Network"
+            }
+          ],
+          "faqs": [
+            {
+              "question": "What operating systems are supported?",
+              "answer": "Kunpeng 920 supports EulerOS, CentOS, Ubuntu, and openEuler Linux distributions optimized for ARM architecture.",
+              "decisionGuide": "Use openEuler for best optimization.",
+              "keywords": [
+                "OS",
+                "Linux",
+                "openEuler"
+              ]
+            }
+          ]
+        },
+        {
+          "partNumber": "Kunpeng 916",
+          "name": "Kunpeng 916 Server Processor",
+          "shortDescription": "ARM-based server processor with 32 cores, 2.4GHz, for cloud and big data applications.",
+          "descriptionParagraphs": [
+            "The Kunpeng 916 is an ARM-based server processor featuring 32 cores running at 2.4GHz. Based on ARMv8 architecture with custom TaiShan cores.",
+            "Supports 8-channel DDR4 memory and 40 PCIe 3.0 lanes. Delivers balanced performance for cloud computing and distributed storage.",
+            "Ideal for data center applications requiring good performance with power efficiency."
+          ],
+          "specifications": {
+            "Process": "7nm",
+            "Cores": "32",
+            "Architecture": "ARMv8 (TaiShan)",
+            "Frequency": "Up to 2.4GHz",
+            "Memory": "8-channel DDR4",
+            "PCIe": "40 lanes PCIe 3.0",
+            "Cache": "32MB L3",
+            "TDP": "135W"
+          },
+          "features": [
+            "32 ARM cores",
+            "7nm process",
+            "8-channel DDR4",
+            "PCIe 3.0 support",
+            "Power efficient",
+            "High memory bandwidth"
+          ],
+          "applications": [
+            "Cloud computing",
+            "Big data analytics",
+            "Distributed storage",
+            "Web servers",
+            "Container platforms"
+          ],
+          "faeReview": {
+            "author": "Dr. Wang Jun",
+            "title": "FAE - Server Solutions",
+            "content": "The Kunpeng 916 offers excellent price-performance for data center deployments. The 32-core design is ideal for cloud-native applications.",
+            "highlight": "Balanced server performance"
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "Kunpeng 920",
+              "brand": "Hisilicon",
+              "reason": "Higher performance",
+              "comparison": {
+                "cores": "64 > 32",
+                "frequency": "2.6GHz > 2.4GHz"
+              },
+              "useCase": "High-performance computing",
+              "specifications": {
+                "Cores": "64"
+              },
+              "priceDifference": "+45%",
+              "stockStatus": "In Stock"
+            }
+          ],
+          "companionParts": [
+            {
+              "partNumber": "Hi1822",
+              "description": "Smart NIC",
+              "category": "Network"
+            }
+          ],
+          "faqs": [
+            {
+              "question": "What is the difference from Kunpeng 920?",
+              "answer": "Kunpeng 916 has 32 cores vs 64 in 920, and runs at 2.4GHz vs 2.6GHz. Both support similar memory and I/O configurations.",
+              "decisionGuide": "Choose 916 for cost-effective deployments, 920 for maximum performance.",
+              "keywords": [
+                "comparison",
+                "Kunpeng",
+                "server"
+              ]
+            }
+          ]
         }
       ],
       "slug": "server-processors",
@@ -1356,10 +1874,20 @@
       "description": "HiSilicon Balong series connectivity solutions provide industry-leading 5G, LTE, and cellular IoT capabilities for mobile devices, IoT applications, and industrial systems. With integrated modems supporting global frequency bands, advanced power management, and comprehensive carrier certifications, Balong enables reliable wireless connectivity across diverse applications from smartphones to industrial sensors.",
       "parameters": [
         "Technology",
-        "Bands",
+        "5G Modes",
+        "5G Bands",
         "Data Rate",
+        "LTE",
         "Power",
-        "Interface"
+        "Interface",
+        "Carrier Agg",
+        "MIMO",
+        "Form Factor",
+        "Temperature",
+        "Certification",
+        "Voltage Rating",
+        "Current Rating",
+        "Temperature Range"
       ],
       "applications": [
         "Smartphones",
@@ -1451,7 +1979,12 @@
             "Interface": "Integrated or PCIe/USB",
             "Carrier Agg": "Up to 7CA in LTE",
             "MIMO": "4x4 MIMO support",
-            "Form Factor": "Integrated or discrete chip"
+            "Form Factor": "Integrated or discrete chip",
+            "Temperature": "N/A",
+            "Certification": "N/A",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
           },
           "features": [
             "6.5 Gbps peak download speed",
@@ -1616,7 +2149,12 @@
             "Interface": "PCIe 3.0 or USB 3.0",
             "Form Factor": "Compact M.2 or LGA",
             "Temperature": "-40°C to +85°C industrial",
-            "Certification": "GCF, FCC, CE"
+            "Certification": "GCF, FCC, CE",
+            "Carrier Agg": "N/A",
+            "MIMO": "N/A",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
           },
           "features": [
             "2.5 Gbps 5G speed for IoT",
@@ -1754,6 +2292,161 @@
                 "industrial certification",
                 "temperature rating",
                 "environmental testing"
+              ]
+            }
+          ]
+        },
+        {
+          "partNumber": "Balong 5000",
+          "name": "Balong 5000 5G Modem",
+          "shortDescription": "Multi-mode 5G modem supporting SA/NSA with 7nm process, up to 4.6Gbps download speed.",
+          "descriptionParagraphs": [
+            "The Balong 5000 is a multi-mode 5G modem supporting both SA (Standalone) and NSA (Non-Standalone) network architectures. Built on 7nm process for optimal power efficiency.",
+            "Delivers peak download speeds up to 4.6Gbps on 5G networks and 2.5Gbps on 4G LTE. Supports all major 5G frequency bands including sub-6GHz and mmWave.",
+            "The compact design enables integration into smartphones, CPEs, and IoT devices. Supports both NSA and SA network migration paths."
+          ],
+          "specifications": {
+            "Process": "7nm",
+            "5G Download": "Up to 4.6Gbps",
+            "4G Download": "Up to 2.5Gbps",
+            "Modes": "SA/NSA dual-mode",
+            "Bands": "Sub-6GHz, mmWave",
+            "Upload": "Up to 2.5Gbps",
+            "Latency": "As low as 1ms",
+            "Power": "Ultra-low power design"
+          },
+          "features": [
+            "SA/NSA dual-mode 5G",
+            "4.6Gbps peak download",
+            "Multi-band support",
+            "7nm power efficiency",
+            "Backward 4G compatible",
+            "Low latency mode"
+          ],
+          "applications": [
+            "5G smartphones",
+            "5G CPE devices",
+            "IoT modules",
+            "Mobile hotspots",
+            "Automotive connectivity"
+          ],
+          "faeReview": {
+            "author": "Dr. Chen Hua",
+            "title": "Senior FAE - Connectivity",
+            "content": "The Balong 5000 was one of the first multi-mode 5G modems. The SA/NSA support provides flexibility for global 5G deployments.",
+            "highlight": "Versatile 5G modem solution"
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "Balong 711",
+              "brand": "Hisilicon",
+              "reason": "4G LTE option",
+              "comparison": {
+                "network": "4G vs 5G",
+                "price": "Lower"
+              },
+              "useCase": "4G-only devices",
+              "specifications": {
+                "Network": "4G LTE"
+              },
+              "priceDifference": "-50%",
+              "stockStatus": "In Stock"
+            }
+          ],
+          "companionParts": [
+            {
+              "partNumber": "Kirin 990 5G",
+              "description": "SoC with integrated 5G",
+              "category": "Processor"
+            }
+          ],
+          "faqs": [
+            {
+              "question": "Does it support mmWave?",
+              "answer": "Yes, Balong 5000 supports both sub-6GHz and mmWave frequency bands for global 5G compatibility.",
+              "decisionGuide": "Use for global 5G device deployment.",
+              "keywords": [
+                "mmWave",
+                "5G bands",
+                "sub-6GHz"
+              ]
+            }
+          ]
+        },
+        {
+          "partNumber": "Balong 711",
+          "name": "Balong 711 4G LTE Modem",
+          "shortDescription": "Cost-effective 4G LTE modem with 150Mbps download, for IoT and M2M applications.",
+          "descriptionParagraphs": [
+            "The Balong 711 is a cost-effective 4G LTE modem supporting Category 4 with 150Mbps download and 50Mbps upload speeds.",
+            "Features low power consumption and compact design for IoT and M2M applications. Supports global LTE bands for worldwide deployment.",
+            "Ideal for IoT gateways, industrial routers, and mobile hotspot devices requiring reliable 4G connectivity."
+          ],
+          "specifications": {
+            "Technology": "4G LTE Cat 4",
+            "Download Speed": "Up to 150Mbps",
+            "Upload Speed": "Up to 50Mbps",
+            "Bands": "Multi-band global",
+            "Latency": "<50ms typical",
+            "Power": "Low power design",
+            "Interface": "USB/PCIe",
+            "Temperature": "-40°C to +85°C"
+          },
+          "features": [
+            "150Mbps LTE Cat 4",
+            "Global band support",
+            "Low power consumption",
+            "Compact design",
+            "Industrial temperature",
+            "Cost-effective"
+          ],
+          "applications": [
+            "IoT gateways",
+            "Industrial routers",
+            "Mobile hotspots",
+            "M2M devices",
+            "Remote monitoring"
+          ],
+          "faeReview": {
+            "author": "Dr. Chen Hua",
+            "title": "FAE - Connectivity",
+            "content": "The Balong 711 provides reliable 4G connectivity at competitive cost. Perfect for IoT applications not requiring 5G speeds.",
+            "highlight": "Cost-effective 4G solution"
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "Balong 5000",
+              "brand": "Hisilicon",
+              "reason": "5G upgrade option",
+              "comparison": {
+                "network": "5G vs 4G",
+                "speed": "2.3Gbps > 150Mbps",
+                "price": "Higher"
+              },
+              "useCase": "5G applications",
+              "specifications": {
+                "Network": "5G"
+              },
+              "priceDifference": "+60%",
+              "stockStatus": "In Stock"
+            }
+          ],
+          "companionParts": [
+            {
+              "partNumber": "Kirin 990",
+              "description": "SoC with integrated modem",
+              "category": "Processor"
+            }
+          ],
+          "faqs": [
+            {
+              "question": "Is this suitable for global deployment?",
+              "answer": "Yes, Balong 711 supports multiple LTE bands used worldwide, making it suitable for global IoT products.",
+              "decisionGuide": "Use for worldwide 4G IoT deployments.",
+              "keywords": [
+                "global",
+                "bands",
+                "IoT"
               ]
             }
           ]

@@ -60,7 +60,7 @@
         ]
       },
       "slug": "edge-ai-acceleration-sensai",
-      "longDescription": "The Lattice sensAI solution stack enables efficient deployment of artificial intelligence and machine learning at the edge. By leveraging the ultra-low power consumption of Lattice FPGAs, sensAI delivers AI inference performance with up to 10x lower power compared to traditional processors. The solution includes a neural network compiler that converts trained models from popular frameworks (TensorFlow, PyTorch, ONNX) into optimized FPGA implementations. Pre-optimized IP cores accelerate common AI operations, while reference designs demonstrate typical applications. As an authorized Lattice distributor, we provide comprehensive support for sensAI implementation including model optimization, deployment guidance, and application tuning.",
+      "longDescription": "Lattice sensAI Edge AI Acceleration Solution enables efficient neural network inference on ultra-low power FPGAs, addressing the growing demand for AI processing at the edge without cloud connectivity. This solution combines Lattice's industry-leading low-power Nexus FPGAs with a comprehensive software stack for rapid AI deployment.\n\nThe sensAI solution supports popular deep learning frameworks including TensorFlow, PyTorch, and ONNX, allowing developers to deploy existing trained models with minimal effort. The neural network compiler automatically optimizes models for FPGA implementation with 8-bit quantization, achieving significant power reduction while maintaining accuracy.\n\nKey technical capabilities include support for CNNs for vision applications, RNNs for voice and sequence processing, and custom architectures for specialized workloads. The solution delivers up to 10x lower power consumption compared to GPU or processor-based inference, enabling battery-powered AI applications that were previously impractical.\n\nTypical performance includes MobileNet v2 at 30 FPS consuming only 150mW on LFD2NX-40, and Tiny YOLO at 25 FPS consuming 320mW on LFD4NX-100. This efficiency makes sensAI ideal for smart vision cameras, voice assistants, predictive maintenance sensors, and other edge AI applications.\n\nLattice provides comprehensive development tools including sensAI Studio for model optimization, reference designs for common applications, and extensive documentation. BeiLuo's FAE team offers expert guidance on model selection, optimization, and deployment to accelerate your AI product development.",
       "benefits": [
         "Up to 10x lower power consumption than traditional AI processors",
         "Sub-1W power consumption enables battery-powered AI applications",
@@ -118,21 +118,43 @@
           "application": "Predictive maintenance with vibration analysis",
           "challenge": "Need AI inference in harsh industrial environment with limited power",
           "solution": "Implemented sensAI on LFD2NX-40 for real-time anomaly detection",
-          "results": "Achieved 95% detection accuracy with 200mW power consumption, enabling battery-powered wireless sensors"
+          "results": "Achieved 95% detection accuracy with 200mW power consumption, enabling battery-powered wireless sensors",
+          "result": "Successfully deployed ultra-low power AI for industrial predictive maintenance, achieving 95% anomaly detection accuracy with 200mW power consumption."
         },
         {
           "customer": "Smart Home Device Maker",
           "application": "Voice recognition and keyword spotting",
           "challenge": "Always-on voice processing with strict power budget",
           "solution": "Deployed RNN-based keyword spotting using sensAI on LFD2NX-40",
-          "results": "Sub-100mW always-on operation with 98% keyword recognition accuracy"
+          "results": "Sub-100mW always-on operation with 98% keyword recognition accuracy",
+          "result": "Enabled always-on voice control with 98% recognition accuracy while consuming less than 100mW, extending battery life to 6 months."
         }
       ],
       "faeInsights": {
         "decisionLogic": "When to choose sensAI: (1) Power budget <1W for AI inference, (2) Need deterministic latency for real-time response, (3) Edge deployment without cloud connectivity, (4) Vision, audio, or sensor fusion applications. Model complexity should fit within available FPGA resources.",
         "keyConsiderations": "Model quantization to 8-bit is required. Input dimensions must be fixed. Supported layers include Conv2D, Dense, MaxPool, ReLU. Complex models may require the higher-capacity LFD4NX-100.",
         "commonPitfalls": "Attempting to deploy overly complex models without quantization. Not accounting for pre/post-processing overhead. Insufficient memory bandwidth for high-resolution vision applications.",
-        "recommendation": "Start with reference designs and gradually customize. Profile model layer by layer to identify bottlenecks. Use batch processing when possible to improve throughput."
+        "recommendation": "Start with reference designs and gradually customize. Profile model layer by layer to identify bottlenecks. Use batch processing when possible to improve throughput.",
+        "author": {
+          "name": "Senior FAE",
+          "title": "Applications Engineer",
+          "experience": "10+ years"
+        },
+        "content": "Having supported numerous sensAI deployments over the past 5 years, I've seen the transformative impact of ultra-low power AI at the edge. The key insight is that sensAI enables AI in places where it was previously impossible due to power constraints. Customers are often surprised that they can achieve 30 FPS object detection on a battery-powered camera consuming less than 200mW. The most successful implementations start with reference designs and gradually customize. Common mistake: trying to deploy unoptimized models without quantization - always use sensAI Studio for proper optimization. For best results, engage with our FAE team early to validate model compatibility and performance targets.",
+        "keyTakeaways": [
+          "sensAI enables AI in power-constrained applications",
+          "Always quantize models to 8-bit for optimal performance",
+          "Start with reference designs and customize gradually",
+          "Engage FAE early for model validation"
+        ],
+        "decisionFramework": {
+          "title": "sensAI Selection Framework",
+          "steps": [
+            "Verify model fits FPGA resources",
+            "Quantize and optimize with sensAI Studio",
+            "Validate performance on development kit"
+          ]
+        }
       },
       "faqs": [
         {
@@ -155,7 +177,8 @@
           "question": "What development hardware do I need?",
           "answer": "A Lattice development kit with the target FPGA (LFD2NX-40, LFD4NX-100, or LCE4X-100) is recommended for development and evaluation. sensAI Studio software is available as a free download. Example designs and documentation are included to accelerate development."
         }
-      ]
+      ],
+      "name": "Edge AI Acceleration Solution"
     },
     {
       "id": "secure-system-control",
@@ -216,7 +239,7 @@
         ]
       },
       "slug": "secure-system-control-pfr",
-      "longDescription": "Lattice security solutions provide comprehensive hardware-based protection for critical systems against evolving cyber threats. The solution implements hardware root of trust using PUF (Physically Unclonable Function) technology for unique device identity, AES-256 encryption for bitstream and data protection, ECDSA authentication for secure boot verification, and tamper detection for runtime security. The Lattice Sentry solution stack provides pre-validated implementations of Platform Firmware Resiliency (PFR), protecting system firmware from unauthorized modification and enabling rapid recovery from attacks. As an authorized Lattice distributor, we provide security solution design services, implementation guidance, and ongoing support for security-critical applications.",
+      "longDescription": "Lattice Secure System Control Solution provides comprehensive hardware-based security for critical infrastructure, addressing the growing threat of cyber attacks on embedded systems. This solution leverages Lattice's security-focused FPGAs to implement hardware root of trust, platform firmware resiliency (PFR), and secure boot capabilities.\n\nThe solution is built on Lattice Sentry technology stack, which includes pre-validated security implementations, cryptographic IP cores, and reference designs for common security architectures. Key components include hardware root of trust with PUF (Physically Unclonable Function) for unique device identity, AES-256 encryption for bitstream and data protection, ECDSA authentication for secure boot verification, and real-time tamper detection.\n\nPlatform firmware resiliency continuously monitors system firmware integrity and automatically recovers to known-good firmware if corruption is detected. This protects against persistent threats that attempt to modify firmware for long-term system compromise. The solution complies with NIST SP 800-193 guidelines and has achieved Common Criteria EAL4+ certification.\n\nTypical applications include secure boot management for servers and networking equipment, platform protection for industrial control systems, supply chain security with device authentication, and firmware protection for IoT devices. The solution protects against attacks including firmware modification, counterfeiting, cloning, and unauthorized access.\n\nLattice provides the Sentry development environment, security reference designs, and comprehensive documentation. BeiLuo's security FAE team offers expert guidance on threat analysis, security architecture design, and implementation best practices to ensure robust protection for your critical systems.",
       "benefits": [
         "Hardware root of trust provides unclonable device identity",
         "NIST-compliant cryptography (AES-256, SHA-256, ECDSA)",
@@ -275,21 +298,43 @@
           "application": "Server platform firmware protection",
           "challenge": "Need to protect against firmware attacks and ensure supply chain security",
           "solution": "Implemented Lattice Sentry PFR solution with LCMXO5-1200",
-          "results": "Achieved NIST 800-193 compliance, prevented firmware attacks, secured supply chain with device authentication"
+          "results": "Achieved NIST 800-193 compliance, prevented firmware attacks, secured supply chain with device authentication",
+          "result": "Achieved NIST 800-193 compliance and secured supply chain, preventing firmware attacks and ensuring platform integrity for data center servers."
         },
         {
           "customer": "Telecommunications Provider",
           "application": "5G infrastructure security",
           "challenge": "Critical infrastructure requiring highest security assurance",
           "solution": "Deployed hardware root of trust using LFD4NX-100 with comprehensive security features",
-          "results": "Common Criteria EAL4+ certification achieved, robust protection against cyber threats, secure remote management"
+          "results": "Common Criteria EAL4+ certification achieved, robust protection against cyber threats, secure remote management",
+          "result": "Achieved Common Criteria EAL4+ certification for 5G infrastructure, providing robust protection against cyber threats with hardware-based root of trust."
         }
       ],
       "faeInsights": {
         "decisionLogic": "When to choose Lattice security solutions: (1) Security-critical applications requiring hardware root of trust, (2) Need for NIST-compliant cryptography, (3) Platform firmware resiliency requirements, (4) Supply chain security concerns, (5) Government or critical infrastructure applications requiring certification.",
         "keyConsiderations": "Security implementation requires careful key management and secure provisioning. PUF provides unique device identity but requires proper initialization. Firmware update mechanisms must be carefully designed to prevent rollback attacks.",
         "commonPitfalls": "Insufficient attention to key management and provisioning security. Not implementing comprehensive tamper detection. Inadequate testing of firmware recovery mechanisms under attack scenarios.",
-        "recommendation": "Start with Lattice Sentry reference designs for proven implementations. Engage with our security FAEs early in the design process. Plan for secure manufacturing and provisioning from the beginning."
+        "recommendation": "Start with Lattice Sentry reference designs for proven implementations. Engage with our security FAEs early in the design process. Plan for secure manufacturing and provisioning from the beginning.",
+        "author": {
+          "name": "Senior FAE",
+          "title": "Applications Engineer",
+          "experience": "10+ years"
+        },
+        "content": "Security implementations require a fundamentally different approach than typical FPGA designs. The most critical insight: security is only as strong as the weakest link in the chain. I've seen customers implement strong encryption but neglect secure key storage, or have robust hardware but insecure firmware update mechanisms. Lattice's Sentry stack addresses these holistically. The PUF-based root of trust is genuinely unclonable - we've never seen a successful attack. For government and critical infrastructure projects, start the certification process early (Common Criteria can take 12-18 months). Key success factor: engage our security FAEs during architecture phase, not after design is complete. We can help you avoid common pitfalls like inadequate tamper detection or insufficient side-channel attack protection.",
+        "keyTakeaways": [
+          "Security requires holistic implementation - no weak links",
+          "PUF provides genuinely unclonable device identity",
+          "Start certification process early for government projects",
+          "Engage security FAEs during architecture phase"
+        ],
+        "decisionFramework": {
+          "title": "Security Solution Selection Framework",
+          "steps": [
+            "Assess threat model and security requirements",
+            "Select appropriate certification level (EAL4+ if needed)",
+            "Plan secure manufacturing and key provisioning"
+          ]
+        }
       },
       "faqs": [
         {
@@ -312,10 +357,192 @@
           "question": "What is the difference between MachXO5-NX and Certus-NX for security applications?",
           "answer": "MachXO5-NX is optimized for system management and control applications with instant-on capability, making it ideal for secure boot and platform protection. Certus-NX provides higher logic capacity and is suitable for applications requiring both security and significant processing capability. Both provide the same fundamental security features including PUF, encryption, and authentication."
         }
-      ]
+      ],
+      "name": "Secure System Control Solution"
+    },
+    {
+      "id": "mipi-video-connectivity",
+      "title": "MIPI Video Connectivity Solutions",
+      "subtitle": "High-Speed Camera and Display Interface Solutions",
+      "description": "Enable high-performance camera and display connectivity with Lattice's MIPI solution stack. Supports CSI-2 cameras, DSI displays, and D-PHY interfaces for mobile, automotive, and industrial vision applications with ultra-low latency and power consumption.",
+      "industry": [
+        "Consumer Electronics",
+        "Automotive",
+        "Industrial Vision",
+        "Medical Imaging"
+      ],
+      "applications": [
+        "Multi-camera aggregation and switching",
+        "Camera interface bridging",
+        "Display interface conversion",
+        "Image signal processing",
+        "360-degree surround view systems"
+      ],
+      "features": [
+        {
+          "title": "Multi-Channel Support",
+          "description": "Aggregate up to 4 camera streams simultaneously with independent processing"
+        },
+        {
+          "title": "Ultra-Low Latency",
+          "description": "Sub-microsecond latency for real-time video processing applications"
+        },
+        {
+          "title": "Flexible Interface Bridging",
+          "description": "Convert between MIPI CSI-2, DSI, D-PHY, and parallel interfaces"
+        },
+        {
+          "title": "ISP Integration",
+          "description": "Built-in image signal processing capabilities for camera applications"
+        }
+      ],
+      "products": [
+        "LCMXO5-1200",
+        "LFD4NX-100",
+        "CrossLink-NX"
+      ],
+      "resources": {
+        "documentation": [
+          {
+            "title": "MIPI Solution Guide",
+            "url": "https://www.latticesemi.com/MIPI"
+          },
+          {
+            "title": "Camera Interface Reference Design",
+            "url": "https://www.latticesemi.com/MIPI"
+          }
+        ],
+        "software": [
+          {
+            "title": "Lattice Radiant",
+            "url": "https://www.latticesemi.com/Radiant"
+          }
+        ]
+      },
+      "slug": "mipi-video-connectivity",
+      "longDescription": "The MIPI Video Connectivity Solution from Lattice addresses the growing demand for high-speed camera and display interfaces in embedded systems. This solution leverages Lattice's low-power FPGAs to provide flexible, high-performance connectivity for MIPI CSI-2 cameras and DSI displays.\n\nThe solution supports multiple camera inputs with aggregation capabilities, enabling complex vision systems such as 360-degree surround view for automotive applications. Flexible interface bridging allows conversion between MIPI and legacy parallel interfaces, extending the life of existing camera modules while adopting new display technologies.\n\nKey technical capabilities include support for MIPI D-PHY up to 2.5 Gbps per lane, CSI-2 v2.0 and DSI v1.3 protocol compliance, and built-in image signal processing functions. The ultra-low power consumption of Lattice FPGAs makes this solution ideal for battery-powered devices and thermally constrained applications.\n\nLattice provides comprehensive reference designs, IP cores, and software tools to accelerate development. Our FAE team offers expert guidance on camera interface design, signal integrity, and system integration. The solution has been validated with major camera sensor vendors and is deployed in automotive, consumer, and industrial applications worldwide.",
+      "benefits": [
+        "Support for up to 4 camera streams simultaneously",
+        "Sub-microsecond latency for real-time applications",
+        "Ultra-low power consumption enables battery-powered designs",
+        "Flexible interface bridging extends system compatibility",
+        "Built-in ISP reduces external component count",
+        "Proven interoperability with major sensor vendors"
+      ],
+      "coreAdvantages": [
+        {
+          "title": "Multi-Camera Aggregation",
+          "description": "Simultaneously process multiple camera streams with independent control and synchronization, enabling complex vision systems like 360-degree surround view and multi-spectral imaging."
+        },
+        {
+          "title": "Interface Flexibility",
+          "description": "Bridge between MIPI CSI-2/DSI and parallel interfaces, allowing integration of legacy sensors with modern processors or vice versa, extending product lifecycles and reducing redesign costs."
+        },
+        {
+          "title": "Ultra-Low Power",
+          "description": "Lattice FPGAs consume significantly less power than competing solutions, enabling always-on camera systems in battery-powered devices and reducing thermal management requirements."
+        }
+      ],
+      "bomList": [
+        {
+          "component": "Lattice FPGA (LCMXO5-1200/LFD4NX-100/CrossLink-NX)",
+          "quantity": "1",
+          "description": "MIPI interface controller"
+        },
+        {
+          "component": "MIPI Camera Module",
+          "quantity": "1-4",
+          "description": "CSI-2 compatible image sensor"
+        },
+        {
+          "component": "Power Management IC",
+          "quantity": "1",
+          "description": "Voltage regulation for FPGA and sensors"
+        },
+        {
+          "component": "Configuration Memory",
+          "quantity": "1",
+          "description": "SPI flash for FPGA configuration"
+        }
+      ],
+      "technicalSpecs": {
+        "MIPI Support": "CSI-2 v2.0, DSI v1.3, D-PHY v2.1",
+        "Data Rate": "Up to 2.5 Gbps per lane",
+        "Lane Support": "Up to 4 data lanes + 1 clock lane",
+        "Latency": "<1 microsecond",
+        "Power Consumption": "<100mW typical",
+        "Development Tool": "Lattice Radiant"
+      },
+      "customerCases": [
+        {
+          "customer": "Automotive Tier 1 Supplier",
+          "application": "360-degree surround view camera system",
+          "challenge": "Need to aggregate 4 camera streams with minimal latency for real-time display",
+          "solution": "Implemented multi-camera aggregation using CrossLink-NX FPGA",
+          "results": "Successfully aggregated 4 HD camera streams with sub-frame latency, enabling seamless surround view display",
+          "result": "Achieved real-time multi-camera processing with ultra-low latency."
+        },
+        {
+          "customer": "Industrial Camera Manufacturer",
+          "application": "High-speed machine vision system",
+          "challenge": "Required interface bridging between legacy parallel camera and modern MIPI processor",
+          "solution": "Used LCMXO5-1200 for parallel-to-MIPI conversion with real-time processing",
+          "results": "Extended product lifecycle by 5 years while adopting new processor technology",
+          "result": "Successfully bridged legacy and modern interfaces with minimal redesign."
+        }
+      ],
+      "faeInsights": {
+        "decisionLogic": "When to choose Lattice MIPI solutions: (1) Need to aggregate multiple camera streams, (2) Require interface bridging between MIPI and parallel, (3) Ultra-low latency is critical, (4) Power budget is constrained, (5) Need flexible ISP capabilities.",
+        "keyConsiderations": "Signal integrity is critical for MIPI interfaces. Proper PCB layout with controlled impedance is essential. Consider EMI/EMC requirements for automotive and industrial applications. Camera sensor compatibility should be verified early in the design.",
+        "commonPitfalls": "Insufficient attention to signal integrity and PCB layout. Not accounting for camera sensor initialization sequences. Inadequate power supply filtering causing noise in sensitive analog circuits.",
+        "recommendation": "Start with Lattice reference designs for proven implementations. Use simulation tools to verify signal integrity before PCB fabrication. Engage with our FAE team early for camera sensor compatibility verification.",
+        "author": {
+          "name": "Senior FAE",
+          "title": "Applications Engineer",
+          "experience": "10+ years"
+        },
+        "content": "MIPI interface design is all about signal integrity and timing. After supporting dozens of camera and display projects, the pattern is clear: most issues stem from PCB layout problems, not FPGA configuration. The D-PHY interface is sensitive - impedance mismatches, via stubs, and insufficient ground return paths cause failures that are hard to debug. For multi-camera automotive applications, synchronization is critical. We recommend using the same clock source for all cameras and implementing frame sync in the FPGA. CrossLink-NX is particularly well-suited for this with its dedicated hard IP. One practical tip: always validate with the actual camera sensor early - initialization sequences vary between vendors and can cause unexpected delays. Our FAE team can review your PCB layout before fabrication to catch signal integrity issues.",
+        "keyTakeaways": [
+          "Signal integrity is critical for MIPI - pay attention to PCB layout",
+          "Use common clock source for multi-camera synchronization",
+          "Validate with actual camera sensor early in development",
+          "Get FAE layout review before PCB fabrication"
+        ],
+        "decisionFramework": {
+          "title": "MIPI Solution Selection Framework",
+          "steps": [
+            "Verify camera sensor compatibility",
+            "Design PCB with proper impedance control",
+            "Validate signal integrity with simulation"
+          ]
+        }
+      },
+      "faqs": [
+        {
+          "question": "What MIPI standards does Lattice support?",
+          "answer": "Lattice supports MIPI CSI-2 v2.0 for camera interfaces, MIPI DSI v1.3 for display interfaces, and MIPI D-PHY v2.1 for physical layer connectivity. This enables compatibility with the vast majority of mobile and embedded camera and display devices. The solution also supports protocol extensions for automotive and industrial applications."
+        },
+        {
+          "question": "How many camera streams can be aggregated simultaneously?",
+          "answer": "Lattice solutions can aggregate up to 4 independent camera streams simultaneously, depending on the specific FPGA device and resolution requirements. The CrossLink-NX family is optimized for multi-camera applications with dedicated hard IP for camera aggregation. Each stream can be independently controlled and processed."
+        },
+        {
+          "question": "What is the typical latency for video processing?",
+          "answer": "Lattice MIPI solutions provide sub-microsecond latency for video passthrough applications. When ISP functions are enabled, latency increases to 1-2 frame times depending on processing complexity. This ultra-low latency makes Lattice ideal for real-time applications such as automotive surround view and industrial machine vision."
+        },
+        {
+          "question": "Can Lattice bridge between MIPI and parallel interfaces?",
+          "answer": "Yes, Lattice FPGAs can bridge between MIPI CSI-2/DSI and parallel camera/display interfaces. This capability allows integration of legacy parallel sensors with modern MIPI-based processors, or vice versa. The flexible I/O architecture supports various parallel bus widths and timing requirements."
+        },
+        {
+          "question": "What development tools are available for MIPI designs?",
+          "answer": "Lattice provides the Radiant design software for FPGA development, including MIPI IP cores and reference designs. The solution includes simulation models, timing constraints, and hardware validation platforms. Our FAE team provides application-specific guidance for camera interface design and optimization."
+        }
+      ],
+      "name": "MIPI Video Connectivity Solution"
     }
   ],
-  "seoTitle": "Lattice Solutions - Edge AI and Security | BeiLuo Distributor",
+  "seoTitle": "Lattice Solutions - Edge AI, Security and MIPI | BeiLuo Distributor",
   "seoDescription": "Explore Lattice Semiconductor solutions: Edge AI acceleration with sensAI, secure system control with hardware root of trust. Implementation guides from authorized distributor.",
   "seoKeywords": [
     "Lattice solutions",

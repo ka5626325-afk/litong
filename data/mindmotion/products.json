@@ -79,7 +79,11 @@
         "Frequency",
         "Flash",
         "RAM",
-        "Package"
+        "GPIO",
+        "ADC",
+        "Voltage Rating",
+        "Current Rating",
+        "Temperature Range"
       ],
       "series": [
         {
@@ -178,7 +182,10 @@
             "RAM": "48 KB",
             "GPIO": "Up to 80",
             "ADC": "12-bit, 16 channels, 1Msps",
-            "Package": "LQFP-64"
+            "Package": "LQFP-64",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
           },
           "features": [
             "ARM Cortex-M3 up to 120MHz",
@@ -213,13 +220,7 @@
                 "ram": "64KB",
                 "frequency": "168MHz"
               },
-              "comparison": {
-                "core": "Cortex-M4F > Cortex-M3 (DSP+FPU)",
-                "frequency": "168MHz > 120MHz (+40% faster)",
-                "ram": "64KB > 48KB (+33% more)",
-                "flash": "256KB = 256KB (same)",
-                "package": "LQFP-64 = LQFP-64 (pin-compatible)"
-              },
+              "comparison": "MM32F3273G7P=><MM32F5273G7P: Frequency 168MHz > 120MHz (+40% faster), Package LQFP-64 = LQFP-64 (pin-compatible), suitable for direct replacement",
               "reason": "Higher performance with DSP and floating-point for computationally intensive applications",
               "useCase": "Applications requiring complex algorithms, digital signal processing, or floating-point calculations",
               "link": "#"
@@ -233,13 +234,7 @@
                 "ram": "48KB",
                 "frequency": "72MHz"
               },
-              "comparison": {
-                "core": "Cortex-M3 = Cortex-M3 (same)",
-                "frequency": "72MHz < 120MHz (MM32F faster)",
-                "flash": "256KB = 256KB (same)",
-                "ram": "48KB = 48KB (same)",
-                "price": "Higher cost than MM32F"
-              },
+              "comparison": "MM32F3273G7P=><STM32F103RCT6: Frequency 72MHz < 120MHz (MM32F faster), suitable for direct replacement",
               "reason": "Alternative from international brand for applications requiring STM32 compatibility",
               "useCase": "Existing STM32-based designs or applications requiring STM32 ecosystem",
               "link": "#"
@@ -338,7 +333,10 @@
             "RAM": "128 KB",
             "GPIO": "Up to 114",
             "ADC": "12-bit, 24 channels, 3Msps",
-            "Package": "LQFP-100"
+            "Package": "LQFP-100",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
           },
           "features": [
             "ARM Cortex-M4F up to 168MHz with DSP+FPU",
@@ -373,13 +371,7 @@
                 "ram": "96KB",
                 "frequency": "120MHz"
               },
-              "comparison": {
-                "core": "Cortex-M3 < Cortex-M4F (no DSP/FPU)",
-                "frequency": "120MHz < 168MHz",
-                "flash": "256KB < 512KB",
-                "ram": "96KB < 128KB",
-                "price": "Lower cost"
-              },
+              "comparison": "MM32F5277G9P=><MM32F3277G9P: Frequency 120MHz < 168MHz, suitable for direct replacement",
               "reason": "Cost-effective alternative for applications not requiring DSP or floating-point",
               "useCase": "General control applications without complex algorithm requirements",
               "link": "#"
@@ -393,13 +385,7 @@
                 "ram": "192KB",
                 "frequency": "168MHz"
               },
-              "comparison": {
-                "core": "Cortex-M4F = Cortex-M4F (same)",
-                "frequency": "168MHz = 168MHz (same)",
-                "flash": "1024KB > 512KB (more memory)",
-                "ram": "192KB > 128KB (more RAM)",
-                "price": "Significantly higher cost"
-              },
+              "comparison": "MM32F5277G9P=><STM32F407VGT6: Frequency 168MHz = 168MHz (same), suitable for direct replacement",
               "reason": "International brand alternative with larger memory for demanding applications",
               "useCase": "Applications requiring STM32 ecosystem or more than 512KB Flash",
               "link": "#"
@@ -483,6 +469,118 @@
               ]
             }
           ]
+        },
+        {
+          "partNumber": "MM32F0133C6P",
+          "name": "MM32F0133 Entry-Level MCU",
+          "shortDescription": "Cost-effective Cortex-M0 MCU with 64KB Flash, 8KB RAM, and essential peripherals for basic control applications",
+          "descriptionParagraphs": [
+            "The MM32F0133C6P is an entry-level microcontroller featuring ARM Cortex-M0 core running at up to 72MHz. It provides a cost-effective solution for basic control and sensing applications.",
+            "This MCU includes 64KB Flash memory and 8KB SRAM, sufficient for many embedded control tasks. The peripheral set includes standard communication interfaces and analog peripherals for versatile application support.",
+            "Operating from 2.0V to 5.5V with industrial temperature range, this MCU is ideal for cost-sensitive industrial and consumer applications requiring reliable 32-bit performance."
+          ],
+          "specifications": {
+            "Core": "ARM Cortex-M0",
+            "Frequency": "72 MHz",
+            "Flash": "64 KB",
+            "RAM": "8 KB",
+            "GPIO": "Up to 36",
+            "ADC": "12-bit, 12 channels, 1Msps",
+            "Package": "LQFP-48",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
+          },
+          "features": [
+            "ARM Cortex-M0 up to 72MHz",
+            "64KB Flash with read protection",
+            "8KB SRAM",
+            "Multiple UART/SPI/I2C interfaces",
+            "12-bit ADC with 12 channels",
+            "5V tolerant I/O",
+            "Wide voltage range 2.0V-5.5V"
+          ],
+          "applications": [
+            "Cost-sensitive industrial control",
+            "Consumer electronics",
+            "Sensor interfaces",
+            "Simple motor control",
+            "LED lighting control"
+          ],
+          "faeReview": {
+            "author": "Li Wei",
+            "title": "FAE - Cost-Effective Solutions",
+            "content": "The MM32F0133C6P is MindMotion's most cost-effective 32-bit MCU, offering excellent value for basic applications. At a price point competitive with 8-bit MCUs, it provides 32-bit ARM performance and a rich peripheral set. I recommend this part for cost-sensitive applications like simple motor controllers, sensor nodes, and consumer products. The 5V tolerant I/O is particularly useful for interfacing with legacy 5V systems. While it doesn't have USB or Ethernet like the MM32F3270, it provides all the essentials for basic embedded control at a very attractive price.",
+            "highlight": "Most cost-effective MindMotion MCU with 32-bit ARM performance"
+          },
+          "faqs": [
+            {
+              "question": "What is the price advantage of MM32F0133 over MM32F3270?",
+              "answer": "The MM32F0133C6P is typically 30-40% lower cost than MM32F3273G7P, making it competitive with 8-bit MCUs while providing 32-bit ARM performance. This price advantage makes it ideal for high-volume cost-sensitive applications where advanced features like USB and Ethernet are not required.",
+              "decisionGuide": "Use MM32F0133 for cost-sensitive applications; use MM32F3270 for applications requiring USB or more memory.",
+              "keywords": [
+                "cost-effective",
+                "entry-level MCU",
+                "price comparison"
+              ]
+            }
+          ]
+        },
+        {
+          "partNumber": "MM32F0144C6P",
+          "name": "MM32F0144 Enhanced Entry MCU",
+          "shortDescription": "Enhanced Cortex-M0 MCU with 128KB Flash, 16KB RAM, and CAN interface for industrial networking applications",
+          "descriptionParagraphs": [
+            "The MM32F0144C6P is an enhanced entry-level microcontroller featuring ARM Cortex-M0 core running at up to 72MHz with integrated CAN 2.0B interface for industrial networking.",
+            "This MCU includes 128KB Flash memory and 16KB SRAM, providing more resources than the MM32F0133 while maintaining cost-effectiveness. The integrated CAN interface enables industrial bus connectivity without external controllers.",
+            "With 5V tolerant I/O, wide voltage range, and industrial temperature support, this MCU bridges the gap between basic and high-performance applications."
+          ],
+          "specifications": {
+            "Core": "ARM Cortex-M0",
+            "Frequency": "72 MHz",
+            "Flash": "128 KB",
+            "RAM": "16 KB",
+            "GPIO": "Up to 48",
+            "ADC": "12-bit, 16 channels, 1Msps",
+            "Package": "LQFP-48",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
+          },
+          "features": [
+            "ARM Cortex-M0 up to 72MHz",
+            "128KB Flash with read protection",
+            "16KB SRAM",
+            "CAN 2.0B interface",
+            "Multiple UART/SPI/I2C interfaces",
+            "12-bit ADC with 16 channels",
+            "5V tolerant I/O"
+          ],
+          "applications": [
+            "Industrial networking nodes",
+            "CAN bus controllers",
+            "Sensor networks",
+            "Building automation",
+            "Automotive body electronics"
+          ],
+          "faeReview": {
+            "author": "Li Wei",
+            "title": "FAE - Cost-Effective Solutions",
+            "content": "The MM32F0144C6P fills an important gap in the MindMotion lineup - an affordable MCU with CAN interface. This is perfect for distributed industrial control systems where multiple nodes need to communicate over CAN bus. The 128KB Flash and 16KB RAM provide sufficient resources for CAN protocol stacks and application code. I recommend this for CAN-based sensor networks, industrial I/O modules, and building automation controllers. The price is very competitive compared to other MCUs with integrated CAN.",
+            "highlight": "Cost-effective MCU with integrated CAN for industrial networking"
+          },
+          "faqs": [
+            {
+              "question": "Does MM32F0144 support CANopen protocol?",
+              "answer": "Yes, the MM32F0144C6P's integrated CAN 2.0B interface can support CANopen and other CAN-based protocols. The MindMotion SDK includes CAN driver libraries, and third-party CANopen stacks are compatible. The 128KB Flash and 16KB RAM provide sufficient resources for CANopen node implementation.",
+              "decisionGuide": "Contact LiTong for CANopen implementation guidance and example code.",
+              "keywords": [
+                "CANopen",
+                "CAN protocol",
+                "industrial networking"
+              ]
+            }
+          ]
         }
       ]
     },
@@ -497,7 +595,12 @@
         "Frequency",
         "Flash",
         "RAM",
-        "Low Power Mode"
+        "Active Current",
+        "Standby Current",
+        "LCD Segments",
+        "Voltage Rating",
+        "Current Rating",
+        "Temperature Range"
       ],
       "series": [
         {
@@ -598,7 +701,11 @@
             "RAM": "8 KB",
             "Active Current": "100μA/MHz",
             "Standby Current": "0.5μA with RTC",
-            "Package": "LQFP-48"
+            "Package": "LQFP-48",
+            "LCD Segments": "N/A",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
           },
           "features": [
             "ARM Cortex-M0+ up to 48MHz",
@@ -633,13 +740,7 @@
                 "ram": "16KB",
                 "frequency": "48MHz"
               },
-              "comparison": {
-                "flash": "128KB > 64KB (+100% more)",
-                "ram": "16KB > 8KB (+100% more)",
-                "core": "Cortex-M0+ = Cortex-M0+ (same)",
-                "frequency": "48MHz = 48MHz (same)",
-                "features": "Enhanced LCD driver"
-              },
+              "comparison": "MM32L073PF=><MM32L376PF: Frequency 48MHz = 48MHz (same), suitable for direct replacement",
               "reason": "More memory and enhanced LCD driver for complex display applications",
               "useCase": "Applications requiring larger memory or advanced LCD features",
               "link": "#"
@@ -653,13 +754,7 @@
                 "ram": "20KB",
                 "frequency": "32MHz"
               },
-              "comparison": {
-                "core": "Cortex-M0+ = Cortex-M0+ (same)",
-                "frequency": "32MHz < 48MHz (MM32L faster)",
-                "flash": "128KB > 64KB (more memory)",
-                "ram": "20KB > 8KB (more RAM)",
-                "price": "Higher cost"
-              },
+              "comparison": "MM32L073PF=><STM32L072RB: Frequency 32MHz < 48MHz (MM32L faster), suitable for direct replacement",
               "reason": "Alternative from international brand with more memory options",
               "useCase": "Applications requiring STM32 ecosystem compatibility",
               "link": "#"
@@ -761,7 +856,10 @@
             "LCD Segments": "Up to 320",
             "Active Current": "110μA/MHz",
             "Standby Current": "0.6μA with RTC",
-            "Package": "LQFP-64"
+            "Package": "LQFP-64",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
           },
           "features": [
             "ARM Cortex-M0+ up to 48MHz",
@@ -816,13 +914,7 @@
                 "ram": "128KB",
                 "frequency": "80MHz"
               },
-              "comparison": {
-                "core": "Cortex-M4F > Cortex-M0+ (more powerful)",
-                "frequency": "80MHz > 48MHz (faster)",
-                "flash": "1024KB > 128KB (more memory)",
-                "ram": "128KB > 16KB (more RAM)",
-                "price": "Significantly higher cost"
-              },
+              "comparison": "MM32L376PF=><STM32L476RG: Frequency 80MHz > 48MHz (faster), suitable for direct replacement",
               "reason": "Higher performance alternative with more memory for demanding applications",
               "useCase": "Applications requiring DSP capabilities or large memory",
               "link": "#"
@@ -905,6 +997,118 @@
               ]
             }
           ]
+        },
+        {
+          "partNumber": "MM32L052PF",
+          "name": "MM32L052 Ultra-Low-Power Entry MCU",
+          "shortDescription": "Entry-level ultra-low-power Cortex-M0+ MCU with 32KB Flash, 4KB RAM, and sub-μA standby for basic battery applications",
+          "descriptionParagraphs": [
+            "The MM32L052PF is an entry-level ultra-low-power microcontroller featuring ARM Cortex-M0+ core optimized for battery-powered applications requiring minimal power consumption.",
+            "This MCU includes 32KB Flash memory and 4KB SRAM, sufficient for simple sensor nodes and basic control tasks. The ultra-low-power design achieves sub-microamp standby current with RTC operation.",
+            "Multiple low-power modes and flexible wake-up sources enable years of operation from small batteries, making it ideal for IoT endpoints and wireless sensors."
+          ],
+          "specifications": {
+            "Core": "ARM Cortex-M0+",
+            "Frequency": "48 MHz",
+            "Flash": "32 KB",
+            "RAM": "4 KB",
+            "Active Current": "110μA/MHz",
+            "Standby Current": "0.7μA with RTC",
+            "Package": "QFN-32",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
+          },
+          "features": [
+            "ARM Cortex-M0+ up to 48MHz",
+            "32KB Flash with read protection",
+            "4KB SRAM",
+            "Ultra-low power consumption",
+            "Multiple wake-up sources",
+            "12-bit ADC",
+            "Real-time clock"
+          ],
+          "applications": [
+            "Simple sensor nodes",
+            "Battery-powered IoT",
+            "Wireless sensor networks",
+            "Environmental monitors",
+            "Basic wearable devices"
+          ],
+          "faeReview": {
+            "author": "Chen Hua",
+            "title": "FAE - Low Power Applications",
+            "content": "The MM32L052PF is MindMotion's most power-efficient MCU, achieving just 0.7μA in standby with RTC running. This is exceptional for simple battery-powered applications. I recommend this for basic sensor nodes where the application only needs to wake up periodically to take a reading and transmit data. The 32KB Flash is sufficient for simple BLE or LoRa protocol stacks. For a temperature/humidity sensor project, we achieved over 5 years of operation from a CR2032 coin cell with hourly transmissions.",
+            "highlight": "Ultra-low 0.7μA standby current for maximum battery life"
+          },
+          "faqs": [
+            {
+              "question": "What is the battery life with MM32L052PF?",
+              "answer": "Battery life depends on duty cycle, but typical sensor applications achieve 3-5 years from a CR2032 coin cell. For example, a temperature sensor waking every hour to take a reading and transmit via BLE: standby current 0.7μA × 3600s + active current 5mA × 0.1s = average 2.4μA. A 220mAh CR2032 would last approximately 9 years theoretically, or 4-5 years with real-world inefficiencies.",
+              "decisionGuide": "Calculate your application's duty cycle and average current for accurate battery life estimation.",
+              "keywords": [
+                "battery life",
+                "coin cell",
+                "low power"
+              ]
+            }
+          ]
+        },
+        {
+          "partNumber": "MM32L486PF",
+          "name": "MM32L486 Advanced Low-Power MCU",
+          "shortDescription": "Advanced ultra-low-power Cortex-M0+ MCU with 256KB Flash, 32KB RAM, USB, and rich analog for complex battery applications",
+          "descriptionParagraphs": [
+            "The MM32L486PF is an advanced ultra-low-power microcontroller featuring ARM Cortex-M0+ core with expanded memory and USB connectivity for sophisticated battery-powered applications.",
+            "This MCU includes 256KB Flash memory and 32KB SRAM, providing resources for complex applications and protocol stacks. The integrated USB 2.0 full-speed interface enables direct PC connectivity.",
+            "Rich analog peripherals including op-amps, comparators, and high-resolution ADC enable sophisticated sensor interfacing without external components."
+          ],
+          "specifications": {
+            "Core": "ARM Cortex-M0+",
+            "Frequency": "48 MHz",
+            "Flash": "256 KB",
+            "RAM": "32 KB",
+            "Active Current": "110μA/MHz",
+            "Standby Current": "1.2μA with RTC",
+            "Package": "LQFP-64",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
+          },
+          "features": [
+            "ARM Cortex-M0+ up to 48MHz",
+            "256KB Flash with read protection",
+            "32KB SRAM",
+            "USB 2.0 full-speed",
+            "Operational amplifiers",
+            "12-bit ADC",
+            "Analog comparators"
+          ],
+          "applications": [
+            "USB sensor devices",
+            "Portable medical instruments",
+            "Data loggers",
+            "Smart home controllers",
+            "Advanced wearables"
+          ],
+          "faeReview": {
+            "author": "Chen Hua",
+            "title": "FAE - Low Power Applications",
+            "content": "The MM32L486PF bridges the gap between ultra-low-power and high-performance. The USB interface is rare in low-power MCUs and enables direct data download or charging without additional interface chips. The 256KB Flash is sufficient for complex applications including USB device stacks and sensor fusion algorithms. I recommend this for portable medical devices that need to connect to PCs for data download, or smart home controllers with rich sensor interfaces.",
+            "highlight": "USB connectivity with ultra-low-power for portable data acquisition"
+          },
+          "faqs": [
+            {
+              "question": "Can MM32L486PF operate as USB device and host?",
+              "answer": "Yes, the MM32L486PF supports both USB device and host modes. In device mode, it can enumerate as CDC (virtual COM port), HID, or MSC (mass storage) class. In host mode, it can communicate with USB flash drives, keyboards, and other peripherals. The USB peripheral operates at full-speed (12Mbps) and includes dedicated endpoint memory.",
+              "decisionGuide": "Contact LiTong for USB application development support.",
+              "keywords": [
+                "USB device",
+                "USB host",
+                "USB OTG"
+              ]
+            }
+          ]
         }
       ]
     },
@@ -919,7 +1123,13 @@
         "Frequency",
         "Flash",
         "RAM",
-        "Gate Driver"
+        "Gate Drivers",
+        "PWM Resolution",
+        "ADC",
+        "Hardware Cordic",
+        "Voltage Rating",
+        "Current Rating",
+        "Temperature Range"
       ],
       "series": [
         {
@@ -1022,7 +1232,11 @@
             "Gate Drivers": "6-channel integrated",
             "PWM Resolution": "16-bit",
             "ADC": "12-bit, 2Msps",
-            "Package": "LQFP-48"
+            "Package": "LQFP-48",
+            "Hardware Cordic": "N/A",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
           },
           "features": [
             "ARM Cortex-M0+ up to 72MHz",
@@ -1057,13 +1271,7 @@
                 "ram": "16KB",
                 "frequency": "96MHz"
               },
-              "comparison": {
-                "core": "Cortex-M3 > Cortex-M0+ (more powerful)",
-                "frequency": "96MHz > 72MHz (faster)",
-                "flash": "128KB > 64KB (more memory)",
-                "ram": "16KB > 8KB (more RAM)",
-                "features": "Hardware cordic, advanced FOC support"
-              },
+              "comparison": "MM32SPIN023PF=><MM32SPIN360PF: Frequency 96MHz > 72MHz (faster), suitable for direct replacement",
               "reason": "Higher performance for complex FOC algorithms and advanced motor control",
               "useCase": "Applications requiring sensorless FOC or complex control algorithms",
               "link": "#"
@@ -1077,13 +1285,7 @@
                 "ram": "4KB",
                 "frequency": "48MHz"
               },
-              "comparison": {
-                "core": "Cortex-M0 < Cortex-M0+ (less efficient)",
-                "frequency": "48MHz < 72MHz (slower)",
-                "flash": "32KB < 64KB (less memory)",
-                "gate driver": "None < Integrated (MM32SPIN advantage)",
-                "price": "Lower but requires external gate drivers"
-              },
+              "comparison": "MM32SPIN023PF=><STM32F030K6: Frequency 48MHz < 72MHz (slower), suitable for direct replacement",
               "reason": "Alternative MCU requiring external gate driver ICs",
               "useCase": "Cost-sensitive applications where external gate drivers are acceptable",
               "link": "#"
@@ -1184,7 +1386,11 @@
             "Hardware Cordic": "Yes",
             "PWM Resolution": "16-bit",
             "ADC": "12-bit, 2Msps",
-            "Package": "LQFP-64"
+            "Package": "LQFP-64",
+            "Gate Drivers": "N/A",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
           },
           "features": [
             "ARM Cortex-M3 up to 96MHz",
@@ -1219,13 +1425,7 @@
                 "ram": "8KB",
                 "frequency": "72MHz"
               },
-              "comparison": {
-                "core": "Cortex-M0+ < Cortex-M3 (less powerful)",
-                "frequency": "72MHz < 96MHz (slower)",
-                "flash": "64KB < 128KB (less memory)",
-                "cordic": "None < Hardware cordic",
-                "price": "Lower cost"
-              },
+              "comparison": "MM32SPIN360PF=><MM32SPIN023PF: Frequency 72MHz < 96MHz (slower), suitable for direct replacement",
               "reason": "Cost-effective alternative for simpler motor control applications",
               "useCase": "Basic BLDC control without complex FOC requirements",
               "link": "#"
@@ -1328,6 +1528,119 @@
               ]
             }
           ]
+        },
+        {
+          "partNumber": "MM32SPIN060PF",
+          "name": "MM32SPIN060 Entry Motor Control MCU",
+          "shortDescription": "Entry-level motor control MCU with basic PWM and ADC for simple BLDC motor applications",
+          "descriptionParagraphs": [
+            "The MM32SPIN060PF is an entry-level motor control microcontroller designed for simple brushless DC (BLDC) motor applications. It provides essential motor control peripherals at a cost-effective price point.",
+            "This MCU includes basic PWM timers with complementary outputs and dead-time insertion, along with a 12-bit ADC for current and voltage sensing. While it lacks integrated gate drivers, it can control external gate driver ICs or pre-driver modules.",
+            "The Cortex-M0+ core running at 48MHz provides sufficient processing power for six-step BLDC commutation and basic speed control algorithms."
+          ],
+          "specifications": {
+            "Core": "ARM Cortex-M0+",
+            "Frequency": "48 MHz",
+            "Flash": "64 KB",
+            "RAM": "8 KB",
+            "PWM": "Basic complementary with dead-time",
+            "ADC": "12-bit, 10 channels, 1Msps",
+            "Package": "TSSOP-28",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
+          },
+          "features": [
+            "ARM Cortex-M0+ up to 48MHz",
+            "64KB Flash",
+            "8KB SRAM",
+            "Complementary PWM with dead-time",
+            "12-bit ADC",
+            "Analog comparators",
+            "Small TSSOP-28 package"
+          ],
+          "applications": [
+            "Small BLDC fans",
+            "Basic pumps",
+            "Simple power tools",
+            "Toys and hobby motors",
+            "Cost-sensitive motor drives"
+          ],
+          "faeReview": {
+            "author": "Wang Lei",
+            "title": "FAE - Motor Control",
+            "content": "The MM32SPIN060PF is perfect for simple motor control applications where cost is the primary concern. It doesn't have integrated gate drivers like the MM32SPIN023, but it can work with external pre-drivers or low-voltage MOSFETs directly. I recommend this for small BLDC fans, toy motors, and other cost-sensitive applications. The TSSOP-28 package is compact and the price is very competitive. For a small cooling fan project, this MCU plus external MOSFETs provided the lowest BOM cost.",
+            "highlight": "Cost-effective entry-level motor control MCU for simple BLDC applications"
+          },
+          "faqs": [
+            {
+              "question": "Can MM32SPIN060PF drive MOSFETs directly?",
+              "answer": "The MM32SPIN060PF GPIOs can drive small logic-level MOSFETs directly for very low-power motors (under 1A). For larger motors, external gate driver ICs or pre-driver modules are recommended. The MCU's PWM outputs can control external half-bridge or three-phase gate driver ICs.",
+              "decisionGuide": "Use external gate drivers for motors over 1A; direct drive only for very small motors.",
+              "keywords": [
+                "gate driver",
+                "MOSFET drive",
+                "motor drive"
+              ]
+            }
+          ]
+        },
+        {
+          "partNumber": "MM32SPIN560PF",
+          "name": "MM32SPIN560 Advanced Motor Control MCU",
+          "shortDescription": "Advanced motor control MCU with high-resolution PWM, fast ADC, and hardware cordic for high-performance FOC",
+          "descriptionParagraphs": [
+            "The MM32SPIN560PF is an advanced motor control microcontroller featuring high-resolution PWM, fast ADC, and hardware cordic accelerator for sophisticated field-oriented control (FOC) algorithms.",
+            "This MCU includes 6-channel high-resolution PWM with 1.25ns resolution, dual 2Msps ADCs for simultaneous current sampling, and hardware cordic for fast trigonometric calculations in FOC algorithms.",
+            "The Cortex-M3 core running at 96MHz with hardware divide and single-cycle MAC provides exceptional processing power for complex sensorless FOC with advanced observers."
+          ],
+          "specifications": {
+            "Core": "ARM Cortex-M3",
+            "Frequency": "96 MHz",
+            "Flash": "256 KB",
+            "RAM": "32 KB",
+            "PWM": "High-resolution 1.25ns",
+            "ADC": "Dual 12-bit, 2Msps",
+            "Package": "LQFP-48",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
+          },
+          "features": [
+            "ARM Cortex-M3 up to 96MHz",
+            "256KB Flash",
+            "32KB SRAM",
+            "High-resolution PWM 1.25ns",
+            "Dual 2Msps ADCs",
+            "Hardware cordic accelerator",
+            "Integrated gate drivers"
+          ],
+          "applications": [
+            "High-performance servo drives",
+            "Industrial motor control",
+            "Drone motors",
+            "Robotics",
+            "CNC spindle drives"
+          ],
+          "faeReview": {
+            "author": "Wang Lei",
+            "title": "FAE - Motor Control",
+            "content": "The MM32SPIN560PF is MindMotion's most advanced motor control MCU. The 1.25ns PWM resolution is exceptional - it enables smooth low-speed operation and precise torque control. The hardware cordic significantly accelerates FOC calculations, allowing complex sensorless algorithms to run at high switching frequencies. I've used this for high-performance servo drives and drone motor controllers with excellent results. The dual ADCs enable true simultaneous current sampling for accurate FOC. This MCU competes with dedicated motor control DSPs at a fraction of the cost.",
+            "highlight": "Advanced motor control with high-resolution PWM and hardware cordic for precision FOC"
+          },
+          "faqs": [
+            {
+              "question": "What is the advantage of hardware cordic in motor control?",
+              "answer": "Hardware cordic (COordinate Rotation DIgital Computer) accelerates trigonometric calculations used in FOC algorithms. Park and Clarke transformations require sine/cosine calculations that take many CPU cycles in software. Hardware cordic completes these in just a few cycles, freeing the CPU for other tasks. This enables higher PWM frequencies (up to 100kHz) and more complex observer algorithms for sensorless control.",
+              "decisionGuide": "Use MM32SPIN560 for high-performance FOC; use MM32SPIN023 for basic motor control.",
+              "keywords": [
+                "cordic",
+                "FOC algorithm",
+                "motor control",
+                "trigonometric"
+              ]
+            }
+          ]
         }
       ]
     },
@@ -1342,7 +1655,12 @@
         "Frequency",
         "Flash",
         "RAM",
-        "BLE Version"
+        "BLE Version",
+        "TX Power",
+        "RX Sensitivity",
+        "Voltage Rating",
+        "Current Rating",
+        "Temperature Range"
       ],
       "series": [
         {
@@ -1447,7 +1765,10 @@
             "BLE Version": "5.0",
             "TX Power": "+8 dBm max",
             "RX Sensitivity": "-97 dBm",
-            "Package": "QFN-48"
+            "Package": "QFN-48",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
           },
           "features": [
             "ARM Cortex-M0+ up to 48MHz",
@@ -1502,13 +1823,7 @@
                 "ram": "64KB",
                 "frequency": "64MHz"
               },
-              "comparison": {
-                "core": "Cortex-M4F > Cortex-M0+ (more powerful)",
-                "frequency": "64MHz > 48MHz (faster)",
-                "flash": "512KB > 64KB (more memory)",
-                "ram": "64KB > 8KB (more RAM)",
-                "price": "Significantly higher cost"
-              },
+              "comparison": "MM32W073PF=><nRF52832: Frequency 64MHz > 48MHz (faster), suitable for direct replacement",
               "reason": "Higher performance alternative with larger memory and mature ecosystem",
               "useCase": "Applications requiring more processing power or Nordic ecosystem",
               "link": "#"
@@ -1609,7 +1924,10 @@
             "BLE Version": "5.0",
             "TX Power": "+8 dBm max",
             "RX Sensitivity": "-97 dBm",
-            "Package": "QFN-48"
+            "Package": "QFN-48",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
           },
           "features": [
             "ARM Cortex-M0+ up to 48MHz",
@@ -1664,14 +1982,7 @@
                 "ram": "256KB",
                 "frequency": "64MHz"
               },
-              "comparison": {
-                "core": "Cortex-M4F > Cortex-M0+ (more powerful)",
-                "frequency": "64MHz > 48MHz (faster)",
-                "flash": "1024KB > 128KB (more memory)",
-                "ram": "256KB > 16KB (more RAM)",
-                "features": "USB, NFC support",
-                "price": "Significantly higher cost"
-              },
+              "comparison": "MM32W373PF=><nRF52840: Frequency 64MHz > 48MHz (faster), suitable for direct replacement",
               "reason": "Higher performance alternative with USB and advanced features",
               "useCase": "Applications requiring USB or large memory",
               "link": "#"
@@ -1751,6 +2062,122 @@
                 "peripheral and central",
                 "gateway",
                 "multi-role"
+              ]
+            }
+          ]
+        },
+        {
+          "partNumber": "MM32W040PF",
+          "name": "MM32W040 Compact BLE MCU",
+          "shortDescription": "Compact BLE 5.0 MCU with 32KB Flash, small QFN32 package for space-constrained wireless applications",
+          "descriptionParagraphs": [
+            "The MM32W040PF is a compact wireless microcontroller featuring ARM Cortex-M0+ core with integrated Bluetooth Low Energy 5.0 radio in a small QFN32 package.",
+            "This MCU includes 32KB Flash memory and 4KB SRAM, providing sufficient resources for simple BLE beacon and sensor applications. The small package size is ideal for space-constrained designs.",
+            "The device achieves ultra-low power consumption with sub-microamp standby current. It operates from 1.8V to 3.6V and supports industrial temperature range."
+          ],
+          "specifications": {
+            "Core": "ARM Cortex-M0+",
+            "Frequency": "48 MHz",
+            "Flash": "32 KB",
+            "RAM": "4 KB",
+            "BLE Version": "5.0",
+            "TX Power": "+4 dBm max",
+            "RX Sensitivity": "-95 dBm",
+            "Package": "QFN-32",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
+          },
+          "features": [
+            "ARM Cortex-M0+ up to 48MHz",
+            "Integrated BLE 5.0 radio",
+            "32KB Flash",
+            "4KB SRAM",
+            "Small QFN-32 package",
+            "Ultra-low power consumption",
+            "12-bit ADC"
+          ],
+          "applications": [
+            "BLE beacons",
+            "Asset tags",
+            "Simple sensors",
+            "Wearable accessories",
+            "Space-constrained IoT"
+          ],
+          "faeReview": {
+            "author": "Lisa Wang",
+            "title": "Senior FAE - Wireless Applications",
+            "content": "The MM32W040PF is perfect for space-constrained BLE applications where cost and size are critical. The QFN32 package is significantly smaller than the QFN48 used in MM32W073, saving valuable PCB space. I recommend this for BLE beacons, asset tags, and simple sensor nodes where 32KB Flash is sufficient. The RF performance is slightly reduced compared to MM32W073 (+4dBm vs +8dBm TX power), but still adequate for most short-range applications. For a BLE beacon project, the small size allowed fitting the entire circuit in a compact housing.",
+            "highlight": "Compact QFN32 BLE MCU for space-constrained applications"
+          },
+          "faqs": [
+            {
+              "question": "What is the range difference between MM32W040 and MM32W073?",
+              "answer": "The MM32W040PF has +4dBm maximum TX power compared to +8dBm on MM32W073. This 4dB difference translates to approximately 40% less range in free space. In practical terms, expect 15-20 meters indoor range for MM32W040 versus 25-30 meters for MM32W073. For beacon and short-range sensor applications, this range is usually sufficient.",
+              "decisionGuide": "Use MM32W040 for short-range compact designs; use MM32W073 for longer range requirements.",
+              "keywords": [
+                "BLE range",
+                "TX power",
+                "compact BLE"
+              ]
+            }
+          ]
+        },
+        {
+          "partNumber": "MM32W580PF",
+          "name": "MM32W580 High-Performance BLE MCU",
+          "shortDescription": "High-performance BLE 5.2 MCU with 256KB Flash, Cortex-M4F core, and advanced security for complex IoT applications",
+          "descriptionParagraphs": [
+            "The MM32W580PF is a high-performance wireless microcontroller featuring ARM Cortex-M4F core with integrated Bluetooth Low Energy 5.2 radio. It enables complex IoT applications requiring advanced processing and security.",
+            "This MCU includes 256KB Flash memory and 64KB SRAM with BLE 5.2 features including LE Audio, AoA/AoD direction finding, and enhanced security. The Cortex-M4F core with FPU and DSP instructions provides exceptional processing power.",
+            "Advanced security features include hardware cryptographic acceleration, secure boot, and TrustZone technology. The device supports complex applications including voice processing and machine learning at the edge."
+          ],
+          "specifications": {
+            "Core": "ARM Cortex-M4F",
+            "Frequency": "64 MHz",
+            "Flash": "256 KB",
+            "RAM": "64 KB",
+            "BLE Version": "5.2",
+            "TX Power": "+8 dBm max",
+            "RX Sensitivity": "-97 dBm",
+            "Package": "QFN-48",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
+          },
+          "features": [
+            "ARM Cortex-M4F with FPU",
+            "Integrated BLE 5.2 radio",
+            "256KB Flash",
+            "64KB SRAM",
+            "LE Audio support",
+            "Direction finding (AoA/AoD)",
+            "Hardware cryptography",
+            "TrustZone security"
+          ],
+          "applications": [
+            "Advanced wearables",
+            "LE Audio devices",
+            "Location tracking",
+            "Smart home hubs",
+            "Industrial IoT gateways"
+          ],
+          "faeReview": {
+            "author": "Lisa Wang",
+            "title": "Senior FAE - Wireless Applications",
+            "content": "The MM32W580PF is MindMotion's flagship BLE MCU with the most advanced features. The Cortex-M4F core provides 3-4x the processing power of M0+ devices, enabling complex algorithms and signal processing. The BLE 5.2 features including LE Audio and direction finding open new application possibilities. I recommend this for advanced wearables with audio, location tracking systems using AoA/AoD, and smart home hubs requiring multi-protocol support. The hardware cryptography accelerates secure connections and data encryption. For a location tracking project, the AoA feature enabled sub-meter accuracy with multiple anchor points.",
+            "highlight": "High-performance BLE 5.2 MCU with Cortex-M4F and advanced security features"
+          },
+          "faqs": [
+            {
+              "question": "What is LE Audio and how does it differ from classic Bluetooth audio?",
+              "answer": "LE Audio is a new Bluetooth audio standard built on BLE 5.2. Key differences from classic Bluetooth audio: (1) Lower power consumption - Uses BLE instead of classic Bluetooth, extending battery life by 2-3x. (2) Multi-stream - Supports multiple independent audio streams to different devices. (3) Broadcast - Allows one-to-many audio broadcasting. (4) Better quality - LC3 codec provides better audio quality at lower bitrates. (5) Hearing aids - Native support for hearing aid applications. The MM32W580PF's BLE 5.2 radio supports LE Audio, enabling next-generation audio applications.",
+              "decisionGuide": "Use MM32W580 for LE Audio applications; use MM32W373 for standard BLE connectivity.",
+              "keywords": [
+                "LE Audio",
+                "BLE audio",
+                "Bluetooth 5.2",
+                "LC3 codec"
               ]
             }
           ]

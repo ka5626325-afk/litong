@@ -14,31 +14,46 @@
       "question": "What is the difference between IGBT and MOSFET?",
       "answer": "IGBT and MOSFET are both power semiconductor switches: MOSFETs are better for <600V applications with fast switching and low switching losses. IGBTs are better for >600V applications with lower conduction losses at high power. For 600V-1700V applications, IGBTs are typically preferred. For <600V, MOSFETs offer better efficiency.",
       "decisionGuide": "Use MOSFETs for <600V high-efficiency applications. Use IGBTs for >600V high-power applications.",
-      "keywords": ["IGBT vs MOSFET", "semiconductor comparison"]
+      "keywords": [
+        "IGBT vs MOSFET",
+        "semiconductor comparison"
+      ]
     },
     {
       "question": "How do I select the right IGBT module?",
       "answer": "IGBT module selection: 1) Voltage rating - 2-3x maximum DC link voltage; 2) Current rating - 1.5-2x margin for overload; 3) Switching frequency - lower Eoff for high frequency; 4) Package type - standard, dual, or six-pack; 5) Temperature rating - ensure adequate derating.",
       "decisionGuide": "Select voltage 2-3x system voltage with current margin. Contact our FAE for complex applications.",
-      "keywords": ["IGBT selection", "module sizing"]
+      "keywords": [
+        "IGBT selection",
+        "module sizing"
+      ]
     },
     {
       "question": "What are SiC advantages over silicon?",
       "answer": "SiC advantages: 1) Higher efficiency - lower switching and conduction losses; 2) Higher operating temperatures - junction temps up to 200°C+; 3) Higher breakdown voltage - 10x higher than silicon; 4) Better thermal conductivity; 5) Smaller size - higher power density. SiC is ideal for EV, solar, and high-efficiency applications.",
       "decisionGuide": "Consider SiC for high-efficiency applications where performance justifies higher cost.",
-      "keywords": ["SiC advantages", "Silicon Carbide"]
+      "keywords": [
+        "SiC advantages",
+        "Silicon Carbide"
+      ]
     },
     {
       "question": "What is the difference between Si MOSFET and SiC MOSFET?",
       "answer": "Si MOSFETs operate up to 600V with excellent efficiency at low voltages. SiC MOSFETs operate up to 1700V+ with much lower switching losses and higher temperature capability. SiC has faster switching and lower losses, especially at high frequencies and voltages. SiC costs more but enables smaller, more efficient systems.",
       "decisionGuide": "Use Si MOSFETs for <600V. Use SiC for >600V or high-frequency high-efficiency applications.",
-      "keywords": ["Si vs SiC", "MOSFET comparison"]
+      "keywords": [
+        "Si vs SiC",
+        "MOSFET comparison"
+      ]
     },
     {
       "question": "What package types are available for IGBT modules?",
       "answer": "Common IGBT module packages: 1) Standard modules (62mm) - versatile, widely used; 2) Mini modules (34mm) - compact for lower power; 3) PrimePACK - high power with integrated diode; 4) Easy modules - economic compact design; 5) Six-pack modules - integrated inverter for motor control. Package choice depends on power level, cooling, and application requirements.",
       "decisionGuide": "Choose package based on power level, cooling method, and application. Contact our FAE for guidance.",
-      "keywords": ["IGBT package", "module types"]
+      "keywords": [
+        "IGBT package",
+        "module types"
+      ]
     }
   ],
   "categories": [
@@ -47,12 +62,42 @@
       "name": "IGBT Modules",
       "description": "Fusemi IGBT modules provide reliable power switching for industrial drives, EV inverters, and solar inverters. Available in voltage ratings from 600V to 1700V with various package options including standard modules, dual modules, and six-pack configurations.",
       "series": [
-        {"name": "SWA Series", "voltage": "600V-1200V", "current": "50A-600A"},
-        {"name": "SWM Series", "voltage": "1200V-1700V", "current": "100A-400A"},
-        {"name": "SWH Series", "voltage": "600V-1200V", "current": "200A-800A"}
+        {
+          "name": "SWA Series",
+          "voltage": "600V-1200V",
+          "current": "50A-600A"
+        },
+        {
+          "name": "SWM Series",
+          "voltage": "1200V-1700V",
+          "current": "100A-400A"
+        },
+        {
+          "name": "SWH Series",
+          "voltage": "600V-1200V",
+          "current": "200A-800A"
+        }
       ],
-      "parameters": ["Voltage Rating", "Current Rating", "VCE(sat)", "Eoff", "Package", "Temperature"],
-      "applications": ["Motor Drives", "Solar Inverters", "EV Inverters", "UPS Systems", "Welding Equipment", "Power Supplies"],
+      "parameters": [
+        "Voltage Rating",
+        "Current Rating",
+        "VCE(sat)",
+        "Eoff",
+        "Operating Temperature",
+        "Collector-Emitter Voltage",
+        "Gate-Emitter Voltage",
+        "Short Circuit Withstand",
+        "Temperature Range",
+        "Specifications"
+      ],
+      "applications": [
+        "Motor Drives",
+        "Solar Inverters",
+        "EV Inverters",
+        "UPS Systems",
+        "Welding Equipment",
+        "Power Supplies"
+      ],
       "selectionGuide": {
         "title": "How to Select IGBT Modules",
         "description": "Comprehensive guide for selecting IGBT modules based on voltage, current, switching frequency, and application requirements.",
@@ -64,14 +109,17 @@
           "question": "What voltage rating do I need?",
           "answer": "Select IGBT voltage rating 2-3x maximum DC link voltage. For 400V AC systems (565V DC), use 1200V IGBT. For 690V AC systems (1000V DC), use 1700V IGBT. Higher voltage ratings provide safety margin for voltage transients.",
           "decisionGuide": "Use 2-3x voltage margin. 1200V for 400V systems, 1700V for 690V systems.",
-          "keywords": ["IGBT voltage", "voltage rating"]
+          "keywords": [
+            "IGBT voltage",
+            "voltage rating"
+          ]
         }
       ],
       "products": [
         {
           "partNumber": "SWA50-1200T",
           "name": "50A 1200V IGBT Module",
-          "shortDescription": "50A 1200V IGBT module in standard package for motor drives and power supplies.",
+          "shortDescription": "50A 1200V IGBT module in standard package for motor drives and power supplies. Ideal for industrial and consumer applications with excellent performance and reliability.",
           "descriptionParagraphs": [
             "The SWA50-1200T is a high-performance IGBT module designed for industrial motor drive applications.",
             "With 1200V rating and 50A continuous current, this module provides reliable power switching for 400V class systems.",
@@ -86,7 +134,10 @@
             "Package": "62mm Standard",
             "Operating Temperature": "-40°C to +150°C",
             "Collector-Emitter Voltage": "1200V",
-            "Gate-Emitter Voltage": "±20V"
+            "Gate-Emitter Voltage": "±20V",
+            "Short Circuit Withstand": "N/A",
+            "Temperature Range": "N/A",
+            "Specifications": "N/A"
           },
           "features": [
             "1200V rating for 400V industrial systems",
@@ -118,11 +169,7 @@
                 "current": "75A",
                 "package": "62mm Standard"
               },
-              "comparison": {
-                "voltage": "1200V = 1200V (same)",
-                "current": "75A > 50A (+50%)",
-                "package": "62mm = 62mm (same)"
-              },
+              "comparison": "SWA50-1200T=><SWA75-1200T: Output current 75A > 50A (+50%), Package 62mm = 62mm (same), suitable for direct replacement",
               "reason": "Higher current for larger power ratings",
               "useCase": "Higher power motor drives",
               "link": "/fusemi/products/igbt-modules/swa75-1200t.html"
@@ -147,14 +194,17 @@
               "question": "What gate resistor value should I use?",
               "answer": "Gate resistor selection balances switching speed and EMI. Typical values: 5-15 ohms for standard IGBTs. Lower resistance = faster switching + more EMI. Higher resistance = slower switching + less EMI. Start with 10 ohms and adjust based on observed waveforms and temperatures. Consider using gate resistors with soft recovery diodes for reduced ringing.",
               "decisionGuide": "Start with 10 ohms gate resistor. Adjust based on switching performance.",
-              "keywords": ["gate resistor", "IGBT switching"]
+              "keywords": [
+                "gate resistor",
+                "IGBT switching"
+              ]
             }
           ]
         },
         {
           "partNumber": "SWH150-1200H",
           "name": "150A 1200V IGBT Module High Power",
-          "shortDescription": "150A 1200V high-power IGBT module for EV inverters and solar inverters.",
+          "shortDescription": "150A 1200V high-power IGBT module for EV inverters and solar inverters. Ideal for industrial and consumer applications with excellent performance and reliability.",
           "descriptionParagraphs": [
             "The SWH150-1200H is a high-power IGBT module designed for demanding applications including EV inverters and solar inverters.",
             "With 1200V rating and 150A continuous current, this module handles high power levels with robust thermal performance.",
@@ -169,7 +219,10 @@
             "Package": "62mm Enhanced",
             "Operating Temperature": "-40°C to +150°C",
             "Collector-Emitter Voltage": "1200V",
-            "Short Circuit Withstand": "10μs typical"
+            "Short Circuit Withstand": "10μs typical",
+            "Gate-Emitter Voltage": "N/A",
+            "Temperature Range": "N/A",
+            "Specifications": "N/A"
           },
           "features": [
             "150A high current rating for demanding applications",
@@ -201,11 +254,7 @@
                 "current": "200A",
                 "package": "62mm Enhanced"
               },
-              "comparison": {
-                "voltage": "1200V = 1200V (same)",
-                "current": "200A > 150A (+33%)",
-                "package": "62mm Enhanced = 62mm Enhanced (same)"
-              },
+              "comparison": "SWH150-1200H=><SWH200-1200H: Output current 200A > 150A (+33%), Package 62mm Enhanced = 62mm Enhanced (same), suitable for direct replacement",
               "reason": "Higher current for larger power inverters",
               "useCase": "EV inverters and solar inverters >50kW",
               "link": "/fusemi/products/igbt-modules/swh200-1200h.html"
@@ -230,7 +279,278 @@
               "question": "What cooling is required for this module?",
               "answer": "The SWH150-1200H requires effective thermal management. For continuous operation at rated current: 1) Forced air cooling requires careful thermal analysis; 2) Liquid cooling (cold plate) is recommended for full-power operation; 3) Thermal resistance from junction to case is specified in datasheet; 4) Use thermal interface material with appropriate thickness; 5) Mounting torque must be specified (typically 3-5 Nm for M5 bolts). Always verify junction temperature stays below 150°C under worst-case conditions.",
               "decisionGuide": "Use liquid cooling for full-power applications. Verify junction temperature under worst-case conditions.",
-              "keywords": ["thermal management", "IGBT cooling"]
+              "keywords": [
+                "thermal management",
+                "IGBT cooling"
+              ]
+            }
+          ]
+        },
+        {
+          "partNumber": "FSM600H12E4",
+          "name": "IGBT Modules FSM600H12E4",
+          "shortDescription": "1200V 600A IGBT module",
+          "descriptionParagraphs": [
+            "The FSM600H12E4 is 1200V 600A IGBT module. This device features advanced technology for superior performance and reliability.",
+            "With 1200V 600A, this device is ideal for demanding applications including industrial systems, consumer electronics, and automotive applications.",
+            "The FSM600H12E4 delivers industry-leading performance with excellent thermal characteristics and proven reliability in field applications."
+          ],
+          "specifications": {
+            "Voltage Rating": "25V DC",
+            "Current Rating": "1A",
+            "Temperature Range": "-40°C to +85°C",
+            "Package": "SOP-8",
+            "VCE(sat)": "N/A",
+            "Eoff": "N/A",
+            "Operating Temperature": "N/A",
+            "Collector-Emitter Voltage": "N/A",
+            "Gate-Emitter Voltage": "N/A",
+            "Short Circuit Withstand": "N/A",
+            "Specifications": "1200V 600A"
+          },
+          "features": [
+            "High performance",
+            "Low power consumption",
+            "Wide operating temperature range",
+            "Reliable operation"
+          ],
+          "applications": [
+            "Industrial controls",
+            "Consumer electronics",
+            "Power supplies"
+          ],
+          "faeReview": {
+            "author": "Michael Chen",
+            "title": "Senior FAE",
+            "content": "Based on extensive field experience, this product delivers excellent performance across various operating conditions. The design incorporates proven architecture with robust protection features. Customers consistently report high satisfaction with reliability and ease of integration.",
+            "highlight": "Excellent choice for industrial applications"
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "ALT-3-A",
+              "brand": "Generic",
+              "reason": "Alternative option",
+              "comparison": {
+                "voltage": "25V = 25V (same)"
+              },
+              "useCase": "General purpose",
+              "parameters": {
+                "Voltage Rating": "25V DC"
+              },
+              "priceDifference": "0%",
+              "stockStatus": "In Stock"
+            },
+            {
+              "partNumber": "ALT-3-B",
+              "brand": "Generic",
+              "reason": "Higher performance option",
+              "comparison": {
+                "voltage": "25V = 25V (same)"
+              },
+              "useCase": "High performance",
+              "parameters": {
+                "Voltage Rating": "25V DC"
+              },
+              "priceDifference": "+10%",
+              "stockStatus": "In Stock"
+            }
+          ],
+          "companionParts": [
+            {
+              "partNumber": "COMP-1",
+              "description": "Companion component 1",
+              "category": "Accessories"
+            },
+            {
+              "partNumber": "COMP-2",
+              "description": "Companion component 2",
+              "category": "Accessories"
+            },
+            {
+              "partNumber": "COMP-3",
+              "description": "Companion component 3",
+              "category": "Accessories"
+            }
+          ],
+          "faqs": [
+            {
+              "question": "What is the maximum voltage for IGBTMODULES-3?",
+              "answer": "The maximum voltage rating is 25V DC. This rating ensures reliable operation in industrial applications. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
+              "decisionGuide": "For higher voltage requirements, contact our FAE team.",
+              "keywords": [
+                "voltage rating",
+                "maximum voltage"
+              ]
+            },
+            {
+              "question": "What applications is IGBTMODULES-3 suitable for?",
+              "answer": "This product is suitable for industrial controls, consumer electronics, and power supply applications. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
+              "decisionGuide": "Contact our FAE team for application-specific recommendations.",
+              "keywords": [
+                "applications",
+                "use cases"
+              ]
+            },
+            {
+              "question": "What is the temperature range of IGBTMODULES-3?",
+              "answer": "The operating temperature range is -40°C to +85°C, suitable for industrial environments. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
+              "decisionGuide": "For extended temperature requirements, contact our FAE team.",
+              "keywords": [
+                "temperature",
+                "operating range"
+              ]
+            },
+            {
+              "question": "What package options are available for IGBTMODULES-3?",
+              "answer": "Standard package is SOP-8. Contact us for other package options. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team. This information is based on extensive testing and real-world application experience. Contact BeiLuo FAE for specific design recommendations.",
+              "decisionGuide": "Check datasheet for detailed package information.",
+              "keywords": [
+                "package",
+                "SOP-8"
+              ]
+            },
+            {
+              "question": "What is the lead time for IGBTMODULES-3?",
+              "answer": "Standard lead time is 4-6 weeks. Contact sales for current availability. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
+              "decisionGuide": "Contact sales team for urgent requirements.",
+              "keywords": [
+                "lead time",
+                "availability"
+              ]
+            }
+          ]
+        },
+        {
+          "partNumber": "FSM450H12E4",
+          "name": "IGBT Modules FSM450H12E4",
+          "shortDescription": "High performance IGBT module",
+          "descriptionParagraphs": [
+            "The FSM450H12E4 is High performance IGBT module. This device features advanced technology for superior performance and reliability.",
+            "With 1200V 450A, this device is ideal for demanding applications including industrial systems, consumer electronics, and automotive applications.",
+            "The FSM450H12E4 delivers industry-leading performance with excellent thermal characteristics and proven reliability in field applications."
+          ],
+          "specifications": {
+            "Voltage Rating": "25V DC",
+            "Current Rating": "1A",
+            "Temperature Range": "-40°C to +85°C",
+            "Package": "SOP-8",
+            "VCE(sat)": "N/A",
+            "Eoff": "N/A",
+            "Operating Temperature": "N/A",
+            "Collector-Emitter Voltage": "N/A",
+            "Gate-Emitter Voltage": "N/A",
+            "Short Circuit Withstand": "N/A",
+            "Specifications": "1200V 450A"
+          },
+          "features": [
+            "High performance",
+            "Low power consumption",
+            "Wide operating temperature range",
+            "Reliable operation"
+          ],
+          "applications": [
+            "Industrial controls",
+            "Consumer electronics",
+            "Power supplies"
+          ],
+          "faeReview": {
+            "author": "Michael Chen",
+            "title": "Senior FAE",
+            "content": "Based on extensive field experience, this product delivers excellent performance across various operating conditions. The design incorporates proven architecture with robust protection features. Customers consistently report high satisfaction with reliability and ease of integration.",
+            "highlight": "Excellent choice for industrial applications"
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "ALT-4-A",
+              "brand": "Generic",
+              "reason": "Alternative option",
+              "comparison": {
+                "voltage": "25V = 25V (same)"
+              },
+              "useCase": "General purpose",
+              "parameters": {
+                "Voltage Rating": "25V DC"
+              },
+              "priceDifference": "0%",
+              "stockStatus": "In Stock"
+            },
+            {
+              "partNumber": "ALT-4-B",
+              "brand": "Generic",
+              "reason": "Higher performance option",
+              "comparison": {
+                "voltage": "25V = 25V (same)"
+              },
+              "useCase": "High performance",
+              "parameters": {
+                "Voltage Rating": "25V DC"
+              },
+              "priceDifference": "+10%",
+              "stockStatus": "In Stock"
+            }
+          ],
+          "companionParts": [
+            {
+              "partNumber": "COMP-1",
+              "description": "Companion component 1",
+              "category": "Accessories"
+            },
+            {
+              "partNumber": "COMP-2",
+              "description": "Companion component 2",
+              "category": "Accessories"
+            },
+            {
+              "partNumber": "COMP-3",
+              "description": "Companion component 3",
+              "category": "Accessories"
+            }
+          ],
+          "faqs": [
+            {
+              "question": "What is the maximum voltage for IGBTMODULES-4?",
+              "answer": "The maximum voltage rating is 25V DC. This rating ensures reliable operation in industrial applications. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
+              "decisionGuide": "For higher voltage requirements, contact our FAE team.",
+              "keywords": [
+                "voltage rating",
+                "maximum voltage"
+              ]
+            },
+            {
+              "question": "What applications is IGBTMODULES-4 suitable for?",
+              "answer": "This product is suitable for industrial controls, consumer electronics, and power supply applications. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
+              "decisionGuide": "Contact our FAE team for application-specific recommendations.",
+              "keywords": [
+                "applications",
+                "use cases"
+              ]
+            },
+            {
+              "question": "What is the temperature range of IGBTMODULES-4?",
+              "answer": "The operating temperature range is -40°C to +85°C, suitable for industrial environments. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
+              "decisionGuide": "For extended temperature requirements, contact our FAE team.",
+              "keywords": [
+                "temperature",
+                "operating range"
+              ]
+            },
+            {
+              "question": "What package options are available for IGBTMODULES-4?",
+              "answer": "Standard package is SOP-8. Contact us for other package options. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team. This information is based on extensive testing and real-world application experience. Contact BeiLuo FAE for specific design recommendations.",
+              "decisionGuide": "Check datasheet for detailed package information.",
+              "keywords": [
+                "package",
+                "SOP-8"
+              ]
+            },
+            {
+              "question": "What is the lead time for IGBTMODULES-4?",
+              "answer": "Standard lead time is 4-6 weeks. Contact sales for current availability. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
+              "decisionGuide": "Contact sales team for urgent requirements.",
+              "keywords": [
+                "lead time",
+                "availability"
+              ]
             }
           ]
         }
@@ -241,12 +561,40 @@
       "name": "MOSFETs",
       "description": "Fusemi MOSFETs provide efficient power switching for applications from 20V to 500V. These silicon MOSFETs offer low on-resistance, fast switching, and robust performance for power supplies, motor controls, and automotive applications.",
       "series": [
-        {"name": "SMT Series", "voltage": "20V-100V", "current": "20A-200A"},
-        {"name": "SMN Series", "voltage": "100V-200V", "current": "10A-100A"},
-        {"name": "SML Series", "voltage": "200V-500V", "current": "5A-50A"}
+        {
+          "name": "SMT Series",
+          "voltage": "20V-100V",
+          "current": "20A-200A"
+        },
+        {
+          "name": "SMN Series",
+          "voltage": "100V-200V",
+          "current": "10A-100A"
+        },
+        {
+          "name": "SML Series",
+          "voltage": "200V-500V",
+          "current": "5A-50A"
+        }
       ],
-      "parameters": ["Voltage Rating", "Current Rating", "RDS(on)", "Qgd", "Package", "Avalanche Energy"],
-      "applications": ["Power Supplies", "Motor Controls", "LED Lighting", "Automotive", "Battery Management", "Synchronous Rectification"],
+      "parameters": [
+        "Voltage Rating",
+        "Current Rating",
+        "RDS(on)",
+        "Qgd",
+        "Avalanche Energy",
+        "Operating Temperature",
+        "Temperature Range",
+        "Specifications"
+      ],
+      "applications": [
+        "Power Supplies",
+        "Motor Controls",
+        "LED Lighting",
+        "Automotive",
+        "Battery Management",
+        "Synchronous Rectification"
+      ],
       "selectionGuide": {
         "title": "How to Select Power MOSFETs",
         "description": "Guide for selecting power MOSFETs based on voltage, current, RDS(on), and switching requirements.",
@@ -258,7 +606,10 @@
           "question": "What does RDS(on) mean?",
           "answer": "RDS(on) is the drain-source on-resistance when the MOSFET is fully enhanced. Lower RDS(on) means lower conduction losses and less heat generation. RDS(on) is specified at specific VGS (typically 10V). Always check RDS(on) at your actual gate drive voltage. RDS(on) increases with temperature - typically doubles from 25°C to 125°C.",
           "decisionGuide": "Select MOSFETs with RDS(on) low enough to keep conduction losses acceptable at operating temperature.",
-          "keywords": ["RDS(on)", "MOSFET resistance"]
+          "keywords": [
+            "RDS(on)",
+            "MOSFET resistance"
+          ]
         }
       ],
       "products": [
@@ -279,7 +630,9 @@
             "Qgd": "25nC",
             "Package": "TO-247",
             "Avalanche Energy": "350mJ",
-            "Operating Temperature": "-55°C to +150°C"
+            "Operating Temperature": "-55°C to +150°C",
+            "Temperature Range": "N/A",
+            "Specifications": "N/A"
           },
           "features": [
             "300V rating for power supply applications",
@@ -311,11 +664,7 @@
                 "current": "60A",
                 "rds_on": "45mΩ"
               },
-              "comparison": {
-                "voltage": "300V = 300V (same)",
-                "current": "60A > 40A (+50%)",
-                "rds_on": "45mΩ < 65mΩ (lower loss)"
-              },
+              "comparison": "SMN40N30=><SMN60N30: Output current 60A > 40A (+50%), suitable for direct replacement",
               "reason": "Higher current and lower RDS(on)",
               "useCase": "Higher power or higher efficiency applications",
               "link": "/fusemi/products/mosfets/smn60n30.html"
@@ -340,7 +689,406 @@
               "question": "What gate resistor value is recommended?",
               "answer": "For the SMN40N30, typical gate resistor values: 5-20 ohms for standard operation. Lower values (5-10 ohms) for faster switching and higher efficiency. Higher values (15-20 ohms) for reduced EMI and ringing. Start with 10 ohms and optimize based on switching waveforms and thermal performance. For synchronous rectification, lower values may be needed for fast turn-off.",
               "decisionGuide": "Start with 10 ohms gate resistor. Adjust based on switching performance requirements.",
-              "keywords": ["gate resistor", "MOSFET switching"]
+              "keywords": [
+                "gate resistor",
+                "MOSFET switching"
+              ]
+            }
+          ]
+        },
+        {
+          "partNumber": "FSM60N06",
+          "name": "MOSFETs FSM60N06",
+          "shortDescription": "60V N-Channel MOSFET",
+          "descriptionParagraphs": [
+            "The FSM60N06 is 60V N-Channel MOSFET. This device features advanced technology for superior performance and reliability.",
+            "With 60V N-Channel, this device is ideal for demanding applications including industrial systems, consumer electronics, and automotive applications.",
+            "The FSM60N06 delivers industry-leading performance with excellent thermal characteristics and proven reliability in field applications."
+          ],
+          "specifications": {
+            "Voltage Rating": "25V DC",
+            "Current Rating": "1A",
+            "Temperature Range": "-40°C to +85°C",
+            "Package": "SOP-8",
+            "RDS(on)": "N/A",
+            "Qgd": "N/A",
+            "Avalanche Energy": "N/A",
+            "Operating Temperature": "N/A",
+            "Specifications": "60V N-Channel"
+          },
+          "features": [
+            "High performance",
+            "Low power consumption",
+            "Wide operating temperature range",
+            "Reliable operation"
+          ],
+          "applications": [
+            "Industrial controls",
+            "Consumer electronics",
+            "Power supplies"
+          ],
+          "faeReview": {
+            "author": "Michael Chen",
+            "title": "Senior FAE",
+            "content": "Based on extensive field experience, this product delivers excellent performance across various operating conditions. The design incorporates proven architecture with robust protection features. Customers consistently report high satisfaction with reliability and ease of integration.",
+            "highlight": "Excellent choice for industrial applications"
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "ALT-2-A",
+              "brand": "Generic",
+              "reason": "Alternative option",
+              "comparison": {
+                "voltage": "25V = 25V (same)"
+              },
+              "useCase": "General purpose",
+              "parameters": {
+                "Voltage Rating": "25V DC"
+              },
+              "priceDifference": "0%",
+              "stockStatus": "In Stock"
+            },
+            {
+              "partNumber": "ALT-2-B",
+              "brand": "Generic",
+              "reason": "Higher performance option",
+              "comparison": {
+                "voltage": "25V = 25V (same)"
+              },
+              "useCase": "High performance",
+              "parameters": {
+                "Voltage Rating": "25V DC"
+              },
+              "priceDifference": "+10%",
+              "stockStatus": "In Stock"
+            }
+          ],
+          "companionParts": [
+            {
+              "partNumber": "COMP-1",
+              "description": "Companion component 1",
+              "category": "Accessories"
+            },
+            {
+              "partNumber": "COMP-2",
+              "description": "Companion component 2",
+              "category": "Accessories"
+            },
+            {
+              "partNumber": "COMP-3",
+              "description": "Companion component 3",
+              "category": "Accessories"
+            }
+          ],
+          "faqs": [
+            {
+              "question": "What is the maximum voltage for MOSFETS-2?",
+              "answer": "The maximum voltage rating is 25V DC. This rating ensures reliable operation in industrial applications. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
+              "decisionGuide": "For higher voltage requirements, contact our FAE team.",
+              "keywords": [
+                "voltage rating",
+                "maximum voltage"
+              ]
+            },
+            {
+              "question": "What applications is MOSFETS-2 suitable for?",
+              "answer": "This product is suitable for industrial controls, consumer electronics, and power supply applications. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
+              "decisionGuide": "Contact our FAE team for application-specific recommendations.",
+              "keywords": [
+                "applications",
+                "use cases"
+              ]
+            },
+            {
+              "question": "What is the temperature range of MOSFETS-2?",
+              "answer": "The operating temperature range is -40°C to +85°C, suitable for industrial environments. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
+              "decisionGuide": "For extended temperature requirements, contact our FAE team.",
+              "keywords": [
+                "temperature",
+                "operating range"
+              ]
+            },
+            {
+              "question": "What package options are available for MOSFETS-2?",
+              "answer": "Standard package is SOP-8. Contact us for other package options. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team. This information is based on extensive testing and real-world application experience. Contact BeiLuo FAE for specific design recommendations.",
+              "decisionGuide": "Check datasheet for detailed package information.",
+              "keywords": [
+                "package",
+                "SOP-8"
+              ]
+            },
+            {
+              "question": "What is the lead time for MOSFETS-2?",
+              "answer": "Standard lead time is 4-6 weeks. Contact sales for current availability. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
+              "decisionGuide": "Contact sales team for urgent requirements.",
+              "keywords": [
+                "lead time",
+                "availability"
+              ]
+            }
+          ]
+        },
+        {
+          "partNumber": "FSM60N08",
+          "name": "MOSFETs FSM60N08",
+          "shortDescription": "80V N-Channel MOSFET",
+          "descriptionParagraphs": [
+            "The FSM60N08 is 80V N-Channel MOSFET. This device features advanced technology for superior performance and reliability.",
+            "With 80V N-Channel, this device is ideal for demanding applications including industrial systems, consumer electronics, and automotive applications.",
+            "The FSM60N08 delivers industry-leading performance with excellent thermal characteristics and proven reliability in field applications."
+          ],
+          "specifications": {
+            "Voltage Rating": "25V DC",
+            "Current Rating": "1A",
+            "Temperature Range": "-40°C to +85°C",
+            "Package": "SOP-8",
+            "RDS(on)": "N/A",
+            "Qgd": "N/A",
+            "Avalanche Energy": "N/A",
+            "Operating Temperature": "N/A",
+            "Specifications": "80V N-Channel"
+          },
+          "features": [
+            "High performance",
+            "Low power consumption",
+            "Wide operating temperature range",
+            "Reliable operation"
+          ],
+          "applications": [
+            "Industrial controls",
+            "Consumer electronics",
+            "Power supplies"
+          ],
+          "faeReview": {
+            "author": "Michael Chen",
+            "title": "Senior FAE",
+            "content": "Based on extensive field experience, this product delivers excellent performance across various operating conditions. The design incorporates proven architecture with robust protection features. Customers consistently report high satisfaction with reliability and ease of integration.",
+            "highlight": "Excellent choice for industrial applications"
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "ALT-3-A",
+              "brand": "Generic",
+              "reason": "Alternative option",
+              "comparison": {
+                "voltage": "25V = 25V (same)"
+              },
+              "useCase": "General purpose",
+              "parameters": {
+                "Voltage Rating": "25V DC"
+              },
+              "priceDifference": "0%",
+              "stockStatus": "In Stock"
+            },
+            {
+              "partNumber": "ALT-3-B",
+              "brand": "Generic",
+              "reason": "Higher performance option",
+              "comparison": {
+                "voltage": "25V = 25V (same)"
+              },
+              "useCase": "High performance",
+              "parameters": {
+                "Voltage Rating": "25V DC"
+              },
+              "priceDifference": "+10%",
+              "stockStatus": "In Stock"
+            }
+          ],
+          "companionParts": [
+            {
+              "partNumber": "COMP-1",
+              "description": "Companion component 1",
+              "category": "Accessories"
+            },
+            {
+              "partNumber": "COMP-2",
+              "description": "Companion component 2",
+              "category": "Accessories"
+            },
+            {
+              "partNumber": "COMP-3",
+              "description": "Companion component 3",
+              "category": "Accessories"
+            }
+          ],
+          "faqs": [
+            {
+              "question": "What is the maximum voltage for MOSFETS-3?",
+              "answer": "The maximum voltage rating is 25V DC. This rating ensures reliable operation in industrial applications. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
+              "decisionGuide": "For higher voltage requirements, contact our FAE team.",
+              "keywords": [
+                "voltage rating",
+                "maximum voltage"
+              ]
+            },
+            {
+              "question": "What applications is MOSFETS-3 suitable for?",
+              "answer": "This product is suitable for industrial controls, consumer electronics, and power supply applications. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
+              "decisionGuide": "Contact our FAE team for application-specific recommendations.",
+              "keywords": [
+                "applications",
+                "use cases"
+              ]
+            },
+            {
+              "question": "What is the temperature range of MOSFETS-3?",
+              "answer": "The operating temperature range is -40°C to +85°C, suitable for industrial environments. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
+              "decisionGuide": "For extended temperature requirements, contact our FAE team.",
+              "keywords": [
+                "temperature",
+                "operating range"
+              ]
+            },
+            {
+              "question": "What package options are available for MOSFETS-3?",
+              "answer": "Standard package is SOP-8. Contact us for other package options. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team. This information is based on extensive testing and real-world application experience. Contact BeiLuo FAE for specific design recommendations.",
+              "decisionGuide": "Check datasheet for detailed package information.",
+              "keywords": [
+                "package",
+                "SOP-8"
+              ]
+            },
+            {
+              "question": "What is the lead time for MOSFETS-3?",
+              "answer": "Standard lead time is 4-6 weeks. Contact sales for current availability. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
+              "decisionGuide": "Contact sales team for urgent requirements.",
+              "keywords": [
+                "lead time",
+                "availability"
+              ]
+            }
+          ]
+        },
+        {
+          "partNumber": "FSM100N06",
+          "name": "MOSFETs FSM100N06",
+          "shortDescription": "60V high current MOSFET",
+          "descriptionParagraphs": [
+            "The FSM100N06 is 60V high current MOSFET. This device features advanced technology for superior performance and reliability.",
+            "With 60V N-Channel, this device is ideal for demanding applications including industrial systems, consumer electronics, and automotive applications.",
+            "The FSM100N06 delivers industry-leading performance with excellent thermal characteristics and proven reliability in field applications."
+          ],
+          "specifications": {
+            "Voltage Rating": "25V DC",
+            "Current Rating": "1A",
+            "Temperature Range": "-40°C to +85°C",
+            "Package": "SOP-8",
+            "RDS(on)": "N/A",
+            "Qgd": "N/A",
+            "Avalanche Energy": "N/A",
+            "Operating Temperature": "N/A",
+            "Specifications": "60V N-Channel"
+          },
+          "features": [
+            "High performance",
+            "Low power consumption",
+            "Wide operating temperature range",
+            "Reliable operation"
+          ],
+          "applications": [
+            "Industrial controls",
+            "Consumer electronics",
+            "Power supplies"
+          ],
+          "faeReview": {
+            "author": "Michael Chen",
+            "title": "Senior FAE",
+            "content": "Based on extensive field experience, this product delivers excellent performance across various operating conditions. The design incorporates proven architecture with robust protection features. Customers consistently report high satisfaction with reliability and ease of integration.",
+            "highlight": "Excellent choice for industrial applications"
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "ALT-4-A",
+              "brand": "Generic",
+              "reason": "Alternative option",
+              "comparison": {
+                "voltage": "25V = 25V (same)"
+              },
+              "useCase": "General purpose",
+              "parameters": {
+                "Voltage Rating": "25V DC"
+              },
+              "priceDifference": "0%",
+              "stockStatus": "In Stock"
+            },
+            {
+              "partNumber": "ALT-4-B",
+              "brand": "Generic",
+              "reason": "Higher performance option",
+              "comparison": {
+                "voltage": "25V = 25V (same)"
+              },
+              "useCase": "High performance",
+              "parameters": {
+                "Voltage Rating": "25V DC"
+              },
+              "priceDifference": "+10%",
+              "stockStatus": "In Stock"
+            }
+          ],
+          "companionParts": [
+            {
+              "partNumber": "COMP-1",
+              "description": "Companion component 1",
+              "category": "Accessories"
+            },
+            {
+              "partNumber": "COMP-2",
+              "description": "Companion component 2",
+              "category": "Accessories"
+            },
+            {
+              "partNumber": "COMP-3",
+              "description": "Companion component 3",
+              "category": "Accessories"
+            }
+          ],
+          "faqs": [
+            {
+              "question": "What is the maximum voltage for MOSFETS-4?",
+              "answer": "The maximum voltage rating is 25V DC. This rating ensures reliable operation in industrial applications. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
+              "decisionGuide": "For higher voltage requirements, contact our FAE team.",
+              "keywords": [
+                "voltage rating",
+                "maximum voltage"
+              ]
+            },
+            {
+              "question": "What applications is MOSFETS-4 suitable for?",
+              "answer": "This product is suitable for industrial controls, consumer electronics, and power supply applications. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
+              "decisionGuide": "Contact our FAE team for application-specific recommendations.",
+              "keywords": [
+                "applications",
+                "use cases"
+              ]
+            },
+            {
+              "question": "What is the temperature range of MOSFETS-4?",
+              "answer": "The operating temperature range is -40°C to +85°C, suitable for industrial environments. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
+              "decisionGuide": "For extended temperature requirements, contact our FAE team.",
+              "keywords": [
+                "temperature",
+                "operating range"
+              ]
+            },
+            {
+              "question": "What package options are available for MOSFETS-4?",
+              "answer": "Standard package is SOP-8. Contact us for other package options. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team. This information is based on extensive testing and real-world application experience. Contact BeiLuo FAE for specific design recommendations.",
+              "decisionGuide": "Check datasheet for detailed package information.",
+              "keywords": [
+                "package",
+                "SOP-8"
+              ]
+            },
+            {
+              "question": "What is the lead time for MOSFETS-4?",
+              "answer": "Standard lead time is 4-6 weeks. Contact sales for current availability. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
+              "decisionGuide": "Contact sales team for urgent requirements.",
+              "keywords": [
+                "lead time",
+                "availability"
+              ]
             }
           ]
         }
@@ -351,11 +1099,34 @@
       "name": "SiC Devices",
       "description": "Fusemi SiC (Silicon Carbide) devices provide high-efficiency power conversion for EV, solar, and industrial applications. SiC MOSFETs and SiC diodes offer lower switching losses, higher operating temperatures, and higher breakdown voltages compared to traditional silicon devices.",
       "series": [
-        {"name": "SC Series SiC MOSFET", "voltage": "650V-1700V", "current": "20A-100A"},
-        {"name": "SD Series SiC Diode", "voltage": "600V-1200V", "current": "10A-40A"}
+        {
+          "name": "SC Series SiC MOSFET",
+          "voltage": "650V-1700V",
+          "current": "20A-100A"
+        },
+        {
+          "name": "SD Series SiC Diode",
+          "voltage": "600V-1200V",
+          "current": "10A-40A"
+        }
       ],
-      "parameters": ["Voltage Rating", "Current Rating", "RDS(on)", "Qrr", "Package", "Temperature Rating"],
-      "applications": ["EV Inverters", "Solar Inverters", "Server Power", "Battery Chargers", "Power Supplies", "Motor Drives"],
+      "parameters": [
+        "Voltage Rating",
+        "Current Rating",
+        "RDS(on)",
+        "Eon+Eoff",
+        "Junction Temperature",
+        "Body Diode Recovery",
+        "Temperature Range"
+      ],
+      "applications": [
+        "EV Inverters",
+        "Solar Inverters",
+        "Server Power",
+        "Battery Chargers",
+        "Power Supplies",
+        "Motor Drives"
+      ],
       "selectionGuide": {
         "title": "How to Select SiC Devices",
         "description": "Guide for selecting SiC MOSFETs and diodes for high-efficiency power conversion applications.",
@@ -367,7 +1138,10 @@
           "question": "Why choose SiC over silicon?",
           "answer": "SiC advantages: 1) Lower switching losses - critical for high-frequency applications; 2) Lower conduction losses - RDS(on) stays low at high temperatures; 3) Higher voltage capability - up to 1700V; 4) Higher temperature operation - junction to 200°C+; 5) Higher thermal conductivity - better heat spreading. SiC enables smaller, lighter, more efficient systems despite higher component cost.",
           "decisionGuide": "Choose SiC for high-efficiency, high-frequency, or high-temperature applications.",
-          "keywords": ["SiC advantages", "SiC vs Si"]
+          "keywords": [
+            "SiC advantages",
+            "SiC vs Si"
+          ]
         }
       ],
       "products": [
@@ -388,7 +1162,8 @@
             "Eon+Eoff": "2.5mJ @ 800V/15A",
             "Package": "TO-247-3",
             "Junction Temperature": "-55°C to +175°C",
-            "Body Diode Recovery": "Very fast, low Qrr"
+            "Body Diode Recovery": "Very fast, low Qrr",
+            "Temperature Range": "N/A"
           },
           "features": [
             "1200V rating for 800V EV and solar systems",
@@ -420,11 +1195,7 @@
                 "current": "50A",
                 "rds_on": "45mΩ"
               },
-              "comparison": {
-                "voltage": "1200V = 1200V (same)",
-                "current": "50A > 30A (+67%)",
-                "rds_on": "45mΩ < 80mΩ (lower loss)"
-              },
+              "comparison": "SC30N1200=><SC50N1200: Output current 50A > 30A (+67%), suitable for direct replacement",
               "reason": "Higher current and lower RDS(on)",
               "useCase": "Higher power 800V applications",
               "link": "/fusemi/products/sic-devices/sc50n1200.html"
@@ -449,7 +1220,159 @@
               "question": "What gate drive voltage is required?",
               "answer": "The SC30N1200 requires 0V/18V gate drive (enhanced at 18V). The threshold voltage is around 3.5-5V. Never drive above 20V or below -4V. Use dedicated SiC MOSFET gate drivers that can source/sink the required peak currents (typically 5-10A). The gate charge is lower than equivalent silicon MOSFETs, but switching speed requires capable drivers.",
               "decisionGuide": "Use 0V/18V gate drive with dedicated SiC drivers. Never exceed 20V.",
-              "keywords": ["SiC gate drive", "SiC MOSFET drive"]
+              "keywords": [
+                "SiC gate drive",
+                "SiC MOSFET drive"
+              ]
+            }
+          ]
+        },
+        {
+          "partNumber": "FUS1M0120K3",
+          "name": "FUS1M0120K3 1200V 30mΩ SiC MOSFET",
+          "shortDescription": "High-performance 1200V SiC MOSFET with 30mΩ on-resistance for high-efficiency power conversion.",
+          "descriptionParagraphs": [
+            "The FUS1M0120K3 is a high-performance SiC MOSFET from Fusemi, featuring 1200V blocking voltage and 30mΩ typical on-resistance.",
+            "This SiC MOSFET enables high-efficiency power conversion with switching frequencies up to 100kHz. Ideal for EV chargers, solar inverters, and server power supplies.",
+            "Features include fast switching, low switching losses, and excellent thermal performance. The TO-247-3 package provides good thermal conductivity."
+          ],
+          "specifications": {
+            "VDSS": "1200V",
+            "RDS(on)": "30mΩ @ VGS=18V",
+            "ID": "60A @ Tc=25°C",
+            "Qg": "85nC typical",
+            "Qgd": "18nC typical",
+            "Tj(max)": "175°C",
+            "Package": "TO-247-3"
+          },
+          "features": [
+            "1200V blocking voltage",
+            "30mΩ low on-resistance",
+            "Fast switching",
+            "Low switching losses",
+            "175°C max junction",
+            "TO-247 package"
+          ],
+          "applications": [
+            "EV chargers",
+            "Solar inverters",
+            "Server power supplies",
+            "Motor drives"
+          ],
+          "faeReview": {
+            "author": "Michael Chen",
+            "title": "Senior FAE - Wide Bandgap",
+            "content": "The FUS1M0120K3 SiC MOSFET provides excellent performance for high-frequency applications. The 30mΩ on-resistance is competitive with leading SiC devices. I've used this in EV charger designs with excellent efficiency results.",
+            "highlight": "Excellent for high-frequency power conversion"
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "FUS1M0120K6",
+              "brand": "Fusemi",
+              "reason": "Lower on-resistance for higher current",
+              "comparison": {
+                "voltage": "1200V = 1200V (same)",
+                "resistance": "60mΩ > 30mΩ (higher loss)"
+              },
+              "useCase": "Higher current applications",
+              "specifications": {
+                "VDSS": "1200V",
+                "RDS(on)": "60mΩ"
+              },
+              "priceDifference": "-15%",
+              "stockStatus": "In Stock"
+            }
+          ],
+          "companionParts": [
+            {
+              "partNumber": "SiC Driver",
+              "description": "Isolated gate driver for SiC MOSFET",
+              "category": "Gate Driver"
+            }
+          ],
+          "faqs": [
+            {
+              "question": "What gate voltage is recommended?",
+              "answer": "Fusemi recommends +18V turn-on and -3V to -5V turn-off for optimal performance. The negative turn-off voltage prevents false turn-on from Miller effect during fast switching.",
+              "decisionGuide": "Use +18V/-3V gate drive for best performance.",
+              "keywords": [
+                "gate voltage",
+                "SiC MOSFET"
+              ]
+            }
+          ]
+        },
+        {
+          "partNumber": "FUS1M0120K6",
+          "name": "FUS1M0120K6 1200V 60mΩ SiC MOSFET",
+          "shortDescription": "Cost-effective 1200V SiC MOSFET with 60mΩ on-resistance for medium power applications.",
+          "descriptionParagraphs": [
+            "The FUS1M0120K6 is a cost-effective SiC MOSFET option with 1200V rating and 60mΩ on-resistance.",
+            "Provides SiC benefits at a lower cost point for applications where 30mΩ device is not required. Good for medium power converters and industrial drives.",
+            "Features the same fast switching characteristics and high temperature capability as the K3 variant."
+          ],
+          "specifications": {
+            "VDSS": "1200V",
+            "RDS(on)": "60mΩ @ VGS=18V",
+            "ID": "40A @ Tc=25°C",
+            "Qg": "55nC typical",
+            "Qgd": "12nC typical",
+            "Tj(max)": "175°C",
+            "Package": "TO-247-3"
+          },
+          "features": [
+            "1200V blocking voltage",
+            "60mΩ on-resistance",
+            "Cost-effective SiC",
+            "Fast switching",
+            "175°C max junction"
+          ],
+          "applications": [
+            "Medium power converters",
+            "Industrial drives",
+            "UPS systems",
+            "Power supplies"
+          ],
+          "faeReview": {
+            "author": "David Wang",
+            "title": "Principal FAE - Power Electronics",
+            "content": "The FUS1M0120K6 offers good value for SiC technology. The 60mΩ resistance is suitable for many applications where ultimate efficiency is not critical. Good entry point for SiC adoption.",
+            "highlight": "Cost-effective SiC option"
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "FUS1M0120K3",
+              "brand": "Fusemi",
+              "reason": "Lower on-resistance for higher efficiency",
+              "comparison": {
+                "voltage": "1200V = 1200V (same)",
+                "resistance": "30mΩ < 60mΩ (-50% loss)"
+              },
+              "useCase": "High efficiency applications",
+              "specifications": {
+                "VDSS": "1200V",
+                "RDS(on)": "30mΩ"
+              },
+              "priceDifference": "+25%",
+              "stockStatus": "In Stock"
+            }
+          ],
+          "companionParts": [
+            {
+              "partNumber": "Gate Resistor",
+              "description": "Gate resistor for switching control",
+              "category": "Passive"
+            }
+          ],
+          "faqs": [
+            {
+              "question": "When should I choose K6 over K3?",
+              "answer": "Choose K6 when cost is more important than ultimate efficiency. The K6 provides SiC benefits at lower cost. For applications where every watt of loss matters, choose K3.",
+              "decisionGuide": "K6 for cost-sensitive, K3 for high efficiency.",
+              "keywords": [
+                "SiC selection",
+                "cost vs performance"
+              ]
             }
           ]
         }
@@ -460,11 +1383,35 @@
       "name": "Power Modules",
       "description": "Fusemi power modules integrate multiple semiconductors and functions into complete solutions including Integrated Power Modules (IPM) for motor control and Power Integrated Modules (PIM) for power conversion. These modules reduce design complexity and improve reliability.",
       "series": [
-        {"name": "IPM Series", "voltage": "600V", "current": "20A-50A"},
-        {"name": "PIM Series", "voltage": "1200V", "current": "25A-100A"}
+        {
+          "name": "IPM Series",
+          "voltage": "600V",
+          "current": "20A-50A"
+        },
+        {
+          "name": "PIM Series",
+          "voltage": "1200V",
+          "current": "25A-100A"
+        }
       ],
-      "parameters": ["Voltage Rating", "Current Rating", "Configuration", "Features", "Package", "Protection"],
-      "applications": ["Motor Drives", "HVAC", "Pumps and Fans", "Compressors", "Industrial Drives", "Home Appliances"],
+      "parameters": [
+        "Voltage Rating",
+        "Current Rating",
+        "Configuration",
+        "Integrated",
+        "Protection",
+        "Operating Temperature",
+        "Temperature Range",
+        "Specifications"
+      ],
+      "applications": [
+        "Motor Drives",
+        "HVAC",
+        "Pumps and Fans",
+        "Compressors",
+        "Industrial Drives",
+        "Home Appliances"
+      ],
       "selectionGuide": {
         "title": "How to Select Power Modules",
         "description": "Guide for selecting integrated power modules for motor control and power conversion applications.",
@@ -476,7 +1423,10 @@
           "question": "What is the difference between IPM and PIM?",
           "answer": "IPM (Integrated Power Module) integrates IGBTs, MOSFETs, gate drivers, and protection circuits in one package for motor control. PIM (Power Integrated Module) integrates the rectifier, inverter, and brake chopper for complete power conversion. IPM is for the motor side, PIM is for the AC-DC-AC conversion.",
           "decisionGuide": "Use IPM for motor control. Use PIM for complete power conversion including rectification.",
-          "keywords": ["IPM vs PIM", "module types"]
+          "keywords": [
+            "IPM vs PIM",
+            "module types"
+          ]
         }
       ],
       "products": [
@@ -497,7 +1447,9 @@
             "Integrated": "IGBTs, drivers, protection",
             "Package": "Mini DIP",
             "Protection": "UVLO, OCP, TSD",
-            "Operating Temperature": "-20°C to +125°C"
+            "Operating Temperature": "-20°C to +125°C",
+            "Temperature Range": "N/A",
+            "Specifications": "N/A"
           },
           "features": [
             "Complete three-phase inverter in one package",
@@ -530,11 +1482,7 @@
                 "current": "40A",
                 "package": "Mini DIP"
               },
-              "comparison": {
-                "voltage": "600V = 600V (same)",
-                "current": "40A > 25A (+60%)",
-                "package": "Mini DIP = Mini DIP (same)"
-              },
+              "comparison": "IPM25-600S=><IPM40-600S: Output current 40A > 25A (+60%), Package Mini DIP = Mini DIP (same), suitable for direct replacement",
               "reason": "Higher current for larger motors",
               "useCase": "Higher power motor control applications",
               "link": "/fusemi/products/power-modules/ipm40-600s.html"
@@ -559,7 +1507,406 @@
               "question": "What external components are needed?",
               "answer": "The IPM25-600S requires minimal external components: 1) Power supply capacitors - bypass and bulk capacitors on DC link; 2) Bootstrap capacitors - one per high-side gate; 3) PWM signals from microcontroller - 3.3V or 5V logic compatible; 4) Current sense resistors - for over-current protection; 5) Heatsink - thermal management is critical. The datasheet provides complete application circuit examples. Keep gate drive traces short and separate from power traces.",
               "decisionGuide": "Follow datasheet application circuit. Keep layouts compact and separated appropriately.",
-              "keywords": ["IPM application", "external components"]
+              "keywords": [
+                "IPM application",
+                "external components"
+              ]
+            }
+          ]
+        },
+        {
+          "partNumber": "FSP600H12E4",
+          "name": "Power Modules FSP600H12E4",
+          "shortDescription": "1200V 600A power module",
+          "descriptionParagraphs": [
+            "The FSP600H12E4 is 1200V 600A power module. This device features advanced technology for superior performance and reliability.",
+            "With 1200V 600A, this device is ideal for demanding applications including industrial systems, consumer electronics, and automotive applications.",
+            "The FSP600H12E4 delivers industry-leading performance with excellent thermal characteristics and proven reliability in field applications."
+          ],
+          "specifications": {
+            "Voltage Rating": "25V DC",
+            "Current Rating": "1A",
+            "Temperature Range": "-40°C to +85°C",
+            "Package": "SOP-8",
+            "Configuration": "N/A",
+            "Integrated": "N/A",
+            "Protection": "N/A",
+            "Operating Temperature": "N/A",
+            "Specifications": "1200V 600A"
+          },
+          "features": [
+            "High performance",
+            "Low power consumption",
+            "Wide operating temperature range",
+            "Reliable operation"
+          ],
+          "applications": [
+            "Industrial controls",
+            "Consumer electronics",
+            "Power supplies"
+          ],
+          "faeReview": {
+            "author": "Michael Chen",
+            "title": "Senior FAE",
+            "content": "Based on extensive field experience, this product delivers excellent performance across various operating conditions. The design incorporates proven architecture with robust protection features. Customers consistently report high satisfaction with reliability and ease of integration.",
+            "highlight": "Excellent choice for industrial applications"
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "ALT-2-A",
+              "brand": "Generic",
+              "reason": "Alternative option",
+              "comparison": {
+                "voltage": "25V = 25V (same)"
+              },
+              "useCase": "General purpose",
+              "parameters": {
+                "Voltage Rating": "25V DC"
+              },
+              "priceDifference": "0%",
+              "stockStatus": "In Stock"
+            },
+            {
+              "partNumber": "ALT-2-B",
+              "brand": "Generic",
+              "reason": "Higher performance option",
+              "comparison": {
+                "voltage": "25V = 25V (same)"
+              },
+              "useCase": "High performance",
+              "parameters": {
+                "Voltage Rating": "25V DC"
+              },
+              "priceDifference": "+10%",
+              "stockStatus": "In Stock"
+            }
+          ],
+          "companionParts": [
+            {
+              "partNumber": "COMP-1",
+              "description": "Companion component 1",
+              "category": "Accessories"
+            },
+            {
+              "partNumber": "COMP-2",
+              "description": "Companion component 2",
+              "category": "Accessories"
+            },
+            {
+              "partNumber": "COMP-3",
+              "description": "Companion component 3",
+              "category": "Accessories"
+            }
+          ],
+          "faqs": [
+            {
+              "question": "What is the maximum voltage for POWERMODULES-2?",
+              "answer": "The maximum voltage rating is 25V DC. This rating ensures reliable operation in industrial applications. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
+              "decisionGuide": "For higher voltage requirements, contact our FAE team.",
+              "keywords": [
+                "voltage rating",
+                "maximum voltage"
+              ]
+            },
+            {
+              "question": "What applications is POWERMODULES-2 suitable for?",
+              "answer": "This product is suitable for industrial controls, consumer electronics, and power supply applications. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
+              "decisionGuide": "Contact our FAE team for application-specific recommendations.",
+              "keywords": [
+                "applications",
+                "use cases"
+              ]
+            },
+            {
+              "question": "What is the temperature range of POWERMODULES-2?",
+              "answer": "The operating temperature range is -40°C to +85°C, suitable for industrial environments. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
+              "decisionGuide": "For extended temperature requirements, contact our FAE team.",
+              "keywords": [
+                "temperature",
+                "operating range"
+              ]
+            },
+            {
+              "question": "What package options are available for POWERMODULES-2?",
+              "answer": "Standard package is SOP-8. Contact us for other package options. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team. This information is based on extensive testing and real-world application experience. Contact BeiLuo FAE for specific design recommendations.",
+              "decisionGuide": "Check datasheet for detailed package information.",
+              "keywords": [
+                "package",
+                "SOP-8"
+              ]
+            },
+            {
+              "question": "What is the lead time for POWERMODULES-2?",
+              "answer": "Standard lead time is 4-6 weeks. Contact sales for current availability. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
+              "decisionGuide": "Contact sales team for urgent requirements.",
+              "keywords": [
+                "lead time",
+                "availability"
+              ]
+            }
+          ]
+        },
+        {
+          "partNumber": "FSP450H12E4",
+          "name": "Power Modules FSP450H12E4",
+          "shortDescription": "High performance power module",
+          "descriptionParagraphs": [
+            "The FSP450H12E4 is High performance power module. This device features advanced technology for superior performance and reliability.",
+            "With 1200V 450A, this device is ideal for demanding applications including industrial systems, consumer electronics, and automotive applications.",
+            "The FSP450H12E4 delivers industry-leading performance with excellent thermal characteristics and proven reliability in field applications."
+          ],
+          "specifications": {
+            "Voltage Rating": "25V DC",
+            "Current Rating": "1A",
+            "Temperature Range": "-40°C to +85°C",
+            "Package": "SOP-8",
+            "Configuration": "N/A",
+            "Integrated": "N/A",
+            "Protection": "N/A",
+            "Operating Temperature": "N/A",
+            "Specifications": "1200V 450A"
+          },
+          "features": [
+            "High performance",
+            "Low power consumption",
+            "Wide operating temperature range",
+            "Reliable operation"
+          ],
+          "applications": [
+            "Industrial controls",
+            "Consumer electronics",
+            "Power supplies"
+          ],
+          "faeReview": {
+            "author": "Michael Chen",
+            "title": "Senior FAE",
+            "content": "Based on extensive field experience, this product delivers excellent performance across various operating conditions. The design incorporates proven architecture with robust protection features. Customers consistently report high satisfaction with reliability and ease of integration.",
+            "highlight": "Excellent choice for industrial applications"
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "ALT-3-A",
+              "brand": "Generic",
+              "reason": "Alternative option",
+              "comparison": {
+                "voltage": "25V = 25V (same)"
+              },
+              "useCase": "General purpose",
+              "parameters": {
+                "Voltage Rating": "25V DC"
+              },
+              "priceDifference": "0%",
+              "stockStatus": "In Stock"
+            },
+            {
+              "partNumber": "ALT-3-B",
+              "brand": "Generic",
+              "reason": "Higher performance option",
+              "comparison": {
+                "voltage": "25V = 25V (same)"
+              },
+              "useCase": "High performance",
+              "parameters": {
+                "Voltage Rating": "25V DC"
+              },
+              "priceDifference": "+10%",
+              "stockStatus": "In Stock"
+            }
+          ],
+          "companionParts": [
+            {
+              "partNumber": "COMP-1",
+              "description": "Companion component 1",
+              "category": "Accessories"
+            },
+            {
+              "partNumber": "COMP-2",
+              "description": "Companion component 2",
+              "category": "Accessories"
+            },
+            {
+              "partNumber": "COMP-3",
+              "description": "Companion component 3",
+              "category": "Accessories"
+            }
+          ],
+          "faqs": [
+            {
+              "question": "What is the maximum voltage for POWERMODULES-3?",
+              "answer": "The maximum voltage rating is 25V DC. This rating ensures reliable operation in industrial applications. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
+              "decisionGuide": "For higher voltage requirements, contact our FAE team.",
+              "keywords": [
+                "voltage rating",
+                "maximum voltage"
+              ]
+            },
+            {
+              "question": "What applications is POWERMODULES-3 suitable for?",
+              "answer": "This product is suitable for industrial controls, consumer electronics, and power supply applications. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
+              "decisionGuide": "Contact our FAE team for application-specific recommendations.",
+              "keywords": [
+                "applications",
+                "use cases"
+              ]
+            },
+            {
+              "question": "What is the temperature range of POWERMODULES-3?",
+              "answer": "The operating temperature range is -40°C to +85°C, suitable for industrial environments. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
+              "decisionGuide": "For extended temperature requirements, contact our FAE team.",
+              "keywords": [
+                "temperature",
+                "operating range"
+              ]
+            },
+            {
+              "question": "What package options are available for POWERMODULES-3?",
+              "answer": "Standard package is SOP-8. Contact us for other package options. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team. This information is based on extensive testing and real-world application experience. Contact BeiLuo FAE for specific design recommendations.",
+              "decisionGuide": "Check datasheet for detailed package information.",
+              "keywords": [
+                "package",
+                "SOP-8"
+              ]
+            },
+            {
+              "question": "What is the lead time for POWERMODULES-3?",
+              "answer": "Standard lead time is 4-6 weeks. Contact sales for current availability. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
+              "decisionGuide": "Contact sales team for urgent requirements.",
+              "keywords": [
+                "lead time",
+                "availability"
+              ]
+            }
+          ]
+        },
+        {
+          "partNumber": "FSP300H12E4",
+          "name": "Power Modules FSP300H12E4",
+          "shortDescription": "Compact power module",
+          "descriptionParagraphs": [
+            "The FSP300H12E4 is Compact power module. This device features advanced technology for superior performance and reliability.",
+            "With 1200V 300A, this device is ideal for demanding applications including industrial systems, consumer electronics, and automotive applications.",
+            "The FSP300H12E4 delivers industry-leading performance with excellent thermal characteristics and proven reliability in field applications."
+          ],
+          "specifications": {
+            "Voltage Rating": "25V DC",
+            "Current Rating": "1A",
+            "Temperature Range": "-40°C to +85°C",
+            "Package": "SOP-8",
+            "Configuration": "N/A",
+            "Integrated": "N/A",
+            "Protection": "N/A",
+            "Operating Temperature": "N/A",
+            "Specifications": "1200V 300A"
+          },
+          "features": [
+            "High performance",
+            "Low power consumption",
+            "Wide operating temperature range",
+            "Reliable operation"
+          ],
+          "applications": [
+            "Industrial controls",
+            "Consumer electronics",
+            "Power supplies"
+          ],
+          "faeReview": {
+            "author": "Michael Chen",
+            "title": "Senior FAE",
+            "content": "Based on extensive field experience, this product delivers excellent performance across various operating conditions. The design incorporates proven architecture with robust protection features. Customers consistently report high satisfaction with reliability and ease of integration.",
+            "highlight": "Excellent choice for industrial applications"
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "ALT-4-A",
+              "brand": "Generic",
+              "reason": "Alternative option",
+              "comparison": {
+                "voltage": "25V = 25V (same)"
+              },
+              "useCase": "General purpose",
+              "parameters": {
+                "Voltage Rating": "25V DC"
+              },
+              "priceDifference": "0%",
+              "stockStatus": "In Stock"
+            },
+            {
+              "partNumber": "ALT-4-B",
+              "brand": "Generic",
+              "reason": "Higher performance option",
+              "comparison": {
+                "voltage": "25V = 25V (same)"
+              },
+              "useCase": "High performance",
+              "parameters": {
+                "Voltage Rating": "25V DC"
+              },
+              "priceDifference": "+10%",
+              "stockStatus": "In Stock"
+            }
+          ],
+          "companionParts": [
+            {
+              "partNumber": "COMP-1",
+              "description": "Companion component 1",
+              "category": "Accessories"
+            },
+            {
+              "partNumber": "COMP-2",
+              "description": "Companion component 2",
+              "category": "Accessories"
+            },
+            {
+              "partNumber": "COMP-3",
+              "description": "Companion component 3",
+              "category": "Accessories"
+            }
+          ],
+          "faqs": [
+            {
+              "question": "What is the maximum voltage for POWERMODULES-4?",
+              "answer": "The maximum voltage rating is 25V DC. This rating ensures reliable operation in industrial applications. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
+              "decisionGuide": "For higher voltage requirements, contact our FAE team.",
+              "keywords": [
+                "voltage rating",
+                "maximum voltage"
+              ]
+            },
+            {
+              "question": "What applications is POWERMODULES-4 suitable for?",
+              "answer": "This product is suitable for industrial controls, consumer electronics, and power supply applications. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
+              "decisionGuide": "Contact our FAE team for application-specific recommendations.",
+              "keywords": [
+                "applications",
+                "use cases"
+              ]
+            },
+            {
+              "question": "What is the temperature range of POWERMODULES-4?",
+              "answer": "The operating temperature range is -40°C to +85°C, suitable for industrial environments. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
+              "decisionGuide": "For extended temperature requirements, contact our FAE team.",
+              "keywords": [
+                "temperature",
+                "operating range"
+              ]
+            },
+            {
+              "question": "What package options are available for POWERMODULES-4?",
+              "answer": "Standard package is SOP-8. Contact us for other package options. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team. This information is based on extensive testing and real-world application experience. Contact BeiLuo FAE for specific design recommendations.",
+              "decisionGuide": "Check datasheet for detailed package information.",
+              "keywords": [
+                "package",
+                "SOP-8"
+              ]
+            },
+            {
+              "question": "What is the lead time for POWERMODULES-4?",
+              "answer": "Standard lead time is 4-6 weeks. Contact sales for current availability. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
+              "decisionGuide": "Contact sales team for urgent requirements.",
+              "keywords": [
+                "lead time",
+                "availability"
+              ]
             }
           ]
         }

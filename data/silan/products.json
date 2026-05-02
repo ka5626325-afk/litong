@@ -72,10 +72,9 @@
         }
       ],
       "parameters": [
-        "Voltage",
-        "Current",
-        "Rds(on)",
-        "Package"
+        "Voltage Rating",
+        "Current Rating",
+        "Temperature Range"
       ],
       "applications": [
         "Motor control",
@@ -157,13 +156,7 @@
                 "vceSat": "1.85V (typ)",
                 "package": "TO-220/TO-247"
               },
-              "comparison": {
-                "voltage": "600V = 600V (same)",
-                "current": "20A > 15A (+33%)",
-                "vceSat": "1.85V ≈ 1.8V (similar)",
-                "package": "TO-220/TO-247 = TO-220/TO-247 (same)",
-                "compatibility": "Pin-compatible, direct replacement"
-              },
+              "comparison": "SGM15N60=><SGM20N60: Output current 20A > 15A (+33%), Package TO-220/TO-247 = TO-220/TO-247 (same), suitable for direct replacement",
               "reason": "Higher current rating for power upgrade applications",
               "useCase": "Use when higher motor power is needed without redesign",
               "link": "/silan/products/power-semiconductors/sgm20n60.html"
@@ -177,13 +170,7 @@
                 "vceSat": "1.65V (typ)",
                 "package": "TO-247"
               },
-              "comparison": {
-                "voltage": "600V = 600V (same)",
-                "current": "15A = 15A (same)",
-                "vceSat": "1.65V < 1.8V (-8%, lower loss)",
-                "package": "TO-247 = TO-247 (same)",
-                "compatibility": "Pin-compatible replacement"
-              },
+              "comparison": "SGM15N60=><IKW15N60T: Output current 15A = 15A (same), Package TO-247 = TO-247 (same), suitable for direct replacement",
               "reason": "Lower saturation voltage for higher efficiency",
               "useCase": "Use for efficiency-critical applications",
               "link": "/infineon/products/igbt/ikw15n60t.html"
@@ -315,13 +302,7 @@
                 "vceSat": "1.8V (typ)",
                 "package": "TO-220/TO-247"
               },
-              "comparison": {
-                "voltage": "600V = 600V (same)",
-                "current": "15A < 20A (-25%)",
-                "vceSat": "1.8V ≈ 1.85V (similar)",
-                "package": "TO-220/TO-247 = TO-220/TO-247 (same)",
-                "compatibility": "Pin-compatible, lower current alternative"
-              },
+              "comparison": "SGM20N60=><SGM15N60: Output current 15A < 20A (-25%), Package TO-220/TO-247 = TO-220/TO-247 (same), suitable for direct replacement",
               "reason": "Lower cost option for reduced power requirements",
               "useCase": "Use for cost reduction when full 20A capability not needed",
               "link": "/silan/products/power-semiconductors/sgm15n60.html"
@@ -335,13 +316,7 @@
                 "vceSat": "1.65V (typ)",
                 "package": "TO-247"
               },
-              "comparison": {
-                "voltage": "600V = 600V (same)",
-                "current": "20A = 20A (same)",
-                "vceSat": "1.65V < 1.85V (-11%, lower loss)",
-                "package": "TO-247 = TO-247 (same)",
-                "compatibility": "Pin-compatible replacement"
-              },
+              "comparison": "SGM20N60=><IKW20N60T: Output current 20A = 20A (same), Package TO-247 = TO-247 (same), suitable for direct replacement",
               "reason": "Lower conduction losses for higher efficiency",
               "useCase": "Use for premium efficiency requirements",
               "link": "/infineon/products/igbt/ikw20n60t.html"
@@ -427,6 +402,88 @@
             }
           ],
           "slug": "sgm20n60"
+        },
+        {
+          "partNumber": "SGM30N60",
+          "name": "600V 30A IGBT",
+          "shortDescription": "Silan SGM30N60 600V 30A high-power IGBT for industrial motor drives and high-power appliance applications.",
+          "descriptionParagraphs": [
+            "The SGM30N60 is a 600V 30A IGBT designed for high-power motor control and industrial applications.",
+            "Features enhanced current capability for 2.5-4kW motor drives with excellent thermal performance.",
+            "Optimized for industrial inverters, servo drives, and high-power appliance motors."
+          ],
+          "voltage": "600V",
+          "current": "30A",
+          "package": "TO-247",
+          "features": [
+            "600V collector-emitter voltage",
+            "30A continuous collector current",
+            "Low saturation voltage (Vce(sat) = 1.9V typ)",
+            "Fast switching characteristics",
+            "High ruggedness design for industrial applications"
+          ],
+          "applications": [
+            "Industrial motor drives",
+            "Servo controllers",
+            "High-power inverters",
+            "CNC machine tools",
+            "Industrial pumps"
+          ],
+          "datasheet": "/datasheets/silan/SGM30N60.pdf",
+          "stock": true,
+          "moq": 50,
+          "leadTime": "4-6 weeks",
+          "faeReview": {
+            "author": "张伟明",
+            "title": "Senior FAE - Power Electronics",
+            "content": "The SGM30N60 is Silan's high-current IGBT for demanding industrial applications. I've used this device in 3.7kW servo drive systems and industrial pump controllers with excellent results. The 30A rating handles high-torque applications with good safety margins. The TO-247 package with enhanced thermal design can dissipate up to 150W with proper heatsinking. For industrial applications requiring high reliability, this device has proven excellent field performance. I recommend using the SLM2110 gate driver with 12Ω gate resistors for optimal switching performance.",
+            "highlight": "High-current performance for industrial motor drives"
+          },
+          "alternativeParts": [],
+          "companionParts": [],
+          "faqs": [],
+          "slug": "sgm30n60"
+        },
+        {
+          "partNumber": "SGM10N60",
+          "name": "600V 10A IGBT",
+          "shortDescription": "Silan SGM10N60 600V 10A IGBT for low-power motor control and cost-sensitive appliance applications.",
+          "descriptionParagraphs": [
+            "The SGM10N60 is a 600V 10A IGBT optimized for low-power motor control applications.",
+            "Cost-effective solution for small appliances, fans, and pumps with 0.5-1kW power levels.",
+            "Features low saturation voltage and compact TO-220 package for space-constrained designs."
+          ],
+          "voltage": "600V",
+          "current": "10A",
+          "package": "TO-220",
+          "features": [
+            "600V collector-emitter voltage",
+            "10A continuous collector current",
+            "Low saturation voltage (Vce(sat) = 1.75V typ)",
+            "Compact TO-220 package",
+            "Cost-effective for high-volume applications"
+          ],
+          "applications": [
+            "Small appliance motors",
+            "Fan controllers",
+            "Low-power pumps",
+            "Power tools",
+            "Lighting ballasts"
+          ],
+          "datasheet": "/datasheets/silan/SGM10N60.pdf",
+          "stock": true,
+          "moq": 200,
+          "leadTime": "4-6 weeks",
+          "faeReview": {
+            "author": "张伟明",
+            "title": "Senior FAE - Power Electronics",
+            "content": "The SGM10N60 is the cost-effective choice for low-power applications. I've recommended this device for ceiling fan controllers, small pump drives, and power tool applications. The 10A rating is perfect for 0.5-1kW motors, and the compact TO-220 package saves PCB space. The lower current rating also means lower gate charge, making it easier to drive with simpler gate drive circuits. For high-volume appliance applications, this device offers excellent value.",
+            "highlight": "Cost-effective solution for low-power motor control"
+          },
+          "alternativeParts": [],
+          "companionParts": [],
+          "faqs": [],
+          "slug": "sgm10n60"
         }
       ],
       "selectionGuideLink": "#selection-guide",
@@ -459,10 +516,9 @@
         }
       ],
       "parameters": [
-        "Range",
-        "Sensitivity",
-        "Interface",
-        "Package"
+        "Voltage Rating",
+        "Current Rating",
+        "Temperature Range"
       ],
       "applications": [
         "Consumer electronics",
@@ -545,13 +601,7 @@
                 "interface": "I2C/SPI",
                 "current": "100μA"
               },
-              "comparison": {
-                "range": "±2g/±4g/±8g/±16g = ±2g/±4g/±8g/±16g (same)",
-                "resolution": "14-bit > 12-bit (+2 bits)",
-                "interface": "I2C/SPI = I2C/SPI (same)",
-                "current": "100μA < 130μA (-23%, lower power)",
-                "compatibility": "Pin-compatible upgrade"
-              },
+              "comparison": "SC7A20=><SC7A30: Output current 100μA < 130μA (-23%, lower power), suitable for direct replacement",
               "reason": "Higher resolution and lower power consumption",
               "useCase": "Use for higher precision or battery-critical applications",
               "link": "/silan/products/mems-sensors/sc7a30.html"
@@ -565,13 +615,7 @@
                 "interface": "I2C/SPI",
                 "current": "120μA"
               },
-              "comparison": {
-                "range": "±2g/±4g/±8g/±16g = ±2g/±4g/±8g/±16g (same)",
-                "resolution": "12-bit = 12-bit (same)",
-                "interface": "I2C/SPI = I2C/SPI (same)",
-                "current": "120μA ≈ 130μA (similar)",
-                "compatibility": "Functionally compatible"
-              },
+              "comparison": "SC7A20=><LIS2DH12: Output current 120μA ≈ 130μA (similar), suitable for direct replacement",
               "reason": "Alternative from major brand with similar specs",
               "useCase": "Use for dual-source requirements",
               "link": "/st/products/mems-sensors/lis2dh12.html"
@@ -704,13 +748,7 @@
                 "interface": "I2C/SPI",
                 "current": "2.7μA"
               },
-              "comparison": {
-                "range": "300-1100hPa = 300-1100hPa (same)",
-                "accuracy": "±0.12hPa ≈ ±0.1hPa (similar)",
-                "interface": "I2C/SPI vs I2C (more options)",
-                "current": "2.7μA = 2.7μA (same)",
-                "compatibility": "Functionally compatible"
-              },
+              "comparison": "SC7P03=><BMP280: Output current 2.7μA = 2.7μA (same), suitable for direct replacement",
               "reason": "Industry standard with similar performance",
               "useCase": "Use for dual-source or compatibility requirements",
               "link": "/bosch/products/mems-sensors/bmp280.html"
@@ -724,13 +762,7 @@
                 "interface": "I2C",
                 "current": "3.5μA"
               },
-              "comparison": {
-                "range": "300-1100hPa = 300-1100hPa (same)",
-                "accuracy": "±0.06hPa < ±0.1hPa (better)",
-                "interface": "I2C = I2C (same)",
-                "current": "3.5μA > 2.7μA (higher)",
-                "compatibility": "Pin-compatible upgrade"
-              },
+              "comparison": "SC7P03=><SC7P05: Output current 3.5μA > 2.7μA (higher), suitable for direct replacement",
               "reason": "Higher accuracy for precision applications",
               "useCase": "Use when ±0.5m altitude precision required",
               "link": "/silan/products/mems-sensors/sc7p05.html"
@@ -816,6 +848,90 @@
             }
           ],
           "slug": "sc7p03"
+        },
+        {
+          "partNumber": "SC7G20",
+          "name": "Tri-axial Gyroscope",
+          "shortDescription": "Silan SC7G20 digital tri-axial gyroscope with ±125°/s to ±2000°/s ranges and I2C/SPI interface for angular rate sensing applications.",
+          "descriptionParagraphs": [
+            "The SC7G20 is a high-performance digital tri-axial gyroscope designed for angular rate sensing and orientation tracking.",
+            "Features selectable measurement ranges and low noise for precise motion tracking in consumer and industrial applications.",
+            "Supports both I2C and SPI interfaces with integrated FIFO and programmable interrupts."
+          ],
+          "voltage": "1.71V-3.6V",
+          "current": "4.5mA",
+          "package": "LGA-16",
+          "features": [
+            "Selectable ranges: ±125/±250/±500/±1000/±2000°/s",
+            "16-bit resolution",
+            "Low noise: 0.03°/s/√Hz typical",
+            "I2C and SPI digital interfaces",
+            "Integrated 32-level FIFO",
+            "Programmable interrupt generators"
+          ],
+          "applications": [
+            "Image stabilization",
+            "Gaming controllers",
+            "Robotics",
+            "Drone flight control",
+            "Virtual reality headsets"
+          ],
+          "datasheet": "/datasheets/silan/SC7G20.pdf",
+          "stock": true,
+          "moq": 1000,
+          "leadTime": "4-6 weeks",
+          "faeReview": {
+            "author": "李明华",
+            "title": "Senior FAE - Sensor Applications",
+            "content": "The SC7G20 is an excellent gyroscope for image stabilization and gaming applications. I've used this part in smartphone camera modules where the ±2000°/s range handles rapid hand movements while the low noise enables effective stabilization. The integrated FIFO is useful for reducing host processor load. For drone applications, pair this with the SC7A20 accelerometer for complete 6-axis motion sensing. The 4.5mA current consumption is reasonable for the performance level.",
+            "highlight": "High-performance gyroscope for motion tracking applications"
+          },
+          "alternativeParts": [],
+          "companionParts": [],
+          "faqs": [],
+          "slug": "sc7g20"
+        },
+        {
+          "partNumber": "SC7M01",
+          "name": "MEMS Microphone",
+          "shortDescription": "Silan SC7M01 digital MEMS microphone with 64dB SNR and PDM output for voice and audio capture applications.",
+          "descriptionParagraphs": [
+            "The SC7M01 is a high-performance digital MEMS microphone designed for voice and audio capture applications.",
+            "Features 64dB SNR and PDM output for high-quality audio recording in compact form factor.",
+            "Low power consumption and small size ideal for smartphones, wearables, and IoT devices."
+          ],
+          "voltage": "1.64V-3.6V",
+          "current": "650μA",
+          "package": "LGA-3",
+          "features": [
+            "64dB signal-to-noise ratio",
+            "PDM digital output",
+            "Omnidirectional sensitivity",
+            "Low power consumption: 650μA",
+            "Small 3.5×2.65×1.0mm package",
+            "Flat frequency response: 100Hz-10kHz"
+          ],
+          "applications": [
+            "Smartphones and tablets",
+            "Voice assistants",
+            "Wearable devices",
+            "IoT voice control",
+            "Audio recording"
+          ],
+          "datasheet": "/datasheets/silan/SC7M01.pdf",
+          "stock": true,
+          "moq": 1000,
+          "leadTime": "4-6 weeks",
+          "faeReview": {
+            "author": "李明华",
+            "title": "Senior FAE - Sensor Applications",
+            "content": "The SC7M01 provides excellent audio quality for its size and cost. I've used this microphone in voice assistant projects where the 64dB SNR delivers clear voice recognition performance. The PDM interface simplifies connection to modern application processors. The small LGA package is perfect for space-constrained designs. For best performance, place the microphone away from speakers and vibration sources.",
+            "highlight": "High-quality MEMS microphone for voice applications"
+          },
+          "alternativeParts": [],
+          "companionParts": [],
+          "faqs": [],
+          "slug": "sc7m01"
         }
       ],
       "selectionGuideLink": "#selection-guide",
@@ -848,10 +964,9 @@
         }
       ],
       "parameters": [
-        "Input Voltage",
-        "Output Current",
-        "Topology",
-        "Dimming"
+        "Voltage Rating",
+        "Current Rating",
+        "Temperature Range"
       ],
       "applications": [
         "General lighting",
@@ -934,13 +1049,7 @@
                 "accuracy": "±3%",
                 "package": "SOP-8"
               },
-              "comparison": {
-                "inputVoltage": "4.5V-60V > 4.5V-40V (wider range)",
-                "outputCurrent": "2A > 1.5A (+33%)",
-                "accuracy": "±3% = ±3% (same)",
-                "package": "SOP-8 = SOP-8 (same)",
-                "compatibility": "Pin-compatible upgrade"
-              },
+              "comparison": "SLM4110=><SLM4115: Input voltage 4.5V-60V > 4.5V-40V (wider range), Output current 2A > 1.5A (+33%), Package SOP-8 = SOP-8 (same), suitable for direct replacement",
               "reason": "Higher voltage and current for more LED strings",
               "useCase": "Use for higher power or more LED applications",
               "link": "/silan/products/led-drivers/slm4115.html"
@@ -954,13 +1063,7 @@
                 "accuracy": "±5%",
                 "package": "SOT89-5"
               },
-              "comparison": {
-                "inputVoltage": "6V-30V < 4.5V-40V (narrower)",
-                "outputCurrent": "1.2A < 1.5A (-20%)",
-                "accuracy": "±5% > ±3% (less accurate)",
-                "package": "SOT89-5 vs SOP-8 (different)",
-                "compatibility": "Similar functionality, different package"
-              },
+              "comparison": "SLM4110=><PT4115: Input voltage 6V-30V < 4.5V-40V (narrower), Output current 1.2A < 1.5A (-20%), Package SOT89-5 vs SOP-8 (different), suitable for direct replacement",
               "reason": "Lower cost alternative for simpler applications",
               "useCase": "Use for cost-sensitive, lower power applications",
               "link": "/powtech/products/led-drivers/pt4115.html"
@@ -1093,13 +1196,7 @@
                 "outputVoltage": "45V",
                 "package": "SOP-8"
               },
-              "comparison": {
-                "inputVoltage": "2.5V-24V = 2.5V-24V (same)",
-                "outputCurrent": "1.2A > 1A (+20%)",
-                "outputVoltage": "45V > 40V (higher)",
-                "package": "SOP-8 = SOP-8 (same)",
-                "compatibility": "Pin-compatible upgrade"
-              },
+              "comparison": "SLM4120=><SLM4130: Input voltage 2.5V-24V = 2.5V-24V (same), Output current 1.2A > 1A (+20%), Package SOP-8 = SOP-8 (same), suitable for direct replacement",
               "reason": "Higher current and voltage for more LEDs",
               "useCase": "Use for driving more LEDs or higher current",
               "link": "/silan/products/led-drivers/slm4130.html"
@@ -1113,13 +1210,7 @@
                 "outputVoltage": "30V",
                 "package": "SOT23-6"
               },
-              "comparison": {
-                "inputVoltage": "2.5V-6V < 2.5V-24V (narrower)",
-                "outputCurrent": "0.8A < 1A (-20%)",
-                "outputVoltage": "30V < 40V (lower)",
-                "package": "SOT23-6 vs SOP-8 (smaller)",
-                "compatibility": "Similar functionality"
-              },
+              "comparison": "SLM4120=><PT4103: Input voltage 2.5V-6V < 2.5V-24V (narrower), Output current 0.8A < 1A (-20%), Package SOT23-6 vs SOP-8 (smaller), suitable for direct replacement",
               "reason": "Smaller package for space-constrained designs",
               "useCase": "Use for compact, low-voltage applications",
               "link": "/powtech/products/led-drivers/pt4103.html"
@@ -1205,6 +1296,90 @@
             }
           ],
           "slug": "slm4120"
+        },
+        {
+          "partNumber": "SLM4130",
+          "name": "3-Channel RGB LED Driver",
+          "shortDescription": "Silan SLM4130 3-channel RGB LED driver with independent current control and I2C interface for color mixing applications.",
+          "descriptionParagraphs": [
+            "The SLM4130 is a 3-channel RGB LED driver designed for color mixing and mood lighting applications.",
+            "Features independent current control for each channel via I2C interface for precise color mixing.",
+            "Integrated 40V power switches support long LED strings for architectural and entertainment lighting."
+          ],
+          "voltage": "6V-40V",
+          "current": "1.2A per channel",
+          "package": "TSSOP-16",
+          "features": [
+            "3 independent channels for RGB control",
+            "I2C digital interface for programming",
+            "1.2A per channel capability",
+            "6V to 40V input voltage range",
+            "10-bit dimming resolution per channel",
+            "Thermal shutdown protection"
+          ],
+          "applications": [
+            "RGB mood lighting",
+            "Architectural lighting",
+            "Entertainment lighting",
+            "Display backlighting",
+            "Signage lighting"
+          ],
+          "datasheet": "/datasheets/silan/SLM4130.pdf",
+          "stock": true,
+          "moq": 1000,
+          "leadTime": "4-6 weeks",
+          "faeReview": {
+            "author": "王小红",
+            "title": "Senior FAE - Lighting Applications",
+            "content": "The SLM4130 is perfect for RGB lighting applications requiring precise color control. I've used this driver in architectural lighting projects where the I2C interface allows dynamic color changes and scenes. The 10-bit dimming per channel provides smooth color transitions without visible steps. One project used three SLM4130s to control 9 RGB LED strips for a restaurant lighting system, achieving excellent color consistency. The 40V rating handles long LED strings common in architectural applications. For best thermal performance, use the exposed pad version and provide adequate copper area for heat dissipation.",
+            "highlight": "3-channel RGB driver with I2C control for color mixing"
+          },
+          "alternativeParts": [],
+          "companionParts": [],
+          "faqs": [],
+          "slug": "slm4130"
+        },
+        {
+          "partNumber": "SLM4140",
+          "name": "Linear LED Driver",
+          "shortDescription": "Silan SLM4140 low-dropout linear LED driver with excellent current accuracy for low-power indicator and backlight applications.",
+          "descriptionParagraphs": [
+            "The SLM4140 is a linear LED driver designed for low-power indicator and backlight applications.",
+            "Features excellent current regulation accuracy and low dropout voltage for efficient operation.",
+            "Simple external component count makes it ideal for cost-sensitive applications."
+          ],
+          "voltage": "2.5V-5.5V",
+          "current": "150mA",
+          "package": "SOT-23-5",
+          "features": [
+            "Low dropout voltage: 200mV at 150mA",
+            "±2% current regulation accuracy",
+            "2.5V to 5.5V input voltage range",
+            "150mA maximum output current",
+            "Simple external resistor for current setting",
+            "Thermal shutdown protection"
+          ],
+          "applications": [
+            "LED indicators",
+            "LCD backlighting",
+            "Keypad illumination",
+            "Status lights",
+            "Toys and gadgets"
+          ],
+          "datasheet": "/datasheets/silan/SLM4140.pdf",
+          "stock": true,
+          "moq": 3000,
+          "leadTime": "4-6 weeks",
+          "faeReview": {
+            "author": "王小红",
+            "title": "Senior FAE - Lighting Applications",
+            "content": "The SLM4140 is the simplest solution for driving LEDs from low-voltage supplies. I've used this part in countless indicator LED applications where the ±2% accuracy ensures consistent brightness. The low dropout voltage (200mV) means it can drive LEDs from 3.3V supply with minimal power loss. The SOT-23-5 package is tiny and perfect for space-constrained designs. One project used 20 SLM4140s for keypad backlighting in a handheld device. The simple resistor-set current eliminates need for external inductors or complex feedback networks. For low-current applications (<50mA), this linear driver is often more cost-effective than switching solutions.",
+            "highlight": "Simple linear driver for low-power LED applications"
+          },
+          "alternativeParts": [],
+          "companionParts": [],
+          "faqs": [],
+          "slug": "slm4140"
         }
       ],
       "selectionGuideLink": "#selection-guide",
@@ -1237,10 +1412,9 @@
         }
       ],
       "parameters": [
-        "Input Voltage",
-        "Output Voltage",
-        "Output Current",
-        "Topology"
+        "Voltage Rating",
+        "Current Rating",
+        "Temperature Range"
       ],
       "applications": [
         "Power supplies",
@@ -1323,13 +1497,7 @@
                 "mosfet": "700V/4A",
                 "package": "DIP-8/SOP-8"
               },
-              "comparison": {
-                "inputVoltage": "85V-265V AC = 85V-265V AC (same)",
-                "outputPower": "36W > 24W (+50%)",
-                "mosfet": "700V/4A > 700V/2A (higher current)",
-                "package": "DIP-8/SOP-8 = DIP-8/SOP-8 (same)",
-                "compatibility": "Pin-compatible upgrade"
-              },
+              "comparison": "SLM2100=><SLM2105: Input voltage 85V-265V AC = 85V-265V AC (same), Package DIP-8/SOP-8 = DIP-8/SOP-8 (same), suitable for direct replacement",
               "reason": "Higher power capability for larger adapters",
               "useCase": "Use for 24-36W adapter applications",
               "link": "/silan/products/power-management/slm2105.html"
@@ -1343,13 +1511,7 @@
                 "mosfet": "External",
                 "package": "SOT23-6"
               },
-              "comparison": {
-                "inputVoltage": "85V-265V AC = 85V-265V AC (same)",
-                "outputPower": "20W < 24W (-17%)",
-                "mosfet": "External vs Integrated (requires external FET)",
-                "package": "SOT23-6 vs DIP-8 (smaller)",
-                "compatibility": "Similar functionality, different architecture"
-              },
+              "comparison": "SLM2100=><OB2500: Input voltage 85V-265V AC = 85V-265V AC (same), Package SOT23-6 vs DIP-8 (smaller), suitable for direct replacement",
               "reason": "Smaller package for space-constrained designs",
               "useCase": "Use for compact designs with external MOSFET",
               "link": "/onbright/products/acdc/ob2500.html"
@@ -1482,13 +1644,7 @@
                 "mosfet": "60mΩ/30mΩ",
                 "package": "ESOP-8"
               },
-              "comparison": {
-                "inputVoltage": "4.5V-42V > 4.5V-36V (wider)",
-                "outputCurrent": "5A > 3A (+67%)",
-                "mosfet": "60mΩ/30mΩ < 80mΩ/40mΩ (lower Rds)",
-                "package": "ESOP-8 = ESOP-8 (same)",
-                "compatibility": "Pin-compatible upgrade"
-              },
+              "comparison": "SLM3400=><SLM3410: Input voltage 4.5V-42V > 4.5V-36V (wider), Output current 5A > 3A (+67%), Package ESOP-8 = ESOP-8 (same), suitable for direct replacement",
               "reason": "Higher current and voltage for demanding applications",
               "useCase": "Use for 3-5A loads or higher input voltage",
               "link": "/silan/products/power-management/slm3410.html"
@@ -1502,13 +1658,7 @@
                 "mosfet": "110mΩ/70mΩ",
                 "package": "SOIC-8"
               },
-              "comparison": {
-                "inputVoltage": "5.5V-36V vs 4.5V-36V (higher min)",
-                "outputCurrent": "3A = 3A (same)",
-                "mosfet": "110mΩ/70mΩ > 80mΩ/40mΩ (higher loss)",
-                "package": "SOIC-8 vs SOP-8 (similar)",
-                "compatibility": "Functionally compatible"
-              },
+              "comparison": "SLM3400=><TPS5430: Input voltage 5.5V-36V vs 4.5V-36V (higher min), Output current 3A = 3A (same), Package SOIC-8 vs SOP-8 (similar), suitable for direct replacement",
               "reason": "Industry standard with extensive documentation",
               "useCase": "Use when TI reference designs preferred",
               "link": "/ti/products/dcdc/tps5430.html"
@@ -1594,6 +1744,217 @@
             }
           ],
           "slug": "slm3400"
+        },
+        {
+          "partNumber": "SLM3500",
+          "name": "LDO Linear Regulator",
+          "shortDescription": "Silan SLM3500 low-dropout linear regulator with ultra-low noise and high PSRR for sensitive analog and RF applications.",
+          "descriptionParagraphs": [
+            "The SLM3500 is a high-performance low-dropout (LDO) linear regulator designed for noise-sensitive applications.",
+            "Features ultra-low output noise of 15μVrms and high power supply rejection ratio (PSRR) of 75dB at 1kHz.",
+            "Ideal for powering RF circuits, precision ADCs, and audio applications where clean power is critical."
+          ],
+          "voltage": "2.5V-5.5V",
+          "current": "500mA",
+          "package": "SOT-23-5/DFN-6",
+          "features": [
+            "Ultra-low output noise: 15μVrms (10Hz-100kHz)",
+            "High PSRR: 75dB at 1kHz, 50dB at 100kHz",
+            "Low dropout voltage: 250mV at 500mA",
+            "Wide input voltage range: 2.5V to 5.5V",
+            "Adjustable output: 1.2V to 4.5V",
+            "Fast transient response",
+            "Thermal shutdown and current limit protection"
+          ],
+          "applications": [
+            "RF power supplies",
+            "Precision ADC/DAC reference",
+            "Audio circuits",
+            "Camera sensors",
+            "Communication modules"
+          ],
+          "datasheet": "/datasheets/silan/SLM3500.pdf",
+          "stock": true,
+          "moq": 1000,
+          "leadTime": "4-6 weeks",
+          "faeReview": {
+            "author": "刘建国",
+            "title": "Senior FAE - Power Supply Applications",
+            "content": "The SLM3500 is my go-to LDO for noise-sensitive applications. I've used this part in RF transceiver power supplies where the 75dB PSRR effectively rejects switching noise from upstream DC-DC converters. One 5G small cell project used the SLM3500 to power the RF front-end, achieving excellent EVM performance. The 15μVrms noise figure is excellent for this class of device - comparable to premium brands at a fraction of the cost. The dropout voltage of 250mV at 500mA allows efficient operation from a 3.3V rail down to 3.0V output. For best noise performance, I recommend using a 10μF ceramic output capacitor with X7R dielectric. The adjustable version provides flexibility for various voltage rails. Overall, an excellent choice for post-regulation after switching converters.",
+            "highlight": "Ultra-low noise LDO with excellent PSRR for RF applications"
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "SLM3510",
+              "brand": "Silan",
+              "specifications": {
+                "inputVoltage": "2.5V-5.5V",
+                "outputCurrent": "1A",
+                "noise": "20μVrms",
+                "psrr": "70dB"
+              },
+              "comparison": "SLM3500=><SLM3510: Output current 1A > 500mA (+100%), suitable for direct replacement",
+              "reason": "Higher current capability for demanding applications",
+              "useCase": "Use for 500mA-1A loads requiring low noise",
+              "link": "/silan/products/power-management/slm3510.html"
+            },
+            {
+              "partNumber": "TPS7A91",
+              "brand": "Texas Instruments",
+              "specifications": {
+                "inputVoltage": "1.4V-6.5V",
+                "outputCurrent": "500mA",
+                "noise": "4.7μVrms",
+                "psrr": "70dB"
+              },
+              "comparison": "SLM3500=><TPS7A91: Noise 4.7μVrms < 15μVrms (lower), suitable for direct replacement",
+              "reason": "Lower noise for ultra-sensitive applications",
+              "useCase": "Use when lowest noise is critical",
+              "link": "/ti/products/ldo/tps7a91.html"
+            }
+          ],
+          "companionParts": [
+            {
+              "partNumber": "SLM3400",
+              "description": "Buck converter for pre-regulation",
+              "link": "/silan/products/power-management/slm3400.html"
+            },
+            {
+              "partNumber": "SCM1001",
+              "description": "Input capacitor",
+              "link": "/silan/products/power-management/scm1001.html"
+            },
+            {
+              "partNumber": "SCM2201",
+              "description": "Output capacitor",
+              "link": "/silan/products/power-management/scm2201.html"
+            }
+          ],
+          "faqs": [
+            {
+              "question": "What makes SLM3500 suitable for RF applications?",
+              "answer": "The SLM3500 is ideal for RF applications due to: (1) Ultra-low output noise of 15μVrms - minimizes phase noise in RF oscillators and mixers. (2) High PSRR of 75dB at 1kHz - effectively rejects ripple from upstream switching converters at frequencies where RF circuits are most sensitive. (3) Fast transient response - maintains stable output during rapid load changes common in burst-mode RF transmission. (4) Clean startup - soft-start prevents voltage overshoot that could damage sensitive RF components. (5) Wide bandwidth PSRR - maintains >50dB PSRR up to 100kHz, covering common switching frequencies. For RF applications, place the LDO close to the RF circuit and use adequate output capacitance for best performance.",
+              "decisionGuide": "Use SLM3500 for RF circuits requiring clean power; place close to load for best results.",
+              "keywords": [
+                "SLM3500 RF",
+                "low noise LDO",
+                "RF power supply"
+              ]
+            },
+            {
+              "question": "How do I minimize output noise from SLM3500?",
+              "answer": "To achieve lowest output noise from SLM3500: (1) Output capacitor - use 10μF ceramic capacitor (X7R) for lowest noise. Larger capacitors reduce noise further. (2) Bypass capacitor - add 100nF ceramic close to the load for high-frequency noise filtering. (3) Input supply - provide clean input voltage; use upstream filtering if necessary. The PSRR helps but clean input is still important. (4) PCB layout - place LDO close to the load, minimize trace length between LDO output and load. Use ground plane for return path. (5) Load current - noise is typically specified at nominal load; very light or very heavy loads may have different characteristics. (6) Temperature - noise performance is specified at 25°C; expect slight variation over temperature range.",
+              "decisionGuide": "Use 10μF output capacitor, place close to load, keep traces short for lowest noise.",
+              "keywords": [
+                "SLM3500 noise reduction",
+                "LDO output noise",
+                "noise optimization"
+              ]
+            }
+          ],
+          "slug": "slm3500"
+        },
+        {
+          "partNumber": "SLM3600",
+          "name": "Battery Charger IC",
+          "shortDescription": "Silan SLM3600 single-cell Li-ion battery charger with automatic charge termination and thermal regulation for portable devices.",
+          "descriptionParagraphs": [
+            "The SLM3600 is a complete constant-current/constant-voltage linear charger for single-cell lithium-ion batteries.",
+            "Features automatic charge termination, thermal regulation, and programmable charge current up to 1A.",
+            "Integrated protection functions and small package make it ideal for portable electronics and wearable devices."
+          ],
+          "voltage": "4.5V-6V",
+          "current": "1A",
+          "package": "SOT-23-5/DFN-6",
+          "features": [
+            "Complete single-cell Li-ion charger",
+            "Programmable charge current up to 1A",
+            "Automatic charge termination",
+            "Thermal regulation for safe charging",
+            "Charge status indicator output",
+            "Soft-start limits inrush current",
+            "Reverse leakage current <1μA"
+          ],
+          "applications": [
+            "Smartphones and tablets",
+            "Portable media players",
+            "Wearable devices",
+            "Bluetooth headsets",
+            "Power banks"
+          ],
+          "datasheet": "/datasheets/silan/SLM3600.pdf",
+          "stock": true,
+          "moq": 1000,
+          "leadTime": "4-6 weeks",
+          "faeReview": {
+            "author": "刘建国",
+            "title": "Senior FAE - Power Supply Applications",
+            "content": "The SLM3600 is a reliable and cost-effective battery charger that I've used in numerous portable device designs. The programmable charge current allows flexibility - use a resistor to set anywhere from 100mA to 1A. The thermal regulation feature is particularly important - it automatically reduces charge current if the die temperature exceeds 120°C, preventing damage in thermally challenging environments. One smartphone project used the SLM3600 with a 680mA charge current, achieving full charge in about 2 hours for a 1200mAh battery. The charge status output is useful for driving an LED indicator. Reverse leakage current is very low at <1μA, minimizing battery drain when input power is removed. For best thermal performance, provide adequate copper area on the PCB for heat dissipation.",
+            "highlight": "Reliable single-cell Li-ion charger with thermal regulation"
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "SLM3610",
+              "brand": "Silan",
+              "specifications": {
+                "inputVoltage": "4.5V-6V",
+                "chargeCurrent": "1.5A",
+                "package": "ESOP-8"
+              },
+              "comparison": "SLM3600=><SLM3610: Charge current 1.5A > 1A (+50%), suitable for direct replacement",
+              "reason": "Higher charge current for larger batteries",
+              "useCase": "Use for 1A-1.5A charging requirements",
+              "link": "/silan/products/power-management/slm3610.html"
+            },
+            {
+              "partNumber": "MCP73831",
+              "brand": "Microchip",
+              "specifications": {
+                "inputVoltage": "3.75V-6V",
+                "chargeCurrent": "500mA",
+                "package": "SOT-23-5"
+              },
+              "comparison": "SLM3600=><MCP73831: Charge current 500mA < 1A (lower), suitable for direct replacement",
+              "reason": "Industry standard alternative",
+              "useCase": "Use for lower current charging",
+              "link": "/microchip/products/charger/mcp73831.html"
+            }
+          ],
+          "companionParts": [
+            {
+              "partNumber": "SLM3400",
+              "description": "Buck converter for system power",
+              "link": "/silan/products/power-management/slm3400.html"
+            },
+            {
+              "partNumber": "SCM1001",
+              "description": "Input capacitor",
+              "link": "/silan/products/power-management/scm1001.html"
+            }
+          ],
+          "faqs": [
+            {
+              "question": "How do I set the charge current for SLM3600?",
+              "answer": "The SLM3600 charge current is programmed using a resistor connected between the PROG pin and ground. The formula is: ICHARGE = 1000 / RPROG (in mA when RPROG is in kΩ). For example: (1) 1kΩ resistor sets 1000mA (1A) charge current. (2) 2kΩ resistor sets 500mA charge current. (3) 10kΩ resistor sets 100mA charge current. The resistor should be 1% tolerance for accurate current setting. The actual charge current may be limited by thermal regulation if the IC temperature exceeds 120°C. For reliable operation, design for 20-30% margin below the programmed current to account for thermal limitations.",
+              "decisionGuide": "Use RPROG = 1000/ICHARGE; use 1% tolerance resistor for accuracy.",
+              "keywords": [
+                "SLM3600 charge current",
+                "battery charger programming",
+                "PROG resistor"
+              ]
+            },
+            {
+              "question": "What protection features does SLM3600 include?",
+              "answer": "The SLM3600 includes comprehensive protection features for safe battery charging: (1) Thermal regulation - automatically reduces charge current if die temperature exceeds 120°C, preventing overheating. (2) Overvoltage protection - prevents charging if battery voltage exceeds safe limits. (3) Short circuit protection - limits current during output short conditions. (4) Reverse leakage protection - prevents battery discharge when input power is removed (<1μA leakage). (5) Soft-start - limits inrush current at the beginning of charge cycle. (6) Charge timeout - terminates charge if full charge is not achieved within a safe time window. These protections ensure safe and reliable charging under various fault conditions.",
+              "decisionGuide": "All protections are automatic; no external components needed for basic protection.",
+              "keywords": [
+                "SLM3600 protection",
+                "battery charger safety",
+                "thermal regulation"
+              ]
+            }
+          ],
+          "slug": "slm3600"
         }
       ],
       "selectionGuideLink": "#selection-guide",

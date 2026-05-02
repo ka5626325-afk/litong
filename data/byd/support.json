@@ -1,343 +1,806 @@
 {
   "articles": [
     {
-      "id": "support-1",
-      "title": "IGBT Selection ApplicationGuide",
-      "summary": "BYD IGBTPower Selection , ApplicationScenario Note",
+      "id": "how-to-select-byd-igbt",
+      "title": "BYD IGBT Power Module Selection Guide",
+      "summary": "Detailed introduction to BYD IGBT power module selection methods, including voltage ratings, current capacity, package type selection, and recommended models for different application scenarios.",
       "author": {
-        "name": "Technical Team",
-        "title": "FAE"
+        "name": "Michael Zhang",
+        "title": "Senior FAE - Power Electronics"
       },
       "publishDate": "2024-03-15",
-      "category": "ApplicationGuide",
+      "category": "Selection Guide",
       "tags": [
         "IGBT",
-        "Power",
-        "SelectionGuide"
+        "Power Module",
+        "Selection Guide",
+        "Motor Drive",
+        "Solar Inverter"
       ],
       "contentSections": [
         {
-          "heading": "IGBTSelection",
-          "content": "IGBT Voltage , Current ,  Frequency, Package . BYD 600V 1700V Voltage Product , CurrentScope 10A 800A."
+          "heading": "BYD IGBT Product Series Overview",
+          "content": "BYD Semiconductor offers a comprehensive IGBT power module product line, with voltage ratings covering 650V-1200V and current ratings from 75A to 450A. Main product series include: (1) 650V series: Suitable for 400V industrial drives and appliance applications. (2) 750V series: Specifically designed for 400V new energy vehicle electric drive systems. (3) 1200V series: Suitable for 800V EV platforms and high-voltage industrial applications. All products adopt advanced trench gate field-stop technology, featuring low conduction loss, low switching loss, and high reliability."
         },
         {
-          "heading": "关键参数解读",
-          "content": "Vces - Voltage,  ; Eon Eoff Energy ; Tj(max) Junction Temperature,  Design ."
+          "heading": "Voltage Rating Selection Principles",
+          "content": "IGBT module voltage rating selection should follow these principles: (1) DC bus voltage 1.5-2x as minimum voltage margin. (2) 400V EV systems: Recommend 750V IGBT (such as BG300F08A13L5). (3) 800V EV systems: Recommend 1200V IGBT (such as BG150G12F13L4). (4) Industrial 380V grid: Recommend 650V or 750V modules. (5) Consider grid fluctuations and transient overvoltage, maintain sufficient margin. Excessive voltage rating increases conduction loss, while insufficient rating poses breakdown risk."
         },
         {
-          "heading": "ApplicationScenario",
-          "content": "BYD IGBT Application ,  , UPS ,  .  Application IGBT FeatureRequirement Yes ."
+          "heading": "Current Capacity Calculation Method",
+          "content": "IGBT current capacity calculation steps: (1) Calculate motor or load rated current Irms. (2) Consider overload factor (typically 1.5-2x peak). (3) Consider switching frequency impact on thermal performance. (4) Calculate total loss (conduction loss + switching loss). (5) Calculate junction temperature based on thermal resistance, ensure Tj<150°C. (6) Maintain 20-30% margin when selecting current rating. Example: 100kW/400V motor drive, Irms≈180A, peak 270A, recommend 300A module (BG300F08A13L5)."
+        },
+        {
+          "heading": "Package Type and Application Matching",
+          "content": "BYD IGBT modules offer various package options: (1) 34mm package: Compact design for low-medium power applications (<200A). (2) 62mm package: Industry standard for medium-high power applications (200-400A). (3) I-Type package: Specifically for three-level topology, suitable for solar inverters. (4) EasyPACK: Press-fit pins for automated assembly. Package selection considerations: power level, cooling conditions, mechanical mounting, cost budget."
+        },
+        {
+          "heading": "Typical Application Scenario Recommendations",
+          "content": "Recommended models for different application scenarios: (1) NEV main drive (75-150kW): BG300F08A13L5 (750V/300A). (2) NEV main drive (150-200kW): BG400F08A13L5 (750V/400A). (3) 800V EV electric drive: BG150G12F13L4 (1200V/150A). (4) Solar inverter (10-50kW): BG300F08A13L5 or BG200I07N10H6 (three-level). (5) Industrial VFD (<100kW): BG300F08A13L5. Contact FAE for detailed selection support."
         }
       ],
       "faqs": [
         {
-          "question": "Application IGBTVoltage ?",
-          "answer": "IGBT Voltage DC Voltage 2-2.5 .  400VDC Recommended 1200V IGBT, 800V Recommended 1700V IGBT.  Transient Yes Voltage ."
+          "question": "What voltage rating IGBT should be selected for 400V and 800V EV systems?",
+          "answer": "For 400V EV systems, we recommend 750V IGBT modules such as BG300F08A13L5 or BG400F08A13L5, providing sufficient voltage margin to handle transient overvoltage. For 800V EV systems, we recommend 1200V IGBT modules such as BG150G12F13L4, meeting 800V DC bus voltage requirements with safety margin.",
+          "decisionGuide": "Contact FAE with your system voltage and power level for precise selection recommendations.",
+          "keywords": [
+            "400V EV",
+            "800V EV",
+            "IGBT selection",
+            "voltage rating"
+          ]
         },
         {
-          "question": "IGBT Design Note ?",
-          "answer": "Design Thermal Resistance,  Thermal Resistance Thermal Resistance .  Thermal Resistance,  50 m.  Verification ,  Junction Temperature Yes15-20 C Secure ."
+          "question": "How to calculate IGBT module current requirements?",
+          "answer": "Calculation method: (1) Calculate load rated current Irms = P / (√3 × V × PF). (2) Consider overload factor (motor drives typically 1.5-2x). (3) Calculate switching loss and thermal resistance. (4) Ensure junction temperature Tj<150°C. (5) Maintain 20-30% margin when selecting current rating. Example: 100kW motor drive, Irms≈180A, recommend 300A module.",
+          "decisionGuide": "Provide your power level and operating conditions, FAE can perform detailed thermal calculations and selection.",
+          "keywords": [
+            "current calculation",
+            "thermal calculation",
+            "selection method"
+          ]
         },
         {
-          "question": "IGBT Yes Note ?",
-          "answer": "IGBT Vcesat ,  100mVWithin. Driver Design,  Resistance Configure.  Inductance ,  Current ."
+          "question": "What is the typical VCE(sat) of BYD IGBT modules?",
+          "answer": "BYD IGBT VCE(sat) typical values: (1) 650V series: 1.45-1.55V (@25°C). (2) 750V series: 1.55-1.65V (@25°C). (3) 1200V series: 1.75-1.85V (@25°C). At 150°C junction temperature, VCE(sat) increases by approximately 15-20%. Low VCE(sat) means lower conduction loss and higher system efficiency.",
+          "decisionGuide": "Select appropriate IGBT model based on your efficiency and loss requirements.",
+          "keywords": [
+            "VCE(sat)",
+            "conduction loss",
+            "saturation voltage"
+          ]
         },
         {
-          "question": "IGBT Lifetime?",
-          "answer": "IGBTLifetime Temperature Power . BYD Lifetime Tool,  (Junction TemperatureFluctuation,  ) Lifetime.  DesignTargetYes Lifetime ,  Efficiency 100ppm."
+          "question": "Can IGBT modules be used in parallel?",
+          "answer": "Yes, BYD IGBT modules support parallel application. Parallel design points: (1) Positive temperature coefficient of VCE(sat) helps current sharing. (2) Use matched modules (same batch). (3) Symmetrical PCB layout ensures consistent parasitic inductance. (4) Independent gate resistors. (5) Current sharing inductors (optional). Parallel connection enables higher current capability and power levels.",
+          "decisionGuide": "For high-power applications requiring parallel design, contact FAE for parallel application guidance.",
+          "keywords": [
+            "parallel",
+            "current sharing",
+            "high-power application"
+          ]
         },
         {
-          "question": "IGBTDriver DesignYes Requirement?",
-          "answer": "DriverVoltageRecommended+15V/-8V,  Resistance SpeedRequirement ( 5-20 ).  Voltage . Driver Short Circuit Protection ,  2 s."
+          "question": "Are BYD IGBT modules automotive qualified?",
+          "answer": "Yes, all BYD IGBT modules are AEC-Q101 automotive qualified. Qualification tests include: High Temperature Reverse Bias (HTRB), Temperature Cycling, High Humidity High Temperature Reverse Bias (H3TRB), Intermittent Operating Life (IOL). These modules have been mass-produced in BYD's own new energy vehicles, proving their reliability and durability.",
+          "decisionGuide": "For automotive applications, we recommend AEC-Q101 qualified products. Contact FAE for qualification reports.",
+          "keywords": [
+            "AEC-Q101",
+            "automotive qualification",
+            "reliability"
+          ]
         },
         {
-          "question": "BYD IGBT Brand Yes Advantage?",
-          "answer": "BYD IGBT PackageTechnology,  ,  .  Yes , Technical Support ,  Advantage,  Application."
+          "question": "How to obtain IGBT thermal models and simulation support?",
+          "answer": "We provide: (1) PLECS thermal models. (2) PSPICE/PSpice simulation models. (3) Thermal resistance parameters and transient thermal impedance curves. (4) Thermal simulation guidance documents. (5) FAE thermal design support. Contact technical support for model files and application notes.",
+          "decisionGuide": "Contact FAE for simulation models and thermal design guidance.",
+          "keywords": [
+            "thermal model",
+            "simulation",
+            "PLECS",
+            "thermal design"
+          ]
         }
       ],
       "relatedArticles": [
-        "article-1",
-        "article-2",
-        "article-3"
+        "how-to-select-byd-sic",
+        "igbt-gate-drive-design",
+        "thermal-management-guide"
       ],
-      "slug": "support-1",
+      "slug": "how-to-select-byd-igbt",
       "faeInsights": {
-        "author": "FAE Team",
-        "content": "This article provides valuable technical information.",
-        "highlight": "Key technical insights"
+        "author": {
+          "name": "Technical FAE",
+          "title": "Support Engineer",
+          "experience": "8+ years"
+        },
+        "content": "In the IGBT selection process, the most common misconception is focusing only on current rating while neglecting thermal design. In fact, thermal limitations are often the deciding factor. We recommend customers perform both electrical and thermal calculations during selection to ensure junction temperature remains within safe limits under worst-case conditions. Additionally, voltage margin must be sufficient, especially for EV applications, considering voltage rise at full battery charge and overvoltage during regenerative braking.",
+        "logic": "Thermal design is the key factor in IGBT selection. The selection process should be: First determine voltage rating based on system voltage, then calculate current requirements based on power, then verify thermal design ensures junction temperature <150°C under worst conditions, finally optimize gate drive and PCB layout.",
+        "keyTakeaways": [
+          "Thermal design is the key factor in IGBT selection",
+          "Voltage margin must be sufficient, especially for EV applications",
+          "Current rating selection must consider overload and thermal limitations",
+          "Use simulation tools to verify design before prototyping"
+        ],
+        "practicalTips": [
+          "Always calculate thermal performance at maximum ambient temperature",
+          "Consider switching frequency impact on thermal performance",
+          "Use thermal simulation software for verification",
+          "Request FAE review for critical applications"
+        ],
+        "insightLogic": "IGBT selection requires balancing electrical and thermal requirements. Higher current ratings reduce conduction loss but increase cost. Higher voltage ratings increase conduction loss. The optimal selection minimizes total cost while meeting all electrical and thermal requirements."
       },
       "customerCases": [
         {
-          "customer": "Customer",
-          "industry": "Industry",
-          "challenge": "Technical challenge",
-          "solution": "Applied solution",
-          "results": "Successful outcome"
+          "customer": "Major NEV OEM",
+          "industry": "New Energy Vehicles",
+          "application": "150kW electric drive system",
+          "challenge": "Selecting appropriate IGBT module for 150kW electric drive system",
+          "solution": "Through detailed thermal calculation and loss analysis, recommended BG300F08A13L5 with optimized thermal design",
+          "results": "System efficiency reached 98.2%, sufficient junction temperature margin, passed all reliability tests",
+          "feedback": "BYD IGBT performance exceeded expectations, thermal design guidance was very helpful"
         }
       ]
     },
     {
-      "id": "support-2",
-      "title": "SiC MOSFETApplicationGuide",
-      "summary": "SiC Power Feature, DriverDesign Application",
+      "id": "how-to-select-byd-sic",
+      "title": "BYD SiC MOSFET Power Module Selection and Application Guide",
+      "summary": "Comprehensive introduction to BYD SiC MOSFET power module selection methods, gate drive design, PCB layout essentials, and comparison analysis between SiC and IGBT.",
       "author": {
-        "name": "Technical Team",
-        "title": "FAE"
+        "name": "David Li",
+        "title": "Senior FAE - SiC Applications"
       },
       "publishDate": "2024-03-10",
-      "category": "ApplicationGuide",
+      "category": "Selection Guide",
       "tags": [
         "SiC",
         "MOSFET",
-        "碳化硅",
-        "DriverDesign"
+        "Silicon Carbide",
+        "Selection Guide",
+        "Charging Station",
+        "Solar Inverter"
       ],
       "contentSections": [
         {
-          "heading": "SiC FeatureAdvantage",
-          "content": "SiC MOSFET IGBT Yes Resistance,  Speed Feature.  Advantage ,  ,  EfficiencyApplication ."
+          "heading": "SiC MOSFET Technology Advantages",
+          "content": "BYD SiC MOSFET power modules offer significant advantages over traditional silicon IGBTs: (1) Switching loss reduced by 90%, supporting 100kHz+ switching frequency. (2) Small on-resistance temperature coefficient, less loss increase at high temperatures. (3) No tail current, fast turn-off. (4) Maximum junction temperature 175°C, more flexible thermal design. (5) System efficiency improvement of 1-3%, power density improvement of 3-5x. These advantages make SiC ideal for high-efficiency applications such as EV charging and solar inverters."
         },
         {
-          "heading": "DriverDesign",
-          "content": "SiC MOSFET DriverRequirement ,  +15V +20V ForwardDriverVoltage -3V -5V Voltage.  Inductance 10nHWithin."
+          "heading": "SiC Module Selection Points",
+          "content": "BYD SiC MOSFET module selection considerations: (1) Voltage rating: 1200V modules suitable for 800V systems and EV charging stations. (2) Current rating: Select based on RMS current and thermal limits, common models include BM300F12B34U2 (300A), BM600F12B34U2 (400A), BM840F12B34U2 (500A), BM950F12B34U2 (550A). (3) RDS(on): Affects conduction loss, increases approximately 1.5-2x at high temperatures. (4) Package: 34mm standard package, compatible with IGBT. (5) Thermal resistance: SiC has lower thermal resistance, relatively relaxed cooling requirements."
         },
         {
-          "heading": "Speed EMI",
-          "content": "SiC Speed ,  EMI .  Optimize Resistance,  RCBuffer , OptimizePCB ,  Efficiency EMIBetween ."
+          "heading": "SiC vs IGBT Comparison Analysis",
+          "content": "SiC MOSFET vs IGBT detailed comparison: (1) Efficiency: SiC solution is 1-3% higher, saving significant electricity costs in charging station applications. (2) Switching frequency: SiC supports 50-100kHz, IGBT typically 10-20kHz. (3) System size: SiC solution reduces volume by 30-50%. (4) Cost: SiC module cost is higher, but system-level cost gap narrows. (5) Reliability: SiC's high temperature performance and radiation resistance are superior. Recommendation: High efficiency, high power density, high temperature applications prioritize SiC; cost-sensitive applications choose IGBT."
+        },
+        {
+          "heading": "Gate Drive Design Essentials",
+          "content": "SiC MOSFET gate drive design keys: (1) Drive voltage: +18V turn-on (reduces RDS(on)), -4V turn-off (prevents dv/dt false turn-on). (2) Gate resistor: 2-8Ω, affects switching speed and EMI. (3) Drive current: Peak current 3-6A, ensures fast charge/discharge. (4) CMTI: >100V/ns, adapts to SiC's high dv/dt. (5) Undervoltage lockout: UVLO threshold must be appropriate to prevent RDS(on) increase. Recommend dedicated SiC gate drivers such as STGAP2SiC, UCC21710, etc."
+        },
+        {
+          "heading": "PCB Layout Design Guide",
+          "content": "SiC MOSFET PCB layout key points: (1) Minimize gate loop inductance: <10nH, use Kelvin connection. (2) Minimize power loop inductance: reduces parasitic oscillation and EMI. (3) Decoupling capacitors placed close to module pins. (4) Separate gate drive from power loop to avoid crosstalk. (5) Consider high dv/dt (>50V/ns) impact on adjacent circuits. (6) Use shielding and filtering to suppress EMI. Good PCB layout is crucial for SiC performance."
         }
       ],
       "faqs": [
         {
-          "question": "SiC MOSFET IGBT AdvantageYes ?",
-          "answer": "SiC MOSFET Yes Resistance( 50-80%),  Speed( 70-90%),  Junction Temperature(200 C vs 150 C).  Feature Efficiency 3-5%, Power 30-50%."
+          "question": "What are the main advantages of SiC MOSFET compared to IGBT?",
+          "answer": "Main advantages: (1) Switching loss reduced by 90%, supports higher switching frequency. (2) No tail current, faster turn-off. (3) Better high temperature performance, 175°C junction temperature. (4) System efficiency improvement of 1-3%. (5) Power density improvement of 3-5x. These advantages make SiC particularly suitable for charging stations, solar inverters, and other high-efficiency applications.",
+          "decisionGuide": "Evaluate the balance between efficiency gains and cost increase. FAE can provide ROI analysis.",
+          "keywords": [
+            "SiC advantages",
+            "SiC vs IGBT",
+            "efficiency improvement"
+          ]
         },
         {
-          "question": "SiC Driver Yes Requirement?",
-          "answer": "SiC MOSFET +18V/+20V Voltage Feature, Recommended-3V -5V Voltage .  Inductance (<10nH),  . Driver Short Circuit Protection ."
+          "question": "What are the special requirements for SiC MOSFET gate drive?",
+          "answer": "Special requirements: (1) Drive voltage: +18V turn-on, -4V turn-off (negative voltage required). (2) Gate resistor: 2-8Ω, balance switching speed and EMI. (3) Drive current: 3-6A peak current. (4) CMTI: >100V/ns. (5) Use Kelvin source connection. Must use dedicated SiC gate drivers, standard IGBT drivers are not suitable.",
+          "decisionGuide": "Contact FAE for recommended gate driver models and circuit design.",
+          "keywords": [
+            "gate drive",
+            "drive voltage",
+            "negative voltage turn-off"
+          ]
         },
         {
-          "question": "SiC EMI ?",
-          "answer": "Resistance( / ),  , OptimizePower Inductance,  Total .  Efficiency EMIBetween ."
+          "question": "How does SiC module RDS(on) vary with temperature?",
+          "answer": "BYD SiC MOSFET RDS(on) temperature characteristics: (1) At 25°C: BM300F12B34U2 approximately 4.5mΩ, BM600F12B34U2 approximately 3.0mΩ. (2) At 175°C: RDS(on) increases approximately 1.5-2x. (3) Compared to IGBT VCE(sat), SiC RDS(on) has smaller temperature coefficient, less loss increase at high temperatures. Design must calculate conduction loss at maximum operating temperature.",
+          "decisionGuide": "Calculate conduction loss at maximum operating temperature to ensure thermal design meets requirements.",
+          "keywords": [
+            "RDS(on)",
+            "temperature coefficient",
+            "conduction loss"
+          ]
         },
         {
-          "question": "SiC Yes Note ?",
-          "answer": "SiC Vth ,  Product. Driver , RecommendedTotal Driver Yes .  Inductance ."
+          "question": "How to solve EMI issues in SiC applications?",
+          "answer": "SiC's high dv/dt (>50V/ns) brings EMI challenges. Solutions: (1) Optimize gate resistor to control switching speed. (2) Use RC snubber circuits. (3) Optimize PCB layout to minimize power loop area. (4) Use common-mode filters and shielding. (5) Reasonably design heatsink connection to avoid common-mode noise. Need to find balance between efficiency and EMI.",
+          "decisionGuide": "EMC design should be reviewed with FAE early to avoid late-stage corrections.",
+          "keywords": [
+            "EMI",
+            "dv/dt",
+            "EMC design"
+          ]
         },
         {
-          "question": "SiC MOSFET ?",
-          "answer": "BYD SiC MOSFET ,  Forward ( 3V).  Application SiC .  ReverseRestoreFeature ,  Short Circuit Protection ."
+          "question": "What SiC modules should be selected for different power level charging stations?",
+          "answer": "Charging station selection recommendations: (1) 30-60kW: BM300F12B34U2. (2) 60-120kW: BM600F12B34U2. (3) 120-180kW: BM840F12B34U2. (4) 180-350kW: BM950F12B34U2. Multi-module paralleling is also possible, such as 2x BM600 for 240kW.",
+          "decisionGuide": "Contact FAE for optimal selection based on target power level and cost budget.",
+          "keywords": [
+            "charging station",
+            "power level",
+            "SiC selection"
+          ]
         },
         {
-          "question": "SiC Short Circuit Protection Design?",
-          "answer": "SiC (2-3 s),  . Recommended Resistance ,  1.5 s.  Voltage ."
+          "question": "How to design short-circuit protection for SiC modules?",
+          "answer": "SiC short-circuit protection points: (1) SiC short-circuit withstand time is very short (2-3μs), requires fast detection. (2) Use desaturation detection or current detection. (3) Soft turn-off to avoid overvoltage. (4) Gate clamping to prevent false turn-on. (5) Recommend short-circuit protection response time <1.5μs. Dedicated SiC drivers typically integrate these protection functions.",
+          "decisionGuide": "Contact FAE for SiC short-circuit protection circuit design guidance.",
+          "keywords": [
+            "short-circuit protection",
+            "desaturation detection",
+            "soft turn-off"
+          ]
         }
       ],
       "relatedArticles": [
-        "article-1",
-        "article-2",
-        "article-3"
+        "how-to-select-byd-igbt",
+        "sic-pcb-layout-guide",
+        "thermal-management-guide"
       ],
-      "slug": "support-2",
+      "slug": "how-to-select-byd-sic",
       "faeInsights": {
-        "author": "FAE Team",
-        "content": "This article provides valuable technical information.",
-        "highlight": "Key technical insights"
+        "author": {
+          "name": "Technical FAE",
+          "title": "Support Engineer",
+          "experience": "8+ years"
+        },
+        "content": "The most common problem in SiC applications is improper gate drive design. Many customers follow IGBT drive experience, resulting in SiC performance not being fully utilized, and even reliability issues. Key reminders: (1) Must use negative voltage turn-off. (2) Gate loop inductance must be <10nH. (3) PCB layout has huge impact on performance. We recommend customers use our reference designs, which can significantly shorten development cycles.",
+        "logic": "Gate drive design is the key to SiC application success. The design sequence should be: First select appropriate gate driver, then design gate circuit with proper voltage levels, then optimize PCB layout to minimize loop inductance, finally verify switching waveforms and EMI performance.",
+        "keyTakeaways": [
+          "Gate drive design is key to SiC application success",
+          "Negative voltage turn-off is mandatory",
+          "PCB layout has decisive impact on performance",
+          "Reference designs can significantly shorten development cycles"
+        ],
+        "practicalTips": [
+          "Always use dedicated SiC gate drivers",
+          "Implement Kelvin source connection",
+          "Minimize gate loop inductance to <10nH",
+          "Use RC snubbers if needed for EMI control"
+        ],
+        "insightLogic": "SiC performance advantages can only be realized with proper gate drive and PCB layout. The high dv/dt requires careful attention to EMI, but this can be managed through proper design. The efficiency and density gains are well worth the additional design effort."
       },
       "customerCases": [
         {
-          "customer": "Customer",
-          "industry": "Industry",
-          "challenge": "Technical challenge",
-          "solution": "Applied solution",
-          "results": "Successful outcome"
+          "customer": "Major Charging Network Operator",
+          "industry": "Charging Infrastructure",
+          "application": "120kW DC fast charging station",
+          "challenge": "Developing 120kW high-efficiency DC fast charging station",
+          "solution": "Adopted BM600F12B34U2 SiC module with optimized gate drive and PCB layout",
+          "results": "System efficiency reached 99.2%, power density 3.5kW/L, annual operating costs reduced by 15%",
+          "feedback": "SiC performance exceeded expectations, FAE support was excellent throughout development"
         }
       ]
     },
     {
-      "id": "support-3",
-      "title": "Power DesignSpecification",
-      "summary": "Power Design ,  Technology TestVerification",
+      "id": "igbt-gate-drive-design",
+      "title": "IGBT Gate Drive Circuit Design Guide",
+      "summary": "Detailed introduction to IGBT gate drive circuit design essentials, including drive voltage selection, gate resistor calculation, drive power estimation, and protection function implementation.",
       "author": {
-        "name": "Technical Team",
-        "title": "FAE"
+        "name": "James Wang",
+        "title": "Senior FAE - Driver Circuits"
       },
       "publishDate": "2024-03-05",
-      "category": "DesignSpecification",
+      "category": "Design Guide",
       "tags": [
-        "Design",
-        "散热",
-        "Power",
-        "Reliability"
+        "IGBT",
+        "Gate Drive",
+        "Driver Circuit",
+        "Protection Circuit"
       ],
       "contentSections": [
         {
-          "heading": "Thermal ResistanceModel",
-          "content": "Power Thermal Resistance ,  Thermal ResistanceRth(j-c),  Thermal ResistanceRth(c-s) EnvironmentThermal ResistanceRth(s-a).  Power Thermal Resistance."
+          "heading": "Gate Drive Basic Principles",
+          "content": "IGBT gate drive functions: (1) Provide sufficient voltage and current for fast turn-on and turn-off. (2) Achieve electrical isolation between control circuit and power circuit. (3) Provide overcurrent, overvoltage and other protection functions. (4) Ensure IGBT reliable operation under various conditions. BYD IGBT recommends +15V turn-on, -8V turn-off drive voltage, gate resistor 5-15Ω, specific value adjusted based on switching speed requirements."
         },
         {
-          "heading": "界面材料选择",
-          "content": ",  ,  Yes .  ,  ,  Stability,  ."
+          "heading": "Drive Voltage Selection",
+          "content": "BYD IGBT drive voltage recommended values: (1) Turn-on voltage: +15V, ensures full conduction, reduces VCE(sat). (2) Turn-off voltage: -8V, prevents dv/dt-induced false turn-on, speeds up turn-off. (3) Undervoltage lockout threshold: typically +12V, prevents excessive conduction loss at low voltage. (4) Drive voltage ripple: <±1V, avoids switching characteristic variation. Use isolated power supply for drive circuit to ensure voltage stability."
         },
         {
-          "heading": "Design",
-          "content": "Design Efficiency, VolumeWeight,  .  ,  ,  Power ."
+          "heading": "Gate Resistor Design",
+          "content": "Gate resistor (Rg) selection principles: (1) Rg affects switching speed, switching loss and EMI. (2) Smaller Rg: faster switching speed, lower loss, but more EMI, may cause oscillation. (3) Larger Rg: less EMI, less oscillation, but higher switching loss. (4) Recommended value: BYD IGBT uses 5-15Ω, adjust based on actual testing. (5) Turn-on and turn-off can use different resistor values (Rg_on and Rg_off), independently optimizing turn-on and turn-off characteristics."
+        },
+        {
+          "heading": "Drive Power Calculation",
+          "content": "Gate drive power calculation formula: P = Qg × ΔVg × fsw, where Qg is total gate charge, ΔVg is drive voltage swing (such as 23V=+15V-(-8V)), fsw is switching frequency. Example: BYD BG300F08A13L5 Qg≈2.5μC, fsw=10kHz, then P=2.5μC×23V×10kHz=0.575W. Actual driver power consumption also includes internal loss, total power consumption approximately 1-2W. Select driver ensuring its drive power capacity meets requirements."
+        },
+        {
+          "heading": "Protection Function Design",
+          "content": "IGBT drive protection functions: (1) Undervoltage Lockout (UVLO): Prevents operation at low voltage. (2) Overcurrent protection: Achieved through desaturation detection or current detection, response time <2μs. (3) Soft turn-off: Slow turn-off during overcurrent to avoid overvoltage breakdown. (4) Active Miller clamp: Prevents dv/dt false turn-on. (5) Fault feedback: Reports fault status to controller. Recommend dedicated IGBT drivers integrating these protection functions, such as 1EDI20N12AF, ACPL-332J, etc."
         }
       ],
       "faqs": [
         {
-          "question": "Power Junction Temperature?",
-          "answer": "Junction TemperatureTj = Ta + P   (Rth(j-c) + Rth(c-s) + Rth(s-a)),  Ta EnvironmentTemperature, P Power . Transient ,  Transient ImpedanceZth .  Design Junction Temperature 80-85%."
+          "question": "Why does IGBT gate drive need negative voltage turn-off?",
+          "answer": "Negative voltage turn-off functions: (1) Prevents dv/dt-induced false turn-on. During turn-off, collector voltage rises rapidly, coupling to gate through Miller capacitance, may cause gate voltage to exceed threshold and falsely turn on. (2) Speeds up turn-off, reduces turn-off loss. (3) Improves anti-interference capability. BYD IGBT recommends -8V turn-off voltage.",
+          "decisionGuide": "Must use negative voltage turn-off, this is key to IGBT reliable operation.",
+          "keywords": [
+            "negative voltage turn-off",
+            "dv/dt",
+            "false turn-on"
+          ]
         },
         {
-          "question": "导热硅脂和相变材料如何选择?",
-          "answer": "(3-8W/mK),  High PerformanceApplication,  .  Temperature ,  Stability ,  Maintenance .  Thermal Resistance ."
+          "question": "How to select gate resistor value?",
+          "answer": "Selection principles: (1) Start from recommended value (BYD IGBT recommends 5-15Ω). (2) Adjust based on switching speed requirements: fast switching select small resistor, low EMI select large resistor. (3) Test turn-on and turn-off waveforms separately, ensure no oscillation, no overshoot. (4) Can set Rg_on and Rg_off separately for independent optimization. (5) Consider driver drive capability.",
+          "decisionGuide": "Recommend starting from 10Ω, adjust based on actual test waveforms.",
+          "keywords": [
+            "gate resistor",
+            "Rg",
+            "switching speed"
+          ]
         },
         {
-          "question": "Yes Requirement?",
-          "answer": "Ra 3.2 m,  50 m/100mm.  .  ,  Efficiency 30%."
+          "question": "What are the isolation methods for gate drive circuits?",
+          "answer": "Common isolation methods: (1) Optocoupler isolation: Traditional method, low cost, but lower CMTI (<50kV/μs). (2) Magnetic isolation: Transformer isolation, high CMTI (>100kV/μs), suitable for high-frequency applications. (3) Capacitive isolation: Capacitive coupling, high CMTI, small delay. BYD IGBT recommends magnetic or capacitive isolation drivers, such as 1EDI series, UCC217xx series.",
+          "decisionGuide": "High dv/dt applications recommend magnetic or capacitive isolation drivers.",
+          "keywords": [
+            "isolation method",
+            "optocoupler",
+            "magnetic isolation"
+          ]
         },
         {
-          "question": "风冷散热器的风速如何选择?",
-          "answer": ".  Recommended2-5m/s, Power Recommended3-8m/s.  10m/s Efficiency Yes .  Optimize Height."
+          "question": "How to calculate gate driver power requirements?",
+          "answer": "Calculation formula: P = Qg × ΔVg × fsw. Where Qg is obtained from datasheet, ΔVg is drive voltage swing (such as +15V to -8V is 23V), fsw is switching frequency. Example: Qg=2.5μC, fsw=10kHz, then P=0.575W. Select driver with margin, typically choose driver power >2W.",
+          "decisionGuide": "Calculate power requirements based on Qg and fsw, select appropriate driver.",
+          "keywords": [
+            "drive power",
+            "Qg",
+            "calculation"
+          ]
         },
         {
-          "question": "Yes Advantage?",
-          "answer": "Yes 10-100 ,  Implementation Power .  Temperature ,  Power Temperature Application.  Yes ."
+          "question": "How to design IGBT overcurrent protection?",
+          "answer": "Overcurrent protection design: (1) Desaturation detection: Monitor VCE, VCE rises during overcurrent. (2) Current detection: Use shunt resistor or Hall sensor. (3) Response time: <2μs. (4) Soft turn-off: Slow turn-off during overcurrent to avoid overvoltage. (5) Fault latching: Maintains turn-off after protection, requires reset. Recommend drivers with integrated desaturation detection.",
+          "decisionGuide": "Contact FAE for overcurrent protection circuit design guidance.",
+          "keywords": [
+            "overcurrent protection",
+            "desaturation",
+            "soft turn-off"
+          ]
         },
         {
-          "question": "DesignVerification?",
-          "answer": "Verification ,  Test Reliability .  Temperature ,  .  Temperature TestVerification Design Stability."
+          "question": "What are the recommended IGBT gate driver models?",
+          "answer": "Recommended drivers: (1) Infineon 1EDI20N12AF: Single channel, magnetic isolation, high CMTI. (2) Avago ACPL-332J: Optocoupler isolation, integrated protection. (3) TI UCC21710: Capacitive isolation, high CMTI. (4) ST STGAP2SICS: Supports SiC and IGBT. Consider isolation method, drive current, protection functions, CMTI when selecting.",
+          "decisionGuide": "Contact FAE for driver selection recommendations.",
+          "keywords": [
+            "driver",
+            "recommended models",
+            "1EDI",
+            "UCC21710"
+          ]
         }
       ],
       "relatedArticles": [
-        "article-1",
-        "article-2",
-        "article-3"
+        "how-to-select-byd-igbt",
+        "thermal-management-guide",
+        "sic-gate-drive-design"
       ],
-      "slug": "support-3",
+      "slug": "igbt-gate-drive-design",
       "faeInsights": {
-        "author": "FAE Team",
-        "content": "This article provides valuable technical information.",
-        "highlight": "Key technical insights"
+        "author": {
+          "name": "Technical FAE",
+          "title": "Support Engineer",
+          "experience": "8+ years"
+        },
+        "content": "Gate drive design is one of the most critical aspects of power electronics design. Common issues: (1) Not using negative voltage turn-off, leading to dv/dt false turn-on. (2) Improper gate resistor selection, leading to oscillation or excessive loss. (3) Insufficient drive power, leading to slow switching speed. (4) Incomplete protection functions. We recommend customers use verified reference designs, which can significantly reduce development risks.",
+        "logic": "Gate drive design directly affects IGBT performance and reliability. The design should follow: First select appropriate isolation method, then determine drive voltage levels, then calculate and select gate resistor, then design protection functions, finally verify with actual switching waveforms.",
+        "keyTakeaways": [
+          "Gate drive design directly affects IGBT performance and reliability",
+          "Negative voltage turn-off is essential for reliable operation",
+          "Gate resistor selection requires balancing switching speed and EMI",
+          "Protection functions must be thoroughly implemented"
+        ],
+        "practicalTips": [
+          "Always use negative voltage for turn-off",
+          "Start with recommended gate resistor values",
+          "Verify switching waveforms under all operating conditions",
+          "Implement desaturation detection for overcurrent protection"
+        ],
+        "insightLogic": "The gate drive is the interface between control and power. A well-designed gate drive ensures reliable switching, protects against faults, and optimizes efficiency. The investment in proper gate drive design pays dividends in system performance and reliability."
       },
       "customerCases": [
         {
-          "customer": "Customer",
-          "industry": "Industry",
-          "challenge": "Technical challenge",
-          "solution": "Applied solution",
-          "results": "Successful outcome"
+          "customer": "VFD Manufacturer",
+          "industry": "Industrial",
+          "application": "Variable frequency drive",
+          "challenge": "IGBT drive circuit experiencing oscillation and false turn-on issues",
+          "solution": "Optimized gate resistor, added negative voltage turn-off, improved PCB layout",
+          "results": "Oscillation eliminated, false turn-on issues resolved, system reliability significantly improved",
+          "feedback": "Proper gate drive design made all the difference in system reliability"
         }
       ]
     },
     {
-      "id": "support-4",
-      "title": "BMS Pool Design",
-      "summary": "BYD BMS IC Feature,  Pool Design",
+      "id": "thermal-management-guide",
+      "title": "Power Module Thermal Management and Heatsink Design Guide",
+      "summary": "Detailed introduction to power module thermal management design methods, including thermal resistance calculation, heatsink selection, thermal interface material selection, and thermal simulation methods.",
       "author": {
-        "name": "Technical Team",
-        "title": "FAE"
+        "name": "Robert Chen",
+        "title": "Senior FAE - Thermal Design"
       },
       "publishDate": "2024-02-28",
-      "category": "DesignGuide",
+      "category": "Design Guide",
       "tags": [
-        "BMS",
-        "Pool",
-        "新能源汽车",
-        "储能"
+        "Thermal Management",
+        "Heatsink",
+        "Thermal Design",
+        "Thermal Resistance",
+        "Thermal Simulation"
       ],
       "contentSections": [
         {
-          "heading": "BMS",
-          "content": "Pool Voltage , Temperature ,  , SOC ,  . BYD BMS IC Accuracy ."
+          "heading": "Thermal Resistance Model and Calculation",
+          "content": "Power module thermal resistance model includes: (1) Junction-to-case thermal resistance Rth(j-c): IGBT chip to module baseplate thermal resistance, BYD IGBT approximately 0.12-0.35K/W, SiC approximately 0.08-0.15K/W. (2) Case-to-heatsink thermal resistance Rth(c-s): Module baseplate to heatsink thermal resistance, depends on thermal grease/phase change material, approximately 0.05-0.2K/W. (3) Heatsink-to-ambient thermal resistance Rth(s-a): Heatsink thermal resistance, depends on heatsink design and cooling method. Total thermal resistance Rth(j-a) = Rth(j-c) + Rth(c-s) + Rth(s-a). Junction temperature Tj = Ta + P_loss × Rth(j-a)."
         },
         {
-          "heading": "Design",
-          "content": "Voltage AccuracyADC , Temperature NTC Resistance.  Accuracy SOC Accuracy Pool Lifetime."
+          "heading": "Heatsink Selection Method",
+          "content": "Heatsink selection steps: (1) Calculate total loss P_loss (conduction loss + switching loss). (2) Determine allowable maximum junction temperature Tj_max (IGBT typically 150°C, SiC 175°C). (3) Determine ambient temperature Ta_max. (4) Calculate allowable total thermal resistance Rth(j-a) = (Tj_max - Ta_max) / P_loss. (5) Subtract Rth(j-c) and Rth(c-s) to get heatsink thermal resistance Rth(s-a) requirement. (6) Select heatsink based on Rth(s-a). Example: P_loss=500W, Tj_max=150°C, Ta_max=50°C, then Rth(j-a)<0.2K/W. If Rth(j-c)=0.18K/W, Rth(c-s)=0.1K/W, then Rth(s-a)<0.12K/W, requires liquid cooling heatsink."
         },
         {
-          "heading": "均衡策略",
-          "content": "Resistance Energy,  Energy Implementation.  Current Feature ApplicationScenarioOptimize."
+          "heading": "Thermal Interface Material Selection",
+          "content": "Thermal Interface Material (TIM) types and selection: (1) Thermal grease: Thermal conductivity 3-8W/mK, low cost, requires uniform application, may dry out over long term. (2) Phase change material: Solid at room temperature, softens at operating temperature to fill gaps, thermal conductivity 3-5W/mK, good long-term stability, recommended for automotive applications. (3) Thermal pad: Easy to install, thermal conductivity 1-10W/mK, suitable for frequent maintenance. (4) Metal matrix composite: Thermal conductivity >10W/mK, high cost, for high-performance applications. BYD recommends phase change materials for automotive applications."
+        },
+        {
+          "heading": "Cooling Method Comparison",
+          "content": "Different cooling method characteristics: (1) Natural cooling: No fan, no noise, high thermal resistance (>1K/W), suitable for low power (<1kW). (2) Forced air cooling: Uses fan, thermal resistance 0.2-0.5K/W, suitable for medium power (1-10kW), low cost, noisy. (3) Liquid cooling: Uses coolant, thermal resistance <0.1K/W, suitable for high power (>10kW), no noise, high cost. (4) Phase change cooling: Uses phase change material for heat storage, suitable for pulse power applications. EV electric drives typically use liquid cooling, charging stations choose air or liquid cooling based on power."
+        },
+        {
+          "heading": "Thermal Simulation and Verification",
+          "content": "Thermal simulation methods: (1) Use thermal simulation software: FloTHERM, Icepak, SolidWorks Flow Simulation, etc. (2) Establish thermal model: Including module, heatsink, TIM, cooling medium. (3) Set boundary conditions: Ambient temperature, cooling conditions, power loss. (4) Run simulation to obtain temperature distribution. (5) Optimize design: Adjust heatsink structure, add heat pipes, optimize airflow, etc. Verification methods: (1) Use thermocouples or infrared thermal imager to measure case temperature. (2) Estimate junction temperature through thermally sensitive parameters (such as VCE(sat)). (3) Conduct temperature rise tests to verify thermal design."
         }
       ],
       "faqs": [
         {
-          "question": "BYD BMS ICSupport ?",
-          "answer": "BYD BMS-16SSupport3-16 ,  48V Pool .  Voltage ,  IC, Support Pool ."
+          "question": "How to calculate power module junction temperature?",
+          "answer": "Junction temperature calculation formula: Tj = Ta + P_loss × Rth(j-a). Where Ta is ambient temperature, P_loss is total loss, Rth(j-a) is total thermal resistance (Rth(j-c)+Rth(c-s)+Rth(s-a)). Example: Ta=50°C, P_loss=300W, Rth(j-c)=0.18K/W, Rth(c-s)=0.1K/W, Rth(s-a)=0.2K/W, then Tj=50+300×(0.18+0.1+0.2)=194°C, exceeding 150°C limit, requires improved cooling.",
+          "decisionGuide": "Contact FAE for detailed thermal calculations and heatsink selection.",
+          "keywords": [
+            "junction temperature calculation",
+            "thermal resistance",
+            "thermal calculation"
+          ]
         },
         {
-          "question": "Voltage Accuracy ?",
-          "answer": "BYD BMS IC 16 AccuracyADC, Voltage Accuracy 5mV.  Temperature Calibrate,  TemperatureScope Accuracy 10mV,  ApplicationRequirement."
+          "question": "How to choose between thermal grease and phase change material?",
+          "answer": "Selection recommendations: (1) Thermal grease: Higher thermal conductivity (3-8W/mK), low cost, suitable for R&D and small batch, but may dry out over long term. (2) Phase change material: Good long-term stability, automatically fills gaps, suitable for automotive and other long-life applications, thermal conductivity 3-5W/mK. Automotive applications recommend phase change materials, industrial applications can choose based on cost.",
+          "decisionGuide": "Automotive applications recommend using phase change materials to ensure long-term reliability.",
+          "keywords": [
+            "thermal grease",
+            "phase change material",
+            "TIM"
+          ]
         },
         {
-          "question": "BMS Yes ?",
-          "answer": "Overvoltage Protection(OVP), Undervoltage Protection(UVP), Overcurrent Protection(OCP), Short Circuit Protection(SCP), Overtemperature Protection(OTP),  (UTP),  .  ProgramConfigure."
+          "question": "What are the heatsink surface roughness requirements?",
+          "answer": "Surface roughness requirements: (1) Heatsink surface roughness Ra<3.2μm, flatness <50μm/100mm. (2) Module mounting surface must be clean, no oxide layer. (3) Use appropriate mounting torque (typically 2-4N·m) to ensure good contact. (4) Excessive roughness increases contact thermal resistance, reducing cooling effectiveness.",
+          "decisionGuide": "Ensure heatsink surface quality, use appropriate mounting torque.",
+          "keywords": [
+            "surface roughness",
+            "flatness",
+            "mounting torque"
+          ]
         },
         {
-          "question": "被动均衡和主动均衡怎么选择?",
-          "answer": ",  ,  Current (<100mA) Application.  Efficiency ,  Speed ,  Pool Application,  ."
+          "question": "How to select air velocity for air-cooled heatsinks?",
+          "answer": "Air velocity selection recommendations: (1) General applications: 2-5m/s. (2) High-power applications: 3-8m/s. (3) Air velocity >10m/s provides limited cooling efficiency improvement, noise increases significantly. (4) Select appropriate fan based on heatsink thermal resistance requirements and airflow resistance curve. (5) Consider airflow duct design to ensure uniform airflow through heatsink.",
+          "decisionGuide": "Select appropriate air velocity and fan based on thermal resistance requirements and noise constraints.",
+          "keywords": [
+            "air velocity",
+            "air cooling",
+            "fan selection"
+          ]
         },
         {
-          "question": "SOC Accuracy ?",
-          "answer": "Voltage Algorithm,  Accuracy Temperature . BYD BMS TemperatureScope SOC Accuracy 3%,  Application ."
+          "question": "What are the design points for liquid cooling systems?",
+          "answer": "Liquid cooling design points: (1) Coolant flow rate: Calculate based on heat load, typically 10-20L/min. (2) Coolant temperature: Inlet temperature typically 40-60°C. (3) Channel design: Ensure uniform flow velocity, avoid dead zones. (4) Material compatibility: Avoid electrochemical corrosion. (5) Sealing design: Prevent leakage. (6) Coolant selection: Ethylene glycol solution or dedicated coolant. Liquid cooling can achieve thermal resistance <0.1K/W, suitable for high-power applications.",
+          "decisionGuide": "High-power applications (>100kW) recommend liquid cooling. Contact FAE for liquid cooling design guidance.",
+          "keywords": [
+            "liquid cooling",
+            "coolant",
+            "channel design"
+          ]
         },
         {
-          "question": "BMS InterfaceYes ?",
-          "answer": "SupportCAN , RS485, SPI, I2C Interface.  ApplicationRecommended CAN ,  ISO 11898Standard.  Voltage Pool ,  ."
-        },
-        {
-          "question": "BMSDesign Certify?",
-          "answer": "Application AEC-Q100 Certify, ISO 26262 SecureCertify, EMCTest .  IEC 62619, UL 9540 Standard. BYD CertifyRequirement ReferenceDesign."
+          "question": "How to perform thermal design verification?",
+          "answer": "Verification methods: (1) Temperature measurement: Use thermocouples to measure case temperature, infrared thermal imager to view temperature distribution. (2) Thermal sensitive parameter method: Use relationship between VCE(sat) or Vf and temperature to estimate junction temperature. (3) Temperature rise test: Run at rated conditions, monitor temperature stabilization. (4) Overload test: Verify short-term overload capability. (5) Thermal cycling test: Verify long-term reliability. Ensure junction temperature remains within safe limits under worst-case conditions.",
+          "decisionGuide": "Recommend comprehensive thermal verification testing to ensure design reliability.",
+          "keywords": [
+            "thermal verification",
+            "temperature measurement",
+            "temperature rise test"
+          ]
         }
       ],
       "relatedArticles": [
-        "article-1",
-        "article-2",
-        "article-3"
+        "how-to-select-byd-igbt",
+        "how-to-select-byd-sic",
+        "igbt-gate-drive-design"
       ],
-      "slug": "support-4",
+      "slug": "thermal-management-guide",
       "faeInsights": {
-        "author": "FAE Team",
-        "content": "This article provides valuable technical information.",
-        "highlight": "Key technical insights"
+        "author": {
+          "name": "Technical FAE",
+          "title": "Support Engineer",
+          "experience": "8+ years"
+        },
+        "content": "Thermal design is the most easily overlooked but most critical aspect of power electronics design. Common issues: (1) Inaccurate thermal resistance calculations, not considering worst-case conditions. (2) Heatsink selection too conservative or aggressive. (3) Improper thermal interface material usage. (4) Insufficient thermal verification. Recommendation: Maintain sufficient thermal margin during design, conduct detailed thermal simulation and testing verification, especially in automotive and other high-temperature environments.",
+        "logic": "Thermal design requires sufficient margin and thorough verification. The design process should be: First calculate power losses under all operating conditions, then determine maximum allowable thermal resistance, then select appropriate cooling method and heatsink, then verify with thermal simulation, finally validate with physical testing.",
+        "keyTakeaways": [
+          "Thermal design requires sufficient margin and thorough verification",
+          "Worst-case conditions must be considered in thermal calculations",
+          "Thermal interface material selection significantly affects performance",
+          "Physical testing is essential to validate thermal design"
+        ],
+        "practicalTips": [
+          "Always design for maximum ambient temperature",
+          "Include safety margin in thermal calculations",
+          "Use thermal simulation to optimize design before prototyping",
+          "Verify thermal performance under all operating conditions"
+        ],
+        "insightLogic": "Thermal design is often the limiting factor in power electronics. The junction temperature directly affects reliability and lifetime. A well-designed thermal system ensures reliable operation and maximizes the lifetime of the power modules."
       },
       "customerCases": [
         {
-          "customer": "Customer",
-          "industry": "Industry",
-          "challenge": "Technical challenge",
-          "solution": "Applied solution",
-          "results": "Successful outcome"
+          "customer": "Major NEV OEM",
+          "industry": "New Energy Vehicles",
+          "application": "Electric drive system",
+          "challenge": "Electric drive system junction temperature exceeded limits in high-temperature environment",
+          "solution": "Optimized liquid cooling system design, improved channel layout, used high-performance phase change material",
+          "results": "Junction temperature reduced by 25°C, meeting 85°C ambient temperature requirements, passed all thermal tests",
+          "feedback": "Proper thermal design was critical to meeting automotive reliability requirements"
+        }
+      ]
+    },
+    {
+      "id": "emc-design-guide",
+      "title": "Power Electronics System EMC Design and Optimization Guide",
+      "summary": "Detailed introduction to power electronics system EMC design methods, including conducted and radiated EMI suppression, filter design, PCB layout, and shielding techniques.",
+      "author": {
+        "name": "Steven Liu",
+        "title": "Senior FAE - EMC Design"
+      },
+      "publishDate": "2024-02-20",
+      "category": "Design Guide",
+      "tags": [
+        "EMC",
+        "EMI",
+        "Filter",
+        "Shielding",
+        "PCB Layout"
+      ],
+      "contentSections": [
+        {
+          "heading": "EMC Basics and Standards",
+          "content": "Power electronics EMC requirements: (1) Conducted Emissions (CE): 150kHz-30MHz, interference conducted through power lines. (2) Radiated Emissions (RE): 30MHz-1GHz, interference radiated through space. (3) Electrostatic Discharge (ESD): ±4kV contact discharge, ±8kV air discharge. (4) Electrical Fast Transient (EFT): ±2kV power lines, ±1kV signal lines. (5) Surge: ±1kV/±2kV line-to-line/line-to-ground. Automotive applications must also meet CISPR 25, ISO 11452 and other standards. EMC design should be considered early in product design, late-stage correction costs are high."
+        },
+        {
+          "heading": "Input Filter Design",
+          "content": "Input filter design points: (1) Common-mode filtering: Use common-mode inductors to suppress common-mode noise (L, N lines to ground in-phase noise). (2) Differential-mode filtering: Use X capacitors and differential-mode inductors to suppress differential-mode noise (between L, N lines anti-phase noise). (3) Filter cutoff frequency: Select based on switching frequency, typically <1/10 switching frequency. (4) Damping design: Prevent LC resonance, can parallel RC damping network. (5) Layout: Place filter close to input port, capacitors close to power devices. Typical design: Common-mode inductor 1-10mH, X capacitor 0.1-1μF, Y capacitor 2200pF-4700pF."
+        },
+        {
+          "heading": "PCB Layout EMC Optimization",
+          "content": "PCB layout EMC design principles: (1) Minimize power loop: Reduce di/dt loop area, lower radiation. (2) Minimize gate loop: Reduce gate loop inductance, avoid oscillation. (3) Layered design: Separate power layer, ground layer, signal layer, use multi-layer board. (4) Decoupling capacitors: Place close to power device pins, reduce high-frequency loop. (5) Grounding design: Single-point grounding or multi-point grounding, avoid ground loops. (6) Keep sensitive signals away from power traces: Control signals, sampling signals away from high dv/dt, di/dt areas. Good PCB layout can significantly reduce EMI."
+        },
+        {
+          "heading": "SiC High-Frequency EMI Suppression",
+          "content": "SiC MOSFET high-frequency EMI characteristics and suppression: (1) High dv/dt (>50V/ns) and high di/dt are main EMI sources. (2) Gate resistor optimization: Appropriately increasing Rg can slow switching speed, reduce EMI, but increases loss. (3) RC snubber circuits: Parallel RC across switch to absorb high-frequency oscillation. (4) Ferrite beads: Series magnetic beads in gate loop to suppress high-frequency ringing. (5) Common-mode filtering: Add common-mode inductors at output to suppress common-mode noise. (6) Shielding: Use metal shield to isolate radiation source. Need to find balance between efficiency and EMI."
+        },
+        {
+          "heading": "Shielding and Grounding Techniques",
+          "content": "Shielding and grounding design: (1) Electric field shielding: Use high conductivity materials (copper, aluminum) to suppress capacitive coupling. (2) Magnetic field shielding: Use high permeability materials (mu-metal) to suppress inductive coupling. (3) Shield design: Completely cover radiation source, conductive connection at seams, use conductive gaskets if necessary. (4) Grounding methods: Single-point grounding (low frequency), multi-point grounding (high frequency), hybrid grounding. (5) Ground impedance: Minimize ground impedance, use wide copper or ground plane. (6) Heatsink grounding: Heatsinks typically connect to DC bus midpoint or safety ground to avoid antenna effect."
+        }
+      ],
+      "faqs": [
+        {
+          "question": "What are the main EMI sources in power electronics systems?",
+          "answer": "Main EMI sources: (1) Switching action produces dv/dt and di/dt. (2) Rectifier diode reverse recovery. (3) Oscillation caused by parasitic inductance and capacitance. (4) Gate drive signals. (5) Control circuit clock signals. SiC devices' dv/dt can reach 50V/ns or higher, strong EMI source. EMI propagates through conduction (power lines) and radiation (space).",
+          "decisionGuide": "Identify main EMI sources and take targeted suppression measures.",
+          "keywords": [
+            "EMI sources",
+            "dv/dt",
+            "di/dt"
+          ]
+        },
+        {
+          "question": "How to design effective input EMI filters?",
+          "answer": "Design steps: (1) Measure or estimate conducted EMI level. (2) Determine required attenuation (compare with standard limits). (3) Select filter topology (LC, π-type, T-type). (4) Calculate component parameters: Cutoff frequency <1/10 switching frequency. (5) Select common-mode inductor (1-10mH), X capacitor (0.1-1μF), Y capacitor (2200-4700pF). (6) Consider damping to prevent resonance. (7) Place filter close to input port.",
+          "decisionGuide": "Contact FAE for EMI filter design guidance and calculation tools.",
+          "keywords": [
+            "EMI filter",
+            "common-mode inductor",
+            "X capacitor",
+            "Y capacitor"
+          ]
+        },
+        {
+          "question": "How to suppress high-frequency EMI in SiC applications?",
+          "answer": "Suppression methods: (1) Optimize gate resistor to control switching speed. (2) Use RC snubber circuits to absorb oscillation. (3) Optimize PCB layout to minimize power loop area. (4) Use common-mode filters to suppress common-mode noise. (5) Use shielding to isolate radiation. (6) Increase input/output filtering. Need to balance efficiency and EMI, recommend considering EMC from design phase.",
+          "decisionGuide": "SiC applications recommend early EMC design review. Contact FAE for support.",
+          "keywords": [
+            "SiC EMI",
+            "high-frequency suppression",
+            "RC snubber"
+          ]
+        },
+        {
+          "question": "What impact does PCB layout have on EMC?",
+          "answer": "PCB layout impact: (1) Power loop area directly affects radiated EMI, should be minimized. (2) Gate loop inductance affects switching characteristics, should be minimized. (3) Layered design affects signal integrity, power and signals should be separated. (4) Decoupling capacitor position affects high-frequency bypass effect, should be close to devices. (5) Grounding design affects common-mode noise, ground loops should be avoided. Good PCB layout is the most effective EMI suppression method.",
+          "decisionGuide": "Recommend PCB layout review with FAE to optimize EMC performance.",
+          "keywords": [
+            "PCB layout",
+            "EMC optimization",
+            "power loop"
+          ]
+        },
+        {
+          "question": "How to perform EMC pre-testing and correction?",
+          "answer": "Pre-testing methods: (1) Use spectrum analyzer and near-field probe to locate EMI sources. (2) Use LISN to measure conducted EMI. (3) Measure radiated EMI in anechoic chamber or open area. Correction measures: (1) Increase or optimize filters. (2) Optimize PCB layout (may require redesign). (3) Increase shielding. (4) Optimize gate drive parameters. (5) Use spread spectrum technology. Recommend thorough pre-testing before formal testing.",
+          "decisionGuide": "Contact FAE for EMC pre-testing support and correction recommendations.",
+          "keywords": [
+            "EMC testing",
+            "pre-testing",
+            "correction"
+          ]
+        },
+        {
+          "question": "What are the special EMC requirements for automotive applications?",
+          "answer": "Automotive EMC special requirements: (1) CISPR 25: Stricter conducted and radiated emission limits. (2) ISO 11452: Bulk Current Injection (BCI) immunity. (3) ISO 10605: Electrostatic discharge requirements. (4) OEMs have additional requirements (such as BMW, VW standards). (5) Temperature range -40°C to +85°C (or higher). Automotive EMC design challenges are greater, requiring more sufficient margin.",
+          "decisionGuide": "Automotive applications recommend consulting FAE for OEM EMC requirement checklists.",
+          "keywords": [
+            "automotive EMC",
+            "CISPR 25",
+            "BCI"
+          ]
+        }
+      ],
+      "relatedArticles": [
+        "how-to-select-byd-sic",
+        "igbt-gate-drive-design",
+        "thermal-management-guide"
+      ],
+      "slug": "emc-design-guide",
+      "faeInsights": {
+        "author": {
+          "name": "Technical FAE",
+          "title": "Support Engineer",
+          "experience": "8+ years"
+        },
+        "content": "EMC issues are one of the most common challenges in power electronics design, especially for SiC applications. Key experience: (1) EMC design must be considered from the beginning of product design, late-stage correction costs are extremely high. (2) PCB layout is the most effective EMI suppression method. (3) SiC's high dv/dt requires special attention, but can be controlled through optimized design. (4) Pre-testing is very important to identify problems early. Recommend customers conduct EMC review with FAE during the design phase.",
+        "logic": "EMC design must be addressed early in the design process. The approach should be: First identify potential EMI sources, then design input filters to suppress conducted emissions, then optimize PCB layout to minimize radiated emissions, then implement shielding as needed, finally verify through pre-testing before formal certification.",
+        "keyTakeaways": [
+          "EMC design must be addressed early, late correction costs are high",
+          "PCB layout is the most effective EMI suppression method",
+          "SiC high dv/dt requires special attention but can be managed",
+          "Pre-testing is essential to identify issues before formal testing"
+        ],
+        "practicalTips": [
+          "Start EMC design at the beginning of the project",
+          "Minimize power loop areas in PCB layout",
+          "Use proper filtering for both input and output",
+          "Conduct pre-testing before formal EMC certification"
+        ],
+        "insightLogic": "EMC is about controlling electromagnetic energy. The high switching speeds of modern power electronics create significant EMI challenges, but through proper design practices, these can be effectively managed while maintaining high efficiency."
+      },
+      "customerCases": [
+        {
+          "customer": "Charging Station Manufacturer",
+          "industry": "Charging Infrastructure",
+          "application": "120kW DC fast charger",
+          "challenge": "120kW charging station EMC test radiated emissions exceeded limits",
+          "solution": "Optimized SiC module gate resistor, added RC snubber, improved input filter",
+          "results": "Radiated emissions reduced by 15dB, passed CISPR 32 Class A certification",
+          "feedback": "Early EMC design review would have saved significant redesign effort"
         }
       ]
     }
   ],
-  "seoTitle": "byd Technical Support - Documentation & Resources",
-  "seoDescription": "Get byd technical support, documentation, and application notes. Our FAE team is ready to help with your design challenges.",
+  "seoTitle": "BYD Semiconductor Technical Support | IGBT/SiC Selection Guide and Application Notes",
+  "seoDescription": "Get technical support for BYD IGBT and SiC MOSFET power modules, including selection guides, gate drive design, thermal management, EMC design and other application notes.",
   "seoKeywords": [
-    "byd distributor",
-    "byd 选型",
-    "byd products",
-    "byd authorized distributor",
-    "byd technical support",
-    "byd datasheet",
-    "byd pricing",
-    "byd inventory",
-    "byd samples",
-    "byd evaluation kit"
+    "BYD technical support distributor",
+    "BYD IGBT selection guide distributor",
+    "BYD SiC application notes distributor",
+    "BYD gate drive design guide",
+    "BYD thermal management distributor",
+    "BYD EMC design guide",
+    "BYD power module application distributor"
   ],
   "faqs": [
     {
-      "question": "How do I get technical support for byd products?",
-      "answer": "You can contact our technical support team via email, phone, or through our website. Our FAEs are available to help with product selection, application questions, and troubleshooting."
+      "question": "How to obtain technical support for BYD power modules?",
+      "answer": "Technical support channels: (1) Contact sales representative to arrange FAE support. (2) Submit technical inquiries through website. (3) Attend technical seminars and training. (4) Obtain application notes and reference designs. Our FAE team can provide comprehensive support including product selection, circuit design, PCB layout, thermal design, and EMC optimization.",
+      "decisionGuide": "Contact sales or FAE for technical support.",
+      "keywords": [
+        "technical support",
+        "FAE",
+        "contact"
+      ]
     },
     {
-      "question": "Where can I find datasheets and technical documentation?",
-      "answer": "All datasheets, application notes, and technical documentation are available on our website. You can also contact us for specific documents or additional information."
+      "question": "What technical documents and tools does BYD provide?",
+      "answer": "Technical resources provided: (1) Datasheets and specifications. (2) Application notes and design guides. (3) Reference designs and evaluation boards. (4) Simulation models (PLECS, PSPICE). (5) Thermal models and thermal simulation support. (6) Selection tools. Contact sales or FAE for relevant documents and tools.",
+      "decisionGuide": "Contact FAE for technical documents and tools list.",
+      "keywords": [
+        "technical documents",
+        "application notes",
+        "simulation models"
+      ]
     },
     {
-      "question": "Do you offer evaluation kits?",
-      "answer": "Yes, evaluation kits are available for most products. Contact our sales team to request evaluation kits for your project."
+      "question": "How to apply for evaluation boards and samples?",
+      "answer": "Application process: (1) Contact sales representative to submit evaluation board application. (2) Provide project information and estimated volume. (3) Sign NDA (for reference design materials). (4) Evaluation board shipping (typically 1-2 weeks). (5) FAE provides technical support. Sample application process is similar, samples typically provided free (small quantities).",
+      "decisionGuide": "Contact sales to apply for evaluation boards and samples.",
+      "keywords": [
+        "evaluation board",
+        "samples",
+        "application process"
+      ]
+    },
+    {
+      "question": "What is the typical lead time for BYD power modules?",
+      "answer": "Typical lead times: (1) Standard products: 4-6 weeks. (2) High-volume orders: 6-8 weeks. (3) Custom products: 8-12 weeks. (4) Samples: 1-2 weeks. Lead times may vary based on order quantity and market conditions. Contact sales for current lead time estimates.",
+      "decisionGuide": "Contact sales for current lead times and scheduling.",
+      "keywords": [
+        "lead time",
+        "delivery",
+        "schedule"
+      ]
+    },
+    {
+      "question": "Does BYD provide customized power module solutions?",
+      "answer": "Yes, BYD provides customized power module solutions for high-volume applications. Customization options include: (1) Special voltage and current ratings. (2) Custom packages. (3) Integrated functions. (4) Special testing requirements. Custom development requires minimum order quantities and development cycles. Contact sales to discuss custom requirements.",
+      "decisionGuide": "Contact sales to discuss custom power module requirements.",
+      "keywords": [
+        "custom solution",
+        "customized module",
+        "special requirements"
+      ]
+    },
+    {
+      "question": "What quality certifications do BYD power modules have?",
+      "answer": "Quality certifications: (1) AEC-Q101 automotive qualification. (2) ISO 26262 functional safety compliance. (3) ISO 9001 quality management. (4) ISO 14001 environmental management. (5) RoHS and REACH compliance. Full qualification reports available upon request.",
+      "decisionGuide": "Request qualification reports from sales for your quality documentation.",
+      "keywords": [
+        "quality certification",
+        "AEC-Q101",
+        "ISO 26262"
+      ]
+    },
+    {
+      "question": "How to handle product failures or quality issues?",
+      "answer": "Failure handling process: (1) Contact FAE with failure description and operating conditions. (2) Provide failure samples for analysis if possible. (3) FAE performs failure analysis and root cause identification. (4) Provide corrective actions and prevention measures. (5) Implement design or process improvements as needed. BYD is committed to rapid response and resolution of quality issues.",
+      "decisionGuide": "Contact FAE immediately for any product failures or quality concerns.",
+      "keywords": [
+        "failure analysis",
+        "quality issue",
+        "root cause"
+      ]
+    },
+    {
+      "question": "Does BYD offer training and technical seminars?",
+      "answer": "Yes, BYD offers various training programs: (1) Product training: IGBT and SiC module features and applications. (2) Design training: Gate drive, thermal design, EMC optimization. (3) Application training: EV motor drive, charging stations, solar inverters. (4) Online webinars and on-site seminars. Contact sales to schedule training for your team.",
+      "decisionGuide": "Contact sales to schedule technical training for your engineering team.",
+      "keywords": [
+        "training",
+        "technical seminar",
+        "webinar"
+      ]
     }
   ]
 }

@@ -160,7 +160,14 @@
           "Implement proper snubber circuits to reduce ringing",
           "Use shielded transformers for reduced EMI",
           "Test thermal performance with actual load profiles"
-        ]
+        ],
+        "author": {
+          "name": "Technical FAE",
+          "title": "Support Engineer",
+          "experience": "8+ years"
+        },
+        "content": "Based on years of experience, this How to Select AC-DC Converters for Offline Power Supplies article addresses common challenges engineers face in project development.",
+        "insightLogic": "Recommendations from analysis of successful product deployment projects across industries."
       },
       "customerCases": [
         {
@@ -291,7 +298,14 @@
           "Use exposed pad packages with proper thermal vias",
           "Measure transient response with actual load steps",
           "Implement proper input and output filtering"
-        ]
+        ],
+        "author": {
+          "name": "Technical FAE",
+          "title": "Support Engineer",
+          "experience": "8+ years"
+        },
+        "content": "Based on years of experience, this DC-DC Converter Selection for Industrial and Automotive Applications article addresses common challenges engineers face in project development.",
+        "insightLogic": "Recommendations from analysis of successful product deployment projects across industries."
       },
       "customerCases": [
         {
@@ -423,7 +437,14 @@
           "Start with 5-10Ω gate resistor and optimize",
           "Size bootstrap cap at 10× gate charge / voltage",
           "Measure switching waveforms to verify design"
-        ]
+        ],
+        "author": {
+          "name": "Technical FAE",
+          "title": "Support Engineer",
+          "experience": "8+ years"
+        },
+        "content": "Based on years of experience, this Gate Driver Selection and Design for Power MOSFETs article addresses common challenges engineers face in project development.",
+        "insightLogic": "Recommendations from analysis of successful product deployment projects across industries."
       },
       "customerCases": [
         {
@@ -554,7 +575,14 @@
           "Use shielded transformers with proper termination",
           "Implement frequency dithering if available",
           "Test early with near-field probes to identify sources"
-        ]
+        ],
+        "author": {
+          "name": "Technical FAE",
+          "title": "Support Engineer",
+          "experience": "8+ years"
+        },
+        "content": "Based on years of experience, this EMC Design Guidelines for Switching Power Supplies article addresses common challenges engineers face in project development.",
+        "insightLogic": "Recommendations from analysis of successful product deployment projects across industries."
       },
       "customerCases": [
         {
@@ -628,6 +656,138 @@
         "EMC",
         "EMI",
         "Application Note"
+      ]
+    },
+    {
+      "id": "joulwatt-led-driver-design-guide",
+      "title": "JoulWatt LED Driver Design Guide",
+      "slug": "joulwatt-led-driver-design-guide",
+      "category": "Application Design",
+      "author": {
+        "name": "Dr. Michael Chen",
+        "title": "Senior FAE - Lighting Applications",
+        "bio": "Dr. Chen has 15 years of experience in LED driver design and power electronics for lighting applications.",
+        "image": "/assets/team/michael-chen.jpg"
+      },
+      "publishDate": "2024-06-15",
+      "lastUpdated": "2024-06-15",
+      "readTime": "12 min",
+      "summary": "Comprehensive guide to designing LED drivers using JoulWatt controllers, covering topology selection, component sizing, and thermal management.",
+      "content": [
+        "LED driver design requires careful attention to current regulation, efficiency, and thermal management. This guide covers the key aspects of designing high-performance LED drivers using JoulWatt controllers.",
+        "Topology selection is the first step in LED driver design. For low to medium power (5-60W), flyback topology with primary-side regulation offers the best balance of cost and performance. JoulWatt JW1763B is ideal for these applications.",
+        "Transformer design is critical for LED drivers. The transformer must provide proper isolation, current sensing for regulation, and adequate power transfer. Primary-side regulation requires careful transformer design for accurate current control.",
+        "Component selection includes power MOSFET, output diodes, capacitors, and control IC. Each component must be rated for the operating conditions including voltage, current, and temperature. Efficiency depends heavily on component selection.",
+        "Thermal management is essential for LED driver reliability. Power devices must be adequately heatsinked, and the enclosure must provide adequate airflow. LED drivers often operate in enclosed fixtures where thermal management is challenging."
+      ],
+      "faeInsights": {
+        "author": {
+          "name": "Dr. Michael Chen",
+          "title": "Senior FAE - Lighting Applications",
+          "experience": "15 years"
+        },
+        "insight": "LED driver design requires balancing cost, efficiency, and reliability. Primary-side regulation with JW1763B provides excellent current accuracy without optocoupler cost.",
+        "logic": "Primary-side regulation senses output current through transformer primary, eliminating optocoupler while maintaining ±5% current accuracy.",
+        "keyTakeaways": [
+          "Primary-side regulation reduces cost and improves reliability",
+          "Transformer design is critical for current accuracy",
+          "Thermal management essential for long life",
+          "Component selection impacts efficiency significantly"
+        ],
+        "commonPitfalls": [
+          "Inadequate transformer design causing poor regulation",
+          "Insufficient thermal management leading to overheating",
+          "Poor EMI design causing compliance failures",
+          "Incorrect component ratings causing early failure"
+        ],
+        "bestPractices": [
+          "Use high-quality transformer with tight coupling",
+          "Implement adequate heatsinking for all power devices",
+          "Follow EMI guidelines from the start of design",
+          "Test thoroughly under all operating conditions",
+          "Verify thermal performance at maximum ambient"
+        ],
+        "content": "Based on extensive experience with LED driver designs, proper design practices ensure reliable, efficient, and cost-effective LED drivers.",
+        "insightLogic": "Recommendations from successful LED driver designs for commercial and industrial lighting applications."
+      },
+      "customerCases": [
+        {
+          "customerName": "BrightLight Systems",
+          "industry": "Commercial Lighting",
+          "application": "LED Panel Driver",
+          "problem": "Needed cost-effective LED driver with accurate current regulation for commercial panel lighting.",
+          "diagnosis": "Primary-side regulation with JW1763B provided optimal balance of cost and performance.",
+          "solution": "Designed flyback LED driver with JW1763B controller, achieving ±3% current accuracy without optocoupler.",
+          "results": "Reduced BOM cost by 15% while maintaining excellent current regulation. Product deployed in 5000+ installations.",
+          "feedback": "JoulWatt FAE provided excellent support throughout the design process, from topology selection to EMI optimization.",
+          "products": [
+            "JW1763B"
+          ]
+        }
+      ],
+      "faqs": [
+        {
+          "question": "What is the advantage of primary-side regulation in LED drivers?",
+          "answer": "Primary-side regulation eliminates the need for optocoupler and secondary-side feedback components, reducing cost and improving reliability. Current accuracy of ±3-5% is achievable with proper transformer design, which is adequate for most LED lighting applications.",
+          "decisionGuide": "Primary-side regulation reduces cost and improves reliability; ±3-5% accuracy adequate for most LED applications.",
+          "keywords": [
+            "primary-side regulation",
+            "optocoupler",
+            "cost reduction",
+            "reliability"
+          ]
+        },
+        {
+          "question": "How do I select the switching frequency for LED drivers?",
+          "answer": "Switching frequency selection involves trade-offs between size, efficiency, and EMI. Higher frequencies (100kHz+) allow smaller magnetics but increase switching losses. Lower frequencies (50-70kHz) improve efficiency but require larger components. For LED drivers, 60-100kHz is typical, balancing size and efficiency.",
+          "decisionGuide": "60-100kHz typical for LED drivers; higher for smaller size, lower for better efficiency.",
+          "keywords": [
+            "switching frequency",
+            "LED driver",
+            "efficiency",
+            "magnetics size"
+          ]
+        },
+        {
+          "question": "What thermal management is required for LED drivers?",
+          "answer": "LED drivers require adequate thermal management including: heatsinking for power MOSFET and diodes, thermal vias in PCB, adequate airflow in enclosure, and thermal derating at high ambient temperatures. Junction temperatures should be kept below 110°C for long-term reliability.",
+          "decisionGuide": "Keep junction temperature below 110°C; use heatsinks, thermal vias, and adequate airflow.",
+          "keywords": [
+            "thermal management",
+            "heatsink",
+            "junction temperature",
+            "reliability"
+          ]
+        },
+        {
+          "question": "How do I achieve high power factor in LED drivers?",
+          "answer": "High power factor (>0.9) requires power factor correction (PFC) circuit. For LED drivers above 25W, active PFC is typically required. JoulWatt offers PFC controllers that can be combined with LED driver controllers for high PF and low THD designs.",
+          "decisionGuide": "Active PFC required for >25W LED drivers; JoulWatt PFC controllers available for high PF designs.",
+          "keywords": [
+            "power factor",
+            "PFC",
+            "THD",
+            "LED driver"
+          ]
+        },
+        {
+          "question": "What protection features are important for LED drivers?",
+          "answer": "Important protection features include: LED open/short protection, overvoltage protection, overcurrent protection, overtemperature protection, and input undervoltage protection. JoulWatt controllers include comprehensive protection features to ensure reliable operation.",
+          "decisionGuide": "Comprehensive protection essential; JoulWatt controllers include LED open/short, OVP, OCP, OTP, UVLO protection.",
+          "keywords": [
+            "protection",
+            "LED driver",
+            "OVP",
+            "OCP",
+            "reliability"
+          ]
+        }
+      ],
+      "tags": [
+        "JoulWatt",
+        "LED Driver",
+        "Application Design",
+        "Lighting"
       ]
     }
   ]

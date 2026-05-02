@@ -19,12 +19,16 @@
       "description": "High-performance FPGA series featuring LUT6 architecture, high-speed transceivers, and rich hard IP cores for demanding applications.",
       "longDescription": "The HME-P (Pegasus) series represents HME's high-performance FPGA lineup, designed for applications requiring maximum performance and rich functionality. Built on advanced process technology, these FPGAs feature a modern LUT6 architecture delivering operating frequencies up to 700MHz. The series includes high-speed transceivers supporting rates up to 12.5Gbps, making them ideal for high-bandwidth applications. Rich hard IP cores include PCIe Gen3 controllers, DDR3/4 memory interfaces, Gigabit Ethernet MACs, and MIPI D-PHY for camera/display connectivity. With logic capacities ranging from 10K to 200K LUT6 equivalents, the HME-P series serves diverse applications from 5G communications to video processing and AI acceleration. As an authorized HME distributor, we provide comprehensive technical support and selection guidance for your high-performance FPGA projects.",
       "parameters": [
-        "Logic Capacity (LUT6)",
-        "Block RAM (Mbit)",
+        "Logic Capacity",
+        "Block RAM",
         "DSP Slices",
         "Transceivers",
+        "Hard IP",
         "Max I/O",
-        "Package"
+        "Packages",
+        "Voltage Rating",
+        "Current Rating",
+        "Temperature Range"
       ],
       "applications": [
         "5G Communications",
@@ -129,7 +133,10 @@
             "Transceivers": "16 channels, 12.5Gbps max",
             "Hard IP": "PCIe Gen3, DDR3/4, GbE MAC, MIPI D-PHY",
             "Max I/O": "360 user I/O",
-            "Packages": "FBGA676, FBGA900"
+            "Packages": "FBGA676, FBGA900",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
           },
           "features": [
             "LUT6 architecture with 700MHz maximum frequency",
@@ -280,12 +287,16 @@
       "description": "Cost-effective 22nm FPGA series offering excellent performance-to-price ratio for mainstream applications.",
       "longDescription": "The HME-H (Hercules) series is built on advanced 22nm process technology, delivering an exceptional balance of performance, power efficiency, and cost-effectiveness. These FPGAs are ideal for cost-sensitive applications that still require modern FPGA capabilities. The series features LUT6 architecture with operating frequencies up to 500MHz, sufficient for most industrial and consumer applications. With logic capacities from 6K to 60K LUT6 equivalents, HME-H devices serve a wide range of applications including industrial control, motor drives, display interfaces, and communication equipment. The 22nm process provides significant power savings compared to older generations, making these devices suitable for thermally constrained designs. As your HME distributor, we provide cost-optimized solutions and technical support for Hercules series deployments.",
       "parameters": [
-        "Logic Capacity (LUT6)",
-        "Block RAM (Kbit)",
+        "Logic Capacity",
+        "Block RAM",
         "DSP Slices",
-        "Max I/O",
-        "Package",
-        "Process"
+        "Max Frequency",
+        "User I/O",
+        "I/O Standards",
+        "Packages",
+        "Voltage Rating",
+        "Current Rating",
+        "Temperature Range"
       ],
       "applications": [
         "Industrial Control",
@@ -390,7 +401,10 @@
             "Max Frequency": "250 MHz",
             "User I/O": "36 pins",
             "I/O Standards": "LVCMOS 3.3/2.5/1.8V, LVDS, SSTL",
-            "Packages": "QFN48, LQFP64"
+            "Packages": "QFN48, LQFP64",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
           },
           "features": [
             "Advanced 22nm low-power process",
@@ -542,12 +556,16 @@
       "description": "Ultra-low power FPGA series designed for battery-powered and portable applications with advanced power management.",
       "longDescription": "The HME-M (Mars) series is specifically designed for ultra-low power applications where battery life is critical. These FPGAs feature advanced power management capabilities including multiple power modes, fine-grained clock gating, and dynamic voltage scaling. With static power consumption as low as 50μA and the ability to operate from a single 1.2V supply, the Mars series is ideal for portable devices, IoT endpoints, and battery-powered sensors. The series supports instant-on capability with configuration times under 10ms, enabling rapid wake-from-sleep for intermittent operation. Despite the focus on power efficiency, the Mars series still delivers sufficient logic capacity (4K-20K LUT6) and performance (up to 200MHz) for complex control and processing tasks. As your HME distributor, we provide power optimization guidance and battery life estimation for your portable FPGA designs.",
       "parameters": [
-        "Logic Capacity (LUT6)",
+        "Logic Capacity",
         "Static Power",
         "Active Power",
         "Config Time",
-        "Max I/O",
-        "Package"
+        "Max Frequency",
+        "User I/O",
+        "Packages",
+        "Voltage Rating",
+        "Current Rating",
+        "Temperature Range"
       ],
       "applications": [
         "IoT Devices",
@@ -616,7 +634,10 @@
             "Config Time": "<10ms (instant-on)",
             "Max Frequency": "200 MHz",
             "User I/O": "48 pins",
-            "Packages": "QFN48, WLCSP36"
+            "Packages": "QFN48, WLCSP36",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
           },
           "features": [
             "Ultra-low static power <100μA",
@@ -743,7 +764,10 @@
             "Config Time": "<10ms",
             "Max Frequency": "150 MHz",
             "User I/O": "32 pins",
-            "Packages": "QFN32, WLCSP25"
+            "Packages": "QFN32, WLCSP25",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
           },
           "features": [
             "Ultra-low static power <75μA",
@@ -829,12 +853,17 @@
       "description": "High-end FPGA series with maximum logic capacity and performance for the most demanding applications.",
       "longDescription": "The HME-A (Apollo) series represents the pinnacle of HME's FPGA technology, delivering maximum logic capacity, highest performance, and most advanced features for demanding applications. With logic capacities exceeding 500K LUT6 equivalents and operating frequencies up to 800MHz, these devices tackle the most complex digital designs. The series features the highest density of hard IP including multiple PCIe Gen3 x16 interfaces, DDR4 memory controllers, and 28Gbps transceivers for high-speed networking. Advanced features include 3D IC packaging options, in-package HBM memory, and dedicated AI acceleration engines. The Apollo series targets data center acceleration, high-performance computing, advanced networking, and complex signal processing applications. As your HME distributor, we provide specialized support for high-end FPGA designs including signal integrity analysis and thermal management.",
       "parameters": [
-        "Logic Capacity (LUT6)",
-        "Block RAM (Mbit)",
+        "Logic Capacity",
+        "Block RAM",
         "DSP Slices",
         "Transceivers",
         "Hard IP",
-        "Package"
+        "AI Engines",
+        "Packages",
+        "HBM Memory",
+        "Voltage Rating",
+        "Current Rating",
+        "Temperature Range"
       ],
       "applications": [
         "Data Center Acceleration",
@@ -903,7 +932,11 @@
             "Transceivers": "32 channels, 28Gbps",
             "Hard IP": "PCIe Gen3 x16, DDR4, HBM2 controller",
             "AI Engines": "8 AI accelerator blocks",
-            "Packages": "FCBGA1924, 3D IC"
+            "Packages": "FCBGA1924, 3D IC",
+            "HBM Memory": "N/A",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
           },
           "features": [
             "300K LUT6 maximum capacity",
@@ -1031,7 +1064,10 @@
             "Hard IP": "Multiple PCIe Gen3 x16, DDR4, HBM2e",
             "HBM Memory": "8GB HBM2e (1TB/s bandwidth)",
             "AI Engines": "16 AI accelerator blocks",
-            "Packages": "3D IC, FCBGA2576"
+            "Packages": "3D IC, FCBGA2576",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
           },
           "features": [
             "Maximum 500K LUT6 capacity",

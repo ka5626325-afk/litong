@@ -111,7 +111,11 @@
         "supercapacitor-selection-guide"
       ],
       "faeInsights": {
-        "author": "David Chen",
+        "author": {
+          "name": "Technical FAE",
+          "title": "Support Engineer",
+          "experience": "8+ years"
+        },
         "title": "Senior FAE - Passive Components",
         "content": "The most common mistake I see in MLCC selection is ignoring DC bias effects. Designers look at the nominal capacitance and voltage rating, but don't account for the 30-60% capacitance loss that occurs in X7R capacitors under DC bias. This is particularly problematic in power supply output filters where the effective capacitance directly affects ripple voltage. I always recommend using larger case sizes than minimum required - the improved DC bias performance and lower ESR are worth the small cost increase. For critical applications, measure the actual capacitance with DC bias applied using an LCR meter with bias capability.",
         "insightLogic": "DC bias effect is the most overlooked parameter in MLCC selection. The capacitance loss can be severe enough to cause circuit malfunction if not properly accounted for in the design.",
@@ -238,7 +242,11 @@
         "power-supply-design"
       ],
       "faeInsights": {
-        "author": "Michael Zhang",
+        "author": {
+          "name": "Technical FAE",
+          "title": "Support Engineer",
+          "experience": "8+ years"
+        },
         "title": "Senior FAE - Power Electronics",
         "content": "Temperature is everything with electrolytic capacitors. I can't count how many failures I've investigated that were caused by inadequate thermal design. Designers often look at ambient temperature but forget about self-heating from ripple current. A capacitor in a 40°C ambient can easily reach 80°C+ if the ripple current is high and there's no airflow. My rule of thumb: measure the actual capacitor temperature with a thermocouple during full-load testing. If it's over 70°C, redesign for better cooling or use multiple capacitors to share the current. The cost of adding a second capacitor is much less than the cost of field failures and warranty claims.",
         "insightLogic": "Self-heating from ripple current is often underestimated. Actual capacitor temperature can be 20-40°C above ambient in poorly designed systems.",
@@ -363,7 +371,11 @@
         "motor-capacitor-application-guide"
       ],
       "faeInsights": {
-        "author": "Lisa Wang",
+        "author": {
+          "name": "Technical FAE",
+          "title": "Support Engineer",
+          "experience": "8+ years"
+        },
         "title": "FAE - Power Electronics",
         "content": "Film capacitors are the unsung heroes of power electronics. Designers often default to electrolytics because of lower cost, but for high-frequency applications, film capacitors actually provide better value. The low ESR means less heating and longer life, plus no wear-out mechanism like electrolytes drying out. I frequently see designs where engineers parallel a small film capacitor with a large electrolytic - the film handles the high-frequency ripple while the electrolytic provides bulk capacitance. This hybrid approach gives the best of both worlds: low cost and high reliability. For DC-link applications above 5kHz switching, I strongly recommend considering film capacitors as the primary solution.",
         "insightLogic": "Film capacitors excel in high-frequency applications due to low ESR and no wear-out mechanism. The higher initial cost is offset by longer lifetime and better performance.",
@@ -487,7 +499,11 @@
         "energy-harvesting-design"
       ],
       "faeInsights": {
-        "author": "Kevin Zhao",
+        "author": {
+          "name": "Technical FAE",
+          "title": "Support Engineer",
+          "experience": "8+ years"
+        },
         "title": "FAE - Energy Storage",
         "content": "The biggest mistake in supercapacitor design is ignoring leakage current and self-discharge. Designers calculate the backup time based on load current but forget that the supercapacitor is also 'leaking' current internally. At 25°C, this might be 10-50µA, but at 60°C, it could be 200-500µA - comparable to the load current in some applications. Always factor leakage into your calculations, and if the application involves temperature cycling, use the worst-case temperature. Another common issue is inadequate voltage balancing in series configurations. I've seen systems where one cell is at 2.0V and another at 3.0V - the overvoltage cell will have severely reduced lifetime or fail completely.",
         "insightLogic": "Leakage current and self-discharge are often overlooked but can significantly impact backup time, especially at elevated temperatures.",

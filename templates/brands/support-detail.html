@@ -152,6 +152,27 @@
                   <h2><%= section.heading %></h2>
                   <p><%= section.content %></p>
                 <% }); %>
+              <% } else if (article.content && Array.isArray(article.content)) { %>
+                <% article.content.forEach(function(block) { %>
+                  <% if (typeof block === 'string') { %>
+                    <p><%= block %></p>
+                  <% } else if (block.type === 'paragraph') { %>
+                    <p><%= block.text %></p>
+                  <% } else if (block.type === 'heading') { %>
+                    <h2><%= block.text %></h2>
+                  <% } else if (block.heading && block.content) { %>
+                    <h2><%= block.heading %></h2>
+                    <p><%= block.content %></p>
+                  <% } else if (block.type === 'list' && block.items) { %>
+                    <ul>
+                      <% block.items.forEach(function(item) { %>
+                        <li><%= item %></li>
+                      <% }); %>
+                    </ul>
+                  <% } else if (block.type === 'code' && block.code) { %>
+                    <pre><code><%= block.code %></code></pre>
+                  <% } %>
+                <% }); %>
               <% } else if (article.content) { %>
                 <p><%= article.content %></p>
               <% } %>
@@ -161,31 +182,24 @@
             <div class="fae-insights" style="margin-top: var(--space-12); padding: var(--space-6); background: linear-gradient(135deg, #f0f7ff 0%, #e6f0ff 100%); border-radius: var(--radius-md); border-left: 4px solid var(--primary-blue);">
               <h2 style="font-size: 1.5rem; color: var(--primary-blue); margin-bottom: var(--space-4);">💡 FAE Insights</h2>
               
-              <% if (article.faeInsights.insight) { %>
+              <% if (article.faeInsights.summary) { %>
                 <div class="insight-section" style="margin-bottom: var(--space-4);">
                   <h3 style="font-size: 1.125rem; color: var(--text-dark); margin-bottom: var(--space-2);">Professional Insight</h3>
-                  <p style="color: var(--text-medium); line-height: 1.8;"><%= article.faeInsights.insight %></p>
+                  <p style="color: var(--text-medium); line-height: 1.8;"><%= article.faeInsights.summary %></p>
                 </div>
               <% } %>
               
-              <% if (article.faeInsights.logic) { %>
+              <% if (article.faeInsights.decisionLogic) { %>
                 <div class="logic-section" style="margin-bottom: var(--space-4);">
                   <h3 style="font-size: 1.125rem; color: var(--text-dark); margin-bottom: var(--space-2);">Technical Logic</h3>
-                  <p style="color: var(--text-medium); line-height: 1.8;"><%= article.faeInsights.logic %></p>
+                  <p style="color: var(--text-medium); line-height: 1.8;"><%= article.faeInsights.decisionLogic %></p>
                 </div>
               <% } %>
               
-              <% if (article.faeInsights.keyTakeaways && article.faeInsights.keyTakeaways.length > 0) { %>
+              <% if (article.faeInsights.keyConsiderations) { %>
                 <div class="takeaways-section" style="margin-bottom: var(--space-4);">
-                  <h3 style="font-size: 1.125rem; color: var(--text-dark); margin-bottom: var(--space-2);">Key Takeaways</h3>
-                  <ul style="list-style: none; padding: 0;">
-                    <% article.faeInsights.keyTakeaways.forEach(function(takeaway) { %>
-                      <li style="padding: var(--space-2) 0; padding-left: var(--space-6); position: relative; color: var(--text-medium);">
-                        <span style="position: absolute; left: 0; color: var(--primary-blue);">✓</span>
-                        <%= takeaway %>
-                      </li>
-                    <% }); %>
-                  </ul>
+                  <h3 style="font-size: 1.125rem; color: var(--text-dark); margin-bottom: var(--space-2);">Key Considerations</h3>
+                  <p style="color: var(--text-medium); line-height: 1.8;"><%= article.faeInsights.keyConsiderations %></p>
                 </div>
               <% } %>
               
@@ -202,34 +216,6 @@
                   </ul>
                 </div>
               <% } %>
-              
-              <% if (article.faeInsights.bestPractices && article.faeInsights.bestPractices.length > 0) { %>
-                <div class="best-practices-section" style="margin-bottom: var(--space-4);">
-                  <h3 style="font-size: 1.125rem; color: var(--text-dark); margin-bottom: var(--space-2);">✓ Best Practices</h3>
-                  <ul style="list-style: none; padding: 0;">
-                    <% article.faeInsights.bestPractices.forEach(function(practice) { %>
-                      <li style="padding: var(--space-2) 0; padding-left: var(--space-6); position: relative; color: var(--text-medium);">
-                        <span style="position: absolute; left: 0; color: #28a745;">✓</span>
-                        <%= practice %>
-                      </li>
-                    <% }); %>
-                  </ul>
-                </div>
-              <% } %>
-              
-              <% if (article.faeInsights.troubleshootingTips && article.faeInsights.troubleshootingTips.length > 0) { %>
-                <div class="troubleshooting-section">
-                  <h3 style="font-size: 1.125rem; color: var(--text-dark); margin-bottom: var(--space-2);">🔧 Troubleshooting Tips</h3>
-                  <ul style="list-style: none; padding: 0;">
-                    <% article.faeInsights.troubleshootingTips.forEach(function(tip) { %>
-                      <li style="padding: var(--space-2) 0; padding-left: var(--space-6); position: relative; color: var(--text-medium);">
-                        <span style="position: absolute; left: 0; color: var(--primary-blue);">🔧</span>
-                        <%= tip %>
-                      </li>
-                    <% }); %>
-                  </ul>
-                </div>
-              <% } %>
             </div>
             <% } %>
 
@@ -241,25 +227,20 @@
                   <div class="case-card" style="background: var(--bg-light); padding: var(--space-6); border-radius: var(--radius-md); border-left: 4px solid #28a745;">
                     <div class="case-header" style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: var(--space-4);">
                       <div>
-                        <h3 style="font-size: 1.25rem; color: var(--text-dark); margin-bottom: var(--space-1);"><%= caseItem.customerName %></h3>
-                        <p style="color: var(--text-light); font-size: 0.875rem;"><%= caseItem.industry %></p>
+                        <h3 style="font-size: 1.25rem; color: var(--text-dark); margin-bottom: var(--space-1);"><%= caseItem.customer || caseItem.customerName %></h3>
+                        <% if (caseItem.industry) { %>
+                          <p style="color: var(--text-light); font-size: 0.875rem;"><%= caseItem.industry %></p>
+                        <% } %>
                       </div>
                       <% if (caseItem.application) { %>
                         <span style="background: var(--primary-blue); color: #ffffff; padding: 4px 12px; border-radius: var(--radius-full); font-size: 0.75rem;"><%= caseItem.application %></span>
                       <% } %>
                     </div>
                     
-                    <% if (caseItem.problem) { %>
+                    <% if (caseItem.challenge || caseItem.problem) { %>
                       <div class="case-section" style="margin-bottom: var(--space-3);">
-                        <h4 style="font-size: 0.875rem; color: #dc3545; margin-bottom: var(--space-1);">Problem</h4>
-                        <p style="color: var(--text-medium);"><%= caseItem.problem %></p>
-                      </div>
-                    <% } %>
-                    
-                    <% if (caseItem.diagnosis) { %>
-                      <div class="case-section" style="margin-bottom: var(--space-3);">
-                        <h4 style="font-size: 0.875rem; color: var(--primary-blue); margin-bottom: var(--space-1);">Diagnosis</h4>
-                        <p style="color: var(--text-medium);"><%= caseItem.diagnosis %></p>
+                        <h4 style="font-size: 0.875rem; color: #dc3545; margin-bottom: var(--space-1);">Challenge</h4>
+                        <p style="color: var(--text-medium);"><%= caseItem.challenge || caseItem.problem %></p>
                       </div>
                     <% } %>
                     
@@ -270,7 +251,23 @@
                       </div>
                     <% } %>
                     
-                    <% if (caseItem.results) { %>
+                    <% if (caseItem.feedback) { %>
+                      <div class="case-section" style="margin-bottom: var(--space-3); background: #ffffff; padding: var(--space-3); border-radius: var(--radius-sm);">
+                        <h4 style="font-size: 0.875rem; color: var(--primary-blue); margin-bottom: var(--space-1);">Customer Feedback</h4>
+                        <p style="color: var(--text-medium); margin: 0; font-style: italic;">"<%= caseItem.feedback %>"</p>
+                      </div>
+                    <% } %>
+                    
+                    <% if (caseItem.results && Array.isArray(caseItem.results) && caseItem.results.length > 0) { %>
+                      <div class="case-section" style="background: #ffffff; padding: var(--space-3); border-radius: var(--radius-sm);">
+                        <h4 style="font-size: 0.875rem; color: #28a745; margin-bottom: var(--space-1);">Results</h4>
+                        <ul style="margin: 0; padding-left: var(--space-4); color: var(--text-medium);">
+                          <% caseItem.results.forEach(function(result) { %>
+                            <li style="margin-bottom: var(--space-1);"><%= result %></li>
+                          <% }); %>
+                        </ul>
+                      </div>
+                    <% } else if (caseItem.results) { %>
                       <div class="case-section" style="background: #ffffff; padding: var(--space-3); border-radius: var(--radius-sm);">
                         <h4 style="font-size: 0.875rem; color: #28a745; margin-bottom: var(--space-1);">Results</h4>
                         <p style="color: var(--text-medium); margin: 0;"><%= caseItem.results %></p>

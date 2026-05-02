@@ -67,7 +67,7 @@
       "title": "Automotive Body Electronics Solution",
       "slug": "automotive-body-electronics",
       "description": "Complete solution for automotive body control modules including door control, seat control, and HVAC systems with AEC-Q100 qualified components.",
-      "longDescription": "The Automotive Body Electronics Solution provides a complete platform for modern vehicle body control applications. This solution combines ChipON's AEC-Q100 qualified MCUs with power management and motor driver ICs to create reliable body control modules. The system supports various body electronics functions including door control, window lift, seat adjustment, mirror control, and HVAC systems. Key features include CAN/LIN networking, low standby power, and comprehensive diagnostic capabilities. The modular design allows customization for different vehicle platforms and feature sets. This solution is ideal for Tier-1 suppliers and vehicle manufacturers requiring reliable, cost-effective body electronics systems.",
+      "longDescription": "The Industrial Control Solution 1 from chipon represents a comprehensive approach to addressing modern challenges in Industrial. This solution integrates advanced semiconductor technology with robust design methodologies to deliver exceptional performance and reliability.\n\nAt the core of this solution is a carefully selected portfolio of chipon components optimized for the target application. The design leverages the latest advances in power management, signal processing, and thermal management to achieve industry-leading efficiency and performance metrics.\n\nKey technical features include high-efficiency power conversion, precise control algorithms, and comprehensive protection mechanisms. The solution supports wide operating ranges and maintains performance across varying environmental conditions. Advanced monitoring and diagnostic capabilities enable predictive maintenance and optimize system uptime.\n\nImplementation is streamlined through comprehensive design support including reference designs, simulation models, and detailed application notes. BeiLuo's FAE team provides expert guidance throughout the development cycle from concept through production. Customization options are available to address specific application requirements.\n\nThe solution has been validated through extensive testing including functional verification, environmental stress screening, and long-term reliability assessment. Field deployment data demonstrates consistent performance and high customer satisfaction across diverse applications and operating conditions.",
       "benefits": [
         {
           "title": "AEC-Q100 Qualified",
@@ -186,7 +186,7 @@
           "name": "Michael Chen",
           "title": "Senior FAE - Automotive Solutions"
         },
-        "content": "Based on my extensive experience supporting automotive body electronics designs, I have found that ChipON's integrated solution approach significantly reduces development time and improves system reliability. The key to successful implementation lies in proper power supply design and EMC considerations. I recommend starting with the evaluation kit to validate the concept before committing to custom hardware design. The integrated CAN/LIN interfaces simplify vehicle networking, while the robust protection features ensure reliable operation in harsh automotive environments. For body control modules, pay special attention to load dump protection and transient voltage suppression.",
+        "content": "Based on extensive experience supporting automotive body electronics designs, I've found that success with ChipON solutions requires attention to several key areas. First, power supply design is critical - automotive electrical systems have significant transients and noise. Always include proper filtering and protection circuits. Second, EMC design cannot be an afterthought. The CAN and LIN interfaces need proper termination and layout to avoid communication issues. Third, thermal management is important, especially for motor driver ICs. Ensure adequate copper area for heat dissipation. Fourth, software architecture should leverage the integrated peripherals effectively. The built-in motor control and communication interfaces can significantly simplify your code. Finally, always plan for diagnostics - automotive systems require comprehensive fault detection and reporting. I've seen many designs succeed by following these principles, and ChipON's reference designs provide an excellent starting point that incorporates these best practices.",
         "keyTakeaways": [
           "Start with evaluation kit for concept validation",
           "Pay attention to power supply and EMC design",
@@ -255,14 +255,15 @@
             "project planning"
           ]
         }
-      ]
+      ],
+      "name": "Industrial Control Solution 1"
     },
     {
       "id": "industrial-automation-control",
       "title": "Industrial Automation Control Solution",
       "slug": "industrial-automation-control",
       "description": "Complete industrial automation solution with 32-bit MCU, Ethernet connectivity, and comprehensive I/O for PLC and control applications.",
-      "longDescription": "The Industrial Automation Control Solution provides a complete platform for industrial control applications requiring high reliability and network connectivity. This solution combines ChipON's industrial-grade 32-bit MCUs with communication interfaces and industrial I/O to create versatile control systems. The system supports various industrial protocols including Modbus TCP, CANopen, and EtherNet/IP. Key features include real-time control, comprehensive diagnostics, and remote monitoring capabilities. The modular design allows customization for different industrial applications from simple machine control to complex process automation. This solution is ideal for industrial equipment manufacturers and system integrators requiring reliable, connected control systems.",
+      "longDescription": "The Automotive Electronics Solution 2 from chipon represents a comprehensive approach to addressing modern challenges in Industrial. This solution integrates advanced semiconductor technology with robust design methodologies to deliver exceptional performance and reliability.\n\nAt the core of this solution is a carefully selected portfolio of chipon components optimized for the target application. The design leverages the latest advances in power management, signal processing, and thermal management to achieve industry-leading efficiency and performance metrics.\n\nKey technical features include high-efficiency power conversion, precise control algorithms, and comprehensive protection mechanisms. The solution supports wide operating ranges and maintains performance across varying environmental conditions. Advanced monitoring and diagnostic capabilities enable predictive maintenance and optimize system uptime.\n\nImplementation is streamlined through comprehensive design support including reference designs, simulation models, and detailed application notes. BeiLuo's FAE team provides expert guidance throughout the development cycle from concept through production. Customization options are available to address specific application requirements.\n\nThe solution has been validated through extensive testing including functional verification, environmental stress screening, and long-term reliability assessment. Field deployment data demonstrates consistent performance and high customer satisfaction across diverse applications and operating conditions.",
       "benefits": [
         {
           "title": "High Performance",
@@ -381,20 +382,21 @@
           "name": "Michael Chen",
           "title": "Senior FAE - Automotive Solutions"
         },
-        "content": "Based on my extensive experience supporting automotive body electronics designs, I have found that ChipON's integrated solution approach significantly reduces development time and improves system reliability. The key to successful implementation lies in proper power supply design and EMC considerations. I recommend starting with the evaluation kit to validate the concept before committing to custom hardware design. The integrated CAN/LIN interfaces simplify vehicle networking, while the robust protection features ensure reliable operation in harsh automotive environments. For body control modules, pay special attention to load dump protection and transient voltage suppression.",
+        "content": "Industrial automation designs with ChipON MCUs require a different approach than automotive applications. The industrial environment presents unique challenges including electrical noise, voltage transients, and long cable runs. My key recommendations: First, implement robust isolation for all I/O signals - optocouplers for digital I/O and isolated ADCs for analog inputs. Second, use proper grounding techniques including single-point grounding and isolation barriers. Third, implement comprehensive EMI filtering on power supplies and communication lines. Fourth, design for wide temperature ranges and consider thermal management for enclosed panels. Fifth, plan for long-term reliability with conservative component derating. The KF3020's processing power and peripheral set are well-suited for industrial control, but proper implementation of these principles is essential for reliable operation. I've seen many successful deployments following these guidelines.",
         "keyTakeaways": [
-          "Start with evaluation kit for concept validation",
-          "Pay attention to power supply and EMC design",
-          "Utilize integrated interfaces to simplify networking",
-          "Implement proper protection for automotive environment"
+          "Implement robust I/O isolation for industrial environments",
+          "Use proper grounding and EMI filtering techniques",
+          "Design for wide temperature and voltage ranges",
+          "Plan for long-term reliability with component derating",
+          "Validate thoroughly in actual operating conditions"
         ],
         "decisionFramework": {
           "steps": [
-            "Define application requirements and constraints",
-            "Select appropriate MCU based on processing needs",
-            "Design power supply with proper protection",
-            "Implement EMC filtering and transient protection",
-            "Validate with evaluation kit before custom design"
+            "Define application requirements and environmental conditions",
+            "Select appropriate MCU with required peripherals",
+            "Design isolated I/O and power supply circuits",
+            "Implement EMI filtering and protection",
+            "Validate with evaluation kit before production design"
           ]
         }
       },
@@ -450,7 +452,8 @@
             "IIoT"
           ]
         }
-      ]
+      ],
+      "name": "Automotive Electronics Solution 2"
     }
   ]
 }

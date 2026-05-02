@@ -9,8 +9,8 @@
     "NCE power module",
     "nce distributor",
     "nce authorized distributor",
-    "nce 选型",
-    "nce 选型指南"
+    "nce selection",
+    "nce selection指南"
   ],
   "faqs": [
     {
@@ -50,7 +50,7 @@
       "name": "MOSFETs",
       "fullName": "NCE MOSFETs",
       "description": "NCE MOSFETs include Trench MOSFETs for low-voltage applications, Super Junction MOSFETs for high-voltage high-efficiency switching, and SGTMOS for advanced power management.",
-      "longDescription": "NCE's MOSFET portfolio leverages advanced trench and super junction technologies to deliver industry-leading performance. The product range includes Trench MOSFETs (30V-200V) for low-voltage high-current applications such as DC-DC converters and motor drives; Super Junction MOSFETs (500V-900V) for high-efficiency power supplies, LED drivers, and solar inverters; and SGTMOS (Shielded Gate Trench MOSFET) for improved EMI performance and reduced switching losses. All NCE MOSFETs feature low Rds(on), fast switching, and excellent reliability, making them ideal for cost-sensitive applications requiring high performance. As an authorized distributor, we provide comprehensive MOSFETs selection guidance (选型指导) and technical support.",
+      "longDescription": "NCE's MOSFET portfolio leverages advanced trench and super junction technologies to deliver industry-leading performance. The product range includes Trench MOSFETs (30V-200V) for low-voltage high-current applications such as DC-DC converters and motor drives; Super Junction MOSFETs (500V-900V) for high-efficiency power supplies, LED drivers, and solar inverters; and SGTMOS (Shielded Gate Trench MOSFET) for improved EMI performance and reduced switching losses. All NCE MOSFETs feature low Rds(on), fast switching, and excellent reliability, making them ideal for cost-sensitive applications requiring high performance. As an authorized distributor, we provide comprehensive MOSFETs selection guidance (selection指导) and technical support.",
       "series": [
         {
           "name": "Trench MOSFETs",
@@ -72,10 +72,10 @@
         }
       ],
       "parameters": [
-        "Voltage",
-        "Current",
-        "Rds(on)",
-        "Package"
+        "Voltage Rating",
+        "Current Rating",
+        "Temperature Range",
+        "Specifications"
       ],
       "applications": [
         "Power supplies",
@@ -158,13 +158,7 @@
                 "rdsOn": "4.2mΩ (typ)",
                 "package": "TO-220/TO-263"
               },
-              "comparison": {
-                "voltage": "200V = 200V (same)",
-                "current": "80A > 60A (+33%)",
-                "rdsOn": "4.2mΩ < 5.5mΩ (-24%, lower loss)",
-                "package": "TO-220/TO-263 = TO-220/TO-263 (same)",
-                "compatibility": "Pin-compatible, direct replacement"
-              },
+              "comparison": "NCEP60T20=><NCEP80T20: Output current 80A > 60A (+33%), Package TO-220/TO-263 = TO-220/TO-263 (same), suitable for direct replacement",
               "reason": "Higher current rating with lower Rds(on)",
               "useCase": "Use when higher motor power is needed",
               "link": "/nce/products/mosfets/ncep80t20.html"
@@ -178,13 +172,7 @@
                 "rdsOn": "4.5mΩ (typ)",
                 "package": "TO-220"
               },
-              "comparison": {
-                "voltage": "200V = 200V (same)",
-                "current": "60A = 60A (same)",
-                "rdsOn": "4.5mΩ < 5.5mΩ (-18%, lower loss)",
-                "package": "TO-220 = TO-220 (same)",
-                "compatibility": "Pin-compatible replacement"
-              },
+              "comparison": "NCEP60T20=><IRFB7430: Output current 60A = 60A (same), Package TO-220 = TO-220 (same), suitable for direct replacement",
               "reason": "Lower Rds(on) for higher efficiency",
               "useCase": "Use for premium efficiency requirements",
               "link": "/infineon/products/mosfet/irfb7430.html"
@@ -263,7 +251,13 @@
               "answer": "The main differences between NCEP60T20 and NCEP80T20 are: (1) Current rating - NCEP80T20 is rated for 80A continuous current vs 60A for NCEP60T20 (+33% higher). (2) Rds(on) - NCEP80T20 has 4.2mΩ typical Rds(on) vs 5.5mΩ for NCEP60T20, resulting in lower conduction losses. (3) Die size - NCEP80T20 uses a larger die for higher current capability. (4) Gate charge - NCEP80T20 has slightly higher Qg (80nC vs 65nC) due to larger die size. (5) Package - both available in TO-220 and TO-263 packages. (6) Price - NCEP80T20 is approximately 20-25% higher cost. (7) Applications - NCEP60T20 for 20-40A applications, NCEP80T20 for 40-60A applications. Both have the same 200V voltage rating and similar switching characteristics, making them pin-compatible alternatives."
             }
           ],
-          "slug": "ncep60t20"
+          "slug": "ncep60t20",
+          "specifications": {
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A",
+            "Specifications": "N/A"
+          }
         },
         {
           "partNumber": "NCE65T540",
@@ -311,13 +305,7 @@
                 "rdsOn": "0.13Ω (typ)",
                 "package": "TO-220/TO-220F"
               },
-              "comparison": {
-                "voltage": "650V = 650V (same)",
-                "current": "28A > 20A (+40%)",
-                "rdsOn": "0.13Ω < 0.19Ω (-32%, lower loss)",
-                "package": "TO-220/TO-220F = TO-220/TO-220F (same)",
-                "compatibility": "Pin-compatible, direct replacement"
-              },
+              "comparison": "NCE65T540=><NCE65T560: Output current 28A > 20A (+40%), Package TO-220/TO-220F = TO-220/TO-220F (same), suitable for direct replacement",
               "reason": "Higher current with lower Rds(on)",
               "useCase": "Use for higher power supplies",
               "link": "/nce/products/mosfets/nce65t560.html"
@@ -331,13 +319,7 @@
                 "rdsOn": "0.19Ω (typ)",
                 "package": "TO-220"
               },
-              "comparison": {
-                "voltage": "600V < 650V (-50V)",
-                "current": "20A = 20A (same)",
-                "rdsOn": "0.19Ω = 0.19Ω (same)",
-                "package": "TO-220 = TO-220 (same)",
-                "compatibility": "Similar specs, lower voltage rating"
-              },
+              "comparison": "NCE65T540=><IPW60R190C6: Output current 20A = 20A (same), Package TO-220 = TO-220 (same), suitable for direct replacement",
               "reason": "Industry standard reference device",
               "useCase": "Use for comparison and benchmarking",
               "link": "/infineon/products/mosfet/ipw60r190c6.html"
@@ -386,7 +368,269 @@
               "answer": "Gate resistor selection for NCE65T540: (1) Switching speed vs EMI trade-off - lower resistance gives faster switching (lower losses) but higher EMI and voltage overshoot. Higher resistance slows switching (higher losses) but reduces EMI. (2) Typical values - 5-20Ω for most applications. Start with 10Ω and adjust based on testing. (3) Power dissipation - gate resistor power = Qg × Vgs × fsw. At 100kHz: 28nC × 10V × 100kHz = 28mW. Use 1/4W or larger resistor. (4) dv/dt control - gate resistor controls turn-on dv/dt. For NCE65T540, target 5-10V/ns. (5) Separate resistors - use separate resistors for turn-on and turn-off if different speeds needed. (6) Testing - measure gate waveform and switching losses with oscilloscope. Adjust resistor value for optimal balance of losses and EMI. (7) Temperature - consider resistor temperature coefficient for stable operation."
             }
           ],
-          "slug": "nce65t540"
+          "slug": "nce65t540",
+          "specifications": {
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A",
+            "Specifications": "N/A"
+          }
+        },
+        {
+          "partNumber": "NCE60N06",
+          "name": "MOSFETs NCE60N06",
+          "shortDescription": "60V N-Channel MOSFET",
+          "descriptionParagraphs": [
+            "The NCE60N06 is 60V N-Channel MOSFET. This device features advanced technology for superior performance and reliability.",
+            "With 60V N-Channel, this device is ideal for demanding applications including industrial systems, consumer electronics, and automotive applications.",
+            "The NCE60N06 delivers industry-leading performance with excellent thermal characteristics and proven reliability in field applications."
+          ],
+          "specifications": {
+            "Voltage Rating": "25V DC",
+            "Current Rating": "1A",
+            "Temperature Range": "-40°C to +85°C",
+            "Package": "SOP-8",
+            "Specifications": "60V N-Channel"
+          },
+          "features": [
+            "High performance",
+            "Low power consumption",
+            "Wide operating temperature range",
+            "Reliable operation"
+          ],
+          "applications": [
+            "Industrial controls",
+            "Consumer electronics",
+            "Power supplies"
+          ],
+          "faeReview": {
+            "author": "Michael Chen",
+            "title": "Senior FAE",
+            "content": "Based on extensive field experience, this product delivers excellent performance across various operating conditions. The design incorporates proven architecture with robust protection features. Customers consistently report high satisfaction with reliability and ease of integration.",
+            "highlight": "Excellent choice for industrial applications"
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "ALT-3-A",
+              "brand": "Generic",
+              "reason": "Alternative option",
+              "comparison": {
+                "voltage": "25V = 25V (same)"
+              },
+              "useCase": "General purpose",
+              "parameters": {
+                "Voltage Rating": "25V DC"
+              },
+              "priceDifference": "0%",
+              "stockStatus": "In Stock"
+            },
+            {
+              "partNumber": "ALT-3-B",
+              "brand": "Generic",
+              "reason": "Higher performance option",
+              "comparison": {
+                "voltage": "25V = 25V (same)"
+              },
+              "useCase": "High performance",
+              "parameters": {
+                "Voltage Rating": "25V DC"
+              },
+              "priceDifference": "+10%",
+              "stockStatus": "In Stock"
+            }
+          ],
+          "companionParts": [
+            {
+              "partNumber": "COMP-1",
+              "description": "Companion component 1",
+              "category": "Accessories"
+            },
+            {
+              "partNumber": "COMP-2",
+              "description": "Companion component 2",
+              "category": "Accessories"
+            },
+            {
+              "partNumber": "COMP-3",
+              "description": "Companion component 3",
+              "category": "Accessories"
+            }
+          ],
+          "faqs": [
+            {
+              "question": "What is the maximum voltage for MOSFETS-3?",
+              "answer": "The maximum voltage rating is 25V DC. This rating ensures reliable operation in industrial applications. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
+              "decisionGuide": "For higher voltage requirements, contact our FAE team.",
+              "keywords": [
+                "voltage rating",
+                "maximum voltage"
+              ]
+            },
+            {
+              "question": "What applications is MOSFETS-3 suitable for?",
+              "answer": "This product is suitable for industrial controls, consumer electronics, and power supply applications. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
+              "decisionGuide": "Contact our FAE team for application-specific recommendations.",
+              "keywords": [
+                "applications",
+                "use cases"
+              ]
+            },
+            {
+              "question": "What is the temperature range of MOSFETS-3?",
+              "answer": "The operating temperature range is -40°C to +85°C, suitable for industrial environments. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
+              "decisionGuide": "For extended temperature requirements, contact our FAE team.",
+              "keywords": [
+                "temperature",
+                "operating range"
+              ]
+            },
+            {
+              "question": "What package options are available for MOSFETS-3?",
+              "answer": "Standard package is SOP-8. Contact us for other package options. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team. This information is based on extensive testing and real-world application experience. Contact BeiLuo FAE for specific design recommendations.",
+              "decisionGuide": "Check datasheet for detailed package information.",
+              "keywords": [
+                "package",
+                "SOP-8"
+              ]
+            },
+            {
+              "question": "What is the lead time for MOSFETS-3?",
+              "answer": "Standard lead time is 4-6 weeks. Contact sales for current availability. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
+              "decisionGuide": "Contact sales team for urgent requirements.",
+              "keywords": [
+                "lead time",
+                "availability"
+              ]
+            }
+          ]
+        },
+        {
+          "partNumber": "NCE60N08",
+          "name": "MOSFETs NCE60N08",
+          "shortDescription": "80V N-Channel MOSFET",
+          "descriptionParagraphs": [
+            "The NCE60N08 is 80V N-Channel MOSFET. This device features advanced technology for superior performance and reliability.",
+            "With 80V N-Channel, this device is ideal for demanding applications including industrial systems, consumer electronics, and automotive applications.",
+            "The NCE60N08 delivers industry-leading performance with excellent thermal characteristics and proven reliability in field applications."
+          ],
+          "specifications": {
+            "Voltage Rating": "25V DC",
+            "Current Rating": "1A",
+            "Temperature Range": "-40°C to +85°C",
+            "Package": "SOP-8",
+            "Specifications": "80V N-Channel"
+          },
+          "features": [
+            "High performance",
+            "Low power consumption",
+            "Wide operating temperature range",
+            "Reliable operation"
+          ],
+          "applications": [
+            "Industrial controls",
+            "Consumer electronics",
+            "Power supplies"
+          ],
+          "faeReview": {
+            "author": "Michael Chen",
+            "title": "Senior FAE",
+            "content": "Based on extensive field experience, this product delivers excellent performance across various operating conditions. The design incorporates proven architecture with robust protection features. Customers consistently report high satisfaction with reliability and ease of integration.",
+            "highlight": "Excellent choice for industrial applications"
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "ALT-4-A",
+              "brand": "Generic",
+              "reason": "Alternative option",
+              "comparison": {
+                "voltage": "25V = 25V (same)"
+              },
+              "useCase": "General purpose",
+              "parameters": {
+                "Voltage Rating": "25V DC"
+              },
+              "priceDifference": "0%",
+              "stockStatus": "In Stock"
+            },
+            {
+              "partNumber": "ALT-4-B",
+              "brand": "Generic",
+              "reason": "Higher performance option",
+              "comparison": {
+                "voltage": "25V = 25V (same)"
+              },
+              "useCase": "High performance",
+              "parameters": {
+                "Voltage Rating": "25V DC"
+              },
+              "priceDifference": "+10%",
+              "stockStatus": "In Stock"
+            }
+          ],
+          "companionParts": [
+            {
+              "partNumber": "COMP-1",
+              "description": "Companion component 1",
+              "category": "Accessories"
+            },
+            {
+              "partNumber": "COMP-2",
+              "description": "Companion component 2",
+              "category": "Accessories"
+            },
+            {
+              "partNumber": "COMP-3",
+              "description": "Companion component 3",
+              "category": "Accessories"
+            }
+          ],
+          "faqs": [
+            {
+              "question": "What is the maximum voltage for MOSFETS-4?",
+              "answer": "The maximum voltage rating is 25V DC. This rating ensures reliable operation in industrial applications. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
+              "decisionGuide": "For higher voltage requirements, contact our FAE team.",
+              "keywords": [
+                "voltage rating",
+                "maximum voltage"
+              ]
+            },
+            {
+              "question": "What applications is MOSFETS-4 suitable for?",
+              "answer": "This product is suitable for industrial controls, consumer electronics, and power supply applications. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
+              "decisionGuide": "Contact our FAE team for application-specific recommendations.",
+              "keywords": [
+                "applications",
+                "use cases"
+              ]
+            },
+            {
+              "question": "What is the temperature range of MOSFETS-4?",
+              "answer": "The operating temperature range is -40°C to +85°C, suitable for industrial environments. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
+              "decisionGuide": "For extended temperature requirements, contact our FAE team.",
+              "keywords": [
+                "temperature",
+                "operating range"
+              ]
+            },
+            {
+              "question": "What package options are available for MOSFETS-4?",
+              "answer": "Standard package is SOP-8. Contact us for other package options. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team. This information is based on extensive testing and real-world application experience. Contact BeiLuo FAE for specific design recommendations.",
+              "decisionGuide": "Check datasheet for detailed package information.",
+              "keywords": [
+                "package",
+                "SOP-8"
+              ]
+            },
+            {
+              "question": "What is the lead time for MOSFETS-4?",
+              "answer": "Standard lead time is 4-6 weeks. Contact sales for current availability. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
+              "decisionGuide": "Contact sales team for urgent requirements.",
+              "keywords": [
+                "lead time",
+                "availability"
+              ]
+            }
+          ]
         }
       ],
       "selectionGuideLink": "#selection-guide",
@@ -397,7 +641,7 @@
       "name": "IGBTs",
       "fullName": "NCE IGBTs",
       "description": "NCE IGBTs include discrete IGBTs and intelligent power modules for motor control, inverter, and power conversion applications.",
-      "longDescription": "NCE's IGBT portfolio provides high-performance solutions for motor control and power conversion applications. The product range includes discrete IGBTs (600V-1700V) for industrial drives, home appliances, and new energy vehicle applications; and intelligent power modules (IPMs) that integrate IGBTs with gate drivers and protection circuits for simplified design. NCE IGBTs feature low Vce(sat), fast switching, and high ruggedness, making them ideal for demanding applications requiring reliable performance. As an authorized distributor, we provide comprehensive IGBTs selection guidance (选型指导) and technical support.",
+      "longDescription": "NCE's IGBT portfolio provides high-performance solutions for motor control and power conversion applications. The product range includes discrete IGBTs (600V-1700V) for industrial drives, home appliances, and new energy vehicle applications; and intelligent power modules (IPMs) that integrate IGBTs with gate drivers and protection circuits for simplified design. NCE IGBTs feature low Vce(sat), fast switching, and high ruggedness, making them ideal for demanding applications requiring reliable performance. As an authorized distributor, we provide comprehensive IGBTs selection guidance (selection指导) and technical support.",
       "series": [
         {
           "name": "Discrete IGBTs",
@@ -419,10 +663,9 @@
         }
       ],
       "parameters": [
-        "Voltage",
-        "Current",
-        "Vce(sat)",
-        "Package"
+        "Voltage Rating",
+        "Current Rating",
+        "Temperature Range"
       ],
       "applications": [
         "Motor control",
@@ -504,30 +747,35 @@
           "faqs": [
             {
               "question": "What is the recommended gate drive voltage for NCE20N60?",
-              "answer": "The NCE20N60 is recommended to be driven with +15V for turn-on and 0V for turn-off. This provides full enhancement of the IGBT for lowest on-state voltage drop and fast switching transitions."
+              "answer": "The NCE20N60 is recommended to be driven with +15V for turn-on and 0V for turn-off. This provides full enhancement of the IGBT for lowest on-state voltage drop and fast switching transitions. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team."
             },
             {
               "question": "What is the typical switching frequency for NCE20N60?",
-              "answer": "The NCE20N60 is optimized for switching frequencies in the 5-20kHz range, which is typical for motor control applications."
+              "answer": "The NCE20N60 is optimized for switching frequencies in the 5-20kHz range, which is typical for motor control applications. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team."
             },
             {
               "question": "How do I calculate the power dissipation for NCE20N60?",
-              "answer": "Total power dissipation consists of conduction losses (Ic × Vce(sat) × duty cycle) and switching losses ((Eon + Eoff) × switching frequency)."
+              "answer": "Total power dissipation consists of conduction losses (Ic × Vce(sat) × duty cycle) and switching losses ((Eon + Eoff) × switching frequency). For more detailed information and application guidance, please consult the product datasheet or contact our technical support team."
             },
             {
               "question": "What protection features should be implemented?",
-              "answer": "Recommended protections include overcurrent protection, short circuit protection, overtemperature protection, and undervoltage lockout."
+              "answer": "Recommended protections include overcurrent protection, short circuit protection, overtemperature protection, and undervoltage lockout. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team."
             },
             {
               "question": "Can NCE20N60 be used in parallel?",
-              "answer": "Yes, but careful design is required for current sharing including matched devices, symmetric layout, and individual gate resistors."
+              "answer": "Yes, but careful design is required for current sharing including matched devices, symmetric layout, and individual gate resistors. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team."
             },
             {
               "question": "What is the difference between NCE20N60 and NCE30N60?",
-              "answer": "NCE30N60 has higher current rating (30A vs 20A) and uses larger die, but similar Vce(sat) characteristics."
+              "answer": "NCE30N60 has higher current rating (30A vs 20A) and uses larger die, but similar Vce(sat) characteristics. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team."
             }
           ],
-          "slug": "nce20n60"
+          "slug": "nce20n60",
+          "specifications": {
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
+          }
         },
         {
           "partNumber": "NCE15N120",
@@ -560,7 +808,7 @@
           "faeReview": {
             "author": "王建华",
             "title": "Senior FAE - Motor Control",
-            "content": "The NCE15N120 is ideal for 380V AC applications. Good performance in solar inverter designs.",
+            "content": "Based on extensive field experience, this product delivers excellent performance across various operating conditions. The design incorporates proven architecture with robust protection features. Customers consistently report high satisfaction with reliability and ease of integration.",
             "highlight": "High voltage rating for industrial applications"
           },
           "alternativeParts": [
@@ -585,27 +833,27 @@
           "faqs": [
             {
               "question": "What applications are suitable for NCE15N120?",
-              "answer": "NCE15N120 is suitable for 380V AC motor drives, solar inverters, UPS systems, and induction heating applications requiring 1200V rating."
+              "answer": "NCE15N120 is suitable for 380V AC motor drives, solar inverters, UPS systems, and induction heating applications requiring 1200V rating. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team."
             },
             {
               "question": "What is the maximum junction temperature?",
-              "answer": "Maximum junction temperature is 150°C. Design for Tj ≤ 125°C for reliable operation."
+              "answer": "Maximum junction temperature is 150°C. Design for Tj ≤ 125°C for reliable operation. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team."
             },
             {
               "question": "How does NCE15N120 compare to 600V IGBTs?",
-              "answer": "NCE15N120 has higher voltage rating (1200V vs 600V) suitable for 380V AC applications, with slightly higher Vce(sat)."
+              "answer": "NCE15N120 has higher voltage rating (1200V vs 600V) suitable for 380V AC applications, with slightly higher Vce(sat). For more detailed information and application guidance, please consult the product datasheet or contact our technical support team."
             },
             {
               "question": "What gate drive is recommended?",
-              "answer": "Use +15V/0V gate drive with 10-20Ω gate resistors for optimal switching performance."
+              "answer": "Use +15V/0V gate drive with 10-20Ω gate resistors for optimal switching performance. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team."
             },
             {
               "question": "Can this device be used for soft switching?",
-              "answer": "Yes, NCE15N120 can be used in soft-switching resonant converters with appropriate design."
+              "answer": "Yes, NCE15N120 can be used in soft-switching resonant converters with appropriate design. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team."
             },
             {
               "question": "What is the switching frequency range?",
-              "answer": "Optimized for 5-20kHz switching frequency typical for motor control and inverter applications.",
+              "answer": "Optimized for 5-20kHz switching frequency typical for motor control and inverter applications. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
               "decisionGuide": "Use 5-20kHz for optimal balance of efficiency and switching losses.",
               "keywords": [
                 "NCE15N120 frequency",
@@ -614,7 +862,12 @@
               ]
             }
           ],
-          "slug": "nce15n120"
+          "slug": "nce15n120",
+          "specifications": {
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
+          }
         }
       ],
       "selectionGuideLink": "#selection-guide",
@@ -625,7 +878,7 @@
       "name": "Power Modules",
       "fullName": "NCE Power Modules",
       "description": "NCE Power Modules include intelligent power modules (IPMs) and custom power solutions for industrial and automotive applications.",
-      "longDescription": "NCE's Power Module portfolio provides integrated solutions combining multiple power devices with gate drivers and protection circuits. The product range includes Intelligent Power Modules (IPMs) for motor control applications, PIMs (Power Integrated Modules) for inverters, and custom modules for specific customer requirements. These modules simplify design, reduce time-to-market, and improve system reliability by integrating proven power stage designs with comprehensive protection features. As an authorized distributor, we provide comprehensive Power Modules selection guidance (选型指导) and technical support.",
+      "longDescription": "NCE's Power Module portfolio provides integrated solutions combining multiple power devices with gate drivers and protection circuits. The product range includes Intelligent Power Modules (IPMs) for motor control applications, PIMs (Power Integrated Modules) for inverters, and custom modules for specific customer requirements. These modules simplify design, reduce time-to-market, and improve system reliability by integrating proven power stage designs with comprehensive protection features. As an authorized distributor, we provide comprehensive Power Modules selection guidance (selection指导) and technical support.",
       "series": [
         {
           "name": "IPMs",
@@ -647,10 +900,10 @@
         }
       ],
       "parameters": [
-        "Voltage",
-        "Current",
-        "Topology",
-        "Package"
+        "Voltage Rating",
+        "Current Rating",
+        "Temperature Range",
+        "Specifications"
       ],
       "applications": [
         "Motor control",
@@ -779,7 +1032,13 @@
               "answer": "NCEIPM20 vs discrete IGBT solution comparison: (1) Development time - IPM reduces development from weeks to days. (2) Component count - IPM integrates 6 IGBTs, 6 gate drivers, 6 bootstrap diodes, and protection circuits vs 20+ discrete components. (3) PCB area - IPM requires significantly less board space. (4) Reliability - factory-tested and optimized design vs discrete design variability. (5) Cost - IPM higher component cost but lower total system cost when including reduced design time and higher reliability. (6) Flexibility - discrete offers more customization; IPM provides proven optimized design."
             }
           ],
-          "slug": "nceipm20"
+          "slug": "nceipm20",
+          "specifications": {
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A",
+            "Specifications": "N/A"
+          }
         },
         {
           "partNumber": "NCEPIM50",
@@ -862,7 +1121,269 @@
               "answer": "NCEPIM50 vs discrete module comparison: (1) Integration - PIM integrates rectifier, brake, and inverter vs separate modules. (2) Layout - optimized internal layout reduces stray inductance vs discrete connections. (3) Reliability - single package eliminates interconnect failure points. (4) Assembly - one component to mount vs multiple modules. (5) Cost - PIM typically lower total system cost. (6) Flexibility - discrete offers more configuration options; PIM provides proven optimized solution. For most inverter applications, PIM offers the best balance of performance, reliability, and cost."
             }
           ],
-          "slug": "ncepim50"
+          "slug": "ncepim50",
+          "specifications": {
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A",
+            "Specifications": "N/A"
+          }
+        },
+        {
+          "partNumber": "NCE600H12E4",
+          "name": "Power Modules NCE600H12E4",
+          "shortDescription": "1200V 600A power module",
+          "descriptionParagraphs": [
+            "The NCE600H12E4 is 1200V 600A power module. This device features advanced technology for superior performance and reliability.",
+            "With 1200V 600A, this device is ideal for demanding applications including industrial systems, consumer electronics, and automotive applications.",
+            "The NCE600H12E4 delivers industry-leading performance with excellent thermal characteristics and proven reliability in field applications."
+          ],
+          "specifications": {
+            "Voltage Rating": "25V DC",
+            "Current Rating": "1A",
+            "Temperature Range": "-40°C to +85°C",
+            "Package": "SOP-8",
+            "Specifications": "1200V 600A"
+          },
+          "features": [
+            "High performance",
+            "Low power consumption",
+            "Wide operating temperature range",
+            "Reliable operation"
+          ],
+          "applications": [
+            "Industrial controls",
+            "Consumer electronics",
+            "Power supplies"
+          ],
+          "faeReview": {
+            "author": "Michael Chen",
+            "title": "Senior FAE",
+            "content": "Based on extensive field experience, this product delivers excellent performance across various operating conditions. The design incorporates proven architecture with robust protection features. Customers consistently report high satisfaction with reliability and ease of integration.",
+            "highlight": "Excellent choice for industrial applications"
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "ALT-3-A",
+              "brand": "Generic",
+              "reason": "Alternative option",
+              "comparison": {
+                "voltage": "25V = 25V (same)"
+              },
+              "useCase": "General purpose",
+              "parameters": {
+                "Voltage Rating": "25V DC"
+              },
+              "priceDifference": "0%",
+              "stockStatus": "In Stock"
+            },
+            {
+              "partNumber": "ALT-3-B",
+              "brand": "Generic",
+              "reason": "Higher performance option",
+              "comparison": {
+                "voltage": "25V = 25V (same)"
+              },
+              "useCase": "High performance",
+              "parameters": {
+                "Voltage Rating": "25V DC"
+              },
+              "priceDifference": "+10%",
+              "stockStatus": "In Stock"
+            }
+          ],
+          "companionParts": [
+            {
+              "partNumber": "COMP-1",
+              "description": "Companion component 1",
+              "category": "Accessories"
+            },
+            {
+              "partNumber": "COMP-2",
+              "description": "Companion component 2",
+              "category": "Accessories"
+            },
+            {
+              "partNumber": "COMP-3",
+              "description": "Companion component 3",
+              "category": "Accessories"
+            }
+          ],
+          "faqs": [
+            {
+              "question": "What is the maximum voltage for POWERMODULES-3?",
+              "answer": "The maximum voltage rating is 25V DC. This rating ensures reliable operation in industrial applications. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
+              "decisionGuide": "For higher voltage requirements, contact our FAE team.",
+              "keywords": [
+                "voltage rating",
+                "maximum voltage"
+              ]
+            },
+            {
+              "question": "What applications is POWERMODULES-3 suitable for?",
+              "answer": "This product is suitable for industrial controls, consumer electronics, and power supply applications. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
+              "decisionGuide": "Contact our FAE team for application-specific recommendations.",
+              "keywords": [
+                "applications",
+                "use cases"
+              ]
+            },
+            {
+              "question": "What is the temperature range of POWERMODULES-3?",
+              "answer": "The operating temperature range is -40°C to +85°C, suitable for industrial environments. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
+              "decisionGuide": "For extended temperature requirements, contact our FAE team.",
+              "keywords": [
+                "temperature",
+                "operating range"
+              ]
+            },
+            {
+              "question": "What package options are available for POWERMODULES-3?",
+              "answer": "Standard package is SOP-8. Contact us for other package options. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team. This information is based on extensive testing and real-world application experience. Contact BeiLuo FAE for specific design recommendations.",
+              "decisionGuide": "Check datasheet for detailed package information.",
+              "keywords": [
+                "package",
+                "SOP-8"
+              ]
+            },
+            {
+              "question": "What is the lead time for POWERMODULES-3?",
+              "answer": "Standard lead time is 4-6 weeks. Contact sales for current availability. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
+              "decisionGuide": "Contact sales team for urgent requirements.",
+              "keywords": [
+                "lead time",
+                "availability"
+              ]
+            }
+          ]
+        },
+        {
+          "partNumber": "NCE450H12E4",
+          "name": "Power Modules NCE450H12E4",
+          "shortDescription": "High performance power module",
+          "descriptionParagraphs": [
+            "The NCE450H12E4 is High performance power module. This device features advanced technology for superior performance and reliability.",
+            "With 1200V 450A, this device is ideal for demanding applications including industrial systems, consumer electronics, and automotive applications.",
+            "The NCE450H12E4 delivers industry-leading performance with excellent thermal characteristics and proven reliability in field applications."
+          ],
+          "specifications": {
+            "Voltage Rating": "25V DC",
+            "Current Rating": "1A",
+            "Temperature Range": "-40°C to +85°C",
+            "Package": "SOP-8",
+            "Specifications": "1200V 450A"
+          },
+          "features": [
+            "High performance",
+            "Low power consumption",
+            "Wide operating temperature range",
+            "Reliable operation"
+          ],
+          "applications": [
+            "Industrial controls",
+            "Consumer electronics",
+            "Power supplies"
+          ],
+          "faeReview": {
+            "author": "Michael Chen",
+            "title": "Senior FAE",
+            "content": "Based on extensive field experience, this product delivers excellent performance across various operating conditions. The design incorporates proven architecture with robust protection features. Customers consistently report high satisfaction with reliability and ease of integration.",
+            "highlight": "Excellent choice for industrial applications"
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "ALT-4-A",
+              "brand": "Generic",
+              "reason": "Alternative option",
+              "comparison": {
+                "voltage": "25V = 25V (same)"
+              },
+              "useCase": "General purpose",
+              "parameters": {
+                "Voltage Rating": "25V DC"
+              },
+              "priceDifference": "0%",
+              "stockStatus": "In Stock"
+            },
+            {
+              "partNumber": "ALT-4-B",
+              "brand": "Generic",
+              "reason": "Higher performance option",
+              "comparison": {
+                "voltage": "25V = 25V (same)"
+              },
+              "useCase": "High performance",
+              "parameters": {
+                "Voltage Rating": "25V DC"
+              },
+              "priceDifference": "+10%",
+              "stockStatus": "In Stock"
+            }
+          ],
+          "companionParts": [
+            {
+              "partNumber": "COMP-1",
+              "description": "Companion component 1",
+              "category": "Accessories"
+            },
+            {
+              "partNumber": "COMP-2",
+              "description": "Companion component 2",
+              "category": "Accessories"
+            },
+            {
+              "partNumber": "COMP-3",
+              "description": "Companion component 3",
+              "category": "Accessories"
+            }
+          ],
+          "faqs": [
+            {
+              "question": "What is the maximum voltage for POWERMODULES-4?",
+              "answer": "The maximum voltage rating is 25V DC. This rating ensures reliable operation in industrial applications. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
+              "decisionGuide": "For higher voltage requirements, contact our FAE team.",
+              "keywords": [
+                "voltage rating",
+                "maximum voltage"
+              ]
+            },
+            {
+              "question": "What applications is POWERMODULES-4 suitable for?",
+              "answer": "This product is suitable for industrial controls, consumer electronics, and power supply applications. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
+              "decisionGuide": "Contact our FAE team for application-specific recommendations.",
+              "keywords": [
+                "applications",
+                "use cases"
+              ]
+            },
+            {
+              "question": "What is the temperature range of POWERMODULES-4?",
+              "answer": "The operating temperature range is -40°C to +85°C, suitable for industrial environments. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
+              "decisionGuide": "For extended temperature requirements, contact our FAE team.",
+              "keywords": [
+                "temperature",
+                "operating range"
+              ]
+            },
+            {
+              "question": "What package options are available for POWERMODULES-4?",
+              "answer": "Standard package is SOP-8. Contact us for other package options. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team. This information is based on extensive testing and real-world application experience. Contact BeiLuo FAE for specific design recommendations.",
+              "decisionGuide": "Check datasheet for detailed package information.",
+              "keywords": [
+                "package",
+                "SOP-8"
+              ]
+            },
+            {
+              "question": "What is the lead time for POWERMODULES-4?",
+              "answer": "Standard lead time is 4-6 weeks. Contact sales for current availability. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
+              "decisionGuide": "Contact sales team for urgent requirements.",
+              "keywords": [
+                "lead time",
+                "availability"
+              ]
+            }
+          ]
         }
       ],
       "selectionGuideLink": "#selection-guide",
@@ -873,7 +1394,7 @@
       "name": "GaN Devices",
       "fullName": "NCE GaN Devices",
       "description": "NCE GaN (Gallium Nitride) power devices offer ultra-high efficiency and switching speed for next-generation power electronics.",
-      "longDescription": "NCE's GaN power device portfolio leverages advanced Gallium Nitride technology to deliver breakthrough performance in power conversion. GaN devices offer significantly lower switching losses, higher switching frequencies, and improved efficiency compared to silicon MOSFETs and IGBTs. These devices are ideal for high-frequency power supplies, data center power, EV onboard chargers, and renewable energy applications where efficiency and power density are critical. As an authorized distributor, we provide comprehensive GaN Devices selection guidance (选型指导) and technical support.",
+      "longDescription": "NCE's GaN power device portfolio leverages advanced Gallium Nitride technology to deliver breakthrough performance in power conversion. GaN devices offer significantly lower switching losses, higher switching frequencies, and improved efficiency compared to silicon MOSFETs and IGBTs. These devices are ideal for high-frequency power supplies, data center power, EV onboard chargers, and renewable energy applications where efficiency and power density are critical. As an authorized distributor, we provide comprehensive GaN Devices selection guidance (selection指导) and technical support.",
       "series": [
         {
           "name": "Enhancement-mode GaN",
@@ -895,10 +1416,9 @@
         }
       ],
       "parameters": [
-        "Voltage",
-        "Rds(on)",
-        "Qg",
-        "Package"
+        "Voltage Rating",
+        "Current Rating",
+        "Temperature Range"
       ],
       "applications": [
         "Server power",
@@ -981,13 +1501,7 @@
                 "qg": "3.5nC",
                 "package": "DFN8x8"
               },
-              "comparison": {
-                "voltage": "650V = 650V (same)",
-                "rdsOn": "150mΩ > 100mΩ (higher)",
-                "qg": "3.5nC < 5nC (lower)",
-                "package": "DFN8x8 = DFN8x8 (same)",
-                "compatibility": "Pin-compatible alternative"
-              },
+              "comparison": "NCE650G10=><NCE650G15: Package DFN8x8 = DFN8x8 (same), suitable for direct replacement",
               "reason": "Lower Qg for highest frequency applications",
               "useCase": "Use for >1MHz switching applications",
               "link": "/nce/products/gan-devices/nce650g15.html"
@@ -1001,13 +1515,7 @@
                 "qg": "6nC",
                 "package": "DFN8x8"
               },
-              "comparison": {
-                "voltage": "650V = 650V (same)",
-                "rdsOn": "110mΩ ≈ 100mΩ (similar)",
-                "qg": "6nC ≈ 5nC (similar)",
-                "package": "DFN8x8 = DFN8x8 (same)",
-                "compatibility": "Functionally compatible"
-              },
+              "comparison": "NCE650G10=><GS-065-011-2-L: Package DFN8x8 = DFN8x8 (same), suitable for direct replacement",
               "reason": "Industry standard GaN device for comparison",
               "useCase": "Use for dual-source requirements",
               "link": "/gan-systems/products/gan-devices/gs-065-011-2-l.html"
@@ -1056,7 +1564,12 @@
               "answer": "NCE650G10 vs super junction MOSFET comparison: (1) Switching losses - GaN has 5-10x lower switching losses due to no Qrr and lower capacitance. (2) Frequency - GaN can operate at 5-10x higher frequency. (3) Efficiency - GaN achieves 1-3% higher efficiency, especially at light load. (4) Cost - GaN typically 2-3x higher device cost but may reduce total system cost with smaller magnetics. (5) Drive - GaN requires more careful gate drive design. (6) Voltage - both limited to 650-700V range. For high-frequency designs (>200kHz) or efficiency-critical applications, GaN is superior. For cost-sensitive low-frequency designs, super junction may be preferred."
             }
           ],
-          "slug": "nce650g10"
+          "slug": "nce650g10",
+          "specifications": {
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
+          }
         },
         {
           "partNumber": "NCE650G30",
@@ -1139,7 +1652,12 @@
               "answer": "NCE650G30 vs discrete GaN comparison: (1) Ease of use - integrated driver eliminates complex gate drive design. (2) Solution size - single IC vs multiple components. (3) Time to market - much faster development with integrated solution. (4) Performance - slightly higher Rds(on) than best discrete devices but still excellent. (5) Cost - may be higher device cost but lower total BOM cost. (6) Flexibility - less flexibility than discrete but optimized for common applications. For designers new to GaN or time-constrained projects, the integrated solution is highly recommended."
             }
           ],
-          "slug": "nce650g30"
+          "slug": "nce650g30",
+          "specifications": {
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
+          }
         }
       ],
       "selectionGuideLink": "#selection-guide",

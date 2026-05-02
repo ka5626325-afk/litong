@@ -1,0 +1,82 @@
+#!/usr/bin/env node
+/**
+ * 重新生成 Unisemicon 品牌的英文内容
+ * Unisemicon 是功率半导体品牌
+ */
+
+const fs = require('fs');
+const path = require('path');
+
+const dataDir = path.join(__dirname, '..', 'data', 'unisemicon');
+
+// 确保目录存在
+if (!fs.existsSync(dataDir)) {
+  fs.mkdirSync(dataDir, { recursive: true });
+}
+
+function regenerateBrand() {
+  const brandPath = path.join(dataDir, 'brand.json');
+  
+  const brandData = {
+    "name": "unisemicon",
+    "displayName": "Unisemicon",
+    "chineseName": "芯联半导体",
+    "description": "Unisemicon is a leading power semiconductor manufacturer specializing in MOSFETs, IGBTs, and power management ICs. The company provides high-efficiency, high-reliability power devices for industrial, automotive, and consumer electronics applications.",
+    "longDescription": "As an authorized Unisemicon distributor, BeiLuo Electronics provides comprehensive access to Unisemicon's portfolio of power semiconductor solutions. Unisemicon specializes in the design and manufacture of power MOSFETs, IGBTs, rectifiers, and power management ICs. The company's products are widely used in power supplies, motor drives, LED lighting, automotive electronics, and renewable energy systems. With advanced manufacturing capabilities and strict quality control, Unisemicon delivers reliable power solutions that meet international standards including AEC-Q101 for automotive applications.",
+    "founded": "2010",
+    "headquarters": "Shenzhen, China",
+    "employees": "500+",
+    "coreProducts": [
+      "Power MOSFETs",
+      "IGBTs",
+      "Power Rectifiers",
+      "Power Management ICs"
+    ],
+    "industries": [
+      "Power Supplies",
+      "Motor Drives",
+      "LED Lighting",
+      "Automotive Electronics"
+    ],
+    "seoTitle": "Unisemicon Distributor | Power MOSFETs, IGBTs | BeiLuo",
+    "seoDescription": "Authorized Unisemicon distributor offering power MOSFETs, IGBTs, and power management ICs. High-efficiency power solutions for industrial and automotive applications.",
+    "seoKeywords": [
+      "Unisemicon distributor",
+      "power MOSFET",
+      "IGBT",
+      "power semiconductor",
+      "Unisemicon selection guide"
+    ],
+    "faqs": [
+      {
+        "question": "What power semiconductor products does Unisemicon offer?",
+        "answer": "Unisemicon offers a comprehensive range of power semiconductor products including: 1) Power MOSFETs - N-channel and P-channel devices with voltage ratings from 20V to 900V, suitable for switching applications; 2) IGBTs - high-power switching devices for motor drives and power conversion; 3) Power Rectifiers - including Schottky and fast recovery diodes; 4) Power Management ICs - for voltage regulation and power control. All products are available in various packages to meet different application requirements.",
+        "decisionGuide": "Browse our Unisemicon product categories to find the right power device for your application.",
+        "keywords": ["Unisemicon products", "power MOSFET", "IGBT", "power semiconductor"]
+      },
+      {
+        "question": "Does Unisemicon provide automotive-grade power devices?",
+        "answer": "Yes, Unisemicon offers AEC-Q101 qualified power semiconductors specifically designed for automotive applications. These automotive-grade devices undergo rigorous testing including temperature cycling, humidity resistance, and mechanical stress tests to ensure reliability in harsh automotive environments. The automotive portfolio includes MOSFETs and IGBTs suitable for EV powertrains, onboard chargers, DC-DC converters, and body electronics.",
+        "decisionGuide": "For automotive applications, specify AEC-Q101 qualified components and verify temperature ratings meet your requirements.",
+        "keywords": ["automotive grade", "AEC-Q101", "automotive power devices"]
+      }
+    ]
+  };
+  
+  fs.writeFileSync(brandPath, JSON.stringify(brandData, null, 2), 'utf8');
+  console.log('  [SUCCESS] Regenerated unisemicon/brand.json');
+}
+
+function main() {
+  console.log('========================================');
+  console.log('Regenerate Unisemicon Brand Data');
+  console.log('========================================');
+  
+  regenerateBrand();
+  
+  console.log('\n========================================');
+  console.log('Unisemicon brand.json regenerated successfully!');
+  console.log('========================================');
+}
+
+main();

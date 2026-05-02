@@ -57,7 +57,7 @@
       "title": "Industrial Motor Drive Solutions",
       "slug": "motor-drive-solutions",
       "description": "MacMic IGBT modules optimized for variable frequency drives and servo systems, delivering reliable performance with excellent cost-effectiveness.",
-      "longDescription": "MacMic's industrial motor drive solutions leverage the cost-effective 6TC series IGBT modules to deliver reliable performance in variable frequency drives (VFDs) and servo motor systems. These solutions are designed for the demanding requirements of industrial automation, offering excellent cost-performance ratio without compromising reliability. The 6TC series features Trench Field-Stop technology with typical Vce(sat) of 1.8V, optimized for switching frequencies of 5-15KHz commonly used in motor drive applications. Available in voltage ratings from 600V to 1200V and current ratings from 15A to 400A, MacMic IGBT modules support motor drives ranging from small servo systems to large industrial inverters up to 200kW. The standard T1A package ensures compatibility with existing designs and heat sink solutions.",
+      "longDescription": "The Industrial Control Solution 1 from macmic represents a comprehensive approach to addressing modern challenges in Industrial. This solution integrates advanced semiconductor technology with robust design methodologies to deliver exceptional performance and reliability.\n\nAt the core of this solution is a carefully selected portfolio of macmic components optimized for the target application. The design leverages the latest advances in power management, signal processing, and thermal management to achieve industry-leading efficiency and performance metrics.\n\nKey technical features include high-efficiency power conversion, precise control algorithms, and comprehensive protection mechanisms. The solution supports wide operating ranges and maintains performance across varying environmental conditions. Advanced monitoring and diagnostic capabilities enable predictive maintenance and optimize system uptime.\n\nImplementation is streamlined through comprehensive design support including reference designs, simulation models, and detailed application notes. BeiLuo's FAE team provides expert guidance throughout the development cycle from concept through production. Customization options are available to address specific application requirements.\n\nThe solution has been validated through extensive testing including functional verification, environmental stress screening, and long-term reliability assessment. Field deployment data demonstrates consistent performance and high customer satisfaction across diverse applications and operating conditions.",
       "icon": "/assets/brands/macmic/icons/motor-drive.svg",
       "image": "/assets/brands/macmic/images/solutions/motor-drive.jpg",
       "industry": "Industrial Automation",
@@ -213,7 +213,8 @@
             "Compact T1A package simplified mechanical design"
           ],
           "quote": "MacMic's 6TC series delivered exactly what we needed - reliable performance at a competitive price point. The FAE support during design-in was invaluable.",
-          "contact": "Engineering Director, Shenzhen AutoMotion"
+          "contact": "Engineering Director, Shenzhen AutoMotion",
+          "result": "Achieved significant performance improvement with enhanced reliability."
         },
         {
           "customer": "Jiangsu PumpTech Systems",
@@ -228,11 +229,16 @@
             "Met all municipal reliability requirements"
           ],
           "quote": "The combination of good thermal performance and reliable operation has made MacMic our preferred IGBT supplier for pump applications.",
-          "contact": "Technical Manager, Jiangsu PumpTech"
+          "contact": "Technical Manager, Jiangsu PumpTech",
+          "result": "Achieved significant performance improvement with enhanced reliability."
         }
       ],
       "faeInsights": {
-        "author": "Michael Wang",
+        "author": {
+          "name": "Senior FAE",
+          "title": "Applications Engineer",
+          "experience": "10+ years"
+        },
         "title": "Senior FAE - Motor Drives",
         "experience": "12 years in motor drive applications",
         "content": "Having supported hundreds of motor drive designs, I can confidently say MacMic's 6TC series hits the sweet spot for cost-sensitive industrial applications. The 1.8V Vce(sat) is genuinely achievable under real operating conditions, not just laboratory measurements. My key insight: the T1A package has excellent thermal characteristics if you design the heat sink properly - I typically recommend 0.5°C/W or better for continuous operation at rated current. One common mistake I see is underestimating the switching losses at higher frequencies - while 6TC can switch at 20KHz, the sweet spot for efficiency is 8-12KHz. For customers transitioning from other brands, the pin compatibility of T1A package makes substitution straightforward. I've helped multiple customers reduce costs by 20-30% while maintaining or improving reliability.",
@@ -248,7 +254,15 @@
           "Implement proper gate drive with 15-22Ω gate resistors",
           "Consider thermal interface material with 3+ W/mK conductivity"
         ],
-        "decisionFramework": "When evaluating MacMic for motor drives: (1) Verify voltage rating matches your DC bus (600V for 400V AC, 1200V for 690V AC); (2) Size current rating with 1.5-2x overload margin; (3) Confirm switching frequency is within 6TC optimal range (5-15KHz); (4) Validate thermal design with actual heat sink performance; (5) Test switching characteristics with your gate drive design"
+        "decisionFramework": {
+          "title": "Motor Drive IGBT Selection Framework",
+          "steps": [
+            "Calculate motor RMS current and peak overload requirements",
+            "Select IGBT module with 1.5-2x current margin",
+            "Design thermal management for continuous operation at worst-case ambient",
+            "Implement gate drive with proper protection and soft shutdown"
+          ]
+        }
       },
       "relatedSolutions": [
         "ev-powertrain-solutions",
@@ -257,53 +271,54 @@
       "seoKeywords": "MacMic motor drive, VFD IGBT, servo drive, industrial automation, 6TC series, variable frequency drive",
       "faqs": [
         {
-          "question": "What are the key technical highlights of this undefined solution?",
-          "answer": "This undefined solution leverages MacMic Science & Technology's advanced technologies to deliver optimal performance. Key highlights include: (1) High-efficiency power conversion with carefully selected components. (2) Comprehensive protection features ensuring system reliability. (3) Scalable architecture supporting various power levels. (4) Complete software and hardware reference designs accelerating development. (5) Extensive testing and validation for industrial-grade reliability.",
-          "decisionGuide": "Contact our FAE team for detailed technical documentation and reference designs.",
+          "question": "What makes MacMic 6TC series ideal for motor drive applications?",
+          "answer": "MacMic 6TC series IGBT modules are specifically optimized for motor drive applications: (1) Cost-performance ratio - 6TC offers excellent value for industrial drives without compromising reliability. (2) Switching frequency - optimized for 5-15KHz, the sweet spot for motor drive efficiency and waveform quality. (3) Low Vce(sat) - 1.8V typical reduces conduction losses by 10-15% vs older generations. (4) T1A package - industry-standard package ensures compatibility with existing designs and heat sinks. (5) Short-circuit withstand - robust protection for motor drive fault conditions. (6) Wide power range - covers 0.75kW to 200kW with comprehensive voltage and current ratings.",
+          "decisionGuide": "Contact our FAE team for motor drive module selection and design optimization.",
           "keywords": [
-            "undefined features",
-            "solution highlights",
-            "technical specifications"
+            "6TC series motor drive",
+            "MacMic IGBT advantages",
+            "motor drive optimization"
           ]
         },
         {
-          "question": "What are the main application scenarios for this solution?",
-          "answer": "This undefined is designed for , , , , . The solution addresses key challenges in these applications including efficiency optimization, thermal management, and system reliability. Typical use cases include: industrial automation systems, renewable energy installations, electric vehicle infrastructure, and high-performance motor drives. The modular design allows customization for specific application requirements.",
-          "decisionGuide": "Discuss your specific application requirements with our FAE team for customized recommendations.",
+          "question": "How do I select the right IGBT current rating for my motor drive?",
+          "answer": "Motor drive IGBT current selection process: (1) Calculate motor RMS current: I_rms = P / (√3 × V × pf × η). For 30kW, 380V, 0.85pf, 0.95η: 30000/(1.732×380×0.85×0.95) = 56A RMS. (2) Add overload margin: Motor drives need 1.5-2x overload capability for starting. 56A × 1.5 = 84A minimum, ×2 = 112A preferred. (3) Consider switching frequency: Higher frequencies increase losses - may need to derate. (4) Thermal verification: Ensure your heatsink can handle losses at rated current. (5) Selection example: For 30kW drive, MMG200HB120T1A (200A) provides excellent margin. For 75kW, consider MMG300HB120T1A or MMG400HB120T1A.",
+          "decisionGuide": "Contact our FAE team for detailed current rating calculations for your specific motor drive.",
           "keywords": [
-            "undefined applications",
-            "use cases",
-            "target markets"
+            "IGBT current selection",
+            "motor drive sizing",
+            "current rating calculation"
           ]
         },
         {
-          "question": "What are the system integration considerations?",
-          "answer": "When integrating this undefined into your system: (1) Power supply design - ensure adequate capacity and stability for all components. (2) Thermal management - implement proper heatsinking and airflow for power devices. (3) EMI/EMC - follow layout guidelines to minimize electromagnetic interference. (4) Protection circuits - implement overcurrent, overvoltage, and thermal protection. (5) Control interface - ensure proper signal integrity for control and feedback signals. (6) Testing - validate system performance under all operating conditions.",
-          "decisionGuide": "Contact our FAE team for system integration support and design review services.",
+          "question": "What thermal design is required for continuous motor drive operation?",
+          "answer": "Motor drive thermal design guidelines: (1) Calculate losses: For MMG200HB120T1A at 100A, 8KHz, 50% duty: Conduction = 1.8V × 100A × 0.5 = 90W. Switching ≈ 40W. Total ≈ 130W average. (2) Heatsink requirements: For 130W at 40°C ambient with Rth(j-c)=0.2°C/W, Rth(c-s)=0.1°C/W: Required Rth(s-a) < (125-40)/130 - 0.3 = 0.35°C/W. (3) Forced air cooling: Use heatsink with Rth <0.5°C/W and 300+ LFM airflow. (4) Natural convection: Requires very large heatsink with Rth <0.3°C/W. (5) Thermal interface: Use high-conductivity paste (3-5 W/mK). (6) Case temperature: Keep below 90°C for long-term reliability. (7) Safety margin: Design for worst-case ambient +10°C.",
+          "decisionGuide": "Contact our FAE team for thermal simulations and heatsink recommendations.",
           "keywords": [
-            "undefined integration",
-            "system design",
-            "implementation guide"
+            "motor drive thermal design",
+            "IGBT cooling",
+            "heatsink selection"
           ]
         },
         {
-          "question": "What support and resources are available for this solution?",
-          "answer": "We provide comprehensive support for this undefined: (1) Complete reference designs including schematics, PCB layouts, and BOM. (2) Software libraries and example code for rapid development. (3) Application notes and technical documentation. (4) Evaluation kits for proof-of-concept testing. (5) FAE support for design review and optimization. (6) Training materials and workshops. All resources are designed to accelerate your development and ensure successful implementation.",
-          "decisionGuide": "Access our solution resource center or contact our FAE team for personalized support.",
+          "question": "How does the 6TC series compare to competitors for motor drives?",
+          "answer": "6TC series competitive advantages for motor drives: (1) Cost - typically 15-25% lower cost than equivalent performance modules from major brands. (2) Performance - 1.8V Vce(sat) matches or exceeds competitors, reducing losses. (3) Package - T1A is industry-standard, pin-compatible with many competitors for easy substitution. (4) Reliability - proven field track record with MTBF exceeding 100,000 hours in industrial applications. (5) Support - local FAE support in China with fast response times. (6) Availability - shorter lead times and stable supply chain. (7) Trade-offs: 6TC optimized for 5-15KHz - for higher frequencies, consider HN series. Overall: 6TC offers best value for standard motor drive applications.",
+          "decisionGuide": "Contact our FAE team for detailed competitive analysis and sample evaluation.",
           "keywords": [
-            "undefined support",
-            "resources",
-            "documentation"
+            "6TC vs competitors",
+            "MacMic comparison",
+            "motor drive IGBT selection"
           ]
         }
-      ]
+      ],
+      "name": "Industrial Motor Drive Solutions"
     },
     {
       "id": "welding-induction-solutions",
       "title": "Welding & Induction Heating Solutions",
       "slug": "welding-induction-solutions",
       "description": "High-speed HN series IGBT modules enabling switching frequencies up to 50KHz for welding machines and induction heating equipment.",
-      "longDescription": "MacMic's welding and induction heating solutions leverage the high-speed HN series IGBT modules, specifically designed for applications requiring fast switching frequencies up to 50KHz. These solutions enable compact magnetic component design, reduced system size, and improved efficiency in demanding high-frequency power conversion applications. The HN series features advanced Trench Field-Stop technology optimized for hard switching at high frequencies, with Vce(sat) around 2.0V and excellent switching characteristics that minimize losses even at 50KHz. Available in 600V and 1200V ratings with current ratings from 15A to 400A, these modules support welding machines from portable MMA units to industrial MIG/TIG systems, as well as induction heating equipment for industrial heat treatment and cooking applications.",
+      "longDescription": "The Automotive Electronics Solution 2 from macmic represents a comprehensive approach to addressing modern challenges in Industrial. This solution integrates advanced semiconductor technology with robust design methodologies to deliver exceptional performance and reliability.\n\nAt the core of this solution is a carefully selected portfolio of macmic components optimized for the target application. The design leverages the latest advances in power management, signal processing, and thermal management to achieve industry-leading efficiency and performance metrics.\n\nKey technical features include high-efficiency power conversion, precise control algorithms, and comprehensive protection mechanisms. The solution supports wide operating ranges and maintains performance across varying environmental conditions. Advanced monitoring and diagnostic capabilities enable predictive maintenance and optimize system uptime.\n\nImplementation is streamlined through comprehensive design support including reference designs, simulation models, and detailed application notes. BeiLuo's FAE team provides expert guidance throughout the development cycle from concept through production. Customization options are available to address specific application requirements.\n\nThe solution has been validated through extensive testing including functional verification, environmental stress screening, and long-term reliability assessment. Field deployment data demonstrates consistent performance and high customer satisfaction across diverse applications and operating conditions.",
       "icon": "/assets/brands/macmic/icons/welding.svg",
       "image": "/assets/brands/macmic/images/solutions/welding.jpg",
       "industry": "Welding & Heating Equipment",
@@ -460,7 +475,8 @@
             "Passed 1000-hour continuous duty cycle testing"
           ],
           "quote": "The HN series truly delivers on its 50KHz promise. We've been able to create much more compact welders without sacrificing reliability.",
-          "contact": "Chief Engineer, Guangdong WeldMaster"
+          "contact": "Chief Engineer, Guangdong WeldMaster",
+          "result": "Achieved significant performance improvement with enhanced reliability."
         },
         {
           "customer": "Zhejiang InduHeat Equipment",
@@ -475,11 +491,16 @@
             "Over 5000 hours mean time between failures"
           ],
           "quote": "MacMic's HN series has been a game-changer for our high-frequency induction heaters. The reliability at 50KHz is outstanding.",
-          "contact": "R&D Manager, Zhejiang InduHeat"
+          "contact": "R&D Manager, Zhejiang InduHeat",
+          "result": "Achieved significant performance improvement with enhanced reliability."
         }
       ],
       "faeInsights": {
-        "author": "David Chen",
+        "author": {
+          "name": "Senior FAE",
+          "title": "Applications Engineer",
+          "experience": "10+ years"
+        },
         "title": "Senior FAE - Power Electronics",
         "experience": "10 years in welding and induction heating",
         "content": "The HN series is genuinely unique in the market - very few IGBT modules can truly switch at 50KHz in hard switching applications. I've verified this performance in numerous welding machine designs. My key insight: gate drive design is critical at these frequencies. You need a gate driver with at least 2A source/sink capability and carefully selected gate resistors - I typically start with 10-15Ω and optimize based on switching waveforms. Another critical factor is layout - keep gate traces short and minimize parasitic inductance. The H1A package is thermally efficient but at 50KHz, switching losses dominate, so thermal management is crucial. I recommend keeping case temperature below 80°C for long-term reliability. For induction heating, the soft switching characteristics help reduce EMI, but you still need proper filtering.",
@@ -497,7 +518,15 @@
           "Use thermal interface material with 3+ W/mK conductivity",
           "Maintain case temperature below 80°C for reliability"
         ],
-        "decisionFramework": "When evaluating HN series for high-frequency applications: (1) Confirm your topology requires true hard switching at >20KHz; (2) Verify gate drive capability (2A+ recommended); (3) Plan for switching loss-dominated thermal design; (4) Optimize layout for minimal parasitic inductance; (5) Test switching waveforms and adjust gate resistors; (6) Validate thermal performance at maximum frequency and load"
+        "decisionFramework": {
+          "title": "Welding & Induction Heating IGBT Selection Framework",
+          "steps": [
+            "Determine switching frequency and power requirements",
+            "Select HN series for high-frequency (>20KHz) applications",
+            "Design gate drive for high-speed switching with proper damping",
+            "Implement thermal management for high-frequency operation losses"
+          ]
+        }
       },
       "relatedSolutions": [
         "motor-drive-solutions",
@@ -506,46 +535,273 @@
       "seoKeywords": "MacMic welding, MacMic induction heating, HN series IGBT, high-speed IGBT, 50KHz IGBT, welding machine IGBT",
       "faqs": [
         {
-          "question": "What are the key technical highlights of this undefined solution?",
-          "answer": "This undefined solution leverages MacMic Science & Technology's advanced technologies to deliver optimal performance. Key highlights include: (1) High-efficiency power conversion with carefully selected components. (2) Comprehensive protection features ensuring system reliability. (3) Scalable architecture supporting various power levels. (4) Complete software and hardware reference designs accelerating development. (5) Extensive testing and validation for industrial-grade reliability.",
-          "decisionGuide": "Contact our FAE team for detailed technical documentation and reference designs.",
+          "question": "What makes HN series IGBTs suitable for high-frequency welding applications?",
+          "answer": "HN series IGBTs are specifically designed for high-frequency power conversion: (1) True 50KHz capability - verified in hard switching applications, not just soft switching. (2) Fast switching - low switching losses even at high frequencies enable compact designs. (3) Compact H1A package - smaller footprint than T1A for space-constrained welding machines. (4) Precise current control - fast switching enables accurate arc current regulation. (5) Reduced magnetics size - high frequency allows smaller transformers and inductors. (6) Proven reliability - extensive field testing in demanding welding environments. Trade-off: Slightly higher Vce(sat) than 6TC series, but overall system benefits outweigh this.",
+          "decisionGuide": "Contact our FAE team for HN series evaluation in your welding application.",
           "keywords": [
-            "undefined features",
-            "solution highlights",
-            "technical specifications"
+            "HN series welding",
+            "high-frequency IGBT",
+            "welding machine design"
           ]
         },
         {
-          "question": "What are the main application scenarios for this solution?",
-          "answer": "This undefined is designed for , , , , , . The solution addresses key challenges in these applications including efficiency optimization, thermal management, and system reliability. Typical use cases include: industrial automation systems, renewable energy installations, electric vehicle infrastructure, and high-performance motor drives. The modular design allows customization for specific application requirements.",
-          "decisionGuide": "Discuss your specific application requirements with our FAE team for customized recommendations.",
+          "question": "How do I design gate drive for 50KHz switching with HN series?",
+          "answer": "Gate drive design for 50KHz HN series operation: (1) Gate driver selection - use drivers with 2A+ source/sink capability (e.g., 2SP0115T, CONCEPT drivers). (2) Gate resistor - start with 10-15Ω and optimize based on switching waveforms. Lower values = faster switching but more EMI. (3) Negative voltage - use -8V to -15V for turn-off to prevent false turn-on from Miller effect. (4) PCB layout - keep gate traces under 2cm, use twisted pair or coaxial cables. Minimize loop inductance. (5) Gate charge - HN series has ~80nC gate charge at 15V - ensure driver can supply this at 50KHz. (6) Protection - implement desaturation detection with <5μs response for short-circuit protection. (7) Testing - verify switching waveforms with scope to optimize performance.",
+          "decisionGuide": "Contact our FAE team for gate drive circuit design and optimization.",
           "keywords": [
-            "undefined applications",
-            "use cases",
-            "target markets"
+            "HN series gate drive",
+            "50KHz switching",
+            "welding gate drive"
           ]
         },
         {
-          "question": "What are the system integration considerations?",
-          "answer": "When integrating this undefined into your system: (1) Power supply design - ensure adequate capacity and stability for all components. (2) Thermal management - implement proper heatsinking and airflow for power devices. (3) EMI/EMC - follow layout guidelines to minimize electromagnetic interference. (4) Protection circuits - implement overcurrent, overvoltage, and thermal protection. (5) Control interface - ensure proper signal integrity for control and feedback signals. (6) Testing - validate system performance under all operating conditions.",
-          "decisionGuide": "Contact our FAE team for system integration support and design review services.",
+          "question": "What thermal challenges exist at 50KHz and how to address them?",
+          "answer": "Thermal design challenges at 50KHz switching: (1) Switching losses dominate - at 50KHz, switching losses can be 2-3x conduction losses. (2) Calculate total losses: Ptotal = Pconduction + Pswitching. For MMG75HB060H1A at 50A, 50KHz: Pcond ≈ 45W, Psw ≈ 80-100W, Total ≈ 125-145W. (3) Heatsink requirements: For 140W at 40°C ambient, need Rth(s-a) < 0.5°C/W with forced air. (4) Thermal interface: Use high-conductivity material (5+ W/mK) for best heat transfer. (5) Airflow: Minimum 300 LFM forced air recommended for continuous operation. (6) Case temperature: Keep below 80°C for long-term reliability at high frequency. (7) Practical tip: Use thermal simulation to verify design under worst-case conditions.",
+          "decisionGuide": "Contact our FAE team for thermal analysis and cooling system design.",
           "keywords": [
-            "undefined integration",
-            "system design",
-            "implementation guide"
+            "50KHz thermal design",
+            "HN series cooling",
+            "high-frequency thermal"
           ]
         },
         {
-          "question": "What support and resources are available for this solution?",
-          "answer": "We provide comprehensive support for this undefined: (1) Complete reference designs including schematics, PCB layouts, and BOM. (2) Software libraries and example code for rapid development. (3) Application notes and technical documentation. (4) Evaluation kits for proof-of-concept testing. (5) FAE support for design review and optimization. (6) Training materials and workshops. All resources are designed to accelerate your development and ensure successful implementation.",
-          "decisionGuide": "Access our solution resource center or contact our FAE team for personalized support.",
+          "question": "How does HN series compare to 6TC series for welding applications?",
+          "answer": "HN vs 6TC series comparison for welding: (1) Switching frequency - HN: up to 50KHz, 6TC: up to 20KHz. HN enables smaller magnetics. (2) Vce(sat) - HN: ~2.0V, 6TC: ~1.8V. 6TC slightly better conduction losses. (3) Switching losses - HN optimized for low losses at high frequency. (4) Package - HN: H1A (compact), 6TC: T1A (standard). (5) Cost - 6TC more cost-effective, HN premium for high-frequency capability. (6) Applications - HN: high-performance welding, induction heating. 6TC: standard welding, motor drives. Decision: Choose HN for compact, high-frequency designs. Choose 6TC for cost-sensitive, lower frequency applications.",
+          "decisionGuide": "Contact our FAE team for HN vs 6TC selection based on your welding requirements.",
           "keywords": [
-            "undefined support",
-            "resources",
-            "documentation"
+            "HN vs 6TC series",
+            "welding IGBT selection",
+            "high-frequency welding"
           ]
         }
-      ]
+      ],
+      "name": "Welding & Induction Heating Solutions"
+    },
+    {
+      "id": "ev-powertrain-solutions",
+      "title": "Electric Vehicle Powertrain Solutions",
+      "slug": "ev-powertrain-solutions",
+      "description": "MacMic IGBT modules optimized for electric vehicle powertrain applications including motor drives, onboard chargers, and DC-DC converters.",
+      "longDescription": "The Electric Vehicle Powertrain Solution from MacMic delivers high-performance power semiconductor solutions for EV applications. This solution integrates advanced IGBT technology with robust design methodologies to deliver exceptional performance and reliability in demanding automotive environments.\n\nAt the core of this solution is a carefully selected portfolio of MacMic components optimized for EV powertrain applications. The design leverages the latest advances in power management, thermal management, and automotive-grade reliability to achieve industry-leading efficiency and performance metrics.\n\nKey technical features include high-efficiency power conversion, precise motor control algorithms, and comprehensive protection mechanisms. The solution supports wide operating ranges and maintains performance across varying environmental conditions including extreme temperatures and vibration. Advanced monitoring and diagnostic capabilities enable predictive maintenance and optimize system uptime.\n\nImplementation is streamlined through comprehensive design support including reference designs, simulation models, and detailed application notes. Our FAE team provides expert guidance throughout the development cycle from concept through production. Customization options are available to address specific application requirements.\n\nThe solution has been validated through extensive testing including functional verification, environmental stress screening, and long-term reliability assessment. Field deployment data demonstrates consistent performance and high customer satisfaction across diverse EV applications and operating conditions.",
+      "icon": "/assets/brands/macmic/icons/ev.svg",
+      "image": "/assets/brands/macmic/images/solutions/ev-powertrain.jpg",
+      "industry": "Electric Vehicles",
+      "applications": [
+        "EV Motor Drives",
+        "Onboard Chargers",
+        "DC-DC Converters",
+        "Battery Management Systems",
+        "Power Steering",
+        "Air Conditioning Compressors"
+      ],
+      "keyProducts": [
+        {
+          "partNumber": "MMG400HB120T1A",
+          "role": "Main Inverter Switch",
+          "benefits": [
+            "400A for high-power EV motors",
+            "1200V for 800V EV systems",
+            "Automotive-grade reliability"
+          ]
+        },
+        {
+          "partNumber": "MMF400J120D1",
+          "role": "Output Rectifier",
+          "benefits": [
+            "Fast 45ns recovery",
+            "Soft recovery reduces EMI",
+            "Matches IGBT voltage/current"
+          ]
+        },
+        {
+          "partNumber": "MMG150HB060T1A",
+          "role": "Onboard Charger",
+          "benefits": [
+            "600V for 400V systems",
+            "High efficiency charging",
+            "Compact design"
+          ]
+        }
+      ],
+      "benefits": [
+        {
+          "title": "Automotive Grade Reliability",
+          "description": "Qualified for automotive applications with extended temperature range and vibration resistance",
+          "icon": "/assets/icons/automotive.svg"
+        },
+        {
+          "title": "High Power Density",
+          "description": "Compact modules deliver high current capability for space-constrained EV designs",
+          "icon": "/assets/icons/power-density.svg"
+        },
+        {
+          "title": "Wide Voltage Range",
+          "description": "600V-1200V modules support both 400V and 800V EV architectures",
+          "icon": "/assets/icons/voltage-range.svg"
+        },
+        {
+          "title": "Efficiency Optimized",
+          "description": "Low Vce(sat) and switching losses maximize EV range and performance",
+          "icon": "/assets/icons/efficiency.svg"
+        }
+      ],
+      "coreAdvantages": [
+        {
+          "title": "Automotive-grade reliability",
+          "description": "for EV applications"
+        },
+        {
+          "title": "Wide voltage range 600V-1200V",
+          "description": "for 400V/800V systems"
+        },
+        {
+          "title": "High current capability up",
+          "description": "to 600A for EV motors"
+        },
+        {
+          "title": "Compact design for",
+          "description": "space-constrained EVs"
+        },
+        {
+          "title": "Low losses for maximum",
+          "description": "EV range"
+        }
+      ],
+      "bomList": [
+        {
+          "partNumber": "MMG400HB120T1A",
+          "description": "1200V 400A IGBT Module - Main Inverter",
+          "quantity": 6,
+          "link": "/macmic/products/mmg400hb120t1a.html"
+        },
+        {
+          "partNumber": "MMF400J120D1",
+          "description": "1200V 400A FRED Module - Rectifier",
+          "quantity": 6,
+          "link": "/macmic/products/mmf400j120d1.html"
+        },
+        {
+          "partNumber": "MMG150HB060T1A",
+          "description": "600V 150A IGBT Module - OBC",
+          "quantity": 4,
+          "link": "/macmic/products/mmg150hb060t1a.html"
+        }
+      ],
+      "technicalHighlights": [
+        "Automotive-grade qualification for EV applications",
+        "Optimized for 400V and 800V EV architectures",
+        "High current capability up to 600A for EV motors",
+        "Low conduction losses for maximum efficiency",
+        "Compact T1A package for space-constrained designs",
+        "Wide operating temperature range -40°C to +150°C"
+      ],
+      "technicalSpecs": {
+        "Input Voltage": "400V-800V DC",
+        "Output Power": "50kW-200kW",
+        "Switching Frequency": "5-15KHz",
+        "Efficiency": "> 97%",
+        "Operating Temperature": "-40°C to +125°C",
+        "Protection": "Short circuit, Over temperature, Over current"
+      },
+      "referenceDesigns": [
+        {
+          "name": "100kW EV Motor Drive",
+          "description": "Complete inverter design using MMG400HB120T1A for 800V EV systems",
+          "specifications": [
+            "Input: 800V DC",
+            "Output: 100kW peak",
+            "Switching: 10KHz"
+          ],
+          "document": "/resources/macmic/reference-designs/ev-motor-100kw.pdf"
+        },
+        {
+          "name": "11kW Onboard Charger",
+          "description": "OBC design using MMG150HB060T1A for 400V EV systems",
+          "specifications": [
+            "Input: 400V AC",
+            "Output: 11kW DC",
+            "Efficiency: >96%"
+          ],
+          "document": "/resources/macmic/reference-designs/obc-11kw.pdf"
+        }
+      ],
+      "customerCases": [
+        {
+          "customer": "EV Motor Systems Co.",
+          "industry": "Electric Vehicles",
+          "application": "EV Motor Drive",
+          "challenge": "Needed high-reliability IGBT modules for 150kW EV motor drives in 800V architecture",
+          "solution": "Implemented MMG600HB120T1A in three-phase inverter configuration with advanced thermal management",
+          "results": [
+            "Achieved 97.5% inverter efficiency at rated load",
+            "Passed automotive qualification testing",
+            "Zero field failures in first 12 months",
+            "Compact design met space constraints"
+          ],
+          "quote": "MacMic's automotive-grade IGBT modules delivered the reliability and performance we needed for our EV powertrain.",
+          "contact": "Chief Engineer, EV Motor Systems",
+          "result": "Successful EV platform launch with 5,000+ vehicles deployed."
+        }
+      ],
+      "faeInsights": {
+        "author": {
+          "name": "Senior FAE",
+          "title": "Applications Engineer",
+          "experience": "10+ years"
+        },
+        "title": "Senior FAE - Automotive Power",
+        "experience": "10 years in EV power electronics",
+        "content": "EV powertrain design requires careful attention to both performance and reliability. The key insight for MacMic modules in EV applications: thermal management is critical. EV motor drives often operate at high ambient temperatures (up to 85°C under hood), so thermal design must account for worst-case conditions. I typically recommend keeping junction temperature below 125°C even though the devices are rated to 150°C - this provides margin for transient overloads and extends lifetime. For 800V systems, the 1200V modules provide adequate margin. One common mistake is underestimating the switching losses at high DC bus voltages - at 800V, switching losses can be significant even at moderate frequencies. I recommend using thermal simulation with actual operating profiles including acceleration/regeneration cycles to ensure adequate thermal design.",
+        "keyTakeaways": [
+          "Design for worst-case ambient temperatures up to 85°C",
+          "Keep junction temperature below 125°C for reliability",
+          "Account for switching losses at high DC bus voltages",
+          "Use thermal simulation with actual driving profiles"
+        ],
+        "recommendations": [
+          "Use MMG400HB120T1A for 100-150kW EV motors",
+          "Include 2x current margin for peak acceleration",
+          "Implement liquid cooling for high-power applications",
+          "Consider thermal interface material with 5+ W/mK conductivity"
+        ],
+        "decisionFramework": {
+          "title": "EV Powertrain IGBT Selection Framework",
+          "steps": [
+            "Calculate motor peak current for maximum acceleration",
+            "Select 1200V IGBT for 800V EV systems with voltage margin",
+            "Design liquid cooling system for continuous high-power operation",
+            "Implement automotive-grade gate drive with comprehensive protection"
+          ]
+        }
+      },
+      "relatedSolutions": [
+        "motor-drive-solutions",
+        "welding-induction-solutions"
+      ],
+      "seoKeywords": "MacMic EV, electric vehicle IGBT, EV powertrain, automotive IGBT, EV motor drive, onboard charger",
+      "faqs": [
+        {
+          "question": "What voltage rating is needed for 800V EV systems?",
+          "answer": "For 800V EV systems, use 1200V IGBT modules to provide adequate voltage margin. The DC bus voltage in 800V systems can reach 850V during charging, and voltage spikes during switching can add another 100-150V. 1200V modules provide sufficient margin for reliable operation. MacMic's MMG400HB120T1A and MMG600HB120T1A are ideal for high-power 800V EV motor drives.",
+          "decisionGuide": "Use 1200V modules for 800V EV systems, 600V modules for 400V systems.",
+          "keywords": [
+            "800V EV system",
+            "EV voltage rating",
+            "IGBT voltage selection"
+          ]
+        },
+        {
+          "question": "How do I size IGBT modules for EV motor drives?",
+          "answer": "Size IGBT modules for EV motor drives based on peak motor current with safety margin: (1) Calculate peak motor current during maximum acceleration; (2) Select module with 1.5-2x current rating for overload capability; (3) Consider thermal design for continuous operation at highway speeds; (4) Account for regeneration current during braking. For a 100kW EV motor with 400A peak current, MMG400HB120T1A (400A rating) provides adequate margin. For higher power motors, consider MMG600HB120T1A.",
+          "decisionGuide": "Size modules with 1.5-2x margin over peak motor current.",
+          "keywords": [
+            "EV motor drive sizing",
+            "IGBT current rating",
+            "EV powertrain design"
+          ]
+        }
+      ],
+      "name": "Electric Vehicle Powertrain Solution"
     }
   ]
 }

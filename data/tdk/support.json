@@ -121,7 +121,11 @@
       "readTime": "15 minutes",
       "difficulty": "Intermediate",
       "faeInsights": {
-        "author": "BeiLuo FAE Team",
+        "author": {
+          "name": "Technical FAE",
+          "title": "Support Engineer",
+          "experience": "8+ years"
+        },
         "content": "In our experience supporting power supply designs, the most common issue with MLCCs is insufficient consideration of DC bias effects. Designers often select capacitors based on nominal capacitance without accounting for the significant reduction under DC bias. For example, a 10uF X5R capacitor in 0603 package may provide only 3-4uF effective capacitance at 50% rated voltage. We always recommend using TDK's DC bias curves and applying at least 50% margin in capacitance calculations. For critical applications, measuring actual capacitance under operating conditions is the best practice.",
         "keyTakeaways": [
           "Always account for DC bias effects in capacitance calculations",
@@ -254,7 +258,11 @@
       "readTime": "20 minutes",
       "difficulty": "Advanced",
       "faeInsights": {
-        "author": "BeiLuo FAE Team",
+        "author": {
+          "name": "Technical FAE",
+          "title": "Support Engineer",
+          "experience": "8+ years"
+        },
         "content": "In industrial power supply applications, we frequently see designs that don't account for the combined effects of temperature and voltage on capacitor lifetime. We recommend designing for worst-case conditions including maximum ambient temperature and ripple current. For 24/7 industrial applications, we typically target 100,000+ hour lifetime.",
         "keyTakeaways": [
           "Temperature has the greatest impact on lifetime",
@@ -299,7 +307,7 @@
         },
         {
           "question": "Can capacitor lifetime be extended by reducing voltage?",
-          "answer": "Yes, voltage derating significantly extends capacitor lifetime. Operating at 80% of rated voltage typically doubles lifetime. Operating at 70% can provide 3-4x lifetime extension.",
+          "answer": "Yes, voltage derating significantly extends capacitor lifetime. Operating at 80% of rated voltage typically doubles lifetime. Operating at 70% can provide 3-4x lifetime extension. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
           "decisionGuide": "Apply 20-30% voltage derating for significant lifetime improvement.",
           "keywords": [
             "voltage derating",
@@ -308,7 +316,7 @@
         },
         {
           "question": "What is the shelf life of aluminum electrolytic capacitors?",
-          "answer": "TDK recommends a maximum storage period of 3 years at room temperature. During storage, the electrolyte can slowly evaporate and the oxide layer may degrade slightly.",
+          "answer": "TDK recommends a maximum storage period of 3 years at room temperature. During storage, the electrolyte can slowly evaporate and the oxide layer may degrade slightly. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
           "decisionGuide": "Use capacitors within 3 years of manufacture; perform reformation if stored longer.",
           "keywords": [
             "shelf life",
@@ -382,7 +390,11 @@
       "readTime": "18 minutes",
       "difficulty": "Advanced",
       "faeInsights": {
-        "author": "BeiLuo FAE Team",
+        "author": {
+          "name": "Technical FAE",
+          "title": "Support Engineer",
+          "experience": "8+ years"
+        },
         "content": "In renewable energy applications, we frequently see designers underestimating the importance of ESL in DC link capacitors. With modern SiC MOSFETs switching at high speeds, even small ESL can cause significant voltage overshoot.",
         "keyTakeaways": [
           "ESL is critical for high-frequency applications",
@@ -408,7 +420,7 @@
       "faqs": [
         {
           "question": "When should I choose film capacitors over aluminum electrolytic?",
-          "answer": "Choose film capacitors when high ripple current, long lifetime, or high-frequency switching is needed. Choose aluminum electrolytic for highest capacitance density or cost-sensitive applications.",
+          "answer": "Choose film capacitors when high ripple current, long lifetime, or high-frequency switching is needed. Choose aluminum electrolytic for highest capacitance density or cost-sensitive applications. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
           "decisionGuide": "Select film for high-reliability applications; electrolytic for cost-sensitive needs.",
           "keywords": [
             "film vs electrolytic",
@@ -417,7 +429,7 @@
         },
         {
           "question": "What is the self-healing process?",
-          "answer": "When dielectric breakdown occurs, a small arc vaporizes the thin metallization around the fault site, isolating the defect. The capacitor continues operating with slightly reduced capacitance.",
+          "answer": "When dielectric breakdown occurs, a small arc vaporizes the thin metallization around the fault site, isolating the defect. The capacitor continues operating with slightly reduced capacitance. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
           "decisionGuide": "Use metallized film capacitors for safety-critical applications.",
           "keywords": [
             "self-healing",
@@ -426,7 +438,7 @@
         },
         {
           "question": "How do I calculate required DC link capacitance?",
-          "answer": "DC link capacitance is calculated based on allowable voltage ripple. The formula is C equals I ripple divided by (8 times f switching times V ripple).",
+          "answer": "DC link capacitance is calculated based on allowable voltage ripple. The formula is C equals I ripple divided by (8 times f switching times V ripple). For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
           "decisionGuide": "Calculate based on ripple requirements; verify thermal capability.",
           "keywords": [
             "DC link calculation",
@@ -435,7 +447,7 @@
         },
         {
           "question": "What is dV/dt rating?",
-          "answer": "dV/dt specifies the maximum rate of voltage change a capacitor can withstand. Modern SiC devices create very high dV/dt which can stress capacitors.",
+          "answer": "dV/dt specifies the maximum rate of voltage change a capacitor can withstand. Modern SiC devices create very high dV/dt which can stress capacitors. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
           "decisionGuide": "Verify dV/dt rating exceeds application requirements.",
           "keywords": [
             "dV/dt rating",
@@ -444,7 +456,7 @@
         },
         {
           "question": "Can film capacitors be connected in parallel?",
-          "answer": "Yes, film capacitors can be paralleled to increase capacitance and current handling. Current sharing is naturally balanced with symmetrical layout.",
+          "answer": "Yes, film capacitors can be paralleled to increase capacitance and current handling. Current sharing is naturally balanced with symmetrical layout. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
           "decisionGuide": "Parallel capacitors for increased capacitance; use symmetrical layout.",
           "keywords": [
             "parallel connection",
@@ -508,7 +520,11 @@
       "readTime": "18 minutes",
       "difficulty": "Intermediate",
       "faeInsights": {
-        "author": "BeiLuo FAE Team",
+        "author": {
+          "name": "Technical FAE",
+          "title": "Support Engineer",
+          "experience": "8+ years"
+        },
         "content": "The most common mistake we see in inductor selection is focusing only on inductance value while ignoring current ratings. Designers calculate they need 10uH and select any 10uH inductor without verifying saturation current. In a buck converter with 2A output and 0.6A ripple, the peak current is 2.3A. If the selected inductor has 2.0A saturation current, it will saturate during normal operation, causing increased ripple, losses, and potential instability. We always recommend calculating both average and peak currents, then selecting an inductor with at least 30% margin on saturation current. Also, remember that saturation current decreases at high temperatures.",
         "keyTakeaways": [
           "Calculate both average and peak currents",
@@ -534,7 +550,7 @@
       "faqs": [
         {
           "question": "What is inductor saturation?",
-          "answer": "Saturation occurs when the core material reaches maximum flux density and inductance drops dramatically. This causes increased ripple current and potential converter instability.",
+          "answer": "Saturation occurs when the core material reaches maximum flux density and inductance drops dramatically. This causes increased ripple current and potential converter instability. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
           "decisionGuide": "Design for peak current 30% below saturation rating.",
           "keywords": [
             "inductor saturation",
@@ -543,7 +559,7 @@
         },
         {
           "question": "How do ferrite and metal composite compare?",
-          "answer": "Ferrite offers low losses at high frequencies with sharp saturation. Metal composite provides soft saturation and higher flux density but higher losses.",
+          "answer": "Ferrite offers low losses at high frequencies with sharp saturation. Metal composite provides soft saturation and higher flux density but higher losses. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
           "decisionGuide": "Select ferrite for high frequency; metal composite for high current.",
           "keywords": [
             "ferrite core",
@@ -552,7 +568,7 @@
         },
         {
           "question": "What is the difference between rated and saturation current?",
-          "answer": "Rated current is thermal limitation. Saturation current is where inductance drops. In converters, saturation current is usually the limiting factor.",
+          "answer": "Rated current is thermal limitation. Saturation current is where inductance drops. In converters, saturation current is usually the limiting factor. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
           "decisionGuide": "Design for both limits; saturation is typically limiting.",
           "keywords": [
             "rated current",
@@ -561,7 +577,7 @@
         },
         {
           "question": "How does temperature affect inductors?",
-          "answer": "DCR increases with temperature. Saturation current decreases at high temperatures. Core losses may change with temperature.",
+          "answer": "DCR increases with temperature. Saturation current decreases at high temperatures. Core losses may change with temperature. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
           "decisionGuide": "Account for temperature effects on DCR and saturation.",
           "keywords": [
             "temperature effects",
@@ -570,7 +586,7 @@
         },
         {
           "question": "Can inductors be paralleled?",
-          "answer": "Yes, but current sharing depends on inductance matching. Practical designs should use only 1.6-1.8x single inductor rating.",
+          "answer": "Yes, but current sharing depends on inductance matching. Practical designs should use only 1.6-1.8x single inductor rating. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
           "decisionGuide": "Use single higher-current inductor when possible.",
           "keywords": [
             "parallel inductors",

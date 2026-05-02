@@ -75,7 +75,12 @@
             "Technical Consulting"
           ]
         },
-        "content": "In my 15 years supporting industrial communication projects, I've seen many customers struggle with EtherCAT controller selection. The most common mistake is underestimating the value of the third port on FCE1353. While it seems like a minor feature, it often saves significant cabling costs in complex machines. I recently worked with a packaging OEM who switched from FCE1100 to FCE1353 and reduced their cable harness cost by 25% through better topology optimization. For the host interface, I recommend starting with SPI for evaluation and prototyping, then moving to parallel interface for production if bandwidth requires it. The SPI interface is easier to debug and requires fewer PCB layers. One important consideration often overlooked is future-proofing - if your product line might need 3-port capability in the future, design in FCE1353 from the start to avoid redesign later."
+        "content": "In my 15 years supporting industrial communication projects, I've seen many customers struggle with EtherCAT controller selection. The most common mistake is underestimating the value of the third port on FCE1353. While it seems like a minor feature, it often saves significant cabling costs in complex machines. I recently worked with a packaging OEM who switched from FCE1100 to FCE1353 and reduced their cable harness cost by 25% through better topology optimization. For the host interface, I recommend starting with SPI for evaluation and prototyping, then moving to parallel interface for production if bandwidth requires it. The SPI interface is easier to debug and requires fewer PCB layers. One important consideration often overlooked is future-proofing - if your product line might need 3-port capability in the future, design in FCE1353 from the start to avoid redesign later.",
+        "keyTakeaways": [
+          "Understand key criteria",
+          "Consider specifications",
+          "Consult FAE team"
+        ]
       },
       "customerCases": [
         {
@@ -219,7 +224,12 @@
             "Technical Consulting"
           ]
         },
-        "content": "Having supported hundreds of motor control designs, I can tell you that DSP selection often comes down to the HRPWM decision. Many customers initially choose FCP32C334 for cost reasons, then discover they need HRPWM for their performance requirements. My advice is to carefully evaluate whether you need HRPWM early in the design phase. Applications that definitely need HRPWM include: CNC machine tools where surface finish is critical, high-performance servo drives with low-speed operation, applications requiring extremely smooth motion, and systems where audible noise must be minimized. For standard pumps, fans, and compressors, the FCP32C334's standard PWM is perfectly adequate. One often-overlooked factor is Flash size - complex FOC algorithms with full feature sets can approach 200KB, leaving little room for application code on FCP32C334. If your application needs extensive communication protocols or complex state machines, the FCP32C335's 512KB Flash provides important headroom."
+        "content": "Having supported hundreds of motor control designs, I can tell you that DSP selection often comes down to the HRPWM decision. Many customers initially choose FCP32C334 for cost reasons, then discover they need HRPWM for their performance requirements. My advice is to carefully evaluate whether you need HRPWM early in the design phase. Applications that definitely need HRPWM include: CNC machine tools where surface finish is critical, high-performance servo drives with low-speed operation, applications requiring extremely smooth motion, and systems where audible noise must be minimized. For standard pumps, fans, and compressors, the FCP32C334's standard PWM is perfectly adequate. One often-overlooked factor is Flash size - complex FOC algorithms with full feature sets can approach 200KB, leaving little room for application code on FCP32C334. If your application needs extensive communication protocols or complex state machines, the FCP32C335's 512KB Flash provides important headroom.",
+        "keyTakeaways": [
+          "Understand key criteria",
+          "Consider specifications",
+          "Consult FAE team"
+        ]
       },
       "customerCases": [
         {
@@ -363,7 +373,12 @@
             "Technical Consulting"
           ]
         },
-        "content": "Having guided dozens of customers through EtherCAT development, I've identified common patterns that lead to success or failure. The most critical factor is starting with a working reference design rather than designing from scratch. Funcience's evaluation kits provide proven hardware and software that you can modify incrementally. The second key is understanding the ESI file - many developers treat it as a black box, but understanding PDO mapping and synchronization modes is essential for debugging. One frequent issue I see is inadequate power supply decoupling on the EtherCAT controller, causing intermittent communication errors that are hard to diagnose. I recommend at least 10μF bulk capacitance plus 0.1μF ceramics near each power pin. For software development, start with the sample application and make small, tested changes rather than major rewrites. The EtherCAT state machine is complex, and subtle errors can cause difficult-to-debug behavior."
+        "content": "Having guided dozens of customers through EtherCAT development, I've identified common patterns that lead to success or failure. The most critical factor is starting with a working reference design rather than designing from scratch. Funcience's evaluation kits provide proven hardware and software that you can modify incrementally. The second key is understanding the ESI file - many developers treat it as a black box, but understanding PDO mapping and synchronization modes is essential for debugging. One frequent issue I see is inadequate power supply decoupling on the EtherCAT controller, causing intermittent communication errors that are hard to diagnose. I recommend at least 10μF bulk capacitance plus 0.1μF ceramics near each power pin. For software development, start with the sample application and make small, tested changes rather than major rewrites. The EtherCAT state machine is complex, and subtle errors can cause difficult-to-debug behavior.",
+        "keyTakeaways": [
+          "Understand key criteria",
+          "Consider specifications",
+          "Consult FAE team"
+        ]
       },
       "customerCases": [
         {
@@ -507,7 +522,12 @@
             "Technical Consulting"
           ]
         },
-        "content": "I've supported numerous ET1100 to FCE1100 migrations, and the success rate is extremely high when following proper procedures. The most important step is validating your existing ET1100 design is within specification - some older designs may have marginal timing that works with ET1100 but should be corrected. I always recommend testing with an evaluation kit first, even if the migration appears straightforward. One subtle issue I've encountered is EEPROM content - some designs have ET1100-specific configuration that needs updating. The ESI file update is critical and often overlooked. Make sure to test with multiple master implementations, not just your primary one. I've seen cases where a device works fine with TwinCAT but has issues with another master due to subtle timing differences. Overall, migration is typically low-risk and offers significant benefits in cost and supply security."
+        "content": "I've supported numerous ET1100 to FCE1100 migrations, and the success rate is extremely high when following proper procedures. The most important step is validating your existing ET1100 design is within specification - some older designs may have marginal timing that works with ET1100 but should be corrected. I always recommend testing with an evaluation kit first, even if the migration appears straightforward. One subtle issue I've encountered is EEPROM content - some designs have ET1100-specific configuration that needs updating. The ESI file update is critical and often overlooked. Make sure to test with multiple master implementations, not just your primary one. I've seen cases where a device works fine with TwinCAT but has issues with another master due to subtle timing differences. Overall, migration is typically low-risk and offers significant benefits in cost and supply security.",
+        "keyTakeaways": [
+          "Understand key criteria",
+          "Consider specifications",
+          "Consult FAE team"
+        ]
       },
       "customerCases": [
         {
@@ -651,7 +671,12 @@
             "Technical Consulting"
           ]
         },
-        "content": "Implementing motor control with FCP32C335 is straightforward if you follow systematic procedures. The most common issue I see is inadequate current sensing design - the shunt resistor value, amplifier bandwidth, and anti-aliasing filter must be carefully matched to your switching frequency. I recommend using 10-20kHz switching for general applications, which provides good balance between losses and control performance. For the FOC algorithm, start with sensored control to validate your hardware, then add sensorless if needed. The HRPWM is a powerful feature but requires proper configuration - make sure to read the application note on HRPWM setup. One debugging tip: use the on-chip DAC to output internal variables to an external scope - it's invaluable for tuning. The FCP32C335 has enough processing headroom that you can add diagnostic features and data logging without impacting control performance."
+        "content": "Implementing motor control with FCP32C335 is straightforward if you follow systematic procedures. The most common issue I see is inadequate current sensing design - the shunt resistor value, amplifier bandwidth, and anti-aliasing filter must be carefully matched to your switching frequency. I recommend using 10-20kHz switching for general applications, which provides good balance between losses and control performance. For the FOC algorithm, start with sensored control to validate your hardware, then add sensorless if needed. The HRPWM is a powerful feature but requires proper configuration - make sure to read the application note on HRPWM setup. One debugging tip: use the on-chip DAC to output internal variables to an external scope - it's invaluable for tuning. The FCP32C335 has enough processing headroom that you can add diagnostic features and data logging without impacting control performance.",
+        "keyTakeaways": [
+          "Understand key criteria",
+          "Consider specifications",
+          "Consult FAE team"
+        ]
       },
       "customerCases": [
         {
@@ -795,7 +820,12 @@
             "Technical Consulting"
           ]
         },
-        "content": "After troubleshooting hundreds of EtherCAT issues, I've developed a systematic approach that solves most problems efficiently. Start with the physical layer - you'd be surprised how many 'complex' issues are simply bad cables or loose connections. Always check link status first before diving into protocol analysis. For intermittent issues, temperature and power supply are common culprits. I keep a list of most common issues: inadequate power supply decoupling causing random errors, incorrect ESI configuration preventing state transitions, and timing violations in application code causing watchdog timeouts. One tool I find invaluable is a simple EtherCAT frame capture - even without full protocol analysis, seeing the raw frames often reveals the problem. For distributed clock issues, check that all devices support DC and that sync signals are properly routed. Don't overlook the obvious - I've spent hours debugging only to find an unconfigured DIP switch or wrong baud rate setting."
+        "content": "After troubleshooting hundreds of EtherCAT issues, I've developed a systematic approach that solves most problems efficiently. Start with the physical layer - you'd be surprised how many 'complex' issues are simply bad cables or loose connections. Always check link status first before diving into protocol analysis. For intermittent issues, temperature and power supply are common culprits. I keep a list of most common issues: inadequate power supply decoupling causing random errors, incorrect ESI configuration preventing state transitions, and timing violations in application code causing watchdog timeouts. One tool I find invaluable is a simple EtherCAT frame capture - even without full protocol analysis, seeing the raw frames often reveals the problem. For distributed clock issues, check that all devices support DC and that sync signals are properly routed. Don't overlook the obvious - I've spent hours debugging only to find an unconfigured DIP switch or wrong baud rate setting.",
+        "keyTakeaways": [
+          "Understand key criteria",
+          "Consider specifications",
+          "Consult FAE team"
+        ]
       },
       "customerCases": [
         {

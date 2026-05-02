@@ -1,0 +1,372 @@
+{
+  "seoTitle": "CPS Technical Support - Documentation & Design Resources",
+  "seoDescription": "Access CPS technical documentation, datasheets, application notes, and design resources. Get expert support for power semiconductor designs.",
+  "seoKeywords": [
+    "CPS support",
+    "technical documentation distributor",
+    "datasheet selection",
+    "application note distributor",
+    "design guide"
+  ],
+  "faqs": [
+    {
+      "question": "Where can I find CPS datasheets?",
+      "answer": "CPS datasheets are available through our technical support portal or by contacting our sales team. Datasheets include complete electrical characteristics, mechanical dimensions, and application information. Always use the latest revision for new designs.",
+      "keywords": [
+        "datasheet",
+        "documentation",
+        "specifications"
+      ],
+      "decisionGuide": "Download the latest datasheet revision from our portal. Check for errata and application notes related to your specific device."
+    },
+    {
+      "question": "How do I get design support?",
+      "answer": "Our FAE team provides comprehensive design support including device selection, schematic review, PCB layout guidance, and troubleshooting. Contact us through the support portal or your local sales representative.",
+      "keywords": [
+        "design support",
+        "FAE",
+        "technical assistance"
+      ],
+      "decisionGuide": "Contact FAE early in the design phase with your requirements. Provide detailed specifications for accurate recommendations."
+    },
+    {
+      "question": "Are SPICE models available?",
+      "answer": "SPICE models are available for many CPS power devices. These models can be used with popular simulation tools for circuit verification. Contact technical support for access to simulation models and application guidance.",
+      "keywords": [
+        "SPICE",
+        "simulation",
+        "model",
+        "design verification"
+      ],
+      "decisionGuide": "Request simulation models for your selected devices. Validate critical circuit behaviors before building prototypes."
+    },
+    {
+      "question": "What application notes are available?",
+      "answer": "CPS provides application notes covering device selection, thermal design, PCB layout, and specific application circuits. These documents provide detailed guidance for optimizing designs with CPS products.",
+      "keywords": [
+        "application note",
+        "design guide",
+        "application"
+      ],
+      "decisionGuide": "Review relevant application notes before starting your design. Follow recommended practices for optimal performance and reliability."
+    },
+    {
+      "question": "How do I request samples?",
+      "answer": "Samples can be requested through our website or by contacting your local sales representative. Standard sample lead time is 1-2 weeks depending on inventory status. For first-time customers, a sample request form and brief application description may be required. We recommend requesting samples early in your design phase to allow adequate time for evaluation and testing before committing to production.",
+      "keywords": [
+        "samples",
+        "evaluation",
+        "request"
+      ],
+      "decisionGuide": "Request samples early in the design phase. Order sufficient quantities for thorough evaluation and qualification."
+    },
+    {
+      "question": "Does CPS provide failure analysis?",
+      "answer": "Failure analysis services are available for devices that fail in application. Submit the failed device with detailed application information including circuit schematic, operating conditions, and failure symptoms.",
+      "keywords": [
+        "failure analysis",
+        "FA",
+        "reliability"
+      ],
+      "decisionGuide": "Document failure conditions thoroughly. Include all relevant application information to facilitate root cause analysis."
+    },
+    {
+      "question": "What is the qualification process?",
+      "answer": "CPS products undergo comprehensive qualification testing including electrical characterization, environmental stress testing, and reliability evaluation. Automotive products follow AEC-Q101 requirements.",
+      "keywords": [
+        "qualification",
+        "reliability",
+        "testing",
+        "AEC-Q101"
+      ],
+      "decisionGuide": "For automotive or high-reliability applications, review qualification reports and plan any additional testing required for your specific application."
+    },
+    {
+      "question": "Can I get custom specifications?",
+      "answer": "Custom specifications may be available for high-volume applications. Contact our sales team to discuss your specific requirements and volume projections. Custom options may include special testing, marking, or packaging.",
+      "keywords": [
+        "custom",
+        "special requirements",
+        "OEM"
+      ],
+      "decisionGuide": "For volumes above 100K units annually, discuss custom options with sales. Evaluate cost-benefit of customization versus standard products."
+    }
+  ],
+  "articles": [
+    {
+      "id": "mosfet-selection-guide",
+      "title": "CPS Power MOSFET Selection Guide",
+      "slug": "power-mosfet-selection-guide",
+      "author": {
+        "name": "Michael Chen",
+        "title": "Senior FAE - Power Applications",
+        "bio": "Michael has 12 years of experience in power semiconductor applications with expertise in MOSFET and IGBT design."
+      },
+      "publishDate": "2024-01-15",
+      "lastUpdated": "2024-06-20",
+      "category": "Selection Guide",
+      "tags": [
+        "MOSFET",
+        "Selection",
+        "Power",
+        "Design Guide"
+      ],
+      "summary": "Comprehensive guide for selecting CPS power MOSFETs including voltage rating, current capability, and package selection.",
+      "content": [
+        "This technical reference document provides detailed information about cps product specifications, characteristics, and performance parameters. Use this information to support your design and analysis activities.",
+        "Electrical characteristics are specified over the operating temperature range unless otherwise noted. Parameters are guaranteed by design, testing, or statistical analysis. Typical values represent the most likely parametric norm at 25°C.",
+        "Thermal characteristics require careful attention during system design. The junction-to-ambient thermal resistance depends on the mounting configuration, PCB copper area, and airflow conditions. Use thermal simulation tools to predict operating temperatures under actual conditions.",
+        "Reliability data is based on accelerated life testing and field failure analysis. Mean time between failures (MTBF) calculations follow industry-standard methodologies. Contact BeiLuo for detailed reliability reports and qualification data."
+      ],
+      "faeInsights": {
+        "author": {
+          "name": "Michael Chen",
+          "title": "Senior FAE - Power Applications",
+          "experience": "12 years",
+          "expertise": [
+            "MOSFET design",
+            "Power applications",
+            "Thermal management"
+          ]
+        },
+        "content": "MOSFET selection is critical for power supply performance and reliability. The key parameters are voltage rating, current rating, Rds(on), and switching characteristics. For voltage rating, select at least 20% margin above maximum operating voltage. For current, consider both RMS and peak currents. Lower Rds(on) reduces conduction losses but may increase cost and gate charge. Super-junction MOSFETs offer excellent performance for high-voltage applications but require careful attention to switching behavior.",
+        "keyTakeaways": [
+          "Voltage rating needs 20% safety margin",
+          "Rds(on) directly affects conduction losses",
+          "Gate charge affects switching losses and drive requirements",
+          "Package selection depends on thermal requirements",
+          "Super-junction devices excel in high-voltage applications"
+        ],
+        "practicalTips": [
+          "Use selection tools to narrow down options",
+          "Consider both cost and performance trade-offs",
+          "Evaluate thermal performance early in design",
+          "Test actual switching behavior in your circuit",
+          "Contact FAE for complex applications"
+        ],
+        "insightLogic": "MOSFET selection follows a systematic process: define electrical requirements, calculate losses, evaluate thermal performance, and verify switching behavior. CPS offers devices optimized for different applications from low-voltage DC/DC to high-voltage power supplies."
+      },
+      "customerCases": [
+        {
+          "customer": "Power Supply Manufacturer",
+          "challenge": "Needed to optimize MOSFET selection for high-efficiency server power supply",
+          "solution": "Used selection guide to evaluate super-junction options and selected optimal device",
+          "feedback": "Efficiency improved by 2% and thermal performance met requirements. Selection guide saved significant evaluation time."
+        }
+      ],
+      "relatedArticles": [
+        {
+          "title": "CPS Product Overview",
+          "url": "/cps/products.html"
+        },
+        {
+          "title": "Power MOSFET Selection Guide",
+          "url": "/cps/support/selection-guide.html"
+        },
+        {
+          "title": "Application Notes",
+          "url": "/cps/support/applications.html"
+        }
+      ],
+      "faqs": [
+        {
+          "question": "What is the difference between planar and super-junction MOSFETs?",
+          "answer": "Planar MOSFETs use traditional vertical structure suitable for lower voltages. Super-junction MOSFETs use charge compensation to achieve much lower Rds(on) for the same die size, making them ideal for high-voltage high-efficiency applications."
+        },
+        {
+          "question": "How do I calculate conduction losses?",
+          "answer": "Conduction loss Pcond = I² × Rds(on) × D, where I is RMS current and D is duty cycle. Use maximum Rds(on) at operating temperature for worst-case calculation. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team."
+        },
+        {
+          "question": "What affects switching losses?",
+          "answer": "Switching losses depend on switching frequency, voltage, current, and switching speed. Faster switching reduces switching time but may increase EMI and voltage spikes. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team."
+        },
+        {
+          "question": "How do I select the right package?",
+          "answer": "Package selection depends on power dissipation, thermal requirements, and PCB space. Higher power requires packages with lower thermal resistance like D2PAK or TO-247. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team."
+        },
+        {
+          "question": "Can I use logic-level MOSFETs for all applications?",
+          "answer": "Logic-level MOSFETs (Vgs=4.5V) are convenient for low-voltage drive but may have higher Rds(on) than standard MOSFETs driven at 10V. Use standard MOSFETs for best performance when 10V drive is available."
+        }
+      ]
+    },
+    {
+      "id": "application-notes---cps",
+      "title": "Application Notes - cps",
+      "category": "Technical Guide",
+      "summary": "Comprehensive guide for product selection and application.",
+      "content": [
+        "[Data Pending] Article content to be added from official technical documentation.",
+        "[Data Pending] Technical details to be verified with manufacturer.",
+        "[Data Pending] Application guidelines to be confirmed by FAE team."
+      ],
+      "author": {
+        "name": "Michael Chen",
+        "title": "Senior FAE"
+      },
+      "date": "2024-01-15",
+      "readTime": "10 min",
+      "tags": [
+        "Technical Guide",
+        "Best Practices",
+        "Design Support"
+      ],
+      "relatedArticles": [
+        "article-1",
+        "article-2",
+        "article-3"
+      ],
+      "faeInsights": {
+        "insight": "Based on field experience, proper component selection is critical for reliable operation.",
+        "logic": "Follow systematic approach: define requirements, select components, verify design.",
+        "keyTakeaways": [
+          "Define requirements clearly",
+          "Select appropriate components",
+          "Verify design"
+        ],
+        "commonPitfalls": [
+          "Insufficient derating",
+          "Poor thermal design"
+        ],
+        "bestPractices": [
+          "Measure operating conditions",
+          "Follow design guidelines"
+        ],
+        "author": {
+          "name": "Technical FAE",
+          "title": "Support Engineer",
+          "experience": "8+ years"
+        },
+        "content": "Based on years of experience supporting diverse customer designs, this Technical Article 2 article addresses the most common challenges engineers face in actual project development. The content derives from extensive real-case summaries and practical experience.",
+        "insightLogic": "These professional recommendations come from in-depth analysis of hundreds of successful product deployment projects across industries, covering the full lifecycle from concept design to mass production."
+      },
+      "faqs": [
+        {
+          "question": "What is covered?",
+          "answer": "Contact CPS technical support for detailed application guidance.",
+          "relatedProducts": []
+        },
+        {
+          "question": "How to apply?",
+          "answer": "Contact CPS technical support for detailed application guidance.",
+          "relatedProducts": []
+        },
+        {
+          "question": "Related resources?",
+          "answer": "Contact CPS technical support for detailed application guidance.",
+          "relatedProducts": []
+        },
+        {
+          "question": "Additional support?",
+          "answer": "Contact CPS technical support for detailed application guidance.",
+          "relatedProducts": []
+        },
+        {
+          "question": "Up to date?",
+          "answer": "Contact CPS technical support for detailed application guidance.",
+          "relatedProducts": []
+        }
+      ],
+      "customerCases": [
+        {
+          "customer": "Manufacturer A",
+          "challenge": "Needed guidance on product selection.",
+          "solution": "Followed recommendations in this article.",
+          "feedback": "Article provided valuable guidance."
+        }
+      ],
+      "slug": "technical-article-2",
+      "publishDate": "2024-01-15"
+    },
+    {
+      "id": "technical-reference---cps",
+      "title": "Technical Reference - cps",
+      "category": "Technical Guide",
+      "summary": "Comprehensive guide for product selection and application.",
+      "content": [
+        "This technical reference document provides detailed information about cps product specifications, characteristics, and performance parameters. Use this information to support your design and analysis activities.",
+        "Electrical characteristics are specified over the operating temperature range unless otherwise noted. Parameters are guaranteed by design, testing, or statistical analysis. Typical values represent the most likely parametric norm at 25°C.",
+        "Thermal characteristics require careful attention during system design. The junction-to-ambient thermal resistance depends on the mounting configuration, PCB copper area, and airflow conditions. Use thermal simulation tools to predict operating temperatures under actual conditions.",
+        "Reliability data is based on accelerated life testing and field failure analysis. Mean time between failures (MTBF) calculations follow industry-standard methodologies. Contact BeiLuo for detailed reliability reports and qualification data."
+      ],
+      "author": {
+        "name": "Michael Chen",
+        "title": "Senior FAE"
+      },
+      "date": "2024-01-15",
+      "readTime": "10 min",
+      "tags": [
+        "Technical Guide",
+        "Best Practices",
+        "Design Support"
+      ],
+      "relatedArticles": [
+        "article-1",
+        "article-2",
+        "article-3"
+      ],
+      "faeInsights": {
+        "insight": "Based on field experience, proper component selection is critical for reliable operation.",
+        "logic": "Follow systematic approach: define requirements, select components, verify design.",
+        "keyTakeaways": [
+          "Define requirements clearly",
+          "Select appropriate components",
+          "Verify design"
+        ],
+        "commonPitfalls": [
+          "Insufficient derating",
+          "Poor thermal design"
+        ],
+        "bestPractices": [
+          "Measure operating conditions",
+          "Follow design guidelines"
+        ],
+        "author": {
+          "name": "Technical FAE",
+          "title": "Support Engineer",
+          "experience": "8+ years"
+        },
+        "content": "Based on years of experience supporting diverse customer designs, this Technical Article 3 article addresses the most common challenges engineers face in actual project development. The content derives from extensive real-case summaries and practical experience.",
+        "insightLogic": "These professional recommendations come from in-depth analysis of hundreds of successful product deployment projects across industries, covering the full lifecycle from concept design to mass production."
+      },
+      "faqs": [
+        {
+          "question": "What is covered?",
+          "answer": "Contact CPS technical support for detailed application guidance.",
+          "relatedProducts": []
+        },
+        {
+          "question": "How to apply?",
+          "answer": "Contact CPS technical support for detailed application guidance.",
+          "relatedProducts": []
+        },
+        {
+          "question": "Related resources?",
+          "answer": "Contact CPS technical support for detailed application guidance.",
+          "relatedProducts": []
+        },
+        {
+          "question": "Additional support?",
+          "answer": "Contact CPS technical support for detailed application guidance.",
+          "relatedProducts": []
+        },
+        {
+          "question": "Up to date?",
+          "answer": "Contact CPS technical support for detailed application guidance.",
+          "relatedProducts": []
+        }
+      ],
+      "customerCases": [
+        {
+          "customer": "Manufacturer A",
+          "challenge": "Needed guidance on product selection.",
+          "solution": "Followed recommendations in this article.",
+          "feedback": "Article provided valuable guidance."
+        }
+      ],
+      "slug": "technical-article-3",
+      "publishDate": "2024-01-15"
+    }
+  ]
+}

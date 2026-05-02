@@ -1,7 +1,14 @@
 {
   "seoTitle": "On-Bright Power Management IC Products | AC-DC DC-DC LED Driver | BeiLuo Electronics",
   "seoDescription": "Browse On-Bright power management ICs including AC-DC converters, DC-DC converters, LED drivers, and battery management solutions. Industrial-grade power ICs for various applications.",
-  "seoKeywords": ["On-Bright power IC", "AC-DC converter", "DC-DC converter", "LED driver", "battery management", "On-Bright selection guide"],
+  "seoKeywords": [
+    "On-Bright power IC",
+    "AC-DC converter",
+    "DC-DC converter",
+    "LED driver",
+    "battery management",
+    "On-Bright selection guide"
+  ],
   "categories": [
     {
       "id": "acdc",
@@ -22,7 +29,16 @@
       ],
       "selectionGuide": "Choose OB22xx series for high-efficiency adapter applications requiring low EMI. Select OB23xx series for cost-sensitive designs with good efficiency. Consider power rating, topology, and protection features based on your application requirements.",
       "selectionGuideLink": "/brands/on-bright/support/acdc-selection-guide/",
-      "parameters": ["Input Voltage", "Output Power", "Switching Frequency", "Standby Power", "Package"],
+      "parameters": [
+        "Input Voltage",
+        "Output Power",
+        "Switching Frequency",
+        "Standby Power",
+        "Operating Temperature",
+        "Voltage Rating",
+        "Current Rating",
+        "Temperature Range"
+      ],
       "products": [
         {
           "partNumber": "OB2263",
@@ -40,7 +56,10 @@
             "Switching Frequency": "65 kHz",
             "Standby Power": "< 0.1W",
             "Operating Temperature": "-40°C to +85°C",
-            "Package": "SOT23-6, DIP-8"
+            "Package": "SOT23-6, DIP-8",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
           },
           "features": [
             "High-voltage startup circuit",
@@ -105,31 +124,52 @@
               "question": "What is the maximum output power of OB2263?",
               "answer": "The OB2263 can support up to 60W output power in flyback topology with appropriate external MOSFET and transformer design. For higher power applications, consider using external MOSFETs with higher current ratings.",
               "decisionGuide": "Design for 20-30% power margin below maximum rating for reliable operation and thermal management.",
-              "keywords": ["output power", "maximum power", "flyback"]
+              "keywords": [
+                "output power",
+                "maximum power",
+                "flyback"
+              ]
             },
             {
               "question": "How do I achieve low standby power with OB2263?",
               "answer": "OB2263 achieves low standby power through its low startup current and operating current design. Use a high-value startup resistor (2M-4M ohm range) and minimize the VCC capacitor value while ensuring stable operation. The built-in frequency reduction at light load also helps reduce switching losses.",
               "decisionGuide": "Follow reference design guidelines for startup resistor and VCC capacitor selection.",
-              "keywords": ["standby power", "startup current", "frequency reduction"]
+              "keywords": [
+                "standby power",
+                "startup current",
+                "frequency reduction"
+              ]
             },
             {
               "question": "What transformer design is recommended for OB2263?",
               "answer": "OB2263 works with standard flyback transformer designs. Key considerations include proper core selection for power level, appropriate turns ratio for desired output voltage, and sufficient winding margins for safety isolation. On-Bright provides transformer design guidelines in their application notes.",
               "decisionGuide": "Start with reference design transformer specifications and adjust based on your specific requirements.",
-              "keywords": ["transformer", "flyback", "core selection"]
+              "keywords": [
+                "transformer",
+                "flyback",
+                "core selection"
+              ]
             },
             {
               "question": "How do I set the current limit for OB2263?",
               "answer": "Current limit is set by the current sense resistor connected between the MOSFET source and ground. The CS pin threshold is typically 1V. Calculate Rsense = 1V / Ipeak, where Ipeak is the desired peak current. Include margin for component tolerances.",
               "decisionGuide": "Calculate sense resistor based on maximum output power and transformer design; verify with actual testing.",
-              "keywords": ["current limit", "sense resistor", "CS pin"]
+              "keywords": [
+                "current limit",
+                "sense resistor",
+                "CS pin"
+              ]
             },
             {
               "question": "What EMI filtering is required with OB2263?",
               "answer": "OB2263's internal frequency jittering reduces conducted EMI, simplifying filter design. A typical common-mode choke with X and Y capacitors is usually sufficient for most applications. Follow CISPR22/EN55022 guidelines for filter component selection.",
               "decisionGuide": "Start with reference design filter values; adjust based on EMI testing results.",
-              "keywords": ["EMI", "filter", "frequency jittering", "CISPR22"]
+              "keywords": [
+                "EMI",
+                "filter",
+                "frequency jittering",
+                "CISPR22"
+              ]
             }
           ]
         },
@@ -137,7 +177,7 @@
           "partNumber": "OB2273",
           "name": "OB2273 QR Flyback Controller",
           "category": "AC-DC Converters",
-          "shortDescription": "Quasi-resonant flyback controller with valley switching technology for high-efficiency power supplies up to 75W with excellent EMI performance",
+          "shortDescription": "Quasi-resonant flyback controller with valley switching technology for high-efficiency power supplies up to 75W with ...",
           "descriptionParagraphs": [
             "The OB2273 is a quasi-resonant (QR) flyback controller that achieves high efficiency and low EMI through valley switching operation. It switches the MOSFET at the minimum drain voltage point, reducing switching losses and EMI generation.",
             "The controller features frequency foldback at light loads to maintain high efficiency across the entire load range. Built-in protections include OVP, OCP, OTP, and brown-out protection for reliable operation under all conditions.",
@@ -149,7 +189,10 @@
             "Switching Frequency": "Variable (QR mode)",
             "Standby Power": "< 0.1W",
             "Operating Temperature": "-40°C to +85°C",
-            "Package": "SOP-8, DIP-8"
+            "Package": "SOP-8, DIP-8",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
           },
           "features": [
             "Quasi-resonant valley switching",
@@ -214,31 +257,52 @@
               "question": "What is quasi-resonant operation in OB2273?",
               "answer": "Quasi-resonant operation means the controller switches the MOSFET at the minimum drain voltage point (valley) after the transformer demagnetizes. This reduces switching losses and EMI by switching when voltage and current are at minimum levels.",
               "decisionGuide": "Use QR operation for high-efficiency applications; standard PWM may be sufficient for cost-sensitive designs.",
-              "keywords": ["quasi-resonant", "valley switching", "QR operation"]
+              "keywords": [
+                "quasi-resonant",
+                "valley switching",
+                "QR operation"
+              ]
             },
             {
               "question": "How does frequency foldback work in OB2273?",
               "answer": "At light loads, OB2273 reduces switching frequency to minimize switching losses while maintaining output regulation. This extends the high-efficiency operating range down to very light loads, important for meeting efficiency standards.",
               "decisionGuide": "Frequency foldback helps meet DoE and CoC efficiency requirements; verify audible noise at very light loads.",
-              "keywords": ["frequency foldback", "light load", "efficiency"]
+              "keywords": [
+                "frequency foldback",
+                "light load",
+                "efficiency"
+              ]
             },
             {
               "question": "What is the difference between OB2263 and OB2273?",
               "answer": "OB2263 is a standard PWM controller with fixed frequency operation. OB2273 uses quasi-resonant valley switching for higher efficiency and lower EMI. OB2273 is better for high-efficiency applications; OB2263 is more cost-effective for standard designs.",
               "decisionGuide": "Choose OB2273 for high-efficiency requirements; OB2263 for cost-sensitive standard applications.",
-              "keywords": ["comparison", "OB2263", "OB2273", "PWM vs QR"]
+              "keywords": [
+                "comparison",
+                "OB2263",
+                "OB2273",
+                "PWM vs QR"
+              ]
             },
             {
               "question": "How do I design the transformer for QR operation?",
               "answer": "QR transformer design is similar to standard flyback but with attention to leakage inductance and auxiliary winding coupling. Lower leakage inductance provides cleaner valley detection. The transformer should be designed for the desired switching frequency range in QR mode.",
               "decisionGuide": "Follow On-Bright transformer design guidelines; pay attention to leakage inductance and winding coupling.",
-              "keywords": ["transformer design", "leakage inductance", "QR transformer"]
+              "keywords": [
+                "transformer design",
+                "leakage inductance",
+                "QR transformer"
+              ]
             },
             {
               "question": "Can OB2273 be used for LED driver applications?",
               "answer": "Yes, OB2273 is well-suited for LED driver applications due to its high efficiency and excellent EMI performance. The constant voltage output can be converted to constant current using external circuitry, or combined with On-Bright's dedicated LED driver ICs.",
               "decisionGuide": "Consider OB2273 for high-power LED drivers; dedicated LED drivers may be simpler for basic applications.",
-              "keywords": ["LED driver", "constant current", "high efficiency"]
+              "keywords": [
+                "LED driver",
+                "constant current",
+                "high efficiency"
+              ]
             }
           ]
         }
@@ -248,31 +312,55 @@
           "question": "What is the difference between PWM and QR flyback controllers?",
           "answer": "PWM controllers operate at fixed frequency with hard switching, while QR controllers use variable frequency valley switching for reduced switching losses and EMI. QR offers higher efficiency but requires more careful transformer design.",
           "decisionGuide": "Choose QR for high-efficiency, low-EMI applications; PWM for cost-sensitive, standard designs.",
-          "keywords": ["PWM", "QR", "quasi-resonant", "comparison"]
+          "keywords": [
+            "PWM",
+            "QR",
+            "quasi-resonant",
+            "comparison"
+          ]
         },
         {
           "question": "How do I select the right On-Bright AC-DC controller?",
           "answer": "Consider output power, efficiency requirements, EMI specifications, and cost targets. OB2263 series for standard PWM applications; OB2273 series for high-efficiency QR applications. Check power rating and package options for your specific needs.",
           "decisionGuide": "Match controller to power level and efficiency requirements; consult reference designs for guidance.",
-          "keywords": ["selection", "controller selection", "application guide"]
+          "keywords": [
+            "selection",
+            "controller selection",
+            "application guide"
+          ]
         },
         {
           "question": "What protection features do On-Bright AC-DC controllers include?",
           "answer": "On-Bright controllers include comprehensive protection: OVP (over-voltage), OCP (over-current), OTP (over-temperature), brown-out protection, and short-circuit protection. These ensure safe operation under fault conditions.",
           "decisionGuide": "Verify all required protections for your application; additional external protection may be needed for specific requirements.",
-          "keywords": ["protection", "OVP", "OCP", "OTP", "safety"]
+          "keywords": [
+            "protection",
+            "OVP",
+            "OCP",
+            "OTP",
+            "safety"
+          ]
         },
         {
           "question": "Can On-Bright controllers meet energy efficiency standards?",
-          "answer": "Yes, On-Bright controllers are designed to meet DoE Level VI, CoC Tier 2, and other international efficiency standards. Low standby power and high active mode efficiency help achieve compliance.",
+          "answer": "Yes, On-Bright controllers are designed to meet DoE Level VI, CoC Tier 2, and other international efficiency standards. Low standby power and high active mode efficiency help achieve compliance. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
           "decisionGuide": "Follow reference designs and application notes for optimal efficiency; test to verify compliance.",
-          "keywords": ["efficiency standards", "DoE", "CoC", "standby power"]
+          "keywords": [
+            "efficiency standards",
+            "DoE",
+            "CoC",
+            "standby power"
+          ]
         },
         {
           "question": "What design resources are available for On-Bright AC-DC products?",
-          "answer": "On-Bright provides datasheets, application notes, reference designs, evaluation boards, and transformer design guidelines. Technical support is available through BeiLuo Electronics FAE team.",
+          "answer": "On-Bright provides datasheets, application notes, reference designs, evaluation boards, and transformer design guidelines. Technical support is available through BeiLuo Electronics FAE team. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
           "decisionGuide": "Start with reference designs; contact FAE for complex or custom requirements.",
-          "keywords": ["design resources", "reference designs", "application notes"]
+          "keywords": [
+            "design resources",
+            "reference designs",
+            "application notes"
+          ]
         }
       ]
     }
@@ -282,31 +370,55 @@
       "question": "What types of power management ICs does On-Bright offer?",
       "answer": "On-Bright offers AC-DC converters for offline power supplies, DC-DC converters for point-of-load regulation, LED drivers for lighting applications, and battery management ICs for charging and protection. Their products cover power ranges from milliwatts to hundreds of watts.",
       "decisionGuide": "Select product category based on your application: AC-DC for adapters, DC-DC for POL, LED drivers for lighting, battery management for portable devices.",
-      "keywords": ["product range", "power management", "AC-DC", "DC-DC", "LED driver"]
+      "keywords": [
+        "product range",
+        "power management",
+        "AC-DC",
+        "DC-DC",
+        "LED driver"
+      ]
     },
     {
       "question": "How does On-Bright compare to other power IC manufacturers?",
       "answer": "On-Bright offers competitive cost-performance ratio with strong local support in China. While international vendors may have broader portfolios, On-Bright excels in specific applications with optimized, cost-effective solutions and faster lead times.",
       "decisionGuide": "Evaluate On-Bright for cost-sensitive designs where their product offerings meet requirements; consider alternatives for specialized applications.",
-      "keywords": ["comparison", "competitive advantage", "cost-performance"]
+      "keywords": [
+        "comparison",
+        "competitive advantage",
+        "cost-performance"
+      ]
     },
     {
       "question": "What is the quality and reliability of On-Bright products?",
       "answer": "On-Bright products undergo rigorous testing and quality control. They are qualified for industrial temperature ranges and meet standard reliability requirements. The company follows ISO 9001 quality management systems.",
       "decisionGuide": "Specify appropriate temperature grade for your application; industrial grade suitable for most applications.",
-      "keywords": ["quality", "reliability", "ISO 9001", "industrial grade"]
+      "keywords": [
+        "quality",
+        "reliability",
+        "ISO 9001",
+        "industrial grade"
+      ]
     },
     {
       "question": "Does On-Bright offer automotive-qualified products?",
       "answer": "On-Bright offers products suitable for automotive applications with appropriate qualification. Contact BeiLuo Electronics for specific automotive-grade product availability and AEC-Q100 qualification status.",
       "decisionGuide": "Specify automotive requirements when inquiring; verify qualification status for in-vehicle applications.",
-      "keywords": ["automotive", "AEC-Q100", "qualified", "automotive grade"]
+      "keywords": [
+        "automotive",
+        "AEC-Q100",
+        "qualified",
+        "automotive grade"
+      ]
     },
     {
       "question": "How can I get samples and evaluation boards?",
       "answer": "Samples and evaluation boards are available through BeiLuo Electronics. Contact our sales team with your requirements. We maintain stock of popular products for quick sample delivery.",
       "decisionGuide": "Request samples early in the design phase for evaluation; order evaluation boards for reference design testing.",
-      "keywords": ["samples", "evaluation boards", "request"]
+      "keywords": [
+        "samples",
+        "evaluation boards",
+        "request"
+      ]
     }
   ]
 }

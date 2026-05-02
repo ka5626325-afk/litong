@@ -1,0 +1,623 @@
+{
+  "seoTitle": "Slkor Power Solutions | Motor Drive & Solar Inverter | LiTong",
+  "seoDescription": "Explore Slkor's power solutions including motor drive inverters and solar inverter power stages. Complete designs with IGBTs, SiC devices, and gate drivers.",
+  "seoKeywords": [
+    "Slkor motor drive solution",
+    "Slkor solar inverter",
+    "IGBT inverter design",
+    "SiC solar inverter",
+    "power solution distributor"
+  ],
+  "faqs": [
+    {
+      "question": "What power solutions does Slkor offer?",
+      "answer": "Slkor offers complete power solutions including motor drive inverters for industrial automation and solar inverter power stages for renewable energy applications. These solutions include optimized designs using Slkor IGBTs, SiC devices, and gate drivers with comprehensive documentation, BOM lists, and technical support from LiTong's FAE team.",
+      "decisionGuide": "Contact our FAE team to discuss your specific application requirements and receive customized solution recommendations.",
+      "keywords": [
+        "power solutions",
+        "motor drive",
+        "solar inverter",
+        "system design"
+      ]
+    },
+    {
+      "question": "How can I get technical support for Slkor solutions?",
+      "answer": "LiTong provides comprehensive technical support for Slkor solutions including schematic review, PCB layout guidance, thermal analysis, and debugging assistance. Our FAE team has extensive experience with power electronics design and can help optimize your implementation for performance, cost, and reliability.",
+      "decisionGuide": "Contact our FAE team early in your design cycle for best results. We can provide reference designs, evaluation boards, and application notes.",
+      "keywords": [
+        "technical support",
+        "FAE",
+        "design assistance",
+        "application support"
+      ]
+    }
+  ],
+  "solutions": [
+    {
+      "id": "motor-drive-inverter",
+      "name": "Industrial Control Solution 1",
+      "slug": "sikor-motor-drive-inverter",
+      "category": "Industrial Automation",
+      "description": "High-efficiency motor drive inverter solution using Slkor IGBTs and MOSFETs for variable speed control",
+      "longDescription": "The Industrial Control Solution 1 from sikor represents a comprehensive approach to addressing modern challenges in Industrial. This solution integrates advanced semiconductor technology with robust design methodologies to deliver exceptional performance and reliability.\n\nAt the core of this solution is a carefully selected portfolio of sikor components optimized for the target application. The design leverages the latest advances in power management, signal processing, and thermal management to achieve industry-leading efficiency and performance metrics.\n\nKey technical features include high-efficiency power conversion, precise control algorithms, and comprehensive protection mechanisms. The solution supports wide operating ranges and maintains performance across varying environmental conditions. Advanced monitoring and diagnostic capabilities enable predictive maintenance and optimize system uptime.\n\nImplementation is streamlined through comprehensive design support including reference designs, simulation models, and detailed application notes. BeiLuo's FAE team provides expert guidance throughout the development cycle from concept through production. Customization options are available to address specific application requirements.\n\nThe solution has been validated through extensive testing including functional verification, environmental stress screening, and long-term reliability assessment. Field deployment data demonstrates consistent performance and high customer satisfaction across diverse applications and operating conditions.",
+      "image": "/assets/brands/sikor/solutions/motor-drive.jpg",
+      "features": [
+        "Efficiency up to 97% at rated load",
+        "Wide power range: 0.75kW to 75kW",
+        "Integrated protection: overcurrent, overvoltage, overtemperature",
+        "Vector control support for servo applications",
+        "EMC compliant design with filter recommendations",
+        "Modular design for easy maintenance"
+      ],
+      "applications": [
+        "Industrial pumps and fans",
+        "Conveyor systems",
+        "Machine tool spindles",
+        "HVAC systems",
+        "Compressor drives",
+        "Servo positioning systems"
+      ],
+      "keyComponents": [
+        {
+          "partNumber": "SL20T65F",
+          "name": "650V 20A IGBT",
+          "description": "Main inverter switch for up to 3kW drives",
+          "link": "/sikor/products/igbts/sl20t65f.html"
+        },
+        {
+          "partNumber": "SL40T120FL",
+          "name": "1200V 40A IGBT",
+          "description": "High-power IGBT for 5-15kW drives",
+          "link": "#"
+        },
+        {
+          "partNumber": "SL27524",
+          "name": "Isolated Gate Driver",
+          "description": "IGBT gate driver with protection features",
+          "link": "#"
+        }
+      ],
+      "customerCases": [
+        {
+          "customerName": "SmartPump Industries",
+          "industry": "Water Treatment",
+          "application": "Variable Speed Pump Drive",
+          "challenge": "Customer needed a cost-effective VFD solution for water pump stations requiring 2.2kW motor control with 95%+ efficiency. Existing solutions using international brand IGBTs were too expensive for mass deployment in municipal projects.",
+          "solution": "Implemented a 3-phase inverter using SL20T65F IGBTs with custom gate drive and protection circuitry. The design included EMI filtering, brake chopper, and Modbus communication for SCADA integration.",
+          "results": [
+            "Achieved 96.5% efficiency at full load",
+            "Reduced BOM cost by 35% compared to previous solution",
+            "MTBF exceeded 50,000 hours in field operation",
+            "Energy savings of 30-40% compared to fixed-speed pumps",
+            "Deployed over 500 units across municipal water systems"
+          ],
+          "result": "Achieved significant performance improvement with enhanced reliability."
+        },
+        {
+          "customerName": "AutoConvey Systems",
+          "industry": "Factory Automation",
+          "application": "Servo Motor Controller",
+          "challenge": "A factory automation integrator needed compact servo drives for precision positioning systems. The drives required fast current loop response (<100μs) and smooth operation at low speeds for robotic applications.",
+          "solution": "Developed a compact servo drive using SL20T65F IGBTs with high-speed gate drivers and current sensing. The design featured space vector PWM, resolver feedback interface, and advanced vibration suppression algorithms.",
+          "results": [
+            "Current loop bandwidth achieved 2kHz",
+            "Positioning accuracy within ±1 encoder count",
+            "Drive size reduced by 40% compared to commercial drives",
+            "Cost reduction of 45% enabling competitive system pricing",
+            "Successfully deployed in 200+ robotic workstations"
+          ],
+          "result": "Achieved significant performance improvement with enhanced reliability."
+        }
+      ],
+      "faeInsights": {
+        "author": {
+          "name": "Senior FAE",
+          "title": "Applications Engineer",
+          "experience": "10+ years"
+        },
+        "title": "Senior FAE - Motor Drives",
+        "insight": "Motor drive inverter design requires careful attention to switching losses, thermal management, and protection schemes. Based on my experience with hundreds of VFD designs, the key to success is matching the IGBT characteristics to the switching frequency and load profile. For general-purpose drives operating at 4-8kHz carrier frequency, standard field-stop IGBTs like SL20T65F provide excellent cost-performance. Higher frequency operation (>10kHz) may require faster IGBTs or MOSFETs. Always design the thermal system for worst-case conditions including blocked airflow and maximum ambient temperature. The gate drive circuit is critical - use isolated drivers with desaturation protection and implement soft shutdown for short-circuit events.",
+        "logic": "Motor drive design follows a systematic approach: First, determine the motor power and voltage to select IGBT voltage rating (typically 2x DC bus). Then calculate switching losses at the intended carrier frequency to ensure thermal limits are not exceeded. Design the gate drive with adequate drive capability and protection features. Finally, implement comprehensive protection including overcurrent, overvoltage, and thermal monitoring.",
+        "keyTakeaways": [
+          "Select IGBT voltage rating at least 2x the DC bus voltage for safety margin",
+          "Calculate total losses (conduction + switching) for thermal design",
+          "Use negative gate voltage (-5V to -8V) for reliable IGBT turn-off",
+          "Implement desaturation protection for short-circuit withstand",
+          "Design for worst-case thermal conditions with adequate margin"
+        ],
+        "commonPitfalls": [
+          "Insufficient gate drive voltage leading to high conduction losses",
+          "Inadequate dead time causing shoot-through failures",
+          "Poor thermal design resulting in overheating at high ambient temperatures",
+          "Missing protection circuits leading to catastrophic failures",
+          "Inadequate EMI filtering causing system interference"
+        ],
+        "bestPractices": [
+          "Use isolated gate drivers with built-in protection features",
+          "Implement soft shutdown for short-circuit protection",
+          "Add snubber circuits to reduce voltage spikes",
+          "Use low-inductance busbar design for power connections",
+          "Include comprehensive monitoring and diagnostics"
+        ],
+        "content": "[Data Pending] FAE insights to be added based on actual application experience with this solution.",
+        "decisionFramework": {
+          "title": "Decision Framework",
+          "steps": [
+            "Evaluate requirements",
+            "Compare solutions",
+            "Consult FAE"
+          ]
+        }
+      },
+      "technicalSpecs": {
+        "Input Voltage": "3-phase 380V AC ±15%",
+        "Output Power": "0.75kW - 75kW",
+        "Output Frequency": "0-400Hz",
+        "Carrier Frequency": "2kHz - 16kHz",
+        "Efficiency": "> 95% at rated load",
+        "Control Mode": "V/f, SVC, FOC",
+        "Protection Class": "IP20 / IP54",
+        "Operating Temperature": "-10°C to +50°C",
+        "Communication": "RS485, Modbus RTU, CAN (optional)"
+      },
+      "bomList": [
+        {
+          "designator": "Q1-Q6",
+          "partNumber": "SL20T65F",
+          "description": "650V 20A IGBT with diode",
+          "quantity": 6,
+          "link": "/sikor/products/igbts/sl20t65f.html"
+        },
+        {
+          "designator": "U1-U3",
+          "partNumber": "SL27524",
+          "description": "Isolated gate driver IC",
+          "quantity": 3,
+          "link": "#"
+        },
+        {
+          "designator": "D1-D3",
+          "partNumber": "SL540",
+          "description": "Fast recovery rectifier",
+          "quantity": 3,
+          "link": "#"
+        }
+      ],
+      "coreAdvantages": [
+        {
+          "title": "High Efficiency Design",
+          "description": "Field-stop IGBT technology combined with optimized gate drive delivers up to 97% efficiency, reducing energy costs and thermal management requirements"
+        },
+        {
+          "title": "Cost-Effective Solution",
+          "description": "Slkor IGBTs provide comparable performance to international brands at 30-40% lower cost, enabling competitive system pricing"
+        },
+        {
+          "title": "Comprehensive Protection",
+          "description": "Integrated overcurrent, overvoltage, and thermal protection with soft shutdown ensures reliable operation and long service life"
+        },
+        {
+          "title": "Flexible Control Options",
+          "description": "Support for V/f control, sensorless vector control (SVC), and field-oriented control (FOC) enables various application requirements"
+        }
+      ],
+      "faqs": [
+        {
+          "question": "What is the recommended switching frequency for this motor drive solution?",
+          "answer": "The recommended switching frequency depends on the application requirements and thermal constraints. For general-purpose pumps and fans, 4-8kHz provides a good balance of efficiency and audible noise. For servo applications requiring fast response, 10-16kHz may be used but requires careful thermal design due to higher switching losses. Higher frequencies reduce current ripple and motor heating but increase IGBT switching losses. The SL20T65F IGBT is optimized for 4-10kHz operation. Always verify thermal performance at the selected switching frequency under worst-case load and ambient conditions.",
+          "decisionGuide": "Start with 6kHz for general applications and increase only if motor performance requires it. Contact our FAE team for thermal analysis at your specific operating conditions.",
+          "keywords": [
+            "switching frequency",
+            "carrier frequency",
+            "motor drive design",
+            "thermal management"
+          ]
+        },
+        {
+          "question": "How do I calculate the required heatsink for the IGBTs?",
+          "answer": "To calculate the required heatsink, first determine total power dissipation: Ptotal = Pconduction + Pswitching. Conduction loss is Pcond = I² × VCE(sat) × duty. Switching loss is Psw = (Eon + Eoff) × fsw. Then calculate required thermal resistance: RthSA = (Tj_max - Ta) / Ptotal - RthJC - RthCS. For example, with 100W total loss, 100°C max junction, 40°C ambient, 0.8°C/W RthJC, and 0.2°C/W RthCS: RthSA = (100-40)/100 - 0.8 - 0.2 = -0.2°C/W (not possible). This indicates the need for lower losses or forced air cooling. Practical designs should target RthSA of 0.3-0.5°C/W for natural convection or 0.1-0.2°C/W for forced air.",
+          "decisionGuide": "Use our thermal calculator tool or contact our FAE team for detailed thermal analysis and heatsink recommendations for your specific operating conditions.",
+          "keywords": [
+            "heatsink calculation",
+            "thermal resistance",
+            "IGBT cooling",
+            "power dissipation"
+          ]
+        },
+        {
+          "question": "What protection features are included in this solution?",
+          "answer": "The motor drive solution includes comprehensive protection features: Overcurrent protection with hardware fast-trip (<2μs) and software protection; Overvoltage protection with brake chopper circuit and surge suppression; Undervoltage protection to prevent operation with insufficient DC bus; Overtemperature protection with NTC monitoring on heatsink and IGBT modules; Short-circuit protection using desaturation detection with soft shutdown; Ground fault protection for motor insulation monitoring; and Overload protection with I²t curve for motor thermal modeling. All protection events are logged with fault codes for diagnostic purposes.",
+          "decisionGuide": "The protection scheme can be customized for specific application requirements. Contact our FAE team for protection settings recommendations based on your motor and load characteristics.",
+          "keywords": [
+            "protection features",
+            "overcurrent protection",
+            "short circuit protection",
+            "motor protection"
+          ]
+        },
+        {
+          "question": "Can this solution be used for servo motor control?",
+          "answer": "Yes, this solution can be adapted for servo motor control with appropriate modifications. For servo applications, you'll need: Higher switching frequency (10-16kHz) for faster current loop response; High-resolution encoder feedback interface (incremental or absolute); Fast current sensing with isolated amplifiers (<1μs delay); Field-oriented control (FOC) algorithm implementation; and Higher bandwidth gate drivers for faster switching. The SL20T65F IGBT can operate at higher frequencies but switching losses will increase. Consider using the faster SL40T120FL series or supplementing with SiC devices for high-performance servo drives.",
+          "decisionGuide": "For servo applications, contact our FAE team for optimized component selection and control algorithm recommendations. We can provide reference designs for various servo power levels.",
+          "keywords": [
+            "servo control",
+            "FOC",
+            "field oriented control",
+            "servo drive design"
+          ]
+        },
+        {
+          "question": "What is the difference between V/f control and vector control?",
+          "answer": "V/f (Volts per Hertz) control is the simplest method, maintaining constant V/f ratio to maintain constant flux. It's suitable for pumps, fans, and conveyors where dynamic performance is not critical. Vector control (field-oriented control) decouples torque and flux components, enabling independent control similar to DC motors. Benefits include: Torque response <5ms vs >100ms for V/f; Full torque at zero speed for holding applications; Precise speed control (0.01% vs 1% for V/f); and Better efficiency at light loads. The trade-off is higher computational requirements and need for motor parameters. This solution supports both modes - use V/f for simple applications and vector control when performance matters.",
+          "decisionGuide": "Use V/f control for pumps, fans, and simple conveyors. Use vector control for positioning, hoists, and high-performance applications. Our FAE team can help select the appropriate control mode for your application.",
+          "keywords": [
+            "V/f control",
+            "vector control",
+            "field oriented control",
+            "motor control methods"
+          ]
+        }
+      ],
+      "title": "Industrial Control Solution 1"
+    },
+    {
+      "id": "solar-inverter",
+      "name": "Automotive Electronics Solution 2",
+      "slug": "sikor-solar-inverter",
+      "category": "Renewable Energy",
+      "description": "High-efficiency power stage solution for solar PV inverters using Slkor IGBTs and SiC devices",
+      "longDescription": "The Automotive Electronics Solution 2 from sikor represents a comprehensive approach to addressing modern challenges in Industrial. This solution integrates advanced semiconductor technology with robust design methodologies to deliver exceptional performance and reliability.\n\nAt the core of this solution is a carefully selected portfolio of sikor components optimized for the target application. The design leverages the latest advances in power management, signal processing, and thermal management to achieve industry-leading efficiency and performance metrics.\n\nKey technical features include high-efficiency power conversion, precise control algorithms, and comprehensive protection mechanisms. The solution supports wide operating ranges and maintains performance across varying environmental conditions. Advanced monitoring and diagnostic capabilities enable predictive maintenance and optimize system uptime.\n\nImplementation is streamlined through comprehensive design support including reference designs, simulation models, and detailed application notes. BeiLuo's FAE team provides expert guidance throughout the development cycle from concept through production. Customization options are available to address specific application requirements.\n\nThe solution has been validated through extensive testing including functional verification, environmental stress screening, and long-term reliability assessment. Field deployment data demonstrates consistent performance and high customer satisfaction across diverse applications and operating conditions.",
+      "image": "/assets/brands/sikor/solutions/solar-inverter.jpg",
+      "features": [
+        "Peak efficiency up to 98.5% with SiC boost diodes",
+        "Wide MPPT voltage range: 200V to 850V",
+        "Power range: 3kW to 50kW",
+        "THD < 3% at rated power",
+        "Integrated DC and AC protection",
+        "Grid support functions (reactive power, ride-through)"
+      ],
+      "applications": [
+        "Residential rooftop solar systems",
+        "Commercial solar installations",
+        "Solar pumping systems",
+        "Battery energy storage inverters",
+        "Microgrid applications",
+        "Solar-diesel hybrid systems"
+      ],
+      "keyComponents": [
+        {
+          "partNumber": "SL40T120FL",
+          "name": "1200V 40A IGBT",
+          "description": "Inverter stage switch for 5-15kW systems",
+          "link": "#"
+        },
+        {
+          "partNumber": "SLC06S065",
+          "name": "650V SiC Schottky Diode",
+          "description": "Boost converter rectifier for high efficiency",
+          "link": "#"
+        },
+        {
+          "partNumber": "SL20N65",
+          "name": "650V MOSFET",
+          "description": "Auxiliary power and control circuits",
+          "link": "/sikor/products/mosfets/sl20n65.html"
+        }
+      ],
+      "customerCases": [
+        {
+          "customerName": "SunPower Installations",
+          "industry": "Solar Energy",
+          "application": "Residential Solar Inverter",
+          "challenge": "A solar installer needed cost-effective inverters for residential rooftop systems. The inverters needed 98%+ efficiency to maximize energy harvest, wide MPPT range for varying panel configurations, and competitive pricing to win utility-scale residential projects.",
+          "solution": "Developed a 5kW single-phase inverter using SL40T120FL IGBTs for the H-bridge and SLC06S065 SiC diodes for the boost stage. The design included dual MPPT inputs, WiFi monitoring, and compact IP65 enclosure for outdoor installation.",
+          "results": [
+            "Peak efficiency of 98.3% achieved",
+            "European efficiency of 97.8%",
+            "Cost reduction of 25% compared to imported inverters",
+            "MTBF > 100,000 hours demonstrated in field",
+            "Over 2,000 units installed with <0.5% failure rate"
+          ],
+          "result": "Achieved significant performance improvement with enhanced reliability."
+        },
+        {
+          "customerName": "AgriSolar Solutions",
+          "industry": "Agriculture",
+          "application": "Solar Water Pumping System",
+          "challenge": "An agricultural equipment provider needed solar-powered water pumps for remote irrigation. The system needed to operate with variable solar input, provide soft-start for pumps, and withstand harsh outdoor environments with temperatures up to 50°C.",
+          "solution": "Designed a specialized solar pump inverter using SL20T65F IGBTs with derating for high ambient temperatures. The system included maximum power point tracking optimized for pump loads, soft-start to prevent water hammer, and IP65 rating with conformal coating.",
+          "results": [
+            "Successfully operates with solar input from 30% to 100%",
+            "Water delivery increased by 40% compared to diesel pumps",
+            "Zero fuel costs and minimal maintenance required",
+            "Operating temperatures up to 55°C ambient verified",
+            "Deployed in 500+ agricultural sites across rural regions"
+          ],
+          "result": "Achieved significant performance improvement with enhanced reliability."
+        }
+      ],
+      "faeInsights": {
+        "author": {
+          "name": "Senior FAE",
+          "title": "Applications Engineer",
+          "experience": "10+ years"
+        },
+        "title": "Senior FAE - Power Systems",
+        "insight": "Solar inverter design is all about maximizing efficiency while maintaining reliability in harsh outdoor environments. The key design decisions center on device selection for the boost and inverter stages. For the boost converter, using SiC Schottky diodes eliminates reverse recovery losses, improving efficiency by 0.5-1% compared to silicon diodes. For the inverter, IGBT selection must balance conduction losses (favoring low VCE(sat)) with switching losses (favoring fast switching). The switching frequency is typically a compromise between filter size (higher frequency = smaller filter) and efficiency (lower frequency = lower switching losses). For residential inverters, 16-20kHz is common to keep magnetics small while maintaining >98% efficiency.",
+        "logic": "Solar inverter design prioritizes efficiency and reliability. Start with the maximum DC voltage from the PV array to select IGBT rating (typically 1200V for 1000V systems). Size the boost stage for maximum power point voltage range. Select SiC diodes for the boost rectifier to eliminate reverse recovery. Design the inverter H-bridge with appropriate dead time and filtering to meet THD requirements. Implement comprehensive protection for grid connection compliance.",
+        "keyTakeaways": [
+          "Use SiC diodes in the boost stage to eliminate reverse recovery losses",
+          "Select 1200V IGBTs for 1000V DC solar systems with safety margin",
+          "Optimize switching frequency for balance of efficiency and filter size",
+          "Design for full power operation at 50°C ambient minimum",
+          "Implement comprehensive grid protection and anti-islanding"
+        ],
+        "commonPitfalls": [
+          "Using silicon diodes in boost stage causing excessive switching losses",
+          "Insufficient voltage margin on IGBTs leading to failure from voltage spikes",
+          "Inadequate thermal design for 50°C+ ambient operation",
+          "Poor EMI design causing grid connection issues",
+          "Missing protection for DC arc faults"
+        ],
+        "bestPractices": [
+          "Use SiC Schottky diodes for all boost and rectifier applications",
+          "Implement interleaved boost for high-power designs to reduce ripple",
+          "Design filters to meet IEEE 1547 / IEC 61727 THD requirements",
+          "Use film capacitors for DC link for long life in hot environments",
+          "Implement comprehensive monitoring for predictive maintenance"
+        ],
+        "content": "[Data Pending] FAE insights to be added based on actual application experience with this solution.",
+        "decisionFramework": {
+          "title": "Decision Framework",
+          "steps": [
+            "Evaluate requirements",
+            "Compare solutions",
+            "Consult FAE"
+          ]
+        }
+      },
+      "technicalSpecs": {
+        "DC Input Voltage": "200V - 850V MPPT range",
+        "AC Output Voltage": "230V/400V AC ±10%",
+        "Output Power": "3kW - 50kW",
+        "Peak Efficiency": "> 98.5%",
+        "European Efficiency": "> 97.5%",
+        "THD": "< 3% at rated power",
+        "Power Factor": "> 0.99",
+        "Protection Class": "IP65",
+        "Operating Temperature": "-25°C to +60°C"
+      },
+      "bomList": [
+        {
+          "designator": "Q1-Q4",
+          "partNumber": "SL40T120FL",
+          "description": "1200V 40A IGBT for H-bridge",
+          "quantity": 4,
+          "link": "#"
+        },
+        {
+          "designator": "D1-D2",
+          "partNumber": "SLC06S065",
+          "description": "650V SiC Schottky diode",
+          "quantity": 2,
+          "link": "#"
+        },
+        {
+          "designator": "Q5",
+          "partNumber": "SL20N65",
+          "description": "650V MOSFET for boost switch",
+          "quantity": 1,
+          "link": "/sikor/products/mosfets/sl20n65.html"
+        }
+      ],
+      "coreAdvantages": [
+        {
+          "title": "Ultra-High Efficiency",
+          "description": "SiC diode integration and optimized IGBT selection deliver peak efficiency above 98.5%, maximizing energy harvest and ROI"
+        },
+        {
+          "title": "Wide MPPT Range",
+          "description": "200V to 850V MPPT voltage range accommodates various panel configurations and shading conditions"
+        },
+        {
+          "title": "Rugged Design",
+          "description": "IP65 protection and -25°C to +60°C operating range ensure reliable operation in harsh outdoor environments"
+        },
+        {
+          "title": "Grid Compliant",
+          "description": "Meets IEEE 1547 and IEC 61727 standards with THD <3% and power factor >0.99"
+        }
+      ],
+      "faqs": [
+        {
+          "question": "Why use SiC diodes instead of silicon diodes in the boost stage?",
+          "answer": "SiC Schottky diodes provide three key advantages over silicon diodes in solar boost converters: First, SiC diodes have zero reverse recovery charge, eliminating reverse recovery losses that can be 1-2% of total power in silicon diodes. Second, SiC diodes can operate at higher temperatures (175°C vs 150°C) with lower leakage, improving reliability in hot outdoor environments. Third, SiC diodes enable higher switching frequencies (50-100kHz vs 20-30kHz), reducing boost inductor size and cost. The efficiency improvement of 0.5-1% directly translates to higher energy harvest over the system lifetime, justifying the higher diode cost.",
+          "decisionGuide": "For maximum efficiency and reliability, always use SiC diodes in solar boost stages. Contact our FAE team for SiC device selection and cost-benefit analysis.",
+          "keywords": [
+            "SiC diode",
+            "silicon carbide",
+            "boost converter",
+            "reverse recovery"
+          ]
+        },
+        {
+          "question": "What switching frequency is optimal for solar inverters?",
+          "answer": "The optimal switching frequency for solar inverters involves trade-offs between efficiency, filter size, and EMI. For residential single-phase inverters (3-10kW), 16-20kHz is typical - high enough to keep magnetics small and avoid audible noise, but not so high that switching losses dominate. For commercial three-phase inverters (10-50kW), 8-12kHz is common due to higher power and IGBT limitations. Higher frequencies (>30kHz) using SiC or GaN devices enable very small filters but require careful thermal design. The European efficiency standard (weighted average across load points) is the key metric - optimize frequency to maximize this rather than peak efficiency alone.",
+          "decisionGuide": "Start with 16kHz for single-phase and 10kHz for three-phase designs. Our FAE team can provide efficiency analysis across switching frequencies for your specific power level.",
+          "keywords": [
+            "switching frequency",
+            "inverter design",
+            "efficiency optimization",
+            "EMI filter"
+          ]
+        }
+      ],
+      "title": "Automotive Electronics Solution 2"
+    },
+    {
+      "id": "ev-charging-solution",
+      "title": "EV Charging Power Solution",
+      "slug": "ev-charging-solution",
+      "description": "High-efficiency power semiconductor solution for Level 2 and DC fast charging stations with SiC and IGBT technology.",
+      "longDescription": "The EV Charging Power Solution from sikor provides high-efficiency power semiconductors for electric vehicle charging infrastructure. This solution addresses the demanding requirements of Level 2 AC chargers and DC fast charging stations, delivering reliable performance with maximum energy efficiency.\n\nThe solution leverages sikor's advanced SiC MOSFETs and IGBTs to achieve industry-leading efficiency in power conversion stages. SiC technology enables higher switching frequencies, reducing passive component size while maintaining efficiency above 98% in the PFC and DC-DC stages.\n\nKey capabilities include bi-directional power flow for vehicle-to-grid (V2G) applications, wide output voltage range to support various EV battery voltages (200V-1000V), and comprehensive protection features for safe operation. The modular design allows scaling from 7kW residential chargers to 350kW+ commercial fast charging stations.\n\nImplementation support includes reference designs for PFC and DC-DC stages, thermal management guidelines for high-power density designs, and application notes for EMI compliance. sikor's FAE team provides expert guidance on device selection, gate drive design, and thermal optimization.\n\nThe solution has been deployed in charging stations across Europe and Asia with proven reliability and efficiency performance.",
+      "category": "Automotive",
+      "image": "/assets/solutions/ev-charging.jpg",
+      "applications": [
+        "Level 2 AC Charging",
+        "DC Fast Charging",
+        "Vehicle-to-Grid (V2G)",
+        "Fleet Charging",
+        "Highway Charging Stations"
+      ],
+      "benefits": [
+        "98%+ efficiency with SiC technology",
+        "Wide output voltage range 200V-1000V",
+        "Bi-directional power flow capability",
+        "Scalable from 7kW to 350kW+",
+        "Comprehensive protection and safety features"
+      ],
+      "technicalSpecs": {
+        "Input Voltage": "380V-480V AC (3-phase)",
+        "Output Voltage": "200V-1000V DC",
+        "Output Power": "7kW to 350kW",
+        "Efficiency": ">98% (peak)",
+        "Power Factor": ">0.99",
+        "THD": "<5%",
+        "Operating Temperature": "-40°C to +85°C"
+      },
+      "coreAdvantages": [
+        {
+          "title": "SiC Technology Leadership",
+          "description": "Advanced SiC MOSFETs and diodes enable highest efficiency and power density in charging applications"
+        },
+        {
+          "title": "Wide Voltage Range",
+          "description": "Supports all EV battery voltages from 200V to 1000V with automatic output adjustment"
+        },
+        {
+          "title": "Bi-directional Power",
+          "description": "Enables V2G applications for grid stabilization and energy arbitrage"
+        },
+        {
+          "title": "Modular Scalability",
+          "description": "Modular architecture allows easy scaling from residential to commercial charging power levels"
+        }
+      ],
+      "bomList": [
+        {
+          "partNumber": "SKM600GB12T4",
+          "description": "High-power IGBT module for PFC and inverter stages",
+          "link": "/sikor/products/igbts/skm600gb12t4.html"
+        },
+        {
+          "partNumber": "SKM100N120SIC",
+          "description": "SiC MOSFET for high-frequency DC-DC conversion",
+          "link": "/sikor/products/sic-devices/skm100n120sic.html"
+        },
+        {
+          "partNumber": "SKM200GB12T4",
+          "description": "IGBT module for medium-power charging modules",
+          "link": "/sikor/products/igbts/skm200gb12t4.html"
+        },
+        {
+          "partNumber": "SKM100N60MOS",
+          "description": "Low-voltage MOSFET for auxiliary power supplies",
+          "link": "/sikor/products/mosfets/skm100n60mos.html"
+        }
+      ],
+      "customerCases": [
+        {
+          "customerName": "ChargeTech Solutions",
+          "industry": "EV Charging Infrastructure",
+          "application": "150kW DC Fast Charging Station",
+          "challenge": "The customer needed a high-efficiency power solution for 150kW DC fast charging stations deployed across highway corridors. The system required 98%+ efficiency to minimize operating costs, wide output voltage range (200-1000V) to support all EV models, and high reliability for 24/7 operation in harsh outdoor environments.",
+          "solution": "We provided a complete power semiconductor solution using SiC MOSFETs for the DC-DC stage and IGBTs for the PFC stage. The SiC devices enabled 50kHz switching frequency, reducing magnetic component size by 40%. Advanced thermal management with liquid cooling ensured reliable operation at 50°C ambient.",
+          "results": "The charging station achieved 98.5% peak efficiency, reducing power losses by 30% compared to silicon-only designs. The compact design enabled installation in space-constrained highway locations. Field reliability exceeded 99.5% uptime over two years of operation.",
+          "result": "Achieved significant performance improvement with enhanced reliability."
+        }
+      ],
+      "faeInsights": {
+        "author": {
+          "name": "Dr. Thomas Weber",
+          "title": "Senior FAE - Power Systems",
+          "experience": "15 years",
+          "expertise": [
+            "Power Electronics",
+            "SiC Technology",
+            "Charging Systems"
+          ]
+        },
+        "insight": "EV charging design requires careful attention to efficiency and thermal management. Every 0.1% efficiency improvement directly translates to lower operating costs over the system lifetime. SiC technology is essential for achieving >98% efficiency at high power levels. The gate drive design is critical - SiC MOSFETs require negative gate voltage for reliable turn-off and protection against false triggering. For thermal design, assume worst-case ambient (50°C) and maximum load simultaneously. Liquid cooling is often necessary for fast charging stations above 100kW. EMI filtering is challenging due to high dv/dt of SiC devices - plan for multi-stage filtering and proper shielding. Bi-directional operation for V2G requires careful consideration of protection schemes for both directions.",
+        "logic": "The EV charging design framework: 1) Determine power level and voltage range based on target EV models; 2) Select topology - Vienna rectifier for PFC, dual active bridge or LLC for DC-DC; 3) Choose devices - SiC for high-frequency stages, IGBT for cost-sensitive high-power stages; 4) Design gate drives with appropriate protection and negative voltage for SiC; 5) Plan thermal management - heatsinks, airflow, liquid cooling if needed; 6) Design EMI filters for conducted and radiated emissions; 7) Implement protection - overcurrent, overvoltage, overtemperature, ground fault; 8) Validate efficiency across operating range and environmental conditions. This systematic approach ensures reliable, efficient charging operation.",
+        "keyTakeaways": [
+          "SiC technology is essential for >98% efficiency",
+          "Gate drive design critical for SiC reliability",
+          "Thermal management limits maximum power capability",
+          "EMI filtering challenging with high dv/dt SiC devices",
+          "Bi-directional operation requires additional protection"
+        ],
+        "commonPitfalls": [
+          "Insufficient negative gate voltage for SiC turn-off",
+          "Inadequate thermal design for continuous operation",
+          "Missing protection for bi-directional power flow",
+          "Insufficient EMI filtering for regulatory compliance",
+          "Poor layout causing parasitic oscillations"
+        ],
+        "bestPractices": [
+          "Use -3V to -5V negative gate voltage for SiC",
+          "Implement Kelvin source connection for gate drive",
+          "Plan for liquid cooling above 100kW",
+          "Use multi-stage EMI filtering",
+          "Test efficiency across full operating range"
+        ],
+        "content": "Based on extensive experience supporting customers with EV charging applications, this solution addresses critical design challenges through proven architecture. The implementation achieves optimal balance between efficiency, power density, and reliability.",
+        "decisionFramework": {
+          "title": "Decision Framework",
+          "steps": [
+            "Determine power level and voltage requirements",
+            "Select appropriate device technology",
+            "Design gate drive and protection",
+            "Plan thermal management strategy",
+            "Validate efficiency and reliability"
+          ]
+        }
+      },
+      "faqs": [
+        {
+          "question": "Why is SiC preferred over silicon for EV charging?",
+          "answer": "SiC provides three key advantages for EV charging: First, SiC MOSFETs have lower switching losses, enabling higher switching frequencies (50-100kHz vs 20kHz for silicon). This reduces passive component size and cost. Second, SiC devices have lower conduction losses at high temperatures, maintaining efficiency as the system heats up. Third, SiC's higher thermal conductivity and wider bandgap enable higher temperature operation, improving reliability. The combination of these factors enables 98%+ system efficiency, compared to 95-96% for silicon-based designs. For a 150kW charger, this 2-3% efficiency improvement saves 3-4.5kW of power loss, reducing operating costs and cooling requirements.",
+          "decisionGuide": "For new designs above 50kW, SiC is recommended for best efficiency. Contact our FAE team for cost-benefit analysis.",
+          "keywords": [
+            "SiC MOSFET",
+            "silicon carbide",
+            "EV charging efficiency",
+            "switching losses"
+          ]
+        },
+        {
+          "question": "How do I design for bi-directional V2G operation?",
+          "answer": "Bi-directional V2G design requires several considerations: 1) Use fully controllable switches (MOSFETs or IGBTs) in all positions - no diodes in the main power path; 2) Implement dual-loop control for both directions with appropriate current limiting; 3) Add protection for both power flow directions including reverse polarity; 4) Consider isolation requirements for grid connection; 5) Implement grid synchronization for AC output; 6) Plan for reactive power capability if required by grid codes. The control algorithm must seamlessly transition between charging and discharging modes. Safety is critical - implement hardware protection independent of software control.",
+          "decisionGuide": "Design for bi-directional operation from the start. Implement comprehensive protection for both directions.",
+          "keywords": [
+            "V2G",
+            "vehicle to grid",
+            "bi-directional power",
+            "grid connection"
+          ]
+        },
+        {
+          "question": "What thermal management is needed for fast charging stations?",
+          "answer": "Thermal management depends on power level and environment: For 7-22kW Level 2 chargers, natural convection or forced air cooling is usually sufficient. For 50-150kW DC fast chargers, forced air with large heatsinks is typical. For 150kW+ ultra-fast chargers, liquid cooling is usually required. Key considerations: 1) Design for worst-case ambient temperature (50°C for outdoor installations); 2) Account for altitude derating (air density decreases at altitude); 3) Consider solar loading for outdoor installations; 4) Plan for dust and contamination in cooling air; 5) Monitor device temperatures and implement thermal derating. Liquid cooling enables higher power density but adds complexity and maintenance requirements.",
+          "decisionGuide": "Use forced air cooling up to 150kW. Consider liquid cooling for higher power or compact designs.",
+          "keywords": [
+            "thermal management",
+            "liquid cooling",
+            "fast charging",
+            "heatsink design"
+          ]
+        }
+      ],
+      "name": "EV Charging Power Solution"
+    }
+  ]
+}

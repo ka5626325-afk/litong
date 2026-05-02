@@ -1,0 +1,499 @@
+{
+  "faqs": [
+    {
+      "question": "How do I verify LiTong's authorized distributor status for XGHC products?",
+      "answer": "You can verify LiTong's authorized distributor status through multiple channels: (1) XGHC official website - check the distributor list on XGHC's official website; (2) Authorization certificate - LiTong can provide official authorization documents from XGHC; (3) Direct verification - contact XGHC directly to confirm LiTong's distributor status; (4) Product authenticity - all LiTong-supplied XGHC products have genuine traceability. As an authorized distributor, LiTong provides full warranty support, technical assistance, and access to XGHC's engineering resources.",
+      "decisionGuide": "Purchase from LiTong with confidence knowing you are getting genuine XGHC products with full support.",
+      "keywords": [
+        "XGHC authorized distributor",
+        "LiTong authorization",
+        "genuine XGHC products"
+      ]
+    },
+    {
+      "question": "What is the process for requesting a quote?",
+      "answer": "Requesting a quote from LiTong is straightforward: (1) Contact information - email sales@litong.com or call our sales hotline; (2) Product details - provide XGHC part numbers, quantities, and any special requirements; (3) Application information - share your application type for appropriate product recommendations; (4) Timeline - indicate your project timeline and any forecasted volumes; (5) Response time - quotes typically provided within 24-48 hours for standard products; (6) Volume pricing - tiered pricing available for volume orders. For complex projects, our FAE team can provide technical consultation alongside the quote.",
+      "decisionGuide": "Contact LiTong sales with your requirements for competitive pricing and technical support.",
+      "keywords": [
+        "XGHC quote",
+        "crystal pricing",
+        "LiTong sales"
+      ]
+    },
+    {
+      "question": "How can I get technical support for XGHC crystal products?",
+      "answer": "LiTong provides comprehensive technical support for XGHC crystal products through multiple channels: (1) Phone support - call our technical support hotline during business hours; (2) Email support - send technical questions to fae@litong.com; (3) Online resources - access datasheets, application notes, and FAQs on our website; (4) On-site support - available for major customers and complex projects; (5) Design review - our FAE team can review your crystal oscillator implementation; (6) Failure analysis - support for any quality issues or returns. Response times vary by priority: critical issues within 4 hours, standard questions within 24 hours.",
+      "decisionGuide": "Contact LiTong FAE team for prompt technical support on XGHC crystal products.",
+      "keywords": [
+        "XGHC technical support",
+        "crystal FAE",
+        "LiTong support"
+      ]
+    },
+    {
+      "question": "What is the RMA process for defective crystal products?",
+      "answer": "LiTong's RMA process for XGHC crystal products: (1) Contact - reach out to support@litong.com with product details and failure description; (2) Troubleshooting - our FAE team will help diagnose the issue remotely; (3) RMA number - if confirmed defective, an RMA number will be issued; (4) Return - ship the defective product to LiTong with RMA number clearly marked; (5) Analysis - XGHC engineering team analyzes the failure; (6) Replacement - replacement shipped within 3-5 business days after receipt. Standard warranty periods: Crystal resonators 2 years, Crystal oscillators 2 years. Note: Physical damage and misuse are not covered under warranty.",
+      "decisionGuide": "Contact LiTong support for RMA assistance. We aim to minimize downtime with fast turnaround.",
+      "keywords": [
+        "XGHC RMA",
+        "warranty return",
+        "defective product"
+      ]
+    },
+    {
+      "question": "How do I calculate load capacitance for my crystal circuit?",
+      "answer": "Load capacitance (CL) calculation is critical for proper crystal oscillation. The formula is: CL = (C1 × C2) / (C1 + C2) + Cstray, where C1 and C2 are the external load capacitors, and Cstray is the stray capacitance from PCB traces and IC pins (typically 3-5pF). For example, if your crystal requires 12pF load capacitance and Cstray is 4pF, you need (C1 × C2) / (C1 + C2) = 8pF. Using C1 = C2 = 16pF gives approximately 8pF plus stray capacitance. Contact LiTong FAE for detailed calculation support and our load capacitance calculator tool.",
+      "decisionGuide": "Use the load capacitance formula and consult FAE for verification. Proper CL ensures accurate frequency.",
+      "keywords": [
+        "XGHC load capacitance",
+        "crystal circuit design",
+        "load capacitor calculation"
+      ]
+    },
+    {
+      "question": "What is the difference between crystal resonators and crystal oscillators?",
+      "answer": "Crystal resonators (quartz crystals) are passive components that require external oscillator circuitry to generate a clock signal. They provide high Q factor and excellent frequency stability at low cost. Crystal oscillators (XO, TCXO, VCXO, OCXO) are active components with built-in oscillator circuitry that provide a direct clock output. Oscillators are easier to use (no external circuit design needed) and offer better performance (especially TCXO/OCXO for temperature stability), but at higher cost and power consumption. Choose resonators for cost-sensitive designs with available oscillator circuitry; choose oscillators for ease of use and superior performance.",
+      "decisionGuide": "Choose resonators for cost-sensitive designs; choose oscillators for ease of use and better performance.",
+      "keywords": [
+        "XGHC resonator vs oscillator",
+        "active vs passive crystal",
+        "crystal selection guide"
+      ]
+    },
+    {
+      "question": "What are the key parameters for selecting a crystal oscillator?",
+      "answer": "Key parameters for selecting a crystal oscillator include: (1) Frequency - the operating frequency required by your system; (2) Frequency stability - ppm tolerance over temperature and time; (3) Supply voltage - must match your system voltage (1.8V, 2.5V, 3.3V, 5V); (4) Output type - CMOS, LVCMOS, LVDS, HCMOS, or clipped sine wave; (5) Operating temperature range - commercial (0°C to +70°C), industrial (-40°C to +85°C), or automotive (-40°C to +125°C); (6) Package size - HC-49/S through-hole or SMD packages (3225, 2520, 2016, 1612); (7) Phase noise/jitter - critical for high-speed communication applications. Contact LiTong FAE for selection assistance.",
+      "decisionGuide": "Consider frequency, stability, voltage, output type, temperature range, package, and phase noise requirements.",
+      "keywords": [
+        "XGHC oscillator parameters",
+        "crystal selection criteria",
+        "oscillator specifications"
+      ]
+    },
+    {
+      "question": "How do I troubleshoot crystal oscillator startup issues?",
+      "answer": "Crystal oscillator startup issues can be caused by several factors: (1) Load capacitance mismatch - verify C1/C2 values match crystal CL specification; (2) Excessive ESR - check crystal ESR is within MCU/oscillator IC specifications; (3) Insufficient drive level - ensure oscillator circuit provides adequate drive power; (4) PCB layout issues - check for long traces, inadequate ground plane, or noise coupling; (5) Crystal damage - test crystal on evaluation board to rule out damage; (6) Temperature extremes - verify operation across full temperature range. Use oscilloscope to check for oscillation signal and measure frequency accuracy. Contact LiTong FAE for systematic troubleshooting support.",
+      "decisionGuide": "Check load capacitance, ESR, drive level, PCB layout, and crystal condition systematically.",
+      "keywords": [
+        "XGHC crystal troubleshooting",
+        "oscillator startup failure",
+        "crystal not oscillating"
+      ]
+    },
+    {
+      "question": "What is frequency stability and why is it important?",
+      "answer": "Frequency stability refers to how much the crystal frequency varies from the nominal value under different conditions. It's typically specified in parts per million (ppm) and includes: (1) Initial tolerance - variation at 25°C after manufacturing; (2) Temperature stability - variation across operating temperature range; (3) Aging - long-term drift over years of operation; (4) Load stability - variation with load capacitance changes. Frequency stability is critical for: communication systems (ensuring proper data rates), timing applications (accurate timekeeping), and synchronous systems (preventing data errors). Standard crystals offer ±20-50ppm, TCXO offers ±0.5-2.5ppm, and OCXO offers ±0.01-0.1ppm stability.",
+      "decisionGuide": "Choose stability based on application requirements. Use TCXO for high stability needs.",
+      "keywords": [
+        "XGHC frequency stability",
+        "ppm tolerance",
+        "crystal accuracy"
+      ]
+    },
+    {
+      "question": "Can XGHC crystals be used in automotive applications?",
+      "answer": "Yes, XGHC offers AEC-Q200 qualified automotive-grade crystals specifically designed for automotive electronics. These crystals meet stringent automotive requirements including: extended temperature range (-40°C to +125°C or +150°C), enhanced shock and vibration resistance (5000g/0.3ms shock, 20g RMS vibration), tight frequency stability (±20ppm), and long-term reliability. Automotive applications include engine control units (ECU), ADAS systems, infotainment systems, body electronics, and transmission control. XGHC provides complete PPAP documentation for automotive approval. Contact LiTong for automotive crystal selection and PPAP support.",
+      "decisionGuide": "Use AEC-Q200 qualified crystals for automotive. Contact LiTong for PPAP documentation.",
+      "keywords": [
+        "XGHC automotive crystals",
+        "AEC-Q200 qualified",
+        "automotive oscillator"
+      ]
+    },
+    {
+      "question": "What package sizes are available for XGHC crystals?",
+      "answer": "XGHC offers a comprehensive range of crystal packages to meet various application requirements: (1) HC-49/S - traditional through-hole package for prototyping and industrial applications; (2) HC-49/S SMD - surface-mount version of HC-49/S; (3) 3225 (3.2×2.5mm) - popular SMD package for general applications; (4) 2520 (2.5×2.0mm) - compact SMD for space-constrained designs; (5) 2016 (2.0×1.6mm) - ultra-compact for portable devices; (6) 1612 (1.6×1.2mm) - miniature package for wearables and IoT. Package selection depends on available PCB space, manufacturing process, and cost considerations. Contact LiTong for package recommendations based on your specific requirements.",
+      "decisionGuide": "Select package based on PCB space, manufacturing process, and application requirements.",
+      "keywords": [
+        "XGHC crystal packages",
+        "SMD crystal sizes",
+        "3225 2520 2016 1612"
+      ]
+    },
+    {
+      "question": "How do I ensure proper PCB layout for crystal circuits?",
+      "answer": "Proper PCB layout is critical for reliable crystal oscillator operation. Key guidelines include: (1) Keep traces short - minimize crystal-to-MCU trace length to reduce stray capacitance; (2) Symmetric layout - keep C1 and C2 traces equal length and symmetric; (3) Ground plane - use solid ground plane under crystal and load capacitors; (4) Guard ring - consider guard ring around crystal for noisy environments; (5) Keep away from noise - route crystal traces away from high-speed signals, switching power supplies, and antennas; (6) No vias on crystal traces - avoid vias between crystal and MCU if possible; (7) Load capacitor placement - place C1/C2 close to crystal pads. Contact LiTong FAE for layout review and recommendations.",
+      "decisionGuide": "Follow PCB layout guidelines carefully. Short traces, symmetric layout, and good grounding are essential.",
+      "keywords": [
+        "XGHC PCB layout",
+        "crystal routing guidelines",
+        "oscillator PCB design"
+      ]
+    }
+  ],
+  "articles": [
+    {
+      "id": "xghc-crystal-selection-guide",
+      "title": "XGHC Crystal Selection Guide",
+      "category": "Product Selection",
+      "summary": "Comprehensive guide to selecting the right XGHC crystal for your application based on frequency, stability, and package requirements.",
+      "content": "Selecting the right crystal is crucial for system performance and reliability. This guide walks through the XGHC crystal portfolio and provides selection criteria based on application requirements.\n\n## Crystal Type Selection\n\n### Crystal Resonators (Quartz Crystals)\nBest for: Cost-sensitive designs, microcontroller clock, general timing applications\n- Frequency range: 3.2MHz to 100MHz\n- Package options: HC-49/S, 3225, 2520, 2016, 1612\n- Frequency tolerance: ±10ppm to ±50ppm\n- Temperature range: -40°C to +125°C\n- Load capacitance: 6pF to 32pF\n\n### Standard Crystal Oscillators (SPXO)\nBest for: Easy integration, guaranteed startup, moderate stability requirements\n- Frequency range: 1MHz to 200MHz\n- Supply voltage: 1.8V, 2.5V, 3.3V, 5.0V\n- Frequency stability: ±25ppm to ±100ppm\n- Output: CMOS, LVCMOS\n- Temperature range: -40°C to +85°C\n\n### Temperature Compensated Oscillators (TCXO)\nBest for: High stability requirements, communication systems, GPS applications\n- Frequency range: 1MHz to 100MHz\n- Frequency stability: ±0.5ppm to ±2.5ppm\n- Temperature range: -40°C to +85°C\n- Low power options available\n\n### Voltage Controlled Oscillators (VCXO)\nBest for: Frequency tuning, PLL applications, clock synchronization\n- Pullability: ±50ppm to ±200ppm\n- Linearity: ±10% typical\n- Applications: PLL, clock recovery, frequency synthesis\n\n## Key Selection Parameters\n\n1. Frequency - match to system requirements (common: 8MHz, 16MHz, 25MHz, 32.768kHz)\n2. Frequency stability - ppm tolerance based on application needs\n3. Package size - HC-49/S for through-hole, SMD for automated assembly\n4. Temperature range - commercial (0°C to +70°C) or industrial (-40°C to +85°C)\n5. Load capacitance - for resonators, match to circuit design\n6. Supply voltage - for oscillators, match to system voltage\n7. Phase noise/jitter - critical for high-speed communication\n8. Aging - long-term frequency drift specification\n\nContact LiTong's application engineering team for personalized selection assistance.",
+      "tags": [
+        "Crystal Selection",
+        "Product Guide",
+        "Application Note"
+      ],
+      "relatedProducts": [
+        "XGHC-3225-8MHz-20pF",
+        "XGHC-3225-16MHz-20pF",
+        "XGHC-TCXO-25MHz"
+      ],
+      "relatedArticles": [
+        "xghc-load-capacitance-guide",
+        "xghc-pcb-layout-guide",
+        "xghc-troubleshooting"
+      ],
+      "author": {
+        "name": "Michael Chen",
+        "title": "Senior FAE - Crystal Applications",
+        "experience": "12 years in crystal oscillator applications",
+        "expertise": [
+          "Crystal Technology",
+          "Oscillator Design",
+          "Timing Applications"
+        ]
+      },
+      "publishDate": "2024-01-15",
+      "date": "2024-01-15",
+      "readTime": "15 min",
+      "faeInsights": {
+        "summary": "Crystal selection requires balancing frequency accuracy, stability, package constraints, and cost.",
+        "problemAnalysis": "Many customers select crystals based only on frequency, ignoring critical factors like load capacitance and stability requirements.",
+        "solutionApproach": "Follow a systematic selection process considering all relevant parameters for the application.",
+        "insight": "The best crystal is one that meets all application requirements with adequate margins, not just the cheapest option.",
+        "logic": "Proper crystal selection ensures reliable operation and avoids costly field failures.",
+        "keyTakeaways": [
+          "Consider all parameters, not just frequency",
+          "Match load capacitance to circuit design",
+          "Verify stability requirements for the application",
+          "Consider temperature range and aging"
+        ],
+        "recommendations": [
+          "Use selection checklists for consistent evaluation",
+          "Consult FAE for critical applications",
+          "Validate selections with load capacitance calculations",
+          "Consider TCXO for high stability needs"
+        ],
+        "commonPitfalls": [
+          "Incorrect load capacitance selection",
+          "Ignoring frequency stability requirements",
+          "Not considering temperature effects",
+          "Selecting based on price alone"
+        ],
+        "bestPractices": [
+          "Calculate load capacitance for all designs",
+          "Verify oscillator margin across temperature",
+          "Consider guard rings for noisy environments",
+          "Plan for frequency aging over product life"
+        ],
+        "troubleshootingTips": [
+          "Measure actual oscillation frequency",
+          "Check load capacitance with capacitance meter",
+          "Verify ESR is within specifications",
+          "Monitor frequency drift over temperature"
+        ],
+        "author": {
+          "name": "Technical FAE",
+          "title": "Support Engineer",
+          "experience": "8+ years"
+        },
+        "content": "Based on years of experience, this XGHC Crystal Selection Guide article addresses common challenges engineers face in project development.",
+        "insightLogic": "Recommendations from analysis of successful product deployment projects across industries."
+      },
+      "customerCases": [
+        {
+          "customerName": "IoT Device Manufacturer",
+          "industry": "Consumer Electronics",
+          "application": "Smart Home Controller",
+          "problem": "Crystal oscillator startup failures in production",
+          "diagnosis": "Incorrect load capacitance causing insufficient oscillator margin",
+          "solution": "Redesigned with correct load capacitors and XGHC crystal",
+          "results": "Zero startup failures, reliable operation across temperature range",
+          "products": [
+            "XGHC-2016-40MHz-8pF"
+          ]
+        }
+      ],
+      "slug": "xghc-crystal-selection-guide"
+    },
+    {
+      "id": "xghc-load-capacitance-guide",
+      "title": "Crystal Load Capacitance Calculation Guide",
+      "category": "Technical Guide",
+      "summary": "How to calculate and select proper load capacitance for crystal oscillator circuits to ensure accurate frequency and reliable startup.",
+      "content": "Load capacitance calculation is essential for designing reliable crystal oscillator circuits. This guide explains the methodology for determining the correct load capacitor values.\n\n## Understanding Load Capacitance\n\nLoad capacitance (CL) is the effective capacitance seen by the crystal in the oscillator circuit. It determines the exact operating frequency of the crystal.\n\n## Load Capacitance Formula\n\nThe standard formula for calculating load capacitance is:\n\nCL = (C1 × C2) / (C1 + C2) + Cstray\n\nWhere:\n- CL = Crystal load capacitance specification (from datasheet)\n- C1, C2 = External load capacitors\n- Cstray = Stray capacitance from PCB traces and IC pins (typically 3-5pF)\n\n## Calculation Example\n\nFor a crystal with CL = 12pF and estimated Cstray = 4pF:\n\nRequired: (C1 × C2) / (C1 + C2) = CL - Cstray = 12pF - 4pF = 8pF\n\nIf C1 = C2 (symmetrical design):\nC1 = C2 = 2 × 8pF = 16pF\n\nUse standard values: 15pF or 18pF capacitors\n\n## Practical Considerations\n\n### Stray Capacitance Estimation\n- PCB trace capacitance: ~1-2pF per inch\n- MCU/IC pin capacitance: ~2-3pF typically\n- Total Cstray: typically 3-5pF\n\n### Capacitor Selection\n- Use C0G/NP0 ceramic capacitors for stability\n- Match capacitor values (C1 = C2) for best performance\n- Use standard capacitor values (E12 series)\n\n### Frequency Accuracy\n- Incorrect CL causes frequency offset\n- Higher CL = lower frequency\n- Lower CL = higher frequency\n- Typical pullability: ±20ppm per pF\n\n## Common Crystal CL Values\n\n- 32.768kHz RTC crystals: 6pF, 7pF, 9pF, 12.5pF\n- MHz range crystals: 8pF, 10pF, 12pF, 16pF, 18pF, 20pF\n\nContact LiTong FAE for load capacitance calculation support and our online calculator tool.",
+      "tags": [
+        "Load Capacitance",
+        "Circuit Design",
+        "Technical Guide"
+      ],
+      "relatedProducts": [
+        "XGHC-3225-8MHz-20pF",
+        "XGHC-3225-16MHz-20pF"
+      ],
+      "relatedArticles": [
+        "xghc-crystal-selection-guide",
+        "xghc-pcb-layout-guide",
+        "xghc-troubleshooting"
+      ],
+      "author": {
+        "name": "David Liu",
+        "title": "Technical Lead - Oscillator Design",
+        "experience": "10 years in crystal oscillator design",
+        "expertise": [
+          "Oscillator Theory",
+          "Circuit Design",
+          "Frequency Control"
+        ]
+      },
+      "publishDate": "2024-02-10",
+      "date": "2024-02-10",
+      "readTime": "12 min",
+      "faeInsights": {
+        "summary": "Accurate load capacitance calculation is essential for achieving target frequency and reliable oscillator startup.",
+        "problemAnalysis": "Many designers use incorrect load capacitance values, causing frequency offset and potential startup failures.",
+        "solutionApproach": "Apply the load capacitance formula with proper stray capacitance estimation for accurate calculations.",
+        "insight": "Load capacitance is the most common cause of crystal oscillator problems in new designs.",
+        "logic": "The crystal frequency is determined by the total capacitance in the oscillator loop, including external capacitors and stray capacitance.",
+        "keyTakeaways": [
+          "Always calculate load capacitance using the formula",
+          "Include stray capacitance in calculations (3-5pF typical)",
+          "Use C0G/NP0 capacitors for stability",
+          "Verify frequency with frequency counter"
+        ],
+        "recommendations": [
+          "Use load capacitance calculator for all designs",
+          "Measure actual stray capacitance if possible",
+          "Use symmetrical capacitor values (C1 = C2)",
+          "Verify frequency accuracy in final design"
+        ],
+        "commonPitfalls": [
+          "Ignoring stray capacitance",
+          "Using wrong capacitor type (X7R instead of C0G)",
+          "Not verifying frequency accuracy",
+          "Asymmetrical capacitor values"
+        ],
+        "bestPractices": [
+          "Calculate CL for every crystal design",
+          "Use C0G/NP0 ceramic capacitors",
+          "Keep crystal traces short and equal length",
+          "Measure actual operating frequency"
+        ],
+        "troubleshootingTips": [
+          "Check actual frequency with frequency counter",
+          "Measure capacitor values if frequency is off",
+          "Verify crystal CL specification",
+          "Check for PCB layout issues"
+        ],
+        "author": {
+          "name": "Technical FAE",
+          "title": "Support Engineer",
+          "experience": "8+ years"
+        },
+        "content": "Based on years of experience, this Crystal Load Capacitance Calculation Guide article addresses common challenges engineers face in project development.",
+        "insightLogic": "Recommendations from analysis of successful product deployment projects across industries."
+      },
+      "customerCases": [
+        {
+          "customerName": "Embedded Systems Company",
+          "industry": "Electronics",
+          "application": "Industrial Controller",
+          "problem": "UART communication errors due to incorrect baud rate",
+          "diagnosis": "Crystal frequency 200ppm off due to incorrect load capacitance",
+          "solution": "Recalculated and corrected load capacitor values",
+          "results": "UART communication stable, frequency within ±20ppm",
+          "products": [
+            "XGHC-3225-16MHz-20pF"
+          ]
+        }
+      ],
+      "slug": "xghc-load-capacitance-guide"
+    },
+    {
+      "id": "xghc-pcb-layout-guide",
+      "title": "Crystal Oscillator PCB Layout Guidelines",
+      "category": "Technical Guide",
+      "summary": "Best practices for PCB layout of crystal oscillator circuits to ensure reliable operation and minimize noise coupling.",
+      "content": "Proper PCB layout is critical for reliable crystal oscillator operation. This guide covers best practices for laying out crystal circuits on PCBs.\n\n## Trace Routing Guidelines\n\n### Keep Traces Short\n- Minimize crystal-to-MCU trace length\n- Target: less than 10mm (0.4 inches) if possible\n- Long traces increase stray capacitance and noise pickup\n\n### Symmetric Layout\n- Keep C1 and C2 traces equal length\n- Maintain symmetry around crystal\n- Prevents unbalanced loading and frequency offset\n\n### No Vias on Crystal Traces\n- Avoid vias between crystal and MCU\n- Vias add inductance and impedance discontinuities\n- Route directly on same layer if possible\n\n## Grounding\n\n### Solid Ground Plane\n- Use continuous ground plane under crystal circuit\n- Ground plane reduces noise and provides shielding\n- Avoid splitting ground plane under crystal\n\n### Ground Vias\n- Place ground vias near load capacitors\n- Connect capacitor ground to solid ground plane\n- Minimize ground loop area\n\n### Guard Ring (Optional)\n- For noisy environments, add grounded guard ring\n- Place around crystal and traces\n- Connect to ground at multiple points\n\n## Noise Isolation\n\n### Keep Away from Noise Sources\n- Route away from switching power supplies\n- Avoid proximity to high-speed digital signals\n- Keep away from RF circuits and antennas\n- Maintain 3-5mm clearance from noisy traces\n\n### Shielding\n- Consider ground pour around crystal circuit\n- Use via stitching for shielding effectiveness\n- Critical for high-precision applications\n\n## Component Placement\n\n### Crystal Placement\n- Place crystal close to MCU oscillator pins\n- Orient to minimize trace length\n- Avoid placement near board edges (vibration)\n\n### Load Capacitor Placement\n- Place C1 and C2 close to crystal pads\n- Connect directly to crystal and ground\n- Minimize trace length to ground\n\n### Series Resistor (if used)\n- Place close to MCU output pin\n- Typical value: 100Ω to 1kΩ\n- Helps limit drive level and reduce EMI\n\nContact LiTong FAE for PCB layout review and recommendations.",
+      "tags": [
+        "PCB Layout",
+        "Design Guidelines",
+        "Technical Guide"
+      ],
+      "relatedProducts": [
+        "XGHC-3225-8MHz-20pF",
+        "XGHC-2520-25MHz-12pF"
+      ],
+      "relatedArticles": [
+        "xghc-crystal-selection-guide",
+        "xghc-load-capacitance-guide",
+        "xghc-troubleshooting"
+      ],
+      "author": {
+        "name": "James Wang",
+        "title": "Senior FAE - Hardware Design",
+        "experience": "15 years in PCB design",
+        "expertise": [
+          "PCB Layout",
+          "Signal Integrity",
+          "EMC Design"
+        ]
+      },
+      "publishDate": "2024-03-05",
+      "date": "2024-03-05",
+      "readTime": "18 min",
+      "faeInsights": {
+        "summary": "Proper PCB layout is as important as component selection for reliable crystal oscillator operation.",
+        "problemAnalysis": "Many crystal oscillator issues stem from poor PCB layout rather than component problems.",
+        "solutionApproach": "Follow layout guidelines carefully: short traces, symmetric layout, solid grounding, and noise isolation.",
+        "insight": "PCB layout errors are the second most common cause of crystal problems after load capacitance issues.",
+        "logic": "Poor layout introduces stray capacitance, noise coupling, and signal integrity problems that affect oscillator performance.",
+        "keyTakeaways": [
+          "Keep crystal traces short (<10mm)",
+          "Use symmetric layout for C1 and C2",
+          "Maintain solid ground plane",
+          "Keep away from noise sources"
+        ],
+        "recommendations": [
+          "Review layout with FAE before production",
+          "Use ground pour around crystal circuit",
+          "Minimize vias on crystal traces",
+          "Consider guard ring for noisy environments"
+        ],
+        "commonPitfalls": [
+          "Long crystal traces",
+          "Asymmetrical capacitor routing",
+          "Split ground plane under crystal",
+          "Proximity to switching regulators"
+        ],
+        "bestPractices": [
+          "Place crystal close to MCU",
+          "Route on single layer if possible",
+          "Use via stitching for shielding",
+          "Verify layout with oscilloscope"
+        ],
+        "troubleshootingTips": [
+          "Check trace length with ruler",
+          "Verify ground continuity",
+          "Look for noise coupling with scope",
+          "Check for via stubs on traces"
+        ],
+        "author": {
+          "name": "Technical FAE",
+          "title": "Support Engineer",
+          "experience": "8+ years"
+        },
+        "content": "Based on years of experience, this Crystal Oscillator PCB Layout Guidelines article addresses common challenges engineers face in project development.",
+        "insightLogic": "Recommendations from analysis of successful product deployment projects across industries."
+      },
+      "customerCases": [
+        {
+          "customerName": "Consumer Electronics Company",
+          "industry": "Electronics",
+          "application": "Smart Watch",
+          "problem": "Intermittent crystal oscillator failures",
+          "diagnosis": "Crystal traces routed near switching regulator causing noise coupling",
+          "solution": "Relayout with proper grounding and noise isolation",
+          "results": "Reliable operation, zero field failures",
+          "products": [
+            "XGHC-1612-32.768kHz-12.5pF"
+          ]
+        }
+      ],
+      "slug": "xghc-pcb-layout-guide"
+    },
+    {
+      "id": "xghc-troubleshooting",
+      "title": "Crystal Oscillator Troubleshooting Guide",
+      "category": "Technical Guide",
+      "summary": "Systematic approach to diagnosing and resolving crystal oscillator startup and frequency accuracy issues.",
+      "content": "Crystal oscillator problems can be frustrating to diagnose. This guide provides a systematic troubleshooting approach for common crystal issues.\n\n## Problem: Crystal Not Oscillating\n\n### Checklist:\n1. Verify polarity (if applicable)\n2. Check load capacitance values\n3. Measure crystal ESR\n4. Verify MCU oscillator configuration\n5. Check PCB layout\n6. Test with known good crystal\n\n### Common Causes:\n- Wrong load capacitance (most common)\n- Excessive ESR for the frequency\n- Insufficient drive from oscillator circuit\n- PCB layout issues (long traces, poor grounding)\n- Crystal damage from ESD or mechanical stress\n\n## Problem: Frequency Offset\n\n### Checklist:\n1. Measure actual frequency with frequency counter\n2. Verify load capacitance calculation\n3. Check for stray capacitance\n4. Verify crystal calibration\n\n### Common Causes:\n- Incorrect load capacitance\n- Unaccounted stray capacitance\n- Temperature effects\n- Crystal aging\n\n## Problem: Intermittent Operation\n\n### Checklist:\n1. Check across temperature range\n2. Verify power supply stability\n3. Check for noise coupling\n4. Measure oscillator margin\n\n### Common Causes:\n- Marginal oscillator design\n- Temperature sensitivity\n- Power supply noise\n- Mechanical vibration\n\n## Measurement Techniques\n\n### Frequency Measurement\n- Use high-impedance frequency counter\n- Avoid loading the circuit\n- Use 10:1 probe if oscilloscope needed\n\n### ESR Measurement\n- Use specialized crystal impedance meter\n- Or use network analyzer\n- Compare to datasheet maximum\n\n### Oscillation Verification\n- Use high-impedance oscilloscope probe\n- Check on both crystal pins\n- Verify waveform amplitude\n\n## Quick Tests\n\n### Touch Test\n- Gently touch crystal with finger\n- If oscillation changes or stops, marginal design\n- Indicates insufficient oscillator margin\n\n### Temperature Test\n- Use freeze spray or heat gun\n- Check operation across temperature\n- Identifies temperature sensitivity\n\nContact LiTong FAE for troubleshooting support and failure analysis.",
+      "tags": [
+        "Troubleshooting",
+        "Debug",
+        "Technical Guide"
+      ],
+      "relatedProducts": [
+        "XGHC-3225-8MHz-20pF",
+        "XGHC-3225-16MHz-20pF"
+      ],
+      "relatedArticles": [
+        "xghc-crystal-selection-guide",
+        "xghc-load-capacitance-guide",
+        "xghc-pcb-layout-guide"
+      ],
+      "author": {
+        "name": "Sarah Zhang",
+        "title": "Technical Support Engineer",
+        "experience": "8 years in oscillator troubleshooting",
+        "expertise": [
+          "Failure Analysis",
+          "Debug Techniques",
+          "Test Methods"
+        ]
+      },
+      "publishDate": "2024-01-20",
+      "date": "2024-01-20",
+      "readTime": "10 min",
+      "faeInsights": {
+        "summary": "Systematic troubleshooting approach can quickly identify and resolve crystal oscillator issues.",
+        "problemAnalysis": "Crystal problems often have multiple potential causes requiring systematic elimination.",
+        "solutionApproach": "Follow a structured diagnostic process: check load capacitance, verify PCB layout, measure parameters, test components.",
+        "insight": "80% of crystal oscillator problems are caused by incorrect load capacitance or PCB layout issues.",
+        "logic": "Systematic elimination of variables isolates the root cause efficiently.",
+        "keyTakeaways": [
+          "Start with load capacitance verification",
+          "Check PCB layout guidelines",
+          "Use proper measurement techniques",
+          "Test with known good components"
+        ],
+        "recommendations": [
+          "Use checklist for systematic troubleshooting",
+          "Document all measurements",
+          "Contact FAE for complex issues",
+          "Consider design review for new products"
+        ],
+        "commonPitfalls": [
+          "Jumping to conclusions without testing",
+          "Using wrong measurement techniques",
+          "Ignoring PCB layout issues",
+          "Not checking temperature effects"
+        ],
+        "bestPractices": [
+          "Follow systematic diagnostic process",
+          "Measure before replacing components",
+          "Document baseline measurements",
+          "Test across operating conditions"
+        ],
+        "troubleshootingTips": [
+          "Use frequency counter for accuracy",
+          "Check load caps with capacitance meter",
+          "Verify MCU oscillator settings",
+          "Test crystal on evaluation board"
+        ],
+        "author": {
+          "name": "Technical FAE",
+          "title": "Support Engineer",
+          "experience": "8+ years"
+        },
+        "content": "Based on years of experience, this Crystal Oscillator Troubleshooting Guide article addresses common challenges engineers face in project development.",
+        "insightLogic": "Recommendations from analysis of successful product deployment projects across industries."
+      },
+      "customerCases": [
+        {
+          "customerName": "Medical Device Company",
+          "industry": "Medical",
+          "application": "Patient Monitor",
+          "problem": "Crystal not oscillating in 20% of units",
+          "diagnosis": "Load capacitance at lower limit causing marginal oscillator margin",
+          "solution": "Increased load capacitors by 2pF",
+          "results": "100% startup success rate",
+          "products": [
+            "XGHC-3225-25MHz-12pF"
+          ]
+        }
+      ],
+      "slug": "xghc-troubleshooting"
+    }
+  ]
+}

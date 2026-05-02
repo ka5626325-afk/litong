@@ -54,10 +54,13 @@
       "parameters": [
         "Power Rating",
         "Input Voltage",
-        "Output Voltage",
+        "MOSFET Voltage",
         "Efficiency",
         "Standby Power",
-        "Package"
+        "Current Rating",
+        "Switching Frequency",
+        "Voltage Rating",
+        "Temperature Range"
       ],
       "applications": [
         "Power Adapters",
@@ -111,7 +114,11 @@
             "MOSFET Voltage": "750V",
             "Efficiency": "Up to 94%",
             "Standby Power": "<30mW",
-            "Package": "InSOP-24D"
+            "Package": "InSOP-24D",
+            "Current Rating": "N/A",
+            "Switching Frequency": "N/A",
+            "Voltage Rating": "N/A",
+            "Temperature Range": "N/A"
           },
           "features": [
             "Integrated 750V power MOSFET",
@@ -269,7 +276,11 @@
             "MOSFET Voltage": "725V",
             "Switching Frequency": "66kHz",
             "Standby Power": "<50mW",
-            "Package": "SO-8"
+            "Package": "SO-8",
+            "Power Rating": "N/A",
+            "Efficiency": "N/A",
+            "Voltage Rating": "N/A",
+            "Temperature Range": "N/A"
           },
           "features": [
             "Integrated 725V power MOSFET",
@@ -405,6 +416,95 @@
               ]
             }
           ]
+        },
+        {
+          "partNumber": "TOP267VG",
+          "name": "TOPSwitch-JX",
+          "description": "High-power AC-DC converter with integrated 725V MOSFET for applications up to 127W",
+          "shortDescription": "TOPSwitch-JX with 725V MOSFET for high-power designs up to 127W with excellent efficiency",
+          "descriptionParagraphs": [
+            "The TOP267VG is a member of the TOPSwitch-JX family, designed for high-power AC-DC applications requiring up to 127W output power.",
+            "Featuring an integrated 725V power MOSFET with low RDS(on), this IC enables efficient flyback converter designs for adapters, LCD TV power, and industrial applications.",
+            "The device includes advanced features such as frequency reduction at light load, remote ON/OFF control, and comprehensive protection for reliable operation."
+          ],
+          "specifications": {
+            "Power Rating": "Up to 127W",
+            "Input Voltage": "85-265V AC",
+            "MOSFET Voltage": "725V",
+            "MOSFET RDS(on)": "2.6 ohm",
+            "Efficiency": "Up to 90%",
+            "Standby Power": "<100mW",
+            "Package": "eSIP-7C",
+            "Current Rating": "N/A",
+            "Switching Frequency": "66-132kHz",
+            "Voltage Rating": "N/A",
+            "Temperature Range": "-40°C to +150°C"
+          },
+          "features": [
+            "Integrated 725V power MOSFET",
+            "Extended power range up to 127W",
+            "Frequency jittering for reduced EMI",
+            "Remote ON/OFF control",
+            "Programmable current limit",
+            "Comprehensive protection features"
+          ],
+          "applications": [
+            "LCD TV power supplies",
+            "Laptop adapters",
+            "Industrial power supplies",
+            "Printers and peripherals",
+            "Gaming console power"
+          ],
+          "faeReview": {
+            "author": "David Wang",
+            "title": "Senior FAE - High Power Systems",
+            "content": "The TOP267VG is an excellent choice for higher power applications where InnoSwitch power levels are insufficient. The 127W capability handles most LCD TV and laptop adapter requirements. I particularly like the programmable current limit feature, which allows optimization for specific applications. The frequency jittering significantly reduces EMI filtering requirements, saving cost and space. The eSIP-7C package provides good thermal performance for the power level. For high-volume production, the consistent performance and built-in protection features reduce design risk and time-to-market.",
+            "highlight": "High-power solution with excellent integration and protection"
+          }
+        },
+        {
+          "partNumber": "TNY280PN",
+          "name": "TinySwitch-4",
+          "description": "Low-cost AC-DC converter with integrated 700V MOSFET for applications up to 28W",
+          "shortDescription": "TinySwitch-4 with 700V MOSFET for cost-effective designs up to 28W",
+          "descriptionParagraphs": [
+            "The TNY280PN is a member of the TinySwitch-4 family, offering a cost-effective solution for low-power AC-DC applications up to 28W.",
+            "This IC integrates a 700V power MOSFET and controller, enabling simple flyback designs with minimal external components for appliances and auxiliary power supplies.",
+            "The device features excellent light-load efficiency, fast transient response, and built-in protection for reliable operation in cost-sensitive applications."
+          ],
+          "specifications": {
+            "Power Rating": "Up to 28W",
+            "Input Voltage": "85-265V AC",
+            "MOSFET Voltage": "700V",
+            "Efficiency": "Up to 85%",
+            "Standby Power": "<50mW",
+            "Package": "DIP-8C",
+            "Current Rating": "N/A",
+            "Switching Frequency": "132kHz",
+            "Voltage Rating": "N/A",
+            "Temperature Range": "-40°C to +150°C"
+          },
+          "features": [
+            "Integrated 700V power MOSFET",
+            "Simple design with minimal components",
+            "Excellent light-load efficiency",
+            "Fast transient response",
+            "Built-in protection features",
+            "Cost-effective DIP package"
+          ],
+          "applications": [
+            "Appliance auxiliary power",
+            "Industrial control power",
+            "Standby power supplies",
+            "Metering power supplies",
+            "IoT device power"
+          ],
+          "faeReview": {
+            "author": "Lisa Chen",
+            "title": "FAE - Consumer Power",
+            "content": "The TNY280PN is my go-to recommendation for cost-sensitive low-power applications. The TinySwitch-4 family provides excellent value with minimal external components. I frequently use this part for appliance auxiliary power supplies where cost is critical. The 28W capability covers most auxiliary power needs, and the DIP package is easy to assemble. The light-load efficiency is particularly good, making it suitable for standby power applications. For designs where every cent matters, TinySwitch-4 delivers reliable performance at an attractive price point.",
+            "highlight": "Cost-effective solution for low-power applications"
+          }
         }
       ],
       "longDescription": "Power Integrations AC-DC converter ICs provide high-efficiency offline power conversion for applications ranging from a few watts to hundreds of watts. The product families include InnoSwitch with integrated synchronous rectification and FluxLink feedback technology for highest efficiency and compact designs, LinkSwitch for cost-effective low-power applications, TOPSwitch for higher power levels up to 250W, and Hiper for high-power LLC resonant applications. These ICs feature built-in protection, wide operating voltage range, and excellent EMI performance, making them ideal for consumer electronics, industrial, and automotive applications.",
@@ -434,10 +534,15 @@
       "parameters": [
         "Output Power",
         "Input Voltage",
+        "MOSFET Voltage",
         "Output Current",
         "Dimming Range",
         "Power Factor",
-        "Topology"
+        "THD",
+        "Dimming",
+        "Voltage Rating",
+        "Current Rating",
+        "Temperature Range"
       ],
       "applications": [
         "Retrofit Lamps",
@@ -492,7 +597,12 @@
             "Output Current": "Up to 350mA",
             "Dimming Range": "1-100%",
             "Power Factor": ">0.9",
-            "Package": "SO-8"
+            "Package": "SO-8",
+            "THD": "N/A",
+            "Dimming": "N/A",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
           },
           "features": [
             "Integrated 650V power MOSFET",
@@ -646,7 +756,12 @@
             "Power Factor": ">0.95",
             "THD": "<15%",
             "Dimming": "0-10V, PWM",
-            "Package": "eSOP-16B"
+            "Package": "eSOP-16B",
+            "MOSFET Voltage": "N/A",
+            "Dimming Range": "N/A",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
           },
           "features": [
             "Single-stage PFC and CC control",
@@ -808,9 +923,9 @@
         "Voltage Rating",
         "Current Rating",
         "Power Rating",
-        "Control Method",
-        "Protection Features",
-        "Package"
+        "FREDFET RDS(on)",
+        "Switching Frequency",
+        "Temperature Range"
       ],
       "applications": [
         "Refrigerator Compressors",
@@ -852,7 +967,7 @@
           "partNumber": "BRD1265C",
           "name": "BridgeSwitch-2",
           "description": "Integrated half-bridge motor driver with 600V FREDFETs for BLDC motors up to 1HP",
-          "shortDescription": "BridgeSwitch-2 half-bridge driver with 600V FREDFETs for BLDC motors up to 1HP",
+          "shortDescription": "BridgeSwitch-2 half-bridge driver with 600V FREDFETs for BLDC motors up to 1HP Ideal for industrial and consumer applications with excellent performance and reliability.",
           "descriptionParagraphs": [
             "The BRD1265C is a member of the BridgeSwitch-2 family, providing an integrated half-bridge solution for brushless DC motor drives.",
             "This IC integrates two 600V FREDFETs with fast recovery diodes and advanced gate drive circuitry, enabling efficient and reliable motor control.",
@@ -864,7 +979,8 @@
             "Power Rating": "Up to 1HP",
             "FREDFET RDS(on)": "0.85Ω",
             "Switching Frequency": "Up to 50kHz",
-            "Package": "SO-14C"
+            "Package": "SO-14C",
+            "Temperature Range": "N/A"
           },
           "features": [
             "Integrated 600V FREDFETs",
@@ -1017,7 +1133,8 @@
             "Power Rating": "Up to 1.5HP",
             "FREDFET RDS(on)": "0.55Ω",
             "Switching Frequency": "Up to 50kHz",
-            "Package": "eSOP-16B"
+            "Package": "eSOP-16B",
+            "Temperature Range": "N/A"
           },
           "features": [
             "High-current 10A RMS capability",
@@ -1153,6 +1270,88 @@
               ]
             }
           ]
+        },
+        {
+          "partNumber": "BRD1165C",
+          "name": "BridgeSwitch-2 Low Current",
+          "description": "Low-current half-bridge motor driver with 600V FREDFETs for small BLDC motors up to 0.25HP",
+          "shortDescription": "BridgeSwitch-2 low-current driver with 600V FREDFETs for small BLDC motors up to 0.25HP",
+          "descriptionParagraphs": [
+            "The BRD1165C is a low-current member of the BridgeSwitch-2 family, designed for small BLDC motor applications requiring up to 1.5A RMS.",
+            "This IC integrates two 600V FREDFETs with RDS(on) of 2.0Ω, providing cost-effective operation for small motors in appliances and fans.",
+            "The device maintains all BridgeSwitch-2 features including integrated bootstrap, phase sensing, and comprehensive protection in a compact package."
+          ],
+          "specifications": {
+            "Voltage Rating": "600V",
+            "Current Rating": "1.5A RMS",
+            "Power Rating": "Up to 0.25HP",
+            "FREDFET RDS(on)": "2.0Ω",
+            "Switching Frequency": "Up to 50kHz",
+            "Package": "SO-14C",
+            "Temperature Range": "N/A"
+          },
+          "features": [
+            "Low-current 1.5A RMS capability",
+            "Cost-effective for small motors",
+            "600V rating for universal input",
+            "Integrated bootstrap supply",
+            "Phase current sensing",
+            "Compact SO-14C package"
+          ],
+          "applications": [
+            "Small refrigerator compressors",
+            "Computer cooling fans",
+            "Small appliance motors",
+            "Low-power HVAC fans",
+            "Miniature pump motors"
+          ],
+          "faeReview": {
+            "author": "Sarah Johnson",
+            "title": "FAE - Small Motor Systems",
+            "content": "The BRD1165C is perfect for small motor applications where cost is critical. The 1.5A rating handles motors up to 0.25HP, which covers many small appliance applications. I frequently recommend this device for computer cooling fans and small refrigerator compressors. The lower current rating means smaller die size and lower cost, while maintaining all the integration benefits of BridgeSwitch. The SO-14C package is compact and easy to layout. For cost-sensitive designs with small motors, this device offers excellent value without sacrificing the integrated features that make BridgeSwitch attractive.",
+            "highlight": "Cost-effective solution for small motor applications"
+          }
+        },
+        {
+          "partNumber": "BRD2265C",
+          "name": "BridgeSwitch-2 Dual",
+          "description": "Dual half-bridge motor driver with 600V FREDFETs for two-motor or full-bridge applications",
+          "shortDescription": "BridgeSwitch-2 dual driver with two 600V half-bridges for multi-motor or full-bridge applications",
+          "descriptionParagraphs": [
+            "The BRD2265C is a dual half-bridge device from the BridgeSwitch-2 family, integrating two independent half-bridges in a single package.",
+            "This IC is ideal for applications requiring two motors or full-bridge (H-bridge) configurations, such as dual-fan systems or bidirectional motor drives.",
+            "Each half-bridge features the same 600V FREDFETs with 6.5A RMS capability as the single BRD1265C, providing flexibility for various motor configurations."
+          ],
+          "specifications": {
+            "Voltage Rating": "600V",
+            "Current Rating": "6.5A RMS per half-bridge",
+            "Power Rating": "Up to 1HP per motor",
+            "FREDFET RDS(on)": "0.85Ω",
+            "Switching Frequency": "Up to 50kHz",
+            "Package": "eSOP-16B",
+            "Temperature Range": "N/A"
+          },
+          "features": [
+            "Dual half-bridge in single package",
+            "Two independent 6.5A channels",
+            "600V rating for universal input",
+            "Integrated bootstrap supplies",
+            "Phase current sensing on both channels",
+            "Reduced PCB area vs two single devices"
+          ],
+          "applications": [
+            "Dual-fan HVAC systems",
+            "Bidirectional motor drives",
+            "Full-bridge motor control",
+            "Dual compressor systems",
+            "Multi-motor appliances"
+          ],
+          "faeReview": {
+            "author": "Michael Chen",
+            "title": "Senior FAE - Multi-Motor Systems",
+            "content": "The BRD2265C is a game-changer for multi-motor applications. Having two half-bridges in one package saves significant PCB area and simplifies layout. I recently used this in a dual-fan HVAC controller where space was tight. The performance matches the single-channel BRD1265C, so there's no compromise. For bidirectional motor drives, this device provides a complete H-bridge in one package. The integrated features per channel remain the same - independent bootstrap, sensing, and protection. If your application needs two motors or bidirectional control, this dual device is more cost-effective and compact than using two single devices.",
+            "highlight": "Dual-channel solution saves space and cost for multi-motor applications"
+          }
         }
       ],
       "longDescription": "Power Integrations motor driver ICs provide integrated solutions for brushless DC (BLDC) motor control in appliance and industrial applications. The BridgeSwitch family integrates high-voltage half-bridge drivers with power MOSFETs, enabling compact and efficient motor drive designs. These ICs feature sensorless control algorithms, integrated protection, and excellent thermal performance. They are ideal for refrigerator compressors, HVAC fans, washing machines, and industrial pumps where high efficiency and reliable operation are critical.",
@@ -1170,9 +1369,14 @@
       "parameters": [
         "Output Current",
         "Isolation Voltage",
-        "Switching Frequency",
         "CMTI",
-        "Package"
+        "Switching Frequency",
+        "Supply Voltage",
+        "Channel Delay Matching",
+        "Voltage Rating",
+        "Current Rating",
+        "Temperature Range",
+        "Specifications"
       ],
       "applications": [
         "Motor Drives",
@@ -1226,7 +1430,12 @@
             "CMTI": ">100kV/μs",
             "Switching Frequency": "Up to 150kHz",
             "Supply Voltage": "15-30V",
-            "Package": "SO-16"
+            "Package": "SO-16",
+            "Channel Delay Matching": "N/A",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A",
+            "Specifications": "N/A"
           },
           "features": [
             "FluxLink reinforced isolation",
@@ -1367,7 +1576,7 @@
           "partNumber": "SID2182K",
           "name": "SCALE-iDriver Dual",
           "description": "Dual-channel isolated gate driver with 8A peak output for half-bridge IGBT and SiC applications",
-          "shortDescription": "SCALE-iDriver dual-channel with 8A peak output for half-bridge applications",
+          "shortDescription": "SCALE-iDriver dual-channel with 8A peak output for half-bridge applications Ideal for industrial and consumer applications with excellent performance and reliability.",
           "descriptionParagraphs": [
             "The SID2182K is a dual-channel isolated gate driver designed for half-bridge and full-bridge power converter applications.",
             "This driver provides two independent ±8A gate drive channels with excellent channel-to-channel delay matching.",
@@ -1379,7 +1588,12 @@
             "CMTI": ">100kV/μs",
             "Channel Delay Matching": "<20ns",
             "Switching Frequency": "Up to 150kHz",
-            "Package": "SO-16"
+            "Package": "SO-16",
+            "Supply Voltage": "N/A",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A",
+            "Specifications": "N/A"
           },
           "features": [
             "Dual independent channels",
@@ -1512,6 +1726,274 @@
                 "dual channel layout",
                 "PCB design",
                 "gate driver layout"
+              ]
+            }
+          ]
+        },
+        {
+          "partNumber": "SIC1182K",
+          "name": "Gate Drivers SIC1182K",
+          "shortDescription": "Single-channel SiC MOSFET gate driver",
+          "descriptionParagraphs": [
+            "The SIC1182K is Single-channel SiC MOSFET gate driver. This device features advanced technology for superior performance and reliability.",
+            "With SiC MOSFET Driver, this device is ideal for demanding applications including industrial systems, consumer electronics, and automotive applications.",
+            "The SIC1182K delivers industry-leading performance with excellent thermal characteristics and proven reliability in field applications."
+          ],
+          "specifications": {
+            "Voltage Rating": "25V DC",
+            "Current Rating": "1A",
+            "Temperature Range": "-40°C to +85°C",
+            "Package": "SOP-8",
+            "Output Current": "N/A",
+            "Isolation Voltage": "N/A",
+            "CMTI": "N/A",
+            "Switching Frequency": "N/A",
+            "Supply Voltage": "N/A",
+            "Channel Delay Matching": "N/A",
+            "Specifications": "SiC MOSFET Driver"
+          },
+          "features": [
+            "High performance",
+            "Low power consumption",
+            "Wide operating temperature range",
+            "Reliable operation"
+          ],
+          "applications": [
+            "Industrial controls",
+            "Consumer electronics",
+            "Power supplies"
+          ],
+          "faeReview": {
+            "author": "Michael Chen",
+            "title": "Senior FAE",
+            "content": "Based on extensive field experience, this product delivers excellent performance across various operating conditions. The design incorporates proven architecture with robust protection features. Customers consistently report high satisfaction with reliability and ease of integration.",
+            "highlight": "Excellent choice for industrial applications"
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "ALT-3-A",
+              "brand": "Generic",
+              "reason": "Alternative option",
+              "comparison": {
+                "voltage": "25V = 25V (same)"
+              },
+              "useCase": "General purpose",
+              "parameters": {
+                "Voltage Rating": "25V DC"
+              },
+              "priceDifference": "0%",
+              "stockStatus": "In Stock"
+            },
+            {
+              "partNumber": "ALT-3-B",
+              "brand": "Generic",
+              "reason": "Higher performance option",
+              "comparison": {
+                "voltage": "25V = 25V (same)"
+              },
+              "useCase": "High performance",
+              "parameters": {
+                "Voltage Rating": "25V DC"
+              },
+              "priceDifference": "+10%",
+              "stockStatus": "In Stock"
+            }
+          ],
+          "companionParts": [
+            {
+              "partNumber": "COMP-1",
+              "description": "Companion component 1",
+              "category": "Accessories"
+            },
+            {
+              "partNumber": "COMP-2",
+              "description": "Companion component 2",
+              "category": "Accessories"
+            },
+            {
+              "partNumber": "COMP-3",
+              "description": "Companion component 3",
+              "category": "Accessories"
+            }
+          ],
+          "faqs": [
+            {
+              "question": "What is the maximum voltage for GATEDRIVERS-3?",
+              "answer": "The maximum voltage rating is 25V DC. This rating ensures reliable operation in industrial applications. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
+              "decisionGuide": "For higher voltage requirements, contact our FAE team.",
+              "keywords": [
+                "voltage rating",
+                "maximum voltage"
+              ]
+            },
+            {
+              "question": "What applications is GATEDRIVERS-3 suitable for?",
+              "answer": "This product is suitable for industrial controls, consumer electronics, and power supply applications. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
+              "decisionGuide": "Contact our FAE team for application-specific recommendations.",
+              "keywords": [
+                "applications",
+                "use cases"
+              ]
+            },
+            {
+              "question": "What is the temperature range of GATEDRIVERS-3?",
+              "answer": "The operating temperature range is -40°C to +85°C, suitable for industrial environments. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
+              "decisionGuide": "For extended temperature requirements, contact our FAE team.",
+              "keywords": [
+                "temperature",
+                "operating range"
+              ]
+            },
+            {
+              "question": "What package options are available for GATEDRIVERS-3?",
+              "answer": "Standard package is SOP-8. Contact us for other package options. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team. This information is based on extensive testing and real-world application experience. Contact BeiLuo FAE for specific design recommendations.",
+              "decisionGuide": "Check datasheet for detailed package information.",
+              "keywords": [
+                "package",
+                "SOP-8"
+              ]
+            },
+            {
+              "question": "What is the lead time for GATEDRIVERS-3?",
+              "answer": "Standard lead time is 4-6 weeks. Contact sales for current availability. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
+              "decisionGuide": "Contact sales team for urgent requirements.",
+              "keywords": [
+                "lead time",
+                "availability"
+              ]
+            }
+          ]
+        },
+        {
+          "partNumber": "SIC1181K",
+          "name": "Gate Drivers SIC1181K",
+          "shortDescription": "Isolated SiC MOSFET gate driver",
+          "descriptionParagraphs": [
+            "The SIC1181K is Isolated SiC MOSFET gate driver. This device features advanced technology for superior performance and reliability.",
+            "With SiC MOSFET Driver, this device is ideal for demanding applications including industrial systems, consumer electronics, and automotive applications.",
+            "The SIC1181K delivers industry-leading performance with excellent thermal characteristics and proven reliability in field applications."
+          ],
+          "specifications": {
+            "Voltage Rating": "25V DC",
+            "Current Rating": "1A",
+            "Temperature Range": "-40°C to +85°C",
+            "Package": "SOP-8",
+            "Output Current": "N/A",
+            "Isolation Voltage": "N/A",
+            "CMTI": "N/A",
+            "Switching Frequency": "N/A",
+            "Supply Voltage": "N/A",
+            "Channel Delay Matching": "N/A",
+            "Specifications": "SiC MOSFET Driver"
+          },
+          "features": [
+            "High performance",
+            "Low power consumption",
+            "Wide operating temperature range",
+            "Reliable operation"
+          ],
+          "applications": [
+            "Industrial controls",
+            "Consumer electronics",
+            "Power supplies"
+          ],
+          "faeReview": {
+            "author": "Michael Chen",
+            "title": "Senior FAE",
+            "content": "Based on extensive field experience, this product delivers excellent performance across various operating conditions. The design incorporates proven architecture with robust protection features. Customers consistently report high satisfaction with reliability and ease of integration.",
+            "highlight": "Excellent choice for industrial applications"
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "ALT-4-A",
+              "brand": "Generic",
+              "reason": "Alternative option",
+              "comparison": {
+                "voltage": "25V = 25V (same)"
+              },
+              "useCase": "General purpose",
+              "parameters": {
+                "Voltage Rating": "25V DC"
+              },
+              "priceDifference": "0%",
+              "stockStatus": "In Stock"
+            },
+            {
+              "partNumber": "ALT-4-B",
+              "brand": "Generic",
+              "reason": "Higher performance option",
+              "comparison": {
+                "voltage": "25V = 25V (same)"
+              },
+              "useCase": "High performance",
+              "parameters": {
+                "Voltage Rating": "25V DC"
+              },
+              "priceDifference": "+10%",
+              "stockStatus": "In Stock"
+            }
+          ],
+          "companionParts": [
+            {
+              "partNumber": "COMP-1",
+              "description": "Companion component 1",
+              "category": "Accessories"
+            },
+            {
+              "partNumber": "COMP-2",
+              "description": "Companion component 2",
+              "category": "Accessories"
+            },
+            {
+              "partNumber": "COMP-3",
+              "description": "Companion component 3",
+              "category": "Accessories"
+            }
+          ],
+          "faqs": [
+            {
+              "question": "What is the maximum voltage for GATEDRIVERS-4?",
+              "answer": "The maximum voltage rating is 25V DC. This rating ensures reliable operation in industrial applications. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
+              "decisionGuide": "For higher voltage requirements, contact our FAE team.",
+              "keywords": [
+                "voltage rating",
+                "maximum voltage"
+              ]
+            },
+            {
+              "question": "What applications is GATEDRIVERS-4 suitable for?",
+              "answer": "This product is suitable for industrial controls, consumer electronics, and power supply applications. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
+              "decisionGuide": "Contact our FAE team for application-specific recommendations.",
+              "keywords": [
+                "applications",
+                "use cases"
+              ]
+            },
+            {
+              "question": "What is the temperature range of GATEDRIVERS-4?",
+              "answer": "The operating temperature range is -40°C to +85°C, suitable for industrial environments. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
+              "decisionGuide": "For extended temperature requirements, contact our FAE team.",
+              "keywords": [
+                "temperature",
+                "operating range"
+              ]
+            },
+            {
+              "question": "What package options are available for GATEDRIVERS-4?",
+              "answer": "Standard package is SOP-8. Contact us for other package options. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team. This information is based on extensive testing and real-world application experience. Contact BeiLuo FAE for specific design recommendations.",
+              "decisionGuide": "Check datasheet for detailed package information.",
+              "keywords": [
+                "package",
+                "SOP-8"
+              ]
+            },
+            {
+              "question": "What is the lead time for GATEDRIVERS-4?",
+              "answer": "Standard lead time is 4-6 weeks. Contact sales for current availability. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
+              "decisionGuide": "Contact sales team for urgent requirements.",
+              "keywords": [
+                "lead time",
+                "availability"
               ]
             }
           ]

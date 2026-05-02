@@ -141,7 +141,7 @@
       "faqs": [
         {
           "question": "What voltage margin should I maintain for DC-link capacitors?",
-          "answer": "Maintain 30-50% voltage margin above maximum DC bus voltage. For 480V AC input (680V DC), use 900-1100V capacitors. Higher margin extends lifetime and improves reliability.",
+          "answer": "Maintain 30-50% voltage margin above maximum DC bus voltage. For 480V AC input (680V DC), use 900-1100V capacitors. Higher margin extends lifetime and improves reliability. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
           "decisionGuide": "Select capacitor voltage rating with 30-50% margin above maximum operating voltage.",
           "keywords": [
             "voltage margin",
@@ -151,7 +151,7 @@
         },
         {
           "question": "How do I calculate required DC-link capacitance?",
-          "answer": "Use formula C = I / (2 × f × ΔV), where I is DC current, f is switching frequency, ΔV is allowable voltage ripple. Add 20% margin and select next standard value.",
+          "answer": "Use formula C = I / (2 × f × ΔV), where I is DC current, f is switching frequency, ΔV is allowable voltage ripple. Add 20% margin and select next standard value. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
           "decisionGuide": "Calculate based on your ripple requirements or contact our FAE team for assistance.",
           "keywords": [
             "capacitance calculation",
@@ -161,7 +161,7 @@
         },
         {
           "question": "What is the typical lifetime of DC-link film capacitors?",
-          "answer": "Film capacitors are rated for 100,000 hours at maximum temperature. Actual lifetime is typically 150,000-200,000 hours (17-23 years) in well-designed systems with proper thermal management.",
+          "answer": "Film capacitors are rated for 100,000 hours at maximum temperature. Actual lifetime is typically 150,000-200,000 hours (17-23 years) in well-designed systems with proper thermal management. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
           "decisionGuide": "Design for hot spot temperatures below 70°C to achieve 20+ year lifetime.",
           "keywords": [
             "capacitor lifetime",
@@ -181,7 +181,7 @@
         },
         {
           "question": "What thermal management is required?",
-          "answer": "Mount capacitors to heatsinks or chassis for heat dissipation. Use thermal interface material. Ensure adequate airflow. Monitor hot spot temperature, keeping below 85°C maximum, 70°C for long life.",
+          "answer": "Mount capacitors to heatsinks or chassis for heat dissipation. Use thermal interface material. Ensure adequate airflow. Monitor hot spot temperature, keeping below 85°C maximum, 70°C for long life. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
           "decisionGuide": "Implement proper thermal design including heatsink mounting and adequate ventilation.",
           "keywords": [
             "thermal management",
@@ -191,7 +191,7 @@
         },
         {
           "question": "How do film capacitors compare to electrolytics for DC-link?",
-          "answer": "Film capacitors offer 5-10x longer life, 2-3x higher ripple current, 10x lower ESR, no wear-out mechanism, and maintenance-free operation. Higher initial cost but lower total cost of ownership.",
+          "answer": "Film capacitors offer 5-10x longer life, 2-3x higher ripple current, 10x lower ESR, no wear-out mechanism, and maintenance-free operation. Higher initial cost but lower total cost of ownership. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
           "decisionGuide": "Consider film capacitors for high-reliability applications where lifetime and maintenance are critical.",
           "keywords": [
             "film vs electrolytic",
@@ -201,7 +201,7 @@
         },
         {
           "question": "What mounting torque should be used for stud mount capacitors?",
-          "answer": "For M10 studs: 8-10 Nm. For M12 studs: 12-15 Nm. Use torque wrench for accurate tightening. Over-torquing can damage capacitor, under-torquing reduces thermal transfer.",
+          "answer": "For M10 studs: 8-10 Nm. For M12 studs: 12-15 Nm. Use torque wrench for accurate tightening. Over-torquing can damage capacitor, under-torquing reduces thermal transfer. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
           "decisionGuide": "Follow manufacturer torque specifications for reliable mounting and thermal performance.",
           "keywords": [
             "mounting torque",
@@ -242,7 +242,11 @@
         }
       ],
       "faeInsights": {
-        "author": "Michael Schneider",
+        "author": {
+          "name": "Technical FAE",
+          "title": "Support Engineer",
+          "experience": "8+ years"
+        },
         "title": "Senior FAE - Power Electronics",
         "content": "Having worked with numerous capacitor applications over 15+ years, I've found that proper selection and thermal design are critical for reliable operation. This guide reflects best practices I've developed through supporting diverse industrial applications, from solar inverters to motor drives. The most common issues I see are related to inadequate voltage margin, insufficient thermal management, and ripple current calculations that don't account for all harmonics. I always emphasize the importance of designing for worst-case conditions rather than nominal operating points. The self-healing properties of film capacitors provide excellent reliability, but only if the capacitor is properly sized and cooled. When customers follow the guidelines in this article, they typically achieve 15-20 year capacitor lifetimes with minimal maintenance.",
         "insightLogic": "Proper capacitor selection requires understanding both the electrical and thermal requirements of the application. The key insight is that capacitor lifetime is primarily determined by temperature, following the Arrhenius relationship. By designing for lower hot spot temperatures and maintaining adequate voltage margins, engineers can significantly extend capacitor lifetime and improve system reliability.",
@@ -411,7 +415,11 @@
         }
       ],
       "faeInsights": {
-        "author": "Michael Schneider",
+        "author": {
+          "name": "Technical FAE",
+          "title": "Support Engineer",
+          "experience": "8+ years"
+        },
         "title": "Senior FAE - Power Electronics",
         "content": "Having worked with numerous capacitor applications over 15+ years, I've found that proper selection and thermal design are critical for reliable operation. This guide reflects best practices I've developed through supporting diverse industrial applications, from solar inverters to motor drives. The most common issues I see are related to inadequate voltage margin, insufficient thermal management, and ripple current calculations that don't account for all harmonics. I always emphasize the importance of designing for worst-case conditions rather than nominal operating points. The self-healing properties of film capacitors provide excellent reliability, but only if the capacitor is properly sized and cooled. When customers follow the guidelines in this article, they typically achieve 15-20 year capacitor lifetimes with minimal maintenance.",
         "insightLogic": "Proper capacitor selection requires understanding both the electrical and thermal requirements of the application. The key insight is that capacitor lifetime is primarily determined by temperature, following the Arrhenius relationship. By designing for lower hot spot temperatures and maintaining adequate voltage margins, engineers can significantly extend capacitor lifetime and improve system reliability.",
@@ -533,7 +541,7 @@
         },
         {
           "question": "What resistor value should be used with snubber capacitors?",
-          "answer": "RC snubbers typically use 5-50Ω. Calculate: R ≈ √(Lstray/C). Power dissipation: P = 0.5 × C × V² × f. Use non-inductive resistors (carbon composition or film) rated for 2x calculated power.",
+          "answer": "RC snubbers typically use 5-50Ω. Calculate: R ≈ √(Lstray/C). Power dissipation: P = 0.5 × C × V² × f. Use non-inductive resistors (carbon composition or film) rated for 2x calculated power. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
           "decisionGuide": "Start with 10Ω and adjust based on oscilloscope measurements of switching waveforms.",
           "keywords": [
             "snubber resistor",
@@ -584,7 +592,11 @@
         }
       ],
       "faeInsights": {
-        "author": "Michael Schneider",
+        "author": {
+          "name": "Technical FAE",
+          "title": "Support Engineer",
+          "experience": "8+ years"
+        },
         "title": "Senior FAE - Power Electronics",
         "content": "Having worked with numerous capacitor applications over 15+ years, I've found that proper selection and thermal design are critical for reliable operation. This guide reflects best practices I've developed through supporting diverse industrial applications, from solar inverters to motor drives. The most common issues I see are related to inadequate voltage margin, insufficient thermal management, and ripple current calculations that don't account for all harmonics. I always emphasize the importance of designing for worst-case conditions rather than nominal operating points. The self-healing properties of film capacitors provide excellent reliability, but only if the capacitor is properly sized and cooled. When customers follow the guidelines in this article, they typically achieve 15-20 year capacitor lifetimes with minimal maintenance.",
         "insightLogic": "Proper capacitor selection requires understanding both the electrical and thermal requirements of the application. The key insight is that capacitor lifetime is primarily determined by temperature, following the Arrhenius relationship. By designing for lower hot spot temperatures and maintaining adequate voltage margins, engineers can significantly extend capacitor lifetime and improve system reliability.",
@@ -758,7 +770,11 @@
         }
       ],
       "faeInsights": {
-        "author": "Michael Schneider",
+        "author": {
+          "name": "Technical FAE",
+          "title": "Support Engineer",
+          "experience": "8+ years"
+        },
         "title": "Senior FAE - Power Electronics",
         "content": "Having worked with numerous capacitor applications over 15+ years, I've found that proper selection and thermal design are critical for reliable operation. This guide reflects best practices I've developed through supporting diverse industrial applications, from solar inverters to motor drives. The most common issues I see are related to inadequate voltage margin, insufficient thermal management, and ripple current calculations that don't account for all harmonics. I always emphasize the importance of designing for worst-case conditions rather than nominal operating points. The self-healing properties of film capacitors provide excellent reliability, but only if the capacitor is properly sized and cooled. When customers follow the guidelines in this article, they typically achieve 15-20 year capacitor lifetimes with minimal maintenance.",
         "insightLogic": "Proper capacitor selection requires understanding both the electrical and thermal requirements of the application. The key insight is that capacitor lifetime is primarily determined by temperature, following the Arrhenius relationship. By designing for lower hot spot temperatures and maintaining adequate voltage margins, engineers can significantly extend capacitor lifetime and improve system reliability.",
@@ -777,6 +793,219 @@
           "solution": "Provided detailed technical support and application guidance",
           "result": "Customer achieved reliable operation meeting all requirements",
           "feedback": "Technical support was excellent and helped us optimize our design."
+        }
+      ]
+    },
+    {
+      "id": "electronicon-capacitor-application-guide",
+      "title": "Electronicon Capacitor Application Guide",
+      "slug": "electronicon-capacitor-application-guide",
+      "category": "Technical Guide",
+      "summary": "Comprehensive application guide for selecting and implementing Electronicon DC-link, AC filter, and snubber capacitors in power electronics systems.",
+      "content": [
+        "## Introduction",
+        "",
+        "This guide provides comprehensive application information for Electronicon capacitors in power electronics systems. Following these guidelines will help ensure reliable operation and maximum lifetime.",
+        "",
+        "## DC-Link Capacitor Applications",
+        "",
+        "### Capacitance Calculation",
+        "",
+        "DC-link capacitance is determined by allowable voltage ripple:",
+        "",
+        "C = I_ripple / (2 × π × f_sw × ΔV)",
+        "",
+        "Where:",
+        "- I_ripple = DC ripple current (A)",
+        "- f_sw = Switching frequency (Hz)",
+        "- ΔV = Allowable voltage ripple (V)",
+        "",
+        "Example: For I_ripple = 50A, f_sw = 10kHz, ΔV = 20V (2% of 1000V):",
+        "C = 50 / (2 × π × 10000 × 20) = 39.8uF",
+        "",
+        "Use 40-50uF minimum, typically 100-500uF for practical designs.",
+        "",
+        "### Ripple Current Considerations",
+        "",
+        "Ripple current creates heat in the capacitor:",
+        "",
+        "P_loss = I_rms² × ESR",
+        "",
+        "Temperature rise depends on thermal resistance:",
+        "ΔT = P_loss × R_th",
+        "",
+        "Design guidelines:",
+        "- Use 80% of rated ripple current for long lifetime",
+        "- Ensure adequate cooling airflow",
+        "- Monitor case temperature during testing",
+        "",
+        "### Mounting and Cooling",
+        "",
+        "Proper mounting ensures good thermal contact:",
+        "",
+        "1. **Stud mount capacitors**: Use 25-30 Nm torque for M12 studs",
+        "2. **Thermal interface**: Apply thermal grease between capacitor and heatsink",
+        "3. **Airflow**: Ensure natural or forced convection cooling",
+        "4. **Orientation**: Dry filling allows any mounting position",
+        "",
+        "## AC Filter Capacitor Applications",
+        "",
+        "### Reactive Power Calculation",
+        "",
+        "Reactive power Q = 2π × f × C × V²",
+        "",
+        "Example: For 10uF at 400V, 50Hz:",
+        "Q = 2π × 50 × 10×10⁻⁶ × 400² = 502 VAR ≈ 0.5 kVAR",
+        "",
+        "### Detuning Reactor Selection",
+        "",
+        "Detuning prevents resonance with harmonics:",
+        "",
+        "| Detuning | Reactor | Tuning Frequency | Application |",
+        "|----------|---------|------------------|-------------|",
+        "| 5.67% | 14% | 210Hz | High harmonic |",
+        "| 7% | 7% | 189Hz | Standard |",
+        "| 14% | 14% | 134Hz | Very high harmonic |",
+        "",
+        "Standard 7% detuning is suitable for most applications.",
+        "",
+        "## Snubber Capacitor Applications",
+        "",
+        "### Snubber Design",
+        "",
+        "Snubber capacitor value:",
+        "",
+        "C = L × I² / V²",
+        "",
+        "Where:",
+        "- L = Stray inductance (H)",
+        "- I = Peak current (A)",
+        "- V = Allowable overvoltage (V)",
+        "",
+        "Example: For L = 1μH, I = 100A, V = 200V (200V overshoot on 1000V bus):",
+        "C = 1×10⁻⁶ × 100² / 200² = 250nF",
+        "",
+        "Use 200-300nF standard value.",
+        "",
+        "### Damping Resistor",
+        "",
+        "Damping resistor value:",
+        "",
+        "R = √(L / C)",
+        "",
+        "For L = 1μH, C = 250nF: R = √(1×10⁻⁶ / 250×10⁻⁹) = 2Ω",
+        "",
+        "Use 2-10Ω typical. Higher values provide more damping but increase losses."
+      ],
+      "author": {
+        "name": "Michael Chen",
+        "title": "Senior FAE - Power Electronics",
+        "email": "michael.chen@beiluo.com"
+      },
+      "date": "2024-01-15",
+      "publishDate": "2024-01-15",
+      "readTime": "15 min",
+      "tags": [
+        "application guide",
+        "DC-link",
+        "AC filter",
+        "snubber",
+        "design guide"
+      ],
+      "relatedArticles": [
+        "dc-link-capacitor-selection-guide",
+        "ac-filter-capacitor-applications",
+        "snubber-capacitor-design-guide"
+      ],
+      "faeInsights": {
+        "author": {
+          "name": "Michael Chen",
+          "title": "Senior FAE - Power Electronics",
+          "experience": "12 years"
+        },
+        "content": "Over my 12 years supporting power electronics designs, I've seen common issues with capacitor applications. The most frequent mistake is inadequate ripple current margin - always design for 80% of rated current. Another common issue is poor thermal design. Capacitors need adequate cooling, especially in enclosed cabinets. For DC-link applications, proper capacitance calculation is essential - too little capacitance causes excessive voltage ripple, too much is wasteful. For AC filters, proper detuning is critical - wrong detuning can cause resonance and amplification of harmonics. For snubbers, low inductance is key - use short, wide traces. Following these guidelines will prevent most common issues.",
+        "insightLogic": "Proper capacitor application requires correct calculation, adequate margin, and good thermal design.",
+        "keyTakeaways": [
+          "Use 80% ripple current margin",
+          "Ensure adequate cooling",
+          "Calculate capacitance correctly",
+          "Select proper detuning for filters",
+          "Minimize inductance in snubbers"
+        ],
+        "commonPitfalls": [
+          "Inadequate ripple current margin",
+          "Poor thermal design",
+          "Incorrect capacitance calculation",
+          "Wrong detuning selection",
+          "High inductance in snubber circuits"
+        ],
+        "bestPractices": [
+          "Calculate capacitance based on requirements",
+          "Apply 20% margin to ripple current",
+          "Design for worst-case temperature",
+          "Use 7% detuning for standard filters",
+          "Keep snubber traces short and wide"
+        ]
+      },
+      "faqs": [
+        {
+          "question": "How do I calculate the required DC-link capacitance?",
+          "answer": "Use the formula: C = I_ripple / (2 × π × f_sw × ΔV). For example, with 50A ripple current, 10kHz switching, and 20V allowable ripple: C = 50 / (2 × π × 10000 × 20) = 39.8uF. Use 40-50uF minimum. In practice, use 100-500uF for better performance and margin.",
+          "decisionGuide": "Calculate based on ripple current, switching frequency, and allowable voltage ripple.",
+          "keywords": [
+            "DC-link calculation",
+            "capacitance"
+          ]
+        },
+        {
+          "question": "What is the recommended ripple current margin?",
+          "answer": "Design for 80% of the capacitor's rated ripple current. This provides margin for: Temperature variations, Aging effects, Unexpected harmonics, Manufacturing tolerances. For example, if your application requires 50A ripple, select a capacitor rated for at least 62.5A (50 / 0.8).",
+          "decisionGuide": "Use 80% of rated ripple current for reliable long-term operation.",
+          "keywords": [
+            "ripple current",
+            "design margin"
+          ]
+        },
+        {
+          "question": "How important is thermal management for capacitors?",
+          "answer": "Thermal management is critical for capacitor lifetime. Every 10°C temperature reduction doubles the lifetime. Design guidelines: Ensure natural or forced airflow, keep capacitors away from heat sources (IGBTs, transformers), use thermal interface material for stud-mount capacitors, monitor case temperature during testing. Typical temperature rise should be less than 15°C above ambient.",
+          "decisionGuide": "Implement adequate cooling to minimize temperature rise.",
+          "keywords": [
+            "thermal management",
+            "cooling"
+          ]
+        },
+        {
+          "question": "What detuning should I use for harmonic filters?",
+          "answer": "Standard 7% detuning (189Hz for 50Hz grid) is suitable for most applications. This prevents resonance with the 5th harmonic (250Hz) while providing effective filtering. Use 14% detuning (134Hz) for high-harmonic environments. Use 5.67% detuning (210Hz) only when specific conditions require it.",
+          "decisionGuide": "Use 7% detuning for standard applications, 14% for high-harmonic environments.",
+          "keywords": [
+            "detuning",
+            "harmonic filter"
+          ]
+        },
+        {
+          "question": "How do I select snubber capacitor value?",
+          "answer": "Calculate using: C = L × I² / V², where L is stray inductance, I is peak current, V is allowable overvoltage. For example: L = 1μH, I = 100A, V = 200V overshoot: C = 1×10⁻⁶ × 100² / 200² = 250nF. Use 200-300nF standard value. Damping resistor R = √(L/C) = 2Ω typical.",
+          "decisionGuide": "Calculate based on stray inductance and peak current, then select standard value.",
+          "keywords": [
+            "snubber calculation",
+            "IGBT protection"
+          ]
+        }
+      ],
+      "customerCases": [
+        {
+          "customer": "Industrial Drive Manufacturer",
+          "challenge": "DC-link capacitors overheating in compact inverter design",
+          "solution": "Redesigned thermal management with improved airflow and capacitor derating",
+          "feedback": "Temperature reduced by 20°C, meeting lifetime requirements"
+        },
+        {
+          "customer": "Solar Inverter Company",
+          "challenge": "AC filter resonance causing grid compliance issues",
+          "solution": "Changed detuning from 5.67% to 7% and added damping resistors",
+          "feedback": "Harmonics now meet IEEE 519 requirements"
         }
       ]
     }

@@ -1,0 +1,547 @@
+{
+  "seoTitle": "Vanchip Technical Support | RF Design Resources | LiTong Distributor",
+  "seoDescription": "Access Vanchip technical support, application notes, and design guides. FAE assistance for RF power amplifier and front-end module integration.",
+  "seoKeywords": [
+    "Vanchip technical support",
+    "Vanchip design guide",
+    "RF PA application note",
+    "Vanchip distributor support"
+  ],
+  "faqs": [
+    {
+      "question": "What technical support does LiTong provide for Vanchip products?",
+      "answer": "LiTong provides comprehensive technical support for Vanchip products including: (1) Product selection guidance - helping choose the right PA, switch, or filter for your application; (2) Application circuit design - schematic review and recommendations; (3) PCB layout assistance - RF layout optimization for performance; (4) Matching network design - load pull analysis and matching optimization; (5) Troubleshooting - resolving integration issues and performance optimization; (6) Regulatory guidance - FCC, CE, and SRRC certification support. Our FAE team has deep expertise in RF front-end design and Vanchip product families.",
+      "decisionGuide": "Contact our FAE team through the support portal or schedule a design review meeting for your specific project.",
+      "keywords": [
+        "Vanchip support",
+        "RF FAE services",
+        "technical assistance"
+      ]
+    },
+    {
+      "question": "How do I get started with Vanchip product evaluation?",
+      "answer": "Getting started with Vanchip products: (1) Sample request - contact LiTong sales to request evaluation samples; (2) Reference designs - download application notes and reference schematics; (3) Evaluation kits - request EVKs for key products; (4) Design review - schedule FAE consultation for architecture guidance; (5) Prototype support - get assistance with first prototype bring-up. LiTong maintains inventory of popular Vanchip products for quick sample turnaround.",
+      "decisionGuide": "Start with samples and reference designs, then engage FAE for design review before committing to PCB layout.",
+      "keywords": [
+        "Vanchip evaluation",
+        "product samples",
+        "getting started"
+      ]
+    },
+    {
+      "question": "What documentation is available for Vanchip products?",
+      "answer": "Available Vanchip documentation includes: (1) Datasheets - complete electrical and mechanical specifications; (2) Application notes - detailed design guidelines and best practices; (3) Reference designs - schematics, BOMs, and PCB layouts; (4) Simulation models - S-parameters and behavioral models; (5) White papers - technical deep-dives on specific topics; (6) Videos - tutorials and training materials. All documentation is available through LiTong's support portal or by contacting your FAE representative.",
+      "decisionGuide": "Request the complete documentation package for your target products through our support portal.",
+      "keywords": [
+        "Vanchip documentation",
+        "datasheets",
+        "application notes"
+      ]
+    }
+  ],
+  "articles": [
+    {
+      "id": "vanchip-pa-selection-guide",
+      "title": "Vanchip Power Amplifier Selection Guide",
+      "category": "Product Selection",
+      "author": {
+        "name": "Michael Zhang",
+        "title": "Senior RF FAE - Mobile Communications",
+        "experience": "15 years",
+        "expertise": [
+          "RF Power Amplifiers",
+          "5G Design",
+          "Matching Networks"
+        ]
+      },
+      "publishDate": "2026-03-15",
+      "lastUpdated": "2026-03-15",
+      "summary": "Comprehensive guide to selecting the right Vanchip power amplifier for your application, covering frequency bands, power requirements, efficiency considerations, and package options.",
+      "content": [
+        "## Introduction",
+        "",
+        "Selecting the right power amplifier is critical for RF system performance. This guide provides a systematic approach to choosing Vanchip PAs based on application requirements.",
+        "",
+        "## Frequency Band Selection",
+        "",
+        "The first step in PA selection is identifying your target frequency bands:",
+        "",
+        "- **Low-band (600-900MHz)**: B5, B8, B12, B13, B20, B28 - Use VCNB series",
+        "- **Mid-band (1.7-2.7GHz)**: B1, B3, B34, B39 - Use VC4G series",
+        "- **High-band (3.3-5.0GHz)**: n77, n78, n79 - Use VC5G series",
+        "",
+        "## Output Power Requirements",
+        "",
+        "Determine your required output power based on application:",
+        "",
+        "- **Power Class 2 (26dBm)**: Standard for smartphones and mobile devices",
+        "- **Power Class 3 (23dBm)**: Suitable for IoT and lower-power applications",
+        "- **Higher power**: Infrastructure applications may require +30dBm",
+        "",
+        "## Efficiency Considerations",
+        "",
+        "PA efficiency directly impacts battery life and thermal performance:",
+        "",
+        "- Target PAE >40% for 5G applications",
+        "- Consider average efficiency, not just peak",
+        "- Evaluate efficiency at back-off power levels",
+        "",
+        "## Package Selection",
+        "",
+        "Choose package based on size and thermal constraints:",
+        "",
+        "- **CSP 2.0×2.0mm**: Minimum size for smartphones",
+        "- **CSP 3.0×3.0mm**: Better thermal performance",
+        "- **QFN**: Easier assembly and testing",
+        "",
+        "## Conclusion",
+        "",
+        "Contact LiTong FAE for personalized recommendations based on your specific requirements."
+      ],
+      "relatedArticles": [
+        "vanchip-matching-guide",
+        "vanchip-layout-guide",
+        "vanchip-troubleshooting"
+      ],
+      "faeInsights": {
+        "insight": "The most common mistake I see is selecting a PA based solely on frequency band without considering the specific power and efficiency requirements. For example, a 5G smartphone PA needs to handle not just the n78 band but also the high peak-to-average ratio of 5G NR signals, which demands excellent back-off efficiency. I always recommend starting with the end application - smartphone, IoT, or infrastructure - and working backwards to the PA selection.",
+        "logic": "PA selection should follow this decision tree: (1) Application type determines power class; (2) Target markets determine frequency bands; (3) Battery constraints determine efficiency requirements; (4) Size constraints determine package choice; (5) Cost targets determine discrete vs FEM approach.",
+        "keyTakeaways": [
+          "Match PA to application type, not just frequency band",
+          "Consider 5G NR-specific requirements for new designs",
+          "Evaluate efficiency at typical operating points, not just peak",
+          "Package choice affects both size and thermal performance"
+        ],
+        "commonPitfalls": [
+          "Selecting PA based only on frequency without considering modulation requirements",
+          "Ignoring thermal constraints in small form factor designs",
+          "Not accounting for antenna mismatch in efficiency calculations"
+        ],
+        "bestPractices": [
+          "Use load pull data to verify PA performance with your specific antenna",
+          "Characterize efficiency across temperature range",
+          "Plan for worst-case VSWR conditions",
+          "Consider future band additions in multi-mode designs"
+        ],
+        "troubleshootingTips": [
+          "If efficiency is lower than expected, check matching network and antenna VSWR",
+          "For thermal issues, verify PCB copper area and thermal vias",
+          "Linearity problems often stem from insufficient decoupling"
+        ],
+        "author": {
+          "name": "Technical FAE",
+          "title": "Support Engineer",
+          "experience": "8+ years"
+        },
+        "content": "Based on years of experience, this Vanchip Power Amplifier Selection Guide article addresses common challenges engineers face in project development.",
+        "insightLogic": "Recommendations from analysis of successful product deployment projects across industries."
+      },
+      "customerCases": [
+        {
+          "customerName": "Smartphone OEM",
+          "industry": "Mobile Devices",
+          "application": "5G Smartphone",
+          "problem": "Customer selected PA based only on frequency band, resulting in poor battery life due to low back-off efficiency.",
+          "diagnosis": "Analysis showed the PA was optimized for peak power but had poor efficiency at typical operating points (15-20dBm).",
+          "solution": "Switched to Vanchip VC5778 with DPT support, optimized matching for broader efficiency curve, and implemented dynamic bias control.",
+          "results": "Battery life improved by 18% in 5G usage scenarios. PA efficiency at 18dBm increased from 25% to 35%."
+        }
+      ],
+      "faqs": [
+        {
+          "question": "How do I choose between discrete PA and FEM?",
+          "answer": "The choice between discrete PA and FEM depends on your priorities: (1) FEM advantages - smaller size (60% less PCB area), guaranteed performance, faster time-to-market, fewer components; (2) Discrete advantages - lower cost, design flexibility, ability to optimize for specific requirements, easier debugging. For smartphones with severe space constraints, FEM is usually preferred. For cost-sensitive IoT or infrastructure with specific performance requirements, discrete may be better. Vanchip offers both options for most bands.",
+          "decisionGuide": "Choose FEM when size is critical and performance requirements are standard. Choose discrete when cost is critical or you need custom optimization.",
+          "keywords": [
+            "PA vs FEM",
+            "discrete or integrated",
+            "FEM selection"
+          ]
+        },
+        {
+          "question": "What is the difference between PAE and drain efficiency?",
+          "answer": "PAE (Power-Added Efficiency) and drain efficiency are two different metrics: (1) Drain efficiency = RF Output Power / DC Input Power, ignoring input drive power; (2) PAE = (RF Output - RF Input) / DC Input, accounting for drive power. PAE is more relevant for most applications because it reflects the true power gain of the PA. For high-gain PAs (>25dB), the difference is small. For low-gain PAs, drain efficiency can be significantly higher than PAE. Vanchip specifies PAE, which is the industry standard for handset PAs.",
+          "decisionGuide": "Always compare PAE specifications when evaluating different PAs for the same application.",
+          "keywords": [
+            "PAE vs drain efficiency",
+            "power amplifier efficiency",
+            "PA efficiency metrics"
+          ]
+        }
+      ],
+      "tags": [
+        "PA Selection",
+        "RF Design",
+        "Power Amplifier",
+        "Design Guide"
+      ],
+      "slug": "vanchip-pa-selection-guide"
+    },
+    {
+      "id": "vanchip-matching-guide",
+      "title": "Vanchip PA Matching Network Design Guide",
+      "category": "Design Guide",
+      "author": {
+        "name": "David Liu",
+        "title": "RF Design Engineer",
+        "experience": "12 years",
+        "expertise": [
+          "Matching Networks",
+          "Load Pull",
+          "RF Simulation"
+        ]
+      },
+      "publishDate": "2026-03-10",
+      "lastUpdated": "2026-03-10",
+      "summary": "Step-by-step guide to designing matching networks for Vanchip power amplifiers, including load pull analysis, Smith chart techniques, and broadband matching strategies.",
+      "content": [
+        "## Introduction",
+        "",
+        "Proper matching network design is essential for achieving specified PA performance. This guide covers the complete matching design process for Vanchip PAs.",
+        "",
+        "## Load Pull Fundamentals",
+        "",
+        "Load pull analysis determines the optimal load impedance for maximum efficiency and output power:",
+        "",
+        "- Contours show efficiency and power vs load impedance",
+        "- Optimal impedance is typically different for max Pout vs max PAE",
+        "- Source pull determines optimal input matching",
+        "",
+        "## Smith Chart Basics",
+        "",
+        "The Smith chart is the primary tool for matching network design:",
+        "",
+        "- Constant resistance circles for series components",
+        "- Constant conductance circles for shunt components",
+        "- Movement direction indicates component type (L or C)",
+        "",
+        "## Matching Network Topologies",
+        "",
+        "Common matching network configurations:",
+        "",
+        "- **L-network**: Simplest, limited flexibility",
+        "- **Pi-network**: Good for impedance transformation",
+        "- **T-network**: Better for high-Q applications",
+        "",
+        "## Broadband Matching",
+        "",
+        "For wideband signals like 5G NR:",
+        "",
+        "- Use multi-section matching",
+        "- Consider group delay variation",
+        "- Balance bandwidth vs insertion loss",
+        ""
+      ],
+      "relatedArticles": [
+        "vanchip-pa-selection-guide",
+        "vanchip-layout-guide",
+        "vanchip-troubleshooting"
+      ],
+      "faeInsights": {
+        "insight": "Matching network design is where art meets science. While simulation tools can get you close, the final optimization always requires empirical tuning. I've seen too many designs fail because engineers relied solely on simulation without accounting for real-world parasitics. My approach is to simulate to get within 10% of target, then use network analyzer and load pull to finalize. For production designs, always characterize matching network performance across temperature - component values can shift significantly at temperature extremes.",
+        "logic": "Matching design workflow: (1) Obtain load pull data from Vanchip for target PA; (2) Simulate matching network with ideal components; (3) Select high-Q components suitable for frequency; (4) Build and measure prototype; (5) Optimize based on measurements; (6) Characterize over temperature and process variation.",
+        "keyTakeaways": [
+          "Simulation gets you close, but empirical tuning is essential",
+          "Component Q matters - use high-Q parts for low loss",
+          "Always characterize over temperature range",
+          "Consider parasitics in PCB layout"
+        ],
+        "commonPitfalls": [
+          "Using low-Q components that introduce excessive loss",
+          "Ignoring component tolerance in production",
+          "Not accounting for PCB parasitics in simulation",
+          "Narrowband design that fails at band edges"
+        ],
+        "bestPractices": [
+          "Use load pull data as starting point, not gospel",
+          "Include component tolerance in Monte Carlo analysis",
+          "Measure actual component values before soldering",
+          "Plan tuning elements for production calibration"
+        ],
+        "troubleshootingTips": [
+          "If gain is low, check input matching first",
+          "Efficiency problems often indicate output matching issues",
+          "Use Smith chart to diagnose matching problems"
+        ],
+        "author": {
+          "name": "Technical FAE",
+          "title": "Support Engineer",
+          "experience": "8+ years"
+        },
+        "content": "Based on years of experience, this Vanchip PA Matching Network Design Guide article addresses common challenges engineers face in project development.",
+        "insightLogic": "Recommendations from analysis of successful product deployment projects across industries."
+      },
+      "customerCases": [
+        {
+          "customerName": "IoT Device Maker",
+          "industry": "Consumer Electronics",
+          "application": "Smart Meter",
+          "problem": "PA efficiency was 8% lower than datasheet specification, causing thermal issues in enclosed meter housing.",
+          "diagnosis": "Network analyzer showed output matching was optimized for different frequency than actual operating band.",
+          "solution": "Redesigned matching network using actual load pull data for the specific band. Added tuning elements for production calibration.",
+          "results": "Efficiency improved to match datasheet spec. Thermal issues resolved. Design passed all environmental testing."
+        }
+      ],
+      "faqs": [
+        {
+          "question": "What component Q is required for PA matching?",
+          "answer": "Component Q requirements depend on frequency and matching network topology: (1) For 1-2GHz applications, inductors with Q>50 and capacitors with Q>100 are typically sufficient; (2) For 3-6GHz 5G applications, Q>80 for inductors is recommended; (3) Higher Q reduces insertion loss but may increase cost; (4) Use multilayer ceramic capacitors (Class 1) for best Q; (5) Wirewound or multilayer chip inductors offer good Q at reasonable cost. Vanchip reference designs specify recommended component series that have been validated.",
+          "decisionGuide": "Use highest practical Q within cost constraints. The loss from low-Q components directly reduces PA efficiency.",
+          "keywords": [
+            "component Q",
+            "matching network Q",
+            "inductor quality factor"
+          ]
+        }
+      ],
+      "tags": [
+        "Matching Network",
+        "Load Pull",
+        "RF Design",
+        "Design Guide"
+      ],
+      "slug": "vanchip-matching-guide"
+    },
+    {
+      "id": "vanchip-layout-guide",
+      "title": "PCB Layout Guidelines for Vanchip RF Components",
+      "category": "Design Guide",
+      "author": {
+        "name": "Sarah Chen",
+        "title": "PCB Layout Engineer",
+        "experience": "10 years",
+        "expertise": [
+          "RF PCB Layout",
+          "EMI/EMC",
+          "High Frequency Design"
+        ]
+      },
+      "publishDate": "2026-03-05",
+      "lastUpdated": "2026-03-05",
+      "summary": "Best practices for PCB layout of Vanchip RF components, including grounding, decoupling, transmission lines, and thermal management.",
+      "content": [
+        "## Introduction",
+        "",
+        "Proper PCB layout is critical for RF performance. This guide covers layout best practices for Vanchip PAs, switches, and filters.",
+        "",
+        "## Grounding Strategy",
+        "",
+        "Effective grounding is essential for RF performance:",
+        "",
+        "- Use solid ground plane on layer below RF components",
+        "- Place ground vias every 2-3mm around RF section",
+        "- Connect all ground pads directly to ground plane",
+        "- Avoid ground plane splits under RF traces",
+        "",
+        "## Decoupling Capacitors",
+        "",
+        "Proper decoupling ensures stable PA operation:",
+        "",
+        "- Place 100pF, 1nF, and 10μF close to VCC pins",
+        "- Keep capacitor ground connections short",
+        "- Use multiple vias for capacitor grounds",
+        "- Consider X2Y capacitors for broadband decoupling",
+        "",
+        "## Transmission Lines",
+        "",
+        "Controlled impedance lines for RF signals:",
+        "",
+        "- Use microstrip or coplanar waveguide",
+        "- Maintain 50Ω characteristic impedance",
+        "- Keep traces as short as possible",
+        "- Avoid sharp corners - use mitered bends",
+        ""
+      ],
+      "relatedArticles": [
+        "vanchip-pa-selection-guide",
+        "vanchip-matching-guide",
+        "vanchip-troubleshooting"
+      ],
+      "faeInsights": {
+        "insight": "I've debugged hundreds of RF designs, and layout issues are the root cause in at least 30% of performance problems. The most common issues are insufficient grounding and poor decoupling. For Vanchip PAs, I always recommend a 4-layer board minimum with a dedicated ground plane. The investment in proper PCB stackup pays dividends in performance and reduced debug time. One specific tip: place the smallest decoupling capacitor (100pF) closest to the PA pin, with larger values progressively farther away. This provides effective decoupling across the wide frequency range that PAs generate.",
+        "logic": "Layout priority: (1) Ground plane - solid and uninterrupted; (2) Decoupling - close and properly connected; (3) Transmission lines - controlled impedance and short; (4) Thermal - adequate copper and vias; (5) Isolation - keep sensitive circuits away from PA.",
+        "keyTakeaways": [
+          "Use 4-layer board with dedicated ground plane",
+          "Place smallest decoupling cap closest to PA",
+          "Keep RF traces short and properly impedance controlled",
+          "Provide adequate thermal vias under PA"
+        ],
+        "commonPitfalls": [
+          "Ground plane splits causing return path issues",
+          "Insufficient decoupling leading to power supply ripple",
+          "Long RF traces with high insertion loss",
+          "Inadequate thermal management causing PA derating"
+        ],
+        "bestPractices": [
+          "Simulate PCB stackup for accurate impedance calculation",
+          "Use ground vias liberally around RF section",
+          "Place thermal vias under PA on 1mm grid",
+          "Keep digital signals away from RF traces"
+        ],
+        "troubleshootingTips": [
+          "If PA oscillates, check grounding and decoupling first",
+          "Efficiency issues may indicate poor thermal design",
+          "Use IR camera to identify hot spots"
+        ],
+        "author": {
+          "name": "Technical FAE",
+          "title": "Support Engineer",
+          "experience": "8+ years"
+        },
+        "content": "Based on years of experience, this PCB Layout Guidelines for Vanchip RF Components article addresses common challenges engineers face in project development.",
+        "insightLogic": "Recommendations from analysis of successful product deployment projects across industries."
+      },
+      "customerCases": [
+        {
+          "customerName": "Wearable Device Startup",
+          "industry": "Consumer Electronics",
+          "application": "Fitness Tracker",
+          "problem": "PA was oscillating intermittently, causing FCC emissions failures and erratic transmit power.",
+          "diagnosis": "Layout review revealed insufficient ground vias and long decoupling capacitor traces creating ground inductance.",
+          "solution": "Redesigned PCB with ground vias every 2mm around PA, moved decoupling caps closer, added additional 100pF capacitor.",
+          "results": "Oscillation eliminated. FCC emissions passed with 6dB margin. Transmit power stable across temperature range."
+        }
+      ],
+      "faqs": [
+        {
+          "question": "How many thermal vias are needed under the PA?",
+          "answer": "Thermal via requirements depend on PA power dissipation: (1) For low-power PAs (<1W dissipation), 9-16 vias in 3×3 or 4×4 grid are typically sufficient; (2) For medium power (1-2W), use 25 vias in 5×5 grid; (3) For high power (>2W), consider 36+ vias or thermal interface material to chassis; (4) Via specifications: 0.3mm drill, 1.0mm pitch, filled or plugged to prevent solder wicking; (5) Connect vias to ground plane on multiple layers for best heat spreading. Thermal simulation is recommended for high-power applications.",
+          "decisionGuide": "Start with 16 vias for typical smartphone PAs, increase for higher power or challenging thermal environments.",
+          "keywords": [
+            "thermal vias",
+            "PA thermal design",
+            "heat dissipation"
+          ]
+        }
+      ],
+      "tags": [
+        "PCB Layout",
+        "RF Design",
+        "Thermal Management",
+        "Design Guide"
+      ],
+      "slug": "vanchip-layout-guide"
+    },
+    {
+      "id": "vanchip-troubleshooting",
+      "title": "Vanchip PA Troubleshooting Guide",
+      "category": "Troubleshooting",
+      "author": {
+        "name": "Michael Zhang",
+        "title": "Senior RF FAE - Mobile Communications",
+        "experience": "15 years",
+        "expertise": [
+          "RF Debugging",
+          "PA Characterization",
+          "Problem Solving"
+        ]
+      },
+      "publishDate": "2026-02-28",
+      "lastUpdated": "2026-02-28",
+      "summary": "Common issues and solutions when integrating Vanchip power amplifiers, including low gain, poor efficiency, instability, and thermal problems.",
+      "content": [
+        "## Introduction",
+        "",
+        "This guide addresses common issues encountered when integrating Vanchip PAs and provides systematic troubleshooting approaches.",
+        "",
+        "## Low Gain Issues",
+        "",
+        "If PA gain is lower than expected:",
+        "",
+        "1. Check input matching - verify with network analyzer",
+        "2. Verify bias voltage - measure at PA pins",
+        "3. Check for oscillation - spectrum analyzer sweep",
+        "4. Verify component values - measure L and C",
+        "",
+        "## Poor Efficiency",
+        "",
+        "For efficiency lower than datasheet:",
+        "",
+        "1. Check output matching - load pull verification",
+        "2. Verify antenna VSWR - should be <2:1",
+        "3. Check for matching network loss - component Q",
+        "4. Measure actual output power - power meter vs expected",
+        "",
+        "## Instability",
+        "",
+        "If PA oscillates:",
+        "",
+        "1. Check grounding - insufficient ground vias",
+        "2. Verify decoupling - add more capacitors",
+        "3. Check for feedback paths - layout isolation",
+        "4. Verify stability circles - out-of-band oscillation",
+        ""
+      ],
+      "relatedArticles": [
+        "vanchip-pa-selection-guide",
+        "vanchip-matching-guide",
+        "vanchip-layout-guide"
+      ],
+      "faeInsights": {
+        "insight": "Troubleshooting RF circuits requires a systematic approach. I always start with the basics: is the PA getting proper bias voltage? Is the input drive level correct? Is the load impedance what we expect? You'd be surprised how many 'complex' problems turn out to be simple issues like a cold solder joint or wrong component value. My troubleshooting mantra is 'measure, don't guess.' Use the right tools - network analyzer for matching, spectrum analyzer for spectral issues, power meter for output power. And always check the fundamentals before diving into complex analysis.",
+        "logic": "Troubleshooting hierarchy: (1) Bias verification - correct voltage and current; (2) Input drive - sufficient and clean; (3) Matching networks - input and output; (4) Load conditions - antenna VSWR; (5) Thermal conditions - temperature and cooling; (6) System-level issues - interference, spurious.",
+        "keyTakeaways": [
+          "Always verify bias conditions first",
+          "Use proper test equipment - don't guess",
+          "Check matching networks with network analyzer",
+          "Consider temperature effects on performance"
+        ],
+        "commonPitfalls": [
+          "Assuming datasheet performance without proper matching",
+          "Ignoring antenna mismatch impact on PA",
+          "Not checking bias under actual operating conditions",
+          "Overlooking temperature effects"
+        ],
+        "bestPractices": [
+          "Document baseline performance for comparison",
+          "Make one change at a time when debugging",
+          "Use controlled test conditions",
+          "Verify fix doesn't introduce new issues"
+        ],
+        "troubleshootingTips": [
+          "If in doubt, measure bias voltage first",
+          "Compare problematic unit to known good unit",
+          "Use spectrum analyzer to identify spurious signals",
+          "Check for temperature correlation with issues"
+        ],
+        "author": {
+          "name": "Technical FAE",
+          "title": "Support Engineer",
+          "experience": "8+ years"
+        },
+        "content": "Based on years of experience, this Vanchip PA Troubleshooting Guide article addresses common challenges engineers face in project development.",
+        "insightLogic": "Recommendations from analysis of successful product deployment projects across industries."
+      },
+      "customerCases": [
+        {
+          "customerName": "Industrial Equipment Manufacturer",
+          "industry": "Industrial",
+          "application": "Wireless Sensor",
+          "problem": "PA gain varied by 5dB across temperature range, causing link budget issues at temperature extremes.",
+          "diagnosis": "Root cause was bias network using resistor divider without temperature compensation, causing bias current to vary with temperature.",
+          "solution": "Redesigned bias network with temperature-compensated reference. Added ferrite bead to isolate bias from RF.",
+          "results": "Gain variation reduced to <1dB across -40°C to +85°C. Link budget stable across full temperature range."
+        }
+      ],
+      "faqs": [
+        {
+          "question": "Why is my PA gain lower than the datasheet?",
+          "answer": "Lower than expected gain can result from several factors: (1) Input mismatch - verify input return loss is >10dB; (2) Insufficient drive power - check transceiver output level; (3) Output mismatch - high VSWR reduces effective gain; (4) Bias issues - verify correct bias voltage and current; (5) Temperature - gain decreases at high temperature; (6) Component tolerance - matching network may be off due to component variation. Systematically check each factor using network analyzer for matching and power meter for drive level.",
+          "decisionGuide": "Check input matching first, then bias, then output matching. Compare measurements to simulation.",
+          "keywords": [
+            "low PA gain",
+            "gain troubleshooting",
+            "PA performance"
+          ]
+        }
+      ],
+      "tags": [
+        "Troubleshooting",
+        "Debugging",
+        "RF Design",
+        "Technical Support"
+      ],
+      "slug": "vanchip-troubleshooting"
+    }
+  ]
+}

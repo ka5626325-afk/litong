@@ -14,31 +14,51 @@
       "question": "What product categories does Gainsil offer?",
       "answer": "Gainsil Semiconductor offers four primary product categories: Operational Amplifiers, Comparators, Analog Switches, and Voltage References. The operational amplifier portfolio includes precision, low-power, and high-speed variants with rail-to-rail input/output capabilities. Comparator products span from nanopower to high-speed applications with propagation delays ranging from microseconds to nanoseconds. Analog switches feature low on-resistance and excellent channel matching for signal routing applications. Voltage references provide high precision with low temperature drift for accurate voltage standards. Each category is designed to address specific signal chain requirements across industrial, consumer, medical, and automotive markets.",
       "decisionGuide": "Browse our product categories below to find detailed specifications and selection guides. Contact our FAE team for assistance in selecting the optimal product for your application.",
-      "keywords": ["Gainsil product categories", "analog IC portfolio", "signal chain products"]
+      "keywords": [
+        "Gainsil product categories",
+        "analog IC portfolio",
+        "signal chain products"
+      ]
     },
     {
       "question": "How do I select the right Gainsil operational amplifier for my application?",
       "answer": "Selecting the right operational amplifier requires evaluating several key parameters. First, determine your supply voltage range and whether rail-to-rail input/output is required for your signal swing. Next, consider the gain bandwidth product (GBW) needed for your closed-loop gain and bandwidth requirements. For precision applications, focus on input offset voltage and drift specifications - Gainsil offers op-amps with offset voltages as low as 50μV. Power consumption is critical for battery-operated devices; Gainsil provides microampere-level supply current options. Finally, evaluate package options based on your board space and thermal requirements. Our GS85xx series offers excellent general-purpose performance, while GS86xx targets ultra-low power applications.",
       "decisionGuide": "Review the detailed specifications in our Operational Amplifiers category page. Download our Op-Amp Selection Guide or contact LiTong FAEs for personalized recommendations based on your circuit requirements.",
-      "keywords": ["op-amp selection guide", "operational amplifier parameters", "Gainsil op-amp selection"]
+      "keywords": [
+        "op-amp selection guide",
+        "operational amplifier parameters",
+        "Gainsil op-amp selection"
+      ]
     },
     {
       "question": "What is the difference between Gainsil's comparator families?",
       "answer": "Gainsil offers several comparator families optimized for different application requirements. The GS83xx series provides general-purpose comparators with balanced speed and power consumption, suitable for most industrial applications. The GS87xx family features high-speed operation with propagation delays under 100ns for fast-switching applications. For ultra-low power requirements, the GS84xx nanopower comparators consume less than 1μA supply current, ideal for battery-powered devices. Push-pull output comparators offer rail-to-rail output swing without external pull-up resistors, while open-drain versions allow flexible output voltage levels. Some variants include internal hysteresis to prevent output chatter in noisy environments.",
       "decisionGuide": "Visit our Comparators category page to compare specifications across families. Consider your speed, power, and output requirements when selecting the appropriate comparator for your design.",
-      "keywords": ["comparator selection", "Gainsil comparator families", "high-speed comparator"]
+      "keywords": [
+        "comparator selection",
+        "Gainsil comparator families",
+        "high-speed comparator"
+      ]
     },
     {
       "question": "What are the key specifications to consider when selecting analog switches?",
       "answer": "When selecting analog switches, several key specifications determine performance in your application. On-resistance (Ron) affects signal attenuation and should be minimized for precision applications - Gainsil switches offer Ron as low as 0.5Ω. On-resistance flatness ensures consistent performance across the signal range. Charge injection can cause glitches when switching; Gainsil's optimized designs minimize this effect. Bandwidth determines the maximum signal frequency that can pass through the switch with minimal attenuation. Off-isolation and crosstalk specifications are critical for maintaining signal integrity in multi-channel applications. Supply voltage range and logic threshold compatibility must match your control circuitry.",
       "decisionGuide": "Review our Analog Switches category for detailed specifications including Ron, bandwidth, and charge injection data. Contact LiTong for SPICE models and application guidance.",
-      "keywords": ["analog switch specifications", "on-resistance selection", "multiplexer switch guide"]
+      "keywords": [
+        "analog switch specifications",
+        "on-resistance selection",
+        "multiplexer switch guide"
+      ]
     },
     {
       "question": "Which applications are best suited for Gainsil voltage references?",
       "answer": "Gainsil voltage references are ideal for applications requiring stable, accurate voltage standards. Data acquisition systems benefit from the low temperature drift (as low as 10ppm/°C) to maintain ADC accuracy across temperature variations. Battery-powered devices can utilize the low quiescent current options to minimize power consumption. Industrial control systems rely on the excellent line regulation to maintain accuracy despite supply variations. Medical instruments require the high initial accuracy (±0.1%) for precise measurements. Test and measurement equipment leverages the low noise characteristics for sensitive detection circuits. Automotive applications can use AEC-Q100 qualified variants for reliable operation in harsh environments.",
       "decisionGuide": "Explore our Voltage References category to find products matching your accuracy, drift, and power requirements. Our FAE team can assist with reference design and layout recommendations.",
-      "keywords": ["voltage reference applications", "precision reference selection", "ADC reference voltage"]
+      "keywords": [
+        "voltage reference applications",
+        "precision reference selection",
+        "ADC reference voltage"
+      ]
     }
   ],
   "categories": [
@@ -46,8 +66,26 @@
       "id": "operational-amplifiers",
       "name": "Operational Amplifiers",
       "description": "Gainsil operational amplifiers deliver precision performance with rail-to-rail input/output, low offset voltage, and wide bandwidth options. The portfolio includes general-purpose, precision, low-power, and high-speed variants to address diverse signal conditioning requirements. Advanced TSMC process technology enables excellent DC precision with offset voltages as low as 50μV and drift specifications under 1μV/°C. Wide supply voltage ranges (1.8V to 36V) accommodate various system architectures. Available in industry-standard packages including SOT23, SC70, MSOP, and SOIC.",
-      "parameters": ["Supply Voltage", "GBW", "Slew Rate", "Offset Voltage", "Quiescent Current", "Package"],
-      "applications": ["Sensor Signal Conditioning", "Active Filters", "Data Acquisition", "Battery-Powered Instruments", "Audio Preamplifiers"],
+      "parameters": [
+        "Supply Voltage",
+        "GBW",
+        "Slew Rate",
+        "Offset Voltage",
+        "Offset Drift",
+        "Quiescent Current",
+        "Input Bias Current",
+        "Noise Density",
+        "Voltage Rating",
+        "Current Rating",
+        "Temperature Range"
+      ],
+      "applications": [
+        "Sensor Signal Conditioning",
+        "Active Filters",
+        "Data Acquisition",
+        "Battery-Powered Instruments",
+        "Audio Preamplifiers"
+      ],
       "selectionGuide": {
         "title": "How to Select Gainsil Operational Amplifiers",
         "description": "Comprehensive guide covering key parameters, application considerations, and selection criteria for Gainsil op-amps",
@@ -59,31 +97,51 @@
           "question": "What is the difference between GS8511 and GS8551 precision op-amps?",
           "answer": "The GS8511 and GS8551 are both precision operational amplifiers but target different application requirements. The GS8511 offers ultra-low offset voltage of 50μV maximum with 0.5μV/°C drift, making it ideal for high-precision measurement applications. It features a gain bandwidth product of 1MHz and operates from 2.1V to 5.5V supplies. The GS8551 provides a higher gain bandwidth of 1.8MHz while maintaining good precision with 200μV maximum offset voltage. It offers rail-to-rail input and output with slightly higher quiescent current. Choose GS8511 for maximum DC precision in sensor interfaces and GS8551 when bandwidth and speed are more critical.",
           "decisionGuide": "Compare detailed specifications in the product tables below. GS8511 is recommended for precision instrumentation; GS8551 for general-purpose signal conditioning requiring higher bandwidth.",
-          "keywords": ["GS8511 vs GS8551", "precision op-amp comparison", "low offset amplifier"]
+          "keywords": [
+            "GS8511 vs GS8551",
+            "precision op-amp comparison",
+            "low offset amplifier"
+          ]
         },
         {
           "question": "How do I interpret the gain bandwidth product specification?",
           "answer": "The Gain Bandwidth Product (GBW) is a fundamental parameter that determines the maximum bandwidth achievable at a given closed-loop gain. For a given op-amp with GBW of 1MHz, you can achieve 1MHz bandwidth at unity gain (gain = 1), 500kHz at gain of 2, 100kHz at gain of 10, and so on. The relationship is: Bandwidth = GBW / Closed-Loop Gain. When selecting an op-amp, calculate your required GBW by multiplying your desired closed-loop gain by your signal bandwidth, then add margin (typically 20-50%) for variations. Gainsil offers GBW options from 10kHz for ultra-low power to 10MHz for high-speed applications.",
           "decisionGuide": "Use our GBW calculator or consult the selection tables to find op-amps meeting your gain and bandwidth requirements. Contact FAE support for complex multi-stage designs.",
-          "keywords": ["gain bandwidth product", "op-amp bandwidth calculation", "GBW selection"]
+          "keywords": [
+            "gain bandwidth product",
+            "op-amp bandwidth calculation",
+            "GBW selection"
+          ]
         },
         {
           "question": "What package options are available for Gainsil op-amps?",
           "answer": "Gainsil operational amplifiers are available in industry-standard packages to accommodate various board space and thermal requirements. SOT23-5 and SC70-5 packages offer the smallest footprint for space-constrained designs. SOP-8 and MSOP-8 provide better thermal performance and are easier to handle during assembly. For dual and quad configurations, SOP-8, MSOP-8, TSSOP-8, and SOP-14 packages are available. All packages are RoHS compliant and support standard PCB assembly processes. Pinouts follow industry conventions where possible to facilitate migration from competitor products. Thermal resistance specifications are provided for all packages to support thermal design calculations.",
           "decisionGuide": "Review package dimensions and thermal characteristics in the product specifications. Consider board space, thermal requirements, and assembly capabilities when selecting packages.",
-          "keywords": ["op-amp package options", "SOT23 vs SOP8", "analog IC packaging"]
+          "keywords": [
+            "op-amp package options",
+            "SOT23 vs SOP8",
+            "analog IC packaging"
+          ]
         },
         {
           "question": "How does input offset voltage affect my circuit performance?",
           "answer": "Input offset voltage (Vos) creates an error voltage at the op-amp input that appears amplified at the output. In a non-inverting amplifier with gain of 100, a 1mV offset voltage produces 100mV output error. For precision applications like sensor signal conditioning, this error can dominate system accuracy. Gainsil's precision op-amps offer Vos as low as 50μV, reducing this error source significantly. Offset voltage drift with temperature further impacts performance; Gainsil specifies drift as low as 0.5μV/°C. For DC-coupled applications, choose the lowest Vos option your budget allows. For AC-coupled or low-gain applications, standard Vos specifications may be acceptable.",
           "decisionGuide": "Calculate the maximum allowable offset for your application and select op-amps meeting this requirement. Consider temperature range and drift specifications for precision designs.",
-          "keywords": ["input offset voltage", "op-amp error analysis", "precision amplifier selection"]
+          "keywords": [
+            "input offset voltage",
+            "op-amp error analysis",
+            "precision amplifier selection"
+          ]
         },
         {
           "question": "Can Gainsil op-amps operate from single supply voltages?",
           "answer": "Yes, all Gainsil operational amplifiers support single-supply operation with voltage ranges starting as low as 1.8V. Rail-to-rail input (RRI) capability allows input signals to extend to both supply rails, essential for single-supply designs where common-mode voltage may be near ground or VCC. Rail-to-rail output (RRO) enables maximum dynamic range by allowing output swing within millivolts of the supply rails. For single-supply designs, ensure your input common-mode range includes your signal range and verify that output swing can reach your required voltage levels under load. Gainsil specifies input and output voltage ranges clearly in datasheets to facilitate single-supply design.",
           "decisionGuide": "Select op-amps with RRI and RRO for maximum flexibility in single-supply designs. Verify input common-mode and output swing specifications against your circuit requirements.",
-          "keywords": ["single supply op-amp", "rail-to-rail amplifier", "low voltage operation"]
+          "keywords": [
+            "single supply op-amp",
+            "rail-to-rail amplifier",
+            "low voltage operation"
+          ]
         }
       ],
       "products": [
@@ -105,7 +163,10 @@
             "Quiescent Current": "40μA",
             "Input Bias Current": "1pA",
             "Noise Density": "27nV/√Hz",
-            "Package": "SOT23-5, SOP-8"
+            "Package": "SOT23-5, SOP-8",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
           },
           "features": [
             "Ultra-low 50μV maximum input offset voltage",
@@ -202,37 +263,61 @@
               "question": "What is the typical application circuit for GS8511 in strain gauge amplification?",
               "answer": "For strain gauge applications, configure GS8511 as a differential amplifier with gain set by external resistors. A typical circuit uses a Wheatstone bridge with 350Ω strain gauges powered by a stable reference voltage. The GS8511 amplifies the bridge differential output with gain of 100-1000 depending on strain range. Include 10kΩ input resistors for current limiting and 100nF capacitors for EMI filtering. The 50μV offset translates to only 0.05% full-scale error at gain of 1000, eliminating need for offset nulling. Use precision 0.1% resistors for gain-setting to maintain overall accuracy. The 1pA input bias current introduces negligible error even with high source impedances typical of remote strain gauges.",
               "decisionGuide": "Request our Strain Gauge Amplifier Application Note for complete schematics and PCB layout guidelines. Contact FAE for assistance with your specific sensor configuration.",
-              "keywords": ["strain gauge amplifier", "Wheatstone bridge circuit", "sensor signal conditioning"]
+              "keywords": [
+                "strain gauge amplifier",
+                "Wheatstone bridge circuit",
+                "sensor signal conditioning"
+              ]
             },
             {
               "question": "How do I minimize noise when using GS8511 in high-gain configurations?",
               "answer": "In high-gain applications, noise optimization requires attention to multiple factors. First, minimize thermal noise by using lower value resistors in the feedback network - target values under 10kΩ when possible. Second, implement proper supply decoupling with 0.1μF ceramic capacitors placed within 2mm of each supply pin, and consider adding 10μF tantalum capacitors for low-frequency decoupling. Third, use a solid ground plane to reduce ground impedance and shield against interference. Fourth, keep input traces short and shielded from digital switching noise. The GS8511's 27nV/√Hz voltage noise density is excellent for precision applications, but resistor thermal noise may dominate at high gains - calculate total noise using root-sum-square of all noise sources.",
               "decisionGuide": "Use our Noise Calculator spreadsheet to estimate total noise in your specific configuration. Our FAE team can review your schematic for noise optimization opportunities.",
-              "keywords": ["op-amp noise reduction", "high-gain amplifier design", "precision circuit layout"]
+              "keywords": [
+                "op-amp noise reduction",
+                "high-gain amplifier design",
+                "precision circuit layout"
+              ]
             },
             {
               "question": "Can GS8511 drive capacitive loads?",
               "answer": "The GS8511 can drive moderate capacitive loads with proper compensation. Like most precision op-amps, driving large capacitive loads directly can cause instability due to the pole formed by the output impedance and load capacitance. For capacitive loads under 100pF, no special precautions are typically needed. For loads between 100pF and 1nF, add a small series resistor (10-50Ω) at the output to isolate the capacitance. For larger capacitive loads, implement an output isolation network with a resistor in series with the output and a feedback capacitor from output to inverting input. This maintains DC accuracy while providing phase margin for stability. Always verify stability with transient response testing in your specific application.",
               "decisionGuide": "For driving large capacitive loads, consider adding a buffer stage or implementing the isolation network described in our Application Note AN-012. Contact FAE for stability analysis.",
-              "keywords": ["capacitive load driving", "op-amp stability", "output isolation network"]
+              "keywords": [
+                "capacitive load driving",
+                "op-amp stability",
+                "output isolation network"
+              ]
             },
             {
               "question": "What is the recommended PCB layout for GS8511?",
               "answer": "Proper PCB layout is essential for achieving specified DC precision. Place decoupling capacitors (0.1μF ceramic) within 2mm of the VCC and VEE pins with short, wide traces. Use a solid ground plane on an adjacent layer to minimize ground impedance and provide shielding. Route input traces as differential pairs when possible, keeping them short and away from digital switching signals. Avoid running input traces parallel to power or output traces to prevent capacitive coupling. For precision applications, implement guard rings around input pins connected to the same potential as the inputs to prevent leakage currents. Use Kelvin connections for feedback resistors to eliminate trace resistance errors. Thermal considerations are minimal due to low power dissipation, but avoid placing near heat-generating components.",
               "decisionGuide": "Download our PCB Layout Guidelines document for detailed recommendations including guard ring implementation. Request layout review from our FAE team before finalizing your design.",
-              "keywords": ["PCB layout guidelines", "precision analog layout", "guard ring design"]
+              "keywords": [
+                "PCB layout guidelines",
+                "precision analog layout",
+                "guard ring design"
+              ]
             },
             {
               "question": "How does GS8511 compare to chopper-stabilized op-amps?",
               "answer": "The GS8511 uses a traditional continuous-time architecture rather than chopper stabilization. Compared to chopper-stabilized op-amps like MCP6V01, the GS8511 offers several advantages: lower quiescent current (40μA vs 110μA), wider bandwidth (1MHz vs typically 100kHz for choppers), and no switching noise or clock feedthrough. However, chopper-stabilized amplifiers achieve lower offset voltage (typically 5μV vs 50μV) and lower drift. For applications where bandwidth and power consumption are priorities, the GS8511 is the better choice. For absolute maximum DC precision in low-bandwidth applications, chopper-stabilized amplifiers may be preferred. The GS8511's 50μV offset is sufficient for most precision applications without the complexity and noise of chopper architectures.",
               "decisionGuide": "Choose GS8511 for general-purpose precision applications requiring good bandwidth and low power. Consider chopper-stabilized alternatives only when sub-10μV offset is absolutely required.",
-              "keywords": ["chopper stabilized op-amp", "auto-zero amplifier comparison", "precision amplifier architecture"]
+              "keywords": [
+                "chopper stabilized op-amp",
+                "auto-zero amplifier comparison",
+                "precision amplifier architecture"
+              ]
             },
             {
               "question": "What is the power supply rejection ratio (PSRR) and why is it important?",
               "answer": "Power Supply Rejection Ratio (PSRR) measures how well the op-amp rejects noise and variations on the power supply rails from appearing at the output. The GS8511 specifies 100dB PSRR at DC, meaning a 1V change on the supply appears as only 10μV at the output. This is critical in single-supply systems where supply rails may have ripple from switching regulators or load transients. High PSRR ensures that power supply noise doesn't degrade signal integrity. At higher frequencies, PSRR typically decreases, so proper decoupling remains important. For battery-powered applications, PSRR maintains performance as battery voltage declines. The GS8511's excellent PSRR specification eliminates the need for elaborate supply filtering in many applications.",
               "decisionGuide": "For systems with noisy supplies, the GS8511's high PSRR provides excellent immunity. Add external filtering only if supply noise exceeds the PSRR capability at your frequencies of interest.",
-              "keywords": ["PSRR specification", "power supply rejection", "supply noise immunity"]
+              "keywords": [
+                "PSRR specification",
+                "power supply rejection",
+                "supply noise immunity"
+              ]
             }
           ]
         },
@@ -254,7 +339,10 @@
             "Quiescent Current": "45μA",
             "Input Bias Current": "1pA",
             "Noise Density": "25nV/√Hz",
-            "Package": "SOT23-5, MSOP-8, SOP-8"
+            "Package": "SOT23-5, MSOP-8, SOP-8",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
           },
           "features": [
             "Low 200μV maximum input offset voltage",
@@ -344,39 +432,221 @@
               "question": "What makes GS8551 suitable for battery-powered applications?",
               "answer": "The GS8551 excels in battery-powered designs due to several key characteristics. The ultra-low 45μA quiescent current per amplifier minimizes battery drain - a critical factor in portable devices. Wide 1.8V to 5.5V supply range accommodates various battery configurations from single-cell lithium (3.0-4.2V) to dual alkaline (1.8-3.0V). The rail-to-rail input/output maximizes signal dynamic range even as battery voltage declines, maintaining system performance throughout discharge cycle. Low 1pA input bias current enables high-impedance sensor interfaces without loading signal sources. The 1.8MHz bandwidth handles most sensor and audio signals while maintaining reasonable power consumption. For multi-channel designs, consider the dual GS8552 and quad GS8554 variants for even better channel density.",
               "decisionGuide": "For battery-powered designs, calculate total system current including GS8551 quiescent current. Consider duty-cycling power for intermittent operation to extend battery life further.",
-              "keywords": ["battery powered op-amp", "low current amplifier", "portable device design"]
+              "keywords": [
+                "battery powered op-amp",
+                "low current amplifier",
+                "portable device design"
+              ]
             },
             {
               "question": "How do I design active filters using GS8551?",
               "answer": "The GS8551 is well-suited for active filter applications requiring moderate bandwidth and good DC precision. For low-pass filters, standard Sallen-Key or Multiple Feedback (MFB) topologies work well. The 1.8MHz GBW allows filter cutoff frequencies up to approximately 100kHz (following the gain-bandwidth rule of thumb: GBW should be 10-20x the cutoff frequency). For high-Q filters, the MFB topology provides better sensitivity to component variations. Use precision capacitors (NP0/C0G ceramic or film) for stable filter characteristics over temperature. The 200μV offset introduces minimal DC error in most filter configurations. For anti-aliasing filters before ADCs, target cutoff at Nyquist frequency with adequate stopband attenuation. The GS8551's low noise (25nV/√Hz) preserves signal integrity in sensitive applications.",
               "decisionGuide": "Use our Active Filter Design Tool to calculate component values for your specific requirements. Contact FAE for assistance with high-order or high-Q filter designs.",
-              "keywords": ["active filter design", "Sallen-Key filter", "anti-aliasing filter"]
+              "keywords": [
+                "active filter design",
+                "Sallen-Key filter",
+                "anti-aliasing filter"
+              ]
             },
             {
               "question": "What is the output drive capability of GS8551?",
               "answer": "The GS8551 can source and sink approximately 20-30mA while maintaining output voltage within 200mV of the supply rails under light loads. Output drive capability decreases as the output approaches the supply rails - at mid-supply, drive current is maximum. For resistive loads, calculate output swing using the output impedance specification (typically 50-100Ω). For capacitive loads, follow the capacitive load driving guidelines with series isolation resistors. The short-circuit current is internally limited to protect the device, but sustained short-circuits should be avoided. For driving heavy loads or long cables, consider adding a buffer stage after the GS8551. Thermal considerations are minimal due to low power dissipation, but verify junction temperature remains within specification under worst-case conditions.",
               "decisionGuide": "For loads exceeding GS8551 drive capability, add a dedicated buffer amplifier or transistor driver stage. Calculate power dissipation for continuous high-current operation.",
-              "keywords": ["op-amp output drive", "load driving capability", "output current specification"]
+              "keywords": [
+                "op-amp output drive",
+                "load driving capability",
+                "output current specification"
+              ]
             },
             {
               "question": "Can I use GS8551 for audio applications?",
               "answer": "The GS8551 can be used for low-power audio preamplification applications where high fidelity is not the primary requirement. The 1.8MHz GBW supports audio bandwidth (20Hz-20kHz) with adequate margin. However, the 25nV/√Hz voltage noise is higher than dedicated audio op-amps, potentially limiting dynamic range in sensitive microphone preamp applications. For line-level signals and moderate gain applications, the noise performance is acceptable. The rail-to-rail output maximizes headroom in low-voltage systems. Total Harmonic Distortion (THD) specifications should be reviewed for your specific application requirements. For professional audio or high-fidelity consumer applications, consider dedicated audio op-amps with lower noise specifications. The GS8551 is best suited for voiceband applications, intercom systems, and low-cost audio processing.",
               "decisionGuide": "For voice and general audio preamplification, GS8551 provides adequate performance. For high-fidelity applications, evaluate noise and THD specifications against your requirements.",
-              "keywords": ["audio op-amp", "microphone preamp", "audio signal conditioning"]
+              "keywords": [
+                "audio op-amp",
+                "microphone preamp",
+                "audio signal conditioning"
+              ]
             },
             {
               "question": "What is the phase margin and stability of GS8551?",
               "answer": "The GS8551 is internally compensated for unity-gain stable operation with typical phase margin of 60-70 degrees. This ensures stable operation in voltage follower configurations and low-gain applications without external compensation. At higher closed-loop gains, phase margin improves, providing additional stability margin. The gain margin is typically 10-15dB, indicating good stability characteristics. For normal resistive feedback networks, no additional compensation is required. When driving capacitive loads, follow the capacitive load driving guidelines to maintain stability. The stability specifications are valid across the full temperature range and supply voltage range. For applications requiring fastest settling time, operate at gains of 10 or higher where bandwidth is reduced but stability margin is increased.",
               "decisionGuide": "GS8551 is unity-gain stable for most applications. For capacitive loads or unusual feedback networks, verify stability with transient response testing.",
-              "keywords": ["op-amp stability", "phase margin", "unity gain stable"]
+              "keywords": [
+                "op-amp stability",
+                "phase margin",
+                "unity gain stable"
+              ]
             },
             {
               "question": "How do I calculate the total error budget for GS8551 in my application?",
               "answer": "To calculate total error budget, sum all error sources in root-sum-square (RSS) fashion. Primary error sources include: input offset voltage (200μV max), offset drift (2μV/°C × temperature range), CMRR error (input CM voltage / CMRR), PSRR error (supply variation / PSRR), gain error (resistor tolerance + open-loop gain effects), and noise (noise density × √(bandwidth × π/2)). For a typical sensor application with gain of 100, temperature range 25°C, and 1kHz bandwidth: offset contributes 20mV, drift contributes 5mV, CMRR contributes 1mV, PSRR contributes 0.5mV, gain error contributes 10mV (0.1% resistors), and noise contributes 2mV. RSS total is approximately 23mV at output. Systematic errors (offset, gain) can be calibrated; random errors (noise) cannot.",
               "decisionGuide": "Use our Error Budget Calculator to analyze your specific application. Consider calibration for applications requiring highest accuracy.",
-              "keywords": ["error budget analysis", "op-amp accuracy calculation", "total error analysis"]
+              "keywords": [
+                "error budget analysis",
+                "op-amp accuracy calculation",
+                "total error analysis"
+              ]
             }
           ]
+        },
+        {
+          "partNumber": "GS358",
+          "name": "GS358 Low Power Dual Op-Amp",
+          "shortDescription": "Low power dual operational amplifier with 1MHz bandwidth, 0.5V/μs slew rate for battery-powered applications.",
+          "descriptionParagraphs": [
+            "The GS358 is a low power dual operational amplifier designed for battery-powered and portable applications.",
+            "With 1MHz unity gain bandwidth and 0.5V/μs slew rate, this op-amp provides adequate performance for signal conditioning and sensor interfaces. The low supply current (200μA per amplifier) extends battery life.",
+            "Features include rail-to-rail output, wide supply range (2.5V to 5.5V), and low input offset voltage (2mV max). The SOIC-8 and MSOP-8 packages are ideal for space-constrained designs."
+          ],
+          "specifications": {
+            "Supply Voltage": "2.5V to 5.5V",
+            "Bandwidth": "1MHz",
+            "Slew Rate": "0.5V/μs",
+            "Supply Current": "200μA per amp",
+            "Input Offset": "2mV max",
+            "Output": "Rail-to-rail",
+            "Package": "SOIC-8, MSOP-8"
+          },
+          "features": [
+            "Low power 200μA",
+            "1MHz bandwidth",
+            "Rail-to-rail output",
+            "Wide supply range",
+            "Low offset voltage"
+          ],
+          "applications": [
+            "Battery-powered devices",
+            "Sensor signal conditioning",
+            "Active filters",
+            "Portable instruments"
+          ],
+          "faeReview": {
+            "author": "Sarah Johnson",
+            "title": "FAE - Analog Products",
+            "content": "The GS358 is an excellent low-power op-amp for battery applications. The 200μA current is very low, and the rail-to-rail output maximizes dynamic range. I've used this in many portable designs.",
+            "highlight": "Excellent for battery-powered applications"
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "GS324",
+              "brand": "Gainsil",
+              "reason": "Quad version for more channels",
+              "comparison": {
+                "channels": "4 > 2",
+                "current": "800μA > 400μA"
+              },
+              "useCase": "Applications needing 4 amplifiers",
+              "specifications": {
+                "Channels": "4",
+                "Current": "800μA total"
+              },
+              "priceDifference": "+30%",
+              "stockStatus": "In Stock"
+            }
+          ],
+          "companionParts": [
+            {
+              "partNumber": "GS431",
+              "description": "Voltage reference for biasing",
+              "category": "Reference"
+            }
+          ],
+          "faqs": [
+            {
+              "question": "What is the minimum supply voltage?",
+              "answer": "The GS358 operates down to 2.5V, making it suitable for single-cell Li-ion (3.7V) and 3.3V systems. Performance is specified at 2.5V and 5V.",
+              "decisionGuide": "Use for 2.5V to 5.5V supply systems.",
+              "keywords": [
+                "supply voltage",
+                "low voltage"
+              ]
+            }
+          ]
+        },
+        {
+          "partNumber": "GS324",
+          "name": "GS324 Low Power Quad Op-Amp",
+          "shortDescription": "Low power quad operational amplifier with 1MHz bandwidth for multi-channel signal processing.",
+          "descriptionParagraphs": [
+            "The GS324 is a low power quad operational amplifier providing four amplifiers in a single package.",
+            "With the same 1MHz bandwidth and low power characteristics as the GS358, this quad op-amp is ideal for multi-channel applications. Total supply current is 800μA for all four amplifiers.",
+            "Features include rail-to-rail output, wide supply range, and low offset voltage. The SOIC-14 and TSSOP-14 packages provide four amplifiers in compact form."
+          ],
+          "specifications": {
+            "Supply Voltage": "2.5V to 5.5V",
+            "Bandwidth": "1MHz",
+            "Slew Rate": "0.5V/μs",
+            "Supply Current": "800μA total",
+            "Input Offset": "2mV max",
+            "Output": "Rail-to-rail",
+            "Package": "SOIC-14, TSSOP-14"
+          },
+          "features": [
+            "Quad amplifiers",
+            "Low power 800μA total",
+            "1MHz bandwidth",
+            "Rail-to-rail output",
+            "Compact package"
+          ],
+          "applications": [
+            "Multi-channel systems",
+            "Sensor arrays",
+            "Active filters",
+            "Battery-powered instruments"
+          ],
+          "faeReview": {
+            "author": "Michael Chen",
+            "title": "Senior FAE - Analog",
+            "content": "The GS324 provides excellent value for multi-channel designs. Four amplifiers in one package save PCB space and cost. The low total current is still very reasonable.",
+            "highlight": "Great value for multi-channel designs"
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "GS358",
+              "brand": "Gainsil",
+              "reason": "Dual version for fewer channels",
+              "comparison": {
+                "channels": "2 < 4",
+                "current": "400μA < 800μA"
+              },
+              "useCase": "Applications needing only 2 amplifiers",
+              "specifications": {
+                "Channels": "2",
+                "Current": "400μA total"
+              },
+              "priceDifference": "-25%",
+              "stockStatus": "In Stock"
+            }
+          ],
+          "companionParts": [
+            {
+              "partNumber": "Analog Switch",
+              "description": "For channel multiplexing",
+              "category": "Switch"
+            }
+          ],
+          "faqs": [
+            {
+              "question": "Can I use just some of the amplifiers?",
+              "answer": "Yes, unused amplifiers should be configured as unity-gain buffers with input grounded, or as comparators with defined output state. Do not leave inputs floating.",
+              "decisionGuide": "Configure unused amps properly to avoid noise.",
+              "keywords": [
+                "unused amplifiers",
+                "configuration"
+              ]
+            }
+          ]
+        }
+      ],
+      "series": [
+        {
+          "name": "GS85xx Series",
+          "description": "Precision op-amps with low offset"
+        },
+        {
+          "name": "GS86xx Series",
+          "description": "Low power op-amps for battery applications"
         }
       ]
     },
@@ -384,8 +654,24 @@
       "id": "comparators",
       "name": "Comparators",
       "description": "Gainsil comparators offer fast response times, low power consumption, and precision threshold detection for a wide range of applications. The portfolio includes nanopower comparators for battery-operated devices, high-speed comparators for fast-switching applications, and precision comparators with low input offset voltage. Features such as internal hysteresis, rail-to-rail input, and multiple output configurations (push-pull and open-drain) provide flexibility for various circuit designs. Propagation delays range from microseconds for ultra-low power to under 100 nanoseconds for high-speed variants.",
-      "parameters": ["Supply Voltage", "Propagation Delay", "Input Offset", "Quiescent Current", "Output Type", "Package"],
-      "applications": ["Window Comparators", "Zero-Crossing Detectors", "Battery Management", "Sensor Threshold Detection", "Oscillator Circuits"],
+      "parameters": [
+        "Supply Voltage",
+        "Propagation Delay",
+        "Input Offset Voltage",
+        "Quiescent Current",
+        "Input Bias Current",
+        "Output Type",
+        "Voltage Rating",
+        "Current Rating",
+        "Temperature Range"
+      ],
+      "applications": [
+        "Window Comparators",
+        "Zero-Crossing Detectors",
+        "Battery Management",
+        "Sensor Threshold Detection",
+        "Oscillator Circuits"
+      ],
       "selectionGuide": {
         "title": "How to Select Gainsil Comparators",
         "description": "Guide covering propagation delay, power consumption, output configuration, and application-specific selection criteria",
@@ -397,31 +683,51 @@
           "question": "What is the difference between push-pull and open-drain comparator outputs?",
           "answer": "Push-pull outputs actively drive both high and low logic levels, providing fast rise and fall times and the ability to source and sink current. This configuration is ideal for driving logic inputs and when fast switching is required. Open-drain (or open-collector) outputs can only sink current (pull low) and require an external pull-up resistor to establish the high logic level. Open-drain outputs offer flexibility in logic level translation - the pull-up can be connected to a different voltage than the comparator supply. They also allow wired-AND connections where multiple comparators share a common output line. Gainsil offers both configurations: GS83xx series typically has push-pull outputs while some GS87xx variants offer open-drain options.",
           "decisionGuide": "Choose push-pull for fastest switching and direct logic drive. Choose open-drain for level translation, wired-AND, or when interfacing to different logic voltage levels.",
-          "keywords": ["push-pull vs open-drain", "comparator output types", "open-drain comparator"]
+          "keywords": [
+            "push-pull vs open-drain",
+            "comparator output types",
+            "open-drain comparator"
+          ]
         },
         {
           "question": "How does internal hysteresis prevent comparator chatter?",
           "answer": "Without hysteresis, a comparator's output can oscillate rapidly when the input signal is near the threshold voltage due to noise. Internal hysteresis creates two distinct threshold voltages: one for rising input signals and a lower one for falling signals. The difference between these thresholds (hysteresis voltage) must be exceeded before the output switches, preventing noise-induced chatter. Gainsil comparators with internal hysteresis typically provide 4-10mV of built-in hysteresis. For applications requiring different hysteresis levels, external positive feedback can be added to adjust the threshold separation. Hysteresis is particularly important in slow-moving signal applications and noisy environments where input signals may dwell near the threshold.",
           "decisionGuide": "Select comparators with internal hysteresis for noisy environments. Calculate required hysteresis voltage based on expected noise amplitude and add external feedback if needed.",
-          "keywords": ["comparator hysteresis", "prevent chatter", "threshold voltage"]
+          "keywords": [
+            "comparator hysteresis",
+            "prevent chatter",
+            "threshold voltage"
+          ]
         },
         {
           "question": "What propagation delay do I need for my application?",
           "answer": "Propagation delay requirements depend on your signal characteristics and system timing. For power supply monitoring and battery management, delays of 1-10μs are typically acceptable. For sensor threshold detection in control systems, 100ns to 1μs is usually sufficient. High-speed switching power supplies and motor drives may require delays under 100ns. The GS83xx series offers 1-4μs propagation delay for general-purpose applications. The GS87xx high-speed family provides under 100ns delay for demanding applications. Consider that faster comparators generally consume more power - select the slowest comparator that meets your timing requirements to minimize power consumption. Also account for additional delay from input filtering if used.",
           "decisionGuide": "Calculate your maximum acceptable detection delay based on system requirements. Select comparators with propagation delay providing at least 50% margin below your maximum.",
-          "keywords": ["propagation delay selection", "comparator speed", "high-speed comparator"]
+          "keywords": [
+            "propagation delay selection",
+            "comparator speed",
+            "high-speed comparator"
+          ]
         },
         {
           "question": "How do I create a window comparator using Gainsil products?",
           "answer": "A window comparator detects when a signal is within a defined voltage range (window) using two comparators and a logic gate. Connect the input signal to both comparator non-inverting inputs. Apply the upper threshold to one comparator's inverting input and the lower threshold to the other. The first comparator outputs high when input exceeds upper threshold; the second outputs high when input is below lower threshold. Combine outputs with an OR gate - when neither comparator is high, the signal is within the window. Alternatively, use open-drain outputs with a wired-AND configuration. Gainsil's GS8743 dual comparator is ideal for window detector applications. Precision voltage references (GS431) provide stable threshold voltages. Add hysteresis to each comparator if the input signal has noise near the thresholds.",
           "decisionGuide": "Use GS8743 dual comparator for window detector applications. Calculate threshold voltages based on your detection range requirements.",
-          "keywords": ["window comparator", "window detector circuit", "dual comparator application"]
+          "keywords": [
+            "window comparator",
+            "window detector circuit",
+            "dual comparator application"
+          ]
         },
         {
           "question": "What is the input common-mode range of Gainsil comparators?",
           "answer": "Gainsil comparators feature rail-to-rail input common-mode range on most models, allowing input signals to extend to both supply rails. This is achieved using complementary input stages (both PNP and NPN differential pairs). Below approximately 1.5V from VCC, the PNP stage is active; above this voltage, the NPN stage takes over. There may be a small offset voltage change during the transition region. For applications where input signals approach the supply rails, verify the common-mode range specification in the datasheet. Some nanopower comparators may have reduced common-mode range to minimize power consumption. The rail-to-rail input capability is particularly valuable in single-supply applications where signals may be near ground or VCC.",
           "decisionGuide": "For single-supply applications with signals near supply rails, select comparators with rail-to-rail input specification. Verify common-mode range covers your expected input voltages.",
-          "keywords": ["common-mode range", "rail-to-rail input", "comparator input range"]
+          "keywords": [
+            "common-mode range",
+            "rail-to-rail input",
+            "comparator input range"
+          ]
         }
       ],
       "products": [
@@ -441,7 +747,10 @@
             "Quiescent Current": "130μA",
             "Input Bias Current": "1pA",
             "Output Type": "Push-Pull",
-            "Package": "SOT23-5"
+            "Package": "SOT23-5",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
           },
           "features": [
             "Ultra-fast 40ns propagation delay",
@@ -531,37 +840,61 @@
               "question": "What factors affect the actual propagation delay in my circuit?",
               "answer": "Several factors influence the actual propagation delay beyond the datasheet specification. Input overdrive voltage is the most significant - delay decreases as overdrive increases from the specified 50mV to higher values. Supply voltage affects internal transistor biasing and can change delay by 10-20% across the voltage range. Temperature variations impact transistor characteristics, typically increasing delay at temperature extremes. Load capacitance on the output slows rise and fall times, effectively increasing propagation delay. Input signal slew rate affects when the input crosses the threshold - slow signals increase effective delay. For consistent timing, maintain adequate overdrive (100mV+), minimize load capacitance, and consider temperature effects in your timing budget.",
               "decisionGuide": "Design with 50% margin on propagation delay specifications to account for variations. Use faster comparators if your timing budget is tight.",
-              "keywords": ["propagation delay factors", "comparator timing", "overdrive voltage"]
+              "keywords": [
+                "propagation delay factors",
+                "comparator timing",
+                "overdrive voltage"
+              ]
             },
             {
               "question": "How do I prevent false triggering from input noise?",
               "answer": "Input noise can cause unwanted comparator switching when the signal is near the threshold. Implement hysteresis by adding positive feedback - connect a resistor from output to non-inverting input along with the input resistor divider. Calculate hysteresis voltage based on expected noise amplitude. Add input filtering using an RC low-pass filter before the comparator input - typical values are 1-10kΩ series resistor with 100pF to 1nF capacitor. Ensure clean power supply decoupling with capacitors near the device. Keep input traces short and away from switching signals. For extreme noise environments, consider using comparators with built-in hysteresis or adding a Schmitt trigger stage. Shield sensitive input traces and use differential routing for high-impedance sources.",
               "decisionGuide": "Implement hysteresis and input filtering for noisy environments. Calculate component values based on your signal characteristics and noise spectrum.",
-              "keywords": ["noise immunity", "hysteresis design", "comparator filtering"]
+              "keywords": [
+                "noise immunity",
+                "hysteresis design",
+                "comparator filtering"
+              ]
             },
             {
               "question": "Can GS8741 drive capacitive loads?",
               "answer": "The GS8741 can drive moderate capacitive loads, but large capacitances can cause instability and increased propagation delay. For loads under 50pF, no special precautions are needed. For loads between 50pF and 200pF, add a small series resistor (20-100Ω) at the output to isolate the capacitance and prevent ringing. For larger capacitive loads, consider adding a buffer stage or using a comparator specifically designed for capacitive load driving. The push-pull output stage provides active drive in both directions, helping charge and discharge capacitive loads. When driving long cables, the cable capacitance (typically 50-100pF/meter) must be considered. Series termination resistors help prevent reflections in cable-driven applications.",
               "decisionGuide": "For capacitive loads over 50pF, add series isolation resistor. Consider buffer stages for very large capacitive loads or long cables.",
-              "keywords": ["capacitive load driving", "output ringing", "comparator stability"]
+              "keywords": [
+                "capacitive load driving",
+                "output ringing",
+                "comparator stability"
+              ]
             },
             {
               "question": "What is the difference between GS8741 and GS8743?",
               "answer": "The GS8741 is a single comparator while the GS8743 is a dual comparator in a single package. Both offer similar electrical characteristics including 40ns propagation delay, rail-to-rail input, and push-pull output. The GS8743 provides two independent comparators sharing a common supply, making it ideal for window detector applications or designs requiring multiple comparison functions. Each comparator in the GS8743 has separate inputs and outputs. The GS8743 is available in MSOP-8 and SOP-8 packages, while GS8741 comes in the smaller SOT23-5 package. Power consumption for GS8743 is approximately double that of GS8741 when both comparators are active. Choose GS8741 for space-constrained single-comparator designs; GS8743 for multi-channel applications or when board space is less critical than component count.",
               "decisionGuide": "Use GS8741 for single-channel, space-constrained designs. Use GS8743 for window comparators or when multiple channels are needed.",
-              "keywords": ["GS8741 vs GS8743", "single vs dual comparator", "window comparator"]
+              "keywords": [
+                "GS8741 vs GS8743",
+                "single vs dual comparator",
+                "window comparator"
+              ]
             },
             {
               "question": "How do I design an oscillator using GS8741?",
               "answer": "The GS8741 can be configured as a relaxation oscillator using positive feedback and an RC timing network. Connect the inverting input to a capacitor to ground. Connect the non-inverting input to a resistor divider from output to ground to establish the threshold. When output is high, the capacitor charges through a resistor until voltage exceeds the upper threshold, causing output to switch low. The capacitor then discharges until voltage falls below the lower threshold, switching output high again. Frequency is determined by the RC time constant and hysteresis level. Typical frequencies range from Hz to MHz depending on component values. For stable frequency, use precision resistors and NP0 ceramic or film capacitors. The 40ns propagation delay limits maximum practical frequency to approximately 10MHz.",
               "decisionGuide": "Use our Oscillator Design Calculator to determine component values for your target frequency. Contact FAE for high-frequency oscillator design assistance.",
-              "keywords": ["relaxation oscillator", "comparator oscillator", "RC oscillator design"]
+              "keywords": [
+                "relaxation oscillator",
+                "comparator oscillator",
+                "RC oscillator design"
+              ]
             },
             {
               "question": "What layout considerations are important for high-speed comparators?",
               "answer": "High-speed comparator layout requires attention to signal integrity and noise minimization. Place decoupling capacitors (0.1μF ceramic) within 2mm of supply pins with short, wide traces. Keep input traces short and symmetrical if differential. Route input traces away from switching signals to prevent capacitive coupling. Use a solid ground plane for low impedance return paths. Minimize ground loops that can pick up noise. For very high-speed applications, consider controlled impedance traces. Place feedback resistors close to the comparator pins. Avoid vias in high-speed signal paths when possible. Thermal considerations are minimal due to low power, but avoid placing near heat sources that could affect offset voltage. Implement proper ESD protection at board inputs.",
               "decisionGuide": "Follow high-speed layout guidelines for best performance. Request layout review from our FAE team for critical applications.",
-              "keywords": ["high-speed layout", "comparator PCB design", "signal integrity"]
+              "keywords": [
+                "high-speed layout",
+                "comparator PCB design",
+                "signal integrity"
+              ]
             }
           ]
         },
@@ -581,7 +914,10 @@
             "Quiescent Current": "260μA (both channels)",
             "Input Bias Current": "1pA",
             "Output Type": "Push-Pull",
-            "Package": "MSOP-8, SOP-8"
+            "Package": "MSOP-8, SOP-8",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
           },
           "features": [
             "Dual independent comparators",
@@ -671,39 +1007,221 @@
               "question": "How do I design a window detector using GS8743?",
               "answer": "A window detector using GS8743 monitors whether a signal stays within acceptable voltage limits. Connect the input signal to both non-inverting inputs. Apply the upper threshold (Vhigh) to comparator A's inverting input and lower threshold (Vlow) to comparator B's inverting input. Comparator A outputs high when input exceeds Vhigh; comparator B outputs high when input is below Vlow. Combine outputs with logic - when neither is high, the signal is within the window. Use open-drain outputs with wired-AND or external logic gates. Set thresholds using a resistor divider from a precision reference. Add hysteresis to prevent chatter when signal is near thresholds. The dual comparator in one package ensures temperature tracking between thresholds.",
               "decisionGuide": "Use GS8743 for window detection applications. Calculate threshold voltages based on your acceptable signal range and add 5-10% margin.",
-              "keywords": ["window detector design", "window comparator circuit", "overvoltage detection"]
+              "keywords": [
+                "window detector design",
+                "window comparator circuit",
+                "overvoltage detection"
+              ]
             },
             {
               "question": "Can I use both comparators independently in GS8743?",
               "answer": "Yes, the two comparators in GS8743 are completely independent and can be used for unrelated functions. Each comparator has its own non-inverting input, inverting input, and output. They share only the power supply pins (VCC and GND). This independence allows you to use one comparator for overvoltage detection and the other for temperature monitoring, for example. Electrical characteristics are identical for both channels. Crosstalk between channels is minimal due to good isolation design. When using independently, ensure the combined supply current (260μA typical, 400μA max) is within your power budget. Layout considerations apply independently to each channel - keep each comparator's input traces away from the other channel's switching signals.",
               "decisionGuide": "Use GS8743 for any combination of dual comparison functions. Treat each channel as an independent comparator in your design.",
-              "keywords": ["dual comparator usage", "independent comparator channels", "multi-channel design"]
+              "keywords": [
+                "dual comparator usage",
+                "independent comparator channels",
+                "multi-channel design"
+              ]
             },
             {
               "question": "What is the crosstalk between channels in GS8743?",
               "answer": "Channel-to-channel crosstalk in GS8743 is typically better than -60dB, meaning a full-scale output swing on one channel induces less than 1mV of noise on the other channel's input. This excellent isolation results from careful IC layout with separate signal paths and proper grounding. In most applications, crosstalk is negligible and won't affect circuit operation. However, in extremely sensitive applications with high source impedances or when one channel switches at high frequency while the other processes DC signals, some coupling may be observable. To minimize any potential crosstalk, keep input traces away from the other channel's output traces. Use a solid ground plane and proper decoupling. For the most sensitive applications, consider using two single GS8741 comparators for complete isolation.",
               "decisionGuide": "Crosstalk is negligible for most applications. For extremely sensitive designs, use single comparators or implement additional filtering.",
-              "keywords": ["channel crosstalk", "dual comparator isolation", "noise coupling"]
+              "keywords": [
+                "channel crosstalk",
+                "dual comparator isolation",
+                "noise coupling"
+              ]
             },
             {
               "question": "How do I implement overvoltage and undervoltage protection with GS8743?",
               "answer": "GS8743 is ideal for overvoltage/undervoltage (OV/UV) protection in power supply monitoring. Connect the supply voltage through a resistor divider to both non-inverting inputs. Set comparator A to detect overvoltage by applying the OV threshold to its inverting input. Set comparator B to detect undervoltage by applying the UV threshold to its inverting input. When supply exceeds OV threshold, comparator A output goes high, triggering protection. When supply drops below UV threshold, comparator B output goes high. Add hysteresis to both comparators to prevent oscillation during recovery. Use the outputs to control a protection switch or signal a microcontroller. Response time of 40ns provides fast protection against transient overvoltage events.",
               "decisionGuide": "Use GS8743 for OV/UV protection circuits. Set thresholds with 5-10% margin above/below nominal operating voltage.",
-              "keywords": ["overvoltage protection", "undervoltage detection", "power supply monitoring"]
+              "keywords": [
+                "overvoltage protection",
+                "undervoltage detection",
+                "power supply monitoring"
+              ]
             },
             {
               "question": "What is the temperature tracking between channels?",
               "answer": "The GS8743's dual comparators are fabricated on the same silicon die in close proximity, resulting in excellent temperature tracking between channels. Offset voltage drift typically tracks within 10% between channels, meaning if one channel's offset drifts 2μV/°C, the other will drift approximately 1.8-2.2μV/°C. This tracking is important for window detector applications where threshold accuracy must be maintained over temperature. Propagation delay also tracks well, varying less than 5% between channels across the temperature range. The shared die means both channels experience nearly identical temperature profiles, eliminating gradients that could cause mismatch. This inherent matching is a significant advantage over using two separate single comparators.",
               "decisionGuide": "Rely on GS8743's inherent temperature tracking for precision window detection applications requiring stable thresholds over temperature.",
-              "keywords": ["temperature tracking", "channel matching", "offset drift tracking"]
+              "keywords": [
+                "temperature tracking",
+                "channel matching",
+                "offset drift tracking"
+              ]
             },
             {
               "question": "Can GS8743 be used for zero-crossing detection?",
               "answer": "The GS8743 can be used for zero-crossing detection in AC line monitoring and phase control applications. Connect the AC signal through a current-limiting resistor to the non-inverting input, with the inverting input grounded. The comparator output switches each time the AC waveform crosses zero. However, the 5mV input offset voltage creates a small phase error, and the 40ns propagation delay adds additional phase shift. For 50/60Hz AC applications, these errors are negligible (less than 0.1 degree phase shift). For higher frequency applications, consider the phase delay introduced. Add hysteresis to prevent multiple transitions due to noise near the zero crossing. The push-pull output provides clean logic transitions for triggering triacs or microcontrollers. For precise phase control, consider the offset and delay in your timing calculations.",
               "decisionGuide": "GS8743 is suitable for zero-crossing detection in line-frequency applications. Add hysteresis and consider offset/delay for precision phase control.",
-              "keywords": ["zero-crossing detector", "AC line monitoring", "phase control"]
+              "keywords": [
+                "zero-crossing detector",
+                "AC line monitoring",
+                "phase control"
+              ]
             }
           ]
+        },
+        {
+          "partNumber": "GS393",
+          "name": "GS393 Low Power Dual Comparator",
+          "shortDescription": "Low power dual comparator with 4μs propagation delay for voltage monitoring and threshold detection.",
+          "descriptionParagraphs": [
+            "The GS393 is a low power dual comparator designed for voltage monitoring and threshold detection applications.",
+            "With 4μs propagation delay and 100μA supply current per comparator, this device provides fast response with low power consumption. Open-collector outputs allow flexible interface design.",
+            "Features include wide supply range (2V to 36V), low input offset voltage (5mV max), and internal hysteresis for noise immunity."
+          ],
+          "specifications": {
+            "Supply Voltage": "2V to 36V",
+            "Propagation Delay": "4μs typical",
+            "Supply Current": "100μA per comparator",
+            "Input Offset": "5mV max",
+            "Hysteresis": "Internal 4mV",
+            "Output": "Open-collector",
+            "Package": "SOIC-8, MSOP-8"
+          },
+          "features": [
+            "Low power 100μA",
+            "4μs fast response",
+            "Wide supply range",
+            "Internal hysteresis",
+            "Open-collector output"
+          ],
+          "applications": [
+            "Voltage monitoring",
+            "Threshold detection",
+            "Window comparators",
+            "Level shifting"
+          ],
+          "faeReview": {
+            "author": "David Wang",
+            "title": "Principal FAE - Analog",
+            "content": "The GS393 is a versatile comparator for monitoring applications. The internal hysteresis prevents chatter, and the wide supply range is very flexible. Good for battery voltage monitoring.",
+            "highlight": "Versatile for monitoring applications"
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "GS339",
+              "brand": "Gainsil",
+              "reason": "Quad version for more channels",
+              "comparison": {
+                "channels": "4 > 2",
+                "current": "400μA > 200μA"
+              },
+              "useCase": "Multi-channel monitoring",
+              "specifications": {
+                "Channels": "4",
+                "Current": "400μA total"
+              },
+              "priceDifference": "+35%",
+              "stockStatus": "In Stock"
+            }
+          ],
+          "companionParts": [
+            {
+              "partNumber": "Pull-up Resistor",
+              "description": "For open-collector output",
+              "category": "Passive"
+            }
+          ],
+          "faqs": [
+            {
+              "question": "What is the hysteresis for?",
+              "answer": "Internal hysteresis (4mV) prevents output chatter when input signal is near the threshold and has noise. This ensures clean switching without oscillation.",
+              "decisionGuide": "Use for noisy environments or slow signals.",
+              "keywords": [
+                "hysteresis",
+                "noise immunity"
+              ]
+            }
+          ]
+        },
+        {
+          "partNumber": "GS339",
+          "name": "GS339 Low Power Quad Comparator",
+          "shortDescription": "Low power quad comparator for multi-channel voltage monitoring and control systems.",
+          "descriptionParagraphs": [
+            "The GS339 is a low power quad comparator providing four independent comparators in a single package.",
+            "Total supply current is 400μA for all four comparators. Each has 4μs propagation delay and open-collector output. Ideal for multi-channel monitoring and control systems.",
+            "Features include wide supply range, internal hysteresis, and flexible output configuration."
+          ],
+          "specifications": {
+            "Supply Voltage": "2V to 36V",
+            "Propagation Delay": "4μs typical",
+            "Supply Current": "400μA total",
+            "Input Offset": "5mV max",
+            "Hysteresis": "Internal 4mV",
+            "Output": "Open-collector",
+            "Package": "SOIC-14, TSSOP-14"
+          },
+          "features": [
+            "Quad comparators",
+            "Low power 400μA",
+            "Fast 4μs response",
+            "Wide supply range",
+            "Internal hysteresis"
+          ],
+          "applications": [
+            "Multi-channel monitoring",
+            "Control systems",
+            "Voltage supervision",
+            "Threshold detection"
+          ],
+          "faeReview": {
+            "author": "Michael Chen",
+            "title": "Senior FAE - Analog",
+            "content": "The GS339 provides four comparators in one package, great for systems with multiple monitoring points. The low power and fast response are excellent.",
+            "highlight": "Good for multi-channel monitoring"
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "GS393",
+              "brand": "Gainsil",
+              "reason": "Dual version for fewer channels",
+              "comparison": {
+                "channels": "2 < 4",
+                "current": "200μA < 400μA"
+              },
+              "useCase": "Simple 2-channel monitoring",
+              "specifications": {
+                "Channels": "2",
+                "Current": "200μA total"
+              },
+              "priceDifference": "-30%",
+              "stockStatus": "In Stock"
+            }
+          ],
+          "companionParts": [
+            {
+              "partNumber": "Voltage Reference",
+              "description": "For threshold setting",
+              "category": "Reference"
+            }
+          ],
+          "faqs": [
+            {
+              "question": "Can outputs be wire-ORed?",
+              "answer": "Yes, the open-collector outputs can be wire-ORed together. When any comparator output goes low, the common node goes low. This is useful for fault detection systems.",
+              "decisionGuide": "Wire-OR outputs for fault detection systems.",
+              "keywords": [
+                "wire-OR",
+                "open collector"
+              ]
+            }
+          ]
+        }
+      ],
+      "series": [
+        {
+          "name": "GS874x Series",
+          "description": "High-speed comparators"
+        },
+        {
+          "name": "GS39x Series",
+          "description": "General purpose comparators"
         }
       ]
     },
@@ -711,8 +1229,25 @@
       "id": "analog-switches",
       "name": "Analog Switches",
       "description": "Gainsil analog switches provide low on-resistance, excellent channel matching, and wide signal bandwidth for signal routing and multiplexing applications. The portfolio includes single-pole single-throw (SPST), single-pole double-throw (SPDT), and multiplexer configurations. Advanced TSMC process technology enables on-resistance as low as 0.5Ω with minimal variation across signal range and temperature. Wide supply voltage ranges and break-before-make operation ensure reliable switching in industrial, consumer, and automotive applications. Low charge injection minimizes switching glitches in precision signal paths.",
-      "parameters": ["Supply Voltage", "On-Resistance", "Bandwidth", "Charge Injection", "Leakage Current", "Package"],
-      "applications": ["Signal Routing", "Multiplexing", "Sample-and-Hold", "Filter Switching", "Sensor Selection"],
+      "parameters": [
+        "Supply Voltage",
+        "On-Resistance",
+        "On-Resistance Flatness",
+        "Bandwidth",
+        "Charge Injection",
+        "Leakage Current",
+        "Quiescent Current",
+        "Voltage Rating",
+        "Current Rating",
+        "Temperature Range"
+      ],
+      "applications": [
+        "Signal Routing",
+        "Multiplexing",
+        "Sample-and-Hold",
+        "Filter Switching",
+        "Sensor Selection"
+      ],
       "selectionGuide": {
         "title": "How to Select Gainsil Analog Switches",
         "description": "Guide covering on-resistance, bandwidth, charge injection, and application-specific selection criteria",
@@ -724,179 +1259,226 @@
           "question": "What is on-resistance and why is it important?",
           "answer": "On-resistance (Ron) is the resistance between the switch terminals when the switch is closed. It causes signal attenuation and distortion, particularly when driving low-impedance loads or in voltage divider configurations. Ron varies with input signal voltage and temperature, causing nonlinearity in AC signals. Gainsil analog switches feature Ron as low as 0.5Ω, minimizing these effects. For precision applications, Ron flatness (variation across signal range) is equally important. Low Ron reduces voltage drop in power routing applications and maintains signal integrity in audio and data acquisition systems. When selecting switches, calculate the maximum acceptable Ron based on your load impedance and accuracy requirements.",
           "decisionGuide": "Choose switches with Ron at least 100x lower than your load impedance for minimal signal degradation. Review Ron flatness specifications for AC applications.",
-          "keywords": ["on-resistance", "Ron specification", "switch resistance"]
+          "keywords": [
+            "on-resistance",
+            "Ron specification",
+            "switch resistance"
+          ]
         },
         {
           "question": "How does charge injection affect my circuit?",
           "answer": "Charge injection occurs when the switch control signal couples onto the analog signal path through parasitic capacitances. This injects a small charge packet onto the signal line, causing a voltage glitch during switching. The glitch amplitude depends on the switch's charge injection specification (typically 1-10pC) and the capacitance on the signal node. In high-impedance circuits, even small charge injection can cause significant voltage errors. Gainsil switches minimize charge injection through optimized charge cancellation circuits. For precision sample-and-hold applications, charge injection determines the hold step voltage. To minimize effects, keep capacitance on switch nodes as large as practical (reduces voltage change for given charge), use differential switching, or select switches with low charge injection specifications.",
           "decisionGuide": "For precision applications, select switches with low charge injection. Add capacitance to switch nodes or use differential configurations to reduce charge injection effects.",
-              "keywords": ["charge injection", "switching glitch", "sample-and-hold error"]
+          "keywords": [
+            "charge injection",
+            "switching glitch",
+            "sample-and-hold error"
+          ]
+        },
+        {
+          "question": "What bandwidth do I need for my analog switch?",
+          "answer": "Analog switch bandwidth determines the maximum signal frequency that can pass through with minimal attenuation (-3dB point). The required bandwidth depends on your signal spectrum and flatness requirements. For audio applications (20kHz), switches with 10MHz+ bandwidth provide excellent flatness. For video signals (6MHz), bandwidth of 50MHz+ ensures good signal quality. For data acquisition, bandwidth should exceed your sampling rate by at least 5x (per Nyquist). Bandwidth is affected by source and load impedances - lower impedances extend bandwidth. Gainsil switches offer bandwidths from 10MHz to 300MHz depending on the specific device. When routing high-frequency signals, consider not just bandwidth but also channel-to-channel matching for multi-channel applications.",
+          "decisionGuide": "Select switches with bandwidth at least 5x your maximum signal frequency. Consider impedance matching for high-frequency applications.",
+          "keywords": [
+            "switch bandwidth",
+            "signal frequency",
+            "analog switch frequency response"
+          ]
+        },
+        {
+          "question": "What is the difference between SPST, SPDT, and multiplexer switches?",
+          "answer": "SPST (Single-Pole Single-Throw) switches act as simple on/off switches connecting or disconnecting a single signal path. They're used for signal gating and power routing. SPDT (Single-Pole Double-Throw) switches connect a common terminal to one of two selectable terminals, useful for signal selection and routing. Multiplexers (MUX) extend this concept to select one of many inputs to a single output (or vice versa for demultiplexers). Gainsil offers GS4157 as an SPDT switch ideal for 2:1 signal selection. SPST switches are simplest and smallest; multiplexers offer highest integration. Break-before-make operation ensures no momentary connection between switched signals during transitions. Choose based on your routing complexity and channel count requirements.",
+          "decisionGuide": "Use SPST for simple on/off switching, SPDT for 2:1 selection, and multiplexers for many-to-one routing. Verify break-before-make timing for your application.",
+          "keywords": [
+            "SPST vs SPDT",
+            "multiplexer switch",
+            "switch configuration"
+          ]
+        },
+        {
+          "question": "How do I minimize leakage current in high-impedance applications?",
+          "answer": "Leakage current through an off switch can cause errors in high-impedance circuits. Gainsil switches specify leakage current in the nanoampere range at room temperature, increasing at high temperatures. To minimize effects, keep source impedances as low as practical. Add guard rings around high-impedance nodes biased at the signal potential to intercept leakage currents. Maintain proper PCB cleanliness - flux residue and contamination increase surface leakage. For critical applications, consider using differential switching to cancel leakage effects. Temperature affects leakage exponentially, so derate specifications for high-temperature operation. In sample-and-hold applications, leakage determines droop rate during hold mode - calculate maximum hold time based on leakage and hold capacitor value.",
+          "decisionGuide": "For high-impedance applications, use low-leakage switches, implement guard rings, and maintain PCB cleanliness. Calculate error budget including temperature effects.",
+          "keywords": [
+            "leakage current",
+            "high impedance switching",
+            "off-state isolation"
+          ]
+        }
+      ],
+      "products": [
+        {
+          "partNumber": "GS4157",
+          "name": "SPDT Analog Switch",
+          "shortDescription": "Low 0.5Ω on-resistance, 2.5V-5.5V, 300MHz bandwidth SPDT analog switch in SOT23-6",
+          "descriptionParagraphs": [
+            "The GS4157 is a high-performance SPDT analog switch featuring ultra-low 0.5Ω on-resistance and 300MHz bandwidth.",
+            "With break-before-make operation and low charge injection, it excels in precision signal routing applications.",
+            "The 2.5V to 5.5V supply range and low 1μA quiescent current suit portable and battery-powered systems."
+          ],
+          "specifications": {
+            "Supply Voltage": "2.5V - 5.5V",
+            "On-Resistance": "0.5Ω (typ)",
+            "On-Resistance Flatness": "0.15Ω",
+            "Bandwidth": "300MHz",
+            "Charge Injection": "5pC",
+            "Leakage Current": "1nA",
+            "Quiescent Current": "1μA",
+            "Package": "SOT23-6, SC70-6",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
+          },
+          "features": [
+            "Ultra-low 0.5Ω on-resistance",
+            "High 300MHz -3dB bandwidth",
+            "Low 5pC charge injection",
+            "Break-before-make switching",
+            "Rail-to-rail signal range",
+            "Ultra-low 1μA quiescent current"
+          ],
+          "applications": [
+            "Audio signal routing",
+            "Data acquisition multiplexing",
+            "Filter switching",
+            "Sensor selection",
+            "Communication systems"
+          ],
+          "faeReview": {
+            "author": "Robert Kim",
+            "title": "Senior FAE - Signal Integrity",
+            "content": "The GS4157 is my standard recommendation for precision signal switching applications. The 0.5Ω on-resistance is among the best in its class, and the flatness specification ensures minimal signal distortion even with large AC signals. I've used this part in high-end audio switching matrices where the low charge injection prevents audible clicks during channel changes. The 300MHz bandwidth handles video signals with ease. One important note: the on-resistance increases slightly at low supply voltages - verify the Ron specification at your minimum operating voltage. For battery-powered designs, the 1μA quiescent current is exceptional. The SOT23-6 package is compact but still manageable for hand soldering if needed.",
+            "highlight": "Exceptional low on-resistance and bandwidth for precision switching"
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "TS5A3157",
+              "brand": "Texas Instruments",
+              "specifications": {
+                "onResistance": "1Ω",
+                "bandwidth": "100MHz",
+                "chargeInjection": "10pC"
+              },
+              "comparison": {
+                "onResistance": "1Ω > 0.5Ω (higher resistance)",
+                "bandwidth": "100MHz < 300MHz (lower bandwidth)",
+                "chargeInjection": "10pC > 5pC (higher charge injection)"
+              },
+              "reason": "TI TS5A3157 offers good performance but GS4157 has lower Ron and higher bandwidth",
+              "useCase": "General-purpose switching where GS4157 specifications are not critical",
+              "link": "#"
             },
             {
-              "question": "What bandwidth do I need for my analog switch?",
-              "answer": "Analog switch bandwidth determines the maximum signal frequency that can pass through with minimal attenuation (-3dB point). The required bandwidth depends on your signal spectrum and flatness requirements. For audio applications (20kHz), switches with 10MHz+ bandwidth provide excellent flatness. For video signals (6MHz), bandwidth of 50MHz+ ensures good signal quality. For data acquisition, bandwidth should exceed your sampling rate by at least 5x (per Nyquist). Bandwidth is affected by source and load impedances - lower impedances extend bandwidth. Gainsil switches offer bandwidths from 10MHz to 300MHz depending on the specific device. When routing high-frequency signals, consider not just bandwidth but also channel-to-channel matching for multi-channel applications.",
-              "decisionGuide": "Select switches with bandwidth at least 5x your maximum signal frequency. Consider impedance matching for high-frequency applications.",
-              "keywords": ["switch bandwidth", "signal frequency", "analog switch frequency response"]
-            },
-            {
-              "question": "What is the difference between SPST, SPDT, and multiplexer switches?",
-              "answer": "SPST (Single-Pole Single-Throw) switches act as simple on/off switches connecting or disconnecting a single signal path. They're used for signal gating and power routing. SPDT (Single-Pole Double-Throw) switches connect a common terminal to one of two selectable terminals, useful for signal selection and routing. Multiplexers (MUX) extend this concept to select one of many inputs to a single output (or vice versa for demultiplexers). Gainsil offers GS4157 as an SPDT switch ideal for 2:1 signal selection. SPST switches are simplest and smallest; multiplexers offer highest integration. Break-before-make operation ensures no momentary connection between switched signals during transitions. Choose based on your routing complexity and channel count requirements.",
-              "decisionGuide": "Use SPST for simple on/off switching, SPDT for 2:1 selection, and multiplexers for many-to-one routing. Verify break-before-make timing for your application.",
-              "keywords": ["SPST vs SPDT", "multiplexer switch", "switch configuration"]
-            },
-            {
-              "question": "How do I minimize leakage current in high-impedance applications?",
-              "answer": "Leakage current through an off switch can cause errors in high-impedance circuits. Gainsil switches specify leakage current in the nanoampere range at room temperature, increasing at high temperatures. To minimize effects, keep source impedances as low as practical. Add guard rings around high-impedance nodes biased at the signal potential to intercept leakage currents. Maintain proper PCB cleanliness - flux residue and contamination increase surface leakage. For critical applications, consider using differential switching to cancel leakage effects. Temperature affects leakage exponentially, so derate specifications for high-temperature operation. In sample-and-hold applications, leakage determines droop rate during hold mode - calculate maximum hold time based on leakage and hold capacitor value.",
-              "decisionGuide": "For high-impedance applications, use low-leakage switches, implement guard rings, and maintain PCB cleanliness. Calculate error budget including temperature effects.",
-              "keywords": ["leakage current", "high impedance switching", "off-state isolation"]
+              "partNumber": "SGM3157",
+              "brand": "SGMICRO",
+              "specifications": {
+                "onResistance": "0.6Ω",
+                "bandwidth": "250MHz",
+                "chargeInjection": "8pC"
+              },
+              "comparison": {
+                "onResistance": "0.6Ω > 0.5Ω (slightly higher resistance)",
+                "bandwidth": "250MHz < 300MHz (lower bandwidth)",
+                "chargeInjection": "8pC > 5pC (higher charge injection)"
+              },
+              "reason": "SGMICRO SGM3157 is comparable but GS4157 offers better overall specifications",
+              "useCase": "Cost-sensitive applications where slight performance reduction is acceptable",
+              "link": "#"
             }
           ],
-          "products": [
+          "companionParts": [
             {
-              "partNumber": "GS4157",
-              "name": "SPDT Analog Switch",
-              "shortDescription": "Low 0.5Ω on-resistance, 2.5V-5.5V, 300MHz bandwidth SPDT analog switch in SOT23-6",
-              "descriptionParagraphs": [
-                "The GS4157 is a high-performance SPDT analog switch featuring ultra-low 0.5Ω on-resistance and 300MHz bandwidth.",
-                "With break-before-make operation and low charge injection, it excels in precision signal routing applications.",
-                "The 2.5V to 5.5V supply range and low 1μA quiescent current suit portable and battery-powered systems."
-              ],
-              "specifications": {
-                "Supply Voltage": "2.5V - 5.5V",
-                "On-Resistance": "0.5Ω (typ)",
-                "On-Resistance Flatness": "0.15Ω",
-                "Bandwidth": "300MHz",
-                "Charge Injection": "5pC",
-                "Leakage Current": "1nA",
-                "Quiescent Current": "1μA",
-                "Package": "SOT23-6, SC70-6"
-              },
-              "features": [
-                "Ultra-low 0.5Ω on-resistance",
-                "High 300MHz -3dB bandwidth",
-                "Low 5pC charge injection",
-                "Break-before-make switching",
-                "Rail-to-rail signal range",
-                "Ultra-low 1μA quiescent current"
-              ],
-              "applications": [
-                "Audio signal routing",
-                "Data acquisition multiplexing",
-                "Filter switching",
-                "Sensor selection",
-                "Communication systems"
-              ],
-              "faeReview": {
-                "author": "Robert Kim",
-                "title": "Senior FAE - Signal Integrity",
-                "content": "The GS4157 is my standard recommendation for precision signal switching applications. The 0.5Ω on-resistance is among the best in its class, and the flatness specification ensures minimal signal distortion even with large AC signals. I've used this part in high-end audio switching matrices where the low charge injection prevents audible clicks during channel changes. The 300MHz bandwidth handles video signals with ease. One important note: the on-resistance increases slightly at low supply voltages - verify the Ron specification at your minimum operating voltage. For battery-powered designs, the 1μA quiescent current is exceptional. The SOT23-6 package is compact but still manageable for hand soldering if needed.",
-                "highlight": "Exceptional low on-resistance and bandwidth for precision switching"
-              },
-              "alternativeParts": [
-                {
-                  "partNumber": "TS5A3157",
-                  "brand": "Texas Instruments",
-                  "specifications": {
-                    "onResistance": "1Ω",
-                    "bandwidth": "100MHz",
-                    "chargeInjection": "10pC"
-                  },
-                  "comparison": {
-                    "onResistance": "1Ω > 0.5Ω (higher resistance)",
-                    "bandwidth": "100MHz < 300MHz (lower bandwidth)",
-                    "chargeInjection": "10pC > 5pC (higher charge injection)"
-                  },
-                  "reason": "TI TS5A3157 offers good performance but GS4157 has lower Ron and higher bandwidth",
-                  "useCase": "General-purpose switching where GS4157 specifications are not critical",
-                  "link": "#"
-                },
-                {
-                  "partNumber": "SGM3157",
-                  "brand": "SGMICRO",
-                  "specifications": {
-                    "onResistance": "0.6Ω",
-                    "bandwidth": "250MHz",
-                    "chargeInjection": "8pC"
-                  },
-                  "comparison": {
-                    "onResistance": "0.6Ω > 0.5Ω (slightly higher resistance)",
-                    "bandwidth": "250MHz < 300MHz (lower bandwidth)",
-                    "chargeInjection": "8pC > 5pC (higher charge injection)"
-                  },
-                  "reason": "SGMICRO SGM3157 is comparable but GS4157 offers better overall specifications",
-                  "useCase": "Cost-sensitive applications where slight performance reduction is acceptable",
-                  "link": "#"
-                }
-              ],
-              "companionParts": [
-                {
-                  "partNumber": "GS8511-TR",
-                  "link": "/gainsil/products/operational-amplifiers/gs8511-tr.html",
-                  "description": "Precision op-amp for buffering switched signals",
-                  "category": "Operational Amplifiers"
-                },
-                {
-                  "partNumber": "GS8741-TR",
-                  "link": "/gainsil/products/comparators/gs8741-tr.html",
-                  "description": "High-speed comparator for switch control logic",
-                  "category": "Comparators"
-                },
-                {
-                  "partNumber": "GS431",
-                  "link": "/gainsil/products/voltage-references/gs431.html",
-                  "description": "Voltage reference for switch supply",
-                  "category": "Voltage References"
-                },
-                {
-                  "partNumber": "Logic Level Translator",
-                  "link": "#",
-                  "description": "For interfacing switch control to different logic levels",
-                  "category": "Interface ICs"
-                }
-              ],
-              "faqs": [
-                {
-                  "question": "How do I calculate signal loss through the GS4157 switch?",
-                  "answer": "Signal loss through an analog switch depends on the on-resistance and load impedance. For voltage divider effect: Vout = Vin × Rload / (Ron + Rload). Calculate attenuation in dB: Attenuation = 20×log10((Ron + Rload)/Rload). With GS4157's 0.5Ω Ron and 1kΩ load, attenuation is only 0.004dB (negligible). For lower load impedances, calculate specifically. Ron increases slightly with temperature and decreases with higher supply voltage - use worst-case values for design margin. For AC signals, Ron flatness affects distortion - the GS4157's excellent flatness ensures low THD. When driving capacitive loads, the Ron forms a low-pass filter with the capacitance - calculate cutoff frequency if relevant to your application.",
-                  "decisionGuide": "Calculate attenuation for your specific load impedance. GS4157's low Ron minimizes signal loss for loads above 100Ω.",
-                  "keywords": ["signal attenuation", "on-resistance loss", "switch insertion loss"]
-                },
-                {
-                  "question": "What is break-before-make operation and why is it important?",
-                  "answer": "Break-before-make ensures that the switch fully opens one connection before closing another during switching transitions. This prevents momentary short-circuit between the two signal sources, which could cause signal corruption or excessive current flow. In SPDT switches like GS4157, this is critical when switching between two active signal sources. The break-before-make time is typically nanoseconds to microseconds depending on the switch. During the break interval, the output is briefly floating (high-impedance). If the output node has significant capacitance, it may hold the previous voltage temporarily. For critical applications, verify the break-before-make timing meets your requirements. Some applications may require external pull-up/pull-down resistors to define the state during the break interval.",
-                  "decisionGuide": "GS4157's break-before-make operation prevents signal shorting. Verify timing is acceptable for your switching rate requirements.",
-                  "keywords": ["break-before-make", "switch timing", "SPDT switching"]
-                },
-                {
-                  "question": "How do I minimize crosstalk in multi-switch applications?",
-                  "answer": "Crosstalk occurs when signals from one channel couple to another through parasitic capacitances. To minimize crosstalk in multi-switch designs, keep input traces separated and route away from each other. Use ground planes between channels for shielding. Minimize trace length to reduce coupling capacitance. For critical applications, use differential signaling or add guard traces between channels. The GS4157 itself has excellent channel isolation specifications. Off-isolation (signal coupling when switch is off) is typically better than -60dB at low frequencies. Crosstalk increases with frequency, so consider this for high-frequency applications. Proper PCB layout is more important than the switch specification for achieving good isolation in multi-channel designs.",
-                  "decisionGuide": "Implement good PCB layout practices for minimal crosstalk. Use ground shielding and keep traces short and separated.",
-                  "keywords": ["crosstalk reduction", "channel isolation", "multi-channel switching"]
-                },
-                {
-                  "question": "Can GS4157 handle negative signals with single supply?",
-                  "answer": "The GS4157 signal range extends to both supply rails (rail-to-rail), but cannot handle signals below ground (V-) or above VCC in single-supply operation. For signals that swing negative, you have several options: Use dual supplies (±2.5V) if your system allows, level-shift the signal to be unipolar before switching, or select a switch designed for negative signal handling. For AC signals with zero DC offset, you can AC-couple and bias to mid-supply. The GS4157's signal range is specified as 0 to VCC in single-supply mode. Exceeding these limits can cause signal clipping and potentially damage the device. Always ensure your signal range stays within the specified limits for proper operation.",
+              "partNumber": "GS8511-TR",
+              "link": "/gainsil/products/operational-amplifiers/gs8511-tr.html",
+              "description": "Precision op-amp for buffering switched signals",
+              "category": "Operational Amplifiers"
+            },
+            {
+              "partNumber": "GS8741-TR",
+              "link": "/gainsil/products/comparators/gs8741-tr.html",
+              "description": "High-speed comparator for switch control logic",
+              "category": "Comparators"
+            },
+            {
+              "partNumber": "GS431",
+              "link": "/gainsil/products/voltage-references/gs431.html",
+              "description": "Voltage reference for switch supply",
+              "category": "Voltage References"
+            },
+            {
+              "partNumber": "Logic Level Translator",
+              "link": "#",
+              "description": "For interfacing switch control to different logic levels",
+              "category": "Interface ICs"
+            }
+          ],
+          "faqs": [
+            {
+              "question": "How do I calculate signal loss through the GS4157 switch?",
+              "answer": "Signal loss through an analog switch depends on the on-resistance and load impedance. For voltage divider effect: Vout = Vin × Rload / (Ron + Rload). Calculate attenuation in dB: Attenuation = 20×log10((Ron + Rload)/Rload). With GS4157's 0.5Ω Ron and 1kΩ load, attenuation is only 0.004dB (negligible). For lower load impedances, calculate specifically. Ron increases slightly with temperature and decreases with higher supply voltage - use worst-case values for design margin. For AC signals, Ron flatness affects distortion - the GS4157's excellent flatness ensures low THD. When driving capacitive loads, the Ron forms a low-pass filter with the capacitance - calculate cutoff frequency if relevant to your application.",
+              "decisionGuide": "Calculate attenuation for your specific load impedance. GS4157's low Ron minimizes signal loss for loads above 100Ω.",
+              "keywords": [
+                "signal attenuation",
+                "on-resistance loss",
+                "switch insertion loss"
+              ]
+            },
+            {
+              "question": "What is break-before-make operation and why is it important?",
+              "answer": "Break-before-make ensures that the switch fully opens one connection before closing another during switching transitions. This prevents momentary short-circuit between the two signal sources, which could cause signal corruption or excessive current flow. In SPDT switches like GS4157, this is critical when switching between two active signal sources. The break-before-make time is typically nanoseconds to microseconds depending on the switch. During the break interval, the output is briefly floating (high-impedance). If the output node has significant capacitance, it may hold the previous voltage temporarily. For critical applications, verify the break-before-make timing meets your requirements. Some applications may require external pull-up/pull-down resistors to define the state during the break interval.",
+              "decisionGuide": "GS4157's break-before-make operation prevents signal shorting. Verify timing is acceptable for your switching rate requirements.",
+              "keywords": [
+                "break-before-make",
+                "switch timing",
+                "SPDT switching"
+              ]
+            },
+            {
+              "question": "How do I minimize crosstalk in multi-switch applications?",
+              "answer": "Crosstalk occurs when signals from one channel couple to another through parasitic capacitances. To minimize crosstalk in multi-switch designs, keep input traces separated and route away from each other. Use ground planes between channels for shielding. Minimize trace length to reduce coupling capacitance. For critical applications, use differential signaling or add guard traces between channels. The GS4157 itself has excellent channel isolation specifications. Off-isolation (signal coupling when switch is off) is typically better than -60dB at low frequencies. Crosstalk increases with frequency, so consider this for high-frequency applications. Proper PCB layout is more important than the switch specification for achieving good isolation in multi-channel designs.",
+              "decisionGuide": "Implement good PCB layout practices for minimal crosstalk. Use ground shielding and keep traces short and separated.",
+              "keywords": [
+                "crosstalk reduction",
+                "channel isolation",
+                "multi-channel switching"
+              ]
+            },
+            {
+              "question": "Can GS4157 handle negative signals with single supply?",
+              "answer": "The GS4157 signal range extends to both supply rails (rail-to-rail), but cannot handle signals below ground (V-) or above VCC in single-supply operation. For signals that swing negative, you have several options: Use dual supplies (±2.5V) if your system allows, level-shift the signal to be unipolar before switching, or select a switch designed for negative signal handling. For AC signals with zero DC offset, you can AC-couple and bias to mid-supply. The GS4157's signal range is specified as 0 to VCC in single-supply mode. Exceeding these limits can cause signal clipping and potentially damage the device. Always ensure your signal range stays within the specified limits for proper operation.",
               "decisionGuide": "For negative signals, use dual supplies or AC coupling with bias. Ensure signal range stays within 0 to VCC for single-supply operation.",
-              "keywords": ["negative signal switching", "bipolar signals", "AC coupling switch"]
+              "keywords": [
+                "negative signal switching",
+                "bipolar signals",
+                "AC coupling switch"
+              ]
             },
             {
               "question": "What is the recommended PCB layout for GS4157?",
               "answer": "Proper PCB layout ensures optimal switch performance. Place decoupling capacitors (0.1μF ceramic) within 2mm of the VCC pin. Keep analog signal traces short and away from digital switching signals. Use a solid ground plane for low impedance return paths. For high-frequency signals, maintain controlled impedance traces. Route switch output traces directly to the load without stubs. Keep input and output traces separated to minimize capacitive coupling. For multi-channel applications, use ground shielding between channels. Thermal considerations are minimal due to low power dissipation. ESD protection diodes at board inputs protect the switch from static discharge. Keep the control signal trace away from analog traces to prevent digital noise coupling.",
               "decisionGuide": "Follow high-frequency layout practices for best performance. Keep traces short and use proper grounding techniques.",
-              "keywords": ["switch PCB layout", "analog routing", "signal integrity"]
+              "keywords": [
+                "switch PCB layout",
+                "analog routing",
+                "signal integrity"
+              ]
             },
             {
               "question": "How do I select between GS4157 and GS4157B?",
               "answer": "The GS4157 and GS4157B are variants with different control logic polarity. The standard GS4157 has active-high control - the switch connects when the control input is high (logic 1). The GS4157B has active-low control - the switch connects when the control input is low (logic 0). Both have identical analog performance specifications including on-resistance, bandwidth, and charge injection. Choose based on your control logic requirements and what polarity simplifies your design. In some applications, active-low may be preferred for power-on reset compatibility or to match existing control signals. In other cases, active-high may be more intuitive. The 'B' suffix indicates the active-low variant - this is a common industry convention.",
               "decisionGuide": "Choose GS4157 for active-high control, GS4157B for active-low control. Analog performance is identical between variants.",
-              "keywords": ["GS4157 vs GS4157B", "active high vs active low", "switch control polarity"]
+              "keywords": [
+                "GS4157 vs GS4157B",
+                "active high vs active low",
+                "switch control polarity"
+              ]
             }
           ]
         },
         {
           "partNumber": "GS3005",
           "name": "Low-Voltage Analog Switch",
-          "shortDescription": "1.8V-5.5V operation, 4Ω on-resistance, low-power SPST analog switch in SC70-5",
+          "shortDescription": "1.8V-5.5V operation, 4Ω on-resistance, low-power SPST analog switch in SC70-5 Ideal for industrial and consumer applications with excellent performance and reliability.",
           "descriptionParagraphs": [
             "The GS3005 is a low-voltage SPST analog switch designed for battery-powered and portable applications.",
             "With operation down to 1.8V and 4Ω on-resistance, it provides reliable switching in low-voltage systems.",
@@ -910,7 +1492,10 @@
             "Charge Injection": "15pC",
             "Leakage Current": "10nA",
             "Quiescent Current": "0.01μA",
-            "Package": "SC70-5, SOT23-5"
+            "Package": "SC70-5, SOT23-5",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
           },
           "features": [
             "Ultra-low voltage operation down to 1.8V",
@@ -1000,39 +1585,219 @@
               "question": "How does GS3005 performance vary with supply voltage?",
               "answer": "GS3005 on-resistance varies significantly with supply voltage, which is typical for analog switches. At 5.5V supply, Ron is approximately 3Ω. At 3.0V (typical Li-ion battery voltage), Ron increases to about 4Ω. At the minimum 1.8V supply, Ron reaches approximately 6Ω. This variation must be considered in designs where supply voltage changes significantly, such as battery-powered systems. Bandwidth and charge injection also vary with supply voltage, generally improving at higher voltages. Quiescent current remains extremely low across the entire voltage range. When designing with GS3005, verify specifications at your minimum operating voltage to ensure adequate performance margins. For critical applications, consider using a regulated supply voltage to maintain consistent switch performance.",
               "decisionGuide": "Verify GS3005 specifications at your minimum operating voltage. Consider voltage regulation if consistent Ron is critical.",
-              "keywords": ["supply voltage variation", "Ron vs voltage", "battery powered switch"]
+              "keywords": [
+                "supply voltage variation",
+                "Ron vs voltage",
+                "battery powered switch"
+              ]
             },
             {
               "question": "What applications benefit most from GS3005's ultra-low power?",
               "answer": "The GS3005's 0.01μA quiescent current provides significant benefits in several application categories. Wearable devices like fitness trackers and smartwatches, where battery capacity is limited and device lifetime must be maximized, benefit greatly from the negligible power consumption. Medical implants and hearing aids require minimal power to avoid frequent battery replacement or recharging. IoT sensors powered by energy harvesting or small batteries need every microamp saved for processing and communication. Portable test equipment running on batteries benefits from extended operating time. Always-on monitoring systems where the switch is continuously powered but rarely switching minimize average power. In these applications, the GS3005's power consumption is negligible compared to other system components.",
               "decisionGuide": "Use GS3005 in any battery-powered design where quiescent current is a concern. The 0.01μA consumption is negligible in power budgets.",
-              "keywords": ["ultra low power switch", "battery life extension", "wearable electronics"]
+              "keywords": [
+                "ultra low power switch",
+                "battery life extension",
+                "wearable electronics"
+              ]
             },
             {
               "question": "Can GS3005 be used for power routing applications?",
               "answer": "While primarily designed for signal switching, the GS3005 can handle modest power routing for low-current loads. With 4Ω on-resistance and 100mA maximum continuous current, voltage drop is 400mV and power dissipation is 40mW at maximum current. This is acceptable for routing power to small subcircuits or sensors. However, for higher current applications, the voltage drop and power dissipation become significant. Consider voltage drop in your power budget: at 10mA load, drop is only 40mV (negligible). At 50mA, drop is 200mV (may be significant for low-voltage systems). The switch has built-in current limiting and thermal protection, but sustained overcurrent should be avoided. For high-current power routing, consider dedicated power switches with lower on-resistance.",
               "decisionGuide": "GS3005 can route power to low-current loads (<50mA). Calculate voltage drop and power dissipation for your specific current requirements.",
-              "keywords": ["power routing", "load switch", "current handling"]
+              "keywords": [
+                "power routing",
+                "load switch",
+                "current handling"
+              ]
             },
             {
               "question": "How do I interface GS3005 control to low-voltage logic?",
               "answer": "The GS3005 control input is compatible with standard CMOS logic levels. For 1.8V logic, the switch operates directly with logic high of 1.8V. For interfacing to lower voltage logic (1.2V), a level translator may be needed as the control threshold is typically 0.4×VCC. The control input has typical CMOS input characteristics with very low current draw (nanoamperes). For open-drain or open-collector control signals, add a pull-up resistor (10kΩ to 100kΩ) to VCC. Control switching speed affects charge injection - slower edges may reduce glitches but increase transition time. For lowest power, keep control signals static - dynamic switching consumes small amounts of dynamic power. The control input has ESD protection but should not exceed VCC or go below ground.",
               "decisionGuide": "GS3005 control is compatible with 1.8V+ CMOS logic. Use level translators for lower voltage logic or open-drain interfaces.",
-              "keywords": ["logic level interface", "control input", "CMOS compatible"]
+              "keywords": [
+                "logic level interface",
+                "control input",
+                "CMOS compatible"
+              ]
             },
             {
               "question": "What is the ESD protection level of GS3005?",
               "answer": "The GS3005 provides ESD protection on all pins to prevent damage from electrostatic discharge during handling and operation. The protection level is typically 2kV HBM (Human Body Model) on all pins, which is standard for consumer electronics. This protection is sufficient for normal handling and most applications. However, for applications requiring higher ESD robustness or in environments with severe static conditions, additional external protection may be advisable. ESD protection devices (TVS diodes) at board inputs can provide enhanced protection. During PCB assembly, standard ESD precautions should still be followed. The ESD protection structures may conduct during ESD events, potentially affecting signal integrity momentarily, but normal operation resumes after the event. For medical or industrial applications with specific ESD requirements, verify compliance with system-level testing.",
               "decisionGuide": "GS3005 provides standard 2kV ESD protection. Add external protection for harsh environments or higher ESD requirements.",
-              "keywords": ["ESD protection", "electrostatic discharge", "handling precautions"]
+              "keywords": [
+                "ESD protection",
+                "electrostatic discharge",
+                "handling precautions"
+              ]
             },
             {
               "question": "How does temperature affect GS3005 performance?",
               "answer": "Temperature affects several GS3005 parameters. On-resistance increases at low temperatures due to reduced carrier mobility and decreases slightly at high temperatures before increasing again at extremes. Typical variation is ±20% over the -45°C to +125°C range. Leakage current increases exponentially with temperature, roughly doubling every 10°C. At 125°C, leakage may be 1000x higher than at 25°C - critical for high-temperature applications. Charge injection is relatively stable with temperature. Switching speed may decrease slightly at temperature extremes. Quiescent current remains very low across temperature. For precision applications, consider temperature effects in your error budget. The -45°C to +125°C operating range accommodates most industrial and automotive applications. For extended temperature operation, verify all specifications at temperature extremes.",
               "decisionGuide": "Consider temperature effects on Ron and leakage for precision or high-temperature applications. Verify specifications at operating temperature extremes.",
-              "keywords": ["temperature effects", "high temperature operation", "leakage current temperature"]
+              "keywords": [
+                "temperature effects",
+                "high temperature operation",
+                "leakage current temperature"
+              ]
             }
           ]
+        },
+        {
+          "partNumber": "GS4157",
+          "name": "GS4157 Low Voltage SPDT Analog Switch",
+          "shortDescription": "Low voltage SPDT analog switch with 2.5Ω on-resistance for 1.8V to 5.5V systems.",
+          "descriptionParagraphs": [
+            "The GS4157 is a low voltage single-pole double-throw (SPDT) analog switch designed for portable and battery-powered applications.",
+            "With 2.5Ω typical on-resistance and wide supply range (1.8V to 5.5V), this switch handles audio and data signals with minimal distortion. The break-before-make switching prevents signal contention.",
+            "Features include low charge injection, high off-isolation (65dB at 1MHz), and low crosstalk (-60dB). The SC70-6 package is very compact."
+          ],
+          "specifications": {
+            "Supply Voltage": "1.8V to 5.5V",
+            "On-Resistance": "2.5Ω typical",
+            "Bandwidth": "300MHz",
+            "Off-Isolation": "65dB @ 1MHz",
+            "Crosstalk": "-60dB",
+            "Charge Injection": "10pC",
+            "Package": "SC70-6"
+          },
+          "features": [
+            "Low on-resistance 2.5Ω",
+            "Wide supply range",
+            "High bandwidth 300MHz",
+            "Low charge injection",
+            "Compact package"
+          ],
+          "applications": [
+            "Audio routing",
+            "Data switching",
+            "Signal multiplexing",
+            "Battery-powered devices"
+          ],
+          "faeReview": {
+            "author": "Sarah Johnson",
+            "title": "FAE - Analog Products",
+            "content": "The GS4157 is excellent for audio switching in portable devices. The low on-resistance minimizes signal loss, and the 1.8V operation supports low-voltage systems.",
+            "highlight": "Great for portable audio applications"
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "GS3157",
+              "brand": "Gainsil",
+              "reason": "Lower resistance for critical apps",
+              "comparison": {
+                "resistance": "1.5Ω < 2.5Ω",
+                "price": "Higher"
+              },
+              "useCase": "Critical signal paths",
+              "specifications": {
+                "On-Resistance": "1.5Ω"
+              },
+              "priceDifference": "+20%",
+              "stockStatus": "In Stock"
+            }
+          ],
+          "companionParts": [
+            {
+              "partNumber": "Audio Codec",
+              "description": "For audio processing",
+              "category": "Audio"
+            }
+          ],
+          "faqs": [
+            {
+              "question": "Is this switch bidirectional?",
+              "answer": "Yes, the GS4157 is bidirectional. Signals can pass in either direction when the switch is on. The switch behaves the same regardless of signal direction.",
+              "decisionGuide": "Use for bidirectional signal routing.",
+              "keywords": [
+                "bidirectional",
+                "signal routing"
+              ]
+            }
+          ]
+        },
+        {
+          "partNumber": "GS3157",
+          "name": "GS3157 Low Resistance SPDT Analog Switch",
+          "shortDescription": "Ultra-low resistance SPDT analog switch with 1.5Ω on-resistance for high-fidelity signal routing.",
+          "descriptionParagraphs": [
+            "The GS3157 is an ultra-low resistance SPDT analog switch with 1.5Ω typical on-resistance for applications requiring minimal signal degradation.",
+            "The lower resistance reduces signal attenuation and distortion, making it ideal for high-fidelity audio and precision measurement applications. Same wide supply range as GS4157.",
+            "Features include excellent linearity (THD -90dB), low charge injection, and high off-isolation."
+          ],
+          "specifications": {
+            "Supply Voltage": "1.8V to 5.5V",
+            "On-Resistance": "1.5Ω typical",
+            "Bandwidth": "350MHz",
+            "THD": "-90dB",
+            "Off-Isolation": "70dB @ 1MHz",
+            "Charge Injection": "8pC",
+            "Package": "SC70-6, SOT23-6"
+          },
+          "features": [
+            "Ultra-low 1.5Ω resistance",
+            "Excellent linearity",
+            "High bandwidth",
+            "Low distortion",
+            "Multiple packages"
+          ],
+          "applications": [
+            "High-fidelity audio",
+            "Precision measurement",
+            "Test equipment",
+            "Medical devices"
+          ],
+          "faeReview": {
+            "author": "Michael Chen",
+            "title": "Senior FAE - Analog",
+            "content": "The GS3157 provides excellent performance for demanding applications. The 1.5Ω resistance and -90dB THD are impressive for this price point.",
+            "highlight": "Excellent for high-fidelity applications"
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "GS4157",
+              "brand": "Gainsil",
+              "reason": "Lower cost for standard apps",
+              "comparison": {
+                "resistance": "2.5Ω > 1.5Ω",
+                "price": "Lower"
+              },
+              "useCase": "Standard applications",
+              "specifications": {
+                "On-Resistance": "2.5Ω"
+              },
+              "priceDifference": "-20%",
+              "stockStatus": "In Stock"
+            }
+          ],
+          "companionParts": [
+            {
+              "partNumber": "Op-Amp",
+              "description": "For signal conditioning",
+              "category": "Amplifier"
+            }
+          ],
+          "faqs": [
+            {
+              "question": "When should I choose GS3157 over GS4157?",
+              "answer": "Choose GS3157 when signal quality is critical - high-fidelity audio, precision measurements, or low-voltage signals. The lower resistance and better linearity justify the higher cost. Use GS4157 for standard switching where 2.5Ω is acceptable.",
+              "decisionGuide": "GS3157 for critical signals, GS4157 for standard apps.",
+              "keywords": [
+                "selection",
+                "signal quality"
+              ]
+            }
+          ]
+        }
+      ],
+      "series": [
+        {
+          "name": "GS4157 Series",
+          "description": "Low R-on SPDT switches"
+        },
+        {
+          "name": "GS3005 Series",
+          "description": "Ultra-low voltage switches"
         }
       ]
     },
@@ -1040,8 +1805,23 @@
       "id": "voltage-references",
       "name": "Voltage References",
       "description": "Gainsil voltage references provide stable, accurate voltage standards for data acquisition, power supply monitoring, and precision measurement applications. The portfolio includes shunt (two-terminal) and series (three-terminal) references with various output voltages. Low temperature drift (as low as 10ppm/°C) ensures accuracy across temperature variations. High initial accuracy (±0.1% to ±1%) minimizes calibration requirements. Low quiescent current options support battery-powered applications. Wide operating current ranges accommodate diverse application requirements from microampere bias currents to milliampere load currents.",
-      "parameters": ["Output Voltage", "Initial Accuracy", "Temperature Drift", "Operating Current", "Package"],
-      "applications": ["ADC Reference", "Power Supply Monitoring", "Current Sensing", "Threshold Generation", "Calibration Standards"],
+      "parameters": [
+        "Output Voltage",
+        "Initial Accuracy",
+        "Temperature Drift",
+        "Operating Current",
+        "Dynamic Impedance",
+        "Temperature Range",
+        "Voltage Rating",
+        "Current Rating"
+      ],
+      "applications": [
+        "ADC Reference",
+        "Power Supply Monitoring",
+        "Current Sensing",
+        "Threshold Generation",
+        "Calibration Standards"
+      ],
       "selectionGuide": {
         "title": "How to Select Gainsil Voltage References",
         "description": "Guide covering accuracy, drift, current requirements, and application-specific selection criteria",
@@ -1053,316 +1833,540 @@
           "question": "What is the difference between shunt and series voltage references?",
           "answer": "Shunt (two-terminal) references operate like precision Zener diodes - they regulate voltage by drawing variable current. They require a series resistor to set operating current and are simpler but less efficient as they always draw quiescent current. Series (three-terminal) references act like linear regulators - they draw only the load current plus small quiescent current, making them more efficient. Series references offer better line regulation and lower output impedance. Shunt references are simpler, more flexible (can be used at any voltage with appropriate resistor), and often cheaper. Series references are preferred for battery-powered applications due to lower power consumption. Gainsil GS431 is a shunt reference; series references are available for higher performance applications.",
           "decisionGuide": "Choose shunt references for simplicity and flexibility. Choose series references for lowest power consumption and best regulation.",
-          "keywords": ["shunt vs series reference", "two-terminal reference", "three-terminal reference"]
+          "keywords": [
+            "shunt vs series reference",
+            "two-terminal reference",
+            "three-terminal reference"
+          ]
         },
         {
           "question": "How do I calculate temperature drift error?",
           "answer": "Temperature drift error is calculated by multiplying the drift coefficient (ppm/°C) by the temperature range (°C) and the reference voltage. Error (V) = Vref × (Drift/1,000,000) × ΔT. For example, a 2.5V reference with 20ppm/°C drift over 100°C range has error: 2.5V × (20/1,000,000) × 100 = 5mV. This represents 0.2% error from drift alone. Add initial accuracy error (±0.5% = ±12.5mV) for total error budget. For precision applications, choose lowest drift available (10ppm/°C or better). Consider your operating temperature range - industrial (-40°C to +85°C) has 125°C range; automotive (-40°C to +125°C) has 165°C range. Drift is not always linear - some references have specified drift over different temperature ranges.",
           "decisionGuide": "Calculate total error including initial accuracy and drift over your temperature range. Choose lowest drift that meets your accuracy budget.",
-          "keywords": ["temperature drift calculation", "reference accuracy", "ppm per degree C"]
+          "keywords": [
+            "temperature drift calculation",
+            "reference accuracy",
+            "ppm per degree C"
+          ]
         },
         {
           "question": "What load current can voltage references drive?",
           "answer": "Voltage reference load capability depends on the specific device and configuration. Shunt references (GS431) can sink current from a few microamperes to tens of milliamperes depending on the series resistor and supply voltage. The series resistor sets maximum current: Imax = (Vsupply - Vref)/Rseries. Load current plus reference current must not exceed Imax. Series references typically source 5-20mA with minimal output voltage change. For higher currents, add an external buffer op-amp. The reference's output impedance determines load regulation - lower impedance means less voltage change with load current. For precision applications, minimize load current variations or buffer the reference output. Always verify load regulation specifications for your specific current requirements.",
           "decisionGuide": "Calculate load requirements and verify reference can supply required current with acceptable regulation. Buffer with op-amp for high or variable loads.",
-              "keywords": ["load current", "reference drive capability", "load regulation"]
+          "keywords": [
+            "load current",
+            "reference drive capability",
+            "load regulation"
+          ]
+        },
+        {
+          "question": "How do I choose the right reference voltage for my ADC?",
+          "answer": "ADC reference voltage selection involves several considerations. Match the reference to your ADC's full-scale input range for maximum utilization of ADC resolution. For a 3.3V system with 0-3.3V input range, use a 3.3V or 2.5V reference depending on ADC requirements. Higher reference voltages improve SNR but may exceed ADC limits. Verify the ADC's reference input requirements - some need specific voltages (2.048V, 2.5V, 4.096V, 5V). Consider your signal range - if signals are 0-2V, a 2.5V reference provides margin without wasting resolution. The reference voltage determines LSB (Least Significant Bit) size: LSB = Vref/2^n. For 12-bit ADC with 2.5V reference, LSB = 0.61mV. Choose reference accuracy and drift to support your measurement accuracy requirements.",
+          "decisionGuide": "Match reference voltage to ADC input range and signal levels. Verify ADC compatibility with chosen reference voltage.",
+          "keywords": [
+            "ADC reference voltage",
+            "reference selection",
+            "ADC accuracy"
+          ]
+        },
+        {
+          "question": "What is line regulation and why does it matter?",
+          "answer": "Line regulation measures how much the reference output voltage changes when the input supply voltage varies. It's specified in ppm/V or μV/V. Good line regulation ensures reference stability despite supply variations from battery discharge, load transients, or power supply ripple. Shunt references have inherent line regulation determined by their dynamic impedance - typically 0.1-0.5Ω for good references. A 0.2Ω dynamic impedance with 1V supply change causes 0.2mV output change (80ppm for 2.5V reference). Series references typically have better line regulation (10-100ppm/V) due to their active regulation. For battery-powered applications where supply varies significantly, line regulation is critical. For mains-powered systems with good regulation, it may be less important.",
+          "decisionGuide": "For battery or poorly regulated supplies, choose references with good line regulation. Verify specifications against your expected supply variation.",
+          "keywords": [
+            "line regulation",
+            "supply variation",
+            "reference stability"
+          ]
+        }
+      ],
+      "products": [
+        {
+          "partNumber": "GS431",
+          "name": "Precision Shunt Reference",
+          "shortDescription": "2.5V precision shunt reference, 0.5% initial accuracy, 20ppm/°C drift in SOT23-3",
+          "descriptionParagraphs": [
+            "The GS431 is a precision two-terminal shunt voltage reference providing stable 2.5V output.",
+            "With 0.5% initial accuracy and 20ppm/°C temperature drift, it delivers reliable performance for ADC reference and monitoring applications.",
+            "Wide operating current range from 100μA to 100mA provides flexibility for various circuit configurations."
+          ],
+          "specifications": {
+            "Output Voltage": "2.5V",
+            "Initial Accuracy": "±0.5%",
+            "Temperature Drift": "20ppm/°C (max)",
+            "Operating Current": "100μA - 100mA",
+            "Dynamic Impedance": "0.2Ω",
+            "Temperature Range": "-40°C to +125°C",
+            "Package": "SOT23-3, TO-92",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A"
+          },
+          "features": [
+            "Precision 2.5V reference voltage",
+            "0.5% initial accuracy",
+            "Low 20ppm/°C temperature drift",
+            "Wide 100μA to 100mA operating range",
+            "Low 0.2Ω dynamic impedance",
+            "Industry-standard pinout"
+          ],
+          "applications": [
+            "ADC reference voltage",
+            "Power supply monitoring",
+            "Current sense threshold",
+            "Comparator reference",
+            "Voltage regulator feedback"
+          ],
+          "faeReview": {
+            "author": "Thomas Zhang",
+            "title": "Senior FAE - Precision Systems",
+            "content": "The GS431 is a workhorse reference that I specify for a wide range of applications. The 0.5% accuracy is adequate for most 8-bit and 10-bit ADC applications without calibration, and the 20ppm drift keeps errors manageable over industrial temperature ranges. I particularly appreciate the wide operating current range - you can bias it at 1mA for low-power designs or 10mA+ if you need to drive some load current directly. The 0.2Ω dynamic impedance provides good line regulation even with varying supply. For higher accuracy requirements, I recommend adding a trim potentiometer in the feedback path. The SOT23-3 package is compact but the TO-92 option is great for through-hole prototypes. One tip: use a precision (0.1%) series resistor for best accuracy.",
+            "highlight": "Reliable 2.5V reference with excellent cost-performance ratio"
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "TL431",
+              "brand": "Texas Instruments",
+              "specifications": {
+                "initialAccuracy": "2%",
+                "temperatureDrift": "50ppm/°C",
+                "outputVoltage": "2.5V"
+              },
+              "comparison": {
+                "initialAccuracy": "2% > 0.5% (less accurate)",
+                "temperatureDrift": "50ppm/°C > 20ppm/°C (higher drift)",
+                "outputVoltage": "2.5V = 2.5V (same)"
+              },
+              "reason": "Standard TL431 has lower accuracy and higher drift but is widely available",
+              "useCase": "Cost-sensitive applications where GS431 accuracy is not required",
+              "link": "#"
             },
             {
-              "question": "How do I choose the right reference voltage for my ADC?",
-              "answer": "ADC reference voltage selection involves several considerations. Match the reference to your ADC's full-scale input range for maximum utilization of ADC resolution. For a 3.3V system with 0-3.3V input range, use a 3.3V or 2.5V reference depending on ADC requirements. Higher reference voltages improve SNR but may exceed ADC limits. Verify the ADC's reference input requirements - some need specific voltages (2.048V, 2.5V, 4.096V, 5V). Consider your signal range - if signals are 0-2V, a 2.5V reference provides margin without wasting resolution. The reference voltage determines LSB (Least Significant Bit) size: LSB = Vref/2^n. For 12-bit ADC with 2.5V reference, LSB = 0.61mV. Choose reference accuracy and drift to support your measurement accuracy requirements.",
-              "decisionGuide": "Match reference voltage to ADC input range and signal levels. Verify ADC compatibility with chosen reference voltage.",
-              "keywords": ["ADC reference voltage", "reference selection", "ADC accuracy"]
-            },
-            {
-              "question": "What is line regulation and why does it matter?",
-              "answer": "Line regulation measures how much the reference output voltage changes when the input supply voltage varies. It's specified in ppm/V or μV/V. Good line regulation ensures reference stability despite supply variations from battery discharge, load transients, or power supply ripple. Shunt references have inherent line regulation determined by their dynamic impedance - typically 0.1-0.5Ω for good references. A 0.2Ω dynamic impedance with 1V supply change causes 0.2mV output change (80ppm for 2.5V reference). Series references typically have better line regulation (10-100ppm/V) due to their active regulation. For battery-powered applications where supply varies significantly, line regulation is critical. For mains-powered systems with good regulation, it may be less important.",
-              "decisionGuide": "For battery or poorly regulated supplies, choose references with good line regulation. Verify specifications against your expected supply variation.",
-              "keywords": ["line regulation", "supply variation", "reference stability"]
+              "partNumber": "LM4041",
+              "brand": "Texas Instruments",
+              "specifications": {
+                "initialAccuracy": "0.1%",
+                "temperatureDrift": "100ppm/°C",
+                "outputVoltage": "1.24V"
+              },
+              "comparison": {
+                "initialAccuracy": "0.1% < 0.5% (more accurate)",
+                "temperatureDrift": "100ppm/°C > 20ppm/°C (higher drift)",
+                "outputVoltage": "1.24V < 2.5V (different voltage)"
+              },
+              "reason": "LM4041 offers better initial accuracy but higher drift and different voltage",
+              "useCase": "Applications requiring higher initial accuracy at room temperature",
+              "link": "#"
             }
           ],
-          "products": [
+          "companionParts": [
             {
-              "partNumber": "GS431",
-              "name": "Precision Shunt Reference",
-              "shortDescription": "2.5V precision shunt reference, 0.5% initial accuracy, 20ppm/°C drift in SOT23-3",
-              "descriptionParagraphs": [
-                "The GS431 is a precision two-terminal shunt voltage reference providing stable 2.5V output.",
-                "With 0.5% initial accuracy and 20ppm/°C temperature drift, it delivers reliable performance for ADC reference and monitoring applications.",
-                "Wide operating current range from 100μA to 100mA provides flexibility for various circuit configurations."
-              ],
-              "specifications": {
-                "Output Voltage": "2.5V",
-                "Initial Accuracy": "±0.5%",
-                "Temperature Drift": "20ppm/°C (max)",
-                "Operating Current": "100μA - 100mA",
-                "Dynamic Impedance": "0.2Ω",
-                "Temperature Range": "-40°C to +125°C",
-                "Package": "SOT23-3, TO-92"
-              },
-              "features": [
-                "Precision 2.5V reference voltage",
-                "0.5% initial accuracy",
-                "Low 20ppm/°C temperature drift",
-                "Wide 100μA to 100mA operating range",
-                "Low 0.2Ω dynamic impedance",
-                "Industry-standard pinout"
-              ],
-              "applications": [
-                "ADC reference voltage",
-                "Power supply monitoring",
-                "Current sense threshold",
-                "Comparator reference",
-                "Voltage regulator feedback"
-              ],
-              "faeReview": {
-                "author": "Thomas Zhang",
-                "title": "Senior FAE - Precision Systems",
-                "content": "The GS431 is a workhorse reference that I specify for a wide range of applications. The 0.5% accuracy is adequate for most 8-bit and 10-bit ADC applications without calibration, and the 20ppm drift keeps errors manageable over industrial temperature ranges. I particularly appreciate the wide operating current range - you can bias it at 1mA for low-power designs or 10mA+ if you need to drive some load current directly. The 0.2Ω dynamic impedance provides good line regulation even with varying supply. For higher accuracy requirements, I recommend adding a trim potentiometer in the feedback path. The SOT23-3 package is compact but the TO-92 option is great for through-hole prototypes. One tip: use a precision (0.1%) series resistor for best accuracy.",
-                "highlight": "Reliable 2.5V reference with excellent cost-performance ratio"
-              },
-              "alternativeParts": [
-                {
-                  "partNumber": "TL431",
-                  "brand": "Texas Instruments",
-                  "specifications": {
-                    "initialAccuracy": "2%",
-                    "temperatureDrift": "50ppm/°C",
-                    "outputVoltage": "2.5V"
-                  },
-                  "comparison": {
-                    "initialAccuracy": "2% > 0.5% (less accurate)",
-                    "temperatureDrift": "50ppm/°C > 20ppm/°C (higher drift)",
-                    "outputVoltage": "2.5V = 2.5V (same)"
-                  },
-                  "reason": "Standard TL431 has lower accuracy and higher drift but is widely available",
-                  "useCase": "Cost-sensitive applications where GS431 accuracy is not required",
-                  "link": "#"
-                },
-                {
-                  "partNumber": "LM4041",
-                  "brand": "Texas Instruments",
-                  "specifications": {
-                    "initialAccuracy": "0.1%",
-                    "temperatureDrift": "100ppm/°C",
-                    "outputVoltage": "1.24V"
-                  },
-                  "comparison": {
-                    "initialAccuracy": "0.1% < 0.5% (more accurate)",
-                    "temperatureDrift": "100ppm/°C > 20ppm/°C (higher drift)",
-                    "outputVoltage": "1.24V < 2.5V (different voltage)"
-                  },
-                  "reason": "LM4041 offers better initial accuracy but higher drift and different voltage",
-                  "useCase": "Applications requiring higher initial accuracy at room temperature",
-                  "link": "#"
-                }
-              ],
-              "companionParts": [
-                {
-                  "partNumber": "GS8511-TR",
-                  "link": "/gainsil/products/operational-amplifiers/gs8511-tr.html",
-                  "description": "Precision op-amp for buffering reference output",
-                  "category": "Operational Amplifiers"
-                },
-                {
-                  "partNumber": "GS8741-TR",
-                  "link": "/gainsil/products/comparators/gs8741-tr.html",
-                  "description": "Comparator for voltage monitoring with reference",
-                  "category": "Comparators"
-                },
-                {
-                  "partNumber": "Precision Resistor",
-                  "link": "#",
-                  "description": "0.1% tolerance series resistor for accurate current setting",
-                  "category": "Passive Components"
-                },
-                {
-                  "partNumber": "Bypass Capacitor",
-                  "link": "#",
-                  "description": "0.1μF ceramic capacitor for output noise reduction",
-                  "category": "Passive Components"
-                }
-              ],
-              "faqs": [
-                {
-                  "question": "How do I calculate the series resistor for GS431?",
-                  "answer": "The series resistor sets the operating current for the GS431. Calculate using: Rseries = (Vsupply - Vref) / (Iref + Iload). For example, with 5V supply, 2.5V reference, 1mA reference current, and 0.5mA load: Rseries = (5V - 2.5V) / (1mA + 0.5mA) = 2.5V / 1.5mA = 1.67kΩ. Choose standard value 1.6kΩ or 1.8kΩ. Verify power dissipation: P = (Vsupply - Vref)² / R = 6.25mW (negligible). For minimum current (100μA), maximum resistor is (5V-2.5V)/100μA = 25kΩ. For maximum current (100mA), minimum resistor is (5V-2.5V)/100mA = 25Ω. Use 0.1% precision resistors for best accuracy. Consider temperature coefficient if operating over wide temperature range.",
-                  "decisionGuide": "Calculate series resistor based on your supply voltage and required current. Include margin for load current variations.",
-                  "keywords": ["series resistor calculation", "shunt reference biasing", "operating current"]
-                },
-                {
-                  "question": "What is the minimum operating current for GS431?",
-                  "answer": "The GS431 specifies a minimum operating current of 100μA for guaranteed performance. Below this current, regulation may degrade and output voltage may drop. The minimum current ensures the internal bandgap circuit and amplifier operate properly. In practice, operation down to 50-80μA may work but is not guaranteed. For reliable operation, design with at least 200μA to provide margin for temperature variations and component tolerances. Maximum current is limited by power dissipation - at 100mA and 2.5V, dissipation is 250mW, which is acceptable in SOT23-3 at room temperature but may require derating at high ambient temperatures. Calculate junction temperature: Tj = Ta + (P × Rthja). For SOT23-3, Rthja is approximately 200°C/W.",
-                  "decisionGuide": "Design with minimum 200μA operating current for reliable operation. Verify power dissipation and junction temperature at maximum current.",
-                  "keywords": ["minimum operating current", "reference biasing", "power dissipation"]
-                },
-                {
-                  "question": "How do I use GS431 as a comparator reference?",
-                  "answer": "The GS431 provides a stable 2.5V reference for comparator threshold generation. Connect the series resistor from supply to GS431 cathode (K), anode (A) to ground, and reference output (R) to cathode. The 2.5V appears at the cathode/reference node. Connect this to the comparator inverting input. Apply your monitored signal to the non-inverting input. When signal exceeds 2.5V, comparator output switches. For different thresholds, use a resistor divider from the 2.5V reference. For example, two equal 10kΩ resistors divide 2.5V to 1.25V. Use precision resistors (0.1% or 1%) for accurate thresholds. The GS431's 0.5% accuracy provides threshold stability better than most resistor dividers. Add 0.1μF capacitor at reference output for noise reduction.",
-                  "decisionGuide": "Use GS431 as stable 2.5V reference for comparator thresholds. Add resistor dividers for other threshold voltages.",
-                  "keywords": ["comparator reference", "threshold voltage", "voltage divider"]
-                },
-                {
-                  "question": "Can GS431 be used as a voltage regulator?",
-                  "answer": "The GS431 can function as a simple linear regulator with external pass transistor for higher currents. The basic configuration uses GS431 to sense output voltage and drive the base/gate of a pass transistor. For a 5V regulator: connect GS431 reference to output voltage divider, cathode to transistor base, anode to ground. The transistor emitter/sources the regulated output. This provides higher current capability than GS431 alone. Line and load regulation depend on the pass transistor and feedback network. For better regulation, add an op-amp in the feedback loop. The GS431's 0.5% accuracy provides reasonable output voltage tolerance. This approach is cost-effective for non-critical regulation requirements. For precision regulation, consider dedicated linear regulators.",
-                  "decisionGuide": "Use GS431 with pass transistor for simple low-cost regulators. For precision regulation, consider dedicated regulator ICs.",
-                  "keywords": ["shunt regulator", "linear regulator", "pass transistor"]
-                },
-                {
-                  "question": "What causes reference voltage drift over time?",
-                  "answer": "Long-term drift (stability) is different from temperature drift and is caused by several factors. Package stress relaxation over time causes small output voltage changes, typically 50-200ppm per 1000 hours. This is more significant in surface-mount packages due to molding compound stress. Ionic contamination in the die can cause gradual parameter shifts. Operating at high temperatures accelerates these effects through Arrhenius behavior - drift roughly doubles every 10°C. Humidity can affect plastic-packaged devices. To minimize long-term drift, operate at moderate temperatures, use hermetic packages for critical applications, and allow burn-in for stress relaxation before final calibration. Typical GS431 long-term drift is better than 0.1% per 1000 hours at 25°C. For highest stability, consider references specifically designed for precision applications.",
-                  "decisionGuide": "For highest long-term stability, operate at moderate temperatures and consider burn-in. Specify references with guaranteed long-term drift for critical applications.",
-                  "keywords": ["long-term drift", "reference stability", "aging effects"]
-                },
-                {
-                  "question": "How do I buffer the GS431 output for driving ADC reference inputs?",
-                  "answer": "ADC reference inputs may require low impedance drive and fast settling, which the GS431 cannot provide directly. Buffer the reference with a precision op-amp like GS8511 configured as a voltage follower. Connect GS431 output to op-amp non-inverting input, op-amp output to ADC reference pin. Add 0.1μF capacitor at op-amp output for high-frequency bypass. The op-amp provides low output impedance (<1Ω) for the ADC's dynamic reference current demands. Choose an op-amp with low offset (better than GS431 accuracy), adequate bandwidth for settling, and rail-to-rail output if operating near supply rails. The buffer adds minimal error if the op-amp offset is low. Some ADCs have specific reference drive requirements - verify compatibility with buffered output.",
-                  "decisionGuide": "Buffer GS431 with precision op-amp for driving ADC references. Verify op-amp specifications meet ADC drive requirements.",
-                  "keywords": ["reference buffer", "ADC drive", "voltage follower"]
-                }
+              "partNumber": "GS8511-TR",
+              "link": "/gainsil/products/operational-amplifiers/gs8511-tr.html",
+              "description": "Precision op-amp for buffering reference output",
+              "category": "Operational Amplifiers"
+            },
+            {
+              "partNumber": "GS8741-TR",
+              "link": "/gainsil/products/comparators/gs8741-tr.html",
+              "description": "Comparator for voltage monitoring with reference",
+              "category": "Comparators"
+            },
+            {
+              "partNumber": "Precision Resistor",
+              "link": "#",
+              "description": "0.1% tolerance series resistor for accurate current setting",
+              "category": "Passive Components"
+            },
+            {
+              "partNumber": "Bypass Capacitor",
+              "link": "#",
+              "description": "0.1μF ceramic capacitor for output noise reduction",
+              "category": "Passive Components"
+            }
+          ],
+          "faqs": [
+            {
+              "question": "How do I calculate the series resistor for GS431?",
+              "answer": "The series resistor sets the operating current for the GS431. Calculate using: Rseries = (Vsupply - Vref) / (Iref + Iload). For example, with 5V supply, 2.5V reference, 1mA reference current, and 0.5mA load: Rseries = (5V - 2.5V) / (1mA + 0.5mA) = 2.5V / 1.5mA = 1.67kΩ. Choose standard value 1.6kΩ or 1.8kΩ. Verify power dissipation: P = (Vsupply - Vref)² / R = 6.25mW (negligible). For minimum current (100μA), maximum resistor is (5V-2.5V)/100μA = 25kΩ. For maximum current (100mA), minimum resistor is (5V-2.5V)/100mA = 25Ω. Use 0.1% precision resistors for best accuracy. Consider temperature coefficient if operating over wide temperature range.",
+              "decisionGuide": "Calculate series resistor based on your supply voltage and required current. Include margin for load current variations.",
+              "keywords": [
+                "series resistor calculation",
+                "shunt reference biasing",
+                "operating current"
               ]
             },
             {
-              "partNumber": "GS432",
-              "name": "Precision 1.25V Shunt Reference",
-              "shortDescription": "1.25V precision shunt reference, 1% accuracy, 30ppm/°C drift for low-voltage applications",
-              "descriptionParagraphs": [
-                "The GS432 provides a stable 1.25V reference voltage for low-voltage ADCs and monitoring applications.",
-                "With 1% initial accuracy and 30ppm/°C temperature drift, it delivers reliable performance in space-constrained designs.",
-                "Low minimum operating current of 60μA makes it ideal for battery-powered systems."
-              ],
+              "question": "What is the minimum operating current for GS431?",
+              "answer": "The GS431 specifies a minimum operating current of 100μA for guaranteed performance. Below this current, regulation may degrade and output voltage may drop. The minimum current ensures the internal bandgap circuit and amplifier operate properly. In practice, operation down to 50-80μA may work but is not guaranteed. For reliable operation, design with at least 200μA to provide margin for temperature variations and component tolerances. Maximum current is limited by power dissipation - at 100mA and 2.5V, dissipation is 250mW, which is acceptable in SOT23-3 at room temperature but may require derating at high ambient temperatures. Calculate junction temperature: Tj = Ta + (P × Rthja). For SOT23-3, Rthja is approximately 200°C/W.",
+              "decisionGuide": "Design with minimum 200μA operating current for reliable operation. Verify power dissipation and junction temperature at maximum current.",
+              "keywords": [
+                "minimum operating current",
+                "reference biasing",
+                "power dissipation"
+              ]
+            },
+            {
+              "question": "How do I use GS431 as a comparator reference?",
+              "answer": "The GS431 provides a stable 2.5V reference for comparator threshold generation. Connect the series resistor from supply to GS431 cathode (K), anode (A) to ground, and reference output (R) to cathode. The 2.5V appears at the cathode/reference node. Connect this to the comparator inverting input. Apply your monitored signal to the non-inverting input. When signal exceeds 2.5V, comparator output switches. For different thresholds, use a resistor divider from the 2.5V reference. For example, two equal 10kΩ resistors divide 2.5V to 1.25V. Use precision resistors (0.1% or 1%) for accurate thresholds. The GS431's 0.5% accuracy provides threshold stability better than most resistor dividers. Add 0.1μF capacitor at reference output for noise reduction.",
+              "decisionGuide": "Use GS431 as stable 2.5V reference for comparator thresholds. Add resistor dividers for other threshold voltages.",
+              "keywords": [
+                "comparator reference",
+                "threshold voltage",
+                "voltage divider"
+              ]
+            },
+            {
+              "question": "Can GS431 be used as a voltage regulator?",
+              "answer": "The GS431 can function as a simple linear regulator with external pass transistor for higher currents. The basic configuration uses GS431 to sense output voltage and drive the base/gate of a pass transistor. For a 5V regulator: connect GS431 reference to output voltage divider, cathode to transistor base, anode to ground. The transistor emitter/sources the regulated output. This provides higher current capability than GS431 alone. Line and load regulation depend on the pass transistor and feedback network. For better regulation, add an op-amp in the feedback loop. The GS431's 0.5% accuracy provides reasonable output voltage tolerance. This approach is cost-effective for non-critical regulation requirements. For precision regulation, consider dedicated linear regulators.",
+              "decisionGuide": "Use GS431 with pass transistor for simple low-cost regulators. For precision regulation, consider dedicated regulator ICs.",
+              "keywords": [
+                "shunt regulator",
+                "linear regulator",
+                "pass transistor"
+              ]
+            },
+            {
+              "question": "What causes reference voltage drift over time?",
+              "answer": "Long-term drift (stability) is different from temperature drift and is caused by several factors. Package stress relaxation over time causes small output voltage changes, typically 50-200ppm per 1000 hours. This is more significant in surface-mount packages due to molding compound stress. Ionic contamination in the die can cause gradual parameter shifts. Operating at high temperatures accelerates these effects through Arrhenius behavior - drift roughly doubles every 10°C. Humidity can affect plastic-packaged devices. To minimize long-term drift, operate at moderate temperatures, use hermetic packages for critical applications, and allow burn-in for stress relaxation before final calibration. Typical GS431 long-term drift is better than 0.1% per 1000 hours at 25°C. For highest stability, consider references specifically designed for precision applications.",
+              "decisionGuide": "For highest long-term stability, operate at moderate temperatures and consider burn-in. Specify references with guaranteed long-term drift for critical applications.",
+              "keywords": [
+                "long-term drift",
+                "reference stability",
+                "aging effects"
+              ]
+            },
+            {
+              "question": "How do I buffer the GS431 output for driving ADC reference inputs?",
+              "answer": "ADC reference inputs may require low impedance drive and fast settling, which the GS431 cannot provide directly. Buffer the reference with a precision op-amp like GS8511 configured as a voltage follower. Connect GS431 output to op-amp non-inverting input, op-amp output to ADC reference pin. Add 0.1μF capacitor at op-amp output for high-frequency bypass. The op-amp provides low output impedance (<1Ω) for the ADC's dynamic reference current demands. Choose an op-amp with low offset (better than GS431 accuracy), adequate bandwidth for settling, and rail-to-rail output if operating near supply rails. The buffer adds minimal error if the op-amp offset is low. Some ADCs have specific reference drive requirements - verify compatibility with buffered output.",
+              "decisionGuide": "Buffer GS431 with precision op-amp for driving ADC references. Verify op-amp specifications meet ADC drive requirements.",
+              "keywords": [
+                "reference buffer",
+                "ADC drive",
+                "voltage follower"
+              ]
+            }
+          ]
+        },
+        {
+          "partNumber": "GS432",
+          "name": "Precision 1.25V Shunt Reference",
+          "shortDescription": "1.25V precision shunt reference, 1% accuracy, 30ppm/°C drift for low-voltage applications",
+          "descriptionParagraphs": [
+            "The GS432 provides a stable 1.25V reference voltage for low-voltage ADCs and monitoring applications.",
+            "With 1% initial accuracy and 30ppm/°C temperature drift, it delivers reliable performance in space-constrained designs.",
+            "Low minimum operating current of 60μA makes it ideal for battery-powered systems."
+          ],
+          "specifications": {
+            "Output Voltage": "1.25V",
+            "Initial Accuracy": "±1%",
+            "Temperature Drift": "30ppm/°C (max)",
+            "Operating Current": "60μA - 50mA",
+            "Dynamic Impedance": "0.3Ω",
+            "Temperature Range": "-40°C to +125°C",
+            "Package": "SOT23-3, SC70-3",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A"
+          },
+          "features": [
+            "Low 1.25V reference voltage",
+            "1% initial accuracy",
+            "30ppm/°C temperature drift",
+            "Ultra-low 60μA minimum current",
+            "Wide 60μA to 50mA operating range",
+            "Compact SC70-3 package option"
+          ],
+          "applications": [
+            "Low-voltage ADC reference",
+            "1.8V system monitoring",
+            "Current sense amplifier reference",
+            "Battery-powered instruments",
+            "Portable medical devices"
+          ],
+          "faeReview": {
+            "author": "Amanda Lee",
+            "title": "FAE - Low-Power Systems",
+            "content": "The GS432 is specifically designed for low-voltage applications where a 2.5V reference would be too high. I frequently use this part in 1.8V and 3.3V systems where the 1.25V reference provides good headroom. The 60μA minimum operating current is excellent for battery-powered designs - you can bias it at just 100μA and still get good performance. The SC70-3 package is tiny, perfect for wearable devices where space is at a premium. While the 1% accuracy and 30ppm drift are not as good as the GS431, they're adequate for many 8-bit and 10-bit ADC applications. For higher accuracy, you can calibrate in software. One application I like is using it as a reference for current sense amplifiers in battery management systems.",
+            "highlight": "Low-voltage reference ideal for battery-powered and 1.8V systems"
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "LM4041-1.2",
+              "brand": "Texas Instruments",
               "specifications": {
-                "Output Voltage": "1.25V",
-                "Initial Accuracy": "±1%",
-                "Temperature Drift": "30ppm/°C (max)",
-                "Operating Current": "60μA - 50mA",
-                "Dynamic Impedance": "0.3Ω",
-                "Temperature Range": "-40°C to +125°C",
-                "Package": "SOT23-3, SC70-3"
+                "initialAccuracy": "0.1%",
+                "temperatureDrift": "100ppm/°C",
+                "outputVoltage": "1.24V"
               },
-              "features": [
-                "Low 1.25V reference voltage",
-                "1% initial accuracy",
-                "30ppm/°C temperature drift",
-                "Ultra-low 60μA minimum current",
-                "Wide 60μA to 50mA operating range",
-                "Compact SC70-3 package option"
-              ],
-              "applications": [
-                "Low-voltage ADC reference",
-                "1.8V system monitoring",
-                "Current sense amplifier reference",
-                "Battery-powered instruments",
-                "Portable medical devices"
-              ],
-              "faeReview": {
-                "author": "Amanda Lee",
-                "title": "FAE - Low-Power Systems",
-                "content": "The GS432 is specifically designed for low-voltage applications where a 2.5V reference would be too high. I frequently use this part in 1.8V and 3.3V systems where the 1.25V reference provides good headroom. The 60μA minimum operating current is excellent for battery-powered designs - you can bias it at just 100μA and still get good performance. The SC70-3 package is tiny, perfect for wearable devices where space is at a premium. While the 1% accuracy and 30ppm drift are not as good as the GS431, they're adequate for many 8-bit and 10-bit ADC applications. For higher accuracy, you can calibrate in software. One application I like is using it as a reference for current sense amplifiers in battery management systems.",
-                "highlight": "Low-voltage reference ideal for battery-powered and 1.8V systems"
+              "comparison": {
+                "initialAccuracy": "0.1% < 1% (more accurate)",
+                "temperatureDrift": "100ppm/°C > 30ppm/°C (higher drift)",
+                "outputVoltage": "1.24V ≈ 1.25V (similar)"
               },
-              "alternativeParts": [
-                {
-                  "partNumber": "LM4041-1.2",
-                  "brand": "Texas Instruments",
-                  "specifications": {
-                    "initialAccuracy": "0.1%",
-                    "temperatureDrift": "100ppm/°C",
-                    "outputVoltage": "1.24V"
-                  },
-                  "comparison": {
-                    "initialAccuracy": "0.1% < 1% (more accurate)",
-                    "temperatureDrift": "100ppm/°C > 30ppm/°C (higher drift)",
-                    "outputVoltage": "1.24V ≈ 1.25V (similar)"
-                  },
-                  "reason": "LM4041 offers better initial accuracy but higher temperature drift",
-                  "useCase": "Applications requiring high room-temperature accuracy",
-                  "link": "#"
-                },
-                {
-                  "partNumber": "TLV431",
-                  "brand": "Texas Instruments",
-                  "specifications": {
-                    "initialAccuracy": "1%",
-                    "temperatureDrift": "50ppm/°C",
-                    "outputVoltage": "1.24V"
-                  },
-                  "comparison": {
-                    "initialAccuracy": "1% = 1% (same)",
-                    "temperatureDrift": "50ppm/°C > 30ppm/°C (higher drift)",
-                    "outputVoltage": "1.24V ≈ 1.25V (similar)"
-                  },
-                  "reason": "TLV431 is comparable but GS432 offers better temperature drift",
-                  "useCase": "General-purpose low-voltage reference applications",
-                  "link": "#"
-                }
-              ],
-              "companionParts": [
-                {
-                  "partNumber": "GS8551-TR",
-                  "link": "/gainsil/products/operational-amplifiers/gs8551-tr.html",
-                  "description": "Low-power op-amp for buffering reference output",
-                  "category": "Operational Amplifiers"
-                },
-                {
-                  "partNumber": "GS8741-TR",
-                  "link": "/gainsil/products/comparators/gs8741-tr.html",
-                  "description": "High-speed comparator for voltage monitoring",
-                  "category": "Comparators"
-                },
-                {
-                  "partNumber": "Current Sense Resistor",
-                  "link": "#",
-                  "description": "Precision resistor for current measurement with reference",
-                  "category": "Passive Components"
-                },
-                {
-                  "partNumber": "Bypass Capacitor",
-                  "link": "#",
-                  "description": "0.1μF ceramic for output filtering",
-                  "category": "Passive Components"
-                }
-              ],
-              "faqs": [
-                {
-                  "question": "When should I choose GS432 over GS431?",
-                  "answer": "Choose GS432 when your application requires a reference voltage below 2.5V or when operating from low supply voltages. The 1.25V output is ideal for 1.8V and 2.5V systems where a 2.5V reference would leave insufficient headroom. The lower minimum operating current (60μA vs 100μA) benefits ultra-low-power battery applications. The SC70-3 package option is smaller than GS431's SOT23-3, saving board space in compact designs. However, GS432 has slightly lower accuracy (1% vs 0.5%) and higher drift (30ppm vs 20ppm), so choose GS431 when precision is more important than voltage level. For ADC references, match the reference to your ADC's input range - if your signals are 0-1V, the 1.25V reference provides better utilization than 2.5V.",
-                  "decisionGuide": "Choose GS432 for low-voltage systems and ultra-low-power designs. Choose GS431 when higher precision is required.",
-                  "keywords": ["GS432 vs GS431", "low voltage reference", "reference selection"]
-                },
-                {
-                  "question": "How do I use GS432 in a 1.8V system?",
-                  "answer": "In a 1.8V system, the GS432's 1.25V output provides adequate headroom for proper operation. Connect the series resistor from the 1.8V supply to the GS432 cathode. Calculate resistor value: R = (1.8V - 1.25V) / Ioperating. For 200μA operation: R = 0.55V / 200μA = 2.75kΩ, use 2.7kΩ standard value. Verify minimum supply headroom: 1.8V - 1.25V = 0.55V, which is adequate for proper regulation. The GS432 will maintain 1.25V output as long as supply stays above approximately 1.4V. For battery-powered systems where voltage declines during discharge, verify operation at end-of-life voltage. The low 60μA minimum current allows operation even with large series resistors when current must be minimized.",
-                  "decisionGuide": "GS432 works well in 1.8V systems with adequate headroom. Calculate series resistor for your current requirements.",
-                  "keywords": ["1.8V reference", "low voltage operation", "battery system reference"]
-                },
-                {
-                  "question": "What is the temperature coefficient and how does it affect accuracy?",
-                  "answer": "The temperature coefficient (tempco) of 30ppm/°C means the reference voltage changes by 30 parts per million for each degree Celsius temperature change. For GS432's 1.25V output over 100°C range: Error = 1.25V × (30/1,000,000) × 100 = 3.75mV. This represents 0.3% error from drift alone. Combined with 1% initial accuracy, total error could be ±1.3% over temperature. For better accuracy, you can calibrate at a known temperature or use software compensation if temperature is monitored. The 30ppm specification is maximum - typical devices perform better. For applications requiring highest accuracy over temperature, consider references with lower tempco (10-20ppm/°C) or implement temperature compensation in your system.",
-                  "decisionGuide": "Calculate total error including initial accuracy and tempco over your temperature range. Consider calibration for highest accuracy.",
-                  "keywords": ["temperature coefficient", "tempco calculation", "reference accuracy"]
-                },
-                {
-                  "question": "Can GS432 be used for current sensing applications?",
-                  "answer": "The GS432 provides an excellent reference voltage for current sense amplifier circuits. In a typical application, a sense resistor (e.g., 0.1Ω) converts current to voltage, which is amplified by an op-amp (like GS8511) with gain set by feedback resistors. The GS432 provides a stable reference for the amplifier's offset or for setting comparison thresholds. For example, in a 1A overcurrent detection circuit: 1A × 0.1Ω = 100mV across sense resistor. Amplify by 12.5x to get 1.25V, which matches GS432 output for direct comparator connection. The 1% accuracy is adequate for most protection applications. The low tempco ensures consistent thresholds over temperature. For bidirectional current sensing, bias the amplifier output to mid-scale using the reference.",
-                  "decisionGuide": "Use GS432 as stable reference for current sense circuits. Match reference voltage to your sense amplifier gain and threshold requirements.",
-                  "keywords": ["current sensing", "overcurrent protection", "sense amplifier reference"]
-                },
-                {
-                  "question": "How does the SC70-3 package compare to SOT23-3?",
-                  "answer": "The SC70-3 package is significantly smaller than SOT23-3, making it ideal for space-constrained designs. SC70-3 dimensions are approximately 2.0mm × 2.1mm vs SOT23-3's 2.9mm × 2.8mm - about 50% smaller footprint. The smaller package has slightly worse thermal resistance (higher θja), which may limit maximum operating current at high ambient temperatures. Power dissipation capability is reduced: SC70-3 can typically handle 200-250mW vs 300-400mW for SOT23-3. For most GS432 applications with modest currents (<10mA), thermal limitations are not significant. The SC70-3 pinout is compatible with SOT23-3, allowing interchangeability in many designs. PCB layout requires more attention with SC70-3 due to smaller pads and tighter clearances. Both packages have similar electrical performance and reliability characteristics.",
-                  "decisionGuide": "Choose SC70-3 for space-constrained designs. Choose SOT23-3 for higher power dissipation or easier handling.",
-                  "keywords": ["SC70 vs SOT23", "package comparison", "small form factor"]
-                },
-                {
-                  "question": "What is the output noise of GS432 and how can I reduce it?",
-                  "answer": "The GS432 output noise consists of broadband noise and 1/f (flicker) noise components. Typical wideband noise is in the 10-50μVrms range over 10Hz to 10kHz bandwidth. This noise can affect sensitive ADC measurements and comparator thresholds. To reduce noise, add a bypass capacitor (0.1μF to 10μF) from reference output to ground - larger capacitors filter lower frequencies. A series resistor (10-100Ω) with the capacitor creates an RC filter for additional noise reduction. For lowest noise, buffer the reference with a low-noise op-amp like GS8511 configured as a low-pass filter. Keep reference traces away from switching signals that could couple noise. The noise is relatively constant with operating current, so increasing current does not significantly reduce noise. For precision applications, measure noise in your specific circuit configuration.",
-                  "decisionGuide": "Add bypass capacitors and RC filtering to reduce reference noise. Buffer with low-noise op-amp for most sensitive applications.",
-                  "keywords": ["reference noise", "noise reduction", "bypass capacitor"]
-                }
+              "reason": "LM4041 offers better initial accuracy but higher temperature drift",
+              "useCase": "Applications requiring high room-temperature accuracy",
+              "link": "#"
+            },
+            {
+              "partNumber": "TLV431",
+              "brand": "Texas Instruments",
+              "specifications": {
+                "initialAccuracy": "1%",
+                "temperatureDrift": "50ppm/°C",
+                "outputVoltage": "1.24V"
+              },
+              "comparison": {
+                "initialAccuracy": "1% = 1% (same)",
+                "temperatureDrift": "50ppm/°C > 30ppm/°C (higher drift)",
+                "outputVoltage": "1.24V ≈ 1.25V (similar)"
+              },
+              "reason": "TLV431 is comparable but GS432 offers better temperature drift",
+              "useCase": "General-purpose low-voltage reference applications",
+              "link": "#"
+            }
+          ],
+          "companionParts": [
+            {
+              "partNumber": "GS8551-TR",
+              "link": "/gainsil/products/operational-amplifiers/gs8551-tr.html",
+              "description": "Low-power op-amp for buffering reference output",
+              "category": "Operational Amplifiers"
+            },
+            {
+              "partNumber": "GS8741-TR",
+              "link": "/gainsil/products/comparators/gs8741-tr.html",
+              "description": "High-speed comparator for voltage monitoring",
+              "category": "Comparators"
+            },
+            {
+              "partNumber": "Current Sense Resistor",
+              "link": "#",
+              "description": "Precision resistor for current measurement with reference",
+              "category": "Passive Components"
+            },
+            {
+              "partNumber": "Bypass Capacitor",
+              "link": "#",
+              "description": "0.1μF ceramic for output filtering",
+              "category": "Passive Components"
+            }
+          ],
+          "faqs": [
+            {
+              "question": "When should I choose GS432 over GS431?",
+              "answer": "Choose GS432 when your application requires a reference voltage below 2.5V or when operating from low supply voltages. The 1.25V output is ideal for 1.8V and 2.5V systems where a 2.5V reference would leave insufficient headroom. The lower minimum operating current (60μA vs 100μA) benefits ultra-low-power battery applications. The SC70-3 package option is smaller than GS431's SOT23-3, saving board space in compact designs. However, GS432 has slightly lower accuracy (1% vs 0.5%) and higher drift (30ppm vs 20ppm), so choose GS431 when precision is more important than voltage level. For ADC references, match the reference to your ADC's input range - if your signals are 0-1V, the 1.25V reference provides better utilization than 2.5V.",
+              "decisionGuide": "Choose GS432 for low-voltage systems and ultra-low-power designs. Choose GS431 when higher precision is required.",
+              "keywords": [
+                "GS432 vs GS431",
+                "low voltage reference",
+                "reference selection"
+              ]
+            },
+            {
+              "question": "How do I use GS432 in a 1.8V system?",
+              "answer": "In a 1.8V system, the GS432's 1.25V output provides adequate headroom for proper operation. Connect the series resistor from the 1.8V supply to the GS432 cathode. Calculate resistor value: R = (1.8V - 1.25V) / Ioperating. For 200μA operation: R = 0.55V / 200μA = 2.75kΩ, use 2.7kΩ standard value. Verify minimum supply headroom: 1.8V - 1.25V = 0.55V, which is adequate for proper regulation. The GS432 will maintain 1.25V output as long as supply stays above approximately 1.4V. For battery-powered systems where voltage declines during discharge, verify operation at end-of-life voltage. The low 60μA minimum current allows operation even with large series resistors when current must be minimized.",
+              "decisionGuide": "GS432 works well in 1.8V systems with adequate headroom. Calculate series resistor for your current requirements.",
+              "keywords": [
+                "1.8V reference",
+                "low voltage operation",
+                "battery system reference"
+              ]
+            },
+            {
+              "question": "What is the temperature coefficient and how does it affect accuracy?",
+              "answer": "The temperature coefficient (tempco) of 30ppm/°C means the reference voltage changes by 30 parts per million for each degree Celsius temperature change. For GS432's 1.25V output over 100°C range: Error = 1.25V × (30/1,000,000) × 100 = 3.75mV. This represents 0.3% error from drift alone. Combined with 1% initial accuracy, total error could be ±1.3% over temperature. For better accuracy, you can calibrate at a known temperature or use software compensation if temperature is monitored. The 30ppm specification is maximum - typical devices perform better. For applications requiring highest accuracy over temperature, consider references with lower tempco (10-20ppm/°C) or implement temperature compensation in your system.",
+              "decisionGuide": "Calculate total error including initial accuracy and tempco over your temperature range. Consider calibration for highest accuracy.",
+              "keywords": [
+                "temperature coefficient",
+                "tempco calculation",
+                "reference accuracy"
+              ]
+            },
+            {
+              "question": "Can GS432 be used for current sensing applications?",
+              "answer": "The GS432 provides an excellent reference voltage for current sense amplifier circuits. In a typical application, a sense resistor (e.g., 0.1Ω) converts current to voltage, which is amplified by an op-amp (like GS8511) with gain set by feedback resistors. The GS432 provides a stable reference for the amplifier's offset or for setting comparison thresholds. For example, in a 1A overcurrent detection circuit: 1A × 0.1Ω = 100mV across sense resistor. Amplify by 12.5x to get 1.25V, which matches GS432 output for direct comparator connection. The 1% accuracy is adequate for most protection applications. The low tempco ensures consistent thresholds over temperature. For bidirectional current sensing, bias the amplifier output to mid-scale using the reference.",
+              "decisionGuide": "Use GS432 as stable reference for current sense circuits. Match reference voltage to your sense amplifier gain and threshold requirements.",
+              "keywords": [
+                "current sensing",
+                "overcurrent protection",
+                "sense amplifier reference"
+              ]
+            },
+            {
+              "question": "How does the SC70-3 package compare to SOT23-3?",
+              "answer": "The SC70-3 package is significantly smaller than SOT23-3, making it ideal for space-constrained designs. SC70-3 dimensions are approximately 2.0mm × 2.1mm vs SOT23-3's 2.9mm × 2.8mm - about 50% smaller footprint. The smaller package has slightly worse thermal resistance (higher θja), which may limit maximum operating current at high ambient temperatures. Power dissipation capability is reduced: SC70-3 can typically handle 200-250mW vs 300-400mW for SOT23-3. For most GS432 applications with modest currents (<10mA), thermal limitations are not significant. The SC70-3 pinout is compatible with SOT23-3, allowing interchangeability in many designs. PCB layout requires more attention with SC70-3 due to smaller pads and tighter clearances. Both packages have similar electrical performance and reliability characteristics.",
+              "decisionGuide": "Choose SC70-3 for space-constrained designs. Choose SOT23-3 for higher power dissipation or easier handling.",
+              "keywords": [
+                "SC70 vs SOT23",
+                "package comparison",
+                "small form factor"
+              ]
+            },
+            {
+              "question": "What is the output noise of GS432 and how can I reduce it?",
+              "answer": "The GS432 output noise consists of broadband noise and 1/f (flicker) noise components. Typical wideband noise is in the 10-50μVrms range over 10Hz to 10kHz bandwidth. This noise can affect sensitive ADC measurements and comparator thresholds. To reduce noise, add a bypass capacitor (0.1μF to 10μF) from reference output to ground - larger capacitors filter lower frequencies. A series resistor (10-100Ω) with the capacitor creates an RC filter for additional noise reduction. For lowest noise, buffer the reference with a low-noise op-amp like GS8511 configured as a low-pass filter. Keep reference traces away from switching signals that could couple noise. The noise is relatively constant with operating current, so increasing current does not significantly reduce noise. For precision applications, measure noise in your specific circuit configuration.",
+              "decisionGuide": "Add bypass capacitors and RC filtering to reduce reference noise. Buffer with low-noise op-amp for most sensitive applications.",
+              "keywords": [
+                "reference noise",
+                "noise reduction",
+                "bypass capacitor"
+              ]
+            }
+          ]
+        },
+        {
+          "partNumber": "GS431",
+          "name": "GS431 2.5V Precision Shunt Reference",
+          "shortDescription": "2.5V precision shunt reference with 0.5% initial accuracy and 20ppm/°C temperature drift.",
+          "descriptionParagraphs": [
+            "The GS431 is a 2.5V precision shunt voltage reference with adjustable output voltage.",
+            "With 0.5% initial accuracy and 20ppm/°C temperature coefficient, this reference provides stable voltage for ADCs, DACs, and power supplies. The shunt configuration allows flexible current setting.",
+            "Features include wide operating current (1mA to 100mA), low dynamic impedance (0.2Ω), and SOT23-3 package."
+          ],
+          "specifications": {
+            "Reference Voltage": "2.5V nominal",
+            "Initial Accuracy": "0.5%",
+            "Temp Coefficient": "20ppm/°C",
+            "Operating Current": "1mA to 100mA",
+            "Dynamic Impedance": "0.2Ω typical",
+            "Package": "SOT23-3, SC70-3"
+          },
+          "features": [
+            "0.5% accuracy",
+            "20ppm/°C drift",
+            "Adjustable output",
+            "Wide current range",
+            "Low impedance"
+          ],
+          "applications": [
+            "ADC/DAC reference",
+            "Power supply feedback",
+            "Voltage monitoring",
+            "Current sensing"
+          ],
+          "faeReview": {
+            "author": "David Wang",
+            "title": "Principal FAE - Analog",
+            "content": "The GS431 is a cost-effective reference for many applications. The 0.5% accuracy is good for most designs, and the 20ppm drift is acceptable for consumer products.",
+            "highlight": "Cost-effective for general applications"
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "GS432",
+              "brand": "Gainsil",
+              "reason": "1.24V for lower voltage",
+              "comparison": {
+                "voltage": "1.24V < 2.5V",
+                "accuracy": "Same"
+              },
+              "useCase": "1.24V reference applications",
+              "specifications": {
+                "Reference Voltage": "1.24V"
+              },
+              "priceDifference": "Same",
+              "stockStatus": "In Stock"
+            }
+          ],
+          "companionParts": [
+            {
+              "partNumber": "Resistor Divider",
+              "description": "For output adjustment",
+              "category": "Passive"
+            }
+          ],
+          "faqs": [
+            {
+              "question": "How do I set the operating current?",
+              "answer": "Use a series resistor from supply to cathode. Calculate R = (Vsupply - Vref) / Iref. Choose current between 1mA and 100mA based on accuracy requirements and power budget.",
+              "decisionGuide": "Use 5-10mA for good accuracy with low power.",
+              "keywords": [
+                "operating current",
+                "biasing"
+              ]
+            }
+          ]
+        },
+        {
+          "partNumber": "GS432",
+          "name": "GS432 1.24V Precision Shunt Reference",
+          "shortDescription": "1.24V precision shunt reference with 0.5% accuracy for low voltage systems.",
+          "descriptionParagraphs": [
+            "The GS432 is a 1.24V precision shunt reference for low voltage applications.",
+            "Provides the same 0.5% accuracy and 20ppm/°C drift as the GS431 but at 1.24V. Useful for 1.8V and 3.3V systems where 2.5V is too high.",
+            "Same features and package options as GS431."
+          ],
+          "specifications": {
+            "Reference Voltage": "1.24V nominal",
+            "Initial Accuracy": "0.5%",
+            "Temp Coefficient": "20ppm/°C",
+            "Operating Current": "1mA to 100mA",
+            "Dynamic Impedance": "0.2Ω typical",
+            "Package": "SOT23-3, SC70-3"
+          },
+          "features": [
+            "1.24V output",
+            "0.5% accuracy",
+            "20ppm/°C drift",
+            "Low voltage operation"
+          ],
+          "applications": [
+            "Low voltage ADC reference",
+            "1.8V system reference",
+            "Current sensing",
+            "Comparator threshold"
+          ],
+          "faeReview": {
+            "author": "Michael Chen",
+            "title": "Senior FAE - Analog",
+            "content": "The GS432 is useful for low voltage systems. The 1.24V output works well in 1.8V and 3.3V designs where 2.5V would be too close to supply.",
+            "highlight": "Good for low voltage systems"
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "GS431",
+              "brand": "Gainsil",
+              "reason": "2.5V for higher voltage",
+              "comparison": {
+                "voltage": "2.5V > 1.24V",
+                "accuracy": "Same"
+              },
+              "useCase": "Standard 2.5V reference apps",
+              "specifications": {
+                "Reference Voltage": "2.5V"
+              },
+              "priceDifference": "Same",
+              "stockStatus": "In Stock"
+            }
+          ],
+          "companionParts": [
+            {
+              "partNumber": "Comparator",
+              "description": "For threshold detection",
+              "category": "Comparator"
+            }
+          ],
+          "faqs": [
+            {
+              "question": "When should I use 1.24V vs 2.5V reference?",
+              "answer": "Use 1.24V for supply voltages below 3.3V to ensure adequate headroom. Use 2.5V for 5V systems or where higher reference voltage improves ADC resolution.",
+              "decisionGuide": "1.24V for <3.3V supplies, 2.5V for 5V systems.",
+              "keywords": [
+                "voltage selection",
+                "reference"
               ]
             }
           ]
         }
+      ],
+      "series": [
+        {
+          "name": "GS431 Series",
+          "description": "Shunt voltage references"
+        },
+        {
+          "name": "GS432 Series",
+          "description": "Precision voltage references"
+        }
       ]
     }
-  
+  ]
+}

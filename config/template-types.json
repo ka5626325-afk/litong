@@ -1,517 +1,64 @@
 {
-  "version": "1.0.0",
-  "description": "模板类型定义配置文件",
   "templateTypes": {
-    "wide-bandgap": {
-      "name": "宽禁带半导体",
-      "nameEn": "Wide Bandgap Semiconductor",
-      "description": "适用于SiC、GaN等宽禁带半导体器件",
-      "applicableProducts": ["SiC MOSFET", "SiC Diode", "GaN HEMT", "GaN FET"],
-      "fieldGroups": {
-        "basic": {
-          "label": "基本信息",
-          "fields": [
-            {"name": "partNumber", "type": "string", "required": true, "label": "型号"},
-            {"name": "series", "type": "string", "required": true, "label": "系列"},
-            {"name": "technology", "type": "enum", "required": true, "label": "技术类型", "options": ["SiC", "GaN", "GaAs"]},
-            {"name": "package", "type": "string", "required": true, "label": "封装"}
-          ]
-        },
-        "electrical": {
-          "label": "电气参数",
-          "fields": [
-            {"name": "vds", "type": "number", "unit": "V", "label": "漏源电压 VDS"},
-            {"name": "id", "type": "number", "unit": "A", "label": "连续漏极电流 ID"},
-            {"name": "rdsOn", "type": "number", "unit": "mΩ", "label": "导通电阻 Rds(on)"},
-            {"name": "qg", "type": "number", "unit": "nC", "label": "总栅极电荷 Qg"}
-          ]
-        },
-        "thermal": {
-          "label": "热特性",
-          "fields": [
-            {"name": "tjMax", "type": "number", "unit": "°C", "label": "最高结温"},
-            {"name": "rthJc", "type": "number", "unit": "°C/W", "label": "结到壳热阻"}
-          ]
-        }
-      },
-      "layoutVariants": ["standard", "technical", "marketing"],
-      "defaultLayout": "standard",
-      "templateFile": "product-detail-wide-bandgap.html"
+    "default": {
+      "name": "默认模板",
+      "nameEn": "Default Template",
+      "description": "通用品牌模板，适用于大多数电子元器件品牌",
+      "templateFile": "product-detail.html"
     },
-    "silicon-discrete": {
-      "name": "硅基分立器件",
-      "nameEn": "Silicon Discrete Devices",
-      "description": "适用于传统硅基二极管、三极管、SCR等",
-      "applicableProducts": ["Diode", "SCR", "TRIAC", "BJT"],
-      "fieldGroups": {
-        "basic": {
-          "label": "基本信息",
-          "fields": [
-            {"name": "partNumber", "type": "string", "required": true, "label": "型号"},
-            {"name": "series", "type": "string", "required": true, "label": "系列"},
-            {"name": "deviceType", "type": "enum", "required": true, "label": "器件类型", "options": ["Diode", "SCR", "TRIAC", "BJT"]},
-            {"name": "package", "type": "string", "required": true, "label": "封装"}
-          ]
-        },
-        "electrical": {
-          "label": "电气参数",
-          "fields": [
-            {"name": "vrrm", "type": "number", "unit": "V", "label": "反向重复峰值电压 VRRM"},
-            {"name": "ifAv", "type": "number", "unit": "A", "label": "平均正向电流 IF(AV)"},
-            {"name": "vf", "type": "number", "unit": "V", "label": "正向压降 VF"},
-            {"name": "trr", "type": "number", "unit": "ns", "label": "反向恢复时间 trr"}
-          ]
-        },
-        "thermal": {
-          "label": "热特性",
-          "fields": [
-            {"name": "tjMax", "type": "number", "unit": "°C", "label": "最高结温"},
-            {"name": "rthJc", "type": "number", "unit": "°C/W", "label": "结到壳热阻"}
-          ]
-        }
-      },
-      "layoutVariants": ["standard", "technical"],
-      "defaultLayout": "standard",
-      "templateFile": "product-detail-silicon-discrete.html"
+    "power": {
+      "name": "电源管理模板",
+      "nameEn": "Power Management Template",
+      "description": "适用于电源管理芯片品牌",
+      "templateFile": "product-detail.html"
     },
-    "capacitor": {
-      "name": "电容器",
-      "nameEn": "Capacitor",
-      "description": "适用于铝电解电容、薄膜电容等",
-      "applicableProducts": ["Aluminum Electrolytic", "Film Capacitor", "Ceramic Capacitor"],
-      "fieldGroups": {
-        "basic": {
-          "label": "基本信息",
-          "fields": [
-            {"name": "partNumber", "type": "string", "required": true, "label": "型号"},
-            {"name": "series", "type": "string", "required": true, "label": "系列"},
-            {"name": "capacitorType", "type": "enum", "required": true, "label": "电容类型", "options": ["Aluminum Electrolytic", "Film", "Ceramic", "Tantalum"]},
-            {"name": "package", "type": "string", "label": "封装形式"}
-          ]
-        },
-        "electrical": {
-          "label": "电气参数",
-          "fields": [
-            {"name": "capacitance", "type": "number", "unit": "μF", "label": "容值"},
-            {"name": "voltageRating", "type": "number", "unit": "V", "label": "额定电压"},
-            {"name": "esr", "type": "number", "unit": "mΩ", "label": "等效串联电阻 ESR"},
-            {"name": "rippleCurrent", "type": "number", "unit": "A", "label": "纹波电流"}
-          ]
-        },
-        "lifetime": {
-          "label": "寿命特性",
-          "fields": [
-            {"name": "lifeTime", "type": "number", "unit": "hours", "label": "额定寿命"},
-            {"name": "lifeTemp", "type": "number", "unit": "°C", "label": "寿命温度"}
-          ]
-        }
-      },
-      "layoutVariants": ["standard", "technical"],
-      "defaultLayout": "standard",
-      "templateFile": "product-detail-capacitor.html"
-    },
-    "power-module": {
-      "name": "功率模块/电源",
-      "nameEn": "Power Module",
-      "description": "适用于DC-DC、AC-DC电源模块",
-      "applicableProducts": ["DC-DC Module", "AC-DC Module", "Isolated DC-DC"],
-      "fieldGroups": {
-        "basic": {
-          "label": "基本信息",
-          "fields": [
-            {"name": "partNumber", "type": "string", "required": true, "label": "型号"},
-            {"name": "series", "type": "string", "required": true, "label": "系列"},
-            {"name": "topology", "type": "string", "label": "拓扑结构"},
-            {"name": "package", "type": "string", "label": "封装"}
-          ]
-        },
-        "input": {
-          "label": "输入参数",
-          "fields": [
-            {"name": "vinMin", "type": "number", "unit": "V", "label": "最小输入电压"},
-            {"name": "vinMax", "type": "number", "unit": "V", "label": "最大输入电压"},
-            {"name": "iinMax", "type": "number", "unit": "A", "label": "最大输入电流"}
-          ]
-        },
-        "output": {
-          "label": "输出参数",
-          "fields": [
-            {"name": "vout", "type": "number", "unit": "V", "label": "输出电压"},
-            {"name": "ioutMax", "type": "number", "unit": "A", "label": "最大输出电流"},
-            {"name": "pout", "type": "number", "unit": "W", "label": "输出功率"}
-          ]
-        },
-        "isolation": {
-          "label": "隔离特性",
-          "fields": [
-            {"name": "isolationVoltage", "type": "number", "unit": "V", "label": "隔离电压"},
-            {"name": "efficiency", "type": "number", "unit": "%", "label": "效率"}
-          ]
-        }
-      },
-      "layoutVariants": ["standard", "technical"],
-      "defaultLayout": "standard",
-      "templateFile": "product-detail-power-module.html"
-    },
-    "relay": {
-      "name": "继电器",
-      "nameEn": "Relay",
-      "description": "适用于电磁继电器、固态继电器",
-      "applicableProducts": ["Electromechanical Relay", "Solid State Relay"],
-      "fieldGroups": {
-        "basic": {
-          "label": "基本信息",
-          "fields": [
-            {"name": "partNumber", "type": "string", "required": true, "label": "型号"},
-            {"name": "series", "type": "string", "required": true, "label": "系列"},
-            {"name": "relayType", "type": "enum", "required": true, "label": "继电器类型", "options": ["Electromechanical", "Solid State"]},
-            {"name": "package", "type": "string", "label": "封装"}
-          ]
-        },
-        "coil": {
-          "label": "线圈参数",
-          "fields": [
-            {"name": "coilVoltage", "type": "number", "unit": "V", "label": "线圈电压"},
-            {"name": "coilResistance", "type": "number", "unit": "Ω", "label": "线圈电阻"},
-            {"name": "pickupVoltage", "type": "number", "unit": "V", "label": "吸合电压"},
-            {"name": "dropoutVoltage", "type": "number", "unit": "V", "label": "释放电压"}
-          ]
-        },
-        "contact": {
-          "label": "触点参数",
-          "fields": [
-            {"name": "contactForm", "type": "string", "label": "触点形式"},
-            {"name": "contactRating", "type": "number", "unit": "A", "label": "触点额定电流"},
-            {"name": "contactVoltage", "type": "number", "unit": "V", "label": "触点额定电压"},
-            {"name": "contactResistance", "type": "number", "unit": "mΩ", "label": "接触电阻"}
-          ]
-        }
-      },
-      "layoutVariants": ["standard", "technical"],
-      "defaultLayout": "standard",
-      "templateFile": "product-detail-relay.html"
+    "mcu": {
+      "name": "MCU模板",
+      "nameEn": "MCU Template",
+      "description": "适用于微控制器品牌",
+      "templateFile": "product-detail.html"
     },
     "sensor": {
-      "name": "传感器",
-      "nameEn": "Sensor",
-      "description": "适用于各类传感器",
-      "applicableProducts": ["Current Sensor", "Image Sensor", "MEMS Sensor"],
-      "fieldGroups": {
-        "basic": {
-          "label": "基本信息",
-          "fields": [
-            {"name": "partNumber", "type": "string", "required": true, "label": "型号"},
-            {"name": "series", "type": "string", "required": true, "label": "系列"},
-            {"name": "sensorType", "type": "enum", "required": true, "label": "传感器类型", "options": ["Current", "Voltage", "Temperature", "Image", "MEMS"]},
-            {"name": "package", "type": "string", "label": "封装"}
-          ]
-        },
-        "performance": {
-          "label": "性能参数",
-          "fields": [
-            {"name": "sensingRange", "type": "string", "label": "感应范围"},
-            {"name": "accuracy", "type": "string", "label": "精度"},
-            {"name": "responseTime", "type": "number", "unit": "μs", "label": "响应时间"},
-            {"name": "resolution", "type": "string", "label": "分辨率"}
-          ]
-        },
-        "interface": {
-          "label": "接口",
-          "fields": [
-            {"name": "outputType", "type": "string", "label": "输出类型"},
-            {"name": "interface", "type": "string", "label": "通信接口"},
-            {"name": "supplyVoltage", "type": "number", "unit": "V", "label": "供电电压"}
-          ]
-        }
-      },
-      "layoutVariants": ["standard", "technical"],
-      "defaultLayout": "standard",
-      "templateFile": "product-detail-sensor.html"
+      "name": "传感器模板",
+      "nameEn": "Sensor Template",
+      "description": "适用于传感器品牌",
+      "templateFile": "product-detail.html"
     },
-    "mcu-ic": {
-      "name": "MCU/处理器",
-      "nameEn": "MCU/Processor",
-      "description": "适用于微控制器、处理器",
-      "applicableProducts": ["MCU", "MPU", "DSP"],
-      "fieldGroups": {
-        "basic": {
-          "label": "基本信息",
-          "fields": [
-            {"name": "partNumber", "type": "string", "required": true, "label": "型号"},
-            {"name": "series", "type": "string", "required": true, "label": "系列"},
-            {"name": "core", "type": "string", "label": "内核"},
-            {"name": "package", "type": "string", "label": "封装"}
-          ]
-        },
-        "performance": {
-          "label": "性能参数",
-          "fields": [
-            {"name": "frequency", "type": "number", "unit": "MHz", "label": "主频"},
-            {"name": "flash", "type": "number", "unit": "KB", "label": "Flash容量"},
-            {"name": "ram", "type": "number", "unit": "KB", "label": "RAM容量"}
-          ]
-        },
-        "peripherals": {
-          "label": "外设接口",
-          "fields": [
-            {"name": "gpioCount", "type": "number", "label": "GPIO数量"},
-            {"name": "adcChannels", "type": "number", "label": "ADC通道数"},
-            {"name": "uartCount", "type": "number", "label": "UART数量"},
-            {"name": "spiCount", "type": "number", "label": "SPI数量"},
-            {"name": "i2cCount", "type": "number", "label": "I2C数量"}
-          ]
-        }
-      },
-      "layoutVariants": ["standard", "technical"],
-      "defaultLayout": "standard",
-      "templateFile": "product-detail-mcu.html"
+    "discrete": {
+      "name": "分立器件模板",
+      "nameEn": "Discrete Components Template",
+      "description": "适用于分立器件品牌",
+      "templateFile": "product-detail.html"
     },
-    "power-management-ic": {
-      "name": "电源管理IC",
-      "nameEn": "Power Management IC",
-      "description": "适用于DC-DC、LDO、充电IC等",
-      "applicableProducts": ["DC-DC Converter", "LDO", "Battery Charger"],
-      "fieldGroups": {
-        "basic": {
-          "label": "基本信息",
-          "fields": [
-            {"name": "partNumber", "type": "string", "required": true, "label": "型号"},
-            {"name": "series", "type": "string", "required": true, "label": "系列"},
-            {"name": "icType", "type": "enum", "required": true, "label": "IC类型", "options": ["DC-DC", "LDO", "Charger", "PMIC"]},
-            {"name": "package", "type": "string", "label": "封装"}
-          ]
-        },
-        "input": {
-          "label": "输入参数",
-          "fields": [
-            {"name": "vinMin", "type": "number", "unit": "V", "label": "最小输入电压"},
-            {"name": "vinMax", "type": "number", "unit": "V", "label": "最大输入电压"}
-          ]
-        },
-        "output": {
-          "label": "输出参数",
-          "fields": [
-            {"name": "vout", "type": "number", "unit": "V", "label": "输出电压"},
-            {"name": "ioutMax", "type": "number", "unit": "A", "label": "最大输出电流"},
-            {"name": "efficiency", "type": "number", "unit": "%", "label": "效率"}
-          ]
-        }
-      },
-      "layoutVariants": ["standard", "technical"],
-      "defaultLayout": "standard",
-      "templateFile": "product-detail-pmic.html"
+    "passive": {
+      "name": "被动元件模板",
+      "nameEn": "Passive Components Template",
+      "description": "适用于电容、电阻等被动元件品牌",
+      "templateFile": "product-detail.html"
     },
-    "protection-device": {
-      "name": "保护器件",
-      "nameEn": "Protection Device",
-      "description": "适用于保险丝、TVS、ESD保护等",
-      "applicableProducts": ["Fuse", "TVS Diode", "ESD Protection"],
-      "fieldGroups": {
-        "basic": {
-          "label": "基本信息",
-          "fields": [
-            {"name": "partNumber", "type": "string", "required": true, "label": "型号"},
-            {"name": "series", "type": "string", "required": true, "label": "系列"},
-            {"name": "deviceType", "type": "enum", "required": true, "label": "器件类型", "options": ["Fuse", "TVS", "ESD", "Varistor"]},
-            {"name": "package", "type": "string", "label": "封装"}
-          ]
-        },
-        "electrical": {
-          "label": "电气参数",
-          "fields": [
-            {"name": "voltageRating", "type": "number", "unit": "V", "label": "额定电压"},
-            {"name": "currentRating", "type": "number", "unit": "A", "label": "额定电流"},
-            {"name": "breakdownVoltage", "type": "number", "unit": "V", "label": "击穿电压"},
-            {"name": "clampingVoltage", "type": "number", "unit": "V", "label": "钳位电压"}
-          ]
-        }
-      },
-      "layoutVariants": ["standard", "technical"],
-      "defaultLayout": "standard",
-      "templateFile": "product-detail-protection.html"
+    "module": {
+      "name": "模块模板",
+      "nameEn": "Module Template",
+      "description": "适用于电源模块等功能模块品牌",
+      "templateFile": "product-detail.html"
     },
-    "crystal": {
-      "name": "晶振/时钟",
-      "nameEn": "Crystal Oscillator",
-      "description": "适用于晶振、振荡器",
-      "applicableProducts": ["Crystal", "Oscillator", "TCXO", "OCXO"],
-      "fieldGroups": {
-        "basic": {
-          "label": "基本信息",
-          "fields": [
-            {"name": "partNumber", "type": "string", "required": true, "label": "型号"},
-            {"name": "series", "type": "string", "required": true, "label": "系列"},
-            {"name": "crystalType", "type": "enum", "required": true, "label": "晶振类型", "options": ["Crystal", "Oscillator", "TCXO", "OCXO"]},
-            {"name": "package", "type": "string", "label": "封装"}
-          ]
-        },
-        "frequency": {
-          "label": "频率特性",
-          "fields": [
-            {"name": "frequency", "type": "number", "unit": "MHz", "label": "标称频率"},
-            {"name": "frequencyStability", "type": "string", "label": "频率稳定度"},
-            {"name": "loadCapacitance", "type": "number", "unit": "pF", "label": "负载电容"}
-          ]
-        }
-      },
-      "layoutVariants": ["standard", "technical"],
-      "defaultLayout": "standard",
-      "templateFile": "product-detail-crystal.html"
-    },
-    "fpga": {
-      "name": "FPGA",
-      "nameEn": "FPGA",
-      "description": "适用于FPGA芯片",
-      "applicableProducts": ["FPGA", "CPLD"],
-      "fieldGroups": {
-        "basic": {
-          "label": "基本信息",
-          "fields": [
-            {"name": "partNumber", "type": "string", "required": true, "label": "型号"},
-            {"name": "series", "type": "string", "required": true, "label": "系列"},
-            {"name": "family", "type": "string", "label": "系列家族"},
-            {"name": "package", "type": "string", "label": "封装"}
-          ]
-        },
-        "resources": {
-          "label": "逻辑资源",
-          "fields": [
-            {"name": "logicCells", "type": "number", "unit": "K", "label": "逻辑单元"},
-            {"name": "flipFlops", "type": "number", "unit": "K", "label": "触发器"},
-            {"name": "blockRam", "type": "number", "unit": "Kb", "label": "块RAM"},
-            {"name": "dspSlices", "type": "number", "label": "DSP slices"}
-          ]
-        },
-        "io": {
-          "label": "IO资源",
-          "fields": [
-            {"name": "userIOs", "type": "number", "label": "用户IO数"},
-            {"name": "maxIOVoltage", "type": "number", "unit": "V", "label": "最大IO电压"}
-          ]
-        }
-      },
-      "layoutVariants": ["standard", "technical"],
-      "defaultLayout": "standard",
-      "templateFile": "product-detail-fpga.html"
+    "igbt": {
+      "name": "IGBT模板",
+      "nameEn": "IGBT Template",
+      "description": "适用于IGBT和功率模块品牌",
+      "templateFile": "product-detail.html"
     },
     "memory": {
-      "name": "存储器",
-      "nameEn": "Memory",
-      "description": "适用于DRAM、NAND、NOR等存储器",
-      "applicableProducts": ["DRAM", "NAND Flash", "NOR Flash", "SRAM"],
-      "fieldGroups": {
-        "basic": {
-          "label": "基本信息",
-          "fields": [
-            {"name": "partNumber", "type": "string", "required": true, "label": "型号"},
-            {"name": "series", "type": "string", "required": true, "label": "系列"},
-            {"name": "memoryType", "type": "enum", "required": true, "label": "存储器类型", "options": ["DRAM", "NAND", "NOR", "SRAM", "EEPROM"]},
-            {"name": "package", "type": "string", "label": "封装"}
-          ]
-        },
-        "capacity": {
-          "label": "容量",
-          "fields": [
-            {"name": "density", "type": "string", "label": "存储密度"},
-            {"name": "organization", "type": "string", "label": "组织结构"}
-          ]
-        },
-        "performance": {
-          "label": "性能",
-          "fields": [
-            {"name": "speed", "type": "string", "label": "速度等级"},
-            {"name": "interface", "type": "string", "label": "接口类型"},
-            {"name": "voltage", "type": "number", "unit": "V", "label": "工作电压"}
-          ]
-        }
-      },
-      "layoutVariants": ["standard", "technical"],
-      "defaultLayout": "standard",
-      "templateFile": "product-detail-memory.html"
+      "name": "存储器模板",
+      "nameEn": "Memory Template",
+      "description": "适用于存储器品牌",
+      "templateFile": "product-detail.html"
     },
-    "rf-wireless": {
-      "name": "射频/无线",
-      "nameEn": "RF/Wireless",
-      "description": "适用于射频前端、无线模块",
-      "applicableProducts": ["RF Front-end", "WiFi Module", "Bluetooth Module"],
-      "fieldGroups": {
-        "basic": {
-          "label": "基本信息",
-          "fields": [
-            {"name": "partNumber", "type": "string", "required": true, "label": "型号"},
-            {"name": "series", "type": "string", "required": true, "label": "系列"},
-            {"name": "rfType", "type": "enum", "required": true, "label": "RF类型", "options": ["Front-end", "WiFi", "Bluetooth", "Zigbee", "LoRa"]},
-            {"name": "package", "type": "string", "label": "封装"}
-          ]
-        },
-        "rf": {
-          "label": "射频参数",
-          "fields": [
-            {"name": "frequencyRange", "type": "string", "label": "频率范围"},
-            {"name": "outputPower", "type": "number", "unit": "dBm", "label": "输出功率"},
-            {"name": "sensitivity", "type": "number", "unit": "dBm", "label": "接收灵敏度"}
-          ]
-        }
-      },
-      "layoutVariants": ["standard", "technical"],
-      "defaultLayout": "standard",
-      "templateFile": "product-detail-rf.html"
-    },
-    "inductor-magnetic": {
-      "name": "电感/磁珠",
-      "nameEn": "Inductor/Magnetic",
-      "description": "适用于电感、磁珠、变压器",
-      "applicableProducts": ["Inductor", "Ferrite Bead", "Transformer"],
-      "fieldGroups": {
-        "basic": {
-          "label": "基本信息",
-          "fields": [
-            {"name": "partNumber", "type": "string", "required": true, "label": "型号"},
-            {"name": "series", "type": "string", "required": true, "label": "系列"},
-            {"name": "inductorType", "type": "enum", "required": true, "label": "电感类型", "options": ["Power Inductor", "RF Inductor", "Ferrite Bead", "Common Mode Choke"]},
-            {"name": "package", "type": "string", "label": "封装"}
-          ]
-        },
-        "electrical": {
-          "label": "电气参数",
-          "fields": [
-            {"name": "inductance", "type": "number", "unit": "μH", "label": "电感值"},
-            {"name": "currentRating", "type": "number", "unit": "A", "label": "额定电流"},
-            {"name": "dcResistance", "type": "number", "unit": "mΩ", "label": "直流电阻"},
-            {"name": "saturationCurrent", "type": "number", "unit": "A", "label": "饱和电流"}
-          ]
-        }
-      },
-      "layoutVariants": ["standard", "technical"],
-      "defaultLayout": "standard",
-      "templateFile": "product-detail-inductor.html"
-    },
-    "optocoupler": {
-      "name": "光耦",
-      "nameEn": "Optocoupler",
-      "description": "适用于光耦、光隔离器",
-      "applicableProducts": ["Transistor Output", "Photo Triac", "High Speed"],
-      "fieldGroups": {
-        "basic": {
-          "label": "基本信息",
-          "fields": [
-            {"name": "partNumber", "type": "string", "required": true, "label": "型号"},
-            {"name": "series", "type": "string", "required": true, "label": "系列"},
-            {"name": "optocouplerType", "type": "enum", "required": true, "label": "光耦类型", "options": ["Transistor", "Triac", "High Speed", "IGBT Driver"]},
-            {"name": "package", "type": "string", "label": "封装"}
-          ]
-        },
-        "isolation": {
-          "label": "隔离参数",
-          "fields": [
-            {"name": "isolationVoltage", "type": "number", "unit": "V", "label": "隔离电压"},
-            {"name": "ctr", "type": "string", "label": "电流传输比 CTR"}
-          ]
-        }
-      },
-      "layoutVariants": ["standard", "technical"],
-      "defaultLayout": "standard",
-      "templateFile": "product-detail-optocoupler.html"
+    "fpga": {
+      "name": "FPGA模板",
+      "nameEn": "FPGA Template",
+      "description": "适用于FPGA品牌",
+      "templateFile": "product-detail.html"
     }
   }
 }

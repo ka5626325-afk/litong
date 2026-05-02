@@ -1,0 +1,188 @@
+#!/usr/bin/env node
+/**
+ * 重新生成 Rayson (晶存科技) 品牌的英文内容
+ * Rayson 是领先的存储芯片制造商，生产DDR、LPDDR、NAND Flash、eMMC等
+ */
+
+const fs = require('fs');
+const path = require('path');
+
+const dataDir = path.join(__dirname, '..', 'data', 'rayson');
+
+// 确保目录存在
+if (!fs.existsSync(dataDir)) {
+  fs.mkdirSync(dataDir, { recursive: true });
+}
+
+// 重新生成 products.json
+function regenerateProducts() {
+  const productsPath = path.join(dataDir, 'products.json');
+  
+  const productsData = {
+    "brandId": "rayson",
+    "brandName": "Rayson Memory",
+    "seoTitle": "Rayson Memory Products | DDR, LPDDR, NAND Flash, eMMC | BeiLuo",
+    "seoDescription": "Explore Rayson memory portfolio: DDR3/DDR4/DDR5 SDRAM, LPDDR mobile memory, NAND Flash, and eMMC embedded storage. High-performance memory solutions for consumer, industrial, and automotive applications.",
+    "seoKeywords": [
+      "Rayson distributor",
+      "Rayson memory distributor",
+      "Rayson DDR selection",
+      "Rayson NAND selection guide",
+      "Rayson eMMC distributor",
+      "memory selection guide",
+      "DDR memory distributor",
+      "NAND Flash distributor"
+    ],
+    "faqs": [
+      {
+        "question": "How to select the appropriate DDR memory capacity for my embedded system?",
+        "answer": "Selecting the right DDR memory capacity requires careful analysis of your system requirements. First, check your processor's maximum supported memory capacity in the datasheet. Then, evaluate your operating system's minimum requirements - embedded Linux typically needs 512MB-1GB minimum, while Android requires 2GB+. Next, assess your application's memory footprint including buffer sizes, cache requirements, and concurrent processes. Finally, add 20-30% headroom for future software updates and feature additions. For industrial applications, consider the long product lifecycle and plan for increased memory needs over 5-10 years.",
+        "decisionGuide": "Contact our FAE team with your processor model and application details for personalized capacity recommendations.",
+        "keywords": ["DDR capacity selection", "memory sizing", "embedded system memory"]
+      },
+      {
+        "question": "What are the key differences between DDR4 and DDR5 memory technologies?",
+        "answer": "DDR5 represents a significant advancement over DDR4 across multiple dimensions. Bandwidth increases by 50%+ with DDR5 starting at 4800MT/s compared to DDR4's maximum 3200MT/s. Power efficiency improves with DDR5's 1.1V operating voltage versus DDR4's 1.2V, delivering approximately 20% power savings. DDR5 doubles the single-chip capacity supporting 16-64Gb devices compared to DDR4's 4-16Gb range. New features include on-die ECC (ODECC) for improved data reliability, dual 32-bit channels for better access efficiency, and integrated PMIC for optimized power distribution. However, DDR5 requires new processor platforms and more complex power design with integrated PMIC management.",
+        "decisionGuide": "Choose DDR5 for new designs requiring maximum performance and efficiency. Select DDR4 for legacy system maintenance or cost-sensitive applications with mature supply chains.",
+        "keywords": ["DDR4 vs DDR5", "DDR5 advantages", "memory technology comparison"]
+      },
+      {
+        "question": "How do SLC, MLC, and TLC NAND Flash types compare for different applications?",
+        "answer": "SLC (Single-Level Cell) NAND stores 1 bit per cell, offering the longest endurance at 100,000 program/erase cycles, fastest performance, and highest reliability, but at premium pricing. MLC (Multi-Level Cell) stores 2 bits per cell, providing 10,000 cycle endurance with moderate cost, making it suitable for industrial applications. TLC (Triple-Level Cell) stores 3 bits per cell with 3,000 cycle endurance at the lowest cost, ideal for consumer electronics. For industrial and automotive applications requiring high reliability, SLC or industrial-grade MLC is recommended. Consumer devices with less demanding write requirements can utilize TLC for cost optimization. The choice depends on your application's write frequency, data criticality, and budget constraints.",
+        "decisionGuide": "Select SLC for mission-critical applications, MLC for industrial use, and TLC for consumer electronics. Contact us for application-specific recommendations.",
+        "keywords": ["SLC MLC TLC comparison", "NAND Flash types", "NAND selection guide"]
+      },
+      {
+        "question": "What are the main differences between eMMC and raw NAND Flash solutions?",
+        "answer": "eMMC (embedded MultiMediaCard) integrates NAND Flash with a managed controller in a single package, providing a standard MMC interface that simplifies system design significantly. The internal controller handles complex NAND management tasks including bad block management, ECC correction, wear leveling, and garbage collection. This allows developers to focus on application software rather than low-level NAND management. Raw NAND Flash requires an external controller to handle these functions, offering more flexibility for custom implementations and potentially lower cost for very high volumes. eMMC accelerates time-to-market and reduces development risk, while raw NAND suits applications requiring custom controller optimization or extremely cost-sensitive high-volume production.",
+        "decisionGuide": "Choose eMMC for faster development and simplified design. Select raw NAND with custom controller for maximum optimization in high-volume applications.",
+        "keywords": ["eMMC vs NAND", "embedded storage", "managed NAND"]
+      }
+    ],
+    "categories": [
+      {
+        "id": "ddr-memory",
+        "name": "DDR Memory",
+        "nameCn": "DDR Memory",
+        "shortDescription": "High-performance DDR3/DDR4/DDR5 SDRAM memory solutions",
+        "description": "DDR3/DDR4/DDR5 SDRAM memory chips providing high-performance, low-power memory solutions with capacities from 512Mb to 16Gb.",
+        "longDescription": "Rayson DDR memory product line covers DDR3, DDR4, and DDR5 standards, offering capacities from 512Mb to 16Gb. Products utilize advanced process technology with high speed, low power consumption, and high reliability characteristics. Our DDR memory is widely used in consumer electronics, network communications, industrial control, and automotive electronics. As an authorized Rayson distributor, we provide comprehensive technical support, competitive pricing, and stable supply chain management.",
+        "icon": "memory",
+        "specifications": {
+          "Capacity Range": "512Mb to 16Gb",
+          "Data Rate": "DDR3: 800-2133MT/s, DDR4: 1600-3200MT/s, DDR5: 4800-6400MT/s",
+          "Voltage": "DDR3: 1.5V/1.35V, DDR4: 1.2V, DDR5: 1.1V",
+          "Temperature": "Commercial (0°C to +85°C), Industrial (-40°C to +95°C), Automotive (-40°C to +105°C)",
+          "Packages": "FBGA 78/96/136-ball"
+        },
+        "parameters": ["Part Number", "Capacity", "Architecture", "Speed Grade", "Data Rate", "Voltage", "Package", "Package Size", "Temperature", "Refresh Cycle", "On-die ECC", "Power Management"],
+        "applications": [
+          "Smartphones",
+          "Tablets",
+          "Smart TVs",
+          "Set-top Boxes",
+          "Network Equipment",
+          "Industrial Control",
+          "Automotive Electronics"
+        ],
+        "products": [
+          {
+            "id": "rayson-ddr4-4gb",
+            "name": "DDR4 4Gb Memory",
+            "partNumber": "RS1G44G",
+            "shortDescription": "DDR4 4Gb SDRAM with high performance and low power consumption",
+            "description": "Rayson DDR4 4Gb SDRAM delivers high-performance memory solution with data rates up to 3200MT/s. Operating at 1.2V for optimal power efficiency, this device is ideal for consumer electronics, networking equipment, and industrial applications requiring reliable memory performance.",
+            "specifications": {
+              "Capacity": "4Gb (512MB)",
+              "Architecture": "x8/x16",
+              "Speed Grade": "DDR4-2400 to DDR4-3200",
+              "Data Rate": "2400-3200 MT/s",
+              "Voltage": "1.2V",
+              "Package": "FBGA 78-ball",
+              "Package Size": "8mm x 14mm",
+              "Temperature": "0°C to +85°C (Commercial), -40°C to +95°C (Industrial)",
+              "Refresh Cycle": "8192 cycles/64ms",
+              "On-die ECC": "No",
+              "Power Management": "PASR, TCSR"
+            },
+            "applications": [
+              "Consumer Electronics",
+              "Network Equipment",
+              "Industrial Control",
+              "Set-top Boxes"
+            ],
+            "faeReview": {
+              "author": "BeiLuo FAE Team",
+              "content": "The Rayson RS1G44G DDR4 4Gb device offers excellent performance-to-price ratio for mainstream applications. We have successfully supported numerous customer designs with this device, particularly in networking and industrial applications. The JEDEC standard compliance ensures compatibility with major processor platforms.",
+              "highlight": "High performance, competitive pricing, JEDEC compliant"
+            }
+          }
+        ]
+      },
+      {
+        "id": "lpddr-memory",
+        "name": "LPDDR Memory",
+        "nameCn": "LPDDR Memory",
+        "shortDescription": "Low-power LPDDR4/LPDDR4X/LPDDR5 mobile memory solutions",
+        "description": "LPDDR4/LPDDR4X/LPDDR5 low-power mobile memory optimized for smartphones, tablets, and battery-powered devices with ultra-low power consumption.",
+        "longDescription": "Rayson LPDDR memory series provides industry-leading low-power solutions for mobile and battery-powered applications. LPDDR4/LPDDR4X offers significant power savings compared to standard DDR, while LPDDR5 delivers next-generation performance with enhanced power management. These products are ideal for smartphones, tablets, wearables, and IoT devices requiring extended battery life.",
+        "icon": "mobile-memory",
+        "specifications": {
+          "Capacity Range": "2Gb to 16Gb",
+          "Data Rate": "LPDDR4: 1600-4266MT/s, LPDDR5: 3200-6400MT/s",
+          "Voltage": "LPDDR4: 1.1V, LPDDR4X: 0.6V I/O, LPDDR5: 0.5V/0.3V",
+          "Packages": "FBGA 200/366-ball",
+          "Power Features": "DVFS, DPD, PASR"
+        },
+        "parameters": ["Part Number", "Capacity", "Standard", "Speed", "Voltage", "Package", "Temperature"],
+        "applications": [
+          "Smartphones",
+          "Tablets",
+          "Wearable Devices",
+          "IoT Devices",
+          "Portable Electronics"
+        ],
+        "products": [
+          {
+            "id": "rayson-lpddr4x-8gb",
+            "name": "LPDDR4X 8Gb Mobile Memory",
+            "partNumber": "RS2G88L",
+            "shortDescription": "LPDDR4X 8Gb low-power mobile memory for battery-powered devices",
+            "description": "Rayson LPDDR4X 8Gb delivers ultra-low power consumption with data rates up to 4266MT/s. The 0.6V I/O voltage significantly reduces power consumption compared to standard LPDDR4, making it ideal for premium smartphones and battery-powered devices requiring extended battery life.",
+            "specifications": {
+              "Capacity": "8Gb (1GB)",
+              "Standard": "LPDDR4X",
+              "Speed": "Up to 4266 MT/s",
+              "Voltage": "1.1V core, 0.6V I/O",
+              "Package": "FBGA 200-ball",
+              "Temperature": "-25°C to +85°C"
+            },
+            "applications": [
+              "Premium Smartphones",
+              "High-end Tablets",
+              "Portable Gaming Devices"
+            ]
+          }
+        ]
+      }
+    ]
+  };
+  
+  fs.writeFileSync(productsPath, JSON.stringify(productsData, null, 2), 'utf8');
+  console.log('  [SUCCESS] Regenerated rayson/products.json');
+}
+
+// 主函数
+function main() {
+  console.log('========================================');
+  console.log('Regenerate Rayson Products Data');
+  console.log('========================================');
+  
+  regenerateProducts();
+  
+  console.log('\n========================================');
+  console.log('Rayson products.json regenerated successfully!');
+  console.log('========================================');
+}
+
+main();

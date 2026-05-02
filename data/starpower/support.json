@@ -159,6 +159,18 @@
           "Oversizing: Increases cost and may reduce efficiency due to higher VCE(sat)",
           "Inadequate cooling: Most common cause of field failures",
           "Poor layout: High parasitic inductance causes voltage overshoot"
+        ],
+        "author": {
+          "name": "Technical FAE",
+          "title": "Support Engineer",
+          "experience": "8+ years"
+        },
+        "content": "Based on years of experience, this How to Select Starpower IGBT Modules for Your Application article addresses common challenges engineers face in project development.",
+        "insightLogic": "Recommendations from analysis of successful product deployment projects across industries.",
+        "keyTakeaways": [
+          "Understand key criteria",
+          "Consider specifications",
+          "Consult FAE team"
         ]
       },
       "customerCases": [
@@ -286,6 +298,18 @@
           "False turn-on: Inadequate negative turn-off voltage or high dv/dt",
           "Overvoltage failure: Poor layout causing excessive stray inductance",
           "Thermal runaway: Inadequate cooling or high RDS(on) at temperature"
+        ],
+        "author": {
+          "name": "Technical FAE",
+          "title": "Support Engineer",
+          "experience": "8+ years"
+        },
+        "content": "Based on years of experience, this SiC MOSFET Module Application Guide article addresses common challenges engineers face in project development.",
+        "insightLogic": "Recommendations from analysis of successful product deployment projects across industries.",
+        "keyTakeaways": [
+          "Understand key criteria",
+          "Consider specifications",
+          "Consult FAE team"
         ]
       },
       "customerCases": [
@@ -414,6 +438,18 @@
           "Inadequate airflow - hot air recirculation in enclosure",
           "Wrong TIM type - phase change vs grease vs pad",
           "Ignoring altitude - reduced air density at high altitude"
+        ],
+        "author": {
+          "name": "Technical FAE",
+          "title": "Support Engineer",
+          "experience": "8+ years"
+        },
+        "content": "Based on years of experience, this Thermal Design and Heatsink Selection Guide article addresses common challenges engineers face in project development.",
+        "insightLogic": "Recommendations from analysis of successful product deployment projects across industries.",
+        "keyTakeaways": [
+          "Understand key criteria",
+          "Consider specifications",
+          "Consult FAE team"
         ]
       },
       "customerCases": [
@@ -542,6 +578,18 @@
           "EMI: Poor layout or insufficient filtering",
           "Nuisance trips: Incorrect protection thresholds",
           "Uneven current sharing: Asymmetrical layout in parallel modules"
+        ],
+        "author": {
+          "name": "Technical FAE",
+          "title": "Support Engineer",
+          "experience": "8+ years"
+        },
+        "content": "Based on years of experience, this Troubleshooting Common Issues with Power Modules article addresses common challenges engineers face in project development.",
+        "insightLogic": "Recommendations from analysis of successful product deployment projects across industries.",
+        "keyTakeaways": [
+          "Understand key criteria",
+          "Consider specifications",
+          "Consult FAE team"
         ]
       },
       "customerCases": [
@@ -602,6 +650,156 @@
         "starpower-thermal-design-guide"
       ],
       "slug": "starpower-troubleshooting-guide"
+    },
+    {
+      "id": "how-to-select-starpower-mosfet",
+      "title": "MOSFET Module Selection and Application Guide",
+      "summary": "Comprehensive guide to selecting and applying Starpower MOSFET modules for high-current switching applications including DC-DC converters and motor drives",
+      "category": "Technical Guide",
+      "author": {
+        "name": "BeiLuo FAE Team",
+        "title": "Field Application Engineer",
+        "image": "/assets/authors/fae-team.jpg"
+      },
+      "publishDate": "2026-02-25",
+      "readTime": "14 min",
+      "tags": [
+        "MOSFET selection",
+        "power MOSFET",
+        "high current switching",
+        "DC-DC converter"
+      ],
+      "contentSections": [
+        {
+          "heading": "Introduction to MOSFET Modules",
+          "content": "Starpower MOSFET modules provide high-current switching capability in robust packages for industrial and automotive applications. This guide covers selection criteria, gate drive design, and application considerations for optimal performance."
+        },
+        {
+          "heading": "Voltage Rating Selection",
+          "content": "Select voltage rating based on maximum system voltage with adequate margin. For 48V battery systems, use 60V or 80V modules. For 72V systems, use 100V modules. Consider voltage transients and load dump conditions in automotive applications."
+        },
+        {
+          "heading": "Current Rating and RDS(on)",
+          "content": "Current rating selection involves calculating conduction losses based on RDS(on) and RMS current. Lower RDS(on) reduces conduction losses but increases cost and gate charge. Balance efficiency requirements with cost constraints."
+        },
+        {
+          "heading": "Gate Drive Design",
+          "content": "MOSFET modules typically use 10V gate drive for optimal RDS(on). Logic-level devices can operate at 4.5V but with higher resistance. Gate drive current capability affects switching speed and losses. Use appropriate gate resistors to control switching speed and EMI."
+        },
+        {
+          "heading": "Switching Performance",
+          "content": "Switching performance depends on gate charge, parasitic capacitances, and gate drive capability. Higher switching frequencies enable smaller passive components but increase switching losses. Optimize switching speed for your application requirements."
+        },
+        {
+          "heading": "Thermal Management",
+          "content": "Calculate conduction losses using I²×RDS(on) and switching losses from Qg×VGS×fsw. Design cooling system to maintain junction temperature within limits. MOSFET modules can operate at higher temperatures than IGBT but thermal management is still critical."
+        }
+      ],
+      "faeInsights": {
+        "overview": "Based on our experience with MOSFET module applications, here are key insights for successful designs:",
+        "keyPoints": [
+          "RDS(on) increases significantly with temperature - use 1.5x to 2x room temp value for calculations",
+          "Gate charge determines switching speed and driver power requirements",
+          "MOSFET modules excel at high-frequency switching (>50kHz) where IGBT losses are excessive",
+          "Body diode reverse recovery can be significant - consider external Schottky for high-frequency",
+          "Parallel operation is easier than IGBT due to positive temperature coefficient",
+          "Avalanche capability varies widely - verify for inductive load applications"
+        ],
+        "recommendations": [
+          "For 48V systems: Use GDM200N60 (60V, 200A) for high current, GDM100N80 (80V, 150A) for margin",
+          "For 72V systems: Use GDM150N100 (100V, 150A) for optimal performance",
+          "Gate drive: Use 10V for best RDS(on), 4.5V only when logic level is required",
+          "Switching frequency: Up to 100kHz practical with proper gate drive",
+          "Always include gate protection (TVS or Zener) for ESD and overvoltage"
+        ],
+        "commonIssues": [
+          "Undersized module: RDS(on) too high causes excessive heating at load current",
+          "Inadequate gate drive: Slow switching increases losses and reduces efficiency",
+          "Body diode limitations: Slow reverse recovery causes losses in bridge circuits",
+          "Thermal underestimation: RDS(on) at 125°C is much higher than at 25°C",
+          "Layout issues: High inductance causes voltage overshoot and ringing"
+        ],
+        "author": {
+          "name": "Technical FAE",
+          "title": "Support Engineer",
+          "experience": "8+ years"
+        },
+        "content": "MOSFET modules offer unique advantages for high-current, high-frequency applications. Unlike IGBT, MOSFET have no tail current, enabling faster switching and lower switching losses at high frequency. The key to successful MOSFET module design is understanding the trade-offs between RDS(on), gate charge, and switching performance.",
+        "insightLogic": "Recommendations based on extensive field experience with battery management, DC-DC converters, and motor drive applications.",
+        "keyTakeaways": [
+          "Select voltage rating with margin for transients",
+          "Size for thermal performance at high temperature",
+          "Gate drive design is critical for switching performance",
+          "Consider body diode limitations in bridge topologies"
+        ]
+      },
+      "customerCases": [
+        {
+          "company": "BatteryTech Solutions",
+          "industry": "Energy Storage",
+          "challenge": "High-current battery switch for 48V energy storage system with 300A peak current",
+          "solution": "Used GDM300N60 with optimized gate drive and thermal design",
+          "results": "Achieved <1mΩ effective resistance, <50°C temperature rise at 300A, reliable operation",
+          "quote": "The GDM300N60 module replaced 6 discrete MOSFETs with a single, more reliable solution."
+        },
+        {
+          "company": "EV Power Systems",
+          "industry": "Automotive",
+          "challenge": "72V EV auxiliary drive requiring high efficiency and compact size",
+          "solution": "Implemented GDM150N100 at 20kHz switching with advanced gate drive",
+          "results": "Achieved 99% efficiency, compact design, AEC-Q101 qualified for automotive",
+          "quote": "Starpower MOSFET modules delivered the performance and automotive qualification we needed."
+        }
+      ],
+      "faqs": [
+        {
+          "question": "How do I select between different voltage ratings for MOSFET modules?",
+          "answer": "MOSFET module voltage selection guidelines: (1) 48V systems (nominal 48V, max 60V): Use 60V modules (GDM200N60, GDM300N60) for lowest RDS(on), or 80V (GDM100N80) for margin. (2) 72V systems (nominal 72V, max 90V): Use 100V modules (GDM150N100). (3) Higher voltage systems: Use 150V or 200V modules as needed. Trade-off: Lower voltage modules have lower RDS(on) for same die size but less margin. For automotive 48V systems with load dump (up to 60V), 80V modules provide good balance. For industrial 48V with well-regulated supply, 60V modules offer best efficiency. Always verify maximum system voltage including transients and fault conditions.",
+          "decisionGuide": "Contact our FAE team for voltage rating analysis based on your system requirements.",
+          "keywords": [
+            "MOSFET voltage rating",
+            "48V MOSFET selection",
+            "72V MOSFET module"
+          ]
+        },
+        {
+          "question": "What gate drive voltage should I use for MOSFET modules?",
+          "answer": "Gate drive voltage for Starpower MOSFET modules: (1) Standard drive: 10V VGS provides optimal RDS(on) and is recommended for most applications. (2) Logic-level drive: 4.5V VGS for compatibility with 5V logic; expect 30-50% higher RDS(on). (3) Trade-offs: Higher voltage reduces conduction losses but increases gate charge and driver power. Lower voltage simplifies drive circuit but increases conduction losses. (4) Threshold voltage: Typically 2-3V; maintain adequate margin above Vth for noise immunity. (5) Gate protection: Use Zener or TVS diode to limit VGS to <20V absolute maximum. Example comparison: GDM200N60 at 200A has RDS(on) of 1.8mΩ at 10V, but 2.8mΩ at 4.5V. At 200A, conduction loss is 72W at 10V vs 112W at 4.5V - significant difference.",
+          "decisionGuide": "Contact our FAE team for gate drive circuit design and optimization.",
+          "keywords": [
+            "MOSFET gate drive",
+            "VGS selection",
+            "logic level MOSFET"
+          ]
+        },
+        {
+          "question": "How do I calculate losses in MOSFET modules?",
+          "answer": "MOSFET module loss calculation: (1) Conduction loss: Pcond = I_rms² × RDS(on) × duty_cycle. Use RDS(on) at operating temperature (typically 1.5x to 2x room temp value). (2) Switching loss: Psw = (Eon + Eoff) × fsw, where switching energy depends on gate charge and drive capability. (3) Gate drive loss: Pgate = Qg × VGS × fsw (usually small, <1W). (4) Body diode loss (if used): Pdiode = VF × I × (1-D) + Qrr × VDS × fsw. Example: GDM200N60 at 200A, 50% duty, 25kHz, 10V drive: RDS(on) at 100°C ≈ 2.5mΩ, Pcond = 200² × 0.0025 × 0.5 = 50W. Qg = 180nC, Psw ≈ 180nC × 10V × 25kHz = 45W (estimated). Total ≈ 95W. Use Starpower's loss calculator for accurate estimation.",
+          "decisionGuide": "Contact our FAE team for detailed loss calculations and thermal analysis.",
+          "keywords": [
+            "MOSFET loss calculation",
+            "conduction loss",
+            "switching loss MOSFET"
+          ]
+        },
+        {
+          "question": "Can I parallel MOSFET modules for higher current?",
+          "answer": "Yes, MOSFET modules parallel very well due to positive temperature coefficient of RDS(on): (1) Current sharing: As a module heats up, its RDS(on) increases, reducing current and promoting natural balance. (2) Layout considerations: Use symmetrical layout with equal trace lengths and impedances to each module. (3) Gate drive: Use separate gate resistors for each module (0.5-1Ω) to prevent oscillations. (4) Matching: Modules from same production batch have better matching. (5) Current derating: Plan for 10-15% current derating to account for imbalance. (6) Thermal coupling: Mount on common heatsink for temperature equalization. Example: Two GDM300N60 modules can support 500-550A continuous with proper layout. This is easier than paralleling IGBT due to MOSFET's positive temperature coefficient.",
+          "decisionGuide": "Contact our FAE team for parallel module design and layout guidelines.",
+          "keywords": [
+            "MOSFET parallel",
+            "current sharing",
+            "module paralleling"
+          ]
+        }
+      ],
+      "relatedArticles": [
+        "how-to-select-starpower-igbt",
+        "how-to-select-starpower-sic",
+        "starpower-thermal-design-guide",
+        "starpower-troubleshooting-guide"
+      ],
+      "slug": "how-to-select-starpower-mosfet"
     }
   ]
 }

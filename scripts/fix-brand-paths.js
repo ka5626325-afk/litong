@@ -1,42 +1,23 @@
-/**
- * 批量替换模板中的硬编码品牌路径
- * 将 /infineon/ 替换为动态的 <%= brand.name.toLowerCase() %>/
- */
-
 const fs = require('fs');
 const path = require('path');
 
-const templatesDir = path.join(__dirname, '..', 'templates', 'brands');
-const files = fs.readdirSync(templatesDir);
+const generateScriptPath = path.join(__dirname, 'generate.js');
+let content = fs.readFileSync(generateScriptPath, 'utf8');
 
-let totalReplacements = 0;
+// 修改品牌页面生成路径，从 /output/{brand}/ 改为 /output/brand/{brand}/
+// 找到 generateBrandPages 函数中的 brandOutputDir 定义
+const oldPattern = /const brandOutputDir = path\.join\(config\.outputDir, brand\);/;
+const newPattern = `const brandOutputDir = path.join(config.outputDir, 'brand', brand);`;
 
-files.forEach(file => {
-  if (file.endsWith('.html')) {
-    const filePath = path.join(templatesDir, file);
-    let content = fs.readFileSync(filePath, 'utf8');
-    
-    const beforeCount = (content.match(/href="\/infineon/g) || []).length;
-    
-    // 替换所有 /infineon/ 路径
-    content = content.replace(/href="\/infineon\//g, 'href="/<%= brand.name.toLowerCase() %>/');
-    content = content.replace(/href="\/infineon"/g, 'href="/<%= brand.name.toLowerCase() %>"');
-    content = content.replace(/url: '\/infineon\//g, "url: '/<%= brand.name.toLowerCase() %>/");
-    content = content.replace(/url: "\/infineon\//g, 'url: "/<%= brand.name.toLowerCase() %>/');
-    
-    const afterCount = (content.match(/<%= brand\.name\.toLowerCase\(\) %>/g) || []).length;
-    const replaced = beforeCount;
-    
-    if (replaced > 0) {
-      fs.writeFileSync(filePath, content, 'utf8');
-      console.log(`✓ ${file}: Replaced ${replaced} occurrences`);
-      totalReplacements += replaced;
-    } else {
-      console.log(`  ${file}: No changes needed`);
-    }
-  }
-});
+if (oldPattern.test(content)) {
+  content = content.replace(oldPattern, newPattern);
+  fs.writeFileSync(generateScriptPath, content, 'utf8');
+  console.log('✓ 已修改生成脚本：品牌页面将生成在 /brand/{brand}/ 目录下');
+} else {
+  console.log('⚠ 未找到需要修改的模式，可能已经被修改过');
+}
 
-console.log(`\n========================================`);
-console.log(`Total replacements: ${totalReplacements}`);
-console.log(`========================================`);
+console.log('\n修改完成！下次运行 npm run build 时，品牌页面将生成在 output/brand/{brandName}/ 目录下');
+console.log('例如：');
+console.log('  - 之前: output/funcience/index.html');
+console.log('  - 之后: output/brand/funcience/index.html');

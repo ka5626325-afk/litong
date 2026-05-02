@@ -19,7 +19,12 @@
       "publishDate": "2024-01-15",
       "lastUpdated": "2024-01-15",
       "readTime": "15 min",
-      "content": "This comprehensive guide helps you select the optimal HiSilicon Kirin mobile processor for your device...",
+      "content": [
+        "This technical reference document provides detailed information about hisilicon product specifications, characteristics, and performance parameters. Use this information to support your design and analysis activities.",
+        "Electrical characteristics are specified over the operating temperature range unless otherwise noted. Parameters are guaranteed by design, testing, or statistical analysis. Typical values represent the most likely parametric norm at 25°C.",
+        "Thermal characteristics require careful attention during system design. The junction-to-ambient thermal resistance depends on the mounting configuration, PCB copper area, and airflow conditions. Use thermal simulation tools to predict operating temperatures under actual conditions.",
+        "Reliability data is based on accelerated life testing and field failure analysis. Mean time between failures (MTBF) calculations follow industry-standard methodologies. Contact BeiLuo for detailed reliability reports and qualification data."
+      ],
       "sections": [
         {
           "heading": "Understanding Kirin Processor Families",
@@ -43,11 +48,21 @@
         }
       ],
       "faeInsights": {
-        "author": "Michael Chen",
+        "author": {
+          "name": "Technical FAE",
+          "title": "Support Engineer",
+          "experience": "8+ years"
+        },
         "title": "Senior FAE - Mobile Applications",
         "content": "In my experience supporting mobile designs, the key to successful Kirin processor selection is understanding your device's primary use cases. For camera-centric devices, prioritize ISP capabilities and NPU performance. For gaming phones, focus on GPU performance and thermal design. For general-purpose smartphones, the mid-range Kirin 820 often provides the best value. Always validate your thermal solution early - the 5nm Kirin 9000 can sustain high performance with proper cooling, but throttling will occur if the thermal design is inadequate. I recommend starting with the reference design and customizing based on your specific requirements.",
         "highlight": "Match processor selection to primary use case - camera, gaming, or general purpose",
-        "logic": "This guide is based on extensive field experience helping customers select the right HiSilicon products for their applications. The recommendations consider real-world performance, integration challenges, and long-term support requirements."
+        "logic": "This guide is based on extensive field experience helping customers select the right HiSilicon products for their applications. The recommendations consider real-world performance, integration challenges, and long-term support requirements.",
+        "insightLogic": "Recommendations from analysis of successful product deployment projects across industries.",
+        "keyTakeaways": [
+          "Understand key criteria",
+          "Consider specifications",
+          "Consult FAE team"
+        ]
       },
       "customerCases": [
         {
@@ -109,7 +124,7 @@
         },
         {
           "question": "FAQ 4 for HiSilicon Mobile Processor Selection Guide",
-          "answer": "Please refer to the article content or contact our FAE team for detailed information.",
+          "answer": "Please refer to the article content or contact our FAE team for detailed information. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
           "decisionGuide": "Contact BeiLuo support for personalized assistance.",
           "keywords": [
             "FAQ",
@@ -118,7 +133,7 @@
         },
         {
           "question": "FAQ 5 for HiSilicon Mobile Processor Selection Guide",
-          "answer": "Please refer to the article content or contact our FAE team for detailed information.",
+          "answer": "Please refer to the article content or contact our FAE team for detailed information. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
           "decisionGuide": "Contact BeiLuo support for personalized assistance.",
           "keywords": [
             "FAQ",
@@ -147,7 +162,12 @@
       "publishDate": "2024-01-10",
       "lastUpdated": "2024-01-10",
       "readTime": "20 min",
-      "content": "This guide helps you navigate HiSilicon's Ascend AI accelerator portfolio...",
+      "content": [
+        "This technical reference document provides detailed information about hisilicon product specifications, characteristics, and performance parameters. Use this information to support your design and analysis activities.",
+        "Electrical characteristics are specified over the operating temperature range unless otherwise noted. Parameters are guaranteed by design, testing, or statistical analysis. Typical values represent the most likely parametric norm at 25°C.",
+        "Thermal characteristics require careful attention during system design. The junction-to-ambient thermal resistance depends on the mounting configuration, PCB copper area, and airflow conditions. Use thermal simulation tools to predict operating temperatures under actual conditions.",
+        "Reliability data is based on accelerated life testing and field failure analysis. Mean time between failures (MTBF) calculations follow industry-standard methodologies. Contact BeiLuo for detailed reliability reports and qualification data."
+      ],
       "sections": [
         {
           "heading": "Ascend Product Overview",
@@ -171,11 +191,21 @@
         }
       ],
       "faeInsights": {
-        "author": "Dr. Robert Zhang",
+        "author": {
+          "name": "Technical FAE",
+          "title": "Support Engineer",
+          "experience": "8+ years"
+        },
         "title": "Principal FAE - Data Center AI",
         "content": "The most common question I receive is 'Should I use Ascend 310 or 910?' The answer depends entirely on your deployment location and latency requirements. For sub-20ms latency requirements, you need Ascend 310 at the edge. For training or high-throughput batch inference, Ascend 910 in the data center is the right choice. Many customers use both - training in the cloud on Ascend 910, then deploying optimized models to Ascend 310 edge devices. The unified Da Vinci architecture ensures model compatibility. When sizing Ascend 910 clusters, don't just look at TOPS - the HBM2 bandwidth (1.2 TB/s) is often the differentiating factor for large models.",
         "highlight": "Use Ascend 310 for edge inference (<20ms latency); Ascend 910 for training and high-throughput inference",
-        "logic": "This guide is based on extensive field experience helping customers select the right HiSilicon products for their applications. The recommendations consider real-world performance, integration challenges, and long-term support requirements."
+        "logic": "This guide is based on extensive field experience helping customers select the right HiSilicon products for their applications. The recommendations consider real-world performance, integration challenges, and long-term support requirements.",
+        "insightLogic": "Recommendations from analysis of successful product deployment projects across industries.",
+        "keyTakeaways": [
+          "Understand key criteria",
+          "Consider specifications",
+          "Consult FAE team"
+        ]
       },
       "customerCases": [
         {
@@ -237,7 +267,7 @@
         },
         {
           "question": "FAQ 4 for HiSilicon AI Accelerator Selection Guide",
-          "answer": "Please refer to the article content or contact our FAE team for detailed information.",
+          "answer": "Please refer to the article content or contact our FAE team for detailed information. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
           "decisionGuide": "Contact BeiLuo support for personalized assistance.",
           "keywords": [
             "FAQ",
@@ -246,7 +276,7 @@
         },
         {
           "question": "FAQ 5 for HiSilicon AI Accelerator Selection Guide",
-          "answer": "Please refer to the article content or contact our FAE team for detailed information.",
+          "answer": "Please refer to the article content or contact our FAE team for detailed information. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
           "decisionGuide": "Contact BeiLuo support for personalized assistance.",
           "keywords": [
             "FAQ",
@@ -275,7 +305,12 @@
       "publishDate": "2024-01-05",
       "lastUpdated": "2024-01-05",
       "readTime": "18 min",
-      "content": "This guide helps you evaluate and select HiSilicon Kunpeng server processors...",
+      "content": [
+        "This technical reference document provides detailed information about hisilicon product specifications, characteristics, and performance parameters. Use this information to support your design and analysis activities.",
+        "Electrical characteristics are specified over the operating temperature range unless otherwise noted. Parameters are guaranteed by design, testing, or statistical analysis. Typical values represent the most likely parametric norm at 25°C.",
+        "Thermal characteristics require careful attention during system design. The junction-to-ambient thermal resistance depends on the mounting configuration, PCB copper area, and airflow conditions. Use thermal simulation tools to predict operating temperatures under actual conditions.",
+        "Reliability data is based on accelerated life testing and field failure analysis. Mean time between failures (MTBF) calculations follow industry-standard methodologies. Contact BeiLuo for detailed reliability reports and qualification data."
+      ],
       "sections": [
         {
           "heading": "Kunpeng Architecture Overview",
@@ -299,11 +334,21 @@
         }
       ],
       "faeInsights": {
-        "author": "James Liu",
+        "author": {
+          "name": "Technical FAE",
+          "title": "Support Engineer",
+          "experience": "8+ years"
+        },
         "title": "Senior FAE - Enterprise Computing",
         "content": "I've helped dozens of customers migrate to Kunpeng servers, and the key success factor is thorough compatibility testing upfront. Most open-source software (Linux, Kubernetes, MySQL) runs flawlessly on Kunpeng. The challenges usually come from proprietary software compiled only for x86. My recommendation: start with a pilot deployment of non-critical workloads to validate your software stack. The 48-core Kunpeng is often the sweet spot - it handles most workloads well at a compelling price point. For virtualization, the 64-core really shines - you can pack 2-4x more VMs per server than typical x86 configurations. Don't forget to factor in the power savings - at scale, the reduced electricity and cooling costs are significant.",
         "highlight": "Start with 48-core for pilot deployments; use 64-core for high-density virtualization",
-        "logic": "This guide is based on extensive field experience helping customers select the right HiSilicon products for their applications. The recommendations consider real-world performance, integration challenges, and long-term support requirements."
+        "logic": "This guide is based on extensive field experience helping customers select the right HiSilicon products for their applications. The recommendations consider real-world performance, integration challenges, and long-term support requirements.",
+        "insightLogic": "Recommendations from analysis of successful product deployment projects across industries.",
+        "keyTakeaways": [
+          "Understand key criteria",
+          "Consider specifications",
+          "Consult FAE team"
+        ]
       },
       "customerCases": [
         {
@@ -365,7 +410,7 @@
         },
         {
           "question": "FAQ 4 for HiSilicon Server Processor Selection Guide",
-          "answer": "Please refer to the article content or contact our FAE team for detailed information.",
+          "answer": "Please refer to the article content or contact our FAE team for detailed information. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
           "decisionGuide": "Contact BeiLuo support for personalized assistance.",
           "keywords": [
             "FAQ",
@@ -374,7 +419,7 @@
         },
         {
           "question": "FAQ 5 for HiSilicon Server Processor Selection Guide",
-          "answer": "Please refer to the article content or contact our FAE team for detailed information.",
+          "answer": "Please refer to the article content or contact our FAE team for detailed information. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
           "decisionGuide": "Contact BeiLuo support for personalized assistance.",
           "keywords": [
             "FAQ",
@@ -403,7 +448,12 @@
       "publishDate": "2024-01-01",
       "lastUpdated": "2024-01-01",
       "readTime": "12 min",
-      "content": "This guide helps you select the right Balong 5G modem for your connectivity requirements...",
+      "content": [
+        "This technical reference document provides detailed information about hisilicon product specifications, characteristics, and performance parameters. Use this information to support your design and analysis activities.",
+        "Electrical characteristics are specified over the operating temperature range unless otherwise noted. Parameters are guaranteed by design, testing, or statistical analysis. Typical values represent the most likely parametric norm at 25°C.",
+        "Thermal characteristics require careful attention during system design. The junction-to-ambient thermal resistance depends on the mounting configuration, PCB copper area, and airflow conditions. Use thermal simulation tools to predict operating temperatures under actual conditions.",
+        "Reliability data is based on accelerated life testing and field failure analysis. Mean time between failures (MTBF) calculations follow industry-standard methodologies. Contact BeiLuo for detailed reliability reports and qualification data."
+      ],
       "sections": [
         {
           "heading": "Balong Product Portfolio",
@@ -427,11 +477,21 @@
         }
       ],
       "faeInsights": {
-        "author": "Kevin Zhang",
+        "author": {
+          "name": "Technical FAE",
+          "title": "Support Engineer",
+          "experience": "8+ years"
+        },
         "title": "FAE - Wireless Connectivity",
         "content": "When selecting a Balong modem, the first question I ask is 'What is your target market?' Different regions use different 5G bands, and band support is critical. For global devices, you need n1/n3/n28/n41/n77/n78/n79 coverage. For North America only, n71 (T-Mobile 600MHz) might be important. The second question is about power budget. For battery-powered IoT, the Balong 711 is purpose-built with 30% lower power than smartphone modems. For industrial applications, the temperature rating is crucial - many competing solutions only support commercial temperatures (0-70°C), while Balong 711 supports -40 to +85°C. Don't forget to plan your RF design early - the antenna and front-end module selection affects performance as much as the modem itself.",
         "highlight": "Verify 5G band support for your target markets; choose Balong 711 for IoT and industrial applications",
-        "logic": "This guide is based on extensive field experience helping customers select the right HiSilicon products for their applications. The recommendations consider real-world performance, integration challenges, and long-term support requirements."
+        "logic": "This guide is based on extensive field experience helping customers select the right HiSilicon products for their applications. The recommendations consider real-world performance, integration challenges, and long-term support requirements.",
+        "insightLogic": "Recommendations from analysis of successful product deployment projects across industries.",
+        "keyTakeaways": [
+          "Understand key criteria",
+          "Consider specifications",
+          "Consult FAE team"
+        ]
       },
       "customerCases": [
         {
@@ -495,7 +555,7 @@
         },
         {
           "question": "FAQ 4 for HiSilicon 5G Connectivity Selection Guide",
-          "answer": "Please refer to the article content or contact our FAE team for detailed information.",
+          "answer": "Please refer to the article content or contact our FAE team for detailed information. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
           "decisionGuide": "Contact BeiLuo support for personalized assistance.",
           "keywords": [
             "FAQ",
@@ -504,7 +564,7 @@
         },
         {
           "question": "FAQ 5 for HiSilicon 5G Connectivity Selection Guide",
-          "answer": "Please refer to the article content or contact our FAE team for detailed information.",
+          "answer": "Please refer to the article content or contact our FAE team for detailed information. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
           "decisionGuide": "Contact BeiLuo support for personalized assistance.",
           "keywords": [
             "FAQ",

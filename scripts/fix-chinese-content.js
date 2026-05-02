@@ -1,1328 +1,210 @@
 #!/usr/bin/env node
 /**
- * 修复 JSON 数据中的中文内容
- * 将中文翻译为英文，确保网站纯英文显示
+ * 修复品牌数据中的中文内容
+ * 将中文内容翻译为英文
  */
 
 const fs = require('fs');
 const path = require('path');
 
-const config = {
-  dataDir: path.join(__dirname, '..', 'data')
-};
+const dataDir = path.join(__dirname, '..', 'data');
 
-// 颜色输出
-const colors = {
-  red: '\x1b[31m',
-  green: '\x1b[32m',
-  yellow: '\x1b[33m',
-  blue: '\x1b[34m',
-  reset: '\x1b[0m'
-};
+// 有中文内容的品牌列表（按字母顺序）
+const brandsWithChinese = [
+  'anlogic',      // 188 issues - 中英混杂严重
+  'bpsemi',       // 2 issues
+  'chipon',       // 2 issues
+  'chipown',      // 1 issue
+  'clickele',     // 1 issue
+  'cosel',        // 8 issues
+  'cps',          // 1 issue
+  'fusemi',       // 2 issues
+  'hawun',        // 1 issue
+  'jisemi',       // 3 issues
+  'linsimicro',   // 3 issues
+  'longsys',      // 1 issue
+  'macrosilicon', // 1 issue
+  'micron',       // 1 issue
+  'mornsun',      // 1 issue
+  'mxtronics',    // 1 issue
+  'nce',          // 4 issues
+  'pinesemi',     // 1 issue
+  'pridesilicon', // 2 issues
+  'qinheng',      // 2 issues
+  'rayson',       // 118 issues
+  'rivotek',      // 4 issues
+  'runic',        // 1 issue
+  'senodia',      // 1 issue
+  'sinofuse',     // 3 issues
+  'starrystonetech', // 3 issues
+  'superchip',    // 1 issue
+  'unisemicon',   // 8 issues
+  'vanchip',      // 1 issue
+  'walsin',       // 304 issues
+  'will',         // 1 issue
+  'xghc',         // 1 issue
+  'xinleineng'    // 1 issue
+];
 
-function log(level, message) {
-  const color = colors[level] || colors.reset;
-  console.log(`${color}${message}${colors.reset}`);
+// 中文检测正则
+const chinesePattern = /[\u4e00-\u9fff\u3000-\u303f\uff00-\uffef]/;
+
+// 检查是否包含中文
+function containsChinese(text) {
+  if (!text || typeof text !== 'string') return false;
+  return chinesePattern.test(text);
 }
 
-/**
- * 检查字符串是否包含中文
- */
-function containsChinese(str) {
-  if (typeof str !== 'string') return false;
-  return /[\u4e00-\u9fa5]/.test(str);
-}
-
-/**
- * 递归查找并记录中文内容
- */
-function findChineseContent(obj, path = '', results = []) {
-  if (typeof obj === 'string') {
-    if (containsChinese(obj)) {
-      results.push({ path, value: obj });
-    }
-  } else if (Array.isArray(obj)) {
-    obj.forEach((item, index) => {
-      findChineseContent(item, `${path}[${index}]`, results);
-    });
-  } else if (typeof obj === 'object' && obj !== null) {
-    for (const key in obj) {
-      findChineseContent(obj[key], `${path}.${key}`, results);
-    }
-  }
-  return results;
-}
-
-/**
- * 翻译映射表（常见中文 -> 英文）
- */
-const translationMap = {
-  // 选型指南
-  '如何选择最适合的': 'How to Choose the Best',
-  '如何选择': 'How to Select',
-  '选型': 'Selection',
-  '选型指南': 'Selection Guide',
-  '根据您的应用需求': 'Based on your application requirements',
-  '根据您的需求': 'Based on your requirements',
-  '快速找到最合适的': 'quickly find the most suitable',
-  '快速找到': 'quickly find',
-  '我们的 FAE 团队': 'Our FAE team',
-  '我们提供': 'We provide',
-  '专业的': 'professional',
-  '支持': 'support',
-  '服务': 'service',
-  '帮助': 'help',
-  '指导': 'guidance',
-  '建议': 'recommendations',
-  
-  // FAE 点评
-  '我个人': 'I personally',
-  '我个人最推荐': 'I personally recommend',
-  '最推荐': 'most recommend',
-  '之一': 'as one of the best',
-  '在实际项目中': 'In actual projects',
-  '在实际应用中': 'In practical applications',
-  '我发现': 'I found that',
-  '表现': 'performance',
-  '表现尤为出色': 'performs exceptionally well',
-  '表现优异': 'excellent performance',
-  '表现良好': 'good performance',
-  '非常好': 'very good',
-  '温度稳定性': 'temperature stability',
-  '温度稳定性非常好': 'excellent temperature stability',
-  '温度稳定性出色': 'outstanding temperature stability',
-  '出色': 'outstanding',
-  '非常好': 'excellent',
-  '很好': 'very good',
-  '不错': 'good',
-  '对于': 'For',
-  '需要': 'requiring',
-  '建议': 'recommend',
-  '建议配合': 'recommend pairing with',
-  '配合使用': 'used together with',
-  '使用': 'use',
-  '可以获得': 'can achieve',
-  '更好的': 'better',
-  '保护特性': 'protection features',
-  '保护功能': 'protection functionality',
-  '我特别喜欢': 'I particularly like',
-  '特别喜欢': 'particularly like',
-  '喜欢': 'like',
-  '它的': 'its',
-  '热循环': 'thermal cycling',
-  '热循环性能': 'thermal cycling performance',
-  '性能': 'performance',
-  '采用': 'adopting',
-  '采用银烧结技术': 'using silver sintering technology',
-  '银烧结技术': 'silver sintering technology',
-  '在': 'in',
-  '在温度冲击测试中': 'in temperature shock testing',
-  '温度冲击测试': 'temperature shock testing',
-  '测试中': 'testing',
-  '表现明显优于': 'significantly outperforms',
-  '明显优于': 'significantly better than',
-  '优于': 'better than',
-  '传统焊料封装的模块': 'modules with traditional solder packaging',
-  '传统焊料封装': 'traditional solder packaging',
-  '焊料封装': 'solder packaging',
-  '封装': 'package',
-  '模块': 'module',
-  '对于': 'For',
-  '应用': 'applications',
-  '这款模块的': 'this module\'s',
-  '性价比': 'cost-performance ratio',
-  '性价比非常高': 'excellent cost-performance ratio',
-  '非常高': 'very high',
-  '高': 'high',
-  '经典选择': 'classic choice',
-  '频段': 'frequency range',
-  '频段表现优异': 'excellent performance in this frequency range',
-  '温度稳定性出色': 'outstanding temperature stability',
-  '出色的': 'outstanding',
-  '是': 'is',
-  '级别的': 'level',
-  '最佳选择': 'best choice',
-  '选择': 'choice',
-  
-  // 通用
-  '代理商': 'Distributor',
-  '授权代理商': 'Authorized Distributor',
-  '分销商': 'Distributor',
-  '供应商': 'Supplier',
-  '厂家': 'Manufacturer',
-  '原厂': 'Original Manufacturer',
-  '正品': 'Genuine',
-  '原装': 'Original',
-  '现货': 'In Stock',
-  '库存': 'Stock',
-  '价格': 'Price',
-  '报价': 'Quotation',
-  '咨询': 'Consultation',
-  '联系': 'Contact',
-  '我们': 'we',
-  '我们的': 'our',
-  '提供': 'provide',
-  '完整的': 'complete',
-  '产品线': 'product line',
-  '技术支持': 'technical support',
-  '售后服务': 'after-sales service',
-  '欢迎': 'Welcome',
-  '谢谢': 'Thank you',
-  '感谢': 'Thanks',
-  '您好': 'Hello',
-  '你好': 'Hi',
-  '再见': 'Goodbye',
-  '的': ' ',
-  '了': ' ',
-  '和': 'and',
-  '与': 'and',
-  '或': 'or',
-  '等': 'etc.',
-  '及': 'and',
-  '在': 'in',
-  '为': 'for',
-  '对': 'for',
-  '向': 'to',
-  '从': 'from',
-  '到': 'to',
-  '由': 'by',
-  '被': 'by',
-  '将': 'will',
-  '会': 'will',
-  '能': 'can',
-  '可以': 'can',
-  '可': 'can',
-  '有': 'have',
-  '没有': 'no',
-  '无': 'no',
-  '不': 'not',
-  '没': 'no',
-  '是': 'is',
-  '不是': 'is not',
-  '即': 'that is',
-  '也就是': 'that is',
-  '例如': 'for example',
-  '比如': 'for example',
-  '如': 'such as',
-  '包括': 'including',
-  '包含': 'including',
-  '以及': 'and',
-  '还有': 'also',
-  '另外': 'additionally',
-  '此外': 'additionally',
-  '同时': 'at the same time',
-  '并且': 'and',
-  '而且': 'and',
-  '但是': 'but',
-  '然而': 'however',
-  '不过': 'however',
-  '因此': 'therefore',
-  '所以': 'so',
-  '因为': 'because',
-  '由于': 'due to',
-  '如果': 'if',
-  '假如': 'if',
-  '假设': 'assuming',
-  '那么': 'then',
-  '就': 'then',
-  '便': 'then',
-  '才': 'only then',
-  '并': 'and',
-  '且': 'and',
-  '而': 'and',
-  '或': 'or',
-  '或者': 'or',
-  '还是': 'or',
-  '要么': 'either',
-  '是否': 'whether',
-  '能否': 'can',
-  '会不会': 'will',
-  '有没有': 'whether there is',
-  '是不是': 'whether it is',
-  '能否': 'can',
-  '可不可以': 'can',
-  '行不行': 'is it okay',
-  '好吗': 'is it good',
-  '对吗': 'is it right',
-  '是吗': 'is it so',
-  '对吧': 'right',
-  '是吧': 'right',
-  '好吧': 'okay',
-  '好的': 'okay',
-  '知道了': 'understood',
-  '明白了': 'understood',
-  '了解': 'understand',
-  '清楚': 'clear',
-  '明白': 'understand',
-  '懂': 'understand',
-  '知道': 'know',
-  '认识': 'know',
-  '了解': 'understand',
-  '理解': 'understand',
-  '认为': 'think',
-  '觉得': 'feel',
-  '感觉': 'feel',
-  '想': 'want',
-  '要': 'want',
-  '希望': 'hope',
-  '期望': 'expect',
-  '期待': 'look forward to',
-  '等待': 'wait',
-  '等候': 'wait',
-  '等': 'wait',
-  '待': 'wait',
-  '等待': 'waiting',
-  '等着': 'waiting',
-  '等着': 'waiting for',
-  '等待中': 'waiting',
-  '进行中': 'in progress',
-  '处理中': 'processing',
-  '审核中': 'under review',
-  '审批中': 'pending approval',
-  '批准': 'approve',
-  '通过': 'pass',
-  '不通过': 'fail',
-  '失败': 'fail',
-  '成功': 'success',
-  '完成': 'complete',
-  '结束': 'end',
-  '开始': 'start',
-  '启动': 'start',
-  '停止': 'stop',
-  '暂停': 'pause',
-  '继续': 'continue',
-  '恢复': 'resume',
-  '取消': 'cancel',
-  '撤销': 'undo',
-  '删除': 'delete',
-  '移除': 'remove',
-  '添加': 'add',
-  '增加': 'add',
-  '创建': 'create',
-  '新建': 'create new',
-  '建立': 'establish',
-  '设置': 'set',
-  '配置': 'configure',
-  '调整': 'adjust',
-  '修改': 'modify',
-  '更改': 'change',
-  '改变': 'change',
-  '变更': 'change',
-  '更新': 'update',
-  '升级': 'upgrade',
-  '降级': 'downgrade',
-  '优化': 'optimize',
-  '改进': 'improve',
-  '提升': 'improve',
-  '提高': 'improve',
-  '增强': 'enhance',
-  '加强': 'strengthen',
-  '减少': 'reduce',
-  '降低': 'reduce',
-  '减小': 'reduce',
-  '缩小': 'reduce',
-  '扩大': 'expand',
-  '扩展': 'expand',
-  '增加': 'increase',
-  '增长': 'increase',
-  '上升': 'rise',
-  '下降': 'fall',
-  '提高': 'raise',
-  '降低': 'lower',
-  '保持': 'maintain',
-  '维持': 'maintain',
-  '稳定': 'stable',
-  '固定': 'fixed',
-  '确定': 'determine',
-  '确认': 'confirm',
-  '验证': 'verify',
-  '核实': 'verify',
-  '检查': 'check',
-  '检测': 'detect',
-  '测试': 'test',
-  '检验': 'inspect',
-  '审查': 'review',
-  '审核': 'review',
-  '审计': 'audit',
-  '评估': 'evaluate',
-  '评价': 'evaluate',
-  '分析': 'analyze',
-  '解析': 'analyze',
-  '研究': 'research',
-  '调查': 'investigate',
-  '查询': 'query',
-  '查找': 'search',
-  '搜索': 'search',
-  '寻找': 'look for',
-  '找到': 'find',
-  '发现': 'discover',
-  '看到': 'see',
-  '看见': 'see',
-  '观看': 'watch',
-  '查看': 'view',
-  '浏览': 'browse',
-  '阅读': 'read',
-  '读': 'read',
-  '写': 'write',
-  '编写': 'write',
-  '撰写': 'write',
-  '编辑': 'edit',
-  '修改': 'edit',
-  '录入': 'enter',
-  '输入': 'input',
-  '输出': 'output',
-  '导入': 'import',
-  '导出': 'export',
-  '上传': 'upload',
-  '下载': 'download',
-  '保存': 'save',
-  '存储': 'store',
-  '备份': 'backup',
-  '恢复': 'restore',
-  '还原': 'restore',
-  '重置': 'reset',
-  '初始化': 'initialize',
-  '启动': 'launch',
-  '运行': 'run',
-  '执行': 'execute',
-  '操作': 'operate',
-  '工作': 'work',
-  '功能': 'function',
-  '作用': 'function',
-  '用途': 'use',
-  '用法': 'usage',
-  '使用': 'use',
-  '用户': 'user',
-  '客户': 'customer',
-  '顾客': 'customer',
-  '访客': 'visitor',
-  '访问者': 'visitor',
-  '会员': 'member',
-  '成员': 'member',
-  '管理员': 'administrator',
-  '管理': 'manage',
-  '维护': 'maintain',
-  '保养': 'maintain',
-  '维修': 'repair',
-  '修理': 'repair',
-  '修复': 'fix',
-  '解决': 'solve',
-  '处理': 'handle',
-  '应对': 'deal with',
-  '响应': 'respond',
-  '反应': 'react',
-  '反馈': 'feedback',
-  '回复': 'reply',
-  '回答': 'answer',
-  '答复': 'response',
-  '响应': 'response',
-  '结果': 'result',
-  '成果': 'result',
-  '效果': 'effect',
-  '影响': 'impact',
-  '作用': 'effect',
-  '意义': 'significance',
-  '价值': 'value',
-  '价格': 'price',
-  '费用': 'cost',
-  '成本': 'cost',
-  '花费': 'expense',
-  '支出': 'expenditure',
-  '收入': 'revenue',
-  '收益': 'revenue',
-  '利润': 'profit',
-  '盈利': 'profit',
-  '亏损': 'loss',
-  '损失': 'loss',
-  '损害': 'damage',
-  '伤害': 'harm',
-  '危害': 'harm',
-  '危险': 'danger',
-  '风险': 'risk',
-  '安全': 'safety',
-  '保障': 'guarantee',
-  '保护': 'protect',
-  '防护': 'protection',
-  '防御': 'defense',
-  '防止': 'prevent',
-  '预防': 'prevent',
-  '避免': 'avoid',
-  '杜绝': 'eliminate',
-  '消除': 'eliminate',
-  '清除': 'clear',
-  '清理': 'clean',
-  '清洁': 'clean',
-  '整理': 'organize',
-  '排序': 'sort',
-  '排列': 'arrange',
-  '安排': 'arrange',
-  '布置': 'arrange',
-  '部署': 'deploy',
-  '配置': 'configure',
-  '设定': 'set',
-  '制定': 'formulate',
-  '规定': 'regulate',
-  '规则': 'rule',
-  '规范': 'standard',
-  '标准': 'standard',
-  '规格': 'specification',
-  '规范': 'norm',
-  '常规': 'routine',
-  '正常': 'normal',
-  '通常': 'usually',
-  '一般': 'general',
-  '普通': 'ordinary',
-  '特殊': 'special',
-  '特别': 'special',
-  '尤其': 'especially',
-  '格外': 'especially',
-  '非常': 'very',
-  '十分': 'very',
-  '相当': 'quite',
-  '比较': 'relatively',
-  '相对': 'relatively',
-  '绝对': 'absolutely',
-  '完全': 'completely',
-  '彻底': 'thoroughly',
-  '全面': 'comprehensive',
-  '全部': 'all',
-  '全体': 'all',
-  '整体': 'whole',
-  '整个': 'whole',
-  '部分': 'part',
-  '局部': 'partial',
-  '个别': 'individual',
-  '个人': 'individual',
-  '私人': 'private',
-  '公共': 'public',
-  '公开': 'public',
-  '公正': 'fair',
-  '公平': 'fair',
-  '合理': 'reasonable',
-  '合适': 'suitable',
-  '适合': 'suitable',
-  '适当': 'appropriate',
-  '恰当': 'appropriate',
-  '正确': 'correct',
-  '准确': 'accurate',
-  '精确': 'precise',
-  '精密': 'precise',
-  '精细': 'fine',
-  '精致': 'exquisite',
-  '精美': 'beautiful',
-  '漂亮': 'beautiful',
-  '好看': 'good-looking',
-  '美观': 'aesthetic',
-  '优美': 'graceful',
-  '优雅': 'elegant',
-  '高雅': 'elegant',
-  '典雅': 'classical',
-  '经典': 'classic',
-  '传统': 'traditional',
-  '现代': 'modern',
-  '当代': 'contemporary',
-  '时尚': 'fashionable',
-  '流行': 'popular',
-  '受欢迎': 'popular',
-  '热门': 'hot',
-  '火爆': 'hot',
-  '热门': 'trending',
-  '趋势': 'trend',
-  '潮流': 'trend',
-  '方向': 'direction',
-  '目标': 'goal',
-  '目的': 'purpose',
-  '意图': 'intention',
-  '计划': 'plan',
-  '方案': 'solution',
-  '策略': 'strategy',
-  '战略': 'strategy',
-  '战术': 'tactics',
-  '方法': 'method',
-  '方式': 'way',
-  '手段': 'means',
-  '途径': 'approach',
-  '渠道': 'channel',
-  '路径': 'path',
-  '路线': 'route',
-  '过程': 'process',
-  '流程': 'process',
-  '程序': 'procedure',
-  '步骤': 'step',
-  '阶段': 'stage',
-  '时期': 'period',
-  '期间': 'during',
-  '时间': 'time',
-  '时刻': 'moment',
-  '时候': 'when',
-  '时机': 'opportunity',
-  '机会': 'opportunity',
-  '机遇': 'opportunity',
-  '挑战': 'challenge',
-  '困难': 'difficulty',
-  '问题': 'problem',
-  '难题': 'difficult problem',
-  '疑问': 'question',
-  '询问': 'inquiry',
-  '咨询': 'consultation',
-  '参考': 'reference',
-  '借鉴': 'learn from',
-  '学习': 'learn',
-  '掌握': 'master',
-  '熟悉': 'familiar',
-  '熟练': 'proficient',
-  '精通': 'expert',
-  '专业': 'professional',
-  '职业': 'occupation',
-  '行业': 'industry',
-  '领域': 'field',
-  '范围': 'scope',
-  '界限': 'boundary',
-  '限制': 'limit',
-  '局限': 'limitation',
-  '约束': 'constraint',
-  '制约': 'restrict',
-  '控制': 'control',
-  '管理': 'management',
-  '治理': 'governance',
-  '统治': 'rule',
-  '支配': 'dominate',
-  '主导': 'lead',
-  '领导': 'leadership',
-  '指导': 'guide',
-  '引导': 'guide',
-  '指引': 'guide',
-  '指示': 'instruction',
-  '说明': 'explanation',
-  '解释': 'explain',
-  '阐述': 'elaborate',
-  '描述': 'describe',
-  '描写': 'describe',
-  '描绘': 'depict',
-  '表现': 'express',
-  '表达': 'express',
-  '表示': 'indicate',
-  '显示': 'display',
-  '展示': 'show',
-  '展现': 'show',
-  '呈现': 'present',
-  '体现': 'reflect',
-  '反映': 'reflect',
-  '反应': 'reaction',
-  '响应': 'response',
-  '回应': 'respond',
-  '回报': 'return',
-  '汇报': 'report',
-  '报告': 'report',
-  '报道': 'news report',
-  '新闻': 'news',
-  '消息': 'message',
-  '信息': 'information',
-  '资讯': 'information',
-  '资料': 'data',
-  '数据': 'data',
-  '材料': 'material',
-  '素材': 'material',
-  '资源': 'resource',
-  '资料': 'resources',
-  '能源': 'energy',
-  '能量': 'energy',
-  '力量': 'power',
-  '能力': 'ability',
-  '实力': 'strength',
-  '优势': 'advantage',
-  '劣势': 'disadvantage',
-  '弱点': 'weakness',
-  '强项': 'strength',
-  '特点': 'characteristic',
-  '特色': 'feature',
-  '特征': 'feature',
-  '特性': 'property',
-  '性能': 'performance',
-  '功能': 'function',
-  '用途': 'use',
-  '应用': 'application',
-  '运用': 'apply',
-  '使用': 'use',
-  '利用': 'utilize',
-  '采用': 'adopt',
-  '采纳': 'accept',
-  '接受': 'accept',
-  '接收': 'receive',
-  '收到': 'receive',
-  '得到': 'get',
-  '获得': 'obtain',
-  '取得': 'achieve',
-  '实现': 'realize',
-  '达成': 'reach',
-  '达到': 'achieve',
-  '完成': 'complete',
-  '实现': 'implement',
-  '实施': 'implement',
-  '执行': 'execute',
-  '履行': 'perform',
-  '进行': 'carry out',
-  '开展': 'carry out',
-  '举办': 'hold',
-  '举行': 'hold',
-  '组织': 'organize',
-  '安排': 'arrange',
-  '筹备': 'prepare',
-  '准备': 'prepare',
-  '预备': 'prepare',
-  '预先': 'in advance',
-  '提前': 'in advance',
-  '事先': 'beforehand',
-  '之前': 'before',
-  '之后': 'after',
-  '以后': 'after',
-  '后来': 'later',
-  '然后': 'then',
-  '接着': 'next',
-  '随后': 'subsequently',
-  '随即': 'immediately',
-  '立即': 'immediately',
-  '马上': 'immediately',
-  '立刻': 'immediately',
-  '赶紧': 'hurry',
-  '赶快': 'hurry',
-  '尽快': 'as soon as possible',
-  '尽早': 'as early as possible',
-  '早日': 'early',
-  '提前': 'ahead of time',
-  '推迟': 'postpone',
-  '延迟': 'delay',
-  '延期': 'extension',
-  '延长': 'extend',
-  '缩短': 'shorten',
-  '减少': 'reduce',
-  '增加': 'increase',
-  '扩大': 'expand',
-  '提高': 'improve',
-  '降低': 'reduce',
-  '升高': 'rise',
-  '下降': 'fall',
-  '上升': 'rise',
-  '下跌': 'fall',
-  '波动': 'fluctuate',
-  '变化': 'change',
-  '变动': 'change',
-  '转变': 'transform',
-  '改变': 'change',
-  '改善': 'improve',
-  '改进': 'improve',
-  '改革': 'reform',
-  '革命': 'revolution',
-  '创新': 'innovation',
-  '创造': 'create',
-  '创建': 'create',
-  '创立': 'found',
-  '建立': 'establish',
-  '建设': 'construct',
-  '建造': 'build',
-  '制造': 'manufacture',
-  '生产': 'produce',
-  '加工': 'process',
-  '处理': 'process',
-  '操作': 'operate',
-  '运行': 'run',
-  '运转': 'operate',
-  '转动': 'rotate',
-  '旋转': 'rotate',
-  '移动': 'move',
-  '运动': 'motion',
-  '活动': 'activity',
-  '行动': 'action',
-  '行为': 'behavior',
-  '表现': 'performance',
-  '表演': 'perform',
-  '演出': 'show',
-  '展示': 'display',
-  '展览': 'exhibition',
-  '会议': 'meeting',
-  '会谈': 'talks',
-  '谈判': 'negotiation',
-  '协商': 'consultation',
-  '讨论': 'discussion',
-  '研讨': 'seminar',
-  '研究': 'research',
-  '研发': 'R&D',
-  '开发': 'develop',
-  '发展': 'develop',
-  '发达': 'developed',
-  '落后': 'backward',
-  '先进': 'advanced',
-  '进步': 'progress',
-  '前进': 'advance',
-  '推进': 'promote',
-  '促进': 'promote',
-  '促使': 'cause',
-  '导致': 'lead to',
-  '引起': 'cause',
-  '造成': 'cause',
-  '产生': 'produce',
-  '发生': 'happen',
-  '出现': 'appear',
-  '呈现': 'present',
-  '显现': 'show',
-  '显示': 'display',
-  '表明': 'indicate',
-  '说明': 'explain',
-  '证明': 'prove',
-  '证实': 'confirm',
-  '确认': 'confirm',
-  '确定': 'determine',
-  '决定': 'decide',
-  '决策': 'decision',
-  '选择': 'select',
-  '挑选': 'select',
-  '选取': 'choose',
-  '采用': 'adopt',
-  '采纳': 'accept',
-  '选用': 'select',
-  '使用': 'use',
-  '应用': 'apply',
-  '运用': 'use',
-  '利用': 'utilize',
-  '借助': 'with the help of',
-  '通过': 'through',
-  '经过': 'through',
-  '经由': 'via',
-  '根据': 'according to',
-  '依据': 'based on',
-  '按照': 'according to',
-  '依照': 'in accordance with',
-  '遵循': 'follow',
-  '遵守': 'obey',
-  '服从': 'obey',
-  '听从': 'listen to',
-  '听取': 'hear',
-  '听到': 'hear',
-  '听见': 'hear',
-  '听说': 'hear of',
-  '得知': 'learn',
-  '获悉': 'be informed',
-  '知道': 'know',
-  '了解': 'understand',
-  '认识': 'know',
-  '熟悉': 'familiar',
-  '熟练': 'proficient',
-  '精通': 'expert',
-  '擅长': 'good at',
-  '善于': 'be good at',
-  '会': 'can',
-  '能': 'can',
-  '能够': 'be able to',
-  '可以': 'can',
-  '可能': 'possible',
-  '也许': 'maybe',
-  '大概': 'probably',
-  '大约': 'approximately',
-  '约': 'about',
-  '左右': 'about',
-  '上下': 'about',
-  '前后': 'around',
-  '附近': 'nearby',
-  '周围': 'surrounding',
-  '周边': 'peripheral',
-  '边缘': 'edge',
-  '中心': 'center',
-  '中央': 'central',
-  '中间': 'middle',
-  '当中': 'among',
-  '之间': 'between',
-  '之内': 'within',
-  '之外': 'outside',
-  '以外': 'beyond',
-  '以前': 'before',
-  '以后': 'after',
-  '以来': 'since',
-  '至今': 'until now',
-  '当前': 'current',
-  '目前': 'currently',
-  '现在': 'now',
-  '此刻': 'at this moment',
-  '此时': 'at this time',
-  '当时': 'at that time',
-  '那时': 'then',
-  '当初': 'originally',
-  '原来': 'originally',
-  '本来': 'originally',
-  '根本': 'fundamental',
-  '基本': 'basic',
-  '基础': 'foundation',
-  '根基': 'foundation',
-  '根源': 'root',
-  '来源': 'source',
-  '起源': 'origin',
-  '起因': 'cause',
-  '原因': 'reason',
-  '理由': 'reason',
-  '缘故': 'cause',
-  '由于': 'due to',
-  '因为': 'because',
-  '因此': 'therefore',
-  '所以': 'so',
-  '于是': 'thereupon',
-  '从而': 'thus',
-  '进而': 'furthermore',
-  '而且': 'and',
-  '并且': 'and',
-  '同时': 'at the same time',
-  '此外': 'in addition',
-  '另外': 'additionally',
-  '加之': 'in addition',
-  '再加上': 'plus',
-  '除了': 'except',
-  '除开': 'apart from',
-  '除去': 'remove',
-  '去掉': 'remove',
-  '消除': 'eliminate',
-  '清除': 'clear',
-  '清理': 'clean',
-  '整理': 'organize',
-  '收拾': 'tidy up',
-  '安排': 'arrange',
-  '布置': 'arrange',
-  '部署': 'deploy',
-  '配置': 'configure',
-  '设置': 'set',
-  '设定': 'set',
-  '制定': 'formulate',
-  '制订': 'formulate',
-  '规定': 'regulate',
-  '规范': 'standardize',
-  '规则': 'rule',
-  '规矩': 'rule',
-  '规律': 'law',
-  '定律': 'law',
-  '定理': 'theorem',
-  '原理': 'principle',
-  '原则': 'principle',
-  '准则': 'criterion',
-  '标准': 'standard',
-  '规范': 'norm',
-  '规格': 'specification',
-  '规范': 'standard',
-  '典范': 'model',
-  '模范': 'model',
-  '榜样': 'example',
-  '例子': 'example',
-  '实例': 'instance',
-  '案例': 'case',
-  '事例': 'case',
-  '事实': 'fact',
-  '实际': 'actual',
-  '真实': 'real',
-  '真正': 'genuine',
-  '确实': 'indeed',
-  '实在': 'really',
-  '的确': 'indeed',
-  '肯定': 'definitely',
-  '一定': 'certainly',
-  '必然': 'inevitable',
-  '必须': 'must',
-  '必要': 'necessary',
-  '必需': 'essential',
-  '必不可少': 'indispensable',
-  '不可或缺': 'indispensable',
-  '至关重要': 'crucial',
-  '关键': 'key',
-  '重要': 'important',
-  '重大': 'significant',
-  '主要': 'main',
-  '首要': 'primary',
-  '第一': 'first',
-  '首先': 'first',
-  '其次': 'second',
-  '然后': 'then',
-  '接着': 'next',
-  '最后': 'finally',
-  '最终': 'ultimately',
-  '终于': 'finally',
-  '结果': 'result',
-  '成果': 'result',
-  '后果': 'consequence',
-  '效果': 'effect',
-  '影响': 'impact',
-  '作用': 'function',
-  '意义': 'significance',
-  '价值': 'value',
-  '价格': 'price',
-  '价钱': 'price',
-  '费用': 'cost',
-  '成本': 'cost',
-  '代价': 'price',
-  '报酬': 'reward',
-  '回报': 'return',
-  '收益': 'revenue',
-  '利润': 'profit',
-  '盈利': 'profit',
-  '赚钱': 'make money',
-  '亏本': 'lose money',
-  '亏损': 'loss',
-  '损失': 'loss',
-  '损害': 'damage',
-  '伤害': 'harm',
-  '危害': 'harm',
-  '危险': 'danger',
-  '风险': 'risk',
-  '冒险': 'take risks',
-  '保险': 'insurance',
-  '安全': 'safety',
-  '保障': 'guarantee',
-  '保证': 'guarantee',
-  '确保': 'ensure',
-  '保护': 'protect',
-  '维护': 'maintain',
-  '维持': 'maintain',
-  '保养': 'maintain',
-  '维修': 'repair',
-  '修理': 'repair',
-  '修复': 'fix',
-  '恢复': 'restore',
-  '还原': 'restore',
-  '重返': 'return',
-  '回到': 'return to',
-  '回归': 'return',
-  '回来': 'come back',
-  '回去': 'go back',
-  '过来': 'come over',
-  '过去': 'go over',
-  '进入': 'enter',
-  '进来': 'come in',
-  '进去': 'go in',
-  '出去': 'go out',
-  '离开': 'leave',
-  '出发': 'depart',
-  '到达': 'arrive',
-  '抵达': 'arrive',
-  '来到': 'come to',
-  '前往': 'go to',
-  '去往': 'go to',
-  '通向': 'lead to',
-  '通往': 'lead to',
-  '走向': 'head towards',
-  '趋向': 'tend towards',
-  '趋势': 'trend',
-  '潮流': 'trend',
-  '时尚': 'fashion',
-  '时髦': 'fashionable',
-  '流行': 'popular',
-  '受欢迎': 'popular',
-  '热门': 'hot',
-  '火爆': 'hot',
-  '红': 'red',
-  '火': 'fire',
-  '热': 'hot',
-  '冷': 'cold',
-  '凉': 'cool',
-  '温暖': 'warm',
-  '寒冷': 'cold',
-  '炎热': 'hot',
-  '酷热': 'extremely hot',
-  '凉快': 'cool',
-  '凉爽': 'cool',
-  '舒适': 'comfortable',
-  '舒服': 'comfortable',
-  '安逸': 'comfortable',
-  '轻松': 'relaxed',
-  '愉快': 'happy',
-  '快乐': 'happy',
-  '高兴': 'happy',
-  '开心': 'happy',
-  '欢乐': 'joyful',
-  '欢喜': 'joyful',
-  '喜悦': 'joy',
-  '欣喜': 'delighted',
-  '兴奋': 'excited',
-  '激动': 'excited',
-  '感动': 'moved',
-  '感谢': 'grateful',
-  '感激': 'grateful',
-  '感恩': 'thankful',
-  '谢谢': 'thank you',
-  '感谢': 'thanks',
-  '多谢': 'many thanks',
-  '非常感谢': 'thank you very much',
-  '十分感谢': 'very grateful',
-  '衷心感谢': 'heartfelt thanks',
-  '诚挚感谢': 'sincere thanks',
-  '深表感谢': 'deeply grateful',
-  '不胜感激': 'extremely grateful',
-  '感激不尽': 'endlessly grateful',
-  '感激涕零': 'tears of gratitude',
-  '热泪盈眶': 'tears in eyes',
-  '泪流满面': 'tears streaming down',
-  '哭泣': 'cry',
-  '流泪': 'shed tears',
-  '落泪': 'drop tears',
-  '掉泪': 'drop tears',
-  '眼泪': 'tears',
-  '泪水': 'tears',
-  '泪珠': 'teardrops',
-  '泪花': 'tears in eyes',
-  '泪痕': 'tear stains',
-  '泪目': 'teary-eyed',
-  '含泪': 'with tears',
-  '泪眼': 'tearful eyes',
-  '红肿': 'red and swollen',
-  '肿胀': 'swollen',
-  '肿大': 'swollen',
-  '膨胀': 'expand',
-  '扩张': 'expand',
-  '扩展': 'expand',
-  '扩大': 'expand',
-  '增大': 'increase',
-  '增加': 'increase',
-  '增长': 'increase',
-  '上升': 'rise',
-  '提高': 'raise',
-  '提升': 'improve',
-  '升高': 'rise',
-  '上涨': 'rise',
-  '上扬': 'rise',
-  '飙升': 'soar',
-  '飞涨': 'skyrocket',
-  '暴涨': 'surge',
-  '激增': 'surge',
-  '猛增': 'sharply increase',
-  '剧增': 'dramatically increase',
-  '大幅增加': 'significantly increase',
-  '明显增加': 'obviously increase',
-  '显著增加': 'significantly increase',
-  '有所增加': 'somewhat increase',
-  '略有增加': 'slightly increase',
-  '稍微增加': 'slightly increase',
-  '微微增加': 'slightly increase',
-  '渐渐增加': 'gradually increase',
-  '逐渐增加': 'gradually increase',
-  '缓慢增加': 'slowly increase',
-  '稳步增加': 'steadily increase',
-  '持续增加': 'continuously increase',
-  '不断增加': 'continuously increase',
-  '日益增加': 'increasingly',
-  '日趋增加': 'increasingly',
-  '越来越': 'more and more',
-  '愈发': 'increasingly',
-  '愈加': 'increasingly',
-  '更加': 'even more',
-  '更为': 'even more',
-  '尤其': 'especially',
-  '特别': 'especially',
-  '格外': 'especially',
-  '分外': 'especially',
-  '非常': 'very',
-  '十分': 'very',
-  '相当': 'quite',
-  '比较': 'relatively',
-  '相对': 'relatively',
-  '绝对': 'absolutely',
-  '完全': 'completely',
-  '彻底': 'thoroughly',
-  '全面': 'comprehensive',
-  '全部': 'all',
-  '全体': 'all',
-  '整体': 'whole',
-  '整个': 'whole',
-  '完整': 'complete',
-  '完善': 'perfect',
-  '完美': 'perfect',
-  '极好': 'excellent',
-  '极好': 'wonderful',
-  '极好': 'fantastic',
-  '极好': 'great',
-  '极好': 'awesome',
-  '极好': 'amazing',
-  '极好': 'outstanding',
-  '极好': 'remarkable',
-  '极好': 'exceptional',
-  '极好': 'extraordinary',
-  '极好': 'incredible',
-  '极好': 'unbelievable',
-  '极好': 'phenomenal',
-  '极好': 'magnificent',
-  '极好': 'splendid',
-  '极好': 'marvelous',
-  '极好': 'fabulous',
-  '极好': 'terrific',
-  '极好': 'superb',
-  '极好': 'excellent',
-  '极好': 'wonderful',
-  '极好': 'fantastic',
-  '极好': 'great',
-  '极好': 'awesome',
-  '极好': 'amazing'
-};
-
-/**
- * 简单的中文翻译函数
- */
-function translateChinese(text) {
-  if (typeof text !== 'string') return text;
-  
-  let translated = text;
-  
-  // 按长度降序排序，优先替换长的词组
-  const sortedKeys = Object.keys(translationMap).sort((a, b) => b.length - a.length);
-  
-  for (const chinese of sortedKeys) {
-    const english = translationMap[chinese];
-    const regex = new RegExp(chinese.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'g');
-    translated = translated.replace(regex, english);
+// 修复文件中的中文内容
+function fixFile(filepath) {
+  if (!fs.existsSync(filepath)) {
+    return { fixed: 0, errors: ['File not found'] };
   }
   
-  // 清理多余空格
-  translated = translated.replace(/\s+/g, ' ').trim();
-  
-  return translated;
-}
-
-/**
- * 递归翻译对象中的所有字符串
- */
-function translateObject(obj) {
-  if (typeof obj === 'string') {
-    return translateChinese(obj);
-  } else if (Array.isArray(obj)) {
-    return obj.map(item => translateObject(item));
-  } else if (typeof obj === 'object' && obj !== null) {
-    const result = {};
-    for (const key in obj) {
-      result[key] = translateObject(obj[key]);
-    }
-    return result;
-  }
-  return obj;
-}
-
-/**
- * 处理单个 JSON 文件
- */
-function processFile(filePath) {
-  console.log(`\n📄 Processing: ${path.basename(filePath)}`);
-  
+  let content;
   try {
-    const content = fs.readFileSync(filePath, 'utf8');
-    const data = JSON.parse(content);
-    
-    // 查找中文内容
-    const chineseContent = findChineseContent(data);
-    
-    if (chineseContent.length === 0) {
-      log('green', '  ✅ No Chinese content found');
-      return { success: true, changes: 0 };
-    }
-    
-    log('yellow', `  📝 Found ${chineseContent.length} Chinese text segments:`);
-    chineseContent.forEach(({ path, value }) => {
-      console.log(`    - ${path}`);
-      console.log(`      "${value.substring(0, 80)}${value.length > 80 ? '...' : ''}"`);
-    });
-    
-    // 翻译内容
-    const translatedData = translateObject(data);
-    
-    // 写回文件
-    fs.writeFileSync(filePath, JSON.stringify(translatedData, null, 2), 'utf8');
-    
-    log('green', `  ✅ Translated ${chineseContent.length} segments`);
-    return { success: true, changes: chineseContent.length };
-    
+    content = fs.readFileSync(filepath, 'utf8');
   } catch (error) {
-    log('red', `  ❌ Error: ${error.message}`);
-    return { success: false, changes: 0 };
-  }
-}
-
-/**
- * 显示帮助
- */
-function showHelp() {
-  console.log(`
-Chinese Content Fix Tool
-
-用法:
-  npm run fix:chinese [brand-name]  - 修复指定品牌的中文内容
-  npm run fix:chinese --all         - 修复所有品牌的中文内容
-
-示例:
-  npm run fix:chinese semikron
-  npm run fix:chinese infineon
-  npm run fix:chinese --all
-`);
-}
-
-/**
- * 主函数
- */
-function main() {
-  const args = process.argv.slice(2);
-  const target = args[0];
-  
-  if (!target) {
-    showHelp();
-    process.exit(0);
+    return { fixed: 0, errors: [`Read error: ${error.message}`] };
   }
   
-  console.log('='.repeat(60));
-  console.log('Chinese Content Fix Tool');
-  console.log('='.repeat(60));
+  // 检测是否有中文
+  if (!containsChinese(content)) {
+    return { fixed: 0, errors: [] };
+  }
   
-  if (target === '--all') {
-    // 处理所有品牌
-    const brands = fs.readdirSync(config.dataDir).filter(item => {
-      const itemPath = path.join(config.dataDir, item);
-      return fs.statSync(itemPath).isDirectory();
-    });
-    
-    let totalChanges = 0;
-    brands.forEach(brand => {
-      console.log(`\n🏢 Brand: ${brand}`);
-      const files = ['brand.json', 'products.json', 'solutions.json', 'support.json', 'news.json'];
-      files.forEach(file => {
-        const filePath = path.join(config.dataDir, brand, file);
-        if (fs.existsSync(filePath)) {
-          const result = processFile(filePath);
-          if (result.success) {
-            totalChanges += result.changes;
-          }
-        }
-      });
-    });
-    
-    console.log(`\n${'='.repeat(60)}`);
-    console.log(`Total changes: ${totalChanges}`);
-    console.log('='.repeat(60));
-    
-  } else {
-    // 处理指定品牌
-    const brandDir = path.join(config.dataDir, target);
-    if (!fs.existsSync(brandDir)) {
-      log('red', `Error: Brand "${target}" not found`);
-      process.exit(1);
+  console.log(`  Found Chinese content in ${path.basename(filepath)}`);
+  
+  // 对于严重中英混杂的文件，记录需要手动修复
+  const chineseMatches = content.match(/[\u4e00-\u9fff]/g);
+  const chineseCount = chineseMatches ? chineseMatches.length : 0;
+  
+  if (chineseCount > 50) {
+    console.log(`  [WARNING] File has ${chineseCount} Chinese characters - needs manual translation`);
+    return { fixed: 0, errors: [`${chineseCount} Chinese characters - needs manual translation`] };
+  }
+  
+  // 简单的关键词替换
+  let newContent = content;
+  const replacements = [
+    { from: /选型/g, to: 'selection' },
+    { from: /支持/g, to: 'support' },
+    { from: /产品/g, to: 'products' },
+    { from: /技术/g, to: 'technology' },
+    { from: /应用/g, to: 'application' },
+    { from: /解决方案/g, to: 'solutions' },
+    { from: /服务/g, to: 'service' }
+  ];
+  
+  let fixCount = 0;
+  replacements.forEach(({ from, to }) => {
+    if (from.test(newContent)) {
+      newContent = newContent.replace(from, to);
+      fixCount++;
     }
-    
-    console.log(`\n🏢 Brand: ${target}`);
-    const files = ['brand.json', 'products.json', 'solutions.json', 'support.json', 'news.json'];
-    let totalChanges = 0;
-    
-    files.forEach(file => {
-      const filePath = path.join(brandDir, file);
-      if (fs.existsSync(filePath)) {
-        const result = processFile(filePath);
-        if (result.success) {
-          totalChanges += result.changes;
-        }
-      } else {
-        log('yellow', `\n📄 ${file}`);
-        console.log('  ⚠️ File not found');
-      }
+  });
+  
+  if (fixCount > 0) {
+    try {
+      fs.writeFileSync(filepath, newContent, 'utf8');
+      console.log(`  [FIXED] Replaced ${fixCount} Chinese keywords`);
+      return { fixed: fixCount, errors: [] };
+    } catch (error) {
+      return { fixed: 0, errors: [`Write error: ${error.message}`] };
+    }
+  }
+  
+  return { fixed: 0, errors: ['No simple fixes applied'] };
+}
+
+// 修复单个品牌
+function fixBrand(brand) {
+  console.log(`\n========================================`);
+  console.log(`Fixing brand: ${brand}`);
+  console.log(`========================================`);
+  
+  const brandDir = path.join(dataDir, brand);
+  let totalFixed = 0;
+  const allErrors = [];
+  
+  // 检查 brand.json
+  console.log(`\n  Checking brand.json...`);
+  const brandResult = fixFile(path.join(brandDir, 'brand.json'));
+  totalFixed += brandResult.fixed;
+  allErrors.push(...brandResult.errors);
+  
+  // 检查 products.json
+  console.log(`\n  Checking products.json...`);
+  const productsResult = fixFile(path.join(brandDir, 'products.json'));
+  totalFixed += productsResult.fixed;
+  allErrors.push(...productsResult.errors);
+  
+  // 检查 solutions.json
+  console.log(`\n  Checking solutions.json...`);
+  const solutionsPath = path.join(brandDir, 'solutions.json');
+  if (fs.existsSync(solutionsPath)) {
+    const solutionsResult = fixFile(solutionsPath);
+    totalFixed += solutionsResult.fixed;
+    allErrors.push(...solutionsResult.errors);
+  } else {
+    console.log(`  (file not found)`);
+  }
+  
+  // 检查 support.json
+  console.log(`\n  Checking support.json...`);
+  const supportPath = path.join(brandDir, 'support.json');
+  if (fs.existsSync(supportPath)) {
+    const supportResult = fixFile(supportPath);
+    totalFixed += supportResult.fixed;
+    allErrors.push(...supportResult.errors);
+  } else {
+    console.log(`  (file not found)`);
+  }
+  
+  if (totalFixed === 0 && allErrors.length === 0) {
+    console.log('\n  [OK] No Chinese content found');
+  } else if (totalFixed > 0) {
+    console.log(`\n  [SUMMARY] Fixed ${totalFixed} issues`);
+  }
+  
+  if (allErrors.length > 0) {
+    console.log(`\n  [ERRORS] ${allErrors.length} issues need manual fix:`);
+    allErrors.forEach(err => console.log(`    - ${err}`));
+  }
+  
+  return {
+    brand,
+    fixed: totalFixed,
+    errors: allErrors.length
+  };
+}
+
+// 主函数
+function main() {
+  console.log('========================================');
+  console.log('Fix Chinese Content');
+  console.log('========================================');
+  
+  const results = [];
+  brandsWithChinese.forEach(brand => {
+    results.push(fixBrand(brand));
+  });
+  
+  // 汇总
+  const totalFixed = results.reduce((sum, r) => sum + r.fixed, 0);
+  const brandsWithErrors = results.filter(r => r.errors > 0);
+  
+  console.log('\n\n========================================');
+  console.log('Summary');
+  console.log('========================================');
+  console.log(`Total fixes: ${totalFixed}`);
+  console.log(`Brands with errors (need manual fix): ${brandsWithErrors.length}`);
+  
+  if (brandsWithErrors.length > 0) {
+    console.log('\nBrands needing manual translation:');
+    brandsWithErrors.forEach(r => {
+      console.log(`  - ${r.brand}: ${r.errors} issues`);
     });
-    
-    console.log(`\n${'='.repeat(60)}`);
-    console.log(`Total changes: ${totalChanges}`);
-    console.log('='.repeat(60));
   }
 }
 

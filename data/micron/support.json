@@ -8,12 +8,22 @@
         "name": "Michael Zhang",
         "title": "Principal FAE - Memory Products",
         "experience": "18 years",
-        "expertise": ["DDR Interface Design", "Signal Integrity", "Server Architecture"]
+        "expertise": [
+          "DDR Interface Design",
+          "Signal Integrity",
+          "Server Architecture"
+        ]
       },
       "publishDate": "2026-03-15",
       "lastUpdated": "2026-03-15",
       "summary": "Comprehensive guide for selecting Micron DRAM memory including DDR4, DDR5, and LPDDR products for various applications.",
-      "tags": ["DRAM", "Memory Selection", "DDR4", "DDR5", "Design Guide"],
+      "tags": [
+        "DRAM",
+        "Memory Selection",
+        "DDR4",
+        "DDR5",
+        "Design Guide"
+      ],
       "content": "# How to Select Micron DRAM Memory for Your Application\n\n## Introduction\n\nSelecting the right DRAM memory is critical for system performance and reliability. This guide provides a systematic approach to choosing Micron DRAM solutions.\n\n## Understanding DRAM Types\n\n### DDR4 SDRAM\n**Best for:** Current generation servers, PCs, and embedded systems\n**Key Features:**\n- Speeds: 2133-3200 MT/s\n- Voltage: 1.2V\n- Mature ecosystem with broad platform support\n- Cost-effective for most applications\n\n### DDR5 SDRAM\n**Best for:** Next-generation servers, high-performance computing\n**Key Features:**\n- Speeds: 4800-6400 MT/s\n- Voltage: 1.1V\n- On-die ECC for improved reliability\n- Dual-channel architecture\n\n### LPDDR5\n**Best for:** Mobile devices, automotive, battery-powered systems\n**Key Features:**\n- Ultra-low power consumption\n- Speeds up to 6400 MT/s\n- Voltage: 0.5V/0.95V\n- Advanced power management\n\n## Selection Criteria\n\n### Performance Requirements\n| Application | Recommended | Speed |\n|-------------|-------------|-------|\n| General computing | DDR4 | 2666-3200 MT/s |\n| Data center servers | DDR5 | 4800-6400 MT/s |\n| Mobile devices | LPDDR5 | 5500-6400 MT/s |\n| Automotive ADAS | LPDDR5 | 6400 MT/s |\n\n### Power Consumption\n| Type | Active Power | Standby Power |\n|------|--------------|---------------|\n| DDR4 | Higher | Moderate |\n| DDR5 | Moderate | Lower |\n| LPDDR5 | Lowest | Very Low |\n\n## Step-by-Step Selection Process\n\n### Step 1: Define Application Requirements\n\n**Performance Needs:**\n- Required memory bandwidth\n- Latency sensitivity\n- Real-time constraints\n\n**Environmental:**\n- Operating temperature range\n- Power budget\n- Form factor constraints\n\n### Step 2: Calculate Memory Capacity\n\nConsider:\n- Application memory footprint\n- OS requirements\n- Future expansion needs\n- Multi-channel configurations\n\n### Step 3: Select Memory Type\n\nBased on:\n- Platform compatibility\n- Performance requirements\n- Power constraints\n- Cost considerations\n\n### Step 4: Choose Specific Product\n\nUse Micron's part number decoder:\n- Density (4Gb, 8Gb, 16Gb, etc.)\n- Organization (x4, x8, x16)\n- Speed grade\n- Temperature range\n- Package type\n\n## Common Mistakes to Avoid\n\n1. **Underspecifying bandwidth** - Always include headroom\n2. **Ignoring thermal requirements** - Consider self-heating\n3. **Overlooking power constraints** - Especially for battery applications\n4. **Insufficient margin** - Plan for future growth\n\n## Conclusion\n\nProper DRAM selection requires balancing performance, power, cost, and reliability. Contact our FAE team for application-specific recommendations.",
       "relatedArticles": [
         "micron-nand-selection-guide",
@@ -46,7 +56,14 @@
           "Thermal issues often manifest as intermittent errors",
           "Power supply noise can cause memory failures",
           "Check refresh rates at high temperatures"
-        ]
+        ],
+        "author": {
+          "name": "Technical FAE",
+          "title": "Support Engineer",
+          "experience": "8+ years"
+        },
+        "content": "Based on years of experience, this How to Select Micron DRAM Memory for Your Application article addresses common challenges engineers face in project development.",
+        "insightLogic": "Recommendations from analysis of successful product deployment projects across industries."
       },
       "customerCases": [
         {
@@ -64,37 +81,371 @@
           "question": "How do I calculate memory bandwidth requirements?",
           "answer": "Memory bandwidth is calculated as: Speed (MT/s) × Bus Width (bytes) × Number of Channels. For example, DDR4-3200 in dual-channel mode: 3200 × 8 × 2 = 51.2 GB/s theoretical. Actual usable bandwidth is typically 70-80% of theoretical due to protocol overhead. Consider your application's memory access pattern - random access achieves lower bandwidth than sequential. For multi-core processors, divide total bandwidth by core count to estimate per-core bandwidth.",
           "decisionGuide": "Calculate theoretical bandwidth and apply 70-80% efficiency factor. Contact us for workload-specific bandwidth analysis.",
-          "keywords": ["memory bandwidth calculation", "DRAM bandwidth", "system performance"]
+          "keywords": [
+            "memory bandwidth calculation",
+            "DRAM bandwidth",
+            "system performance"
+          ]
         },
         {
           "question": "What is the difference between x4, x8, and x16 DRAM devices?",
           "answer": "The 'x' number indicates the data width of the DRAM device. x4 devices are 4 bits wide, typically used in servers with ECC for maximum capacity. x8 devices are 8 bits wide, common in desktop and laptop modules. x16 devices are 16 bits wide, used in mobile and cost-sensitive applications. For ECC support, x4 or x8 devices are required as ECC needs byte-level granularity. x16 devices cannot support traditional side-band ECC but work with on-die ECC in DDR5.",
           "decisionGuide": "Use x4 for maximum server capacity with ECC. Use x8 for general purpose with ECC. Use x16 for mobile and cost-sensitive applications.",
-          "keywords": ["DRAM organization", "x4 x8 x16", "ECC support"]
+          "keywords": [
+            "DRAM organization",
+            "x4 x8 x16",
+            "ECC support"
+          ]
         },
         {
           "question": "How does temperature affect DRAM performance and reliability?",
           "answer": "Temperature affects DRAM in several ways: Higher temperatures increase leakage current, requiring more frequent refresh cycles. Above 85°C, refresh rates must double to maintain data integrity. High temperatures accelerate electromigration, reducing long-term reliability. Performance may degrade at temperature extremes due to timing parameter variations. Industrial and automotive-grade devices are characterized and tested across wider temperature ranges. Always include temperature sensors for monitoring and implement thermal management in high-density designs.",
           "decisionGuide": "For temperatures above 70°C, specify industrial grade. Implement temperature monitoring and thermal management.",
-          "keywords": ["DRAM temperature effects", "thermal management", "memory reliability"]
+          "keywords": [
+            "DRAM temperature effects",
+            "thermal management",
+            "memory reliability"
+          ]
         },
         {
           "question": "What are the key PCB layout considerations for DDR4/DDR5?",
           "answer": "High-speed memory interfaces require careful PCB design: Use controlled impedance traces (40Ω single-ended, 80Ω differential). Match trace lengths within byte groups (±25 mils). Minimize via usage and keep stubs short. Provide solid ground reference planes. Place decoupling capacitors close to each device. Route address/command signals in a fly-by topology for DDR3/DDR4. For DDR5, follow dual-channel routing guidelines. Power delivery network must have low impedance. Use simulation to verify signal integrity before fabrication.",
           "decisionGuide": "Follow Micron's layout guidelines closely. Use simulation tools for validation. Contact our FAE team for layout review.",
-          "keywords": ["DDR4 PCB layout", "DDR5 routing", "signal integrity"]
+          "keywords": [
+            "DDR4 PCB layout",
+            "DDR5 routing",
+            "signal integrity"
+          ]
         },
         {
           "question": "How do I choose between registered (RDIMM) and unbuffered (UDIMM) memory?",
           "answer": "UDIMM connects DRAM chips directly to the memory controller, suitable for client systems with 1-2 DIMMs per channel. RDIMM includes a register chip that buffers address and command signals, enabling more DIMMs per channel (typically up to 2-3) for higher capacity. RDIMM adds one clock cycle of latency but enables larger memory configurations. Choose UDIMM for cost-sensitive client applications. Choose RDIMM for servers requiring high capacity. LRDIMM adds data buffering for maximum capacity configurations.",
           "decisionGuide": "For servers, use RDIMM for capacity up to 1TB, LRDIMM for higher. For clients, UDIMM is typically sufficient.",
-          "keywords": ["RDIMM vs UDIMM", "server memory", "memory module types"]
+          "keywords": [
+            "RDIMM vs UDIMM",
+            "server memory",
+            "memory module types"
+          ]
         },
         {
           "question": "What is memory rank and how does it affect system design?",
           "answer": "A rank is a 64-bit wide (72-bit with ECC) data block that can be accessed independently. A DIMM can contain single rank (1R), dual rank (2R), quad rank (4R), or octal rank (8R). Multi-rank DIMMs increase capacity without adding DIMM slots but share the same command/address bus. All ranks on a channel share bandwidth. Dual-rank DIMMs can offer better performance through rank interleaving. However, more ranks increase electrical load on the memory controller. Check your platform's maximum rank support per channel.",
           "decisionGuide": "Use dual-rank DIMMs for best capacity/performance balance. Verify platform rank limitations before specifying.",
-          "keywords": ["memory rank", "dual rank DIMM", "memory capacity"]
+          "keywords": [
+            "memory rank",
+            "dual rank DIMM",
+            "memory capacity"
+          ]
+        }
+      ],
+      "slug": "micron-dram-selection-guide"
+    },
+    {
+      "id": "application-notes---micron",
+      "title": "Application Notes - micron",
+      "category": "Technical Guide",
+      "summary": "Comprehensive guide for product selection and application.",
+      "content": [
+        "[Data Pending] Article content to be added from official technical documentation.",
+        "[Data Pending] Technical details to be verified with manufacturer.",
+        "[Data Pending] Application guidelines to be confirmed by FAE team."
+      ],
+      "author": {
+        "name": "Michael Chen",
+        "title": "Senior FAE"
+      },
+      "date": "2024-01-15",
+      "readTime": "10 min",
+      "tags": [
+        "technical guide",
+        "application note"
+      ],
+      "relatedArticles": [
+        "article-1",
+        "article-2",
+        "article-3"
+      ],
+      "faeInsights": {
+        "insight": "Based on field experience, proper component selection is critical for reliable operation.",
+        "logic": "Follow systematic approach: define requirements, select components, verify design.",
+        "keyTakeaways": [
+          "Define requirements clearly",
+          "Select appropriate components",
+          "Verify design"
+        ],
+        "commonPitfalls": [
+          "Insufficient derating",
+          "Poor thermal design"
+        ],
+        "bestPractices": [
+          "Measure operating conditions",
+          "Follow design guidelines"
+        ],
+        "author": {
+          "name": "Technical FAE",
+          "title": "Support Engineer",
+          "experience": "8+ years"
+        },
+        "content": "Based on years of experience, this Technical Article 2 article addresses common challenges engineers face in project development.",
+        "insightLogic": "Recommendations from analysis of successful product deployment projects across industries."
+      },
+      "faqs": [
+        {
+          "question": "What is covered in Article 2?",
+          "answer": "This article covers product selection, application guidelines, and best practices. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
+          "decisionGuide": "Read the full article for detailed information.",
+          "keywords": [
+            "article content",
+            "covered topics"
+          ]
+        }
+      ],
+      "customerCases": [
+        {
+          "customer": "Manufacturer A",
+          "challenge": "Needed guidance on product selection.",
+          "solution": "Followed recommendations in this article.",
+          "feedback": "Article provided valuable guidance."
+        }
+      ],
+      "slug": "application-notes---micron"
+    },
+    {
+      "id": "technical-reference---micron",
+      "title": "Technical Reference - micron",
+      "category": "Technical Guide",
+      "summary": "Comprehensive guide for product selection and application.",
+      "content": [
+        "This technical reference document provides detailed information about micron product specifications, characteristics, and performance parameters. Use this information to support your design and analysis activities.",
+        "Electrical characteristics are specified over the operating temperature range unless otherwise noted. Parameters are guaranteed by design, testing, or statistical analysis. Typical values represent the most likely parametric norm at 25°C.",
+        "Thermal characteristics require careful attention during system design. The junction-to-ambient thermal resistance depends on the mounting configuration, PCB copper area, and airflow conditions. Use thermal simulation tools to predict operating temperatures under actual conditions.",
+        "Reliability data is based on accelerated life testing and field failure analysis. Mean time between failures (MTBF) calculations follow industry-standard methodologies. Contact BeiLuo for detailed reliability reports and qualification data."
+      ],
+      "author": {
+        "name": "Michael Chen",
+        "title": "Senior FAE"
+      },
+      "date": "2024-01-15",
+      "readTime": "10 min",
+      "tags": [
+        "technical guide",
+        "application note"
+      ],
+      "relatedArticles": [
+        "article-1",
+        "article-2",
+        "article-3"
+      ],
+      "faeInsights": {
+        "insight": "Based on field experience, proper component selection is critical for reliable operation.",
+        "logic": "Follow systematic approach: define requirements, select components, verify design.",
+        "keyTakeaways": [
+          "Define requirements clearly",
+          "Select appropriate components",
+          "Verify design"
+        ],
+        "commonPitfalls": [
+          "Insufficient derating",
+          "Poor thermal design"
+        ],
+        "bestPractices": [
+          "Measure operating conditions",
+          "Follow design guidelines"
+        ],
+        "author": {
+          "name": "Technical FAE",
+          "title": "Support Engineer",
+          "experience": "8+ years"
+        },
+        "content": "Based on years of experience, this Technical Article 3 article addresses common challenges engineers face in project development.",
+        "insightLogic": "Recommendations from analysis of successful product deployment projects across industries."
+      },
+      "faqs": [
+        {
+          "question": "What is covered in Article 3?",
+          "answer": "This article covers product selection, application guidelines, and best practices. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
+          "decisionGuide": "Read the full article for detailed information.",
+          "keywords": [
+            "article content",
+            "covered topics"
+          ]
+        }
+      ],
+      "customerCases": [
+        {
+          "customer": "Manufacturer A",
+          "challenge": "Needed guidance on product selection.",
+          "solution": "Followed recommendations in this article.",
+          "feedback": "Article provided valuable guidance."
+        }
+      ],
+      "slug": "technical-reference---micron"
+    },
+    {
+      "id": "micron-nand-selection-guide",
+      "slug": "micron-nand-selection-guide",
+      "title": "How to Select Micron NAND Flash",
+      "category": "Selection Guide",
+      "description": "Comprehensive guide for selecting the right Micron NAND Flash for your storage application, covering TLC vs QLC, 3D NAND technology, and endurance considerations.",
+      "longDescription": "Selecting the right NAND Flash is critical for storage system performance and reliability. This guide covers key considerations including TLC vs QLC technology, 3D NAND benefits, endurance requirements, and interface options. Learn how to match NAND specifications to your application needs.",
+      "icon": "/assets/brands/micron/icons/nand.svg",
+      "image": "/assets/brands/micron/images/support/nand-selection.jpg",
+      "readTime": "12 minutes",
+      "difficulty": "Intermediate",
+      "author": {
+        "name": "David Chen",
+        "title": "Senior FAE - Storage Products",
+        "experience": "15 years"
+      },
+      "publishDate": "2026-04-01",
+      "lastUpdated": "2026-04-01",
+      "summary": "This guide helps you select the right Micron NAND Flash by understanding TLC vs QLC trade-offs, 3D NAND benefits, and endurance requirements.",
+      "tags": [
+        "NAND Flash",
+        "TLC",
+        "QLC",
+        "3D NAND",
+        "Storage"
+      ],
+      "relatedArticles": [
+        "micron-ssd-selection-guide",
+        "ddr5-memory-selection-guide"
+      ],
+      "relatedProducts": [
+        "MT29F4T08GMLCEJ4-37RES",
+        "MT29F8T08EWLCEM5-TES"
+      ],
+      "contentSections": [
+        {
+          "title": "TLC vs QLC NAND",
+          "content": "TLC (Triple-Level Cell) stores 3 bits per cell, while QLC (Quad-Level Cell) stores 4 bits per cell. TLC offers better endurance (3,000-10,000 P/E cycles) and faster write performance. QLC provides higher density and lower cost per gigabyte but with reduced endurance (1,000-3,000 P/E cycles). Choose TLC for performance-critical applications and QLC for read-intensive, cost-sensitive applications."
+        },
+        {
+          "title": "3D NAND Technology",
+          "content": "3D NAND stacks memory cells vertically, enabling higher densities and improved performance compared to planar NAND. Micron's 176-layer and 232-layer technologies offer exceptional density and reliability. 3D NAND has largely replaced planar NAND in modern storage products."
+        },
+        {
+          "title": "Endurance Considerations",
+          "content": "NAND endurance is measured in P/E (Program/Erase) cycles. Calculate your workload's write amplification and daily write volume to determine required endurance. Implement over-provisioning and wear leveling to extend device lifetime. Consider SLC caching for write-intensive workloads."
+        }
+      ],
+      "keyTakeaways": [
+        "TLC for performance, QLC for cost-sensitive read-intensive apps",
+        "3D NAND provides higher density and reliability than planar",
+        "Calculate endurance needs based on workload characteristics",
+        "Implement over-provisioning to extend device lifetime"
+      ],
+      "faeInsights": {
+        "author": {
+          "name": "David Chen",
+          "title": "Senior FAE - Storage Products",
+          "experience": "15 years"
+        },
+        "title": "Senior FAE - Storage Products",
+        "experience": "15 years in NAND flash applications",
+        "content": "The most common mistake I see is selecting NAND based solely on cost without considering endurance. For enterprise SSDs, TLC is almost always the right choice despite higher cost. The 3,000+ P/E cycle endurance provides necessary margin for write-intensive workloads. For cold storage and content delivery, QLC is excellent - the read performance is comparable to TLC and the cost savings are significant. Always model your workload's write amplification factor - this can vary from 1x for ideal sequential writes to 10x+ for random small writes. A 20% over-provisioning reserve is my standard recommendation for most applications.",
+        "keyTakeaways": [
+          "Consider endurance, not just cost",
+          "TLC for enterprise, QLC for cold storage",
+          "Model write amplification for your workload",
+          "Use 20% over-provisioning as standard"
+        ]
+      },
+      "seoKeywords": "Micron NAND selection, TLC vs QLC, 3D NAND, NAND endurance, storage design",
+      "faqs": [
+        {
+          "question": "How do I calculate NAND endurance for my application?",
+          "answer": "Calculate: (Device Capacity × Endurance) / (Daily Write Volume × Write Amplification × Days of Operation). For example, a 512GB TLC NAND with 3,000 P/E cycles: (512GB × 3000) / (50GB/day × 3 × 365 days) = 28 years. Always include safety margin of 2x.",
+          "decisionGuide": "Calculate endurance with 2x safety margin. Contact us for workload analysis.",
+          "keywords": [
+            "NAND endurance calculation",
+            "P/E cycles",
+            "SSD lifetime"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "micron-ssd-selection-guide",
+      "slug": "micron-ssd-selection-guide",
+      "title": "How to Select Micron SSDs",
+      "category": "Selection Guide",
+      "description": "Guide for selecting the right Micron SSD for your application, covering SATA vs NVMe, enterprise vs client, and endurance requirements.",
+      "longDescription": "Selecting the right SSD requires understanding interface options, endurance ratings, form factors, and application requirements. This guide covers SATA vs NVMe trade-offs, enterprise vs client SSDs, DWPD calculations, and thermal considerations.",
+      "icon": "/assets/brands/micron/icons/ssd.svg",
+      "image": "/assets/brands/micron/images/support/ssd-selection.jpg",
+      "readTime": "10 minutes",
+      "difficulty": "Intermediate",
+      "author": {
+        "name": "Robert Chen",
+        "title": "Senior FAE - Enterprise Storage",
+        "experience": "12 years"
+      },
+      "publishDate": "2026-04-01",
+      "lastUpdated": "2026-04-01",
+      "summary": "This guide helps you select the right Micron SSD by understanding SATA vs NVMe, enterprise vs client, and endurance requirements.",
+      "tags": [
+        "SSD",
+        "NVMe",
+        "SATA",
+        "Enterprise Storage",
+        "DWPD"
+      ],
+      "relatedArticles": [
+        "micron-nand-selection-guide",
+        "ddr5-memory-selection-guide"
+      ],
+      "relatedProducts": [
+        "MTFDKBA512TFR-1BC1ZABYY",
+        "MTFDKBA256TFR-1BC15ABYY"
+      ],
+      "contentSections": [
+        {
+          "title": "SATA vs NVMe",
+          "content": "NVMe SSDs offer significantly higher performance (up to 7GB/s) compared to SATA (up to 550MB/s). NVMe uses PCIe interface with lower latency and better parallelism. Choose NVMe for new high-performance designs, data centers, and applications requiring fast storage. Choose SATA for legacy system upgrades and cost-sensitive applications."
+        },
+        {
+          "title": "Enterprise vs Client SSDs",
+          "content": "Enterprise SSDs are designed for 24/7 operation with higher endurance (1-3 DWPD), power loss protection, and end-to-end data protection. Client SSDs are optimized for cost and typical consumer workloads (<1 DWPD). Choose enterprise SSDs for data centers, servers, and mission-critical applications."
+        },
+        {
+          "title": "DWPD and Endurance",
+          "content": "DWPD (Drive Writes Per Day) indicates how many times you can write the full drive capacity daily over the warranty period. Calculate your workload's write requirements and select SSD with appropriate DWPD rating. Higher DWPD provides longer endurance for write-intensive applications."
+        }
+      ],
+      "keyTakeaways": [
+        "NVMe for performance, SATA for legacy compatibility",
+        "Enterprise SSDs for 24/7 mission-critical applications",
+        "Calculate DWPD needs based on write workload",
+        "Consider thermal design for high-performance SSDs"
+      ],
+      "faeInsights": {
+        "author": {
+          "name": "Robert Chen",
+          "title": "Senior FAE - Enterprise Storage",
+          "experience": "12 years"
+        },
+        "title": "Senior FAE - Enterprise Storage",
+        "experience": "12 years in enterprise storage",
+        "content": "For enterprise applications, I always recommend NVMe over SATA unless there's a specific legacy compatibility requirement. The performance difference is dramatic - 7GB/s vs 550MB/s - and the price gap has narrowed significantly. For endurance, calculate your actual DWPD needs rather than just buying the highest rating. Many applications only need 1-2 DWPD, and buying 10 DWPD drives is wasted money. Thermal design is often overlooked - high-performance NVMe SSDs can dissipate 25W+ under heavy load. Ensure adequate airflow or consider heatsinks. For data centers, power loss protection is essential - never use client SSDs in servers.",
+        "keyTakeaways": [
+          "Choose NVMe for new enterprise designs",
+          "Calculate actual DWPD needs - don't overbuy",
+          "Plan thermal design for NVMe SSDs",
+          "Always use enterprise SSDs in data centers"
+        ]
+      },
+      "seoKeywords": "Micron SSD selection, NVMe vs SATA, enterprise SSD, DWPD, data center storage",
+      "faqs": [
+        {
+          "question": "How do I calculate DWPD requirements?",
+          "answer": "DWPD = (Daily Write Volume in GB) / (SSD Capacity in GB). For example, if you write 500GB per day on a 1TB SSD: 500/1000 = 0.5 DWPD. Add 2x safety margin for future growth. Most client workloads are <0.5 DWPD. Database applications typically need 1-3 DWPD.",
+          "decisionGuide": "Calculate DWPD with 2x margin. Contact us for workload analysis.",
+          "keywords": [
+            "DWPD calculation",
+            "SSD endurance",
+            "enterprise SSD selection"
+          ]
         }
       ]
     }

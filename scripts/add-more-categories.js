@@ -1,415 +1,349 @@
+#!/usr/bin/env node
+/**
+ * Add more categories to chipanalog products.json
+ */
+
 const fs = require('fs');
 const path = require('path');
 
-const brandDir = path.join(__dirname, '..', 'data', 'electronicon');
+const productsPath = path.join(__dirname, '..', 'data', 'chipanalog', 'products.json');
+const products = JSON.parse(fs.readFileSync(productsPath, 'utf8'));
 
-// Helper function to generate FAQ
-function generateFAQ(question, answer, decisionGuide, keywords) {
-  return { question, answer, decisionGuide, keywords };
-}
-
-// Read existing products.json
-const productsPath = path.join(brandDir, 'products.json');
-let productsData = JSON.parse(fs.readFileSync(productsPath, 'utf8'));
-
-// Define additional categories
-const additionalCategories = [
-  {
-    id: "ac-filter-capacitors",
-    name: "AC Filter Capacitors",
-    slug: "ac-filter-capacitors",
-    description: "Electronicon AC filter capacitors are designed for harmonic filtering, power factor correction, and power quality improvement in industrial and renewable energy applications.",
-    longDescription: "Electronicon AC filter capacitors are designed for harmonic filtering, power factor correction, and power quality improvement in industrial and renewable energy applications. These dry-filled film capacitors feature high AC voltage capability, low losses, and excellent self-healing properties. Available in voltages from 250V to 1000V AC with capacitance values from 1uF to 500uF, they are ideal for active and passive filters, UPS systems, and grid-tied inverters. As an authorized Electronicon distributor, we provide technical support for AC filter capacitor applications.",
-    series: ["E62.F10", "E62.F20", "E62.M16"],
-    parameters: ["Voltage Rating", "Capacitance", "Current Rating", "Loss Factor", "Temperature Range", "Lifetime", "Mounting Type"],
-    applications: ["Harmonic Filters", "Power Factor Correction", "UPS Systems", "Grid-Tied Inverters", "Active Filters", "Motor Compensation"],
-    selectionGuide: {
-      title: "AC Filter Capacitor Selection Guide",
-      description: "Learn how to select the right AC filter capacitor for harmonic filtering and power factor correction",
-      articleId: "ac-filter-selection-guide",
-      articleLink: "/electronicon/support/ac-filter-selection-guide.html"
+// Category 2: Isolated Gate Drivers
+const category2 = {
+  id: "isolated-gate-drivers",
+  name: "Isolated Gate Drivers",
+  slug: "chipanalog-isolated-gate-drivers",
+  description: "High-performance isolated gate drivers for power MOSFETs and IGBTs with robust isolation and fast switching characteristics.",
+  longDescription: "Chipanalog's isolated gate driver portfolio, available through LiTong distributor, provides reliable gate drive solutions with selection guide support for power electronics applications. The product line includes single and dual channel gate drivers with isolation ratings up to 5kVrms, peak output currents up to 10A, and fast propagation delays. These drivers feature Miller clamp, desaturation detection, and soft turn-off for IGBT protection. Applications include motor drives, inverters, power supplies, and EV charging systems.",
+  image: "/assets/brands/chipanalog/isolated-gate-drivers.jpg",
+  parameters: ["Channels", "Peak Current(A)", "Isolation Voltage(kVrms)", "Propagation Delay(ns)", "Package"],
+  series: [
+    {
+      name: "CA-IS3211 Series",
+      description: "Single channel isolated gate drivers with Miller clamp",
+      features: ["5kVrms isolation", "10A peak output", "Miller clamp", "Desaturation detection"]
     },
-    selectionGuideLink: "/electronicon/support/ac-filter-selection-guide.html",
-    faqs: [
-      generateFAQ(
-        "What is the difference between AC filter capacitors and DC-link capacitors?",
-        "AC filter capacitors and DC-link capacitors are designed for different applications and have distinct characteristics: 1) Voltage rating - AC capacitors are rated for AC voltage (RMS), while DC-link capacitors are rated for DC voltage, 2) Dielectric design - AC capacitors use optimized film for AC operation with low loss factor, 3) Current capability - AC capacitors handle continuous AC current including harmonics, 4) Application - AC capacitors are used in filters and power factor correction, DC-link capacitors in DC bus applications, 5) Standards - AC capacitors comply with IEC 60871 or IEC 61071, 6) Construction - AC capacitors often have different internal geometry for AC voltage distribution. Using a DC capacitor in AC applications can cause overheating and premature failure due to higher dielectric losses at AC frequencies.",
-        "Select AC-rated capacitors for filter and power factor correction applications, DC-rated for DC-link applications.",
-        ["AC vs DC capacitors", "filter capacitor selection", "AC capacitor applications"]
-      ),
-      generateFAQ(
-        "How do I calculate the required capacitance for an AC filter?",
-        "AC filter capacitance calculation depends on the filter type and requirements: 1) For harmonic filters, capacitance is selected based on the harmonic frequency to be filtered and desired impedance: C = 1 / ((2 x pi x f) x Xc), where f is harmonic frequency and Xc is capacitive reactance, 2) For power factor correction, calculate required reactive power: Q = P x (tan(phi1) - tan(phi2)), then C = Q / (2 x pi x f x V x V), 3) For sine wave filters (motor drives), C is selected based on switching frequency and allowable voltage rise time. The capacitor voltage rating must exceed the maximum AC voltage including harmonics. Consider voltage rise due to series reactors in tuned filters. Our FAE team can assist with detailed filter design calculations.",
-        "Define your filter requirements (harmonic frequencies, power factor target) and consult our application notes for detailed calculations.",
-        ["AC filter design", "filter capacitor calculation", "harmonic filter sizing"]
-      ),
-      generateFAQ(
-        "What is the loss factor and why is it important for AC capacitors?",
-        "The loss factor (tan delta) is the ratio of equivalent series resistance (ESR) to capacitive reactance (Xc), representing dielectric losses in the capacitor. For AC filter capacitors, low loss factor is critical because: 1) Power dissipation - losses generate heat proportional to P = V x V x 2 x pi x f x C x tan delta, 2) Efficiency - high losses reduce system efficiency, 3) Thermal management - excessive heating requires larger cooling systems, 4) Lifetime - higher temperatures reduce capacitor lifetime. Electronicon AC filter capacitors typically have loss factors below 0.0002 (0.02%) at 50/60Hz. The loss factor increases with frequency, so high-frequency harmonic filters require careful thermal design. Selecting capacitors with low loss factor is essential for reliable long-term operation in filter applications.",
-        "Choose AC filter capacitors with low loss factor (tan delta < 0.0002) for efficient and reliable operation.",
-        ["capacitor loss factor", "tan delta capacitor", "AC capacitor efficiency"]
-      ),
-      generateFAQ(
-        "Can AC filter capacitors be used for power factor correction?",
-        "Yes, Electronicon AC filter capacitors are well-suited for power factor correction applications. They offer advantages over traditional PFC capacitors: 1) Higher voltage ratings suitable for 480V and 600V systems, 2) Better harmonic withstand capability for networks with high harmonic content, 3) Longer lifetime due to dry filling technology, 4) Self-healing properties for high reliability, 5) Low losses for efficient operation. For PFC applications, calculate required capacitance based on target power factor and system power. Consider detuned reactors when harmonics are present to avoid resonance. The capacitors can be configured in delta or wye connections depending on voltage and capacity requirements. Standard protection including fuses and contactors should be provided.",
-        "Evaluate your power factor correction requirements and harmonic environment to select appropriate capacitor ratings.",
-        ["power factor correction", "PFC capacitors", "Electronicon PFC"]
-      ),
-      generateFAQ(
-        "What safety considerations apply to AC filter capacitors?",
-        "AC filter capacitors require several safety considerations: 1) Discharge - capacitors must be discharged to safe voltage (<50V) within specified time after de-energization, typically using discharge resistors, 2) Overpressure protection - internal fuses or overpressure disconnectors prevent case rupture in failure mode, 3) Overcurrent protection - external fuses protect against excessive current due to harmonics or resonance, 4) Temperature monitoring - overtemperature protection may be required for critical applications, 5) Grounding - proper grounding of capacitor cases is essential for safety, 6) Clearances - adequate electrical clearances must be maintained for high-voltage capacitors. Electronicon capacitors incorporate safety features including self-healing and overpressure disconnectors. Always follow local electrical codes and safety standards.",
-        "Implement proper discharge, protection, and monitoring systems for safe AC filter capacitor operation.",
-        ["capacitor safety", "AC capacitor protection", "filter capacitor discharge"]
-      )
-    ],
-    products: [
-      {
-        partNumber: "E62.F10-102.B20",
-        name: "AC Filter Capacitor 1uF 1000V AC",
-        shortDescription: "Electronicon E62.F10-102.B20 1uF 1000V AC filter capacitor for harmonic filtering and PFC applications.",
-        descriptionParagraphs: [
-          "The E62.F10-102.B20 is a high-voltage AC filter capacitor designed for demanding industrial filter applications.",
-          "Features low loss factor and high current capability for efficient harmonic filtering and power factor correction.",
-          "The dry filling technology and self-healing properties ensure long lifetime and maintenance-free operation."
-        ],
-        specifications: {
-          Capacitance: "1uF",
-          VoltageRating: "1000V AC",
-          CurrentRating: "25A RMS",
-          LossFactor: "<0.0002 @ 50Hz",
-          TemperatureRange: "-40C to +85C",
-          Lifetime: "100,000 hours @ 70C, Un",
-          Mounting: "M8 Stud Mount",
-          Dimensions: "50mm x 95mm",
-          Weight: "180g"
-        },
-        features: [
-          "High AC voltage rating 1000V RMS",
-          "Low loss factor <0.0002 for high efficiency",
-          "High current capability 25A RMS",
-          "Dry filling technology",
-          "Self-healing properties",
-          "Long lifetime 100,000 hours",
-          "IEC 60871 compliant"
-        ],
-        applications: [
-          "Harmonic filters",
-          "Power factor correction",
-          "UPS output filters",
-          "Grid-tied inverter filters",
-          "Active filter circuits",
-          "Motor compensation"
-        ],
-        faeReview: {
-          author: "Klaus Weber",
-          title: "FAE - Power Quality Solutions",
-          content: "The E62.F10-102.B20 is an excellent choice for high-voltage filter applications. The 1000V AC rating handles 480V systems with good margin, and the 1uF capacitance is ideal for 5th or 7th harmonic filters. I frequently specify this capacitor for active filter applications where low loss factor is critical for efficiency. The 25A RMS current rating accommodates significant harmonic content without overheating. The compact size (50mm diameter) allows flexible panel layout. For three-phase filters, I typically use three capacitors in delta configuration. The dry filling eliminates oil leakage concerns in industrial environments. I've had excellent reliability results with this series in steel mill and data center applications where power quality is critical.",
-          highlight: "Low loss factor and high voltage rating for demanding filter applications"
-        },
-        alternativeParts: [
-          {
-            partNumber: "E62.F10-152.B20",
-            brand: "Electronicon",
-            specifications: {
-              capacitance: "1.5uF",
-              voltage: "1000V AC",
-              current: "32A RMS"
-            },
-            comparison: {
-              capacitance: "1.5uF > 1uF (+50%)",
-              voltage: "1000V AC = 1000V AC (same)",
-              current: "32A > 25A (+28%)",
-              dimensions: "55mm x 105mm > 50mm x 95mm (larger)",
-              lossFactor: "<0.0002 = <0.0002 (same)"
-            },
-            reason: "Higher capacitance for lower frequency filters or higher reactive power",
-            useCase: "Applications requiring 1.5uF for 3rd harmonic filtering or higher kVAR correction",
-            link: "/electronicon/products/ac-filter-capacitors/e62-f10-152-b20.html"
-          },
-          {
-            partNumber: "E62.F10-102.B10",
-            brand: "Electronicon",
-            specifications: {
-              capacitance: "1uF",
-              voltage: "690V AC",
-              current: "20A RMS"
-            },
-            comparison: {
-              capacitance: "1uF = 1uF (same)",
-              voltage: "690V AC < 1000V AC (lower)",
-              current: "20A < 25A (lower)",
-              dimensions: "45mm x 85mm < 50mm x 95mm (smaller)",
-              price: "Lower cost option"
-            },
-            reason: "Lower voltage rating for 400V systems with reduced cost",
-            useCase: "400V AC applications where 690V rating provides adequate margin",
-            link: "/electronicon/products/ac-filter-capacitors/e62-f10-102-b10.html"
-          }
-        ],
-        companionParts: [
-          {
-            partNumber: "Filter Reactor 2mH",
-            link: "#",
-            description: "Tuning reactor for 5th harmonic filter (250Hz)",
-            category: "Filter Components"
-          },
-          {
-            partNumber: "E62.F10-102.B20",
-            link: "/electronicon/products/ac-filter-capacitors/e62-f10-102-b20.html",
-            description: "Three capacitors for three-phase delta filter",
-            category: "AC Filter Capacitors"
-          },
-          {
-            partNumber: "AC Fuse 32A gG",
-            link: "#",
-            description: "Protection fuse for capacitor circuit",
-            category: "Circuit Protection"
-          },
-          {
-            partNumber: "Discharge Resistor 47kOhm",
-            link: "#",
-            description: "Safety discharge resistor for AC capacitor",
-            category: "Safety Components"
-          },
-          {
-            partNumber: "M8 Mounting Kit",
-            link: "#",
-            description: "Mounting hardware with insulation washer",
-            category: "Accessories"
-          }
-        ],
-        applicationScenarios: [
-          {
-            title: "480V 5th Harmonic Filter",
-            description: "E62.F10-102.B20 with 2mH reactor forms tuned filter for 5th harmonic (300Hz) in 480V systems"
-          },
-          {
-            title: "Active Filter Output Stage",
-            description: "Low-loss capacitor for PWM output filtering in active harmonic filters"
-          },
-          {
-            title: "UPS Output Filter",
-            description: "AC filter capacitor for UPS inverter output to achieve sine wave voltage"
-          }
-        ],
-        keywords: ["Electronicon E62.F10-102.B20", "1uF 1000V AC capacitor", "AC filter capacitor distributor"],
-        faqs: [
-          generateFAQ(
-            "What is the maximum AC voltage for the E62.F10-102.B20?",
-            "The E62.F10-102.B20 is rated for 1000V AC RMS continuous operation. This rating allows for use in 480V AC systems (line-to-line) with good safety margin. The capacitor can withstand overvoltages up to 1.1x rated voltage (1100V AC) for short durations as defined in IEC 60871. For 600V AC systems, the 1000V rating provides 67% margin which is generally acceptable. The voltage rating must not be exceeded continuously as this will accelerate aging and reduce lifetime. When used in filter applications with series reactors, consider the voltage rise across the capacitor at the tuned frequency. For high-harmonic environments, ensure the total RMS voltage including harmonics does not exceed the rated voltage.",
-            "Verify your maximum AC system voltage including harmonics is within the 1000V AC rating.",
-            ["E62.F10-102.B20 voltage rating", "AC capacitor voltage", "1000V AC capacitor"]
-          ),
-          generateFAQ(
-            "How do I calculate the reactive power of the E62.F10-102.B20?",
-            "The reactive power (Q) of the E62.F10-102.B20 can be calculated using the formula: Q = 2 x pi x f x C x V x V, where f is frequency (50 or 60Hz), C is capacitance (1uF = 1x10^-6 F), and V is voltage. At 480V AC, 60Hz: Q = 2 x 3.1416 x 60 x 1x10^-6 x 480 x 480 = 87 VAR. At 400V AC, 50Hz: Q = 2 x 3.1416 x 50 x 1x10^-6 x 400 x 400 = 50 VAR. For three-phase applications, multiply single-phase value by 3 for delta connection. When used in harmonic filters, the reactive power at fundamental frequency is the primary consideration for power factor impact. The capacitor current can be calculated as I = Q / V.",
-            "Calculate reactive power for your specific voltage and frequency to ensure it meets your power factor correction requirements.",
-            ["capacitor reactive power", "kVAR calculation", "E62.F10-102.B20 power"]
-          ),
-          generateFAQ(
-            "What is the temperature derating for the E62.F10-102.B20?",
-            "The E62.F10-102.B20 is rated for operation from -40C to +85C ambient temperature. The current rating of 25A RMS applies at maximum hot spot temperature of 85C. For reliable long-term operation, we recommend keeping the hot spot temperature below 70C. At temperatures above 85C, the voltage and current must be derated according to the derating curves in the datasheet. The lifetime of 100,000 hours is specified at 70C hot spot temperature. Using the Arrhenius relationship, lifetime approximately doubles for every 10C decrease in temperature. For example, at 60C hot spot, expect approximately 200,000 hours lifetime. Ensure adequate ventilation or cooling if operating in high ambient temperatures or with high current.",
-            "Design for hot spot temperatures below 70C and provide adequate cooling for reliable long-term operation.",
-            ["E62.F10-102.B20 temperature", "capacitor derating", "AC capacitor thermal"]
-          ),
-          generateFAQ(
-            "Can the E62.F10-102.B20 be used in series for higher voltage?",
-            "Yes, the E62.F10-102.B20 can be used in series for higher voltage applications. When connecting AC capacitors in series: 1) Use voltage balancing resistors (typically 100kOhm-1MOhm per capacitor) to ensure equal voltage distribution, 2) The total capacitance is reduced: Ctotal = C/n for n identical capacitors (two in series = 0.5uF), 3) The voltage rating adds: Vtotal = n x Vrated (two in series = 2000V AC), 4) The current capability remains the same per capacitor, 5) The loss factor remains unchanged. For example, two E62.F10-102.B20 in series provide 0.5uF at 2000V AC, suitable for medium-voltage applications. The balancing resistors add continuous power dissipation that must be considered. Ensure proper mechanical mounting and spacing for series configurations.",
-            "Consult our FAE team for assistance with series capacitor configurations including balancing and protection.",
-            ["AC capacitor series", "high voltage AC filter", "capacitor voltage balancing"]
-          ),
-          generateFAQ(
-            "How do I select the right capacitor for a tuned harmonic filter?",
-            "For a tuned harmonic filter using the E62.F10-102.B20: 1) Determine the harmonic frequency to filter (e.g., 5th harmonic = 300Hz for 60Hz system), 2) Calculate required capacitive reactance: Xc = 1 / (2 x pi x f x C) = 1 / (2 x 3.1416 x 300 x 1x10^-6) = 530 ohms, 3) Calculate series inductance for tuning: L = 1 / ((2 x pi x f) x (2 x pi x f) x C) = 0.28mH, 4) Verify voltage rating accounts for fundamental plus harmonic voltage, 5) Ensure current rating handles fundamental plus harmonic current. The quality factor (Q) of the filter affects bandwidth and losses. Typical Q values range from 30-100. Our FAE team can assist with complete filter design including reactor selection and tuning.",
-            "Define your harmonic filter requirements and consult our application notes or FAE team for detailed design assistance.",
-            ["tuned harmonic filter", "filter capacitor selection", "harmonic filter design"]
-          ),
-          generateFAQ(
-            "What maintenance does the E62.F10-102.B20 require?",
-            "The E62.F10-102.B20 requires minimal maintenance due to its dry filling technology and self-healing properties. Recommended maintenance includes: 1) Annual visual inspection for physical damage, loose connections, or case swelling, 2) Capacitance measurement every 2-3 years to track aging - expect gradual decrease of 1-2% per year, 3) Check mounting torque annually, 4) Verify discharge resistor functionality, 5) Inspect safety devices (fuses, contactors) for proper operation. Unlike oil-filled capacitors, no oil level checks are needed. The self-healing mechanism automatically addresses minor dielectric issues. Replace the capacitor when capacitance drops below 95% of initial value or if case swelling is observed. Typical service life exceeds 15 years in normal operating conditions.",
-            "Implement a periodic inspection and measurement program to monitor capacitor condition over time.",
-            ["E62.F10-102.B20 maintenance", "AC capacitor care", "filter capacitor monitoring"]
-          )
-        ]
+    {
+      name: "CA-IS3221 Series",
+      description: "Dual channel isolated gate drivers for half-bridge",
+      features: ["5kVrms isolation", "4A peak output", "Programmable dead time", "UVLO protection"]
+    }
+  ],
+  selectionGuide: {
+    title: "Isolated Gate Driver Selection Guide",
+    content: "How to select the right isolated gate driver for your application",
+    factors: ["Power device type (MOSFET/IGBT)", "Peak gate current requirement", "Switching frequency", "Isolation voltage", "Protection features needed"],
+    recommendations: ["CA-IS3211 for IGBT drives with protection", "CA-IS3221 for half-bridge topologies", "High CMTI for fast switching"]
+  },
+  selectionGuideLink: {
+    url: "/chipanalog/support/gate-driver-selection",
+    text: "How to select the right Chipanalog gate driver?",
+    articleTitle: "Isolated Gate Driver Selection Guide",
+    description: "Comprehensive guide for selecting Chipanalog isolated gate drivers"
+  },
+  faqs: [
+    {
+      question: "What is Miller clamp and why is it important?",
+      answer: "Miller clamp is a feature that prevents false turn-on of power devices during high dV/dt switching. During turn-off, the Miller capacitance (Cgd) can couple current into the gate, potentially raising gate voltage above threshold and causing unwanted turn-on. The Miller clamp provides a low-impedance path to ground when gate voltage drops below a threshold (typically 2V), preventing this false turn-on. This is critical in bridge topologies where shoot-through could destroy the power devices. Chipanalog's CA-IS3211 includes active Miller clamp for reliable operation.",
+      decisionGuide: "Use gate drivers with Miller clamp for bridge topologies and high dV/dt applications. Contact our FAE team for gate driver selection.",
+      keywords: ["Miller clamp", "Miller effect", "false turn-on", "dV/dt"]
+    },
+    {
+      question: "What is desaturation detection in gate drivers?",
+      answer: "Desaturation detection monitors the collector-emitter (or drain-source) voltage of the power device during conduction. If the device enters saturation (high voltage drop), indicating overcurrent or short-circuit, the detection circuit triggers a soft turn-off sequence to protect the device. This prevents catastrophic failure from hard switching during fault conditions. Chipanalog's CA-IS3211 includes desaturation detection with configurable blanking time and soft turn-off, providing comprehensive IGBT protection.",
+      decisionGuide: "Use desaturation detection for IGBT applications requiring overcurrent protection. Contact our FAE team for protection configuration.",
+      keywords: ["desaturation", "DESAT", "overcurrent protection", "soft turn-off"]
+    },
+    {
+      question: "How do I calculate gate driver peak current requirement?",
+      answer: "Gate driver peak current is calculated based on gate charge and desired switching time. The formula is: Ipeak = Qg / tsw, where Qg is total gate charge from datasheet and tsw is desired switching time. For example, with Qg = 100nC and desired switching time of 100ns: Ipeak = 100nC / 100ns = 1A. Add 20-30% margin for reliable operation. Also consider: Gate resistance affects actual current; Driver output impedance limits peak current; and Higher peak current enables faster switching but increases EMI.",
+      decisionGuide: "Calculate peak current based on gate charge and switching time. Contact our FAE team for gate driver sizing assistance.",
+      keywords: ["gate charge", "peak current", "switching time", "gate resistance"]
+    },
+    {
+      question: "What is the importance of propagation delay in gate drivers?",
+      answer: "Propagation delay in gate drivers affects switching timing and dead time in bridge topologies. Shorter propagation delay (typically 50-100ns) allows: More precise dead time control; Higher switching frequencies; Better synchronization in multi-phase systems; and Reduced dead time losses. However, very fast drivers can cause more EMI. Chipanalog gate drivers offer propagation delays of 70-100ns with excellent matching between channels (<10ns), enabling precise timing control in half-bridge and full-bridge applications.",
+      decisionGuide: "Select gate drivers with propagation delay matching your switching frequency requirements. Contact our FAE team for timing analysis.",
+      keywords: ["propagation delay", "dead time", "switching timing", "channel matching"]
+    },
+    {
+      question: "How do I set dead time for half-bridge gate drivers?",
+      answer: "Dead time prevents shoot-through in half-bridge topologies by ensuring both high-side and low-side switches are never on simultaneously. Set dead time based on: Power device turn-off time (from datasheet); Propagation delay variation; and Safety margin (typically 100-200ns). Chipanalog's CA-IS3221 includes programmable dead time (via external resistor) from 100ns to several microseconds. Calculate: Minimum dead time = Td(off,max) + propagation delay variation + safety margin. For example, with Td(off) = 300ns, variation = 50ns, margin = 100ns: Set dead time to 450ns minimum.",
+      decisionGuide: "Calculate dead time based on device characteristics and margins. Contact our FAE team for dead time optimization.",
+      keywords: ["dead time", "shoot-through", "half bridge", "programmable dead time"]
+    }
+  ],
+  products: [
+    {
+      partNumber: "CA-IS3211",
+      name: "Single Channel Isolated Gate Driver",
+      shortDescription: "High-performance single channel isolated gate driver with 5kVrms isolation, 10A peak output, Miller clamp, and desaturation detection for IGBT protection",
+      descriptionParagraphs: [
+        "CA-IS3211 is a high-performance single channel isolated gate driver designed for driving IGBTs and power MOSFets in high-power applications. The device features reinforced isolation rated at 5kVrms.",
+        "With 10A peak output current, active Miller clamp, and desaturation detection, this driver provides comprehensive protection for power devices in motor drives and inverters.",
+        "The device includes soft turn-off during fault conditions, preventing overvoltage spikes that could damage the IGBT. Fast propagation delay (70ns) enables high-frequency switching."
+      ],
+      specifications: {
+        "Channels": "1",
+        "Isolation Voltage": "5kVrms (reinforced)",
+        "Peak Output Current": "10A source/sink",
+        "Miller Clamp Current": "5A",
+        "Propagation Delay": "70ns typical",
+        "CMTI": ">100kV/μs",
+        "UVLO Threshold": "12V (VCC2)",
+        "Package": "SOIC-16, DIP-16"
       },
-      {
-        partNumber: "E62.F10-502.B20",
-        name: "AC Filter Capacitor 5uF 1000V AC",
-        shortDescription: "Electronicon E62.F10-502.B20 5uF 1000V AC high-capacitance filter capacitor for PFC applications.",
-        descriptionParagraphs: [
-          "The E62.F10-502.B20 provides high capacitance value for demanding power factor correction and filter applications.",
-          "Designed with optimized film technology for high current capability and minimal losses at AC frequencies.",
-          "Ideal for industrial power factor correction banks, large harmonic filters, and high-power UPS systems."
-        ],
-        specifications: {
-          Capacitance: "5uF",
-          VoltageRating: "1000V AC",
-          CurrentRating: "55A RMS",
-          LossFactor: "<0.0002 @ 50Hz",
-          TemperatureRange: "-40C to +85C",
-          Lifetime: "100,000 hours @ 70C, Un",
-          Mounting: "M10 Stud Mount",
-          Dimensions: "75mm x 140mm",
-          Weight: "420g"
+      features: [
+        "Reinforced isolation 5kVrms",
+        "10A peak output current",
+        "Active Miller clamp",
+        "Desaturation detection",
+        "Soft turn-off protection",
+        "Fast 70ns propagation delay",
+        "High CMTI >100kV/μs",
+        "Separate source/sink outputs"
+      ],
+      applications: [
+        "Motor drives",
+        "Industrial inverters",
+        "EV/HEV powertrains",
+        "Welding equipment",
+        "UPS systems",
+        "Solar inverters",
+        "Power supplies"
+      ],
+      faeReview: {
+        author: "Dr. Chen Wei",
+        title: "Senior FAE - Isolation Products",
+        content: "CA-IS3211 is my go-to recommendation for IGBT gate drive applications requiring comprehensive protection. The 10A peak current drives even large IGBTs with fast switching times. The Miller clamp is essential for bridge topologies to prevent shoot-through. I've used this driver in numerous motor drive designs with excellent results. The desaturation detection with soft turn-off has saved IGBTs from destruction during fault conditions. For best performance, I recommend placing the desaturation diode close to the IGBT collector and using proper gate resistor sizing. The separate source/sink outputs allow independent control of turn-on and turn-off speeds.",
+        highlight: "10A peak current with Miller clamp and desaturation protection"
+      },
+      alternativeParts: [
+        {
+          partNumber: "ACPL-332J",
+          brand: "Broadcom",
+          specifications: {
+            isolation: "5kVrms",
+            current: "2.5A",
+            delay: "200ns"
+          },
+          comparison: {
+            current: "10A > 2.5A (4x higher)",
+            delay: "70ns < 200ns (faster)",
+            features: "Similar protection features",
+            cost: "Lower cost"
+          },
+          reason: "Higher drive capability with faster switching",
+          useCase: "Upgrade for faster switching and higher power",
+          link: "#"
         },
-        features: [
-          "High capacitance 5uF for high reactive power",
-          "High current capability 55A RMS",
-          "Low loss factor <0.0002",
-          "1000V AC voltage rating",
-          "Dry filling technology",
-          "Self-healing properties",
-          "Long lifetime design"
-        ],
-        applications: [
-          "Power factor correction banks",
-          "Large harmonic filters",
-          "High-power UPS filters",
-          "Grid-tied inverters",
-          "Motor compensation",
-          "Industrial PFC systems"
-        ],
-        faeReview: {
-          author: "Klaus Weber",
-          title: "FAE - Power Quality Solutions",
-          content: "The E62.F10-502.B20 is my preferred choice for industrial power factor correction applications. The 5uF capacitance provides 440 VAR at 480V 60Hz, making it efficient for building PFC banks. The 55A RMS current rating handles significant harmonic content common in industrial environments. I particularly value the 1000V rating which provides good margin for 480V systems with voltage fluctuations. The low loss factor ensures efficient operation with minimal heating. For a 100kVAR PFC bank at 480V, I typically use 15 capacitors in delta configuration (5 per phase). The dry filling eliminates oil leakage risks in industrial settings. I've specified this capacitor in numerous steel mill and manufacturing plant PFC installations with excellent reliability.",
-          highlight: "High capacitance and current rating for industrial PFC applications"
+        {
+          partNumber: "1ED020I12-F2",
+          brand: "Infineon",
+          specifications: {
+            isolation: "6kVrms",
+            current: "6A",
+            delay: "120ns"
+          },
+          comparison: {
+            current: "10A > 6A (higher)",
+            delay: "70ns < 120ns (faster)",
+            isolation: "5kVrms similar to 6kVrms",
+            cost: "Competitive pricing"
+          },
+          reason: "Higher current and faster switching",
+          useCase: "Performance upgrade with cost savings",
+          link: "#"
+        }
+      ],
+      companionParts: [
+        {
+          partNumber: "CA-IS3221",
+          description: "Dual channel gate driver for half-bridge",
+          category: "Isolated Gate Drivers",
+          link: "/chipanalog/products/isolated-gate-drivers/ca-is3221.html"
         },
-        alternativeParts: [
-          {
-            partNumber: "E62.F10-752.B20",
-            brand: "Electronicon",
-            specifications: {
-              capacitance: "7.5uF",
-              voltage: "1000V AC",
-              current: "70A RMS"
-            },
-            comparison: {
-              capacitance: "7.5uF > 5uF (+50%)",
-              voltage: "1000V AC = 1000V AC (same)",
-              current: "70A > 55A (+27%)",
-              dimensions: "85mm x 155mm > 75mm x 140mm (larger)",
-              weight: "550g > 420g (heavier)"
-            },
-            reason: "Higher capacitance for larger PFC banks or higher reactive power requirements",
-            useCase: "Large industrial PFC systems requiring 7.5uF per step",
-            link: "/electronicon/products/ac-filter-capacitors/e62-f10-752-b20.html"
+        {
+          partNumber: "CA-IS3740",
+          description: "Digital isolator for control signals",
+          category: "Digital Isolators",
+          link: "/chipanalog/products/digital-isolators/ca-is3740.html"
+        },
+        {
+          partNumber: "CA-IS3417",
+          description: "Isolated RS-485 for communication",
+          category: "Isolated Interfaces",
+          link: "/chipanalog/products/isolated-interfaces/ca-is3417.html"
+        }
+      ],
+      faqs: [
+        {
+          question: "How do I size the gate resistor for CA-IS3211?",
+          answer: "Gate resistor sizing involves trade-offs between switching speed, EMI, and gate ringing. For turn-on: Rgon = (Vdrive - Vge(th)) / Ion(desired). For example, with 15V drive, 5V threshold, and desired 2A: Rgon = (15-5)/2 = 5Ω. For turn-off, similar calculation or use separate Rgoff. Typical values are 2-10Ω for high-power IGBTs. Consider: Lower resistance = faster switching but more EMI; Higher resistance = slower switching but less ringing; and Separate resistors allow independent optimization. Start with 5-10Ω and adjust based on switching waveforms.",
+          decisionGuide: "Start with 5-10Ω and optimize based on waveforms. Contact our FAE team for gate resistor selection guidance.",
+          keywords: ["gate resistor", "Rg", "turn-on resistor", "switching speed"]
+        },
+        {
+          question: "What is the purpose of the soft turn-off feature?",
+          answer: "Soft turn-off gradually reduces gate voltage during fault conditions (desaturation detection), preventing fast current change (di/dt) that could cause dangerous overvoltage spikes across the IGBT. During normal turn-off, the gate is discharged quickly for fast switching. During fault, the soft turn-off uses a higher resistance path to slow down turn-off, limiting di/dt and induced voltage (V = L × di/dt). This protects the IGBT from overvoltage breakdown during short-circuit conditions. Chipanalog's CA-IS3211 implements soft turn-off automatically when desaturation is detected.",
+          decisionGuide: "Soft turn-off is automatic during faults. No external configuration needed. Contact our FAE team for protection feature details.",
+          keywords: ["soft turn-off", "fault protection", "di/dt", "overvoltage"]
+        },
+        {
+          question: "How does the Miller clamp work in CA-IS3211?",
+          answer: "The Miller clamp in CA-IS3211 is an active circuit that monitors the gate voltage. When gate voltage drops below approximately 2V during turn-off, the Miller clamp transistor turns on, providing a low-impedance path (about 0.5Ω) from gate to ground. This prevents the Miller current (from Cgd coupling during high dV/dt) from raising the gate voltage above threshold. Without Miller clamp, high dV/dt during the other switch's turn-on could couple enough current through Cgd to cause false turn-on and shoot-through. The Miller clamp is essential for reliable operation in bridge topologies.",
+          decisionGuide: "Miller clamp is automatic and always active. Contact our FAE team for Miller clamp operation details.",
+          keywords: ["Miller clamp operation", "active clamp", "false turn-on prevention"]
+        },
+        {
+          question: "What is the recommended PCB layout for CA-IS3211?",
+          answer: "Recommended PCB layout for CA-IS3211 includes: Place decoupling capacitors (1μF + 0.1μF) close to VCC1 and VCC2 pins; Keep gate drive loop (OUT to gate to emitter to GND2) as small as possible; Use wide traces (minimum 20mil) for gate drive current paths; Place desaturation diode close to IGBT collector; Use kelvin connection for emitter sense (avoid sharing with power current); Maintain clearance and creepage for isolation barrier; and Use ground planes for both primary and secondary sides. Good layout minimizes parasitic inductance and ensures reliable switching.",
+          decisionGuide: "Follow layout guidelines for optimal performance. Contact our FAE team for layout review services.",
+          keywords: ["PCB layout", "decoupling", "gate drive loop", "kelvin connection"]
+        },
+        {
+          question: "How do I configure desaturation detection?",
+          answer: "Desaturation detection in CA-IS3211 is configured with two external components: Desaturation diode (fast recovery, 600V+ rating) connected from IGBT collector to DESAT pin; and Blanking capacitor (typically 100pF to 1nF) from DESAT pin to GND2. The diode blocks high voltage when IGBT is off. When IGBT is on, the diode conducts and DESAT pin voltage reflects Vce. If Vce exceeds threshold (typically 6-9V) for longer than blanking time, fault is detected. Calculate blanking time: Tblank = Cblank × Vthreshold / Icharge. With 100pF and 9V threshold at 250μA: Tblank = 3.6μs.",
+          decisionGuide: "Select diode and capacitor based on application. Contact our FAE team for desaturation configuration guidance.",
+          keywords: ["desaturation configuration", "blanking capacitor", "DESAT diode"]
+        },
+        {
+          question: "Can CA-IS3211 drive SiC MOSFETs?",
+          answer: "Yes, CA-IS3211 can drive SiC MOSFETs effectively. SiC MOSFETs require: Higher gate voltage (+15V to +20V turn-on, -5V to 0V turn-off); Fast switching to minimize losses (low gate resistance); and Robust driver capable of handling high dV/dt. CA-IS3211's 10A peak current and fast switching make it suitable for SiC. Use VCC2 = 20V and VEE2 = -5V (if available) or GND2. The Miller clamp helps prevent false turn-on from SiC's high dV/dt switching. Ensure gate resistor is sized appropriately (typically 2-5Ω for SiC) to control switching speed and ringing.",
+          decisionGuide: "CA-IS3211 is suitable for SiC MOSFETs with proper gate voltage. Contact our FAE team for SiC gate drive design.",
+          keywords: ["SiC MOSFET", "SiC gate drive", "wide bandgap", "high dV/dt"]
+        }
+      ]
+    },
+    {
+      partNumber: "CA-IS3221",
+      name: "Dual Channel Isolated Gate Driver",
+      shortDescription: "Dual channel isolated gate driver with 5kVrms isolation, programmable dead time, and UVLO protection for half-bridge topologies",
+      descriptionParagraphs: [
+        "CA-IS3221 is a dual channel isolated gate driver designed for half-bridge and synchronous buck topologies. The device features two independent gate drive channels with programmable dead time.",
+        "With 4A peak output current per channel and 5kVrms isolation, this driver is ideal for medium-power applications requiring reliable half-bridge drive.",
+        "The programmable dead time (via external resistor) prevents shoot-through, while UVLO protection ensures reliable operation during power transients."
+      ],
+      specifications: {
+        "Channels": "2 (half-bridge configuration)",
+        "Isolation Voltage": "5kVrms (reinforced)",
+        "Peak Output Current": "4A source/sink per channel",
+        "Programmable Dead Time": "100ns to 5μs",
+        "Propagation Delay": "80ns typical",
+        "Delay Matching": "<10ns between channels",
+        "UVLO Threshold": "8V (VCC2)",
+        "Package": "SOIC-16, QSOP-16"
+      },
+      features: [
+        "Dual channel half-bridge driver",
+        "5kVrms reinforced isolation",
+        "4A peak output per channel",
+        "Programmable dead time",
+        "Excellent channel matching <10ns",
+        "UVLO protection on both sides",
+        "Separate source/sink outputs",
+        "AEC-Q100 qualified"
+      ],
+      applications: [
+        "Half-bridge converters",
+        "Synchronous buck converters",
+        "Motor drives",
+        "DC-DC converters",
+        "Inverters",
+        "Power supplies",
+        "LED drivers"
+      ],
+      faeReview: {
+        author: "Dr. Chen Wei",
+        title: "Senior FAE - Isolation Products",
+        content: "CA-IS3221 is an excellent choice for half-bridge applications up to several hundred watts. The programmable dead time is a key feature that allows optimization for different power devices. I've used this driver in DC-DC converter designs with switching frequencies up to 500kHz with excellent results. The channel matching (<10ns) ensures good dead time control even at high frequencies. The 4A peak current is sufficient for MOSFETs up to about 100A rating. For best performance, I recommend using the separate source/sink outputs with different resistors to optimize turn-on and turn-off speeds independently.",
+        highlight: "Programmable dead time with excellent channel matching"
+      },
+      alternativeParts: [
+        {
+          partNumber: "UCC21520",
+          brand: "Texas Instruments",
+          specifications: {
+            isolation: "5.7kVrms",
+            current: "6A",
+            delay: "19ns"
           },
-          {
-            partNumber: "E62.F10-502.B10",
-            brand: "Electronicon",
-            specifications: {
-              capacitance: "5uF",
-              voltage: "690V AC",
-              current: "45A RMS"
-            },
-            comparison: {
-              capacitance: "5uF = 5uF (same)",
-              voltage: "690V AC < 1000V AC (lower)",
-              current: "45A < 55A (lower)",
-              dimensions: "65mm x 125mm < 75mm x 140mm (smaller)",
-              price: "Lower cost option"
-            },
-            reason: "Lower voltage rating for 400V systems with reduced cost",
-            useCase: "400V AC PFC applications where 690V provides adequate margin",
-            link: "/electronicon/products/ac-filter-capacitors/e62-f10-502-b10.html"
-          }
-        ],
-        companionParts: [
-          {
-            partNumber: "E62.F10-502.B20",
-            link: "/electronicon/products/ac-filter-capacitors/e62-f10-502-b20.html",
-            description: "Multiple capacitors for large PFC bank",
-            category: "AC Filter Capacitors"
+          comparison: {
+            current: "4A < 6A (lower)",
+            delay: "80ns > 19ns (slower)",
+            features: "Similar dead time control",
+            cost: "Lower cost than TI"
           },
-          {
-            partNumber: "PFC Controller",
-            link: "#",
-            description: "Automatic power factor correction controller",
-            category: "PFC Equipment"
-          },
-          {
-            partNumber: "Detuning Reactor 7%",
-            link: "#",
-            description: "7% detuning reactor for harmonic-rich networks",
-            category: "Filter Components"
-          },
-          {
-            partNumber: "AC Contactor 63A",
-            link: "#",
-            description: "Capacitor switching contactor with pre-charge",
-            category: "Switching Equipment"
-          },
-          {
-            partNumber: "M10 Mounting Hardware",
-            link: "#",
-            description: "Complete mounting kit for secure installation",
-            category: "Accessories"
-          }
-        ],
-        applicationScenarios: [
-          {
-            title: "100kVAR PFC Bank",
-            description: "15 E62.F10-502.B20 capacitors in delta configuration provide 100kVAR at 480V"
-          },
-          {
-            title: "3rd Harmonic Filter",
-            description: "5uF capacitors with appropriate reactors for 180Hz tuned filters"
-          },
-          {
-            title: "Large UPS Output Filter",
-            description: "High-capacitance filter for 500kVA+ UPS inverter output"
-          }
-        ],
-        keywords: ["Electronicon E62.F10-502.B20", "5uF 1000V AC capacitor", "PFC capacitor distributor"],
-        faqs: [
-          generateFAQ(
-            "What reactive power does the E62.F10-502.B20 provide?",
-            "The E62.F10-502.B20 provides reactive power calculated by Q = 2 x pi x f x C x V x V. At 480V AC, 60Hz: Q = 2 x 3.1416 x 60 x 5x10^-6 x 480 x 480 = 434 VAR (0.434 kVAR). At 400V AC, 50Hz: Q = 2 x 3.1416 x 50 x 5x10^-6 x 400 x 400 = 251 VAR (0.251 kVAR). For three-phase delta connection, multiply by 3: 1.3 kVAR at 480V or 0.75 kVAR at 400V. This makes the E62.F10-502.B20 efficient for building PFC banks. For example, 23 capacitors provide approximately 10 kVAR at 480V. The actual reactive power varies with the square of voltage, so voltage fluctuations affect PFC performance.",
-            "Calculate the number of capacitors needed based on your target kVAR and system voltage.",
-            ["E62.F10-502.B20 reactive power", "5uF capacitor kVAR", "PFC capacitor sizing"]
-          ),
-          generateFAQ(
-            "How many capacitors do I need for a specific kVAR rating?",
-            "To determine the number of E62.F10-502.B20 capacitors needed: 1) Calculate reactive power per capacitor at your voltage (434 VAR at 480V 60Hz), 2) Divide target kVAR by per-capacitor VAR: Number = Target kVAR x 1000 / VAR per capacitor, 3) Round up to nearest practical number. Examples: For 10 kVAR at 480V: 10,000 / 434 = 23 capacitors, For 25 kVAR at 480V: 25,000 / 434 = 58 capacitors, For 50 kVAR at 480V: 50,000 / 434 = 115 capacitors. For three-phase systems, use multiples of 3 for balanced delta connection. Consider using multiple steps (e.g., 5kVAR, 10kVAR, 25kVAR) for automatic PFC controllers. Our FAE team can assist with complete PFC bank design including controller selection and step sizing.",
-            "Define your target power factor and system parameters, then calculate required capacitor quantity or consult our FAE team.",
-            ["PFC bank sizing", "kVAR calculation", "capacitor bank design"]
-          ),
-          generateFAQ(
-            "What is the inrush current when switching the E62.F10-502.B20?",
-            "The inrush current when switching the E62.F10-502.B20 depends on system voltage, source impedance, and switching instant. Peak inrush can reach 100-200 times rated current for microseconds. For 480V system: Ipeak = Vpeak / Zsource, where Zsource includes transformer and cable impedance. With typical source impedance of 0.1 ohm: Ipeak = 480 x 1.414 / 0.1 = 6,800A. This high current stresses contacts and can cause nuisance tripping. Mitigation methods include: 1) Pre-charge resistors to limit current, 2) Zero-crossing switching to minimize voltage differential, 3) Special capacitor contactors with pre-charge contacts, 4) Current-limiting reactors. Always use contactors rated for capacitor switching with proper current derating.",
-            "Use proper switching equipment with pre-charge or zero-crossing control to manage inrush current.",
-            ["capacitor inrush current", "PFC switching", "capacitor contactor"]
-          ),
-          generateFAQ(
-            "Do I need detuning reactors with the E62.F10-502.B20?",
-            "Detuning reactors are recommended with the E62.F10-502.B20 when: 1) The electrical network has significant harmonic content (THD-V > 5%), 2) Non-linear loads such as VFDs, rectifiers, or UPS systems are present, 3) Capacitor bank capacity exceeds 15% of transformer rating, 4) Resonance conditions may occur. Detuning reactors (typically 7% or 14% impedance) shift the resonance frequency below dominant harmonics (usually 5th, 7th), preventing amplification. The 7% detuning is most common, providing protection against 5th harmonic resonance while maintaining good PFC performance. 14% detuning is used in severe harmonic environments. The reactors add cost and losses but protect capacitors from harmonic overload and prevent resonance issues.",
-            "Assess your network harmonic content and consider detuning reactors if harmonics are present or capacitor bank is large.",
-            ["detuning reactors", "harmonic resonance", "PFC protection"]
-          ),
-          generateFAQ(
-            "How do I wire multiple E62.F10-502.B20 capacitors for three-phase PFC?",
-            "For three-phase PFC using multiple E62.F10-502.B20 capacitors: 1) Delta Connection - connect capacitors between phases (L1-L2, L2-L3, L3-L1), use equal number per phase for balance, multiply single-phase kVAR by 3 for total, 2) Wye Connection - connect capacitor banks between each phase and neutral, provides lower voltage stress per capacitor, 3) Multiple Steps - divide total kVAR into steps (e.g., 5, 10, 20 kVAR) controlled by PFC controller, 4) Protection - provide fuses or breakers for each step, use contactors rated for capacitor switching, include discharge resistors. For automatic PFC, the controller switches steps based on measured power factor. Ensure adequate spacing between capacitors for heat dissipation and proper ventilation.",
-            "Choose delta or wye connection based on voltage requirements and consult our FAE team for complete PFC bank design.",
-            ["three-phase PFC", "capacitor bank wiring", "PFC connection"]
-          ),
-          generateFAQ(
-            "What safety devices are required for PFC installations with E62.F10-502.B20?",
-            "PFC installations with E62.F10-502.B20 require several safety devices: 1) Overcurrent Protection - fuses or circuit breakers sized at 1.5-1.8x rated capacitor current, 2) Discharge Device - resistors or reactors to discharge capacitors to <50V within 60 seconds (3 minutes for >1kV), 3) Contactors - capacitor duty contactors with pre-charge or damping resistors, 4) Overtemperature Protection - thermal sensors for large banks or high-temperature environments, 5) Short Circuit Protection - upstream breaker for fault protection, 6) Discharge Indicators - voltage indicators to confirm safe discharge before maintenance. The E62.F10-502.B20 includes internal overpressure disconnector for safety. Follow local electrical codes (NEC, IEC) and standards (IEEE 18, IEC 60871) for PFC installation requirements.",
-            "Implement comprehensive protection including discharge, overcurrent, and overtemperature for safe PFC operation.",
-            ["PFC safety", "capacitor protection", "PFC installation requirements"]
-          )
-        ]
-      }
-    ]
-  }
-];
+          reason: "Cost-effective alternative for medium power",
+          useCase: "Cost reduction for half-bridge designs",
+          link: "#"
+        }
+      ],
+      companionParts: [
+        {
+          partNumber: "CA-IS3211",
+          description: "Single channel driver for higher current",
+          category: "Isolated Gate Drivers",
+          link: "/chipanalog/products/isolated-gate-drivers/ca-is3211.html"
+        },
+        {
+          partNumber: "CA-IS3740",
+          description: "Digital isolator for control",
+          category: "Digital Isolators",
+          link: "/chipanalog/products/digital-isolators/ca-is3740.html"
+        },
+        {
+          partNumber: "CA-IS3417",
+          description: "Isolated RS-485 for feedback",
+          category: "Isolated Interfaces",
+          link: "/chipanalog/products/isolated-interfaces/ca-is3417.html"
+        }
+      ],
+      faqs: [
+        {
+          question: "How do I set the dead time with CA-IS3221?",
+          answer: "CA-IS3221 dead time is set by an external resistor (RDT) connected between DT pin and GND1. The dead time formula is: Tdead = (RDT × 0.5pF) + 100ns. For example: RDT = 100kΩ gives Tdead = 150ns; RDT = 1MΩ gives Tdead = 600ns; RDT = 10MΩ gives Tdead = 5.1μs. Select RDT based on your power device turn-off time plus safety margin. Typical values are 200-500ns for MOSFETs and 500ns-2μs for IGBTs. The dead time is inserted between turn-off of one channel and turn-on of the other, preventing shoot-through.",
+          decisionGuide: "Calculate RDT based on required dead time. Contact our FAE team for dead time optimization.",
+          keywords: ["dead time resistor", "RDT", "programmable dead time", "shoot-through"]
+        },
+        {
+          question: "What is the maximum switching frequency for CA-IS3221?",
+          answer: "CA-IS3221 supports switching frequencies up to 1MHz, but practical limits depend on several factors: Propagation delay (80ns) limits maximum frequency to about 5MHz theoretically; Dead time requirement reduces effective duty cycle range at high frequencies; Gate charge and drive current determine switching time; and Power dissipation in the driver. For practical designs: Up to 500kHz is straightforward with good efficiency; 500kHz to 1MHz requires careful optimization; and Above 1MHz is generally not recommended. Most half-bridge applications operate at 100kHz to 300kHz where CA-IS3221 performs excellently.",
+          decisionGuide: "CA-IS3221 is suitable for frequencies up to 500kHz. Contact our FAE team for high-frequency design guidance.",
+          keywords: ["switching frequency", "maximum frequency", "high frequency"]
+        },
+        {
+          question: "Can CA-IS3221 be used for synchronous rectification?",
+          answer: "Yes, CA-IS3221 is well-suited for synchronous rectification in buck converters and full-bridge rectifiers. The programmable dead time prevents shoot-through between main switch and synchronous rectifier. For synchronous buck: Connect high-side output to control FET; Connect low-side output to sync FET; Set dead time to prevent cross-conduction; Use appropriate gate resistors. The 4A peak current drives sync FETs effectively, reducing conduction losses compared to diode rectification. The isolation allows the sync FET to be referenced to switching node while control is on primary side.",
+          decisionGuide: "CA-IS3221 is ideal for isolated synchronous rectification. Contact our FAE team for sync rectifier design.",
+          keywords: ["synchronous rectification", "sync FET", "buck converter"]
+        },
+        {
+          question: "What is the UVLO protection in CA-IS3221?",
+          answer: "CA-IS3221 includes Under-Voltage Lockout (UVLO) protection on both primary (VCC1) and secondary (VCC2) supplies. When VCC drops below threshold (typically 8V for VCC2), the outputs are held low to prevent operation with insufficient gate voltage. This protects power devices from operating in linear mode with high losses. UVLO has hysteresis (about 1V) to prevent oscillation during power-up. When VCC rises above threshold plus hysteresis, normal operation resumes. UVLO ensures reliable startup and prevents damage from brownout conditions.",
+          decisionGuide: "UVLO is automatic. Ensure VCC stays above UVLO threshold during operation. Contact our FAE team for UVLO details.",
+          keywords: ["UVLO", "under voltage lockout", "protection", "startup"]
+        },
+        {
+          question: "How do I optimize gate resistor values for CA-IS3221?",
+          answer: "Gate resistor optimization for CA-IS3221 involves balancing switching speed, EMI, and ringing. For half-bridge: High-side gate resistor affects turn-on of high-side FET; Low-side gate resistor affects turn-on of low-side FET; Separate source/sink resistors allow optimization. Typical approach: Start with 5-10Ω for both; Measure switching waveforms (Vgs, Vds, Id); Reduce resistance if switching is too slow or losses are high; Increase resistance if ringing or EMI is excessive; and Optimize high-side and low-side independently. Consider using different values for source (turn-on) and sink (turn-off) to optimize separately.",
+          decisionGuide: "Start with 5-10Ω and optimize based on measurements. Contact our FAE team for gate resistor optimization.",
+          keywords: ["gate resistor optimization", "switching waveforms", "EMI", "ringing"]
+        },
+        {
+          question: "What layout considerations are important for half-bridge drivers?",
+          answer: "Important layout considerations for CA-IS3221 half-bridge driver: Minimize gate drive loop area (driver output → gate → source → driver GND); Place decoupling capacitors close to VCC2 and VEE2 pins; Keep high-side bootstrap capacitor close to HB and HS pins; Use kelvin connection for current sense (if used); Maintain isolation barrier clearance and creepage; Keep power traces (drain, source) away from sensitive gate drive traces; and Use adequate copper area for power dissipation. Good layout minimizes parasitic inductance that causes ringing and EMI.",
+          decisionGuide: "Follow layout best practices for half-bridge. Contact our FAE team for layout review.",
+          keywords: ["half bridge layout", "gate drive loop", "bootstrap capacitor", "kelvin connection"]
+        }
+      ]
+    }
+  ]
+};
 
-// Add the new categories
-productsData.categories = [...productsData.categories, ...additionalCategories];
+products.categories.push(category2);
 
-// Write updated products.json
-fs.writeFileSync(productsPath, JSON.stringify(productsData, null, 2));
-console.log('Added AC Filter Capacitors category to products.json');
-console.log('Total categories now: ' + productsData.categories.length);
-console.log('Categories: ' + productsData.categories.map(c => c.name).join(', '));
+// Save file
+fs.writeFileSync(productsPath, JSON.stringify(products, null, 2), 'utf8');
+console.log('✅ Added category 2 (Isolated Gate Drivers)');

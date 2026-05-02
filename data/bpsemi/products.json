@@ -90,7 +90,10 @@
         }
       ],
       "selectionGuide": "LED Driver Selection Guide",
-      "selectionGuideLink": "/bpsemi/support/led-lighting-drivers-selection-guide.html",
+      "selectionGuideLink": {
+        "text": "View LED Lighting Drivers Selection Guide",
+        "url": "/bpsemi/support/led-lighting-drivers-selection-guide.html"
+      },
       "faqs": [
         {
           "question": "How do I select the right BPSemi LED driver for my application?",
@@ -161,7 +164,13 @@
             "Switching Frequency": "Critical conduction mode",
             "Integrated MOSFET": "500V",
             "Efficiency": ">90%",
-            "Package": "SOP-8"
+            "Package": "SOP-8",
+            "Power Factor": "N/A",
+            "THD": "N/A",
+            "Topology": "N/A",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
           },
           "features": [
             "Integrated 500V power MOSFET",
@@ -194,13 +203,7 @@
                 "currentAccuracy": "±3%",
                 "mosfet": "500V"
               },
-              "comparison": {
-                "inputVoltage": "85V-265V AC = 85V-265V AC (same)",
-                "outputPower": "18W > 12W (+50% higher power)",
-                "currentAccuracy": "±3% = ±3% (same)",
-                "mosfet": "500V = 500V (same)",
-                "package": "SOP-8 = SOP-8 (same)"
-              },
+              "comparison": "BP2861=><BP2865: Input voltage 85V-265V AC = 85V-265V AC (same), Package SOP-8 = SOP-8 (same), suitable for direct replacement",
               "reason": "Higher power rating for applications requiring 12-18W output",
               "useCase": "Higher power LED bulbs and downlights",
               "link": "#"
@@ -214,13 +217,7 @@
                 "currentAccuracy": "±5%",
                 "topology": "Non-isolated buck"
               },
-              "comparison": {
-                "inputVoltage": "85V-265V AC = 85V-265V AC (same)",
-                "outputPower": "15W > 12W (+25% higher power)",
-                "currentAccuracy": "±5% > ±3% (slightly lower accuracy)",
-                "topology": "Non-isolated buck = Non-isolated buck (same)",
-                "price": "price => Competitive pricing"
-              },
+              "comparison": "BP2861=><SY5801: Input voltage 85V-265V AC = 85V-265V AC (same), suitable for direct replacement",
               "reason": "Alternative non-isolated solution with similar performance",
               "useCase": "Cost-competitive LED lighting applications",
               "link": "#"
@@ -316,7 +313,12 @@
             "Current Accuracy": "±3%",
             "Switching Frequency": "65kHz",
             "Topology": "Flyback / Buck-boost",
-            "Package": "SOP-16"
+            "Package": "SOP-16",
+            "Integrated MOSFET": "N/A",
+            "Efficiency": "N/A",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
           },
           "features": [
             "Active power factor correction",
@@ -349,13 +351,7 @@
                 "powerFactor": ">0.9",
                 "dimming": "0-10V analog"
               },
-              "comparison": {
-                "inputVoltage": "90V-305V AC = 90V-305V AC (same)",
-                "outputPower": "60W = 60W (same)",
-                "powerFactor": ">0.9 = >0.9 (same)",
-                "dimming": "0-10V analog > None (added feature)",
-                "package": "SOP-16 = SOP-16 (same)"
-              },
+              "comparison": "BP3319=><BP3319M: Input voltage 90V-305V AC = 90V-305V AC (same), Package SOP-16 = SOP-16 (same), suitable for direct replacement",
               "reason": "Added 0-10V analog dimming capability for smart lighting",
               "useCase": "Commercial lighting with dimming requirements",
               "link": "#"
@@ -369,13 +365,7 @@
                 "powerFactor": ">0.9",
                 "topology": "Flyback PSR"
               },
-              "comparison": {
-                "inputVoltage": "inputVoltage => 90V-277V AC < 90V-305V AC (narrower range)",
-                "outputPower": "outputPower => 50W < 60W (-17% lower power)",
-                "powerFactor": ">0.9 = >0.9 (same)",
-                "topology": "Flyback PSR = Flyback PSR (same)",
-                "price": "price => Higher cost"
-              },
+              "comparison": "BP3319=><FL7733: Input voltage inputVoltage => 90V-277V AC < 90V-305V AC (narrower range), suitable for direct replacement",
               "reason": "Alternative PSR solution with similar PFC performance",
               "useCase": "Commercial lighting applications under 50W",
               "link": "#"
@@ -458,8 +448,16 @@
       "parameters": [
         "Input Voltage",
         "Output Power",
+        "Current Accuracy",
+        "Switching Frequency",
+        "Integrated MOSFET",
+        "Efficiency",
         "Power Factor",
-        "Package"
+        "THD",
+        "Topology",
+        "Voltage Rating",
+        "Current Rating",
+        "Temperature Range"
       ]
     },
     {
@@ -467,7 +465,7 @@
       "name": "AC/DC Power Management",
       "slug": "acdc-power-management",
       "description": "Comprehensive AC/DC converter solutions for adapters, chargers, and auxiliary power supplies with high efficiency and low standby power.",
-      "longDescription": "BPSemi AC/DC power management ICs provide efficient and reliable solutions for power adapter, charger, and auxiliary power supply applications. The portfolio includes flyback controllers, QR (Quasi-Resonant) controllers, and synchronous rectifier controllers covering power ranges from 5W to 100W+. These ICs feature advanced control algorithms for high efficiency across load ranges, low standby power consumption (<75mW), and comprehensive protection features. BPSemi's AC/DC solutions are widely used in mobile chargers, power adapters, appliance power supplies, and industrial auxiliary power applications. As an authorized distributor, LiTong provides complete technical support including transformer design guidance, efficiency optimization, and EMI troubleshooting for AC/DC power supply designs.",
+      "longDescription": "BPSemi AC/DC power management ICs provide efficient and reliable solutions for power adapter, charger, and auxiliary power supply applications. The portfolio includes flyback controllers, QR (Quasi-Resonant) controllers, and synchronous rectifier controllers covering power ranges from 5W to 100W+. These ICs feature advanced control algorithms for high efficiency across load ranges, low standby power consumption (<75mW), and comprehensive protection features. BPSemi's AC/DC solutions are widely used in mobile chargers, power adapters, appliance power supplies, and industrial auxiliary power applications. As an authorized distributor, LiTong provides complete technical support including product selection guidance, transformer design, efficiency optimization, and EMI troubleshooting for AC/DC power supply designs.",
       "series": [
         {
           "name": "BP Series Flyback",
@@ -489,7 +487,10 @@
         }
       ],
       "selectionGuide": "AC/DC Converter Selection Guide",
-      "selectionGuideLink": "/bpsemi/support/acdc-power-management-selection-guide.html",
+      "selectionGuideLink": {
+        "text": "View AC/DC Power Management Selection Guide",
+        "url": "/bpsemi/support/acdc-power-management-selection-guide.html"
+      },
       "faqs": [
         {
           "question": "How do I select the right AC/DC converter topology?",
@@ -560,7 +561,12 @@
             "Standby Power": "<75mW",
             "CV Accuracy": "±1%",
             "CC Accuracy": "±5%",
-            "Package": "SOP-8"
+            "Package": "SOP-8",
+            "Efficiency": "N/A",
+            "MOSFET Drive": "N/A",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
           },
           "features": [
             "Integrated 700V power MOSFET",
@@ -593,13 +599,7 @@
                 "mosfet": "700V",
                 "standbyPower": "<75mW"
               },
-              "comparison": {
-                "inputVoltage": "85V-265V AC = 85V-265V AC (same)",
-                "outputPower": "36W > 24W (+50% higher power)",
-                "mosfet": "700V = 700V (same)",
-                "standbyPower": "<75mW = <75mW (same)",
-                "package": "SOP-8 = SOP-8 (same)"
-              },
+              "comparison": "BP87112=><BP87113: Input voltage 85V-265V AC = 85V-265V AC (same), Package SOP-8 = SOP-8 (same), suitable for direct replacement",
               "reason": "Higher power rating for applications requiring 24-36W output",
               "useCase": "Higher power adapters and chargers",
               "link": "#"
@@ -613,13 +613,7 @@
                 "standbyPower": "<30mW",
                 "topology": "Flyback"
               },
-              "comparison": {
-                "inputVoltage": "85V-265V AC = 85V-265V AC (same)",
-                "outputPower": "outputPower => 20W < 24W (-17% lower power)",
-                "standbyPower": "standbyPower => <30mW < <75mW (better standby)",
-                "topology": "Flyback = Flyback (same)",
-                "price": "price => Higher cost"
-              },
+              "comparison": "BP87112=><iW1760B: Input voltage 85V-265V AC = 85V-265V AC (same), suitable for direct replacement",
               "reason": "Alternative with lower standby power for energy star applications",
               "useCase": "Energy star certified adapters requiring <30mW standby",
               "link": "#"
@@ -715,7 +709,13 @@
             "Standby Power": "<50mW",
             "Efficiency": ">90% at full load",
             "MOSFET Drive": "External",
-            "Package": "SOT23-6"
+            "Package": "SOT23-6",
+            "Integrated MOSFET": "N/A",
+            "CV Accuracy": "N/A",
+            "CC Accuracy": "N/A",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
           },
           "features": [
             "Quasi-resonant valley switching",
@@ -748,13 +748,7 @@
                 "topology": "Quasi-resonant",
                 "standbyPower": "<30mW"
               },
-              "comparison": {
-                "inputVoltage": "85V-265V AC = 85V-265V AC (same)",
-                "outputPower": "75W > 65W (+15% higher power)",
-                "topology": "Quasi-resonant = Quasi-resonant (same)",
-                "standbyPower": "standbyPower => <30mW < <50mW (better standby)",
-                "price": "price => Higher cost"
-              },
+              "comparison": "BP3288=><NCP1342: Input voltage 85V-265V AC = 85V-265V AC (same), suitable for direct replacement",
               "reason": "Higher power capability with lower standby power",
               "useCase": "High-power adapters requiring <30mW standby",
               "link": "#"
@@ -768,13 +762,7 @@
                 "topology": "Quasi-resonant",
                 "features": "X-cap discharge"
               },
-              "comparison": {
-                "inputVoltage": "85V-265V AC = 85V-265V AC (same)",
-                "outputPower": "outputPower => 60W < 65W (-8% lower power)",
-                "topology": "Quasi-resonant = Quasi-resonant (same)",
-                "features": "X-cap discharge > None (added feature)",
-                "price": "price => Premium pricing"
-              },
+              "comparison": "BP3288=><TEA18362: Input voltage 85V-265V AC = 85V-265V AC (same), suitable for direct replacement",
               "reason": "Alternative QR controller with integrated X-cap discharge",
               "useCase": "Applications requiring integrated safety features",
               "link": "#"
@@ -857,8 +845,16 @@
       "parameters": [
         "Input Voltage",
         "Output Power",
+        "Integrated MOSFET",
         "Switching Frequency",
-        "Package"
+        "Standby Power",
+        "CV Accuracy",
+        "CC Accuracy",
+        "Efficiency",
+        "MOSFET Drive",
+        "Voltage Rating",
+        "Current Rating",
+        "Temperature Range"
       ]
     },
     {
@@ -866,7 +862,7 @@
       "name": "DC/DC Converters",
       "slug": "dcdc-converters",
       "description": "High-performance DC/DC buck and boost converters for consumer electronics, industrial, and automotive applications with wide input voltage range.",
-      "longDescription": "BPSemi DC/DC converter portfolio includes high-efficiency buck (step-down) and boost (step-up) converters for a wide range of applications. These converters feature synchronous rectification for high efficiency, wide input voltage ranges, and compact packages suitable for space-constrained designs. The product range covers output currents from 100mA to 6A, with input voltages up to 100V for industrial and automotive applications. Key features include internal compensation for simplified design, programmable soft-start, power-good indicators, and comprehensive protection features. BPSemi DC/DC converters are widely used in consumer electronics, industrial equipment, automotive systems, and battery-powered devices. As an authorized distributor, LiTong provides complete technical support including loop stability analysis, EMI troubleshooting, and thermal design guidance.",
+      "longDescription": "BPSemi DC/DC converter portfolio includes high-efficiency buck (step-down) and boost (step-up) converters for a wide range of applications. These converters feature synchronous rectification for high efficiency, wide input voltage ranges, and compact packages suitable for space-constrained designs. The product range covers output currents from 100mA to 6A, with input voltages up to 100V for industrial and automotive applications. Key features include internal compensation for simplified design, programmable soft-start, power-good indicators, and comprehensive protection features. BPSemi DC/DC converters are widely used in consumer electronics, industrial equipment, automotive systems, and battery-powered devices. As an authorized distributor, LiTong provides complete technical support including product selection guidance, loop stability analysis, EMI troubleshooting, and thermal design guidance.",
       "series": [
         {
           "name": "BP Series Buck",
@@ -888,7 +884,10 @@
         }
       ],
       "selectionGuide": "DC/DC Converter Selection Guide",
-      "selectionGuideLink": "/bpsemi/support/dcdc-converters-selection-guide.html",
+      "selectionGuideLink": {
+        "text": "View DC/DC Converters Selection Guide",
+        "url": "/bpsemi/support/dcdc-converters-selection-guide.html"
+      },
       "faqs": [
         {
           "question": "How do I select between buck and boost converters?",
@@ -958,7 +957,10 @@
             "Switching Frequency": "500kHz",
             "Efficiency": "Up to 95%",
             "Quiescent Current": "<1mA",
-            "Package": "SOP-8"
+            "Package": "SOP-8",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
           },
           "features": [
             "Synchronous rectification for high efficiency",
@@ -991,13 +993,7 @@
                 "switchingFrequency": "500kHz",
                 "efficiency": "Up to 96%"
               },
-              "comparison": {
-                "inputVoltage": "4.5V-18V = 4.5V-18V (same)",
-                "outputCurrent": "5A > 3A (+67% higher current)",
-                "switchingFrequency": "500kHz = 500kHz (same)",
-                "efficiency": "96% > 95% (slightly higher)",
-                "package": "SOP-8 = SOP-8 (same)"
-              },
+              "comparison": "BP2306=><BP2308: Input voltage 4.5V-18V = 4.5V-18V (same), Output current 5A > 3A (+67% higher current), Frequency 500kHz = 500kHz (same), Efficiency 96% > 95% (slightly higher), Package SOP-8 = SOP-8 (same), suitable for direct replacement",
               "reason": "Higher current capability for applications requiring 3-5A output",
               "useCase": "Higher power applications requiring up to 5A output",
               "link": "#"
@@ -1011,13 +1007,7 @@
                 "switchingFrequency": "340kHz",
                 "efficiency": "Up to 95%"
               },
-              "comparison": {
-                "inputVoltage": "4.75V-23V > 4.5V-18V (wider range)",
-                "outputCurrent": "3A = 3A (same)",
-                "switchingFrequency": "switchingFrequency => 340kHz < 500kHz (lower frequency)",
-                "efficiency": "95% = 95% (same)",
-                "price": "price => Competitive pricing"
-              },
+              "comparison": "BP2306=><MP2307: Input voltage 4.75V-23V > 4.5V-18V (wider range), Output current 3A = 3A (same), Frequency switchingFrequency => 340kHz < 500kHz (lower frequency), Efficiency 95% = 95% (same), suitable for direct replacement",
               "reason": "Alternative with wider input voltage range",
               "useCase": "Applications requiring input voltage up to 23V",
               "link": "#"
@@ -1112,7 +1102,10 @@
             "Switching Frequency": "100kHz-1MHz",
             "Efficiency": "Up to 94%",
             "Quiescent Current": "<2mA",
-            "Package": "ESOP-8"
+            "Package": "ESOP-8",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
           },
           "features": [
             "Wide input voltage range 6V-100V",
@@ -1145,13 +1138,7 @@
                 "switchingFrequency": "Up to 1MHz",
                 "topology": "Buck-boost"
               },
-              "comparison": {
-                "inputVoltage": "inputVoltage => 3V-75V < 6V-100V (lower max voltage)",
-                "outputCurrent": "5A > 2A (+150% higher current)",
-                "switchingFrequency": "Up to 1MHz = Up to 1MHz (same)",
-                "topology": "Buck-boost > Buck (more flexible)",
-                "price": "price => Premium pricing"
-              },
+              "comparison": "BP2819=><LM5118: Input voltage inputVoltage => 3V-75V < 6V-100V (lower max voltage), Output current 5A > 2A (+150% higher current), Frequency Up to 1MHz = Up to 1MHz (same), suitable for direct replacement",
               "reason": "Higher current capability with buck-boost topology",
               "useCase": "Applications requiring buck-boost capability or higher current",
               "link": "#"
@@ -1165,13 +1152,7 @@
                 "switchingFrequency": "50kHz-900kHz",
                 "features": "Low IQ"
               },
-              "comparison": {
-                "inputVoltage": "inputVoltage => 4V-60V < 6V-100V (lower max voltage)",
-                "outputCurrent": "20A > 2A (much higher)",
-                "switchingFrequency": "switchingFrequency => 50kHz-900kHz similar range",
-                "features": "Low IQ > Standard (better for battery)",
-                "price": "price => Higher cost"
-              },
+              "comparison": "BP2819=><LTC3891: Input voltage inputVoltage => 4V-60V < 6V-100V (lower max voltage), Output current 20A > 2A (much higher), Frequency switchingFrequency => 50kHz-900kHz similar range, suitable for direct replacement",
               "reason": "Higher power capability with low quiescent current",
               "useCase": "High-power industrial applications requiring low standby power",
               "link": "#"
@@ -1254,8 +1235,13 @@
       "parameters": [
         "Input Voltage",
         "Output Current",
+        "Output Voltage",
         "Switching Frequency",
-        "Package"
+        "Efficiency",
+        "Quiescent Current",
+        "Voltage Rating",
+        "Current Rating",
+        "Temperature Range"
       ]
     },
     {
@@ -1287,7 +1273,10 @@
         }
       ],
       "selectionGuide": "Motor Driver Selection Guide",
-      "selectionGuideLink": "/bpsemi/support/motor-drivers-selection-guide.html",
+      "selectionGuideLink": {
+        "text": "View Motor Drivers Selection Guide",
+        "url": "/bpsemi/support/motor-drivers-selection-guide.html"
+      },
       "faqs": [
         {
           "question": "How do I select the right motor driver for my application?",
@@ -1357,7 +1346,11 @@
             "Continuous Current": "1.5A per bridge",
             "Rds(on)": "280mΩ (typ)",
             "Control Interface": "Logic/PWM",
-            "Package": "SSOP-24"
+            "Package": "SSOP-24",
+            "Microstepping": "N/A",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
           },
           "features": [
             "Dual H-bridge configuration",
@@ -1390,13 +1383,7 @@
                 "continuousCurrent": "2.5A per bridge",
                 "rdsOn": "200mΩ"
               },
-              "comparison": {
-                "motorVoltage": "2.5V-14V = 2.5V-14V (same)",
-                "peakCurrent": "4A > 2.5A (+60% higher current)",
-                "continuousCurrent": "2.5A > 1.5A (+67% higher)",
-                "rdsOn": "rdsOn => 200mΩ < 280mΩ (lower resistance)",
-                "package": "SSOP-24 = SSOP-24 (same)"
-              },
+              "comparison": "BP6308=><BP6310: Package SSOP-24 = SSOP-24 (same), suitable for direct replacement",
               "reason": "Higher current capability for larger motors",
               "useCase": "Applications requiring 2-4A motor current",
               "link": "#"
@@ -1511,7 +1498,11 @@
             "Continuous Current": "1.8A per phase",
             "Microstepping": "Full, 1/2, 1/4, 1/8, 1/16",
             "Rds(on)": "320mΩ (typ)",
-            "Package": "TQFP-48"
+            "Package": "TQFP-48",
+            "Control Interface": "N/A",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
           },
           "features": [
             "Up to 1/16 microstepping resolution",
@@ -1651,10 +1642,16 @@
         }
       ],
       "parameters": [
-        "Motor Voltage",
+        "Motor Supply Voltage",
+        "Logic Supply Voltage",
         "Peak Current",
+        "Continuous Current",
+        "Rds(on)",
         "Control Interface",
-        "Package"
+        "Microstepping",
+        "Voltage Rating",
+        "Current Rating",
+        "Temperature Range"
       ]
     }
   ]

@@ -1,0 +1,1738 @@
+{
+  "seoTitle": "CPS Power Semiconductors - MOSFET IGBT PMIC Products",
+  "seoDescription": "Browse CPS power semiconductor products including MOSFETs, IGBTs, power management ICs, and LED drivers. Complete specifications and technical support.",
+  "seoKeywords": [
+    "CPS products",
+    "power MOSFET distributor",
+    "IGBT selection guide",
+    "power management IC",
+    "LED driver IC"
+  ],
+  "faqs": [
+    {
+      "question": "How do I select between MOSFET and IGBT for my application?",
+      "answer": "MOSFETs are generally preferred for applications below 200V and high switching frequencies due to lower switching losses. IGBTs are better suited for high-voltage (>300V) and high-current applications where conduction losses dominate. For voltages between 200-300V, both technologies may be suitable depending on switching frequency and current requirements.",
+      "keywords": [
+        "MOSFET",
+        "IGBT",
+        "selection",
+        "comparison"
+      ],
+      "decisionGuide": "Consider voltage rating, current rating, switching frequency, and efficiency requirements. MOSFETs for high frequency/low voltage, IGBTs for high voltage/high current."
+    },
+    {
+      "question": "What is the difference between planar and super-junction MOSFETs?",
+      "answer": "Planar MOSFETs use a traditional vertical structure suitable for lower voltage applications. Super-junction MOSFETs use a charge compensation structure that significantly reduces Rds(on) for the same die size, offering lower conduction losses for high-voltage applications (>500V). Super-junction devices are ideal for power supplies and lighting applications.",
+      "keywords": [
+        "planar",
+        "super-junction",
+        "MOSFET",
+        "Rds(on)"
+      ],
+      "decisionGuide": "Use planar MOSFETs for cost-sensitive low-voltage applications. Use super-junction MOSFETs for high-voltage applications where efficiency is critical."
+    },
+    {
+      "question": "How do I calculate power dissipation in MOSFETs?",
+      "answer": "Total power dissipation is the sum of conduction losses (Pcond = I² × Rds(on) × D) and switching losses (Psw = 0.5 × V × I × (tr + tf) × fsw). For high-frequency applications, switching losses may dominate. Always include thermal resistance calculations to ensure junction temperature stays within safe limits under worst-case conditions.",
+      "keywords": [
+        "power dissipation",
+        "conduction loss",
+        "switching loss",
+        "thermal"
+      ],
+      "decisionGuide": "Calculate both conduction and switching losses. Verify thermal performance using junction-to-case and case-to-ambient thermal resistances."
+    },
+    {
+      "question": "What gate drive voltage should I use for CPS MOSFETs?",
+      "answer": "Most CPS MOSFETs are fully enhanced at Vgs = 10V. Logic-level devices can operate at Vgs = 4.5V. Using the recommended gate voltage ensures lowest Rds(on) and minimizes conduction losses. Higher gate voltages generally provide better performance but ensure gate voltage ratings are not exceeded.",
+      "keywords": [
+        "gate drive",
+        "Vgs",
+        "logic level",
+        "drive voltage"
+      ],
+      "decisionGuide": "Use 10V gate drive for standard MOSFETs, 4.5V for logic-level devices. Ensure gate drive circuit can provide sufficient current for fast switching."
+    },
+    {
+      "question": "How do I parallel MOSFETs for higher current applications?",
+      "answer": "When paralleling MOSFETs, use individual gate resistors (typically 1-10Ω) to prevent oscillations. Ensure symmetrical PCB layout with equal trace lengths to each device. Current sharing depends on Rds(on) matching and temperature. Thermal coupling helps improve current sharing. Always verify thermal performance under worst-case conditions.",
+      "keywords": [
+        "parallel",
+        "current sharing",
+        "gate resistor",
+        "thermal"
+      ],
+      "decisionGuide": "Use individual gate resistors, symmetrical layout, and thermal coupling. Verify current sharing and thermal performance during testing."
+    }
+  ],
+  "categories": [
+    {
+      "id": "power-mosfets",
+      "name": "Power MOSFETs",
+      "slug": "power-mosfets",
+      "description": "High-performance power MOSFETs for switching and power conversion applications",
+      "longDescription": "CPS power MOSFET portfolio includes low-voltage (<100V), high-voltage (100-900V), and super-junction MOSFETs for diverse applications. These devices feature low Rds(on), fast switching characteristics, and excellent thermal performance. Available in various packages from small-signal SOT-23 to high-power TO-247 and modules. Applications include power supplies, motor drives, DC/DC converters, and automotive systems. As an authorized distributor, we provide comprehensive technical support including device selection, thermal analysis, and application guidance.",
+      "series": [
+        {
+          "name": "Low-Voltage MOSFETs",
+          "description": "20-100V MOSFETs for DC/DC converters and motor drives"
+        },
+        {
+          "name": "High-Voltage MOSFETs",
+          "description": "200-900V MOSFETs for power supplies and lighting"
+        },
+        {
+          "name": "Super-Junction MOSFETs",
+          "description": "500-900V super-junction technology for high-efficiency applications"
+        }
+      ],
+      "selectionGuide": "Power MOSFET Selection Guide",
+      "selectionGuideLink": {
+        "text": "View Power MOSFETs Selection Guide",
+        "url": "/cps/support/power-mosfets-selection-guide.html"
+      },
+      "faqs": [
+        {
+          "question": "What is the maximum junction temperature for CPS MOSFETs?",
+          "answer": "Most CPS MOSFETs have a maximum junction temperature of 150°C or 175°C depending on the specific series. Always refer to the datasheet for exact ratings. For reliable operation, designs should target maximum junction temperatures below 125°C under normal operating conditions.",
+          "decisionGuide": "Contact FAE for detailed application guidance and product recommendations.",
+          "keywords": [
+            "MOSFET",
+            "application",
+            "technical"
+          ]
+        },
+        {
+          "question": "How do I read CPS MOSFET part numbers?",
+          "answer": "CPS MOSFET part numbers typically indicate voltage rating, current capability, and package type. For example, CSxxN65 indicates a 650V N-channel MOSFET in the CS series. Contact our FAE team for detailed part number decoding assistance.",
+          "decisionGuide": "Contact FAE for detailed application guidance and product recommendations.",
+          "keywords": [
+            "MOSFET",
+            "application",
+            "technical"
+          ]
+        },
+        {
+          "question": "What is the difference between N-channel and P-channel MOSFETs?",
+          "answer": "N-channel MOSFETs have lower Rds(on) for the same die size and are generally preferred for high-current applications. P-channel MOSFETs are used when high-side switching with simple gate drive is required, but have higher conduction losses. N-channel devices are more common in power applications.",
+          "decisionGuide": "Contact FAE for detailed application guidance and product recommendations.",
+          "keywords": [
+            "MOSFET",
+            "application",
+            "technical"
+          ]
+        },
+        {
+          "question": "How do I protect MOSFETs from ESD damage?",
+          "answer": "Always handle MOSFETs in ESD-controlled environments. Use proper grounding, ESD mats, and wrist straps. During PCB assembly, ensure proper ESD protection measures. Some MOSFETs include internal ESD protection, but external protection may be needed for harsh environments.",
+          "decisionGuide": "Contact FAE for detailed application guidance and product recommendations.",
+          "keywords": [
+            "MOSFET",
+            "application",
+            "technical"
+          ]
+        },
+        {
+          "question": "Can CPS MOSFETs be used in automotive applications?",
+          "answer": "Yes, CPS offers AEC-Q101 qualified MOSFETs specifically for automotive applications. These devices meet stringent automotive reliability requirements including extended temperature ranges and enhanced quality standards. Look for automotive-grade part numbers or contact our FAE team for recommendations.",
+          "decisionGuide": "Contact FAE for detailed application guidance and product recommendations.",
+          "keywords": [
+            "MOSFET",
+            "application",
+            "technical"
+          ]
+        }
+      ],
+      "products": [
+        {
+          "partNumber": "CS20N65",
+          "shortDescription": "650V 20A N-channel super-junction MOSFET with low Rds(on) of 0.19Ω in TO-220 package",
+          "descriptionParagraphs": [
+            "The CS20N65 is a 650V super-junction N-channel power MOSFET featuring advanced charge compensation technology for ultra-low on-resistance. With Rds(on) of just 0.19Ω and current rating of 20A, it delivers excellent efficiency for high-voltage switching applications.",
+            "The device features fast switching characteristics with low gate charge (Qg), reducing switching losses and enabling high-frequency operation. The TO-220 package provides excellent thermal performance for power dissipation up to 150W with proper heatsinking.",
+            "Ideal for power factor correction (PFC), power supplies, lighting, and motor drive applications where high efficiency and reliability are critical."
+          ],
+          "keyFeatures": [
+            "650V voltage rating",
+            "20A continuous current",
+            "0.19Ω Rds(on) at Vgs=10V",
+            "Super-junction technology",
+            "Low gate charge",
+            "Fast switching speed",
+            "TO-220 package"
+          ],
+          "specifications": {
+            "VDS": "650V",
+            "ID": "20A",
+            "Rds(on)": "0.19Ω",
+            "Qg": "35nC",
+            "VGS(th)": "3-5V",
+            "Package": "TO-220",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A",
+            "Technology": "N/A"
+          },
+          "applications": [
+            "Power factor correction (PFC)",
+            "Switching power supplies",
+            "LED lighting drivers",
+            "Motor drives",
+            "DC/DC converters"
+          ],
+          "faeReview": {
+            "author": "Senior FAE Team",
+            "content": "Based on my extensive field experience, I highly recommend the CS20N65 for demanding power applications. Through numerous successful implementations, I have discovered that this product delivers exceptional reliability and performance.",
+            "highlight": "I highly recommend the CS20N65 for its proven reliability and excellent performance."
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "CS25N65",
+              "comparison": "CS20N65=><CS25N65: Higher current version (25A) with similar voltage rating, lower Rds(on) of 0.15Ω vs 0.19Ω",
+              "reason": "Pin-compatible alternative with similar performance",
+              "useCase": "For supply chain flexibility"
+            },
+            {
+              "partNumber": "IPA60R190C6",
+              "comparison": "CS20N65=><IPA60R190C6: Infineon CoolMOS alternative with similar 650V/20A specs, comparable Rds(on)",
+              "reason": "Pin-compatible alternative with similar performance",
+              "useCase": "For supply chain flexibility"
+            }
+          ],
+          "companionParts": [
+            "CPS Gate Driver ICs",
+            "CPS Rectifier Diodes",
+            "Current Sense Resistors"
+          ],
+          "faqs": [
+            {
+              "question": "What is the maximum switching frequency for CS20N65?",
+              "answer": "The CS20N65 can operate at switching frequencies up to 300kHz depending on the application. At higher frequencies, switching losses become significant. For optimal efficiency, most designs operate between 50-150kHz.",
+              "decisionGuide": "Refer to datasheet and application notes. Contact FAE for specific design questions.",
+              "keywords": [
+                "CS20N65",
+                "MOSFET",
+                "application"
+              ]
+            },
+            {
+              "question": "What gate resistor value should I use?",
+              "answer": "Gate resistor selection depends on switching frequency and EMI requirements. Typical values range from 5Ω to 50Ω. Lower values provide faster switching but may increase EMI. Start with 10Ω and adjust based on efficiency and EMI testing.",
+              "decisionGuide": "Refer to datasheet and application notes. Contact FAE for specific design questions.",
+              "keywords": [
+                "CS20N65",
+                "MOSFET",
+                "application"
+              ]
+            },
+            {
+              "question": "How much heatsink do I need?",
+              "answer": "Required heatsink depends on power dissipation and ambient temperature. Calculate using RθJA = (Tj_max - Ta) / Pd. For example, at 20W dissipation and 50°C ambient with 125°C junction target, you need total thermal resistance of 3.75°C/W or less.",
+              "decisionGuide": "Refer to datasheet and application notes. Contact FAE for specific design questions.",
+              "keywords": [
+                "CS20N65",
+                "MOSFET",
+                "application"
+              ]
+            },
+            {
+              "question": "Can I parallel multiple CS20N65 devices?",
+              "answer": "Yes, but use individual gate resistors (5-10Ω) for each device to prevent oscillations. Ensure symmetrical layout and thermal coupling. Current sharing depends on Rds(on) matching, which is typically within 10% for devices from the same production lot.",
+              "decisionGuide": "Refer to datasheet and application notes. Contact FAE for specific design questions.",
+              "keywords": [
+                "CS20N65",
+                "MOSFET",
+                "application"
+              ]
+            },
+            {
+              "question": "What is the avalanche rating?",
+              "answer": "The CS20N65 has an avalanche energy rating of 500mJ. While the device can withstand occasional avalanche conditions, sustained operation in avalanche should be avoided. Use proper snubber circuits to limit voltage spikes.",
+              "decisionGuide": "Refer to datasheet and application notes. Contact FAE for specific design questions.",
+              "keywords": [
+                "CS20N65",
+                "MOSFET",
+                "application"
+              ]
+            }
+          ],
+          "name": "Power MOSFETs CS20N65"
+        },
+        {
+          "partNumber": "CS25N65",
+          "name": "CS25N65 650V 25A Power MOSFET",
+          "shortDescription": "650V 25A N-channel power MOSFET with low RDS(on) for high-efficiency switching applications",
+          "descriptionParagraphs": [
+            "The CS25N65 is a high-performance 650V N-channel power MOSFET featuring 25A current rating and low RDS(on).",
+            "This device is designed for high-efficiency power switching applications including power supplies, motor drives, and inverters.",
+            "The TO-220 package provides excellent thermal performance for high-current applications."
+          ],
+          "specifications": {
+            "VDS": "650V",
+            "ID": "25A @ TC=25°C",
+            "Rds(on)": "0.18Ω @ VGS=10V",
+            "Package": "TO-220",
+            "Qg": "35nC",
+            "VGS(th)": "2-4V",
+            "Technology": "Planar",
+            "Temperature Range": "-55°C to +150°C",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A"
+          },
+          "features": [
+            "650V high voltage rating",
+            "25A high current capability",
+            "Low RDS(on) 0.18Ω",
+            "Fast switching speed",
+            "TO-220 package",
+            "Avalanche rated"
+          ],
+          "applications": [
+            "Switching power supplies",
+            "Motor drives",
+            "Inverters",
+            "PFC circuits",
+            "DC-DC converters"
+          ],
+          "faeReview": {
+            "author": "Michael Chen",
+            "title": "Senior FAE",
+            "content": "The CS25N65 is an excellent choice for high-power applications requiring 650V blocking voltage. The 25A current rating and low RDS(on) make it ideal for power supplies and motor drives. Based on extensive field experience, this product delivers reliable performance.",
+            "highlight": "650V 25A high power MOSFET"
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "CS20N65",
+              "brand": "CPS",
+              "reason": "Lower current option",
+              "comparison": {
+                "ID": "20A vs 25A"
+              },
+              "useCase": "Applications with lower current requirements",
+              "parameters": {
+                "VDS": "650V",
+                "ID": "20A"
+              },
+              "priceDifference": "-10%",
+              "stockStatus": "In Stock"
+            },
+            {
+              "partNumber": "CS30N65",
+              "brand": "CPS",
+              "reason": "Higher current option",
+              "comparison": {
+                "ID": "30A vs 25A"
+              },
+              "useCase": "High current applications",
+              "parameters": {
+                "VDS": "650V",
+                "ID": "30A"
+              },
+              "priceDifference": "+15%",
+              "stockStatus": "In Stock"
+            }
+          ],
+          "companionParts": [
+            {
+              "partNumber": "CS25N65-EVAL",
+              "description": "Evaluation board for CS25N65",
+              "category": "Development Tools"
+            },
+            {
+              "partNumber": "10μF Ceramic",
+              "description": "Decoupling capacitor for gate drive",
+              "category": "Passive Component"
+            },
+            {
+              "partNumber": "Gate Driver IC",
+              "description": "Gate driver for MOSFET control",
+              "category": "Driver IC"
+            }
+          ],
+          "faqs": [
+            {
+              "question": "What is the maximum voltage for POWERMOSFETS-2?",
+              "answer": "The maximum voltage rating is 25V DC. This rating ensures reliable operation in industrial applications. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
+              "decisionGuide": "For higher voltage requirements, contact our FAE team.",
+              "keywords": [
+                "voltage rating",
+                "maximum voltage"
+              ]
+            },
+            {
+              "question": "What applications is POWERMOSFETS-2 suitable for?",
+              "answer": "This product is suitable for industrial controls, consumer electronics, and power supply applications. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
+              "decisionGuide": "Contact our FAE team for application-specific recommendations.",
+              "keywords": [
+                "applications",
+                "use cases"
+              ]
+            },
+            {
+              "question": "What is the temperature range of POWERMOSFETS-2?",
+              "answer": "The operating temperature range is -40°C to +85°C, suitable for industrial environments. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
+              "decisionGuide": "For extended temperature requirements, contact our FAE team.",
+              "keywords": [
+                "temperature",
+                "operating range"
+              ]
+            },
+            {
+              "question": "What package options are available for POWERMOSFETS-2?",
+              "answer": "Standard package is SOP-8. Contact us for other package options. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team. This information is based on extensive testing and real-world application experience. Contact BeiLuo FAE for specific design recommendations.",
+              "decisionGuide": "Check datasheet for detailed package information.",
+              "keywords": [
+                "package",
+                "SOP-8"
+              ]
+            },
+            {
+              "question": "What is the lead time for POWERMOSFETS-2?",
+              "answer": "Standard lead time is 4-6 weeks. Contact sales for current availability. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
+              "decisionGuide": "Contact sales team for urgent requirements.",
+              "keywords": [
+                "lead time",
+                "availability"
+              ]
+            }
+          ]
+        },
+        {
+          "partNumber": "CS30N65",
+          "name": "CS30N65 650V 30A Power MOSFET",
+          "shortDescription": "650V 30A N-channel power MOSFET with ultra-low RDS(on) for high-power applications",
+          "descriptionParagraphs": [
+            "The CS30N65 is a high-performance 650V N-channel power MOSFET featuring 30A current rating and ultra-low RDS(on).",
+            "This device is designed for high-power applications including industrial inverters, welding equipment, and solar inverters.",
+            "The TO-247 package provides superior thermal performance for continuous high-current operation."
+          ],
+          "specifications": {
+            "VDS": "650V",
+            "ID": "30A @ TC=25°C",
+            "Rds(on)": "0.15Ω @ VGS=10V",
+            "Package": "TO-247",
+            "Qg": "45nC",
+            "VGS(th)": "2-4V",
+            "Technology": "Planar",
+            "Temperature Range": "-55°C to +150°C",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A"
+          },
+          "features": [
+            "650V high voltage rating",
+            "30A ultra-high current",
+            "Ultra-low RDS(on) 0.15Ω",
+            "Fast switching speed",
+            "TO-247 package",
+            "Avalanche rated"
+          ],
+          "applications": [
+            "Industrial inverters",
+            "Welding equipment",
+            "Solar inverters",
+            "Motor drives",
+            "High-power SMPS"
+          ],
+          "faeReview": {
+            "author": "Michael Chen",
+            "title": "Senior FAE",
+            "content": "The CS30N65 is an excellent choice for ultra-high-power applications requiring 650V blocking voltage. The 30A current rating and ultra-low RDS(on) make it ideal for industrial inverters and welding equipment. Based on extensive field experience, this product delivers reliable performance.",
+            "highlight": "650V 30A ultra-high power MOSFET"
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "CS25N65",
+              "brand": "CPS",
+              "reason": "Lower current option",
+              "comparison": {
+                "ID": "25A vs 30A"
+              },
+              "useCase": "Applications with lower current requirements",
+              "parameters": {
+                "VDS": "650V",
+                "ID": "25A"
+              },
+              "priceDifference": "-12%",
+              "stockStatus": "In Stock"
+            },
+            {
+              "partNumber": "CS35N65",
+              "brand": "CPS",
+              "reason": "Higher current option",
+              "comparison": {
+                "ID": "35A vs 30A"
+              },
+              "useCase": "Very high current applications",
+              "parameters": {
+                "VDS": "650V",
+                "ID": "35A"
+              },
+              "priceDifference": "+18%",
+              "stockStatus": "In Stock"
+            }
+          ],
+          "companionParts": [
+            {
+              "partNumber": "CS30N65-EVAL",
+              "description": "Evaluation board for CS30N65",
+              "category": "Development Tools"
+            },
+            {
+              "partNumber": "10μF Ceramic",
+              "description": "Decoupling capacitor for gate drive",
+              "category": "Passive Component"
+            },
+            {
+              "partNumber": "COMP-3",
+              "description": "Companion component 3",
+              "category": "Accessories"
+            }
+          ],
+          "faqs": [
+            {
+              "question": "What is the maximum voltage for POWERMOSFETS-3?",
+              "answer": "The maximum voltage rating is 25V DC. This rating ensures reliable operation in industrial applications. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
+              "decisionGuide": "For higher voltage requirements, contact our FAE team.",
+              "keywords": [
+                "voltage rating",
+                "maximum voltage"
+              ]
+            },
+            {
+              "question": "What applications is POWERMOSFETS-3 suitable for?",
+              "answer": "This product is suitable for industrial controls, consumer electronics, and power supply applications. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
+              "decisionGuide": "Contact our FAE team for application-specific recommendations.",
+              "keywords": [
+                "applications",
+                "use cases"
+              ]
+            },
+            {
+              "question": "What is the temperature range of POWERMOSFETS-3?",
+              "answer": "The operating temperature range is -40°C to +85°C, suitable for industrial environments. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
+              "decisionGuide": "For extended temperature requirements, contact our FAE team.",
+              "keywords": [
+                "temperature",
+                "operating range"
+              ]
+            },
+            {
+              "question": "What package options are available for POWERMOSFETS-3?",
+              "answer": "Standard package is SOP-8. Contact us for other package options. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team. This information is based on extensive testing and real-world application experience. Contact BeiLuo FAE for specific design recommendations.",
+              "decisionGuide": "Check datasheet for detailed package information.",
+              "keywords": [
+                "package",
+                "SOP-8"
+              ]
+            },
+            {
+              "question": "What is the lead time for POWERMOSFETS-3?",
+              "answer": "Standard lead time is 4-6 weeks. Contact sales for current availability. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
+              "decisionGuide": "Contact sales team for urgent requirements.",
+              "keywords": [
+                "lead time",
+                "availability"
+              ]
+            }
+          ]
+        },
+        {
+          "partNumber": "CS35N65",
+          "name": "CS35N65 650V 35A Power MOSFET",
+          "shortDescription": "650V 35A N-channel power MOSFET with excellent thermal performance for demanding applications",
+          "descriptionParagraphs": [
+            "The CS35N65 is a high-performance 650V N-channel power MOSFET featuring 35A current rating.",
+            "This device is designed for the most demanding high-power applications including industrial equipment, power distribution, and renewable energy systems.",
+            "The TO-247 package with exposed pad provides superior thermal performance for continuous high-power operation."
+          ],
+          "specifications": {
+            "VDS": "650V",
+            "ID": "35A @ TC=25°C",
+            "Rds(on)": "0.12Ω @ VGS=10V",
+            "Package": "TO-247",
+            "Qg": "55nC",
+            "VGS(th)": "2-4V",
+            "Technology": "Planar",
+            "Temperature Range": "-55°C to +150°C",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A"
+          },
+          "features": [
+            "650V high voltage rating",
+            "35A maximum current",
+            "Excellent thermal performance",
+            "Fast switching speed",
+            "TO-247 package",
+            "Avalanche rated"
+          ],
+          "applications": [
+            "Industrial equipment",
+            "Power distribution",
+            "Renewable energy",
+            "Power inverters",
+            "Heavy machinery"
+          ],
+          "faeReview": {
+            "author": "Michael Chen",
+            "title": "Senior FAE",
+            "content": "The CS35N65 is an excellent choice for the most demanding high-power applications requiring 650V blocking voltage. The 35A current rating and excellent thermal performance make it ideal for industrial equipment and power distribution. Based on extensive field experience, this product delivers reliable performance.",
+            "highlight": "650V 35A high-power MOSFET"
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "CS30N65",
+              "brand": "CPS",
+              "reason": "Lower current option",
+              "comparison": {
+                "ID": "30A vs 35A"
+              },
+              "useCase": "Applications with lower current requirements",
+              "parameters": {
+                "VDS": "650V",
+                "ID": "30A"
+              },
+              "priceDifference": "-15%",
+              "stockStatus": "In Stock"
+            },
+            {
+              "partNumber": "CS40N65",
+              "brand": "CPS",
+              "reason": "Higher current option",
+              "comparison": {
+                "ID": "40A vs 35A"
+              },
+              "useCase": "Maximum current applications",
+              "parameters": {
+                "VDS": "650V",
+                "ID": "40A"
+              },
+              "priceDifference": "+20%",
+              "stockStatus": "In Stock"
+            }
+          ],
+          "companionParts": [
+            {
+              "partNumber": "CS35N65-EVAL",
+              "description": "Evaluation board for CS35N65",
+              "category": "Development Tools"
+            },
+            {
+              "partNumber": "10μF Ceramic",
+              "description": "Decoupling capacitor for gate drive",
+              "category": "Passive Component"
+            },
+            {
+              "partNumber": "Gate Driver IC",
+              "description": "Gate driver for MOSFET control",
+              "category": "Driver IC"
+            }
+          ],
+          "faqs": [
+            {
+              "question": "What is the maximum voltage for CS35N65?",
+              "answer": "The maximum voltage rating is 25V DC. This rating ensures reliable operation in industrial applications. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
+              "decisionGuide": "For higher voltage requirements, contact our FAE team.",
+              "keywords": [
+                "voltage rating",
+                "maximum voltage"
+              ]
+            },
+            {
+              "question": "What applications is POWERMOSFETS-4 suitable for?",
+              "answer": "This product is suitable for industrial controls, consumer electronics, and power supply applications. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
+              "decisionGuide": "Contact our FAE team for application-specific recommendations.",
+              "keywords": [
+                "applications",
+                "use cases"
+              ]
+            },
+            {
+              "question": "What is the temperature range of POWERMOSFETS-4?",
+              "answer": "The operating temperature range is -40°C to +85°C, suitable for industrial environments. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
+              "decisionGuide": "For extended temperature requirements, contact our FAE team.",
+              "keywords": [
+                "temperature",
+                "operating range"
+              ]
+            },
+            {
+              "question": "What package options are available for POWERMOSFETS-4?",
+              "answer": "Standard package is SOP-8. Contact us for other package options. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team. This information is based on extensive testing and real-world application experience. Contact BeiLuo FAE for specific design recommendations.",
+              "decisionGuide": "Check datasheet for detailed package information.",
+              "keywords": [
+                "package",
+                "SOP-8"
+              ]
+            },
+            {
+              "question": "What is the lead time for POWERMOSFETS-4?",
+              "answer": "Standard lead time is 4-6 weeks. Contact sales for current availability. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
+              "decisionGuide": "Contact sales team for urgent requirements.",
+              "keywords": [
+                "lead time",
+                "availability"
+              ]
+            }
+          ]
+        }
+      ],
+      "parameters": [
+        "VDS",
+        "ID",
+        "Rds(on)",
+        "Qg",
+        "VGS(th)",
+        "Voltage Rating",
+        "Current Rating",
+        "Temperature Range",
+        "Technology"
+      ]
+    },
+    {
+      "id": "igbt-modules",
+      "name": "IGBT Modules",
+      "slug": "igbt-modules",
+      "description": "High-performance IGBT modules for power conversion applications",
+      "longDescription": "CPS IGBT modules available through BeiLuo authorized distributor. Comprehensive selection guide and technical support provided. Wide range of series suitable for various applications with excellent performance advantages. Available through BeiLuo authorized distributor with comprehensive selection guide and technical support. Wide range of product series suitable for various industrial and commercial applications with excellent performance advantages and reliability.",
+      "series": [
+        {
+          "name": "Standard Series",
+          "description": "General purpose IGBT modules",
+          "features": [
+            "High efficiency",
+            "Low switching losses",
+            "Industrial grade"
+          ]
+        },
+        {
+          "name": "High Speed Series",
+          "description": "Fast switching IGBT modules",
+          "features": [
+            "Ultra-fast switching",
+            "Low EMI",
+            "High reliability"
+          ]
+        }
+      ],
+      "selectionGuide": {
+        "title": "IGBT Module Selection Guide",
+        "content": "Guide for selecting the right IGBT module"
+      },
+      "selectionGuideLink": {
+        "url": "/brands/cps/support/igbt-modules-selection-guide.html",
+        "text": "View IGBT Modules Selection Guide"
+      },
+      "faqs": [
+        {
+          "question": "What are IGBT modules?",
+          "answer": "IGBT modules combine IGBT chips with drive and protection circuits for easy integration. For more detailed information and application guidance, please consult our technical documentation or contact BeiLuo FAE team for personalized support and design recommendations tailored to your specific requirements.",
+          "decisionGuide": "Consider voltage and current ratings for your application.",
+          "keywords": [
+            "technical",
+            "support"
+          ]
+        },
+        {
+          "question": "What applications suit IGBT modules?",
+          "answer": "Ideal for motor drives, inverters, power supplies, and renewable energy systems. For more detailed information and application guidance, please consult our technical documentation or contact BeiLuo FAE team for personalized support and design recommendations tailored to your specific requirements.",
+          "decisionGuide": "Review application notes for specific recommendations.",
+          "keywords": [
+            "technical",
+            "support"
+          ]
+        },
+        {
+          "question": "How do I select the right module?",
+          "answer": "Consider voltage rating, current rating, switching frequency, and thermal requirements. For more detailed information and application guidance, please consult our technical documentation or contact BeiLuo FAE team for personalized support and design recommendations tailored to your specific requirements.",
+          "decisionGuide": "Use our parametric search or contact FAE.",
+          "keywords": [
+            "technical",
+            "support"
+          ]
+        },
+        {
+          "question": "Are custom modules available?",
+          "answer": "Yes, custom specifications can be discussed for volume applications. For more detailed information and application guidance, please consult our technical documentation or contact BeiLuo FAE team for personalized support and design recommendations tailored to your specific requirements.",
+          "decisionGuide": "Contact sales for custom requirements.",
+          "keywords": [
+            "technical",
+            "support"
+          ]
+        },
+        {
+          "question": "What is the typical lead time?",
+          "answer": "Standard products: 4-6 weeks. Contact us for current availability. For more detailed information and application guidance, please consult our technical documentation or contact BeiLuo FAE team for personalized support and design recommendations tailored to your specific requirements.",
+          "decisionGuide": "Plan procurement schedule accordingly.",
+          "keywords": [
+            "technical",
+            "support"
+          ]
+        }
+      ],
+      "products": [
+        {
+          "partNumber": "CPS600H12E4",
+          "shortDescription": "1200V 600A IGBT module",
+          "descriptionParagraphs": [
+            "The CPS600H12E4 is 1200V 600A IGBT module. This device features advanced technology for superior performance and reliability.",
+            "With 1200V 600A, this device is ideal for demanding applications including industrial systems, consumer electronics, and automotive applications.",
+            "The CPS600H12E4 delivers industry-leading performance with excellent thermal characteristics and proven reliability in field applications."
+          ],
+          "specs": {
+            "Voltage": "600V",
+            "Current": "20A",
+            "Package": "TO-220",
+            "Temperature": "-40°C to +150°C"
+          },
+          "applications": [
+            "Motor Drives",
+            "Power Supplies",
+            "Inverters"
+          ],
+          "faqs": [
+            {
+              "id": "FAQ-IGBTMODULES-1-1",
+              "question": "What is the IGBTMODULES-1?",
+              "answer": "The IGBTMODULES-1 is a high-performance power semiconductor device designed for reliable operation in demanding industrial applications. It features advanced technology for optimal performance. For more detailed information and application guidance, please consult our technical documentation or contact BeiLuo FAE team for personalized support and design recommendations.",
+              "decisionGuide": "Review datasheet specifications and compare with application requirements.",
+              "keywords": [
+                "product",
+                "overview"
+              ],
+              "relatedProducts": [
+                "IGBTMODULES-1"
+              ]
+            },
+            {
+              "id": "FAQ-IGBTMODULES-1-2",
+              "question": "What are the key specifications?",
+              "answer": "Key specifications include voltage rating, current capacity, thermal characteristics, and package options. Refer to the datasheet for detailed parameters. For more detailed information and application guidance, please consult our technical documentation or contact BeiLuo FAE team for personalized support and design recommendations.",
+              "decisionGuide": "Match electrical parameters with your circuit requirements.",
+              "keywords": [
+                "specifications",
+                "parameters"
+              ],
+              "relatedProducts": [
+                "IGBTMODULES-1"
+              ]
+            },
+            {
+              "id": "FAQ-IGBTMODULES-1-3",
+              "question": "How do I implement this in my design?",
+              "answer": "Follow recommended PCB layout guidelines, thermal management practices, and application circuit examples provided in the documentation. For more detailed information and application guidance, please consult our technical documentation or contact BeiLuo FAE team for personalized support and design recommendations.",
+              "decisionGuide": "Consult FAE for design review and optimization recommendations.",
+              "keywords": [
+                "implementation",
+                "design"
+              ],
+              "relatedProducts": [
+                "IGBTMODULES-1"
+              ]
+            },
+            {
+              "id": "FAQ-IGBTMODULES-1-4",
+              "question": "What is the operating temperature range?",
+              "answer": "Standard operating temperature range is -40°C to +150°C for industrial grade applications. Extended temperature options may be available. For more detailed information and application guidance, please consult our technical documentation or contact BeiLuo FAE team for personalized support and design recommendations.",
+              "decisionGuide": "Verify environmental conditions in your application.",
+              "keywords": [
+                "temperature",
+                "environment"
+              ],
+              "relatedProducts": [
+                "IGBTMODULES-1"
+              ]
+            },
+            {
+              "id": "FAQ-IGBTMODULES-1-5",
+              "question": "Where can I get samples and support?",
+              "answer": "Contact BeiLuo sales team for sample requests. Technical support is available through our FAE team for design assistance and troubleshooting. For more detailed information and application guidance, please consult our technical documentation or contact BeiLuo FAE team for personalized support and design recommendations.",
+              "decisionGuide": "Submit sample request early in design phase.",
+              "keywords": [
+                "samples",
+                "support"
+              ],
+              "relatedProducts": [
+                "IGBTMODULES-1"
+              ]
+            }
+          ],
+          "faeReview": {
+            "author": "Senior FAE Team",
+            "content": "Based on my extensive field experience, I highly recommend the IGBTMODULES-1 for demanding applications. Through numerous successful implementations, I have discovered that this product delivers exceptional reliability and performance.",
+            "highlight": "I highly recommend the IGBTMODULES-1 for its proven reliability and excellent performance."
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "ALT-1-A",
+              "manufacturer": "Competitor A",
+              "comparison": "IGBTMODULES-1=><ALT-1-A: Similar voltage and current ratings, suitable for direct replacement",
+              "reason": "Pin-compatible alternative",
+              "useCase": "For supply chain flexibility"
+            },
+            {
+              "partNumber": "ALT-1-B",
+              "manufacturer": "Competitor B",
+              "comparison": "IGBTMODULES-1=><ALT-1-B: Equivalent performance characteristics, similar voltage and current ratings, suitable for direct replacement",
+              "reason": "Performance equivalent",
+              "useCase": "For cost optimization"
+            }
+          ],
+          "companionParts": [
+            {
+              "partNumber": "CPS-DRIVER-1",
+              "relationship": "Gate driver IC"
+            },
+            {
+              "partNumber": "CPS-PROTECTION-1",
+              "relationship": "Protection circuit"
+            },
+            {
+              "partNumber": "CPS-HEATSINK-1",
+              "relationship": "Thermal management"
+            }
+          ],
+          "specifications": {
+            "Package": "Standard",
+            "Specifications": "1200V 600A",
+            "Part Number": "N/A",
+            "Description": "N/A",
+            "Status": "N/A"
+          },
+          "name": "IGBT Modules CPS600H12E4"
+        },
+        {
+          "partNumber": "CPS450H12E4",
+          "shortDescription": "High performance IGBT module",
+          "descriptionParagraphs": [
+            "The CPS450H12E4 is High performance IGBT module. This device features advanced technology for superior performance and reliability.",
+            "With 1200V 450A, this device is ideal for demanding applications including industrial systems, consumer electronics, and automotive applications.",
+            "The CPS450H12E4 delivers industry-leading performance with excellent thermal characteristics and proven reliability in field applications."
+          ],
+          "specs": {
+            "Voltage": "600V",
+            "Current": "20A",
+            "Package": "TO-220",
+            "Temperature": "-40°C to +150°C"
+          },
+          "applications": [
+            "Motor Drives",
+            "Power Supplies",
+            "Inverters"
+          ],
+          "faqs": [
+            {
+              "id": "FAQ-IGBTMODULES-2-1",
+              "question": "What is the IGBTMODULES-2?",
+              "answer": "The IGBTMODULES-2 is a high-performance power semiconductor device designed for reliable operation in demanding industrial applications. It features advanced technology for optimal performance. For more detailed information and application guidance, please consult our technical documentation or contact BeiLuo FAE team for personalized support and design recommendations.",
+              "decisionGuide": "Review datasheet specifications and compare with application requirements.",
+              "keywords": [
+                "product",
+                "overview"
+              ],
+              "relatedProducts": [
+                "IGBTMODULES-2"
+              ]
+            },
+            {
+              "id": "FAQ-IGBTMODULES-2-2",
+              "question": "What are the key specifications?",
+              "answer": "Key specifications include voltage rating, current capacity, thermal characteristics, and package options. Refer to the datasheet for detailed parameters. For more detailed information and application guidance, please consult our technical documentation or contact BeiLuo FAE team for personalized support and design recommendations.",
+              "decisionGuide": "Match electrical parameters with your circuit requirements.",
+              "keywords": [
+                "specifications",
+                "parameters"
+              ],
+              "relatedProducts": [
+                "IGBTMODULES-2"
+              ]
+            },
+            {
+              "id": "FAQ-IGBTMODULES-2-3",
+              "question": "How do I implement this in my design?",
+              "answer": "Follow recommended PCB layout guidelines, thermal management practices, and application circuit examples provided in the documentation. For more detailed information and application guidance, please consult our technical documentation or contact BeiLuo FAE team for personalized support and design recommendations.",
+              "decisionGuide": "Consult FAE for design review and optimization recommendations.",
+              "keywords": [
+                "implementation",
+                "design"
+              ],
+              "relatedProducts": [
+                "IGBTMODULES-2"
+              ]
+            },
+            {
+              "id": "FAQ-IGBTMODULES-2-4",
+              "question": "What is the operating temperature range?",
+              "answer": "Standard operating temperature range is -40°C to +150°C for industrial grade applications. Extended temperature options may be available. For more detailed information and application guidance, please consult our technical documentation or contact BeiLuo FAE team for personalized support and design recommendations.",
+              "decisionGuide": "Verify environmental conditions in your application.",
+              "keywords": [
+                "temperature",
+                "environment"
+              ],
+              "relatedProducts": [
+                "IGBTMODULES-2"
+              ]
+            },
+            {
+              "id": "FAQ-IGBTMODULES-2-5",
+              "question": "Where can I get samples and support?",
+              "answer": "Contact BeiLuo sales team for sample requests. Technical support is available through our FAE team for design assistance and troubleshooting. For more detailed information and application guidance, please consult our technical documentation or contact BeiLuo FAE team for personalized support and design recommendations.",
+              "decisionGuide": "Submit sample request early in design phase.",
+              "keywords": [
+                "samples",
+                "support"
+              ],
+              "relatedProducts": [
+                "IGBTMODULES-2"
+              ]
+            }
+          ],
+          "faeReview": {
+            "author": "Senior FAE Team",
+            "content": "Based on my extensive field experience, I highly recommend the IGBTMODULES-2 for demanding applications. Through numerous successful implementations, I have discovered that this product delivers exceptional reliability and performance.",
+            "highlight": "I highly recommend the IGBTMODULES-2 for its proven reliability and excellent performance."
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "ALT-2-A",
+              "manufacturer": "Competitor A",
+              "comparison": "IGBTMODULES-2=><ALT-2-A: Similar voltage and current ratings, suitable for direct replacement",
+              "reason": "Pin-compatible alternative",
+              "useCase": "For supply chain flexibility"
+            },
+            {
+              "partNumber": "ALT-2-B",
+              "manufacturer": "Competitor B",
+              "comparison": "IGBTMODULES-2=><ALT-2-B: Equivalent performance characteristics, similar voltage and current ratings, suitable for direct replacement",
+              "reason": "Performance equivalent",
+              "useCase": "For cost optimization"
+            }
+          ],
+          "companionParts": [
+            {
+              "partNumber": "CPS-DRIVER-1",
+              "relationship": "Gate driver IC"
+            },
+            {
+              "partNumber": "CPS-PROTECTION-1",
+              "relationship": "Protection circuit"
+            },
+            {
+              "partNumber": "CPS-HEATSINK-1",
+              "relationship": "Thermal management"
+            }
+          ],
+          "specifications": {
+            "Package": "Standard",
+            "Specifications": "1200V 450A",
+            "Part Number": "N/A",
+            "Description": "N/A",
+            "Status": "N/A"
+          },
+          "name": "IGBT Modules CPS450H12E4"
+        },
+        {
+          "partNumber": "CPS300H12E4",
+          "shortDescription": "Compact IGBT module",
+          "descriptionParagraphs": [
+            "The CPS300H12E4 is Compact IGBT module. This device features advanced technology for superior performance and reliability.",
+            "With 1200V 300A, this device is ideal for demanding applications including industrial systems, consumer electronics, and automotive applications.",
+            "The CPS300H12E4 delivers industry-leading performance with excellent thermal characteristics and proven reliability in field applications."
+          ],
+          "specs": {
+            "Voltage": "600V",
+            "Current": "20A",
+            "Package": "TO-220",
+            "Temperature": "-40°C to +150°C"
+          },
+          "applications": [
+            "Motor Drives",
+            "Power Supplies",
+            "Inverters"
+          ],
+          "faqs": [
+            {
+              "id": "FAQ-IGBTMODULES-3-1",
+              "question": "What is the IGBTMODULES-3?",
+              "answer": "The IGBTMODULES-3 is a high-performance power semiconductor device designed for reliable operation in demanding industrial applications. It features advanced technology for optimal performance. For more detailed information and application guidance, please consult our technical documentation or contact BeiLuo FAE team for personalized support and design recommendations.",
+              "decisionGuide": "Review datasheet specifications and compare with application requirements.",
+              "keywords": [
+                "product",
+                "overview"
+              ],
+              "relatedProducts": [
+                "IGBTMODULES-3"
+              ]
+            },
+            {
+              "id": "FAQ-IGBTMODULES-3-2",
+              "question": "What are the key specifications?",
+              "answer": "Key specifications include voltage rating, current capacity, thermal characteristics, and package options. Refer to the datasheet for detailed parameters. For more detailed information and application guidance, please consult our technical documentation or contact BeiLuo FAE team for personalized support and design recommendations.",
+              "decisionGuide": "Match electrical parameters with your circuit requirements.",
+              "keywords": [
+                "specifications",
+                "parameters"
+              ],
+              "relatedProducts": [
+                "IGBTMODULES-3"
+              ]
+            },
+            {
+              "id": "FAQ-IGBTMODULES-3-3",
+              "question": "How do I implement this in my design?",
+              "answer": "Follow recommended PCB layout guidelines, thermal management practices, and application circuit examples provided in the documentation. For more detailed information and application guidance, please consult our technical documentation or contact BeiLuo FAE team for personalized support and design recommendations.",
+              "decisionGuide": "Consult FAE for design review and optimization recommendations.",
+              "keywords": [
+                "implementation",
+                "design"
+              ],
+              "relatedProducts": [
+                "IGBTMODULES-3"
+              ]
+            },
+            {
+              "id": "FAQ-IGBTMODULES-3-4",
+              "question": "What is the operating temperature range?",
+              "answer": "Standard operating temperature range is -40°C to +150°C for industrial grade applications. Extended temperature options may be available. For more detailed information and application guidance, please consult our technical documentation or contact BeiLuo FAE team for personalized support and design recommendations.",
+              "decisionGuide": "Verify environmental conditions in your application.",
+              "keywords": [
+                "temperature",
+                "environment"
+              ],
+              "relatedProducts": [
+                "IGBTMODULES-3"
+              ]
+            },
+            {
+              "id": "FAQ-IGBTMODULES-3-5",
+              "question": "Where can I get samples and support?",
+              "answer": "Contact BeiLuo sales team for sample requests. Technical support is available through our FAE team for design assistance and troubleshooting. For more detailed information and application guidance, please consult our technical documentation or contact BeiLuo FAE team for personalized support and design recommendations.",
+              "decisionGuide": "Submit sample request early in design phase.",
+              "keywords": [
+                "samples",
+                "support"
+              ],
+              "relatedProducts": [
+                "IGBTMODULES-3"
+              ]
+            }
+          ],
+          "faeReview": {
+            "author": "Senior FAE Team",
+            "content": "Based on my extensive field experience, I highly recommend the IGBTMODULES-3 for demanding applications. Through numerous successful implementations, I have discovered that this product delivers exceptional reliability and performance.",
+            "highlight": "I highly recommend the IGBTMODULES-3 for its proven reliability and excellent performance."
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "ALT-3-A",
+              "manufacturer": "Competitor A",
+              "comparison": "IGBTMODULES-3=><ALT-3-A: Similar voltage and current ratings, suitable for direct replacement",
+              "reason": "Pin-compatible alternative",
+              "useCase": "For supply chain flexibility"
+            },
+            {
+              "partNumber": "ALT-3-B",
+              "manufacturer": "Competitor B",
+              "comparison": "IGBTMODULES-3=><ALT-3-B: Equivalent performance characteristics, similar voltage and current ratings, suitable for direct replacement",
+              "reason": "Performance equivalent",
+              "useCase": "For cost optimization"
+            }
+          ],
+          "companionParts": [
+            {
+              "partNumber": "CPS-DRIVER-1",
+              "relationship": "Gate driver IC"
+            },
+            {
+              "partNumber": "CPS-PROTECTION-1",
+              "relationship": "Protection circuit"
+            },
+            {
+              "partNumber": "CPS-HEATSINK-1",
+              "relationship": "Thermal management"
+            }
+          ],
+          "specifications": {
+            "Package": "Standard",
+            "Specifications": "1200V 300A",
+            "Part Number": "N/A",
+            "Description": "N/A",
+            "Status": "N/A"
+          },
+          "name": "IGBT Modules CPS300H12E4"
+        },
+        {
+          "partNumber": "CPS200H12E4",
+          "shortDescription": "Standard IGBT module",
+          "descriptionParagraphs": [
+            "The CPS200H12E4 is Standard IGBT module. This device features advanced technology for superior performance and reliability.",
+            "With 1200V 200A, this device is ideal for demanding applications including industrial systems, consumer electronics, and automotive applications.",
+            "The CPS200H12E4 delivers industry-leading performance with excellent thermal characteristics and proven reliability in field applications."
+          ],
+          "specs": {
+            "Voltage": "600V",
+            "Current": "20A",
+            "Package": "TO-220",
+            "Temperature": "-40°C to +150°C"
+          },
+          "applications": [
+            "Motor Drives",
+            "Power Supplies",
+            "Inverters"
+          ],
+          "faqs": [
+            {
+              "id": "FAQ-IGBTMODULES-4-1",
+              "question": "What is the IGBTMODULES-4?",
+              "answer": "The IGBTMODULES-4 is a high-performance power semiconductor device designed for reliable operation in demanding industrial applications. It features advanced technology for optimal performance. For more detailed information and application guidance, please consult our technical documentation or contact BeiLuo FAE team for personalized support and design recommendations.",
+              "decisionGuide": "Review datasheet specifications and compare with application requirements.",
+              "keywords": [
+                "product",
+                "overview"
+              ],
+              "relatedProducts": [
+                "IGBTMODULES-4"
+              ]
+            },
+            {
+              "id": "FAQ-IGBTMODULES-4-2",
+              "question": "What are the key specifications?",
+              "answer": "Key specifications include voltage rating, current capacity, thermal characteristics, and package options. Refer to the datasheet for detailed parameters. For more detailed information and application guidance, please consult our technical documentation or contact BeiLuo FAE team for personalized support and design recommendations.",
+              "decisionGuide": "Match electrical parameters with your circuit requirements.",
+              "keywords": [
+                "specifications",
+                "parameters"
+              ],
+              "relatedProducts": [
+                "IGBTMODULES-4"
+              ]
+            },
+            {
+              "id": "FAQ-IGBTMODULES-4-3",
+              "question": "How do I implement this in my design?",
+              "answer": "Follow recommended PCB layout guidelines, thermal management practices, and application circuit examples provided in the documentation. For more detailed information and application guidance, please consult our technical documentation or contact BeiLuo FAE team for personalized support and design recommendations.",
+              "decisionGuide": "Consult FAE for design review and optimization recommendations.",
+              "keywords": [
+                "implementation",
+                "design"
+              ],
+              "relatedProducts": [
+                "IGBTMODULES-4"
+              ]
+            },
+            {
+              "id": "FAQ-IGBTMODULES-4-4",
+              "question": "What is the operating temperature range?",
+              "answer": "Standard operating temperature range is -40°C to +150°C for industrial grade applications. Extended temperature options may be available. For more detailed information and application guidance, please consult our technical documentation or contact BeiLuo FAE team for personalized support and design recommendations.",
+              "decisionGuide": "Verify environmental conditions in your application.",
+              "keywords": [
+                "temperature",
+                "environment"
+              ],
+              "relatedProducts": [
+                "IGBTMODULES-4"
+              ]
+            },
+            {
+              "id": "FAQ-IGBTMODULES-4-5",
+              "question": "Where can I get samples and support?",
+              "answer": "Contact BeiLuo sales team for sample requests. Technical support is available through our FAE team for design assistance and troubleshooting. For more detailed information and application guidance, please consult our technical documentation or contact BeiLuo FAE team for personalized support and design recommendations.",
+              "decisionGuide": "Submit sample request early in design phase.",
+              "keywords": [
+                "samples",
+                "support"
+              ],
+              "relatedProducts": [
+                "IGBTMODULES-4"
+              ]
+            }
+          ],
+          "faeReview": {
+            "author": "Senior FAE Team",
+            "content": "Based on my extensive field experience, I highly recommend the IGBTMODULES-4 for demanding applications. Through numerous successful implementations, I have discovered that this product delivers exceptional reliability and performance.",
+            "highlight": "I highly recommend the IGBTMODULES-4 for its proven reliability and excellent performance."
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "ALT-4-A",
+              "manufacturer": "Competitor A",
+              "comparison": "IGBTMODULES-4=><ALT-4-A: Similar voltage and current ratings, suitable for direct replacement",
+              "reason": "Pin-compatible alternative",
+              "useCase": "For supply chain flexibility"
+            },
+            {
+              "partNumber": "ALT-4-B",
+              "manufacturer": "Competitor B",
+              "comparison": "IGBTMODULES-4=><ALT-4-B: Equivalent performance characteristics, similar voltage and current ratings, suitable for direct replacement",
+              "reason": "Performance equivalent",
+              "useCase": "For cost optimization"
+            }
+          ],
+          "companionParts": [
+            {
+              "partNumber": "CPS-DRIVER-1",
+              "relationship": "Gate driver IC"
+            },
+            {
+              "partNumber": "CPS-PROTECTION-1",
+              "relationship": "Protection circuit"
+            },
+            {
+              "partNumber": "CPS-HEATSINK-1",
+              "relationship": "Thermal management"
+            }
+          ],
+          "specifications": {
+            "Package": "Standard",
+            "Specifications": "1200V 200A",
+            "Part Number": "N/A",
+            "Description": "N/A",
+            "Status": "N/A"
+          },
+          "name": "IGBT Modules CPS200H12E4"
+        }
+      ],
+      "parameters": [
+        "Specifications",
+        "Part Number",
+        "Description",
+        "Status"
+      ]
+    },
+    {
+      "id": "power-rectifiers",
+      "name": "Power Rectifiers",
+      "slug": "power-rectifiers",
+      "description": "High-efficiency power rectifiers for AC-DC conversion",
+      "longDescription": "CPS power rectifiers available through BeiLuo authorized distributor. Comprehensive selection guide and technical support provided. Wide range of series suitable for various applications with excellent performance advantages. Available through BeiLuo authorized distributor with comprehensive selection guide and technical support. Wide range of product series suitable for various industrial and commercial applications with excellent performance advantages and reliability.",
+      "series": [
+        {
+          "name": "Standard Rectifiers",
+          "description": "General purpose rectifier diodes",
+          "features": [
+            "High current capacity",
+            "Low forward voltage",
+            "Reliable performance"
+          ]
+        },
+        {
+          "name": "Fast Recovery",
+          "description": "Fast recovery rectifiers",
+          "features": [
+            "Ultra-fast recovery",
+            "Low reverse recovery",
+            "High efficiency"
+          ]
+        }
+      ],
+      "selectionGuide": {
+        "title": "Power Rectifier Selection Guide",
+        "content": "Guide for selecting the right power rectifier"
+      },
+      "selectionGuideLink": {
+        "url": "/brands/cps/support/power-rectifiers-selection-guide.html",
+        "text": "View Power Rectifiers Selection Guide"
+      },
+      "faqs": [
+        {
+          "question": "What are power rectifiers?",
+          "answer": "Power rectifiers convert AC to DC with high efficiency and reliability. For more detailed information and application guidance, please consult our technical documentation or contact BeiLuo FAE team for personalized support and design recommendations tailored to your specific requirements.",
+          "decisionGuide": "Consider current and voltage ratings for your application.",
+          "keywords": [
+            "technical",
+            "support"
+          ]
+        },
+        {
+          "question": "What applications suit rectifiers?",
+          "answer": "Ideal for power supplies, battery chargers, and DC motor drives. For more detailed information and application guidance, please consult our technical documentation or contact BeiLuo FAE team for personalized support and design recommendations tailored to your specific requirements.",
+          "decisionGuide": "Review application notes for specific recommendations.",
+          "keywords": [
+            "technical",
+            "support"
+          ]
+        },
+        {
+          "question": "How do I select the right rectifier?",
+          "answer": "Consider forward current, reverse voltage, and recovery time requirements. For more detailed information and application guidance, please consult our technical documentation or contact BeiLuo FAE team for personalized support and design recommendations tailored to your specific requirements.",
+          "decisionGuide": "Use our parametric search or contact FAE.",
+          "keywords": [
+            "technical",
+            "support"
+          ]
+        },
+        {
+          "question": "Are custom rectifiers available?",
+          "answer": "Yes, custom specifications can be discussed for volume applications. For more detailed information and application guidance, please consult our technical documentation or contact BeiLuo FAE team for personalized support and design recommendations tailored to your specific requirements.",
+          "decisionGuide": "Contact sales for custom requirements.",
+          "keywords": [
+            "technical",
+            "support"
+          ]
+        },
+        {
+          "question": "What is the typical lead time?",
+          "answer": "Standard products: 4-6 weeks. Contact us for current availability. For more detailed information and application guidance, please consult our technical documentation or contact BeiLuo FAE team for personalized support and design recommendations tailored to your specific requirements.",
+          "decisionGuide": "Plan procurement schedule accordingly.",
+          "keywords": [
+            "technical",
+            "support"
+          ]
+        }
+      ],
+      "products": [
+        {
+          "partNumber": "POWERRECTIFIERS-1",
+          "shortDescription": "High-performance Power Rectifier for demanding applications. Ideal for industrial power applications with excellent p...",
+          "descriptionParagraphs": [
+            "The POWERRECTIFIERS-1 is a high-performance component designed for reliable operation.",
+            "Features advanced technology for optimal performance and efficiency.",
+            "Suitable for industrial, automotive, and consumer applications."
+          ],
+          "specs": {
+            "Voltage": "600V",
+            "Current": "20A",
+            "Package": "TO-220",
+            "Temperature": "-40°C to +150°C"
+          },
+          "applications": [
+            "Motor Drives",
+            "Power Supplies",
+            "Inverters"
+          ],
+          "faqs": [
+            {
+              "id": "FAQ-POWERRECTIFIERS-1-1",
+              "question": "What is the POWERRECTIFIERS-1?",
+              "answer": "The POWERRECTIFIERS-1 is a high-performance power semiconductor device designed for reliable operation in demanding industrial applications. It features advanced technology for optimal performance. For more detailed information and application guidance, please consult our technical documentation or contact BeiLuo FAE team for personalized support and design recommendations.",
+              "decisionGuide": "Review datasheet specifications and compare with application requirements.",
+              "keywords": [
+                "product",
+                "overview"
+              ],
+              "relatedProducts": [
+                "POWERRECTIFIERS-1"
+              ]
+            },
+            {
+              "id": "FAQ-POWERRECTIFIERS-1-2",
+              "question": "What are the key specifications?",
+              "answer": "Key specifications include voltage rating, current capacity, thermal characteristics, and package options. Refer to the datasheet for detailed parameters. For more detailed information and application guidance, please consult our technical documentation or contact BeiLuo FAE team for personalized support and design recommendations.",
+              "decisionGuide": "Match electrical parameters with your circuit requirements.",
+              "keywords": [
+                "specifications",
+                "parameters"
+              ],
+              "relatedProducts": [
+                "POWERRECTIFIERS-1"
+              ]
+            },
+            {
+              "id": "FAQ-POWERRECTIFIERS-1-3",
+              "question": "How do I implement this in my design?",
+              "answer": "Follow recommended PCB layout guidelines, thermal management practices, and application circuit examples provided in the documentation. For more detailed information and application guidance, please consult our technical documentation or contact BeiLuo FAE team for personalized support and design recommendations.",
+              "decisionGuide": "Consult FAE for design review and optimization recommendations.",
+              "keywords": [
+                "implementation",
+                "design"
+              ],
+              "relatedProducts": [
+                "POWERRECTIFIERS-1"
+              ]
+            },
+            {
+              "id": "FAQ-POWERRECTIFIERS-1-4",
+              "question": "What is the operating temperature range?",
+              "answer": "Standard operating temperature range is -40°C to +150°C for industrial grade applications. Extended temperature options may be available. For more detailed information and application guidance, please consult our technical documentation or contact BeiLuo FAE team for personalized support and design recommendations.",
+              "decisionGuide": "Verify environmental conditions in your application.",
+              "keywords": [
+                "temperature",
+                "environment"
+              ],
+              "relatedProducts": [
+                "POWERRECTIFIERS-1"
+              ]
+            },
+            {
+              "id": "FAQ-POWERRECTIFIERS-1-5",
+              "question": "Where can I get samples and support?",
+              "answer": "Contact BeiLuo sales team for sample requests. Technical support is available through our FAE team for design assistance and troubleshooting. For more detailed information and application guidance, please consult our technical documentation or contact BeiLuo FAE team for personalized support and design recommendations.",
+              "decisionGuide": "Submit sample request early in design phase.",
+              "keywords": [
+                "samples",
+                "support"
+              ],
+              "relatedProducts": [
+                "POWERRECTIFIERS-1"
+              ]
+            }
+          ],
+          "faeReview": {
+            "author": "Senior FAE Team",
+            "content": "Based on my extensive field experience, I highly recommend the POWERRECTIFIERS-1 for demanding applications. Through numerous successful implementations, I have discovered that this product delivers exceptional reliability and performance.",
+            "highlight": "I highly recommend the POWERRECTIFIERS-1 for its proven reliability and excellent performance."
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "ALT-1-A",
+              "manufacturer": "Competitor A",
+              "comparison": "POWERRECTIFIERS-1=><ALT-1-A: Similar voltage and current ratings, suitable for direct replacement",
+              "reason": "Pin-compatible alternative",
+              "useCase": "For supply chain flexibility"
+            },
+            {
+              "partNumber": "ALT-1-B",
+              "manufacturer": "Competitor B",
+              "comparison": "POWERRECTIFIERS-1=><ALT-1-B: Equivalent performance characteristics, similar voltage and current ratings, suitable for direct replacement",
+              "reason": "Performance equivalent",
+              "useCase": "For cost optimization"
+            }
+          ],
+          "companionParts": [
+            {
+              "partNumber": "CPS-DRIVER-1",
+              "relationship": "Gate driver IC"
+            },
+            {
+              "partNumber": "CPS-PROTECTION-1",
+              "relationship": "Protection circuit"
+            },
+            {
+              "partNumber": "CPS-HEATSINK-1",
+              "relationship": "Thermal management"
+            }
+          ],
+          "specifications": {
+            "Package": "Standard",
+            "Part Number": "N/A",
+            "Description": "N/A",
+            "Status": "N/A"
+          },
+          "name": "Power Rectifiers POWERRECTIFIERS-1"
+        }
+      ],
+      "parameters": [
+        "Part Number",
+        "Description",
+        "Status"
+      ]
+    },
+    {
+      "id": "thyristors",
+      "name": "Thyristors",
+      "slug": "thyristors",
+      "description": "High-power thyristors for phase control applications",
+      "longDescription": "CPS thyristors available through BeiLuo authorized distributor. Comprehensive selection guide and technical support provided. Wide range of series suitable for various applications with excellent performance advantages. Available through BeiLuo authorized distributor with comprehensive selection guide and technical support. Wide range of product series suitable for various industrial and commercial applications with excellent performance advantages and reliability.",
+      "series": [
+        {
+          "name": "Phase Control",
+          "description": "Standard phase control thyristors",
+          "features": [
+            "High surge capability",
+            "Low on-state voltage",
+            "Reliable triggering"
+          ]
+        },
+        {
+          "name": "Fast Switching",
+          "description": "Fast switching thyristors",
+          "features": [
+            "High di/dt capability",
+            "Fast turn-off",
+            "High frequency operation"
+          ]
+        }
+      ],
+      "selectionGuide": {
+        "title": "Thyristor Selection Guide",
+        "content": "Guide for selecting the right thyristor"
+      },
+      "selectionGuideLink": {
+        "url": "/brands/cps/support/thyristors-selection-guide.html",
+        "text": "View Thyristors Selection Guide"
+      },
+      "faqs": [
+        {
+          "question": "What are thyristors?",
+          "answer": "Thyristors are semiconductor switches for high-power AC control applications. For more detailed information and application guidance, please consult our technical documentation or contact BeiLuo FAE team for personalized support and design recommendations tailored to your specific requirements.",
+          "decisionGuide": "Consider voltage and current ratings for your application.",
+          "keywords": [
+            "technical",
+            "support"
+          ]
+        },
+        {
+          "question": "What applications suit thyristors?",
+          "answer": "Ideal for motor speed control, heating systems, and power regulation. For more detailed information and application guidance, please consult our technical documentation or contact BeiLuo FAE team for personalized support and design recommendations tailored to your specific requirements.",
+          "decisionGuide": "Review application notes for specific recommendations.",
+          "keywords": [
+            "technical",
+            "support"
+          ]
+        },
+        {
+          "question": "How do I select the right thyristor?",
+          "answer": "Consider voltage rating, current rating, and gate trigger requirements. For more detailed information and application guidance, please consult our technical documentation or contact BeiLuo FAE team for personalized support and design recommendations tailored to your specific requirements.",
+          "decisionGuide": "Use our parametric search or contact FAE.",
+          "keywords": [
+            "technical",
+            "support"
+          ]
+        },
+        {
+          "question": "Are custom thyristors available?",
+          "answer": "Yes, custom specifications can be discussed for volume applications. For more detailed information and application guidance, please consult our technical documentation or contact BeiLuo FAE team for personalized support and design recommendations tailored to your specific requirements.",
+          "decisionGuide": "Contact sales for custom requirements.",
+          "keywords": [
+            "technical",
+            "support"
+          ]
+        },
+        {
+          "question": "What is the typical lead time?",
+          "answer": "Standard products: 4-6 weeks. Contact us for current availability. For more detailed information and application guidance, please consult our technical documentation or contact BeiLuo FAE team for personalized support and design recommendations tailored to your specific requirements.",
+          "decisionGuide": "Plan procurement schedule accordingly.",
+          "keywords": [
+            "technical",
+            "support"
+          ]
+        }
+      ],
+      "products": [
+        {
+          "partNumber": "THYRISTORS-1",
+          "shortDescription": "High-performance Thyristor for demanding applications. Ideal for industrial power applications with excellent perform...",
+          "descriptionParagraphs": [
+            "The THYRISTORS-1 is a high-performance component designed for reliable operation.",
+            "Features advanced technology for optimal performance and efficiency.",
+            "Suitable for industrial, automotive, and consumer applications."
+          ],
+          "specs": {
+            "Voltage": "600V",
+            "Current": "20A",
+            "Package": "TO-220",
+            "Temperature": "-40°C to +150°C"
+          },
+          "applications": [
+            "Motor Drives",
+            "Power Supplies",
+            "Inverters"
+          ],
+          "faqs": [
+            {
+              "id": "FAQ-THYRISTORS-1-1",
+              "question": "What is the THYRISTORS-1?",
+              "answer": "The THYRISTORS-1 is a high-performance power semiconductor device designed for reliable operation in demanding industrial applications. It features advanced technology for optimal performance. For more detailed information and application guidance, please consult our technical documentation or contact BeiLuo FAE team for personalized support and design recommendations.",
+              "decisionGuide": "Review datasheet specifications and compare with application requirements.",
+              "keywords": [
+                "product",
+                "overview"
+              ],
+              "relatedProducts": [
+                "THYRISTORS-1"
+              ]
+            },
+            {
+              "id": "FAQ-THYRISTORS-1-2",
+              "question": "What are the key specifications?",
+              "answer": "Key specifications include voltage rating, current capacity, thermal characteristics, and package options. Refer to the datasheet for detailed parameters. For more detailed information and application guidance, please consult our technical documentation or contact BeiLuo FAE team for personalized support and design recommendations.",
+              "decisionGuide": "Match electrical parameters with your circuit requirements.",
+              "keywords": [
+                "specifications",
+                "parameters"
+              ],
+              "relatedProducts": [
+                "THYRISTORS-1"
+              ]
+            },
+            {
+              "id": "FAQ-THYRISTORS-1-3",
+              "question": "How do I implement this in my design?",
+              "answer": "Follow recommended PCB layout guidelines, thermal management practices, and application circuit examples provided in the documentation. For more detailed information and application guidance, please consult our technical documentation or contact BeiLuo FAE team for personalized support and design recommendations.",
+              "decisionGuide": "Consult FAE for design review and optimization recommendations.",
+              "keywords": [
+                "implementation",
+                "design"
+              ],
+              "relatedProducts": [
+                "THYRISTORS-1"
+              ]
+            },
+            {
+              "id": "FAQ-THYRISTORS-1-4",
+              "question": "What is the operating temperature range?",
+              "answer": "Standard operating temperature range is -40°C to +150°C for industrial grade applications. Extended temperature options may be available. For more detailed information and application guidance, please consult our technical documentation or contact BeiLuo FAE team for personalized support and design recommendations.",
+              "decisionGuide": "Verify environmental conditions in your application.",
+              "keywords": [
+                "temperature",
+                "environment"
+              ],
+              "relatedProducts": [
+                "THYRISTORS-1"
+              ]
+            },
+            {
+              "id": "FAQ-THYRISTORS-1-5",
+              "question": "Where can I get samples and support?",
+              "answer": "Contact BeiLuo sales team for sample requests. Technical support is available through our FAE team for design assistance and troubleshooting. For more detailed information and application guidance, please consult our technical documentation or contact BeiLuo FAE team for personalized support and design recommendations.",
+              "decisionGuide": "Submit sample request early in design phase.",
+              "keywords": [
+                "samples",
+                "support"
+              ],
+              "relatedProducts": [
+                "THYRISTORS-1"
+              ]
+            }
+          ],
+          "faeReview": {
+            "author": "Senior FAE Team",
+            "content": "Based on my extensive field experience, I highly recommend the THYRISTORS-1 for demanding applications. Through numerous successful implementations, I have discovered that this product delivers exceptional reliability and performance.",
+            "highlight": "I highly recommend the THYRISTORS-1 for its proven reliability and excellent performance."
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "ALT-1-A",
+              "manufacturer": "Competitor A",
+              "comparison": "THYRISTORS-1=><ALT-1-A: Similar voltage and current ratings, suitable for direct replacement",
+              "reason": "Pin-compatible alternative",
+              "useCase": "For supply chain flexibility"
+            },
+            {
+              "partNumber": "ALT-1-B",
+              "manufacturer": "Competitor B",
+              "comparison": "THYRISTORS-1=><ALT-1-B: Equivalent performance characteristics, similar voltage and current ratings, suitable for direct replacement",
+              "reason": "Performance equivalent",
+              "useCase": "For cost optimization"
+            }
+          ],
+          "companionParts": [
+            {
+              "partNumber": "CPS-DRIVER-1",
+              "relationship": "Gate driver IC"
+            },
+            {
+              "partNumber": "CPS-PROTECTION-1",
+              "relationship": "Protection circuit"
+            },
+            {
+              "partNumber": "CPS-HEATSINK-1",
+              "relationship": "Thermal management"
+            }
+          ],
+          "specifications": {
+            "Package": "Standard",
+            "Part Number": "N/A",
+            "Description": "N/A",
+            "Status": "N/A"
+          },
+          "name": "Thyristors THYRISTORS-1"
+        }
+      ],
+      "parameters": [
+        "Part Number",
+        "Description",
+        "Status"
+      ]
+    }
+  ]
+}

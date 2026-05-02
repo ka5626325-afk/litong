@@ -126,7 +126,12 @@
           "Verify USB OTG support if needed for your application"
         ],
         "practicalAdvice": "Start with evaluation boards to validate your charging profile before committing to custom PCB design.",
-        "insightLogic": "Based on extensive field experience with SouthChip products across multiple customer designs and applications."
+        "insightLogic": "Based on extensive field experience with SouthChip products across multiple customer designs and applications.",
+        "keyTakeaways": [
+          "Understand key criteria",
+          "Consider specifications",
+          "Consult FAE team"
+        ]
       },
       "relatedArticles": [
         {
@@ -254,7 +259,12 @@
           "Add filtering on sense lines to prevent noise issues"
         ],
         "practicalAdvice": "Validate fuel gauge accuracy across temperature range with your specific battery cells.",
-        "insightLogic": "Based on extensive field experience with SouthChip products across multiple customer designs and applications."
+        "insightLogic": "Based on extensive field experience with SouthChip products across multiple customer designs and applications.",
+        "keyTakeaways": [
+          "Understand key criteria",
+          "Consider specifications",
+          "Consult FAE team"
+        ]
       },
       "relatedArticles": [
         {
@@ -387,7 +397,12 @@
           "Ensure adequate input capacitance for stability"
         ],
         "practicalAdvice": "Always test transient response and efficiency across operating range during design validation.",
-        "insightLogic": "Based on extensive field experience with SouthChip products across multiple customer designs and applications."
+        "insightLogic": "Based on extensive field experience with SouthChip products across multiple customer designs and applications.",
+        "keyTakeaways": [
+          "Understand key criteria",
+          "Consider specifications",
+          "Consult FAE team"
+        ]
       },
       "relatedArticles": [
         {
@@ -521,7 +536,12 @@
           "Consider switching topology for high-current applications"
         ],
         "practicalAdvice": "Design for worst-case conditions: maximum ambient temperature, maximum charge current, and minimum input voltage.",
-        "insightLogic": "Based on extensive field experience with SouthChip products across multiple customer designs and applications."
+        "insightLogic": "Based on extensive field experience with SouthChip products across multiple customer designs and applications.",
+        "keyTakeaways": [
+          "Understand key criteria",
+          "Consider specifications",
+          "Consult FAE team"
+        ]
       },
       "relatedArticles": [
         {
@@ -627,6 +647,141 @@
             "Reduced design iteration"
           ],
           "feedback": "LiTong's technical support was excellent. They helped us avoid potential issues and optimize our design."
+        }
+      ]
+    },
+    {
+      "id": "wearable-power-design-guide",
+      "title": "Wearable Power Management Design Guide",
+      "slug": "wearable-power-design-guide",
+      "category": "Design Guide",
+      "description": "Comprehensive guide for designing ultra-low power management systems for wearable devices using SouthChip ICs.",
+      "contentParagraphs": [
+        "Wearable devices present unique power management challenges due to their small size, battery-powered operation, and always-on requirements. This guide covers best practices for designing ultra-low power management systems using SouthChip ICs.",
+        "Key considerations for wearable power design include minimizing standby current, optimizing charging for small batteries, accurate fuel gauging, and compact solution size. SouthChip's portfolio of ultra-low power ICs addresses all these requirements.",
+        "This guide covers component selection, PCB layout optimization, thermal management, and software integration for wearable power management applications."
+      ],
+      "faeInsights": {
+        "author": {
+          "name": "Sarah Liu",
+          "title": "Senior FAE - Battery Management"
+        },
+        "content": "Having designed numerous wearable power systems, I can share some critical insights. The most important factor is standby current - every microamp counts when the device is in sleep mode. I always start with the SC9017 charger for its sub-1μA standby and compact SOT-23-5 package. For fuel gauging, the SC2720's <50μA operating current is excellent for wearables. Key layout tips: place the sense resistor as close as possible to the fuel gauge with Kelvin connections - this is critical for accuracy. Use the smallest passives possible (0201 or 0402) to minimize size. For thermal design, even at low currents, ensure adequate copper area around the charger. One common mistake is underestimating the importance of input capacitor placement - place it right next to the charger IC. Also, don't forget to implement proper I2C pull-up resistors and ensure your host processor can handle the fuel gauge's interrupt for important events. With proper design, you can achieve weeks of battery life even with small batteries.",
+        "keyPoints": [
+          "Standby current is critical - every microamp affects battery life",
+          "Kelvin connections for sense resistor are essential for accuracy",
+          "Use smallest available passives (0201/0402) for compact designs",
+          "Input capacitor placement critical for stable operation"
+        ],
+        "practicalAdvice": "Always measure actual standby current in your design - theoretical calculations often differ from reality due to leakage paths.",
+        "insightLogic": "Based on extensive experience designing wearable power systems for various customers and applications.",
+        "keyTakeaways": [
+          "Minimize standby current for maximum battery life",
+          "Proper layout is critical for fuel gauge accuracy",
+          "Small passives enable compact wearable designs",
+          "Validate power consumption with actual measurements"
+        ]
+      },
+      "relatedArticles": [
+        {
+          "id": "battery-charger-selection-guide",
+          "title": "Battery Charger IC Selection Guide",
+          "link": "/southchip/support/battery-charger-selection-guide.html"
+        },
+        {
+          "id": "fuel-gauge-integration-guide",
+          "title": "Fuel Gauge IC Integration Guide",
+          "link": "/southchip/support/fuel-gauge-integration-guide.html"
+        },
+        {
+          "id": "thermal-management-guide",
+          "title": "Thermal Management for Power ICs",
+          "link": "/southchip/support/thermal-management-guide.html"
+        }
+      ],
+      "faqs": [
+        {
+          "question": "What is the most important factor in wearable power design?",
+          "answer": "The most critical factor is minimizing standby current. Wearables spend most of their time in sleep mode, so even small standby currents significantly impact battery life. Key strategies: (1) Select ICs with ultra-low standby current like SC9017 (<1μA). (2) Minimize leakage paths in PCB design. (3) Use high-value pull-up resistors for I2C and other signals. (4) Implement proper power gating for unused circuits. (5) Measure actual standby current - don't rely solely on datasheet values. A well-designed wearable power system should have total standby current under 5μA.",
+          "decisionGuide": "Contact LiTong for low-power design consultation and optimization.",
+          "keywords": [
+            "standby current",
+            "low power",
+            "battery life",
+            "wearable design"
+          ]
+        },
+        {
+          "question": "How do I minimize solution size for wearables?",
+          "answer": "Minimizing wearable power solution size: (1) IC selection - Use smallest packages (WLCSP, SOT-23). (2) Passive components - Use 0201 or 0402 size resistors and capacitors. (3) PCB layers - 4-layer PCB allows compact routing. (4) Component placement - Single-sided placement when possible. (5) Inductor selection - For switching chargers, use compact chip inductors. (6) Integration - Choose highly integrated ICs to reduce component count. (7) Layout optimization - Place components on tight grid, minimize trace lengths. A complete wearable power solution can be implemented in under 20mm x 20mm.",
+          "decisionGuide": "Contact LiTong for compact layout design and miniaturization guidance.",
+          "keywords": [
+            "solution size",
+            "compact design",
+            "miniaturization",
+            "wearable"
+          ]
+        },
+        {
+          "question": "What battery sizes work best for wearables?",
+          "answer": "Wearable battery selection guidelines: (1) Smart watches - 200-400mAh for 1-2 week battery life. (2) Fitness bands - 100-200mAh for 1-2 week battery life. (3) TWS earbuds - 40-80mAh per earbud, 300-500mAh for charging case. (4) Health monitors - 100-300mAh depending on sensor usage. (5) Form factor - Battery often determines device thickness. (6) Charging time - Smaller batteries charge faster (1-2 hours at 0.5C). (7) Safety - Ensure battery has proper protection circuit. Consider both capacity and physical dimensions when selecting batteries for wearables.",
+          "decisionGuide": "Contact LiTong for battery selection and matching guidance.",
+          "keywords": [
+            "battery selection",
+            "battery capacity",
+            "wearable",
+            "battery life"
+          ]
+        },
+        {
+          "question": "How do I ensure accurate fuel gauging in wearables?",
+          "answer": "Accurate fuel gauging in wearables requires: (1) Sense resistor - Use 1% or better tolerance, typically 10-20mΩ. (2) Kelvin connections - Separate traces for current path and sense connections. (3) Layout - Place sense resistor close to fuel gauge IC. (4) Calibration - Perform learning cycle with actual battery. (5) Temperature - Implement temperature compensation. (6) Filtering - Add small capacitors near sense pins. (7) Validation - Compare gauge readings with calibrated equipment. With proper implementation, expect 3-5% SOC accuracy throughout battery lifetime.",
+          "decisionGuide": "Contact LiTong for fuel gauge accuracy optimization.",
+          "keywords": [
+            "fuel gauge",
+            "accuracy",
+            "battery monitoring",
+            "SOC"
+          ]
+        },
+        {
+          "question": "What are common wearable power design mistakes?",
+          "answer": "Common wearable power design mistakes: (1) Ignoring standby current - Leads to poor battery life. (2) Poor sense resistor layout - Causes inaccurate fuel gauging. (3) Inadequate input capacitance - Results in unstable charging. (4) Wrong charge current - Too high damages small batteries, too slow increases charge time. (5) Thermal neglect - Even low currents need proper heat dissipation. (6) Missing protection - Insufficient safety features. (7) I2C issues - Improper pull-ups or noise coupling. Avoiding these mistakes ensures reliable wearable power operation.",
+          "decisionGuide": "Contact LiTong for design review and mistake prevention.",
+          "keywords": [
+            "design mistakes",
+            "common issues",
+            "wearable",
+            "power design"
+          ]
+        }
+      ],
+      "author": {
+        "name": "LiTong Technical Team",
+        "title": "FAE Team",
+        "bio": "Experienced field application engineers specializing in SouthChip power management ICs and wearable device applications."
+      },
+      "publishDate": "2024-01-15",
+      "summary": "Comprehensive guide for designing ultra-low power management systems for wearable devices using SouthChip ICs.",
+      "tags": [
+        "SouthChip",
+        "Wearable",
+        "Power Management",
+        "Design Guide",
+        "Low Power"
+      ],
+      "customerCases": [
+        {
+          "customer": "Wearable Device Manufacturer",
+          "industry": "Consumer Electronics",
+          "challenge": "Needed guidance on ultra-low power design for fitness tracker",
+          "solution": "LiTong FAE provided wearable power design guidance and optimization recommendations",
+          "results": [
+            "Achieved target battery life",
+            "Optimized solution size",
+            "Improved fuel gauge accuracy"
+          ],
+          "feedback": "LiTong's wearable power expertise helped us achieve industry-leading battery life."
         }
       ]
     }

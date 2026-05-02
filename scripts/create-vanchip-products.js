@@ -1,0 +1,354 @@
+const fs = require('fs');
+const path = require('path');
+
+const productsData = {
+  "seoTitle": "Vanchip RF Products | Power Amplifiers, Switches & Filters | LiTong Distributor",
+  "seoDescription": "Explore Vanchip RF power amplifiers, switches, filters, and front-end modules. Authorized distributor with technical support and selection guide.",
+  "seoKeywords": [
+    "Vanchip products distributor",
+    "Vanchip RF power amplifier selection",
+    "Vanchip switch guide",
+    "RF front-end module distributor"
+  ],
+  "faqs": [
+    {
+      "question": "What are the main product categories offered by Vanchip?",
+      "answer": "Vanchip offers four main RF product categories: (1) RF Power Amplifiers - high-efficiency PAs for 4G/5G cellular applications with industry-leading linearity and efficiency; (2) RF Switches - high-isolation switches for antenna tuning and signal routing with excellent insertion loss characteristics; (3) RF Filters - SAW and BAW filters for precise frequency selection and interference rejection; (4) RF Front-End Modules - integrated solutions combining PA, switch, and filter functions for simplified design and reduced BOM cost.",
+      "decisionGuide": "Review each product category to find components matching your RF system requirements, or contact our FAE team for integrated solution recommendations.",
+      "keywords": ["Vanchip product categories", "RF product selection", "Vanchip portfolio"]
+    },
+    {
+      "question": "How do I select the right Vanchip power amplifier for my application?",
+      "answer": "Selecting the right Vanchip PA requires considering: (1) Frequency band - match your target cellular band (B1, B3, B5, n77, n78, etc.); (2) Output power - ensure the PA meets your conducted power requirements with adequate headroom; (3) Efficiency - evaluate PAE at your operating power level for thermal management; (4) Linearity - check EVM and ACLR specifications for your modulation scheme; (5) Package - select appropriate package size for your PCB constraints. Vanchip offers both discrete PAs and integrated modules for different design needs.",
+      "decisionGuide": "Use our PA selection guide or contact FAE with your band, power, and efficiency requirements for personalized recommendations.",
+      "keywords": ["Vanchip PA selection", "power amplifier guide", "RF PA selection criteria"]
+    },
+    {
+      "question": "What is the difference between Vanchip's discrete PAs and FEM products?",
+      "answer": "Vanchip discrete PAs are standalone power amplifiers offering maximum flexibility for custom RF designs, allowing engineers to optimize matching networks and combine with preferred switches/filters. FEMs (Front-End Modules) integrate PA, switch, and filter functions in a single package, providing: (1) Reduced design complexity - no external matching required; (2) Smaller PCB footprint - optimized integration saves space; (3) Guaranteed performance - pre-matched and tested; (4) Faster time-to-market - minimal RF tuning needed. Choose discrete for custom designs with specific requirements, FEMs for rapid deployment and space-constrained applications.",
+      "decisionGuide": "Evaluate your design timeline, PCB space, and RF expertise. Contact us for FEM recommendations or discrete component selection.",
+      "keywords": ["Vanchip FEM vs discrete", "RF integration options", "front-end module benefits"]
+    },
+    {
+      "question": "Which Vanchip RF switch should I choose for antenna tuning?",
+      "answer": "For antenna tuning applications, consider these Vanchip switch characteristics: (1) Isolation - higher isolation (>30dB) prevents unwanted signal coupling between antenna ports; (2) Insertion loss - lower loss (<0.5dB) preserves transmit power and receive sensitivity; (3) Power handling - ensure switch can handle your maximum transmit power; (4) Switching speed - faster settling time (<10us) for dynamic tuning; (5) Control interface - SPI or GPIO compatibility with your baseband. Vanchip offers SPST, SPDT, SP3T, and SP4T configurations for various antenna architectures including diversity and MIMO systems.",
+      "decisionGuide": "Define your antenna configuration and performance requirements, then consult our switch selection matrix or contact FAE for specific recommendations.",
+      "keywords": ["Vanchip RF switch selection", "antenna tuning switch", "RF switch guide"]
+    },
+    {
+      "question": "What filter technologies does Vanchip offer?",
+      "answer": "Vanchip provides both SAW (Surface Acoustic Wave) and BAW (Bulk Acoustic Wave) filter technologies: (1) SAW filters - cost-effective for lower frequencies (<2GHz), suitable for 2G/3G/4G bands with good performance; (2) BAW filters - superior performance for higher frequencies (>2GHz) and 5G applications, offering steeper roll-off and better temperature stability. Vanchip filters cover major cellular bands with excellent out-of-band rejection, enabling coexistence of multiple radios in compact devices. Both technologies are available in compact CSP and QFN packages.",
+      "decisionGuide": "Match filter technology to your frequency band and performance requirements. Contact us for band-specific filter recommendations.",
+      "keywords": ["Vanchip SAW BAW filters", "RF filter selection", "cellular filter guide"]
+    }
+  ],
+  "categories": [
+    {
+      "id": "rf-power-amplifiers",
+      "name": "RF Power Amplifiers",
+      "description": "Vanchip RF power amplifiers deliver industry-leading efficiency and linearity for 4G/5G mobile and IoT applications. The portfolio includes discrete PAs for custom designs and integrated modules for rapid deployment, covering all major cellular bands from 600MHz to 6GHz.",
+      "longDescription": "Vanchip RF power amplifiers are designed to meet the demanding requirements of modern wireless communications. As an authorized Vanchip distributor, LiTong provides comprehensive PA selection guidance, matching network design support, and application engineering services. The product range includes high-efficiency PAs with advanced linearization techniques, wideband modules supporting carrier aggregation, and integrated solutions with built-in power control. These products achieve industry-leading power-added efficiency (PAE) while maintaining excellent linearity metrics (EVM, ACLR) required for 5G NR and LTE-Advanced applications.",
+      "parameters": ["Frequency Band", "Output Power", "PAE", "Gain", "EVM", "ACLR", "Package"],
+      "applications": ["Smartphones", "Tablets", "Mobile Broadband", "IoT Devices", "CPE"],
+      "series": [
+        { "name": "VC5G Series", "description": "5G NR high-band PAs for n77/n78/n79 applications" },
+        { "name": "VC4G Series", "description": "4G LTE multi-mode PAs with carrier aggregation support" },
+        { "name": "VCNB Series", "description": "Narrowband IoT PAs for low-power applications" }
+      ],
+      "selectionGuide": {
+        "title": "How to Select Vanchip RF Power Amplifiers",
+        "description": "Consider frequency band, output power, efficiency, and linearity requirements when selecting Vanchip PAs.",
+        "articleId": "vanchip-pa-selection-guide",
+        "articleLink": "/vanchip/support/vanchip-pa-selection-guide.html",
+        "link": "/vanchip/support/vanchip-pa-selection-guide.html"
+      },
+      "faqs": [
+        {
+          "question": "What frequency bands do Vanchip PAs cover?",
+          "answer": "Vanchip PAs cover all major cellular frequency bands from 600MHz to 6GHz, including: (1) Low-band: B5, B8, B12, B13, B20, B28 (600-900MHz); (2) Mid-band: B1, B2, B3, B4, B7, B30, B34, B39 (1.7-2.7GHz); (3) High-band: B40, B41, B42, B48 (2.3-3.8GHz); (4) 5G NR: n77, n78, n79 (3.3-5.0GHz). Wideband PAs support multiple bands with a single device, reducing BOM complexity for global handset designs.",
+          "decisionGuide": "Identify your target markets and required bands, then select single-band or multi-band PAs accordingly.",
+          "keywords": ["Vanchip frequency bands", "cellular PA bands", "5G NR bands"]
+        },
+        {
+          "question": "How do I interpret Vanchip PA efficiency specifications?",
+          "answer": "Vanchip PA efficiency is specified as Power-Added Efficiency (PAE), calculated as (RF Output Power - RF Input Power) / DC Input Power × 100%. Typical values range from 35-50% depending on band and power level. Higher PAE means less heat generation and longer battery life. Key efficiency specifications include: (1) Peak PAE - maximum efficiency at rated power; (2) Average PAE - efficiency at typical operating power; (3) Back-off efficiency - efficiency at lower power levels. For 5G applications with high peak-to-average ratio, average PAE is more critical than peak PAE.",
+          "decisionGuide": "Compare PAE specifications at your target operating power level, not just peak ratings.",
+          "keywords": ["Vanchip PA efficiency", "PAE specification", "power amplifier efficiency"]
+        },
+        {
+          "question": "What is the typical gain of Vanchip power amplifiers?",
+          "answer": "Vanchip power amplifiers offer high gain to minimize driver stage requirements: (1) Low-band PAs: 28-32dB gain; (2) Mid-band PAs: 26-30dB gain; (3) High-band/5G PAs: 24-28dB gain. Higher gain reduces the output power requirement from the transceiver, improving overall system efficiency. The gain is specified as small-signal gain at room temperature. Temperature coefficient is typically -0.01dB/°C, ensuring stable performance across the operating temperature range of -40°C to +85°C.",
+          "decisionGuide": "Ensure PA gain provides adequate margin above your minimum required gain, considering temperature and process variations.",
+          "keywords": ["Vanchip PA gain", "amplifier gain specification", "RF PA gain"]
+        },
+        {
+          "question": "How do Vanchip PAs perform for 5G NR applications?",
+          "answer": "Vanchip 5G NR PAs are specifically optimized for 5G requirements: (1) High linearity - EVM < 3% and ACLR < -38dBc for 100MHz 5G NR signals; (2) Wide bandwidth - support up to 100MHz component carriers; (3) Carrier aggregation - support for up to 5 CA combinations; (4) Low latency - fast settling time for TDD operation; (5) Power Class 2 support - 26dBm output power for HPUE. These PAs meet 3GPP Release 15/16 specifications and are qualified by major OEMs for 5G smartphone applications.",
+          "decisionGuide": "For 5G designs, request 5G-specific datasheets and reference designs from our FAE team.",
+          "keywords": ["Vanchip 5G PA", "5G NR power amplifier", "5G linearity"]
+        },
+        {
+          "question": "What packages are available for Vanchip PAs?",
+          "answer": "Vanchip PAs are available in various packages to meet different design requirements: (1) CSP (Chip Scale Package) - smallest footprint (1.5×1.5mm to 3×3mm) for space-constrained smartphones; (2) QFN (Quad Flat No-lead) - robust package with good thermal performance (3×3mm to 5×5mm); (3) WLCSP (Wafer-Level CSP) - thinnest profile for ultra-slim designs; (4) Module packages - integrated FEMs with multiple dies in a single package. All packages are RoHS compliant and support standard SMT assembly processes.",
+          "decisionGuide": "Select package based on PCB space, height constraints, and thermal requirements.",
+          "keywords": ["Vanchip PA package", "CSP QFN package", "RF PA footprint"]
+        }
+      ],
+      "products": [
+        {
+          "partNumber": "VC5778",
+          "name": "5G n77/n78 High-Band PA",
+          "shortDescription": "High-efficiency 5G NR power amplifier for n77/n78 bands (3.3-4.2GHz) with 26dBm output power and 42% PAE.",
+          "descriptionParagraphs": [
+            "The VC5778 is a high-performance 5G NR power amplifier designed for n77 and n78 frequency bands covering 3.3-4.2GHz.",
+            "Featuring advanced InGaP HBT technology, this PA delivers 26dBm output power with industry-leading 42% power-added efficiency.",
+            "Optimized for 5G NR 100MHz bandwidth signals, it maintains excellent linearity with EVM < 2.5% and ACLR < -40dBc."
+          ],
+          "specifications": {
+            "Frequency Range": "3.3 - 4.2 GHz",
+            "Output Power": "26 dBm",
+            "PAE": "42%",
+            "Gain": "26 dB",
+            "EVM": "< 2.5%",
+            "ACLR": "< -40 dBc",
+            "Supply Voltage": "3.4 V",
+            "Package": "CSP 2.0×2.0 mm"
+          },
+          "features": [
+            "5G NR n77/n78 band coverage",
+            "High efficiency 42% PAE",
+            "Excellent linearity for 100MHz BW",
+            "Integrated power detector",
+            "MIPI RFFE 2.0 control interface",
+            "Compact CSP package"
+          ],
+          "applications": [
+            "5G smartphones",
+            "5G CPE devices",
+            "Mobile broadband",
+            "Fixed wireless access"
+          ],
+          "faeReview": {
+            "author": "Michael Zhang",
+            "title": "Senior RF FAE - Mobile Communications",
+            "content": "The VC5778 represents Vanchip's leading position in 5G PA technology. In my experience supporting multiple 5G smartphone projects, this PA consistently delivers excellent performance across temperature and voltage variations. The 42% PAE is genuinely impressive for high-band operation, helping our customers achieve competitive battery life. I particularly recommend the integrated power detector feature, which simplifies closed-loop power control design. For 5G NR designs requiring n77/n78 coverage, this is my go-to recommendation.",
+            "highlight": "Industry-leading 42% PAE for 5G high-band applications"
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "QPA9120",
+              "brand": "Qorvo",
+              "specifications": {
+                "Frequency": "3.3-4.2 GHz",
+                "Output Power": "26 dBm",
+                "PAE": "40%"
+              },
+              "comparison": {
+                "Frequency": "3.3-4.2 GHz = 3.3-4.2 GHz (same)",
+                "Output Power": "26 dBm = 26 dBm (same)",
+                "PAE": "40% < 42% (Vanchip +2% higher)",
+                "Package": "CSP 2.0×2.0 mm = CSP 2.0×2.0 mm (same)"
+              },
+              "reason": "Vanchip VC5778 offers 2% higher efficiency with similar performance",
+              "useCase": "Cost-sensitive 5G smartphone designs seeking better battery life",
+              "link": "#"
+            },
+            {
+              "partNumber": "SKY58268",
+              "brand": "Skyworks",
+              "specifications": {
+                "Frequency": "3.3-4.2 GHz",
+                "Output Power": "26 dBm",
+                "PAE": "41%"
+              },
+              "comparison": {
+                "Frequency": "3.3-4.2 GHz = 3.3-4.2 GHz (same)",
+                "Output Power": "26 dBm = 26 dBm (same)",
+                "PAE": "41% < 42% (Vanchip +1% higher)",
+                "Package": "CSP 2.0×2.0 mm = CSP 2.0×2.0 mm (same)"
+              },
+              "reason": "Vanchip provides comparable performance with better local support",
+              "useCase": "Designs requiring domestic supply chain and rapid technical support",
+              "link": "#"
+            }
+          ],
+          "companionParts": [
+            {
+              "partNumber": "VC7788",
+              "link": "/vanchip/products/rf-power-amplifiers/vc7788.html",
+              "description": "5G n79 PA for high-band coverage",
+              "category": "RF Power Amplifiers"
+            },
+            {
+              "partNumber": "VS1717",
+              "link": "/vanchip/products/rf-switches/vs1717.html",
+              "description": "SPDT switch for antenna routing",
+              "category": "RF Switches"
+            },
+            {
+              "partNumber": "VF2450",
+              "link": "/vanchip/products/rf-filters/vf2450.html",
+              "description": "n77/n78 band-pass filter",
+              "category": "RF Filters"
+            },
+            {
+              "partNumber": "VCFEM77",
+              "link": "/vanchip/products/rf-front-end-modules/vcfem77.html",
+              "description": "Integrated 5G FEM for n77/n78",
+              "category": "RF Front-End Modules"
+            }
+          ],
+          "faqs": [
+            {
+              "question": "What is the recommended PCB layout for VC5778?",
+              "answer": "For optimal VC5778 performance, follow these PCB layout guidelines: (1) Use controlled impedance 50Ω transmission lines for RF input/output; (2) Place decoupling capacitors (100pF, 1nF, 10μF) close to VCC pins; (3) Provide adequate ground vias around the PA for thermal dissipation; (4) Keep RF traces as short as possible to minimize losses; (5) Use multi-layer PCB with dedicated ground plane; (6) Follow the reference layout in the datasheet for matching network placement. Proper layout is critical for achieving specified efficiency and linearity performance.",
+              "decisionGuide": "Download the VC5778 application note for detailed layout recommendations and reference designs.",
+              "keywords": ["VC5778 layout", "PA PCB design", "RF layout guidelines"]
+            },
+            {
+              "question": "How do I bias the VC5778 for different power modes?",
+              "answer": "The VC5778 supports multiple bias modes controlled via MIPI RFFE interface: (1) High-power mode - for maximum output power at 26dBm, use default bias settings; (2) Mid-power mode - for 20-23dBm operation, reduce bias current by 20% to improve efficiency; (3) Low-power mode - for <20dBm, use deep bias reduction for maximum battery life; (4) Bypass mode - for receive operation, disable PA to minimize current consumption. The MIPI interface allows dynamic bias switching within 10μs, enabling real-time power optimization based on link conditions.",
+              "decisionGuide": "Implement dynamic bias control in your baseband software for optimal efficiency across operating conditions.",
+              "keywords": ["VC5778 bias", "PA power modes", "MIPI RFFE control"]
+            },
+            {
+              "question": "What thermal management is required for VC5778?",
+              "answer": "The VC5778 has a maximum junction temperature of 150°C. Thermal management recommendations: (1) Ensure adequate copper area on PCB for heat spreading - minimum 100mm² ground copper recommended; (2) Use thermal vias (0.3mm diameter, 1.0mm pitch) under the package paddle; (3) For continuous high-power operation, consider adding thermal interface material to chassis; (4) Monitor die temperature via internal thermal sensor and implement thermal throttling if needed; (5) At 26dBm CW output, typical junction temperature rise is 25-30°C above ambient with proper PCB design.",
+              "decisionGuide": "Perform thermal simulation for your specific PCB design and operating conditions.",
+              "keywords": ["VC5778 thermal", "PA heat dissipation", "junction temperature"]
+            },
+            {
+              "question": "Can VC5778 support 5G carrier aggregation?",
+              "answer": "Yes, the VC5778 fully supports 5G NR carrier aggregation: (1) Intra-band CA - supports contiguous and non-contiguous CA within n77 or n78; (2) Inter-band CA - can be combined with other Vanchip PAs for n77+n78 CA; (3) Up to 100MHz component carrier bandwidth; (4) Supports up to 3 CA combinations with total aggregated bandwidth up to 200MHz; (5) Maintains linearity specifications (EVM < 3%) under CA operation. For CA applications, ensure adequate power supply decoupling and consider thermal implications of higher average power.",
+              "decisionGuide": "Contact FAE for CA-specific reference designs and matching network optimization.",
+              "keywords": ["VC5778 carrier aggregation", "5G CA", "n77 n78 CA"]
+            },
+            {
+              "question": "What is the typical application circuit for VC5778?",
+              "answer": "A typical VC5778 application circuit includes: (1) Input matching network - 2-element LC matching for 50Ω to optimal source impedance; (2) Output matching network - 3-element matching for optimal load impedance to 50Ω antenna; (3) Bias circuit - decoupling capacitors and MIPI RFFE interface; (4) Power detector - integrated detector with external filter capacitor; (5) Directional coupler (optional) - for closed-loop power control. The complete schematic and BOM are available in the application note. Total external component count is typically 12-15 passive components.",
+              "decisionGuide": "Request the VC5778 reference design package including schematic, BOM, and PCB layout files.",
+              "keywords": ["VC5778 application circuit", "PA schematic", "matching network"]
+            }
+          ]
+        },
+        {
+          "partNumber": "VC5134",
+          "name": "4G LTE Multi-Mode PA",
+          "shortDescription": "High-efficiency multi-mode PA covering B1/B3/B34/B39 bands with 28.5dBm output power and integrated directional coupler.",
+          "descriptionParagraphs": [
+            "The VC5134 is a versatile multi-mode power amplifier supporting major 4G LTE mid-bands including B1, B3, B34, and B39.",
+            "With 28.5dBm output power and 45% PAE, this PA delivers excellent performance for LTE and LTE-Advanced applications.",
+            "The integrated directional coupler simplifies power control implementation, reducing external component count."
+          ],
+          "specifications": {
+            "Frequency Bands": "B1/B3/B34/B39",
+            "Output Power": "28.5 dBm",
+            "PAE": "45%",
+            "Gain": "28 dB",
+            "EVM": "< 3%",
+            "ACLR": "< -38 dBc",
+            "Supply Voltage": "3.4 V",
+            "Package": "CSP 3.0×3.0 mm"
+          },
+          "features": [
+            "Multi-band B1/B3/B34/B39 coverage",
+            "High efficiency 45% PAE",
+            "Integrated directional coupler",
+            "APT/DPT support",
+            "MIPI RFFE control",
+            "Compact CSP package"
+          ],
+          "applications": [
+            "4G smartphones",
+            "LTE tablets",
+            "Mobile hotspots",
+            "IoT gateways"
+          ],
+          "faeReview": {
+            "author": "David Liu",
+            "title": "RF Applications Engineer",
+            "content": "The VC5134 has been a workhorse PA in numerous 4G smartphone designs I've supported. Its multi-band capability covering the critical B1/B3 bands makes it ideal for China and European markets. The integrated directional coupler is a real differentiator - it saves board space and simplifies the power control loop design. I've consistently seen 45%+ PAE in real applications, which translates to noticeably better battery life. For cost-optimized 4G designs, this is an excellent choice.",
+            "highlight": "Multi-band coverage with integrated coupler saves BOM cost and PCB space"
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "AWB7123",
+              "brand": "Anadigics",
+              "specifications": {
+                "Bands": "B1/B3",
+                "Output Power": "28.5 dBm",
+                "PAE": "43%"
+              },
+              "comparison": {
+                "Bands": "B1/B3 < B1/B3/B34/B39 (Vanchip more bands)",
+                "Output Power": "28.5 dBm = 28.5 dBm (same)",
+                "PAE": "43% < 45% (Vanchip +2% higher)",
+                "Coupler": "External = Integrated (Vanchip saves space)"
+              },
+              "reason": "Vanchip offers more bands and integrated coupler",
+              "useCase": "Designs requiring B34/B39 TDD bands or space savings",
+              "link": "#"
+            }
+          ],
+          "companionParts": [
+            {
+              "partNumber": "VS1313",
+              "link": "/vanchip/products/rf-switches/vs1313.html",
+              "description": "Quad-band antenna switch",
+              "category": "RF Switches"
+            },
+            {
+              "partNumber": "VF1900",
+              "link": "/vanchip/products/rf-filters/vf1900.html",
+              "description": "B1+B3 quadplexer filter",
+              "category": "RF Filters"
+            },
+            {
+              "partNumber": "VCFEM4G",
+              "link": "/vanchip/products/rf-front-end-modules/vcfem4g.html",
+              "description": "4G mid-band FEM",
+              "category": "RF Front-End Modules"
+            }
+          ],
+          "faqs": [
+            {
+              "question": "How does the integrated directional coupler work in VC5134?",
+              "answer": "The VC5134 integrated directional coupler provides -20dB coupled output for power detection: (1) Coupled port outputs a sampled version of the transmit signal; (2) Connect to power detector IC or transceiver's internal detector; (3) Enables closed-loop power control maintaining ±0.5dB accuracy; (4) Eliminates need for external coupler, saving ~0.5mm² PCB area; (5) Coupler is internally matched and temperature compensated. The coupling factor is flat across the operating bandwidth, ensuring accurate power measurement across all supported bands.",
+              "decisionGuide": "Use the integrated coupler for power control instead of adding external components.",
+              "keywords": ["VC5134 coupler", "integrated directional coupler", "power detection"]
+            },
+            {
+              "question": "What is APT and DPT support in VC5134?",
+              "answer": "VC5134 supports both APT (Average Power Tracking) and DPT (Dynamic Power Tracking): (1) APT - adjusts supply voltage based on average output power level, improving efficiency at back-off power; (2) DPT - dynamically optimizes bias settings in real-time based on instantaneous power requirements; (3) APT mode provides 3-5% efficiency improvement at 16-20dBm operation; (4) DPT mode offers maximum efficiency across all power levels but requires more complex control; (5) Both modes are selectable via MIPI RFFE registers. For typical smartphone applications, APT provides the best balance of efficiency improvement and implementation simplicity.",
+              "decisionGuide": "Implement APT for typical applications, DPT for premium devices requiring maximum battery life.",
+              "keywords": ["VC5134 APT DPT", "average power tracking", "dynamic power tracking"]
+            },
+            {
+              "question": "Can VC5134 support LTE-Advanced with carrier aggregation?",
+              "answer": "Yes, VC5134 supports LTE-Advanced carrier aggregation: (1) Intra-band CA - B1+B1 or B3+B3 contiguous/non-contiguous; (2) Inter-band CA - B1+B3, B1+B34, B3+B39 combinations; (3) Supports up to 2 CA with 40MHz total bandwidth; (4) Maintains ACLR <-38dBc under CA operation; (5) Compatible with envelope tracking (ET) systems for CA efficiency optimization. For CA applications, the PA's wide bandwidth and excellent linearity ensure clean signal transmission without interference between aggregated carriers.",
+              "decisionGuide": "Verify CA band combinations with your transceiver and contact FAE for CA-specific tuning recommendations.",
+              "keywords": ["VC5134 carrier aggregation", "LTE-A CA", "inter-band CA"]
+            },
+            {
+              "question": "What are the key differences between VC5134 and VC5778?",
+              "answer": "VC5134 and VC5778 target different applications: (1) Bands - VC5134 covers 4G mid-bands (B1/B3/B34/B39), VC5778 covers 5G high-bands (n77/n78); (2) Power - VC5134 delivers 28.5dBm for 4G, VC5778 delivers 26dBm for 5G; (3) Efficiency - VC5134 achieves 45% PAE, VC5778 achieves 42% PAE; (4) Features - VC5134 has integrated coupler, VC5778 has integrated power detector; (5) Package - both use CSP but different sizes. Choose VC5134 for 4G designs, VC5778 for 5G high-band coverage. Both can be combined for 4G+5G concurrent operation.",
+              "decisionGuide": "Select based on your target cellular bands. Contact FAE for multi-mode 4G+5G design recommendations.",
+              "keywords": ["VC5134 vs VC5778", "4G vs 5G PA", "Vanchip PA comparison"]
+            },
+            {
+              "question": "What is the typical current consumption of VC5134?",
+              "answer": "VC5134 current consumption varies with operating mode: (1) Max power (28.5dBm) - 550mA typical, 650mA max; (2) Mid power (20dBm) - 280mA typical with APT enabled; (3) Low power (10dBm) - 120mA typical; (4) Bypass mode - <1mA for receive operation; (5) Shutdown mode - <10μA. The high efficiency (45% PAE) minimizes current draw compared to competing solutions. At typical urban usage patterns (mix of high and low power), average current is approximately 180-220mA, contributing to extended battery life in mobile devices.",
+              "decisionGuide": "Use APT mode and implement dynamic power control to minimize average current consumption.",
+              "keywords": ["VC5134 current consumption", "PA power consumption", "battery life"]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+};
+
+// Write the file
+const outputPath = path.join(__dirname, '..', 'data', 'vanchip', 'products.json');
+fs.writeFileSync(outputPath, JSON.stringify(productsData, null, 2));
+console.log('Created products.json for vanchip');

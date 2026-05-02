@@ -23,15 +23,34 @@
 | **铁律7d** | **products.json alternativeParts 必须是对象数组（不是字符串数组），包含 partNumber/link/reason/brand** | 产品详情页不显示替代料号 |
 | **铁律7e** | **products.json companionParts 必须是对象数组（不是字符串数组），包含 partNumber/link/description/category** | 产品详情页不显示推荐配套 |
 | **铁律7f** | **solutions.json technicalSpecs 必须是纯对象键值对（不是数组），格式 {"Param": "Value"}** | solution详情页不显示技术规格 |
+| **铁律7g** | **URL层级铁律：/brand/ 是品牌列表页，各品牌页面（如 /3peak/、/ti/、/adi/）必须与 /brand/ 同一层级，即 /brand/xxx 和 /xxx 是平行关系，不是包含关系** | 品牌页面路径错误，SEO权重分散，内部链接失效 |
+
+### 代码实现铁律（防止生成脚本错误）
+
+| 铁律编号 | 铁律内容 | 违反后果 | 检查方法 |
+|---------|---------|---------|---------|
+| **铁律7h** | **生成脚本必须只生成 `/xxx/` 路径，禁止同时生成 `/brand/xxx/` 路径** | 重复内容导致SEO权重分散，搜索引擎惩罚 | 检查 `scripts/generate.js` 代码 |
+| **铁律7i** | **生成脚本中的品牌输出目录必须是 `path.join(outputDir, brand)`，不能是 `path.join(outputDir, 'brand', brand)`** | 品牌页面被错误地生成在 `/brand/` 子目录下 | 代码审查 generateBrandPages 函数 |
+| **铁律7j** | **禁止在生成脚本中使用 "兼容性"、"legacy" 等理由同时生成两套路径** | 违反铁律7g，造成路径混乱 | 代码审查，删除冗余生成逻辑 |
+| **铁律7k** | **生成脚本必须清理旧的 `/brand/xxx/` 目录（如果存在）** | 旧路径残留导致SEO问题 | 在生成前执行 `fs.rmSync(brandLegacyDir, { recursive: true, force: true })` |
+| **铁律7l** | **品牌子目录文件必须直接放在根目录，与 `/brand/` 同一层级：正确结构是 `/3peak/products/xxx.html`，错误结构是 `/brand/3peak/products/xxx.html`** | 品牌页面路径错误，导致404和SEO问题 | 检查生成后的目录结构，确保品牌目录与brand目录平行 |
+| **铁律7m** | **所有页面必须按照EJS模板生成，禁止使用硬编码HTML或简化模板** | 页面样式不一致，维护困难，用户体验差 | 检查 `scripts/generate.js` 是否使用 `ejs.compile()` 和模板文件 |
+| **铁律7n** | **产品详情页必须使用 `templates/brands/product-detail.html` 模板** | 产品页布局不一致，缺少关键模块 | 检查生成脚本是否使用正确的模板路径 |
+| **铁律7o** | **产品分类列表页必须使用 `templates/brands/product-category.html` 模板** | 分类页布局不一致，动态表格无法显示 | 检查生成脚本是否使用正确的模板路径 |
+| **铁律7p** | **解决方案详情页必须使用 `templates/brands/solution-detail.html` 模板** | 方案页布局不一致，内容模块缺失 | 检查生成脚本是否使用正确的模板路径 |
+| **铁律7q** | **技术支持详情页必须使用 `templates/brands/support-detail.html` 模板** | 支持页布局不一致，FAQ无法显示 | 检查生成脚本是否使用正确的模板路径 |
+| **铁律7r** | **SSI包含指令（如 `<!--#include virtual="/templates/components/navbar.html" -->`）必须被正确替换为实际组件内容** | 导航栏、页脚等组件无法显示 | 检查生成后的HTML文件是否包含完整的组件代码 |
+| **铁律7s** | **模板变量（如 `<%= brand.displayName %>`, `<%= product.partNumber %>`）必须被正确渲染为实际值** | 页面显示模板代码而非实际内容 | 检查生成的HTML文件是否还有未渲染的EJS代码 |
+| **铁律7t** | **CSS路径必须正确（如 `../../../../assets/css/style.css`），确保样式能正常加载** | 页面显示为纯文本，无样式 | 浏览器开发者工具检查CSS是否加载成功 |
 
 ### 发布数量铁律
 
 | 铁律编号 | 铁律内容 | 验证方式 |
 |---------|---------|---------|
-| **铁律8** | **首次发布：所有分类页必须全部发布，每类至少2个产品详情页** | 检查 products.json categories 数量 |
+| **铁律8** | **首次发布：所有分类页必须全部发布，每类至少3-4个产品详情页** | 检查 products.json categories 数量 |
 | **铁律9** | **后续更新：每次至少发布2个产品详情页，并更新对应列表页/分类页** | 检查新增产品数量 |
-| **铁律10** | **solutions.json 至少2个方案，每个方案2个客户案例** | 检查 solutions 数组长度 |
-| **铁律11** | **support.json 至少4篇文章（每类产品分类至少1篇）** | 检查 articles 数组长度 |
+| **铁律10** | **solutions.json 至少3个方案，每个方案3个客户案例** | 检查 solutions 数组长度 |
+| **铁律11** | **support.json 至少5篇文章（每类产品分类至少1篇）** | 检查 articles 数组长度 |
 | **铁律12** | **生成后必须检查：support详情页显示FAQ，solution详情页显示技术规格和BOM** | 页面内容缺失 |
 
 ### FAQ 铁律（新增）
@@ -57,6 +76,42 @@
 | **铁律26b** | **FAE Review、解决方案、技术文章全部英文撰写** | 内容质量不达标 | 人工审核 |
 | **铁律26c** | **FAQ 的 question/answer/decisionGuide 全部英文** | FAQ显示中文 | `node scripts/brand-master-checklist.js [brand]` |
 | **铁律26d** | **SEO关键词使用英文，包含 distributor/selection/guide 等** | SEO效果差 | 检查 seoKeywords 字段 |
+
+### 内容质量铁律（新增）
+
+| 铁律编号 | 铁律内容 | 违反后果 | 检查方法 |
+|---------|---------|---------|---------|
+| **铁律27** | **禁止无意义标题：如 "Solution 3", "Article 5", "Product 3" 等占位符标题** | 内容质量低，用户体验差 | 人工检查 + 正则表达式匹配 |
+| **铁律27a** | **解决方案标题必须描述具体应用场景，如 "Smart Home Gateway Solution"** | 用户无法理解方案用途 | 检查 solutions.json title 字段 |
+| **铁律27b** | **技术文章标题必须描述具体内容主题，如 "Wi-Fi Selection Guide"** | 用户无法判断文章价值 | 检查 support.json title 字段 |
+| **铁律27c** | **产品名称必须描述具体型号或功能，如 "ESP32-WROOM-32E" 或 "High-Speed ADC"** | 产品识别困难 | 检查 products.json name 字段 |
+| **铁律27d** | **所有内容必须真实、专业，禁止占位符内容（如 "Lorem ipsum", "TODO", "Placeholder"）** | 内容质量低，影响品牌形象 | 人工检查 + grep 搜索占位符 |
+| **铁律27e** | **shortDescription 必须是真实的产品描述，禁止复制粘贴其他产品** | 内容重复，SEO惩罚 | 检查相似度 |
+| **铁律27f** | **技术文章内容必须≥800字，有实质性技术深度，禁止泛泛而谈** | 内容质量低，无法提供价值 | 字数统计 + 内容审核 |
+| **铁律27g** | **技术文章必须包含：问题定义、技术分析、解决方案、实际案例、总结建议** | 结构不完整，读者无法获得完整信息 | 结构检查 |
+| **铁律27h** | **解决方案内容必须≥1000字，详细描述系统架构、关键技术、实施步骤** | 内容过于简单，无法指导实施 | 字数统计 + 内容审核 |
+| **铁律27i** | **客户案例必须真实具体，包含：客户背景、面临挑战、解决方案、量化结果（如效率提升20%）** | 案例缺乏说服力 | 内容审核 |
+| **铁律27j** | **FAE Review 必须≥200字，包含具体技术见解、应用建议、注意事项** | 点评过于简单，缺乏专业价值 | 字数统计 + 内容审核 |
+| **铁律27k** | **descriptionParagraphs 每个段落必须≥100字，禁止一句话段落** | 内容过于简略 | 字数统计 |
+| **铁律27l** | **FAQ answer 必须≥200字，提供完整的技术解释和实用建议** | 回答过于简单，无法解决问题 | 字数统计 |
+| **铁律27m** | **产品型号详情页标题必须是具体型号，禁止 "Product 3", "NORFLASH-3" 等无意义标题** | 用户无法识别产品 | 检查 products.json name 字段 |
+| **铁律27n** | **产品型号详情页内容必须≥1500字，包含：产品概述、技术规格、应用场景、替代料号对比、配套料号推荐、FAE点评、FAQ** | 内容过于简单，无法提供完整信息 | 字数统计 + 结构检查 |
+| **铁律27o** | **descriptionParagraphs 必须3段，每段≥150字，分别描述：产品概述、技术特点、应用优势** | 描述不完整 | 段落数量 + 字数统计 |
+| **铁律27p** | **alternativeParts 必须≥2个，每个包含详细对比（电压、电流、封装、性能对比）** | 替代料号信息不足 | 数量检查 + 内容审核 |
+| **铁律27q** | **companionParts 必须≥3个，每个包含具体型号、描述、配套原因** | 配套料号信息不足 | 数量检查 + 内容审核 |
+| **铁律27r** | **产品FAQ必须5-8个，覆盖：选型参数、应用场景、替代方案、常见问题、技术支持** | FAQ覆盖不全面 | 数量检查 + 内容审核 |
+
+### 数据真实性铁律（新增 - 绝对禁止编造）
+
+| 铁律编号 | 铁律内容 | 违反后果 | 检查方法 |
+|---------|---------|---------|---------|
+| **铁律28** | **所有产品型号必须是品牌官方真实存在的型号，禁止编造虚假型号（如CAB0003、POWERMODULES-4等）** | 提供虚假信息，误导客户采购，严重损害品牌信誉 | 对照品牌官网/数据手册验证 |
+| **铁律28a** | **产品规格参数必须从官方数据手册获取，禁止编造电气参数（电压、电流、Rds(on)等）** | 参数错误导致设计失败，可能引发安全事故 | 核对官方数据手册 |
+| **铁律28b** | **替代料号必须是市场上真实存在的产品，禁止编造不存在的替代方案** | 客户无法采购到替代料号，影响生产 | 确认替代料号在官网可查 |
+| **铁律28c** | **客户案例必须是真实合作案例，禁止编造虚假客户和项目** | 虚假案例构成商业欺诈，法律责任 | 核实客户授权和项目真实性 |
+| **铁律28d** | **技术文章内容必须基于真实技术资料和应用经验，禁止编造技术细节** | 错误技术指导导致客户损失 | 技术审核 + 资料来源验证 |
+| **铁律28e** | **如品牌官方数据不足，必须明确标注"数据待补充"，禁止编造数据填充** | 虚假信息误导客户决策 | 人工检查 + 数据来源追溯 |
+| **铁律28f** | **所有外部链接（产品页、数据手册、购买链接）必须有效且指向官方渠道** | 链接失效或指向非官方渠道，客户无法验证 | 链接有效性检查 |
 
 ### 质量铁律
 
@@ -84,8 +139,22 @@
 □ 铁律7d: products.json alternativeParts 格式正确 - 对象数组，包含 partNumber/link/reason/brand
 □ 铁律7e: products.json companionParts 格式正确 - 对象数组，包含 partNumber/link/description/category
 □ 铁律7f: solutions.json technicalSpecs 格式正确 - 纯对象键值对 {"Param": "Value"}
-□ 铁律8: 首次发布所有分类，每类≥2个产品
-□ 铁律9: solutions≥2个，support≥4篇
+□ 铁律7g: URL层级正确 - /brand/ 是品牌列表页，各品牌页面（如 /3peak/、/adi/）与 /brand/ 同一层级，不是 /brand/3peak/ 这种包含关系
+□ 铁律7h: 生成脚本检查 - 只生成 `/xxx/` 路径，不生成 `/brand/xxx/` 路径
+□ 铁律7i: 代码审查 - 确认 `generateBrandPages` 函数使用 `path.join(outputDir, brand)` 而非 `path.join(outputDir, 'brand', brand)`
+□ 铁律7j: 代码审查 - 删除生成脚本中的 "兼容性"、"legacy" 路径生成逻辑
+□ 铁律7k: 生成后检查 - 确认 `/brand/xxx/` 目录不存在或已清理
+□ 铁律7l: 目录结构检查 - 品牌子目录文件直接放在根目录，正确结构 `/3peak/products/xxx.html`，不是 `/brand/3peak/products/xxx.html`
+□ 铁律7m: 检查 `scripts/generate.js` 是否使用 `ejs.compile()` 和模板文件，禁止硬编码HTML
+□ 铁律7n: 产品详情页使用 `templates/brands/product-detail.html` 模板
+□ 铁律7o: 产品分类列表页使用 `templates/brands/product-category.html` 模板
+□ 铁律7p: 解决方案详情页使用 `templates/brands/solution-detail.html` 模板
+□ 铁律7q: 技术支持详情页使用 `templates/brands/support-detail.html` 模板
+□ 铁律7r: SSI包含指令被正确替换为实际组件内容（导航栏、页脚等）
+□ 铁律7s: 模板变量被正确渲染（无 `<%= %>` 代码残留）
+□ 铁律7t: CSS路径正确（如 `../../../../assets/css/style.css`），浏览器开发者工具检查CSS加载成功
+□ 铁律8: 首次发布所有分类，每类≥3-4个产品
+□ 铁律9: solutions≥3个，support≥5篇
 □ 铁律10: 验证脚本零错误
 □ 铁律11: 生成后检查 - support详情页显示FAQ, solution详情页显示技术规格和BOM
 □ 铁律26: 所有内容为纯英文，无中文字符（使用 grep -r '[\u4e00-\u9fff]' data/[brand]/ 检查）
@@ -93,6 +162,38 @@
 □ 铁律26b: FAE Review、解决方案、技术文章为英文
 □ 铁律26c: FAQ内容全部为英文
 □ 铁律26d: SEO关键词为英文，包含 distributor/selection/guide
+□ 铁律27: 无占位符标题（如 "Solution 3", "Article 5", "Product 3"）
+□ 铁律27a: 解决方案标题描述具体应用场景
+□ 铁律27b: 技术文章标题描述具体内容主题
+□ 铁律27c: 产品名称描述具体型号或功能
+□ 铁律27d: 无占位符内容（如 "Lorem ipsum", "TODO", "Placeholder"）
+□ 铁律27e: shortDescription 是真实的产品描述，非复制粘贴
+□ 铁律27f: 技术文章内容≥800字，有实质性技术深度
+□ 铁律27g: 技术文章包含完整结构（问题/分析/方案/案例/总结）
+□ 铁律27h: 解决方案内容≥1000字，描述系统架构和实施步骤
+□ 铁律27i: 客户案例真实具体，包含量化结果（如效率提升20%）
+□ 铁律27j: FAE Review≥200字，包含具体技术见解和建议
+□ 铁律27k: descriptionParagraphs 每段≥100字
+□ 铁律27l: FAQ answer≥200字，提供完整技术解释
+□ 铁律27m: 产品型号详情页标题必须是具体型号，禁止 "Product 3" 等无意义标题
+□ 铁律27n: 产品型号详情页内容≥1500字，包含完整结构
+□ 铁律27o: descriptionParagraphs 必须3段，每段≥150字
+□ 铁律27p: alternativeParts 必须≥2个，包含详细对比
+□ 铁律27q: companionParts 必须≥3个，包含具体型号和描述
+□ 铁律27r: 产品FAQ必须5-8个，覆盖选型/应用/替代/常见问题
+□ 铁律28: 所有产品型号必须是品牌官方真实存在的型号，禁止编造虚假型号
+□ 铁律28a: 产品规格参数必须从官方数据手册获取，禁止编造电气参数
+□ 铁律28b: 替代料号必须是市场上真实存在的产品，禁止编造不存在的替代方案
+□ 铁律28c: 客户案例必须是真实合作案例，禁止编造虚假客户和项目
+□ 铁律28d: 技术文章内容必须基于真实技术资料，禁止编造技术细节
+□ 铁律28e: 如品牌官方数据不足，必须明确标注"数据待补充"，禁止编造数据填充
+□ 铁律28f: 所有外部链接必须有效且指向官方渠道
+```□ 铁律27m: 产品型号详情页标题是具体型号，非 "Product 3" 等无意义标题
+□ 铁律27n: 产品型号详情页内容≥1500字，包含完整结构
+□ 铁律27o: descriptionParagraphs 必须3段，每段≥150字
+□ 铁律27p: alternativeParts 必须≥2个，包含详细对比
+□ 铁律27q: companionParts 必须≥3个，包含具体型号和描述
+□ 铁律27r: 产品FAQ必须5-8个，覆盖选型/应用/替代/常见问题
 ```
 
 ### 违反铁律的修复流程
@@ -106,10 +207,114 @@
 - ❌ 忽略验证脚本的警告
 - ❌ 复制其他品牌的内容
 - ❌ 替代料号参数不满足要求
+- ❌ 生成脚本同时生成 `/xxx/` 和 `/brand/xxx/` 两套路径
+- ❌ 使用 "兼容性"、"legacy" 等理由保留错误路径生成逻辑
+- ❌ 生成后不检查 `/brand/xxx/` 目录是否被错误创建
 - ❌ **任何中文内容（包括标点、注释、占位符）**
 - ❌ 使用中文品牌名称或产品型号
 - ❌ FAQ 使用中文撰写
 - ❌ SEO 关键词使用中文
+- ❌ **无意义标题（如 "Solution 3", "Article 5", "Product 3"）**
+- ❌ 占位符内容（如 "Lorem ipsum", "TODO", "Placeholder"）
+- ❌ **编造虚假产品型号（如 "CAB0003", "POWERMODULES-4" 等）**
+- ❌ **编造虚假产品规格参数（电压、电流、Rds(on)等）**
+- ❌ **编造虚假替代料号**
+- ❌ **编造虚假客户案例**
+- ❌ **编造虚假技术内容**
+- ❌ 复制粘贴其他产品的描述
+- ❌ 技术文章内容<800字或缺乏技术深度
+- ❌ 解决方案内容<1000字或缺乏实施细节
+- ❌ 客户案例缺乏量化结果（如效率提升20%）
+- ❌ FAE Review<200字或缺乏具体见解
+- ❌ descriptionParagraphs 段落<100字
+- ❌ FAQ answer<200字
+- ❌ URL层级错误 - 品牌页面不能是 /brand/xxx/ 必须是 /xxx/
+- ❌ 品牌子目录结构错误 - 必须是 `/3peak/products/xxx.html`，不能是 `/brand/3peak/products/xxx.html`
+
+---
+
+## 🌐 URL层级结构规范（铁律7g详解）
+
+### 正确的URL层级关系
+
+```
+网站根目录 /
+├── /brand/              # 品牌列表页（所有品牌的汇总页面）
+├── /3peak/              # 3peak品牌首页（与/brand/同一层级）
+├── /adi/                # ADI品牌首页（与/brand/同一层级）
+├── /ti/                 # TI品牌首页（与/brand/同一层级）
+├── /st/                 # ST品牌首页（与/brand/同一层级）
+└── ...
+```
+
+### ❌ 错误的URL层级关系
+
+```
+网站根目录 /
+├── /brand/              # 品牌列表页
+│   ├── /3peak/          # ❌ 错误：品牌页面不能在/brand/下
+│   ├── /adi/            # ❌ 错误：品牌页面不能在/brand/下
+│   └── ...
+```
+
+### 为什么必须是同一层级？
+
+1. **SEO权重分散**: /brand/xxx/ 会让搜索引擎认为品牌页面是二级页面，降低权重
+2. **内部链接失效**: 模板中的相对路径计算基于同一层级假设
+3. **用户体验**: 用户期望直接通过 /品牌名/ 访问品牌首页
+4. **维护复杂性**: 混合层级会导致链接管理和维护困难
+
+### 各品牌内部URL结构
+
+每个品牌页面内部的URL结构保持一致：
+
+```
+/adi/                           # ADI品牌首页
+├── /adi/products/              # 产品分类列表页
+│   ├── /adi/products/adcs/     # ADC分类页
+│   │   └── /adi/products/adcs/ad9208.html  # 产品详情页
+│   └── ...
+├── /adi/solutions/             # 解决方案列表页
+│   └── /adi/solutions/battery-management-system.html
+├── /adi/support/               # 技术支持列表页
+│   └── /adi/support/sensor-interface-design.html
+└── /adi/news/                  # 新闻列表页
+```
+
+### 链接引用规范
+
+- **品牌首页**: `/adi/` 或 `./`（相对当前品牌）
+- **产品列表**: `/adi/products/`
+- **解决方案**: `/adi/solutions/`
+- **技术支持**: `/adi/support/`
+- **返回品牌列表**: `/brand/`
+
+### 代码实现检查清单
+
+在修改生成脚本（`scripts/generate.js`）时，必须遵守以下规范：
+
+```javascript
+// ✅ 正确的品牌输出目录设置
+const brandOutputDir = path.join(config.outputDir, brand);
+ensureDir(brandOutputDir);
+
+// ❌ 错误的品牌输出目录设置（违反铁律7g）
+const brandLegacyDir = path.join(config.outputDir, 'brand', brand);
+ensureDir(brandLegacyDir);  // 这会导致生成 /brand/xxx/ 路径
+
+// ✅ 生成前清理旧路径（如果存在）
+const brandLegacyDir = path.join(config.outputDir, 'brand', brand);
+if (fs.existsSync(brandLegacyDir)) {
+  fs.rmSync(brandLegacyDir, { recursive: true, force: true });
+  console.log(`  清理旧路径: /brand/${brand}/`);
+}
+```
+
+**代码审查要点**：
+1. 搜索 `generate.js` 文件中所有 `path.join` 调用
+2. 确认没有使用 `path.join(outputDir, 'brand', brand)` 的代码
+3. 删除所有 "兼容性"、"legacy"、"保持兼容性" 相关的路径生成逻辑
+4. 确保只生成一套路径：`/xxx/`
 
 ---
 

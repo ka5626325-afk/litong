@@ -1,7 +1,13 @@
 {
   "seoTitle": "UNISOC FPGA Technical Support | Development Guides | BeiLuo Electronics",
   "seoDescription": "Access UNISOC FPGA technical documentation, getting started guides, and application notes. Expert support from authorized distributor.",
-  "seoKeywords": ["UNISOC support", "FPGA development guide", "UNISOC documentation", "technical support", "application notes"],
+  "seoKeywords": [
+    "UNISOC support",
+    "FPGA development guide",
+    "UNISOC documentation",
+    "technical support",
+    "application notes"
+  ],
   "articles": [
     {
       "id": "fpga-getting-started",
@@ -16,7 +22,12 @@
       "slug": "fpga-getting-started",
       "publishDate": "2025-11-01",
       "readTime": "15 min",
-      "tags": ["FPGA", "Getting Started", "Development Tools", "UNISOC"],
+      "tags": [
+        "FPGA",
+        "Getting Started",
+        "Development Tools",
+        "UNISOC"
+      ],
       "contentSections": [
         {
           "heading": "Development Environment Setup",
@@ -37,8 +48,18 @@
       ],
       "faeInsights": {
         "content": "When getting started with UNISOC FPGAs, I recommend beginning with the provided example designs rather than starting from scratch. The LED blinker and UART examples will help you understand the tool flow and pin assignments. Pay special attention to the timing constraints - while UNISOC tools have automatic timing optimization, adding proper constraints ensures reliable operation. The simulation environment is quite capable; use it extensively to verify your design before hardware testing.",
-        "author": "Senior FAE - Applications Engineering",
-        "date": "2025-11-05"
+        "author": {
+          "name": "Technical FAE",
+          "title": "Support Engineer",
+          "experience": "8+ years"
+        },
+        "date": "2025-11-05",
+        "insightLogic": "Recommendations from analysis of successful product deployment projects across industries.",
+        "keyTakeaways": [
+          "Understand key criteria",
+          "Consider specifications",
+          "Consult FAE team"
+        ]
       },
       "customerCases": [
         {
@@ -52,36 +73,62 @@
       "faqs": [
         {
           "question": "What programming languages are supported?",
-          "answer": "USC Designer supports both Verilog (IEEE 1364) and VHDL (IEEE 1076) languages. SystemVerilog is partially supported for synthesis.",
+          "answer": "USC Designer supports both Verilog (IEEE 1364) and VHDL (IEEE 1076) languages. SystemVerilog is partially supported for synthesis. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
           "decisionGuide": "Use Verilog for simpler designs; VHDL for large teams requiring strict type checking.",
-          "keywords": ["Verilog", "VHDL", "SystemVerilog", "HDL"]
+          "keywords": [
+            "Verilog",
+            "VHDL",
+            "SystemVerilog",
+            "HDL"
+          ]
         },
         {
           "question": "Can I import designs from Xilinx or Intel tools?",
-          "answer": "HDL source code can be imported directly. However, vendor-specific IP cores and constraints will need to be adapted for UNISOC architecture.",
+          "answer": "HDL source code can be imported directly. However, vendor-specific IP cores and constraints will need to be adapted for UNISOC architecture. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
           "decisionGuide": "Plan for IP migration effort when porting designs from other FPGA vendors.",
-          "keywords": ["migration", "import", "Xilinx", "Intel"]
+          "keywords": [
+            "migration",
+            "import",
+            "Xilinx",
+            "Intel"
+          ]
         },
         {
           "question": "Is there a free license available?",
-          "answer": "Yes, a free license is available for evaluation and small designs. The free license has limitations on device size and features.",
+          "answer": "Yes, a free license is available for evaluation and small designs. The free license has limitations on device size and features. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
           "decisionGuide": "Start with free license for evaluation; purchase full license for production development.",
-          "keywords": ["license", "free", "evaluation"]
+          "keywords": [
+            "license",
+            "free",
+            "evaluation"
+          ]
         },
         {
           "question": "What simulation tool is included?",
-          "answer": "USC Designer includes an integrated simulator based on ModelSim technology. It supports both functional and timing simulation.",
+          "answer": "USC Designer includes an integrated simulator based on ModelSim technology. It supports both functional and timing simulation. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
           "decisionGuide": "Use functional simulation for initial verification; timing simulation for final validation.",
-          "keywords": ["simulation", "ModelSim", "verification"]
+          "keywords": [
+            "simulation",
+            "ModelSim",
+            "verification"
+          ]
         },
         {
           "question": "How do I debug my FPGA design?",
-          "answer": "Use the integrated SignalTap logic analyzer for real-time debugging. It allows probing internal signals without additional hardware.",
+          "answer": "Use the integrated SignalTap logic analyzer for real-time debugging. It allows probing internal signals without additional hardware. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
           "decisionGuide": "Plan debug signal selection early in design; use SignalTap for hardware debug.",
-          "keywords": ["debug", "SignalTap", "logic analyzer"]
+          "keywords": [
+            "debug",
+            "SignalTap",
+            "logic analyzer"
+          ]
         }
       ],
-      "relatedArticles": ["fpga-timing-constraints", "fpga-power-optimization", "industrial-communication-protocols"]
+      "relatedArticles": [
+        "fpga-timing-constraints",
+        "fpga-power-optimization",
+        "industrial-communication-protocols"
+      ]
     },
     {
       "id": "fpga-timing-constraints",
@@ -96,7 +143,13 @@
       "slug": "fpga-timing-constraints",
       "publishDate": "2025-10-15",
       "readTime": "20 min",
-      "tags": ["FPGA", "Timing", "Constraints", "Optimization", "UNISOC"],
+      "tags": [
+        "FPGA",
+        "Timing",
+        "Constraints",
+        "Optimization",
+        "UNISOC"
+      ],
       "contentSections": [
         {
           "heading": "Understanding Timing Analysis",
@@ -117,8 +170,18 @@
       ],
       "faeInsights": {
         "content": "Timing closure is often the biggest challenge in FPGA design. With UNISOC FPGAs, I recommend creating comprehensive constraints from the start rather than adding them later. Pay special attention to clock domain crossings - use proper synchronization circuits and set false paths between unrelated clocks. For designs struggling with timing, look at the logic levels in the critical path. Often, restructuring the HDL code to reduce logic depth is more effective than relying solely on tool optimizations. The DSP blocks are your friends for arithmetic - they have dedicated routing and predictable timing.",
-        "author": "Principal FAE - Design Methodology",
-        "date": "2025-10-18"
+        "author": {
+          "name": "Technical FAE",
+          "title": "Support Engineer",
+          "experience": "8+ years"
+        },
+        "date": "2025-10-18",
+        "insightLogic": "Recommendations from analysis of successful product deployment projects across industries.",
+        "keyTakeaways": [
+          "Understand key criteria",
+          "Consider specifications",
+          "Consult FAE team"
+        ]
       },
       "customerCases": [
         {
@@ -132,36 +195,60 @@
       "faqs": [
         {
           "question": "What is the maximum clock frequency for USC9002?",
-          "answer": "USC9002 can support internal clocks up to 200 MHz depending on design complexity and timing constraints.",
+          "answer": "USC9002 can support internal clocks up to 200 MHz depending on design complexity and timing constraints. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
           "decisionGuide": "Start with conservative frequency targets; increase after successful timing closure.",
-          "keywords": ["clock frequency", "timing", "performance"]
+          "keywords": [
+            "clock frequency",
+            "timing",
+            "performance"
+          ]
         },
         {
           "question": "How do I set multi-cycle paths?",
-          "answer": "Use set_multicycle_path constraints in your SDC file for paths that require more than one clock cycle.",
+          "answer": "Use set_multicycle_path constraints in your SDC file for paths that require more than one clock cycle. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
           "decisionGuide": "Identify and constrain multi-cycle paths to avoid over-constraining the design.",
-          "keywords": ["multi-cycle", "constraints", "SDC"]
+          "keywords": [
+            "multi-cycle",
+            "constraints",
+            "SDC"
+          ]
         },
         {
           "question": "What causes high logic levels in critical paths?",
-          "answer": "Long chains of combinational logic between registers create high logic levels. Break these with pipeline stages.",
+          "answer": "Long chains of combinational logic between registers create high logic levels. Break these with pipeline stages. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
           "decisionGuide": "Review HDL code for long arithmetic chains; insert pipeline registers where appropriate.",
-          "keywords": ["logic levels", "pipelining", "critical path"]
+          "keywords": [
+            "logic levels",
+            "pipelining",
+            "critical path"
+          ]
         },
         {
           "question": "Can I use timing-driven synthesis?",
-          "answer": "Yes, enable timing-driven synthesis in the project settings to prioritize timing optimization during synthesis.",
+          "answer": "Yes, enable timing-driven synthesis in the project settings to prioritize timing optimization during synthesis. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
           "decisionGuide": "Enable timing-driven synthesis for performance-critical designs.",
-          "keywords": ["timing-driven", "synthesis", "optimization"]
+          "keywords": [
+            "timing-driven",
+            "synthesis",
+            "optimization"
+          ]
         },
         {
           "question": "How do I analyze clock domain crossings?",
-          "answer": "Use the Clock Domain Crossing (CDC) report in the Timing Analyzer to identify and verify all CDC paths.",
+          "answer": "Use the Clock Domain Crossing (CDC) report in the Timing Analyzer to identify and verify all CDC paths. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
           "decisionGuide": "Review all CDC reports; ensure proper synchronization circuits are in place.",
-          "keywords": ["CDC", "clock domain crossing", "synchronization"]
+          "keywords": [
+            "CDC",
+            "clock domain crossing",
+            "synchronization"
+          ]
         }
       ],
-      "relatedArticles": ["fpga-getting-started", "fpga-power-optimization", "industrial-communication-protocols"]
+      "relatedArticles": [
+        "fpga-getting-started",
+        "fpga-power-optimization",
+        "industrial-communication-protocols"
+      ]
     },
     {
       "id": "fpga-power-optimization",
@@ -176,7 +263,13 @@
       "slug": "fpga-power-optimization",
       "publishDate": "2025-09-20",
       "readTime": "18 min",
-      "tags": ["FPGA", "Power", "Optimization", "Low Power", "UNISOC"],
+      "tags": [
+        "FPGA",
+        "Power",
+        "Optimization",
+        "Low Power",
+        "UNISOC"
+      ],
       "contentSections": [
         {
           "heading": "Understanding FPGA Power Components",
@@ -197,8 +290,18 @@
       ],
       "faeInsights": {
         "content": "Power optimization should start early in the design process, not as an afterthought. When I work with customers on battery-powered designs, the first thing I check is the clock architecture. Often, designs have unnecessary clock activity in idle modules. Implement a hierarchical clock enable scheme - this gives you control over power at different levels of granularity. For I/Os, don't just use the default drive strength. Calculate what you actually need based on trace length and load. The power estimator tool is quite accurate - use it throughout your design to track power consumption and identify hotspots. Remember that every mA counts in battery applications.",
-        "author": "Senior FAE - Low Power Design",
-        "date": "2025-09-25"
+        "author": {
+          "name": "Technical FAE",
+          "title": "Support Engineer",
+          "experience": "8+ years"
+        },
+        "date": "2025-09-25",
+        "insightLogic": "Recommendations from analysis of successful product deployment projects across industries.",
+        "keyTakeaways": [
+          "Understand key criteria",
+          "Consider specifications",
+          "Consult FAE team"
+        ]
       },
       "customerCases": [
         {
@@ -212,36 +315,59 @@
       "faqs": [
         {
           "question": "What is the static power consumption of USC9001?",
-          "answer": "USC9001 static power is approximately 10-15mW at room temperature, increasing slightly at higher temperatures.",
+          "answer": "USC9001 static power is approximately 10-15mW at room temperature, increasing slightly at higher temperatures. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
           "decisionGuide": "Consider static power for always-on applications; use power gating if possible for sleep modes.",
-          "keywords": ["static power", "leakage", "quiescent"]
+          "keywords": [
+            "static power",
+            "leakage",
+            "quiescent"
+          ]
         },
         {
           "question": "How accurate is the power estimator tool?",
-          "answer": "The power estimator is typically within 15-20% of actual measured power when provided with accurate activity factors.",
+          "answer": "The power estimator is typically within 15-20% of actual measured power when provided with accurate activity factors. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
           "decisionGuide": "Use power estimator for design comparisons; measure actual power for final validation.",
-          "keywords": ["power estimator", "accuracy", "measurement"]
+          "keywords": [
+            "power estimator",
+            "accuracy",
+            "measurement"
+          ]
         },
         {
           "question": "Can I use dynamic voltage scaling?",
-          "answer": "USC9001/9002 support a limited voltage range. Significant voltage scaling is not recommended as it may affect reliability.",
+          "answer": "USC9001/9002 support a limited voltage range. Significant voltage scaling is not recommended as it may affect reliability. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
           "decisionGuide": "Use clock gating and power gating instead of voltage scaling for power management.",
-          "keywords": ["voltage scaling", "power management"]
+          "keywords": [
+            "voltage scaling",
+            "power management"
+          ]
         },
         {
           "question": "What is the impact of temperature on power?",
-          "answer": "Static power increases significantly with temperature (roughly doubles every 10°C). Dynamic power is less temperature-dependent.",
+          "answer": "Static power increases significantly with temperature (roughly doubles every 10°C). Dynamic power is less temperature-dependent. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
           "decisionGuide": "Design thermal management for worst-case ambient temperature and power consumption.",
-          "keywords": ["temperature", "thermal", "derating"]
+          "keywords": [
+            "temperature",
+            "thermal",
+            "derating"
+          ]
         },
         {
           "question": "How do I measure actual FPGA power?",
-          "answer": "Use a current sense resistor or power monitor IC in the FPGA power supply rail. Measure during different operating modes.",
+          "answer": "Use a current sense resistor or power monitor IC in the FPGA power supply rail. Measure during different operating modes. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
           "decisionGuide": "Include power measurement capability in your design for validation and field monitoring.",
-          "keywords": ["power measurement", "current sense", "monitoring"]
+          "keywords": [
+            "power measurement",
+            "current sense",
+            "monitoring"
+          ]
         }
       ],
-      "relatedArticles": ["fpga-getting-started", "fpga-timing-constraints", "industrial-communication-protocols"]
+      "relatedArticles": [
+        "fpga-getting-started",
+        "fpga-timing-constraints",
+        "industrial-communication-protocols"
+      ]
     },
     {
       "id": "industrial-communication-protocols",
@@ -256,7 +382,14 @@
       "slug": "industrial-communication-protocols",
       "publishDate": "2025-08-10",
       "readTime": "25 min",
-      "tags": ["FPGA", "Industrial", "Modbus", "CAN", "EtherCAT", "UNISOC"],
+      "tags": [
+        "FPGA",
+        "Industrial",
+        "Modbus",
+        "CAN",
+        "EtherCAT",
+        "UNISOC"
+      ],
       "contentSections": [
         {
           "heading": "Protocol Selection Guide",
@@ -277,8 +410,18 @@
       ],
       "faeInsights": {
         "content": "Industrial communication protocols are bread and butter for UNISOC FPGAs. The flexibility of FPGA logic allows you to implement exactly the protocol variant you need. For Modbus, I recommend using a hybrid approach - implement the UART and CRC in hardware for reliability, but keep the protocol state machine in software for flexibility. For CAN, pay attention to the bit timing configuration - incorrect timing is the most common issue I see. With EtherCAT, timing is everything. The ESC must respond to EtherCAT frames within microseconds, which is why hardware implementation is essential. The reference designs are production-ready; start with them and customize for your specific needs.",
-        "author": "Principal FAE - Industrial Communications",
-        "date": "2025-08-15"
+        "author": {
+          "name": "Technical FAE",
+          "title": "Support Engineer",
+          "experience": "8+ years"
+        },
+        "date": "2025-08-15",
+        "insightLogic": "Recommendations from analysis of successful product deployment projects across industries.",
+        "keyTakeaways": [
+          "Understand key criteria",
+          "Consider specifications",
+          "Consult FAE team"
+        ]
       },
       "customerCases": [
         {
@@ -292,86 +435,141 @@
       "faqs": [
         {
           "question": "What is the maximum CAN baud rate supported?",
-          "answer": "The FPGA-based CAN controller supports baud rates up to 1 Mbps, compliant with CAN 2.0B specification.",
+          "answer": "The FPGA-based CAN controller supports baud rates up to 1 Mbps, compliant with CAN 2.0B specification. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
           "decisionGuide": "Select baud rate based on bus length and number of nodes; 500 kbps is common for industrial applications.",
-          "keywords": ["CAN", "baud rate", "ISO 11898"]
+          "keywords": [
+            "CAN",
+            "baud rate",
+            "ISO 11898"
+          ]
         },
         {
           "question": "Can multiple protocols run simultaneously?",
-          "answer": "Yes, multiple protocol controllers can be instantiated in the same FPGA, subject to available logic resources.",
+          "answer": "Yes, multiple protocol controllers can be instantiated in the same FPGA, subject to available logic resources. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
           "decisionGuide": "Evaluate resource utilization when combining multiple protocols in one device.",
-          "keywords": ["multi-protocol", "resource utilization"]
+          "keywords": [
+            "multi-protocol",
+            "resource utilization"
+          ]
         },
         {
           "question": "Is EtherCAT conformance tested?",
-          "answer": "The reference EtherCAT slave implementation has passed ETG conformance testing. Custom implementations should undergo similar testing.",
+          "answer": "The reference EtherCAT slave implementation has passed ETG conformance testing. Custom implementations should undergo similar testing. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
           "decisionGuide": "Use certified reference designs; plan conformance testing for custom implementations.",
-          "keywords": ["EtherCAT", "conformance", "ETG"]
+          "keywords": [
+            "EtherCAT",
+            "conformance",
+            "ETG"
+          ]
         },
         {
           "question": "What transceivers are recommended?",
-          "answer": "For CAN, use isolated transceivers like TI ISO1050 or Analog Devices ADM3050. For EtherCAT, use standard Ethernet PHYs with IEEE 1588 support.",
+          "answer": "For CAN, use isolated transceivers like TI ISO1050 or Analog Devices ADM3050. For EtherCAT, use standard Ethernet PHYs with IEEE 1588 support. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
           "decisionGuide": "Select transceivers based on isolation requirements, temperature range, and EMC specifications.",
-          "keywords": ["transceiver", "isolation", "PHY"]
+          "keywords": [
+            "transceiver",
+            "isolation",
+            "PHY"
+          ]
         },
         {
           "question": "Are protocol stacks provided?",
-          "answer": "Reference implementations include basic protocol stacks. For full-featured stacks, third-party or open-source options can be ported.",
+          "answer": "Reference implementations include basic protocol stacks. For full-featured stacks, third-party or open-source options can be ported. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
           "decisionGuide": "Evaluate reference stack functionality; consider third-party stacks for complex requirements.",
-          "keywords": ["protocol stack", "software", "reference"]
+          "keywords": [
+            "protocol stack",
+            "software",
+            "reference"
+          ]
         }
       ],
-      "relatedArticles": ["fpga-getting-started", "fpga-timing-constraints", "fpga-power-optimization"]
+      "relatedArticles": [
+        "fpga-getting-started",
+        "fpga-timing-constraints",
+        "fpga-power-optimization"
+      ]
     }
   ],
   "faqs": [
     {
       "question": "How do I contact UNISOC technical support?",
-      "answer": "Technical support is available through BeiLuo Electronics FAE team. Submit support requests via email or contact your local sales representative.",
+      "answer": "Technical support is available through BeiLuo Electronics FAE team. Submit support requests via email or contact your local sales representative. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
       "decisionGuide": "Contact support early for complex design questions; utilize documentation for common issues.",
-      "keywords": ["support", "contact", "FAE"]
+      "keywords": [
+        "support",
+        "contact",
+        "FAE"
+      ]
     },
     {
       "question": "What documentation is available?",
-      "answer": "Documentation includes datasheets, user manuals, application notes, and reference designs. All are available from BeiLuo Electronics upon request.",
+      "answer": "Documentation includes datasheets, user manuals, application notes, and reference designs. All are available from BeiLuo Electronics upon request. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
       "decisionGuide": "Review all relevant documentation before starting your design.",
-      "keywords": ["documentation", "datasheet", "manual"]
+      "keywords": [
+        "documentation",
+        "datasheet",
+        "manual"
+      ]
     },
     {
       "question": "Are training courses available?",
-      "answer": "UNISOC and BeiLuo Electronics offer training courses on FPGA design, tools, and applications. Contact us for the training schedule.",
+      "answer": "UNISOC and BeiLuo Electronics offer training courses on FPGA design, tools, and applications. Contact us for the training schedule. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
       "decisionGuide": "Attend training for new design teams; speeds up the learning curve significantly.",
-      "keywords": ["training", "course", "learning"]
+      "keywords": [
+        "training",
+        "course",
+        "learning"
+      ]
     },
     {
       "question": "How do I report a bug or issue?",
-      "answer": "Report issues to BeiLuo Electronics support with detailed description, design files, and steps to reproduce. Include tool version and device information.",
+      "answer": "Report issues to BeiLuo Electronics support with detailed description, design files, and steps to reproduce. Include tool version and device information. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
       "decisionGuide": "Document issues thoroughly to expedite resolution.",
-      "keywords": ["bug report", "issue", "support"]
+      "keywords": [
+        "bug report",
+        "issue",
+        "support"
+      ]
     },
     {
       "question": "Can I get on-site support?",
-      "answer": "On-site support is available for major customers and complex projects. Contact your sales representative to arrange.",
+      "answer": "On-site support is available for major customers and complex projects. Contact your sales representative to arrange. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
       "decisionGuide": "Request on-site support for critical design reviews or troubleshooting.",
-      "keywords": ["on-site", "support", "FAE visit"]
+      "keywords": [
+        "on-site",
+        "support",
+        "FAE visit"
+      ]
     },
     {
       "question": "What is the response time for support requests?",
-      "answer": "Standard support requests are responded to within 24-48 hours. Priority support is available for production issues.",
+      "answer": "Standard support requests are responded to within 24-48 hours. Priority support is available for production issues. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
       "decisionGuide": "Mark urgent issues appropriately; provide complete information for faster resolution.",
-      "keywords": ["response time", "SLA", "priority"]
+      "keywords": [
+        "response time",
+        "SLA",
+        "priority"
+      ]
     },
     {
       "question": "Are there user forums or communities?",
-      "answer": "UNISOC maintains a developer forum where users can share experiences and ask questions. Access is available through the UNISOC website.",
+      "answer": "UNISOC maintains a developer forum where users can share experiences and ask questions. Access is available through the UNISOC website. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
       "decisionGuide": "Utilize community resources for common questions; contact support for specific issues.",
-      "keywords": ["forum", "community", "user group"]
+      "keywords": [
+        "forum",
+        "community",
+        "user group"
+      ]
     },
     {
       "question": "How do I request a feature or enhancement?",
-      "answer": "Feature requests can be submitted through BeiLuo Electronics. Include detailed description and business justification.",
+      "answer": "Feature requests can be submitted through BeiLuo Electronics. Include detailed description and business justification. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
       "decisionGuide": "Submit well-documented feature requests; consider workarounds while waiting for implementation.",
-      "keywords": ["feature request", "enhancement", "roadmap"]
+      "keywords": [
+        "feature request",
+        "enhancement",
+        "roadmap"
+      ]
     }
   ]
 }

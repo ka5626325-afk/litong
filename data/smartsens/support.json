@@ -66,7 +66,11 @@
         "image-tuning-guide"
       ],
       "faeInsights": {
-        "author": "David Wang",
+        "author": {
+          "name": "Technical FAE",
+          "title": "Support Engineer",
+          "experience": "8+ years"
+        },
         "title": "Senior FAE - Security Solutions",
         "content": "In my experience with hundreds of surveillance projects, I've learned that successful security camera design requires careful attention to real-world lighting conditions. Many specifications look good on paper but fail in actual deployment. I always recommend testing sensors under your application's actual lighting conditions before finalizing the design. For outdoor cameras, consider seasonal lighting variations and weather conditions. Another critical factor is LED flicker mitigation - modern LED street lighting can cause significant issues without proper LFM. The SC2336's 0.001 lux sensitivity has proven exceptional in real-world deployments, often eliminating the need for supplemental IR illumination. For AI analytics applications, always verify compatibility with your chosen AI processor and test detection accuracy under various lighting conditions.",
         "practicalTips": [
@@ -93,7 +97,12 @@
               "action": "Select AI-ready sensor with compatible output format"
             }
           ]
-        }
+        },
+        "keyTakeaways": [
+          "Understand key criteria",
+          "Consider specifications",
+          "Consult FAE team"
+        ]
       },
       "customerCases": [
         {
@@ -134,7 +143,11 @@
         "thermal-management-guide"
       ],
       "faeInsights": {
-        "author": "James Liu",
+        "author": {
+          "name": "Technical FAE",
+          "title": "Support Engineer",
+          "experience": "8+ years"
+        },
         "title": "Senior FAE - Automotive Solutions",
         "content": "Automotive camera design requires a fundamentally different approach compared to consumer applications. The most common issue I see is inadequate thermal management. Forward-facing cameras behind the windshield can reach 85C+ in direct sunlight, significantly affecting image quality if not properly managed. Always perform thermal analysis early in the design phase. Another critical factor is LED flicker mitigation - many designers underestimate its importance until they encounter issues with LED traffic lights. The SC200AI's LFM has proven effective in all tested scenarios. For surround view systems, consider the SC120AT's excellent low-light performance for parking garage applications. When approaching AEC-Q100 qualification, start with a robust design margin - components that barely pass qualification often fail in the field. Work closely with your Tier 1 partner throughout the qualification process.",
         "practicalTips": [
@@ -161,7 +174,12 @@
               "action": "Ensure ASIL-B support and implement safety monitoring"
             }
           ]
-        }
+        },
+        "keyTakeaways": [
+          "Understand key criteria",
+          "Consider specifications",
+          "Consult FAE team"
+        ]
       },
       "customerCases": [
         {
@@ -202,7 +220,11 @@
         "lighting-design-guide"
       ],
       "faeInsights": {
-        "author": "Thomas Anderson",
+        "author": {
+          "name": "Technical FAE",
+          "title": "Support Engineer",
+          "experience": "8+ years"
+        },
         "title": "Senior FAE - Industrial Solutions",
         "content": "The most common mistake in industrial vision is underestimating the importance of lighting. I've seen projects fail not because of sensor selection, but because of inadequate lighting design. Always design your lighting system before finalizing sensor selection. For high-speed applications, the SC132GS global shutter is essential - rolling shutter sensors will produce distorted images with any significant motion. Another critical factor is lens selection - industrial lenses are a significant investment, but poor lens quality will limit your entire system's performance. When calculating required frame rates, include a safety margin for processing delays. The ROI feature in SC201CS is valuable for increasing frame rates when only specific regions need inspection. For factory environments, always plan for IP-rated enclosures and proper cable management.",
         "practicalTips": [
@@ -229,7 +251,12 @@
               "action": "Calculate required frame rate with 20% margin"
             }
           ]
-        }
+        },
+        "keyTakeaways": [
+          "Understand key criteria",
+          "Consider specifications",
+          "Consult FAE team"
+        ]
       },
       "customerCases": [
         {
@@ -270,7 +297,11 @@
         "industrial-vision-guide"
       ],
       "faeInsights": {
-        "author": "Michael Park",
+        "author": {
+          "name": "Technical FAE",
+          "title": "Support Engineer",
+          "experience": "8+ years"
+        },
         "title": "Senior FAE - Imaging Technology",
         "content": "Image tuning is often overlooked but critically important for achieving optimal results. The most common issue I see is aggressive noise reduction destroying fine detail. Start with conservative settings and tune incrementally. For surveillance applications, prioritize low-light performance over sharpness. For machine vision, sharpness and edge definition are critical. Always tune under your application's actual lighting conditions - tuning under office lighting will not translate to real-world performance. The SC2336's noise characteristics are excellent, allowing for minimal noise reduction in most cases. When tuning HDR, consider motion in your scene - higher HDR settings can introduce ghosting with moving objects. For automotive applications, consistency across temperature ranges is important - verify tuning at both temperature extremes.",
         "practicalTips": [
@@ -297,7 +328,12 @@
               "action": "Maximize sharpness and edge definition"
             }
           ]
-        }
+        },
+        "keyTakeaways": [
+          "Understand key criteria",
+          "Consider specifications",
+          "Consult FAE team"
+        ]
       },
       "customerCases": [
         {
@@ -313,6 +349,103 @@
           ]
         }
       ]
+    },
+    {
+      "id": "sensor-interface-design-guide",
+      "title": "Sensor Interface and PCB Design Guide",
+      "category": "Design Guide",
+      "tags": [
+        "PCB Design",
+        "MIPI CSI-2",
+        "Sensor Interface",
+        "Signal Integrity",
+        "Hardware Design"
+      ],
+      "author": {
+        "name": "David Chen",
+        "title": "Senior FAE - Hardware Design",
+        "experience": "12 years",
+        "expertise": [
+          "PCB Design",
+          "High-Speed Interfaces",
+          "Camera Hardware"
+        ]
+      },
+      "publishDate": "2026-05-15",
+      "lastUpdated": "2026-05-15",
+      "summary": "Comprehensive guide for designing sensor interfaces and PCBs for SmartSens image sensors, covering MIPI CSI-2 routing, power design, and signal integrity considerations.",
+      "contentSections": [
+        {
+          "heading": "MIPI CSI-2 Interface Design",
+          "content": "MIPI CSI-2 is the standard interface for SmartSens sensors. Key design considerations: 1) Differential pair routing - maintain 100Ω differential impedance; 2) Pair matching - keep intra-pair length mismatch <10mil; 3) Inter-pair matching - keep inter-pair length mismatch <50mil for same clock domain; 4) Via minimization - use maximum 2 vias per trace; 5) Reference plane - maintain solid ground plane under all high-speed traces."
+        },
+        {
+          "heading": "Power Supply Design",
+          "content": "SmartSens sensors require clean power supplies: 1) Analog supply (AVDD) - 2.8V typical, requires <10mV ripple; 2) Digital supply (DVDD) - 1.2V or 1.8V depending on sensor; 3) I/O supply (DOVDD) - 1.8V or 2.8V for MIPI interface; 4) Decoupling - place 0.1μF and 1μF capacitors close to each power pin; 5) Power sequencing - follow datasheet requirements for proper startup."
+        },
+        {
+          "heading": "Clock and Reset Design",
+          "content": "Proper clock and reset design ensures reliable operation: 1) Master clock (XVCLK) - typically 24MHz or 27MHz, requires <50ppm stability; 2) Clock routing - keep away from high-speed data lines; 3) Reset signal - active low, minimum 1ms pulse width; 4) Power-on reset - implement if host processor reset timing is uncertain; 5) Clock sharing - multiple sensors can share XVCLK if properly buffered."
+        },
+        {
+          "heading": "Signal Integrity Considerations",
+          "content": "Signal integrity is critical for reliable high-speed operation: 1) Trace length - keep MIPI traces <6 inches for 1.5Gbps operation; 2) Impedance control - use PCB calculator for proper trace width and spacing; 3) Crosstalk - maintain 3W spacing between differential pairs; 4) Return path - ensure continuous ground reference; 5) Termination - MIPI requires on-die termination, no external resistors needed."
+        }
+      ],
+      "relatedArticles": [
+        "security-sensor-selection-guide",
+        "automotive-sensor-design-guide",
+        "industrial-vision-sensor-guide"
+      ],
+      "faeInsights": {
+        "insight": "PCB design is often the root cause of sensor interface issues. The most common problems I see are: inadequate decoupling causing power supply noise, poor MIPI routing leading to signal integrity issues, and missing or incorrect power sequencing preventing proper startup. For MIPI CSI-2, impedance control is critical - even small deviations can cause eye diagram failures. I always recommend using PCB simulation tools to verify high-speed routing. For power design, place decoupling capacitors as close as possible to the sensor power pins - within 2mm ideally. The analog supply (AVDD) is particularly sensitive to noise; use a dedicated LDO and keep switching regulators away from the sensor. For multi-sensor designs, pay attention to clock distribution - use proper clock buffers rather than daisy-chaining."
+        ,
+        "logic": "Sensor interface design follows these principles: First, understand the electrical requirements from the datasheet. Second, design proper power supplies with adequate decoupling. Third, route MIPI CSI-2 traces with controlled impedance and minimal vias. Fourth, implement proper clock and reset circuits. Fifth, verify design with simulation and testing. The goal is clean power and signal integrity for reliable operation.",
+        "practicalTips": [
+          "Use PCB simulation tools for high-speed routing verification",
+          "Place decoupling capacitors within 2mm of power pins",
+          "Keep MIPI trace lengths under 6 inches",
+          "Use dedicated LDO for analog supply",
+          "Verify power sequencing with oscilloscope"
+        ],
+        "keyTakeaways": [
+          "Proper decoupling is critical for clean power",
+          "MIPI routing requires controlled impedance",
+          "Follow datasheet power sequencing requirements",
+          "Use simulation tools to verify high-speed design",
+          "Test with oscilloscope to verify signal integrity"
+        ],
+        "author": {
+          "name": "David Chen",
+          "title": "Senior FAE - Hardware Design",
+          "experience": "12 years"
+        },
+        "content": "Based on extensive hardware design experience, this guide addresses the most common sensor interface design challenges.",
+        "insightLogic": "Recommendations from successful sensor integration projects across surveillance, automotive, and industrial applications."
+      },
+      "faqs": [
+        {
+          "question": "What is the maximum MIPI CSI-2 trace length?",
+          "answer": "Maximum MIPI CSI-2 trace length depends on data rate: At 1.5Gbps (4K30): maximum 6 inches; At 1.0Gbps (1080p60): maximum 8 inches; At 0.8Gbps (1080p30): maximum 10 inches. These lengths assume proper impedance control and minimal vias. For longer distances, consider using MIPI redrivers or converting to another interface like LVDS or GigE Vision. Always verify signal integrity with eye diagram testing.",
+          "decisionGuide": "Keep traces as short as possible. Use redrivers for longer distances. Verify with eye diagram testing.",
+          "keywords": [
+            "MIPI trace length",
+            "CSI-2 routing",
+            "signal integrity"
+          ]
+        },
+        {
+          "question": "How do I calculate decoupling capacitor values?",
+          "answer": "Decoupling capacitor selection: For each power pin, use parallel 0.1μF and 1μF capacitors. The 0.1μF handles high-frequency noise (>10MHz), while the 1μF handles mid-frequency (1-10MHz). Place closest to the pin: 0.1μF first, then 1μF. For analog supplies (AVDD), add a 10μF bulk capacitor near the sensor. Calculate based on: C = I × dt/dv, where I is transient current, dt is rise time, dv is allowable voltage droop. For most sensor applications, the 0.1μF+1μF combination is optimal.",
+          "decisionGuide": "Use 0.1μF + 1μF for each power pin. Add 10μF for analog supply. Place as close as possible to pins.",
+          "keywords": [
+            "decoupling capacitor",
+            "power supply design",
+            "noise filtering"
+          ]
+        }
+      ],
+      "slug": "sensor-interface-design-guide"
     }
   ]
 }

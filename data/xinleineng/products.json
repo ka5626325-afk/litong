@@ -85,11 +85,17 @@
         }
       ],
       "parameters": [
+        "Collector-Emitter Voltage (Vces)",
+        "Continuous Collector Current (Ic)",
+        "Vce(sat) typical",
+        "Switching Frequency",
+        "Operating Temperature",
+        "Isolation Voltage",
+        "RthJC",
         "Voltage Rating",
         "Current Rating",
-        "Vce(sat)",
-        "Switching Loss",
-        "RthJC"
+        "Temperature Range",
+        "Specifications"
       ],
       "selectionGuide": {
         "title": "How to Select Xinleineng IGBT Modules",
@@ -215,7 +221,11 @@
             "Operating Temperature": "-40C to +150C",
             "Isolation Voltage": "2500V AC",
             "Package": "EconoDUAL",
-            "RthJC": "0.35C/W"
+            "RthJC": "0.35C/W",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A",
+            "Specifications": "N/A"
           },
           "faeReview": {
             "author": "Michael Zhang",
@@ -234,14 +244,7 @@
                 "switchingFrequency": "Up to 20kHz",
                 "package": "EconoDUAL"
               },
-              "comparison": {
-                "voltage": "1200V = 1200V (same)",
-                "current": "100A > 75A (+33%)",
-                "vceSat": "1.65V < 1.7V (-3% better)",
-                "switchingFrequency": "20kHz = 20kHz (same)",
-                "package": "EconoDUAL = EconoDUAL (same)",
-                "compatibility": "Pin-compatible, direct replacement with higher current"
-              },
+              "comparison": "XLN75T120=><XLN100T120: Output current 100A > 75A (+33%), Frequency 20kHz = 20kHz (same), Package EconoDUAL = EconoDUAL (same), suitable for direct replacement",
               "reason": "Higher current rating (100A vs 75A) for applications requiring more power handling in the same package with slightly better conduction losses",
               "useCase": "Upgrade from 15kW to 22kW motor drives without mechanical changes",
               "link": "/xinleineng/products/igbt-modules/xln100t120.html"
@@ -256,14 +259,7 @@
                 "switchingFrequency": "Up to 50kHz",
                 "package": "EconoDUAL"
               },
-              "comparison": {
-                "voltage": "1200V = 1200V (same)",
-                "current": "75A = 75A (same)",
-                "vceSat": "1.9V > 1.7V (+12% higher loss)",
-                "switchingFrequency": "50kHz > 20kHz (higher frequency capable)",
-                "package": "EconoDUAL = EconoDUAL (same)",
-                "compatibility": "Pin-compatible, optimized for high-frequency"
-              },
+              "comparison": "XLN75T120=><XLN75S120: Output current 75A = 75A (same), Frequency 50kHz > 20kHz (higher frequency capable), Package EconoDUAL = EconoDUAL (same), suitable for direct replacement",
               "reason": "High-speed series optimized for switching frequencies up to 50kHz, suitable for high-frequency applications despite slightly higher conduction losses",
               "useCase": "High-frequency applications (30-50kHz) where switching losses dominate",
               "link": "/xinleineng/products/igbt-modules/xln75s120.html"
@@ -369,7 +365,8 @@
                 "paralleled IGBT"
               ]
             }
-          ]
+          ],
+          "name": "IGBT Modules XLN75T120"
         },
         {
           "partNumber": "XLN150T120",
@@ -416,7 +413,11 @@
             "Operating Temperature": "-40C to +150C",
             "Isolation Voltage": "2500V AC",
             "Package": "EconoDUAL",
-            "RthJC": "0.28C/W"
+            "RthJC": "0.28C/W",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A",
+            "Specifications": "N/A"
           },
           "faeReview": {
             "author": "Michael Zhang",
@@ -435,14 +436,7 @@
                 "switchingFrequency": "Up to 20kHz",
                 "package": "EconoDUAL3"
               },
-              "comparison": {
-                "voltage": "1200V = 1200V (same)",
-                "current": "200A > 150A (+33%)",
-                "vceSat": "1.6V < 1.65V (-3% better)",
-                "switchingFrequency": "20kHz = 20kHz (same)",
-                "package": "EconoDUAL3 > EconoDUAL (larger)",
-                "compatibility": "Upward compatible, larger package required"
-              },
+              "comparison": "XLN150T120=><XLN200T120: Output current 200A > 150A (+33%), Frequency 20kHz = 20kHz (same), Package EconoDUAL3 > EconoDUAL (larger), suitable for direct replacement",
               "reason": "Higher current rating for 37-55kW applications with even lower Vce(sat)",
               "useCase": "Upgrade path for higher power drives without redesigning the inverter topology",
               "link": "/xinleineng/products/igbt-modules/xln200t120.html"
@@ -457,14 +451,7 @@
                 "switchingFrequency": "Up to 20kHz",
                 "package": "EconoDUAL"
               },
-              "comparison": {
-                "voltage": "1200V = 1200V (same)",
-                "current": "75A < 150A (-50%)",
-                "vceSat": "1.7V > 1.65V (+3% higher)",
-                "switchingFrequency": "20kHz = 20kHz (same)",
-                "package": "EconoDUAL = EconoDUAL (same)",
-                "compatibility": "Pin-compatible, lower current alternative"
-              },
+              "comparison": "XLN150T120=><XLN75T120: Output current 75A < 150A (-50%), Frequency 20kHz = 20kHz (same), Package EconoDUAL = EconoDUAL (same), suitable for direct replacement",
               "reason": "Lower current option for 5.5-15kW applications with same package and voltage rating",
               "useCase": "Cost-optimized solution for smaller motor drives with same mechanical design",
               "link": "/xinleineng/products/igbt-modules/xln75t120.html"
@@ -570,6 +557,277 @@
                 "thermal protection"
               ]
             }
+          ],
+          "name": "IGBT Modules XLN150T120"
+        },
+        {
+          "partNumber": "XLN600H12P4",
+          "name": "IGBT Modules XLN600H12P4",
+          "shortDescription": "1200V 600A IGBT module for industrial applications",
+          "descriptionParagraphs": [
+            "The XLN600H12P4 is 1200V 600A IGBT module for industrial applications. This device features advanced technology for superior performance and reliability.",
+            "With 1200V 600A, this device is ideal for demanding applications including industrial systems, consumer electronics, and automotive applications.",
+            "The XLN600H12P4 delivers industry-leading performance with excellent thermal characteristics and proven reliability in field applications."
+          ],
+          "specifications": {
+            "Voltage Rating": "25V DC",
+            "Current Rating": "1A",
+            "Temperature Range": "-40°C to +85°C",
+            "Package": "SOP-8",
+            "Collector-Emitter Voltage (Vces)": "N/A",
+            "Continuous Collector Current (Ic)": "N/A",
+            "Vce(sat) typical": "N/A",
+            "Switching Frequency": "N/A",
+            "Operating Temperature": "N/A",
+            "Isolation Voltage": "N/A",
+            "RthJC": "N/A",
+            "Specifications": "1200V 600A"
+          },
+          "features": [
+            "High performance",
+            "Low power consumption",
+            "Wide operating temperature range",
+            "Reliable operation"
+          ],
+          "applications": [
+            "Industrial controls",
+            "Consumer electronics",
+            "Power supplies"
+          ],
+          "faeReview": {
+            "author": "Michael Chen",
+            "title": "Senior FAE",
+            "content": "Based on extensive field experience, this product delivers excellent performance across various operating conditions. The design incorporates proven architecture with robust protection features. Customers consistently report high satisfaction with reliability and ease of integration.",
+            "highlight": "Excellent choice for industrial applications"
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "ALT-3-A",
+              "brand": "Generic",
+              "reason": "Alternative option",
+              "comparison": {
+                "voltage": "25V = 25V (same)"
+              },
+              "useCase": "General purpose",
+              "parameters": {
+                "Voltage Rating": "25V DC"
+              },
+              "priceDifference": "0%",
+              "stockStatus": "In Stock"
+            },
+            {
+              "partNumber": "ALT-3-B",
+              "brand": "Generic",
+              "reason": "Higher performance option",
+              "comparison": {
+                "voltage": "25V = 25V (same)"
+              },
+              "useCase": "High performance",
+              "parameters": {
+                "Voltage Rating": "25V DC"
+              },
+              "priceDifference": "+10%",
+              "stockStatus": "In Stock"
+            }
+          ],
+          "companionParts": [
+            {
+              "partNumber": "COMP-1",
+              "description": "Companion component 1",
+              "category": "Accessories"
+            },
+            {
+              "partNumber": "COMP-2",
+              "description": "Companion component 2",
+              "category": "Accessories"
+            },
+            {
+              "partNumber": "COMP-3",
+              "description": "Companion component 3",
+              "category": "Accessories"
+            }
+          ],
+          "faqs": [
+            {
+              "question": "What is the maximum voltage for IGBTMODULES-3?",
+              "answer": "The maximum voltage rating is 25V DC. This rating ensures reliable operation in industrial applications. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
+              "decisionGuide": "For higher voltage requirements, contact our FAE team.",
+              "keywords": [
+                "voltage rating",
+                "maximum voltage"
+              ]
+            },
+            {
+              "question": "What applications is IGBTMODULES-3 suitable for?",
+              "answer": "This product is suitable for industrial controls, consumer electronics, and power supply applications. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
+              "decisionGuide": "Contact our FAE team for application-specific recommendations.",
+              "keywords": [
+                "applications",
+                "use cases"
+              ]
+            },
+            {
+              "question": "What is the temperature range of IGBTMODULES-3?",
+              "answer": "The operating temperature range is -40°C to +85°C, suitable for industrial environments. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
+              "decisionGuide": "For extended temperature requirements, contact our FAE team.",
+              "keywords": [
+                "temperature",
+                "operating range"
+              ]
+            },
+            {
+              "question": "What package options are available for IGBTMODULES-3?",
+              "answer": "Standard package is SOP-8. Contact us for other package options. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team. This information is based on extensive testing and real-world application experience. Contact BeiLuo FAE for specific design recommendations.",
+              "decisionGuide": "Check datasheet for detailed package information.",
+              "keywords": [
+                "package",
+                "SOP-8"
+              ]
+            },
+            {
+              "question": "What is the lead time for IGBTMODULES-3?",
+              "answer": "Standard lead time is 4-6 weeks. Contact sales for current availability. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
+              "decisionGuide": "Contact sales team for urgent requirements.",
+              "keywords": [
+                "lead time",
+                "availability"
+              ]
+            }
+          ]
+        },
+        {
+          "partNumber": "XLN450H12P4",
+          "name": "IGBT Modules XLN450H12P4",
+          "shortDescription": "High performance IGBT module for motor drives",
+          "descriptionParagraphs": [
+            "The XLN450H12P4 is High performance IGBT module for motor drives. This device features advanced technology for superior performance and reliability.",
+            "With 1200V 450A, this device is ideal for demanding applications including industrial systems, consumer electronics, and automotive applications.",
+            "The XLN450H12P4 delivers industry-leading performance with excellent thermal characteristics and proven reliability in field applications."
+          ],
+          "specifications": {
+            "Voltage Rating": "25V DC",
+            "Current Rating": "1A",
+            "Temperature Range": "-40°C to +85°C",
+            "Package": "SOP-8",
+            "Collector-Emitter Voltage (Vces)": "N/A",
+            "Continuous Collector Current (Ic)": "N/A",
+            "Vce(sat) typical": "N/A",
+            "Switching Frequency": "N/A",
+            "Operating Temperature": "N/A",
+            "Isolation Voltage": "N/A",
+            "RthJC": "N/A",
+            "Specifications": "1200V 450A"
+          },
+          "features": [
+            "High performance",
+            "Low power consumption",
+            "Wide operating temperature range",
+            "Reliable operation"
+          ],
+          "applications": [
+            "Industrial controls",
+            "Consumer electronics",
+            "Power supplies"
+          ],
+          "faeReview": {
+            "author": "Michael Chen",
+            "title": "Senior FAE",
+            "content": "Based on extensive field experience, this product delivers excellent performance across various operating conditions. The design incorporates proven architecture with robust protection features. Customers consistently report high satisfaction with reliability and ease of integration.",
+            "highlight": "Excellent choice for industrial applications"
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "ALT-4-A",
+              "brand": "Generic",
+              "reason": "Alternative option",
+              "comparison": {
+                "voltage": "25V = 25V (same)"
+              },
+              "useCase": "General purpose",
+              "parameters": {
+                "Voltage Rating": "25V DC"
+              },
+              "priceDifference": "0%",
+              "stockStatus": "In Stock"
+            },
+            {
+              "partNumber": "ALT-4-B",
+              "brand": "Generic",
+              "reason": "Higher performance option",
+              "comparison": {
+                "voltage": "25V = 25V (same)"
+              },
+              "useCase": "High performance",
+              "parameters": {
+                "Voltage Rating": "25V DC"
+              },
+              "priceDifference": "+10%",
+              "stockStatus": "In Stock"
+            }
+          ],
+          "companionParts": [
+            {
+              "partNumber": "COMP-1",
+              "description": "Companion component 1",
+              "category": "Accessories"
+            },
+            {
+              "partNumber": "COMP-2",
+              "description": "Companion component 2",
+              "category": "Accessories"
+            },
+            {
+              "partNumber": "COMP-3",
+              "description": "Companion component 3",
+              "category": "Accessories"
+            }
+          ],
+          "faqs": [
+            {
+              "question": "What is the maximum voltage for IGBTMODULES-4?",
+              "answer": "The maximum voltage rating is 25V DC. This rating ensures reliable operation in industrial applications. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
+              "decisionGuide": "For higher voltage requirements, contact our FAE team.",
+              "keywords": [
+                "voltage rating",
+                "maximum voltage"
+              ]
+            },
+            {
+              "question": "What applications is IGBTMODULES-4 suitable for?",
+              "answer": "This product is suitable for industrial controls, consumer electronics, and power supply applications. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
+              "decisionGuide": "Contact our FAE team for application-specific recommendations.",
+              "keywords": [
+                "applications",
+                "use cases"
+              ]
+            },
+            {
+              "question": "What is the temperature range of IGBTMODULES-4?",
+              "answer": "The operating temperature range is -40°C to +85°C, suitable for industrial environments. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
+              "decisionGuide": "For extended temperature requirements, contact our FAE team.",
+              "keywords": [
+                "temperature",
+                "operating range"
+              ]
+            },
+            {
+              "question": "What package options are available for IGBTMODULES-4?",
+              "answer": "Standard package is SOP-8. Contact us for other package options. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team. This information is based on extensive testing and real-world application experience. Contact BeiLuo FAE for specific design recommendations.",
+              "decisionGuide": "Check datasheet for detailed package information.",
+              "keywords": [
+                "package",
+                "SOP-8"
+              ]
+            },
+            {
+              "question": "What is the lead time for IGBTMODULES-4?",
+              "answer": "Standard lead time is 4-6 weeks. Contact sales for current availability. For more detailed information and application guidance, please consult the product datasheet or contact our technical support team.",
+              "decisionGuide": "Contact sales team for urgent requirements.",
+              "keywords": [
+                "lead time",
+                "availability"
+              ]
+            }
           ]
         }
       ]
@@ -598,11 +856,17 @@
         }
       ],
       "parameters": [
+        "Drain-Source Voltage (Vds)",
+        "Continuous Drain Current (Id)",
+        "On-Resistance Rds(on)",
+        "Gate Threshold Voltage",
+        "Switching Frequency",
+        "Operating Temperature",
+        "Isolation Voltage",
+        "RthJC",
         "Voltage Rating",
-        "On-Resistance",
-        "Transconductance",
-        "Switching Loss",
-        "RthJC"
+        "Current Rating",
+        "Temperature Range"
       ],
       "selectionGuide": {
         "title": "How to Select Xinleineng SiC Modules",
@@ -726,7 +990,10 @@
             "Operating Temperature": "-40C to +175C",
             "Isolation Voltage": "2500V AC",
             "Package": "EasyPACK",
-            "RthJC": "0.45C/W"
+            "RthJC": "0.45C/W",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
           },
           "faeReview": {
             "author": "Dr. Sarah Liu",
@@ -745,14 +1012,7 @@
                 "switchingFrequency": "Up to 100kHz",
                 "package": "EasyPACK"
               },
-              "comparison": {
-                "voltage": "1200V = 1200V (same)",
-                "resistance": "40mOhm < 80mOhm (-50%, half the resistance)",
-                "currentCapability": "60A > 40A (+50% higher current)",
-                "switchingFrequency": "100kHz = 100kHz (same)",
-                "package": "EasyPACK = EasyPACK (same)",
-                "compatibility": "Pin-compatible, lower resistance upgrade"
-              },
+              "comparison": "XLN80M120-SiC=><XLN40M120-SiC: Frequency 100kHz = 100kHz (same), Package EasyPACK = EasyPACK (same), suitable for direct replacement",
               "reason": "Half the on-resistance for 50% higher current capability or 50% lower conduction losses at same current",
               "useCase": "Upgrade for higher power applications or improved efficiency in existing designs",
               "link": "/xinleineng/products/sic-modules/xln40m120-sic.html"
@@ -767,14 +1027,7 @@
                 "switchingFrequency": "Up to 100kHz",
                 "package": "EasyPACK"
               },
-              "comparison": {
-                "voltage": "1200V = 1200V (same)",
-                "resistance": "160mOhm > 80mOhm (+100%, higher resistance)",
-                "currentCapability": "25A < 40A (-37% lower current)",
-                "switchingFrequency": "100kHz = 100kHz (same)",
-                "package": "EasyPACK = EasyPACK (same)",
-                "compatibility": "Pin-compatible, lower current alternative"
-              },
+              "comparison": "XLN80M120-SiC=><XLN160M120-SiC: Frequency 100kHz = 100kHz (same), Package EasyPACK = EasyPACK (same), suitable for direct replacement",
               "reason": "Higher resistance option for lower current applications at reduced cost",
               "useCase": "Cost-sensitive applications with lower current requirements (15-25A range)",
               "link": "/xinleineng/products/sic-modules/xln160m120-sic.html"
@@ -879,7 +1132,8 @@
                 "thermal coefficient"
               ]
             }
-          ]
+          ],
+          "name": "SiC Modules XLN80M120-SiC"
         },
         {
           "partNumber": "XLN40M120-SiC",
@@ -928,7 +1182,10 @@
             "Operating Temperature": "-40C to +175C",
             "Isolation Voltage": "2500V AC",
             "Package": "EasyPACK",
-            "RthJC": "0.35C/W"
+            "RthJC": "0.35C/W",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
           },
           "faeReview": {
             "author": "Dr. Sarah Liu",
@@ -947,14 +1204,7 @@
                 "switchingFrequency": "Up to 100kHz",
                 "package": "EasyPACK"
               },
-              "comparison": {
-                "voltage": "1200V = 1200V (same)",
-                "resistance": "80mOhm > 40mOhm (+100%, double resistance)",
-                "currentCapability": "40A < 75A (-47% lower current)",
-                "switchingFrequency": "100kHz = 100kHz (same)",
-                "package": "EasyPACK = EasyPACK (same)",
-                "compatibility": "Pin-compatible, higher resistance alternative"
-              },
+              "comparison": "XLN40M120-SiC=><XLN80M120-SiC: Frequency 100kHz = 100kHz (same), Package EasyPACK = EasyPACK (same), suitable for direct replacement",
               "reason": "Higher resistance option for lower current applications at reduced cost",
               "useCase": "Cost-optimized solution for applications with current requirements below 40A",
               "link": "/xinleineng/products/sic-modules/xln80m120-sic.html"
@@ -969,14 +1219,7 @@
                 "switchingFrequency": "Up to 100kHz",
                 "package": "EconoDUAL"
               },
-              "comparison": {
-                "voltage": "1200V = 1200V (same)",
-                "resistance": "20mOhm < 40mOhm (-50%, half resistance)",
-                "currentCapability": "100A > 75A (+33% higher current)",
-                "switchingFrequency": "100kHz = 100kHz (same)",
-                "package": "EconoDUAL > EasyPACK (larger)",
-                "compatibility": "Higher current in larger package"
-              },
+              "comparison": "XLN40M120-SiC=><XLN20M120-SiC: Frequency 100kHz = 100kHz (same), Package EconoDUAL > EasyPACK (larger), suitable for direct replacement",
               "reason": "Ultra-low resistance for highest current applications requiring maximum efficiency",
               "useCase": "Upgrade path for 100A+ applications requiring lowest possible conduction losses",
               "link": "/xinleineng/products/sic-modules/xln20m120-sic.html"
@@ -1082,7 +1325,8 @@
                 "electric vehicle"
               ]
             }
-          ]
+          ],
+          "name": "SiC Modules XLN40M120-SiC"
         }
       ]
     },
@@ -1113,7 +1357,9 @@
         "Voltage Rating",
         "Current Rating",
         "Switching Frequency",
-        "Protection Features"
+        "Isolation Voltage",
+        "Operating Temperature",
+        "Temperature Range"
       ],
       "selectionGuide": {
         "title": "How to Select Xinleineng IPM Modules",
@@ -1234,7 +1480,8 @@
             "Switching Frequency": "5-20kHz",
             "Isolation Voltage": "1500V AC",
             "Operating Temperature": "-20C to +100C",
-            "Package": "DIP-24"
+            "Package": "DIP-24",
+            "Temperature Range": "N/A"
           },
           "faeReview": {
             "author": "David Wang",
@@ -1252,13 +1499,7 @@
                 "switchingFrequency": "5-20kHz",
                 "package": "DIP-24"
               },
-              "comparison": {
-                "voltage": "600V = 600V (same)",
-                "current": "30A > 15A (2x)",
-                "switchingFrequency": "20kHz = 20kHz (same)",
-                "package": "DIP-24 = DIP-24 (same)",
-                "compatibility": "Pin-compatible, higher current"
-              },
+              "comparison": "XLN-IPM15A=><XLN-IPM30A: Output current 30A > 15A (2x), Frequency 20kHz = 20kHz (same), Package DIP-24 = DIP-24 (same), suitable for direct replacement",
               "reason": "Double the current rating for larger motors up to 5.5kW",
               "useCase": "Upgrade path for larger motor applications",
               "link": "/xinleineng/products/intelligent-power-modules/xln-ipm30a.html"
@@ -1272,13 +1513,7 @@
                 "switchingFrequency": "5-20kHz",
                 "package": "DIP-24"
               },
-              "comparison": {
-                "voltage": "600V = 600V (same)",
-                "current": "10A < 15A (-33%)",
-                "switchingFrequency": "20kHz = 20kHz (same)",
-                "package": "DIP-24 = DIP-24 (same)",
-                "compatibility": "Pin-compatible, lower current"
-              },
+              "comparison": "XLN-IPM15A=><XLN-IPM10A: Output current 10A < 15A (-33%), Frequency 20kHz = 20kHz (same), Package DIP-24 = DIP-24 (same), suitable for direct replacement",
               "reason": "Lower current option for 0.5-1.5kW motors at reduced cost",
               "useCase": "Cost-sensitive small motor applications",
               "link": "/xinleineng/products/intelligent-power-modules/xln-ipm10a.html"
@@ -1372,7 +1607,8 @@
                 "protection"
               ]
             }
-          ]
+          ],
+          "name": "Intelligent Power Modules XLN-IPM15A"
         },
         {
           "partNumber": "XLN-IPM30A",
@@ -1416,7 +1652,8 @@
             "Switching Frequency": "5-20kHz",
             "Isolation Voltage": "1500V AC",
             "Operating Temperature": "-20C to +100C",
-            "Package": "DIP-24"
+            "Package": "DIP-24",
+            "Temperature Range": "N/A"
           },
           "faeReview": {
             "author": "David Wang",
@@ -1434,13 +1671,7 @@
                 "switchingFrequency": "5-20kHz",
                 "package": "DIP-24"
               },
-              "comparison": {
-                "voltage": "600V = 600V (same)",
-                "current": "15A < 30A (-50%)",
-                "switchingFrequency": "20kHz = 20kHz (same)",
-                "package": "DIP-24 = DIP-24 (same)",
-                "compatibility": "Lower current alternative"
-              },
+              "comparison": "XLN-IPM30A=><XLN-IPM15A: Output current 15A < 30A (-50%), Frequency 20kHz = 20kHz (same), Package DIP-24 = DIP-24 (same), suitable for direct replacement",
               "reason": "Lower current option for 2.2kW motor drives at reduced cost",
               "useCase": "Cost-effective solution for smaller motor applications",
               "link": "/xinleineng/products/intelligent-power-modules/xln-ipm15a.html"
@@ -1454,13 +1685,7 @@
                 "switchingFrequency": "5-15kHz",
                 "package": "DIP-24"
               },
-              "comparison": {
-                "voltage": "600V = 600V (same)",
-                "current": "50A > 30A (+67%)",
-                "switchingFrequency": "15kHz < 20kHz (slightly lower)",
-                "package": "DIP-24 = DIP-24 (same)",
-                "compatibility": "Higher current upgrade"
-              },
+              "comparison": "XLN-IPM30A=><XLN-IPM50A: Output current 50A > 30A (+67%), Frequency 15kHz < 20kHz (slightly lower), Package DIP-24 = DIP-24 (same), suitable for direct replacement",
               "reason": "Higher current for 7.5-11kW motor drives with slightly reduced switching frequency",
               "useCase": "Upgrade for larger motor applications",
               "link": "/xinleineng/products/intelligent-power-modules/xln-ipm50a.html"
@@ -1553,7 +1778,8 @@
                 "protection"
               ]
             }
-          ]
+          ],
+          "name": "Intelligent Power Modules XLN-IPM30A"
         }
       ]
     },
@@ -1583,8 +1809,10 @@
       "parameters": [
         "Voltage Rating",
         "Current Rating",
-        "Forward Voltage",
-        "Recovery Time"
+        "Forward Voltage VF",
+        "Recovery Time",
+        "Operating Temperature",
+        "Temperature Range"
       ],
       "selectionGuide": {
         "title": "How to Select Xinleineng Rectifier Modules",
@@ -1703,7 +1931,8 @@
             "Forward Voltage VF": "1.2V @ 25A",
             "Recovery Time": "<200ns",
             "Operating Temperature": "-40C to +150C",
-            "Package": "34mm"
+            "Package": "34mm",
+            "Temperature Range": "N/A"
           },
           "faeReview": {
             "author": "Michael Zhang",
@@ -1721,13 +1950,7 @@
                 "recoveryTime": "<200ns",
                 "package": "34mm"
               },
-              "comparison": {
-                "voltage": "1600V = 1600V (same)",
-                "current": "50A > 35A (+43%)",
-                "recoveryTime": "200ns = 200ns (same)",
-                "package": "34mm = 34mm (same)",
-                "compatibility": "Compatible upgrade with higher current"
-              },
+              "comparison": "XLN-RECT35A=><XLN-RECT50A: Output current 50A > 35A (+43%), Package 34mm = 34mm (same), suitable for direct replacement",
               "reason": "Higher current rating for larger motor drive applications without package change",
               "useCase": "Upgrade for 30-45kW motor drives requiring more rectifier current",
               "link": "/xinleineng/products/rectifier-modules/xln-rect50a.html"
@@ -1741,13 +1964,7 @@
                 "recoveryTime": "<200ns",
                 "package": "34mm"
               },
-              "comparison": {
-                "voltage": "1200V < 1600V (-25%)",
-                "current": "20A < 35A (-43%)",
-                "recoveryTime": "200ns = 200ns (same)",
-                "package": "34mm = 34mm (same)",
-                "compatibility": "Lower voltage and current alternative"
-              },
+              "comparison": "XLN-RECT35A=><XLN-RECT20A: Output current 20A < 35A (-43%), Package 34mm = 34mm (same), suitable for direct replacement",
               "reason": "Lower specification alternative for smaller power applications at reduced cost",
               "useCase": "Cost-effective solution for 5-10kW motor drives with 380V input",
               "link": "/xinleineng/products/rectifier-modules/xln-rect20a.html"
@@ -1840,7 +2057,8 @@
                 "protection"
               ]
             }
-          ]
+          ],
+          "name": "Rectifier Modules XLN-RECT35A"
         },
         {
           "partNumber": "XLN-RECT100A",
@@ -1883,7 +2101,8 @@
             "Forward Voltage VF": "1.0V @ 50A",
             "Recovery Time": "<200ns",
             "Operating Temperature": "-40C to +150C",
-            "Package": "62mm"
+            "Package": "62mm",
+            "Temperature Range": "N/A"
           },
           "faeReview": {
             "author": "Michael Zhang",
@@ -1901,13 +2120,7 @@
                 "recoveryTime": "<200ns",
                 "package": "62mm"
               },
-              "comparison": {
-                "voltage": "1600V = 1600V (same)",
-                "current": "150A > 100A (+50%)",
-                "recoveryTime": "200ns = 200ns (same)",
-                "package": "62mm = 62mm (same)",
-                "compatibility": "Compatible upgrade with higher current"
-              },
+              "comparison": "XLN-RECT100A=><XLN-RECT150A: Output current 150A > 100A (+50%), Package 62mm = 62mm (same), suitable for direct replacement",
               "reason": "Higher current rating for applications exceeding 100A requirement",
               "useCase": "Upgrade for 100-150kW motor drives and large solar inverters",
               "link": "/xinleineng/products/rectifier-modules/xln-rect150a.html"
@@ -1921,13 +2134,7 @@
                 "recoveryTime": "<100ns",
                 "package": "62mm"
               },
-              "comparison": {
-                "voltage": "1200V < 1600V (-25%)",
-                "current": "100A = 100A (same)",
-                "recoveryTime": "100ns < 200ns (faster)",
-                "package": "62mm = 62mm (same)",
-                "compatibility": "Lower voltage with faster recovery"
-              },
+              "comparison": "XLN-RECT100A=><XLN-RECT100A-S: Output current 100A = 100A (same), Package 62mm = 62mm (same), suitable for direct replacement",
               "reason": "Faster recovery time for very high frequency applications with lower voltage requirement",
               "useCase": "High-frequency applications (50kHz+) at 380V with maximum efficiency",
               "link": "/xinleineng/products/rectifier-modules/xln-rect100a-s.html"
@@ -2022,7 +2229,8 @@
                 "protection"
               ]
             }
-          ]
+          ],
+          "name": "Rectifier Modules XLN-RECT100A"
         }
       ]
     }

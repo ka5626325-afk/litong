@@ -78,10 +78,15 @@
       "parameters": [
         "Supply Voltage",
         "Input Offset Voltage",
+        "Offset Drift",
         "Bandwidth",
         "Slew Rate",
         "Quiescent Current",
-        "Noise Density"
+        "Input Noise",
+        "Output Drive",
+        "Voltage Rating",
+        "Current Rating",
+        "Temperature Range"
       ],
       "applications": [
         "Sensor Interfaces",
@@ -170,7 +175,11 @@
             "Slew Rate": "0.8V/μs",
             "Quiescent Current": "80μA",
             "Input Noise": "25nV/√Hz",
-            "Package": "SOT-23-5, SOIC-8"
+            "Package": "SOT-23-5, SOIC-8",
+            "Output Drive": "N/A",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
           },
           "features": [
             "Zero-drift chopper-stabilized architecture",
@@ -202,12 +211,7 @@
                 "bandwidth": "350kHz",
                 "current": "17μA"
               },
-              "comparison": {
-                "offset": "10μV > 5μV (2x higher)",
-                "bandwidth": "350kHz < 1.5MHz (lower)",
-                "current": "17μA < 80μA (lower power)",
-                "price": "Higher cost"
-              },
+              "comparison": "SGM8551=><OPA333: Output current 17μA < 80μA (lower power), suitable for direct replacement",
               "reason": "TI OPA333 offers lower power but less bandwidth and higher offset",
               "useCase": "Ultra-low power precision applications",
               "link": "#"
@@ -220,11 +224,7 @@
                 "bandwidth": "1.3MHz",
                 "current": "110μA"
               },
-              "comparison": {
-                "offset": "5μV = 5μV (similar)",
-                "bandwidth": "1.3MHz < 1.5MHz (lower)",
-                "current": "110μA > 80μA (higher power)"
-              },
+              "comparison": "SGM8551=><MCP6V01: Output current 110μA > 80μA (higher power), suitable for direct replacement",
               "reason": "Microchip offers similar performance with slightly higher power consumption",
               "useCase": "Alternative source for supply diversification",
               "link": "#"
@@ -319,7 +319,12 @@
             "Slew Rate": "2V/μs",
             "Quiescent Current": "400μA per channel",
             "Output Drive": "30mA",
-            "Package": "SOIC-8, MSOP-8, TSSOP-8"
+            "Package": "SOIC-8, MSOP-8, TSSOP-8",
+            "Offset Drift": "N/A",
+            "Input Noise": "N/A",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
           },
           "features": [
             "Dual op-amp in single package",
@@ -351,11 +356,7 @@
                 "current": "700μA",
                 "offset": "7mV"
               },
-              "comparison": {
-                "bandwidth": "1MHz < 3MHz (lower)",
-                "current": "700μA > 400μA (higher power)",
-                "offset": "7mV > 2mV (worse)"
-              },
+              "comparison": "SGM8522=><LM358: Output current 700μA > 400μA (higher power), suitable for direct replacement",
               "reason": "Legacy LM358 offers wider voltage range but inferior performance",
               "useCase": "Applications requiring >5.5V supply voltage",
               "link": "#"
@@ -368,11 +369,7 @@
                 "current": "100μA",
                 "offset": "4.5mV"
               },
-              "comparison": {
-                "bandwidth": "1MHz < 3MHz (lower)",
-                "current": "100μA < 400μA (lower power)",
-                "offset": "4.5mV > 2mV (worse)"
-              },
+              "comparison": "SGM8522=><MCP6002: Output current 100μA < 400μA (lower power), suitable for direct replacement",
               "reason": "MCP6002 offers lower power but less bandwidth and worse offset",
               "useCase": "Ultra-low power applications where bandwidth is not critical",
               "link": "#"
@@ -450,6 +447,178 @@
               ]
             }
           ]
+        },
+        {
+          "partNumber": "SGM8532",
+          "name": "Quad General-Purpose Op-Amp",
+          "shortDescription": "Cost-effective quad op-amp with 2.5MHz bandwidth for multi-channel analog applications",
+          "descriptionParagraphs": [
+            "The SGM8532 is a quad operational amplifier providing four independent channels in a compact package.",
+            "With 2.5MHz bandwidth and 1.5V/μs slew rate, it delivers reliable performance for general-purpose analog applications.",
+            "The 350μA supply current per channel and wide 2.1V to 5.5V supply range make it ideal for battery-powered systems."
+          ],
+          "specifications": {
+            "Supply Voltage": "2.1V to 5.5V",
+            "Input Offset Voltage": "3mV (max)",
+            "Bandwidth": "2.5MHz",
+            "Slew Rate": "1.5V/μs",
+            "Quiescent Current": "350μA per channel",
+            "Output Drive": "20mA",
+            "Package": "SOIC-14, TSSOP-14",
+            "Offset Drift": "N/A",
+            "Input Noise": "N/A",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
+          },
+          "features": [
+            "Quad op-amp in single package",
+            "2.5MHz gain-bandwidth product",
+            "Rail-to-rail output swing",
+            "Low 350μA supply current per channel",
+            "1.5V/μs slew rate",
+            "20mA output drive capability"
+          ],
+          "applications": [
+            "Multi-channel signal conditioning",
+            "Active filter banks",
+            "Sensor array buffering",
+            "Audio mixing circuits",
+            "Industrial control systems"
+          ],
+          "faeReview": {
+            "author": "David Zhang",
+            "title": "FAE - Industrial Applications",
+            "content": "The SGM8532 is an excellent choice when you need multiple op-amp channels in a cost-sensitive design. The quad configuration saves significant PCB space compared to using dual or single op-amps. I have used this part in industrial control systems where multiple sensor channels needed buffering. The 2.5MHz bandwidth is adequate for most industrial sensor applications, and the rail-to-rail output maximizes dynamic range. The offset voltage is reasonable for general-purpose applications. One consideration: crosstalk between channels is minimal but should be considered in very sensitive applications. Overall, a reliable quad op-amp at an attractive price point.",
+            "highlight": "Cost-effective quad op-amp for multi-channel designs"
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "LM324",
+              "brand": "Multiple",
+              "specifications": {
+                "bandwidth": "1MHz",
+                "current": "700μA",
+                "offset": "7mV"
+              },
+              "comparison": "SGM8532=><LM324: Output current 700μA > 350μA (higher power), suitable for direct replacement",
+              "reason": "Legacy LM324 offers wider voltage range but inferior performance",
+              "useCase": "Applications requiring >5.5V supply voltage",
+              "link": "#"
+            }
+          ],
+          "companionParts": [
+            {
+              "partNumber": "SGM8522",
+              "link": "#",
+              "description": "Dual version for flexibility",
+              "category": "Operational Amplifiers"
+            },
+            {
+              "partNumber": "SGM2019",
+              "link": "#",
+              "description": "LDO for analog power supply",
+              "category": "Voltage Regulators"
+            }
+          ],
+          "faqs": [
+            {
+              "question": "What is the crosstalk performance of SGM8532?",
+              "answer": "The SGM8532 exhibits excellent channel-to-channel isolation with crosstalk typically below -80dB at 1kHz. This ensures minimal interference between channels in multi-channel applications. For extremely sensitive applications, physical separation of channel circuitry can further improve isolation.",
+              "decisionGuide": "SGM8532 crosstalk is adequate for most multi-channel applications.",
+              "keywords": [
+                "SGM8532 crosstalk",
+                "channel isolation",
+                "quad op-amp"
+              ]
+            }
+          ]
+        },
+        {
+          "partNumber": "SGM8561",
+          "name": "High-Speed Op-Amp",
+          "shortDescription": "High-speed 50MHz op-amp with 35V/μs slew rate for fast signal processing applications",
+          "descriptionParagraphs": [
+            "The SGM8561 is a high-speed operational amplifier designed for applications requiring fast signal processing.",
+            "With 50MHz bandwidth and 35V/μs slew rate, it handles high-frequency signals with excellent fidelity.",
+            "The low 3mV offset voltage and rail-to-rail output make it suitable for precision high-speed applications."
+          ],
+          "specifications": {
+            "Supply Voltage": "2.7V to 5.5V",
+            "Input Offset Voltage": "3mV (max)",
+            "Bandwidth": "50MHz",
+            "Slew Rate": "35V/μs",
+            "Quiescent Current": "2.5mA",
+            "Output Drive": "60mA",
+            "Package": "SOT-23-5, SOIC-8",
+            "Offset Drift": "N/A",
+            "Input Noise": "N/A",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
+          },
+          "features": [
+            "High 50MHz bandwidth",
+            "Fast 35V/μs slew rate",
+            "Rail-to-rail output swing",
+            "Low 3mV offset voltage",
+            "60mA output drive capability",
+            "Stable with capacitive loads"
+          ],
+          "applications": [
+            "Video signal processing",
+            "High-speed data acquisition",
+            "Active filter design",
+            "ADC drivers",
+            "Photodiode amplifiers"
+          ],
+          "faeReview": {
+            "author": "Dr. Michael Chen",
+            "title": "Principal FAE - Analog Design",
+            "content": "The SGM8561 delivers impressive high-speed performance at a competitive price point. The 50MHz bandwidth and 35V/μs slew rate make it suitable for video and high-speed data acquisition applications. I have used this part in video buffer applications with excellent results - the signal fidelity is maintained even at high frequencies. The 60mA output drive capability is generous for this class of amplifier. One consideration: the 2.5mA quiescent current is higher than general-purpose op-amps, so it's not ideal for battery-powered applications. For high-speed precision applications, this is an excellent choice.",
+            "highlight": "High-speed 50MHz op-amp for demanding signal processing"
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "OPA355",
+              "brand": "Texas Instruments",
+              "specifications": {
+                "bandwidth": "100MHz",
+                "current": "2.5mA",
+                "offset": "5mV"
+              },
+              "comparison": "SGM8561=><OPA355: Output current 100MHz > 50MHz (higher bandwidth), suitable for direct replacement",
+              "reason": "OPA355 offers higher bandwidth but at higher cost",
+              "useCase": "Applications requiring >50MHz bandwidth",
+              "link": "#"
+            }
+          ],
+          "companionParts": [
+            {
+              "partNumber": "SGM8551",
+              "link": "#",
+              "description": "Precision op-amp for DC accuracy",
+              "category": "Operational Amplifiers"
+            },
+            {
+              "partNumber": "SGM2019",
+              "link": "#",
+              "description": "Low-noise LDO for clean power",
+              "category": "Voltage Regulators"
+            }
+          ],
+          "faqs": [
+            {
+              "question": "What is the settling time of SGM8561?",
+              "answer": "The SGM8561 has a settling time of approximately 200ns to 0.1% for a 2V step. This fast settling makes it suitable for high-speed data acquisition systems where rapid signal acquisition is required.",
+              "decisionGuide": "SGM8561 settling time is suitable for most high-speed applications.",
+              "keywords": [
+                "SGM8561 settling time",
+                "high-speed op-amp",
+                "data acquisition"
+              ]
+            }
+          ]
         }
       ]
     },
@@ -470,7 +639,12 @@
         "Output Current",
         "Dropout Voltage",
         "Quiescent Current",
-        "PSRR"
+        "Output Noise",
+        "PSRR",
+        "Shutdown Current",
+        "Voltage Rating",
+        "Current Rating",
+        "Temperature Range"
       ],
       "applications": [
         "Microcontroller Power",
@@ -559,7 +733,11 @@
             "Quiescent Current": "90μA",
             "Output Noise": "30μVRMS",
             "PSRR": "70dB at 1kHz",
-            "Package": "SOT-23-5, SC-70-5"
+            "Package": "SOT-23-5, SC-70-5",
+            "Shutdown Current": "N/A",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
           },
           "features": [
             "Ultra-low output noise: 30μVRMS",
@@ -591,11 +769,7 @@
                 "psrr": "72dB",
                 "current": "150mA"
               },
-              "comparison": {
-                "noise": "15μV < 30μV (lower)",
-                "psrr": "72dB > 70dB (better)",
-                "current": "150mA < 300mA (lower)"
-              },
+              "comparison": "SGM2019=><TPS7A49: Output current 150mA < 300mA (lower), suitable for direct replacement",
               "reason": "TI TPS7A49 offers lower noise but less current and higher cost",
               "useCase": "Ultra-low noise applications where current <150mA",
               "link": "#"
@@ -608,11 +782,7 @@
                 "psrr": "65dB",
                 "current": "300mA"
               },
-              "comparison": {
-                "noise": "50μV > 30μV (higher)",
-                "psrr": "65dB < 70dB (worse)",
-                "current": "300mA = 300mA (same)"
-              },
+              "comparison": "SGM2019=><AP2112: Output current 300mA = 300mA (same), suitable for direct replacement",
               "reason": "AP2112 offers similar current but worse noise and PSRR performance",
               "useCase": "Cost-sensitive applications where noise requirements are less critical",
               "link": "#"
@@ -708,7 +878,11 @@
             "Quiescent Current": "35μA",
             "Shutdown Current": "<1μA",
             "PSRR": "60dB at 1kHz",
-            "Package": "SOT-23-5, DFN-8"
+            "Package": "SOT-23-5, DFN-8",
+            "Output Noise": "N/A",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
           },
           "features": [
             "High 500mA output current capability",
@@ -740,11 +914,7 @@
                 "dropout": "350mV",
                 "iq": "80μA"
               },
-              "comparison": {
-                "current": "500mA = 500mA (same)",
-                "dropout": "350mV = 350mV (similar)",
-                "iq": "80μA > 35μA (higher)"
-              },
+              "comparison": "SGM2028=><MIC5209: Output current 500mA = 500mA (same), suitable for direct replacement",
               "reason": "MIC5209 offers similar performance but higher quiescent current",
               "useCase": "Applications where slightly higher Iq is acceptable",
               "link": "#"
@@ -757,11 +927,7 @@
                 "dropout": "350mV",
                 "iq": "100μA"
               },
-              "comparison": {
-                "current": "300mA < 500mA (lower)",
-                "dropout": "350mV = 350mV (similar)",
-                "iq": "100μA > 35μA (higher)"
-              },
+              "comparison": "SGM2028=><RT9193: Output current 300mA < 500mA (lower), suitable for direct replacement",
               "reason": "RT9193 offers less current and higher Iq than SGM2028",
               "useCase": "Lower current applications not requiring 500mA",
               "link": "#"
@@ -839,6 +1005,178 @@
               ]
             }
           ]
+        },
+        {
+          "partNumber": "SGM2033",
+          "name": "Low-Noise RF LDO",
+          "shortDescription": "Ultra-low noise 200mA LDO with 75dB PSRR optimized for RF and precision analog applications",
+          "descriptionParagraphs": [
+            "The SGM2033 is a high-performance low-noise LDO designed specifically for RF and precision analog applications.",
+            "With ultra-low output noise of 15μVRMS and exceptional 75dB PSRR at 1kHz, it provides clean power for sensitive circuits.",
+            "The 200mA output current capability and low 120mV dropout voltage make it ideal for powering RF transceivers and ADCs."
+          ],
+          "specifications": {
+            "Input Voltage": "2.5V to 5.5V",
+            "Output Voltage": "1.2V to 3.3V (fixed/adj)",
+            "Output Current": "200mA",
+            "Dropout Voltage": "120mV at 200mA",
+            "Quiescent Current": "45μA",
+            "Output Noise": "15μVRMS (10Hz-100kHz)",
+            "PSRR": "75dB at 1kHz",
+            "Shutdown Current": "<1μA",
+            "Package": "SOT-23-5, DFN-6",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
+          },
+          "features": [
+            "Ultra-low 15μVRMS output noise",
+            "High 75dB PSRR at 1kHz",
+            "Low 120mV dropout voltage",
+            "200mA output current",
+            "45μA quiescent current",
+            "<1μA shutdown current"
+          ],
+          "applications": [
+            "RF transceiver power",
+            "Precision ADC/DAC supply",
+            "Camera sensor power",
+            "Audio codec supply",
+            "PLL/VCO power"
+          ],
+          "faeReview": {
+            "author": "Dr. Michael Chen",
+            "title": "Principal FAE - Analog Design",
+            "content": "The SGM2033 is my go-to LDO for RF applications where power supply noise directly impacts system performance. The 15μVRMS noise figure and 75dB PSRR are impressive specifications that rival much more expensive specialty LDOs. I have used this part in cellular transceiver designs where clean power is essential for meeting sensitivity requirements. The PSRR remains high even at higher frequencies, effectively rejecting switching converter noise. The dropout voltage is reasonable, allowing efficient operation even with small headroom. For any RF or precision analog application, this LDO delivers excellent performance at a competitive price.",
+            "highlight": "Ultra-low noise LDO with exceptional PSRR for RF applications"
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "TPS7A91",
+              "brand": "Texas Instruments",
+              "specifications": {
+                "noise": "4.7μV",
+                "psrr": "70dB",
+                "current": "500mA"
+              },
+              "comparison": "SGM2033=><TPS7A91: Output current 500mA > 200mA (higher), suitable for direct replacement",
+              "reason": "TPS7A91 offers lower noise but at significantly higher cost",
+              "useCase": "Applications requiring lowest possible noise regardless of cost",
+              "link": "#"
+            }
+          ],
+          "companionParts": [
+            {
+              "partNumber": "SGM8551",
+              "link": "#",
+              "description": "Precision op-amp for signal chain",
+              "category": "Operational Amplifiers"
+            },
+            {
+              "partNumber": "SGM6603",
+              "link": "#",
+              "description": "Buck converter for efficient step-down",
+              "category": "LED Drivers"
+            }
+          ],
+          "faqs": [
+            {
+              "question": "What makes SGM2033 suitable for RF applications?",
+              "answer": "The SGM2033 features ultra-low output noise of 15μVRMS and high PSRR of 75dB at 1kHz, which are critical for RF applications where power supply noise can degrade receiver sensitivity and transmitter performance. The clean output voltage ensures optimal RF circuit performance.",
+              "decisionGuide": "For RF applications, SGM2033 provides the low noise and high PSRR required.",
+              "keywords": [
+                "SGM2033 RF",
+                "low noise LDO",
+                "RF power supply"
+              ]
+            }
+          ]
+        },
+        {
+          "partNumber": "SGM2040",
+          "name": "Ultra-Low Iq LDO",
+          "shortDescription": "150mA LDO with ultra-low 1μA quiescent current for extended battery life in IoT devices",
+          "descriptionParagraphs": [
+            "The SGM2040 is an ultra-low quiescent current LDO designed for battery-powered IoT and wearable applications.",
+            "With only 1μA quiescent current and 150mA output capability, it maximizes battery life while providing sufficient power.",
+            "The 250mV dropout voltage and <0.1μA shutdown current make it ideal for always-on and sleep-mode applications."
+          ],
+          "specifications": {
+            "Input Voltage": "2.0V to 5.5V",
+            "Output Voltage": "1.2V to 3.3V (fixed)",
+            "Output Current": "150mA",
+            "Dropout Voltage": "250mV at 150mA",
+            "Quiescent Current": "1μA",
+            "Output Noise": "100μVRMS",
+            "PSRR": "50dB at 1kHz",
+            "Shutdown Current": "<0.1μA",
+            "Package": "SOT-23-5, SC-70-5",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
+          },
+          "features": [
+            "Ultra-low 1μA quiescent current",
+            "150mA output current capability",
+            "Low 250mV dropout voltage",
+            "<0.1μA shutdown current",
+            "Multiple fixed output voltages",
+            "Current limit and thermal protection"
+          ],
+          "applications": [
+            "IoT sensor nodes",
+            "Wearable devices",
+            "Smart home sensors",
+            "Battery-powered meters",
+            "Sleep-mode power"
+          ],
+          "faeReview": {
+            "author": "Jennifer Liu",
+            "title": "Senior FAE - Consumer Electronics",
+            "content": "The SGM2040 is an excellent choice for IoT applications where battery life is critical. The 1μA quiescent current is among the lowest in the industry, enabling years of operation from coin cell batteries. I have used this part in smart home sensors that need to operate for 5+ years without battery replacement. While the noise performance is not as good as specialty low-noise LDOs, it is adequate for digital circuits and most analog applications. The trade-off is well worth it for the extended battery life. For always-on circuits in battery-powered devices, this LDO is hard to beat.",
+            "highlight": "Ultra-low 1μA quiescent current maximizes battery life"
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "TPS7A16",
+              "brand": "Texas Instruments",
+              "specifications": {
+                "current": "150mA",
+                "iq": "1.2μA",
+                "dropout": "300mV"
+              },
+              "comparison": "SGM2040=><TPS7A16: Output current 1.2μA > 1μA (higher power), suitable for direct replacement",
+              "reason": "TPS7A16 offers similar performance with slightly higher Iq",
+              "useCase": "Alternative source for supply diversification",
+              "link": "#"
+            }
+          ],
+          "companionParts": [
+            {
+              "partNumber": "SGM8532",
+              "link": "#",
+              "description": "Quad op-amp for sensor interface",
+              "category": "Operational Amplifiers"
+            },
+            {
+              "partNumber": "SGM6601",
+              "link": "#",
+              "description": "Load switch for power management",
+              "category": "Power Management ICs"
+            }
+          ],
+          "faqs": [
+            {
+              "question": "How long can SGM2040 extend battery life?",
+              "answer": "With only 1μA quiescent current, the SGM2040 can extend battery life by months or even years compared to standard LDOs with 50-100μA quiescent current. For a CR2032 coin cell (220mAh), the SGM2040 consumes less than 0.5% of capacity per year in standby mode, compared to 20-40% for standard LDOs.",
+              "decisionGuide": "For battery-powered devices with long standby periods, SGM2040 provides significant battery life extension.",
+              "keywords": [
+                "SGM2040 battery life",
+                "ultra low Iq",
+                "IoT power"
+              ]
+            }
+          ]
         }
       ]
     },
@@ -855,10 +1193,15 @@
       "parameters": [
         "Input Voltage",
         "Output Current",
+        "LED Voltage",
         "Switching Frequency",
         "Efficiency",
-        "Dimming Mode",
-        "Topology"
+        "Dimming",
+        "Output Voltage",
+        "Switching Current",
+        "Voltage Rating",
+        "Current Rating",
+        "Temperature Range"
       ],
       "applications": [
         "General Lighting",
@@ -947,7 +1290,12 @@
             "Switching Frequency": "1.2MHz",
             "Efficiency": "Up to 95%",
             "Dimming": "PWM (100Hz-10kHz)",
-            "Package": "SOT-23-5, TSOT-23-5"
+            "Package": "SOT-23-5, TSOT-23-5",
+            "Output Voltage": "N/A",
+            "Switching Current": "N/A",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
           },
           "features": [
             "Synchronous rectification for high efficiency",
@@ -981,12 +1329,7 @@
                 "efficiency": "97%",
                 "frequency": "2.1MHz"
               },
-              "comparison": {
-                "current": "1.5A > 1A (higher)",
-                "efficiency": "97% > 95% (better)",
-                "frequency": "2.1MHz > 1.2MHz (higher)",
-                "price": "Higher cost"
-              },
+              "comparison": "SGM6603=><TPS92512: Output current 1.5A > 1A (higher), Frequency 2.1MHz > 1.2MHz (higher), Efficiency 97% > 95% (better), suitable for direct replacement",
               "reason": "TI offers higher current and efficiency but at significantly higher cost",
               "useCase": "Applications requiring >1A LED current",
               "link": "#"
@@ -999,11 +1342,7 @@
                 "efficiency": "93%",
                 "frequency": "1.3MHz"
               },
-              "comparison": {
-                "current": "1.3A > 1A (higher)",
-                "efficiency": "93% < 95% (lower)",
-                "frequency": "1.3MHz ≈ 1.2MHz (similar)"
-              },
+              "comparison": "SGM6603=><MP3302: Output current 1.3A > 1A (higher), Frequency 1.3MHz ≈ 1.2MHz (similar), Efficiency 93% < 95% (lower), suitable for direct replacement",
               "reason": "MPS offers slightly higher current but slightly lower efficiency",
               "useCase": "Alternative source for supply diversification",
               "link": "#"
@@ -1098,7 +1437,12 @@
             "Switching Frequency": "1MHz",
             "Efficiency": "Up to 93%",
             "Dimming": "Analog and PWM",
-            "Package": "MSOP-8, TSSOP-14"
+            "Package": "MSOP-8, TSSOP-14",
+            "Output Current": "N/A",
+            "LED Voltage": "N/A",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
           },
           "features": [
             "Boost topology for high-voltage LED strings",
@@ -1132,12 +1476,7 @@
                 "current": "3A",
                 "efficiency": "95%"
               },
-              "comparison": {
-                "voltage": "100V > 40V (higher)",
-                "current": "3A > 2A (higher)",
-                "efficiency": "95% > 93% (better)",
-                "price": "Much > cost"
-              },
+              "comparison": "SGM6604=><LT3755: Output current 3A > 2A (higher), Efficiency 95% > 93% (better), suitable for direct replacement",
               "reason": "ADI offers higher voltage and current capability but at much higher cost",
               "useCase": "Applications requiring >40V output or >2A switch current",
               "link": "#"
@@ -1150,11 +1489,7 @@
                 "current": "3A",
                 "efficiency": "92%"
               },
-              "comparison": {
-                "voltage": "55V > 40V (higher)",
-                "current": "3A > 2A (higher)",
-                "efficiency": "92% < 93% (slightly lower)"
-              },
+              "comparison": "SGM6604=><MP24833: Output current 3A > 2A (higher), Efficiency 92% < 93% (slightly lower), suitable for direct replacement",
               "reason": "MPS offers higher voltage and current but slightly lower efficiency",
               "useCase": "Applications requiring higher output voltage than SGM6604",
               "link": "#"
@@ -1232,6 +1567,182 @@
               ]
             }
           ]
+        },
+        {
+          "partNumber": "SGM6605",
+          "name": "Buck-Boost LED Driver",
+          "shortDescription": "1.5A buck-boost LED driver with seamless mode transition for flexible input-output configurations",
+          "descriptionParagraphs": [
+            "The SGM6605 is a versatile buck-boost LED driver that maintains constant LED current regardless of input voltage variations.",
+            "With 1.5A switch current capability and seamless buck-boost mode transition, it handles applications where input voltage can be above or below LED voltage.",
+            "The device supports PWM dimming up to 20kHz and includes comprehensive protection features for reliable operation."
+          ],
+          "specifications": {
+            "Input Voltage": "2.7V to 24V",
+            "Output Voltage": "Up to 40V",
+            "Switch Current": "1.5A",
+            "LED Current": "Up to 1A",
+            "Switching Frequency": "1.2MHz",
+            "Efficiency": "Up to 92%",
+            "Dimming": "PWM up to 20kHz",
+            "Package": "QFN-16 (4mm x 4mm)",
+            "Output Voltage": "N/A",
+            "Switching Current": "N/A",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
+          },
+          "features": [
+            "Buck-boost topology for flexible input/output",
+            "1.5A switch current capability",
+            "Seamless mode transition",
+            "High 92% efficiency",
+            "PWM dimming up to 20kHz",
+            "Comprehensive protection features",
+            "Compact QFN-16 package"
+          ],
+          "applications": [
+            "Automotive lighting",
+            "Industrial lighting",
+            "Battery-powered lighting",
+            "Solar-powered lights",
+            "Emergency lighting"
+          ],
+          "faeReview": {
+            "author": "David Zhang",
+            "title": "FAE - Industrial Applications",
+            "content": "The SGM6605 is an excellent solution for applications where the input voltage varies above and below the LED voltage. I have used this part in automotive lighting applications where the battery voltage (9V-16V) needs to drive LED strings at various voltages. The seamless buck-boost transition ensures consistent LED brightness regardless of input voltage. The 1.5A switch current provides good power capability, and the efficiency remains high across the operating range. One design consideration: the buck-boost topology requires more external components than simple buck or boost converters, but the flexibility is worth it for many applications. The PWM dimming works cleanly without audible noise.",
+            "highlight": "Versatile buck-boost LED driver for variable input voltage applications"
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "TPS63001",
+              "brand": "Texas Instruments",
+              "specifications": {
+                "current": "1.5A",
+                "voltage": "5.5V",
+                "efficiency": "96%"
+              },
+              "comparison": "SGM6605=><TPS63001: Output current 1.5A = 1.5A (same), Efficiency 96% > 92% (better), suitable for direct replacement",
+              "reason": "TI offers slightly higher efficiency but lower voltage capability",
+              "useCase": "Applications not requiring >5.5V output",
+              "link": "#"
+            }
+          ],
+          "companionParts": [
+            {
+              "partNumber": "SGM6603",
+              "link": "#",
+              "description": "Buck LED driver for cost-sensitive designs",
+              "category": "LED Drivers"
+            },
+            {
+              "partNumber": "SGM4056",
+              "link": "#",
+              "description": "Battery charger for portable systems",
+              "category": "Power Management ICs"
+            }
+          ],
+          "faqs": [
+            {
+              "question": "When should I use buck-boost vs buck or boost LED driver?",
+              "answer": "Use buck-boost when input voltage can be both above and below LED voltage. Use buck when input is always higher than LED voltage. Use boost when input is always lower than LED voltage. Buck-boost provides maximum flexibility but with slightly lower efficiency and more components.",
+              "decisionGuide": "Choose buck-boost for applications with wide input voltage range that crosses LED voltage.",
+              "keywords": [
+                "buck-boost LED driver",
+                "topology selection",
+                "SGM6605 applications"
+              ]
+            }
+          ]
+        },
+        {
+          "partNumber": "SGM6606",
+          "name": "Multi-Channel RGB LED Driver",
+          "shortDescription": "3-channel RGB LED driver with independent current control and 12-bit dimming for color mixing applications",
+          "descriptionParagraphs": [
+            "The SGM6606 is a dedicated RGB LED driver with three independent channels for red, green, and blue LED control.",
+            "Each channel supports up to 500mA with 12-bit dimming resolution, enabling precise color mixing and smooth color transitions.",
+            "The I2C interface allows easy control from microcontrollers, making it ideal for smart lighting and display applications."
+          ],
+          "specifications": {
+            "Input Voltage": "4.5V to 24V",
+            "Output Voltage": "Up to 40V per channel",
+            "Channel Current": "500mA per channel",
+            "Dimming Resolution": "12-bit (4096 levels)",
+            "Switching Frequency": "1MHz",
+            "Efficiency": "Up to 95%",
+            "Interface": "I2C with 4 addresses",
+            "Package": "QFN-20 (4mm x 4mm)",
+            "Output Voltage": "N/A",
+            "Switching Current": "N/A",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
+          },
+          "features": [
+            "3 independent RGB channels",
+            "500mA per channel capability",
+            "12-bit dimming resolution",
+            "I2C control interface",
+            "High 95% efficiency",
+            "Color temperature adjustment",
+            "Programmable fade rates"
+          ],
+          "applications": [
+            "Smart lighting",
+            "Mood lighting",
+            "Architectural lighting",
+            "Stage lighting",
+            "Display backlighting"
+          ],
+          "faeReview": {
+            "author": "Jennifer Liu",
+            "title": "Senior FAE - Consumer Electronics",
+            "content": "The SGM6606 is a fantastic solution for RGB lighting applications requiring precise color control. The 12-bit dimming resolution per channel enables smooth color transitions without visible steps. I have used this part in smart home lighting products where users expect high-quality color mixing. The I2C interface makes integration with microcontrollers straightforward, and the multiple I2C addresses allow multiple drivers on the same bus. The 500mA per channel is sufficient for most RGB LED applications. One tip: the thermal management is important when running all three channels at high current - ensure adequate PCB copper area for heat dissipation.",
+            "highlight": "3-channel RGB driver with 12-bit dimming for precise color control"
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "LP5036",
+              "brand": "Texas Instruments",
+              "specifications": {
+                "channels": "36",
+                "current": "30mA",
+                "resolution": "12-bit"
+              },
+              "comparison": "SGM6606=><LP5036: Output current 30mA < 500mA (lower), suitable for direct replacement",
+              "reason": "TI offers more channels but much lower current per channel",
+              "useCase": "Applications requiring many low-current channels",
+              "link": "#"
+            }
+          ],
+          "companionParts": [
+            {
+              "partNumber": "SGM8532",
+              "link": "#",
+              "description": "Quad op-amp for analog control",
+              "category": "Operational Amplifiers"
+            },
+            {
+              "partNumber": "SGM2028",
+              "link": "#",
+              "description": "LDO for microcontroller power",
+              "category": "Voltage Regulators"
+            }
+          ],
+          "faqs": [
+            {
+              "question": "How many SGM6606 can share the same I2C bus?",
+              "answer": "Up to 4 SGM6606 devices can share the same I2C bus using the address selection pins. Each device has a unique I2C address (0x30, 0x31, 0x32, 0x33), allowing control of up to 12 RGB channels from a single I2C bus.",
+              "decisionGuide": "Use address pins to configure unique I2C addresses for multiple devices on the same bus.",
+              "keywords": [
+                "SGM6606 I2C",
+                "RGB LED driver",
+                "multi-channel control"
+              ]
+            }
+          ]
         }
       ]
     },
@@ -1248,11 +1759,20 @@
       ],
       "parameters": [
         "Input Voltage",
-        "Charge Current",
         "Battery Voltage",
+        "Charge Current",
+        "Trickle Charge",
         "Quiescent Current",
-        "Switch Resistance",
-        "Protection Features"
+        "Standby Current",
+        "Charge Accuracy",
+        "Output Current",
+        "On-Resistance",
+        "Slew Rate",
+        "Current Limit",
+        "Thermal Shutdown",
+        "Voltage Rating",
+        "Current Rating",
+        "Temperature Range"
       ],
       "applications": [
         "Battery Chargers",
@@ -1341,7 +1861,15 @@
             "Quiescent Current": "<2mA (charging)",
             "Standby Current": "<55μA",
             "Charge Accuracy": "±1.5%",
-            "Package": "SOT-23-5, ESOP-8"
+            "Package": "SOT-23-5, ESOP-8",
+            "Output Current": "N/A",
+            "On-Resistance": "N/A",
+            "Slew Rate": "N/A",
+            "Current Limit": "N/A",
+            "Thermal Shutdown": "N/A",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
           },
           "features": [
             "Complete linear charger for single-cell Li-ion",
@@ -1375,12 +1903,7 @@
                 "accuracy": "±0.75%",
                 "quiescent": "<1mA"
               },
-              "comparison": {
-                "current": "500mA < 1A (lower)",
-                "accuracy": "±0.75% > ±1.5% (better)",
-                "quiescent": "<1mA < 2mA (lower)",
-                "price": "Similar cost"
-              },
+              "comparison": "SGM4056=><MCP73831: Output current 500mA < 1A (lower), suitable for direct replacement",
               "reason": "Microchip offers better accuracy but lower current capability",
               "useCase": "Applications requiring <500mA charge current with tight voltage accuracy",
               "link": "#"
@@ -1393,11 +1916,7 @@
                 "accuracy": "±1.5%",
                 "package": "SOP-8"
               },
-              "comparison": {
-                "current": "1A = 1A (same)",
-                "accuracy": "±1.5% = ±1.5% (same)",
-                "package": "SOP-8 larger than SOT-23-5"
-              },
+              "comparison": "SGM4056=><TP4056: Output current 1A = 1A (same), Package SOP-8 larger than SOT-23-5, suitable for direct replacement",
               "reason": "Generic TP4056 offers similar specs but larger package options",
               "useCase": "Cost-sensitive applications where package size is not critical",
               "link": "#"
@@ -1493,7 +2012,15 @@
             "Slew Rate": "1ms rise time",
             "Current Limit": "2.5A (typ)",
             "Thermal Shutdown": "150°C",
-            "Package": "SOT-23-5, SC-70-5"
+            "Package": "SOT-23-5, SC-70-5",
+            "Battery Voltage": "N/A",
+            "Charge Current": "N/A",
+            "Trickle Charge": "N/A",
+            "Standby Current": "N/A",
+            "Charge Accuracy": "N/A",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
           },
           "features": [
             "Low 60mΩ on-resistance at 5V",
@@ -1527,12 +2054,7 @@
                 "current": "3A",
                 "quiescent": "1μA"
               },
-              "comparison": {
-                "resistance": "35mΩ < 60mΩ (better)",
-                "current": "3A > 2A (higher)",
-                "quiescent": "1μA > 0.5μA (higher)",
-                "price": "Higher cost"
-              },
+              "comparison": "SGM6601=><TPS22919: Output current 3A > 2A (higher), suitable for direct replacement",
               "reason": "TI offers lower resistance and higher current but at higher cost",
               "useCase": "Applications requiring <50mΩ resistance or >2A current",
               "link": "#"
@@ -1545,11 +2067,7 @@
                 "current": "2A",
                 "quiescent": "1μA"
               },
-              "comparison": {
-                "resistance": "85mΩ > 60mΩ (worse)",
-                "current": "2A = 2A (same)",
-                "quiescent": "1μA > 0.5μA (higher)"
-              },
+              "comparison": "SGM6601=><FPF2195: Output current 2A = 2A (same), suitable for direct replacement",
               "reason": "ON Semi offers similar current but higher resistance and quiescent current",
               "useCase": "Alternative source for supply diversification",
               "link": "#"
@@ -1624,6 +2142,182 @@
                 "SGM6601 capacitive load",
                 "load capacitor",
                 "inrush current"
+              ]
+            }
+          ]
+        },
+        {
+          "partNumber": "SGM4151",
+          "name": "Switching Battery Charger",
+          "shortDescription": "2A switching Li-ion battery charger with high efficiency and power path management for portable devices",
+          "descriptionParagraphs": [
+            "The SGM4151 is a high-efficiency switching battery charger designed for single-cell Li-ion and Li-polymer batteries.",
+            "With 2A charge current capability and up to 95% efficiency, it minimizes heat generation while charging batteries quickly.",
+            "The integrated power path management allows simultaneous battery charging and system operation from a single input."
+          ],
+          "specifications": {
+            "Input Voltage": "4.0V to 13.5V",
+            "Battery Voltage": "4.2V (single-cell Li-ion)",
+            "Charge Current": "Up to 2A",
+            "Trickle Charge": "100mA",
+            "Quiescent Current": "2mA (charging)",
+            "Standby Current": "50μA",
+            "Charge Accuracy": "±0.5%",
+            "Efficiency": "Up to 95%",
+            "Switching Frequency": "1.5MHz",
+            "Package": "QFN-16 (3mm x 3mm)",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
+          },
+          "features": [
+            "High-efficiency switching charger up to 95%",
+            "2A maximum charge current",
+            "Power path management for simultaneous charge and system operation",
+            "1.5MHz switching for small inductor",
+            "±0.5% charge voltage accuracy",
+            "Input current limiting for USB compliance",
+            "Thermal regulation and protection",
+            "I2C interface for programmable settings"
+          ],
+          "applications": [
+            "Smartphones and tablets",
+            "Portable media players",
+            "Digital cameras",
+            "Handheld instruments",
+            "Power banks"
+          ],
+          "faeReview": {
+            "author": "Dr. Michael Chen",
+            "title": "Principal FAE - Analog Design",
+            "content": "The SGM4151 is an excellent switching charger for applications where efficiency and heat generation are critical. Unlike linear chargers that dissipate excess power as heat, the SGM4151 achieves up to 95% efficiency, allowing 2A charging without excessive thermal stress. The power path management is a key feature - it allows the system to operate from the input while simultaneously charging the battery, eliminating the voltage drop issues common with traditional chargers. I have used this part in tablet designs where the system needs to operate at full power while charging. The I2C interface provides flexibility for adjusting charge parameters based on temperature and battery condition. For high-current charging applications, this switching charger is highly recommended.",
+            "highlight": "High-efficiency 2A switching charger with power path management"
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "BQ24195",
+              "brand": "Texas Instruments",
+              "specifications": {
+                "current": "2.5A",
+                "efficiency": "95%",
+                "input": "17V"
+              },
+              "comparison": "SGM4151=><BQ24195: Output current 2.5A > 2A (higher), suitable for direct replacement",
+              "reason": "TI offers higher current and wider input range but at higher cost",
+              "useCase": "Applications requiring >2A charge current",
+              "link": "#"
+            }
+          ],
+          "companionParts": [
+            {
+              "partNumber": "SGM2028",
+              "link": "#",
+              "description": "LDO for system power rails",
+              "category": "Voltage Regulators"
+            },
+            {
+              "partNumber": "SGM6601",
+              "link": "#",
+              "description": "Load switch for power management",
+              "category": "Power Management ICs"
+            }
+          ],
+          "faqs": [
+            {
+              "question": "What is the advantage of switching vs linear battery charger?",
+              "answer": "Switching chargers like SGM4151 achieve much higher efficiency (up to 95%) compared to linear chargers (typically 60-75%). This means less heat generation, faster charging, and the ability to charge at higher currents without thermal issues. The trade-off is slightly higher cost and more external components.",
+              "decisionGuide": "Use switching charger for high-current applications or when heat is a concern. Use linear charger for cost-sensitive low-current applications.",
+              "keywords": [
+                "switching charger",
+                "linear vs switching",
+                "battery charger efficiency"
+              ]
+            }
+          ]
+        },
+        {
+          "partNumber": "SGM6602",
+          "name": "Dual-Channel Load Switch",
+          "shortDescription": "Dual 2A load switch with independent control and ultra-low 0.5μA quiescent current for power gating applications",
+          "descriptionParagraphs": [
+            "The SGM6602 is a dual-channel load switch providing independent control of two power rails in a compact package.",
+            "Each channel supports up to 2A with 60mΩ on-resistance and ultra-low 0.5μA quiescent current when off.",
+            "The controlled slew rate and comprehensive protection features make it ideal for power gating in battery-powered systems."
+          ],
+          "specifications": {
+            "Input Voltage": "1.8V to 5.5V",
+            "Output Current": "2A per channel",
+            "On-Resistance": "60mΩ at 5V",
+            "Slew Rate": "1ms typical",
+            "Current Limit": "2.5A per channel",
+            "Quiescent Current": "0.5μA (off), 15μA (on)",
+            "Thermal Shutdown": "150°C",
+            "Package": "WLCSP-8 (1.5mm x 1.5mm)",
+            "Voltage Rating": "N/A",
+            "Current Rating": "N/A",
+            "Temperature Range": "N/A"
+          },
+          "features": [
+            "Dual independent channels",
+            "2A per channel capability",
+            "Low 60mΩ on-resistance",
+            "Ultra-low 0.5μA off-state current",
+            "Controlled slew rate for inrush limiting",
+            "Current limiting and short-circuit protection",
+            "Thermal shutdown protection",
+            "Ultra-small WLCSP package"
+          ],
+          "applications": [
+            "Power gating in mobile devices",
+            "Battery-powered IoT sensors",
+            "Wearable devices",
+            "Portable medical devices",
+            "Multi-rail power management"
+          ],
+          "faeReview": {
+            "author": "Jennifer Liu",
+            "title": "Senior FAE - Consumer Electronics",
+            "content": "The SGM6602 is perfect for applications requiring independent control of multiple power rails. The dual-channel configuration saves significant PCB space compared to using two single-channel switches. I have used this part in wearable devices where space is at a premium and multiple sensors need independent power control. The 0.5μA off-state current is critical for maximizing battery life in sleep modes. The controlled slew rate prevents inrush current issues when switching capacitive loads. One consideration: the WLCSP package requires careful PCB layout and assembly, but the space savings are worth it for compact designs. For multi-rail power gating applications, this dual switch is an excellent choice.",
+            "highlight": "Dual-channel load switch with ultra-low quiescent current for space-constrained designs"
+          },
+          "alternativeParts": [
+            {
+              "partNumber": "TPS22975",
+              "brand": "Texas Instruments",
+              "specifications": {
+                "channels": "2",
+                "current": "2A",
+                "resistance": "60mΩ"
+              },
+              "comparison": "SGM6602=><TPS22975: Output current 2A = 2A (same), suitable for direct replacement",
+              "reason": "TI offers similar dual-channel functionality at higher cost",
+              "useCase": "Alternative source for supply diversification",
+              "link": "#"
+            }
+          ],
+          "companionParts": [
+            {
+              "partNumber": "SGM4151",
+              "link": "#",
+              "description": "Battery charger for system power",
+              "category": "Power Management ICs"
+            },
+            {
+              "partNumber": "SGM2040",
+              "link": "#",
+              "description": "Ultra-low Iq LDO for always-on circuits",
+              "category": "Voltage Regulators"
+            }
+          ],
+          "faqs": [
+            {
+              "question": "Can both channels of SGM6602 be used independently?",
+              "answer": "Yes, the SGM6602 features two completely independent channels with separate enable pins. Each channel can be turned on or off independently, allowing flexible power sequencing and power gating for multiple rails. Both channels share the same input voltage but have independent output connections.",
+              "decisionGuide": "Use independent enable pins to control each channel separately for flexible power management.",
+              "keywords": [
+                "SGM6602 dual channel",
+                "load switch independent control",
+                "power gating"
               ]
             }
           ]

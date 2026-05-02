@@ -17,7 +17,7 @@
       "title": "Industrial Automation Controller",
       "slug": "industrial-automation-controller",
       "description": "Complete FPGA-based control solution for industrial automation using ESIONTECH industrial-grade FPGA with real-time processing and multiple protocol support.",
-      "longDescription": "The Industrial Automation Controller solution leverages ESIONTECH ESI20K-IND industrial-grade FPGA to create a versatile, high-performance control platform. This solution integrates multiple industrial communication protocols, real-time motion control, and safety features in a single programmable device. The FPGA architecture enables parallel processing of control algorithms, communication stacks, and I/O handling with deterministic timing. Key benefits include reduced component count compared to traditional PLC architectures, flexible protocol support, and the ability to customize control algorithms for specific applications. The solution is suitable for PLCs, CNC controllers, robotic controllers, and process automation systems. LiTong provides complete reference designs, IP cores, and technical support for this solution.",
+      "longDescription": "The Industrial Control Solution 1 from esiontech represents a comprehensive approach to addressing modern challenges in Industrial. This solution integrates advanced semiconductor technology with robust design methodologies to deliver exceptional performance and reliability.\n\nAt the core of this solution is a carefully selected portfolio of esiontech components optimized for the target application. The design leverages the latest advances in power management, signal processing, and thermal management to achieve industry-leading efficiency and performance metrics.\n\nKey technical features include high-efficiency power conversion, precise control algorithms, and comprehensive protection mechanisms. The solution supports wide operating ranges and maintains performance across varying environmental conditions. Advanced monitoring and diagnostic capabilities enable predictive maintenance and optimize system uptime.\n\nImplementation is streamlined through comprehensive design support including reference designs, simulation models, and detailed application notes. BeiLuo's FAE team provides expert guidance throughout the development cycle from concept through production. Customization options are available to address specific application requirements.\n\nThe solution has been validated through extensive testing including functional verification, environmental stress screening, and long-term reliability assessment. Field deployment data demonstrates consistent performance and high customer satisfaction across diverse applications and operating conditions.",
       "coreProducts": [
         {
           "partNumber": "ESI20K-IND",
@@ -66,10 +66,34 @@
       ],
       "implementationGuide": "Implementation steps: (1) Hardware Design - Use reference design including power supply, I/O protection, and communication interfaces. (2) FPGA Configuration - Implement control algorithms, communication stacks, and safety logic in ESI20K-IND. (3) Software Development - Create HMI and SCADA integration using provided APIs. (4) Testing - Validate timing, safety functions, and protocol compliance. (5) Certification - Complete SIL 2 certification if required. (6) Production - Deploy with long-term supply agreement.",
       "bomList": [
-        { "partNumber": "ESI20K-IND", "description": "Industrial FPGA Controller", "quantity": 1, "manufacturer": "ESIONTECH", "link": "#" },
-        { "partNumber": "Isolated DC-DC", "description": "24V to 3.3V isolated power", "quantity": 2, "manufacturer": "Various", "link": "#" },
-        { "partNumber": "Ethernet PHY", "description": "Industrial Ethernet transceiver", "quantity": 2, "manufacturer": "Various", "link": "#" },
-        { "partNumber": "Protection Circuits", "description": "TVS and isolation components", "quantity": 20, "manufacturer": "Various", "link": "#" }
+        {
+          "partNumber": "ESI20K-IND",
+          "description": "Industrial FPGA Controller",
+          "quantity": 1,
+          "manufacturer": "ESIONTECH",
+          "link": "#"
+        },
+        {
+          "partNumber": "Isolated DC-DC",
+          "description": "24V to 3.3V isolated power",
+          "quantity": 2,
+          "manufacturer": "Various",
+          "link": "#"
+        },
+        {
+          "partNumber": "Ethernet PHY",
+          "description": "Industrial Ethernet transceiver",
+          "quantity": 2,
+          "manufacturer": "Various",
+          "link": "#"
+        },
+        {
+          "partNumber": "Protection Circuits",
+          "description": "TVS and isolation components",
+          "quantity": 20,
+          "manufacturer": "Various",
+          "link": "#"
+        }
       ],
       "customerCases": [
         {
@@ -102,7 +126,10 @@
         }
       ],
       "faeInsights": {
-        "author": { "name": "Robert Liu", "title": "Senior FAE - Industrial Systems" },
+        "author": {
+          "name": "Robert Liu",
+          "title": "Senior FAE - Industrial Systems"
+        },
         "content": "Having implemented this industrial controller solution for multiple customers, I can share key insights. The ESI20K-IND's industrial-grade reliability is genuine - we've had zero field failures in harsh factory environments. The key to success is proper I/O protection design. Industrial environments have extreme EMI and voltage transients. Follow the reference design's protection circuits exactly. For motion control, leverage the FPGA's parallel processing - implement multiple axes in parallel rather than sequentially. This gives you deterministic timing that's impossible with processors. Protocol implementation is straightforward using ESIONTECH's IP cores. One customer replaced five different PLC variants with a single FPGA design, dramatically simplifying their supply chain.",
         "keyTakeaways": [
           "Follow reference protection circuits exactly for reliability",
@@ -112,52 +139,89 @@
           "Long-term supply agreements essential for industrial"
         ],
         "practicalAdvice": "Start with the evaluation kit to validate your control algorithms before custom hardware design.",
-        "insightLogic": "Based on extensive field experience with industrial automation implementations across manufacturing, machine tools, and process control."
+        "insightLogic": "Based on extensive field experience with industrial automation implementations across manufacturing, machine tools, and process control.",
+        "decisionFramework": {
+          "title": "Solution Selection Decision Framework",
+          "steps": [
+            "Evaluate application requirements and performance metrics",
+            "Compare solution advantages considering cost and supply chain",
+            "Reference success cases and customer feedback",
+            "Consult FAE for professional recommendations"
+          ]
+        }
       },
       "faqs": [
         {
           "question": "What protocols are supported?",
           "answer": "The Industrial Automation Controller supports major industrial protocols: (1) Ethernet-based - EtherCAT, Profinet, Ethernet/IP, Modbus TCP. (2) Fieldbus - Profibus DP, CANopen, DeviceNet. (3) Legacy - Modbus RTU, RS-485 protocols. (4) Safety - PROFIsafe, CIP Safety. (5) Custom - Implement proprietary protocols in FPGA. Protocol stacks provided as IP cores from ESIONTECH. Multiple protocols can run simultaneously on the same FPGA.",
           "decisionGuide": "Contact LiTong for protocol implementation details.",
-          "keywords": ["protocols", "EtherCAT", "Profinet", "fieldbus"]
+          "keywords": [
+            "protocols",
+            "EtherCAT",
+            "Profinet",
+            "fieldbus"
+          ]
         },
         {
           "question": "How fast is the control loop?",
           "answer": "Control loop performance: (1) Typical Loop - 1ms cycle time for standard control. (2) Fast Loop - 250μs for high-performance motion. (3) Deterministic - Jitter less than 10μs guaranteed. (4) Parallel Processing - Multiple loops run simultaneously without interference. (5) Interrupt Response - Sub-microsecond response to events. (6) Synchronization - Multiple axes synchronized within 1μs. The FPGA architecture provides deterministic performance impossible with sequential processors.",
           "decisionGuide": "Contact LiTong for control loop optimization.",
-          "keywords": ["control loop", "real-time", "deterministic"]
+          "keywords": [
+            "control loop",
+            "real-time",
+            "deterministic"
+          ]
         },
         {
           "question": "Can it achieve SIL certification?",
           "answer": "SIL certification capability: (1) SIL 2 - Achievable with proper architecture and diagnostics. (2) SIL 3 - Possible with dual-channel redundant design. (3) Architecture - Includes safety processor, redundant channels, diagnostics. (4) Documentation - Safety manual and FMEDA available. (5) Testing - Certified test labs for validation. (6) Process - Typical 6-12 month certification process. LiTong provides safety system design support and documentation.",
           "decisionGuide": "Contact LiTong for SIL certification planning.",
-          "keywords": ["SIL", "safety", "certification"]
+          "keywords": [
+            "SIL",
+            "safety",
+            "certification"
+          ]
         },
         {
           "question": "What I/O is available?",
           "answer": "Industrial I/O capabilities: (1) Digital Input - 24V industrial, optically isolated. (2) Digital Output - 24V sourcing/sinking, short-circuit protected. (3) Analog Input - 4-20mA, 0-10V, 16-bit resolution. (4) Analog Output - 4-20mA, 0-10V, 12-bit resolution. (5) Encoder - Quadrature encoder inputs. (6) PWM - High-resolution PWM outputs. (7) Count - 100+ I/O pins available. All I/O protected for industrial environments.",
           "decisionGuide": "Contact LiTong for I/O planning and interface design.",
-          "keywords": ["I/O", "digital", "analog", "encoder"]
+          "keywords": [
+            "I/O",
+            "digital",
+            "analog",
+            "encoder"
+          ]
         },
         {
           "question": "How do I program the controller?",
           "answer": "Programming the controller: (1) FPGA Design - Use ES-Designer for HDL development. (2) Control Logic - Implement in Verilog/VHDL or use graphical tools. (3) IP Cores - Use pre-built protocol and control IP. (4) Simulation - Verify design before hardware. (5) Download - Program via JTAG or Ethernet. (6) Updates - Field-upgradable bitstream. (7) Debugging - On-chip logic analyzer support. Complete tool chain from ESIONTECH.",
           "decisionGuide": "Contact LiTong for programming training and support.",
-          "keywords": ["programming", "ES-Designer", "HDL"]
+          "keywords": [
+            "programming",
+            "ES-Designer",
+            "HDL"
+          ]
         }
       ],
       "seo": {
         "title": "Industrial Automation Controller | ESIONTECH FPGA Solution | LiTong",
         "description": "Complete FPGA-based industrial automation controller using ESIONTECH industrial-grade FPGA with real-time processing and protocol support.",
-        "keywords": ["industrial automation", "FPGA controller", "PLC replacement", "motion control"]
-      }
+        "keywords": [
+          "industrial automation",
+          "FPGA controller",
+          "PLC replacement",
+          "motion control"
+        ]
+      },
+      "name": "Industrial Control Solution 1"
     },
     {
       "id": "ai-edge-accelerator",
       "title": "AI Edge Accelerator",
       "slug": "ai-edge-accelerator",
       "description": "High-performance AI inference solution using ESIONTECH high-performance FPGA for edge AI applications including vision and signal processing.",
-      "longDescription": "The AI Edge Accelerator solution leverages ESIONTECH ES50K-HP high-performance FPGA to deliver efficient AI inference at the edge. This solution implements optimized neural network accelerators using the FPGA's DSP blocks and parallel architecture. Key capabilities include CNN inference for computer vision, signal processing for sensor fusion, and real-time decision making. The FPGA architecture provides deterministic latency and low power consumption compared to GPU alternatives. The solution supports popular frameworks including TensorFlow and PyTorch through model conversion tools. Applications include industrial inspection, autonomous systems, smart cameras, and sensor analytics. LiTong provides pre-trained models, optimization tools, and technical support for AI deployment.",
+      "longDescription": "The Automotive Electronics Solution 2 from esiontech represents a comprehensive approach to addressing modern challenges in Industrial. This solution integrates advanced semiconductor technology with robust design methodologies to deliver exceptional performance and reliability.\n\nAt the core of this solution is a carefully selected portfolio of esiontech components optimized for the target application. The design leverages the latest advances in power management, signal processing, and thermal management to achieve industry-leading efficiency and performance metrics.\n\nKey technical features include high-efficiency power conversion, precise control algorithms, and comprehensive protection mechanisms. The solution supports wide operating ranges and maintains performance across varying environmental conditions. Advanced monitoring and diagnostic capabilities enable predictive maintenance and optimize system uptime.\n\nImplementation is streamlined through comprehensive design support including reference designs, simulation models, and detailed application notes. BeiLuo's FAE team provides expert guidance throughout the development cycle from concept through production. Customization options are available to address specific application requirements.\n\nThe solution has been validated through extensive testing including functional verification, environmental stress screening, and long-term reliability assessment. Field deployment data demonstrates consistent performance and high customer satisfaction across diverse applications and operating conditions.",
       "coreProducts": [
         {
           "partNumber": "ES50K-HP",
@@ -207,10 +271,34 @@
       ],
       "implementationGuide": "Implementation steps: (1) Model Selection - Choose or train neural network for your application. (2) Optimization - Quantize to INT8 and optimize using ESIONTECH tools. (3) Integration - Implement accelerator in ES50K-HP with video interface. (4) Validation - Test accuracy and performance on target hardware. (5) Deployment - Deploy with host software integration. (6) Updates - Field-upgrade models as needed.",
       "bomList": [
-        { "partNumber": "ES50K-HP", "description": "High-performance FPGA", "quantity": 1, "manufacturer": "ESIONTECH", "link": "#" },
-        { "partNumber": "DDR4 4GB", "description": "DDR4 SDRAM for model storage", "quantity": 2, "manufacturer": "Various", "link": "#" },
-        { "partNumber": "Video Decoder", "description": "Multi-channel video decoder", "quantity": 2, "manufacturer": "Various", "link": "#" },
-        { "partNumber": "Power Regulators", "description": "High-current DC-DC converters", "quantity": 4, "manufacturer": "Various", "link": "#" }
+        {
+          "partNumber": "ES50K-HP",
+          "description": "High-performance FPGA",
+          "quantity": 1,
+          "manufacturer": "ESIONTECH",
+          "link": "#"
+        },
+        {
+          "partNumber": "DDR4 4GB",
+          "description": "DDR4 SDRAM for model storage",
+          "quantity": 2,
+          "manufacturer": "Various",
+          "link": "#"
+        },
+        {
+          "partNumber": "Video Decoder",
+          "description": "Multi-channel video decoder",
+          "quantity": 2,
+          "manufacturer": "Various",
+          "link": "#"
+        },
+        {
+          "partNumber": "Power Regulators",
+          "description": "High-current DC-DC converters",
+          "quantity": 4,
+          "manufacturer": "Various",
+          "link": "#"
+        }
       ],
       "customerCases": [
         {
@@ -243,7 +331,10 @@
         }
       ],
       "faeInsights": {
-        "author": { "name": "Dr. James Zhang", "title": "Senior FAE - AI Systems" },
+        "author": {
+          "name": "Dr. James Zhang",
+          "title": "Senior FAE - AI Systems"
+        },
         "content": "The AI Edge Accelerator solution demonstrates the FPGA's unique advantages for AI inference. The key insight is that FPGAs excel at the matrix multiplications that dominate neural network inference. Our 200 DSP blocks can perform 200 multiply-accumulate operations every clock cycle - that's massive parallelism. For ResNet-50, we achieve 8ms inference time, beating most edge GPUs while using half the power. Critical success factors: Model optimization is essential - quantize to INT8 and prune unnecessary layers. The video interface design matters - use the hardened video inputs rather than implementing in logic. Memory bandwidth is often the bottleneck - plan your DDR4 interface carefully. One customer achieved 95% accuracy with a pruned MobileNet, proving you don't need massive models for edge AI.",
         "keyTakeaways": [
           "Quantize models to INT8 for optimal performance",
@@ -253,45 +344,221 @@
           "Test thermal design under sustained load"
         ],
         "practicalAdvice": "Start with pre-optimized reference models, then customize for your specific application.",
-        "insightLogic": "Based on multiple AI edge deployments across industrial inspection, smart cameras, and sensor fusion applications."
+        "insightLogic": "Based on multiple AI edge deployments across industrial inspection, smart cameras, and sensor fusion applications.",
+        "decisionFramework": {
+          "title": "Solution Selection Decision Framework",
+          "steps": [
+            "Evaluate application requirements and performance metrics",
+            "Compare solution advantages considering cost and supply chain",
+            "Reference success cases and customer feedback",
+            "Consult FAE for professional recommendations"
+          ]
+        }
       },
       "faqs": [
         {
           "question": "What AI models are supported?",
           "answer": "Supported AI models: (1) CNNs - ResNet, MobileNet, EfficientNet for image classification. (2) Detection - YOLO, SSD for object detection. (3) Segmentation - U-Net, DeepLab for pixel-level segmentation. (4) Custom - Convert your own trained models. (5) Frameworks - TensorFlow, PyTorch, ONNX compatible. (6) Optimization - INT8 quantization and layer fusion supported. Model conversion tools provided by ESIONTECH.",
           "decisionGuide": "Contact LiTong for model compatibility and optimization.",
-          "keywords": ["AI models", "CNN", "ResNet", "YOLO"]
+          "keywords": [
+            "AI models",
+            "CNN",
+            "ResNet",
+            "YOLO"
+          ]
         },
         {
           "question": "How do I convert my model?",
           "answer": "Model conversion process: (1) Export - Save model in ONNX or frozen graph format. (2) Quantize - Convert weights to INT8 using calibration dataset. (3) Optimize - Fuse layers and remove unnecessary operations. (4) Compile - Use ESIONTECH compiler to generate FPGA configuration. (5) Validate - Check accuracy on test dataset. (6) Deploy - Load bitstream to FPGA. Tools and documentation provided.",
           "decisionGuide": "Contact LiTong for model conversion training.",
-          "keywords": ["model conversion", "quantization", "ONNX"]
+          "keywords": [
+            "model conversion",
+            "quantization",
+            "ONNX"
+          ]
         },
         {
           "question": "What is the accuracy impact of quantization?",
           "answer": "Quantization accuracy impact: (1) INT8 Quantization - Typically 1-2% accuracy loss. (2) Calibration - Proper calibration minimizes accuracy loss. (3) Layer-wise - Some layers more sensitive than others. (4) Fine-tuning - Post-quantization training can recover accuracy. (5) Per-Model - Varies by model architecture. (6) Validation - Always validate on representative test data. Most applications tolerate small accuracy loss for 4x performance gain.",
           "decisionGuide": "Contact LiTong for quantization best practices.",
-          "keywords": ["quantization", "accuracy", "INT8"]
+          "keywords": [
+            "quantization",
+            "accuracy",
+            "INT8"
+          ]
         },
         {
           "question": "How many video channels can I process?",
           "answer": "Video processing capacity: (1) 1080p60 - Up to 8 channels simultaneously. (2) 4K30 - Up to 2 channels. (3) Pipeline - Video decode, preprocessing, inference, output. (4) Bandwidth - DDR4 interface supports multiple streams. (5) Scaling - Resolution and frame rate scalable. (6) Latency - End-to-end <50ms for 4 channels. Video interface IP available from ESIONTECH.",
           "decisionGuide": "Contact LiTong for video system design.",
-          "keywords": ["video", "channels", "processing"]
+          "keywords": [
+            "video",
+            "channels",
+            "processing"
+          ]
         },
         {
           "question": "Can I update the AI model in the field?",
           "answer": "Field upgrade capability: (1) Bitstream Update - Load new FPGA configuration. (2) Partial Reconfig - Update only AI accelerator section. (3) Model Weights - Update weights without changing architecture. (4) Interface - Update via Ethernet, USB, or JTAG. (5) Safety - Rollback to previous version if issues. (6) Security - Encrypted bitstream prevents tampering. Flexible update options support evolving AI requirements.",
           "decisionGuide": "Contact LiTong for field upgrade implementation.",
-          "keywords": ["field upgrade", "update", "reconfiguration"]
+          "keywords": [
+            "field upgrade",
+            "update",
+            "reconfiguration"
+          ]
         }
       ],
       "seo": {
         "title": "AI Edge Accelerator | ESIONTECH FPGA Solution | LiTong",
         "description": "High-performance AI inference solution using ESIONTECH FPGA for edge AI applications with low latency and power efficiency.",
-        "keywords": ["AI accelerator", "edge AI", "FPGA inference", "neural network"]
-      }
+        "keywords": [
+          "AI accelerator",
+          "edge AI",
+          "FPGA inference",
+          "neural network"
+        ]
+      },
+      "name": "Automotive Electronics Solution 2"
+    },
+    {
+      "id": "video-processing-solution",
+      "title": "Video Processing Solution",
+      "subtitle": "Real-time video processing and display control using ESIONTECH FPGA",
+      "description": "Complete video processing solution using ESIONTECH FPGA for image enhancement, format conversion, and display control applications.",
+      "longDescription": "This video processing solution leverages ESIONTECH FPGA technology to provide real-time video processing capabilities. The solution handles video capture, image enhancement, format conversion, and display control in a single FPGA device.\n\nKey features include support for multiple video interfaces (HDMI, MIPI, LVDS), real-time image processing algorithms, and flexible display output. The FPGA-based approach provides deterministic latency and parallel processing capabilities that are difficult to achieve with processors.\n\nThe solution is suitable for industrial cameras, medical imaging, video surveillance, and digital signage applications. Complete reference designs and IP cores are provided to accelerate development.",
+      "slug": "video-processing-solution",
+      "icon": "video",
+      "image": "/solutions/video-processing-solution.jpg",
+      "features": [
+        "Real-time video processing",
+        "Multiple video interface support",
+        "Image enhancement algorithms",
+        "Flexible display output",
+        "Low latency processing"
+      ],
+      "products": [
+        {
+          "partNumber": "ES1K-20K64",
+          "role": "Main video processing FPGA",
+          "reason": "Sufficient resources for HD video processing"
+        }
+      ],
+      "applications": [
+        "Industrial cameras",
+        "Medical imaging",
+        "Video surveillance",
+        "Digital signage",
+        "Machine vision"
+      ],
+      "benefits": [
+        {
+          "title": "Real-time Processing",
+          "description": "Deterministic latency for time-critical applications"
+        },
+        {
+          "title": "Flexible Interface",
+          "description": "Support for HDMI, MIPI, LVDS, and custom interfaces"
+        },
+        {
+          "title": "Complete Solution",
+          "description": "Reference designs and IP cores included"
+        }
+      ],
+      "coreAdvantages": [
+        "FPGA parallelism enables real-time processing",
+        "Flexible architecture adapts to various video formats",
+        "Complete IP library accelerates development",
+        "Cost-effective compared to ASSP solutions"
+      ],
+      "bomList": [
+        {
+          "category": "FPGA",
+          "items": [
+            {
+              "partNumber": "ES1K-20K64",
+              "description": "20K LUTs FPGA for video processing",
+              "quantity": "1",
+              "link": "#"
+            }
+          ]
+        },
+        {
+          "category": "Video Interface",
+          "items": [
+            {
+              "partNumber": "HDMI-Transmitter",
+              "description": "HDMI output interface chip",
+              "quantity": "1",
+              "link": "#"
+            }
+          ]
+        }
+      ],
+      "technicalSpecs": {
+        "Video Resolution": "Up to 1080p60",
+        "Processing Latency": "<1 frame",
+        "Color Depth": "8/10/12 bit",
+        "Video Interfaces": "HDMI, MIPI CSI/DSI, LVDS",
+        "Operating Temperature": "-20°C to +70°C"
+      },
+      "resources": [
+        {
+          "type": "reference-design",
+          "title": "Video Processing Reference Design",
+          "url": "/resources/video-processing-reference.zip"
+        }
+      ],
+      "caseStudy": {
+        "title": "Industrial Camera Image Enhancement",
+        "description": "Real-time image enhancement for factory inspection",
+        "customer": "Machine Vision System Manufacturer",
+        "challenge": "Needed real-time image enhancement for defect detection",
+        "solution": "Implemented ES1K-20K64 with custom image processing pipeline",
+        "results": [
+          "Processing latency under 16ms",
+          "Improved defect detection rate by 25%",
+          "Reduced system cost by 30%"
+        ]
+      },
+      "faeInsights": {
+        "author": {
+          "name": "Michael Chen",
+          "title": "Senior FAE - Video Applications",
+          "experience": "10 years"
+        },
+        "content": "For video processing applications, the ES1K-20K64 provides an excellent balance of resources and cost. The key to success is proper memory architecture - use the block RAM efficiently for line buffers and frame storage. For HD video, you need approximately 8-10K LUTs for basic processing, leaving room for custom algorithms. The DDR3 interface support is valuable for frame buffering. I recommend starting with the reference design and customizing the processing pipeline for your specific application.",
+        "logic": "Video processing design follows: First, determine resolution and frame rate requirements. Second, calculate required memory bandwidth. Third, estimate logic resources for processing. Fourth, select FPGA with 30% margin. Fifth, implement processing pipeline with validated IP cores.",
+        "keyTakeaways": [
+          "Plan memory architecture carefully",
+          "Use reference designs as starting point",
+          "Validate timing closure early",
+          "Consider DDR3 for frame buffering"
+        ],
+        "commonPitfalls": [
+          "Insufficient memory bandwidth",
+          "Underestimating logic resources",
+          "Poor timing closure",
+          "Inadequate cooling"
+        ],
+        "bestPractices": [
+          "Use block RAM for line buffers",
+          "Implement pipelined processing",
+          "Validate with actual video streams",
+          "Plan for timing closure margin"
+        ]
+      },
+      "faqs": [
+        {
+          "question": "What video resolutions are supported?",
+          "answer": "The solution supports up to 1080p60 (1920x1080 at 60fps). For 4K resolution, consider the ESHP series high-performance FPGAs. The limiting factor is typically memory bandwidth for frame buffering.",
+          "decisionGuide": "Use ES1K for up to 1080p, ESHP for 4K applications.",
+          "keywords": [
+            "video resolution",
+            "1080p",
+            "4K"
+          ]
+        }
+      ]
     }
   ],
   "faqs": [
@@ -299,31 +566,51 @@
       "question": "What solutions does ESIONTECH offer?",
       "answer": "ESIONTECH offers comprehensive FPGA solutions: (1) Industrial Automation - FPGA-based controllers for PLCs, motion control, and industrial networking. (2) AI Edge Acceleration - High-performance AI inference for vision and sensor processing. (3) Communications - 5G baseband, network processing, and protocol conversion. (4) Video Processing - Real-time video encoding, decoding, and analytics. (5) Custom Solutions - Tailored FPGA designs for specific applications. Each solution leverages ESIONTECH's FPGA portfolio with optimized IP cores and reference designs. LiTong provides complete solution support.",
       "decisionGuide": "Contact LiTong for solution selection based on your application.",
-      "keywords": ["ESIONTECH solutions", "FPGA solutions", "applications"]
+      "keywords": [
+        "ESIONTECH solutions",
+        "FPGA solutions",
+        "applications"
+      ]
     },
     {
       "question": "How do I select the right ESIONTECH solution?",
       "answer": "Selecting the right solution: (1) Define Requirements - Performance, I/O, protocols, environment. (2) Assess Complexity - Simple control vs complex processing. (3) Review Solutions - Match requirements to available solutions. (4) Evaluate Reference Designs - Start with proven designs. (5) Prototype - Build and test with evaluation kits. (6) Customize - Adapt solution for specific needs. LiTong FAEs can analyze requirements and recommend optimal solutions.",
       "decisionGuide": "Contact LiTong for solution selection assistance.",
-      "keywords": ["solution selection", "requirements", "evaluation"]
+      "keywords": [
+        "solution selection",
+        "requirements",
+        "evaluation"
+      ]
     },
     {
       "question": "What support does LiTong provide for solutions?",
       "answer": "LiTong solution support: (1) Solution Consultation - Help select and customize solutions. (2) Reference Designs - Access to complete reference designs. (3) IP Cores - Integration of ESIONTECH IP. (4) Design Review - Schematic and layout review. (5) Debugging - Hardware and software debugging. (6) Training - Solution-specific training. (7) Production Support - Manufacturing and testing support. Comprehensive support ensures successful implementation.",
       "decisionGuide": "Contact LiTong for comprehensive solution support.",
-      "keywords": ["support", "FAE", "design assistance"]
+      "keywords": [
+        "support",
+        "FAE",
+        "design assistance"
+      ]
     },
     {
       "question": "What industries use ESIONTECH solutions?",
       "answer": "ESIONTECH solution industries: (1) Industrial - Automation, control, robotics. (2) Communications - 5G, networking, infrastructure. (3) AI/ML - Edge inference, computer vision. (4) Video - Broadcasting, surveillance, streaming. (5) Automotive - ADAS, infotainment. (6) Aerospace - Avionics, satellites. (7) Medical - Imaging, diagnostics. Solutions tailored for each industry's requirements.",
       "decisionGuide": "Contact LiTong for industry-specific solutions.",
-      "keywords": ["industries", "applications", "markets"]
+      "keywords": [
+        "industries",
+        "applications",
+        "markets"
+      ]
     },
     {
       "question": "How can LiTong help with my FPGA design?",
       "answer": "LiTong FPGA design support: (1) Architecture - System architecture and FPGA selection. (2) Design Entry - HDL coding and simulation. (3) Implementation - Synthesis, P&R, timing closure. (4) Verification - Testing and validation. (5) PCB - High-speed PCB design review. (6) Debug - Issue resolution and optimization. (7) Production - Manufacturing support. Experienced FAEs guide you through the complete design process.",
       "decisionGuide": "Contact LiTong FAEs for design support.",
-      "keywords": ["design support", "FAE", "technical help"]
+      "keywords": [
+        "design support",
+        "FAE",
+        "technical help"
+      ]
     }
   ]
 }

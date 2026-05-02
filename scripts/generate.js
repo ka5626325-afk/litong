@@ -208,6 +208,8 @@ function copyDir(srcDir, destDir) {
 function generateBrandPages(brand, data) {
   console.log(`\nGenerating pages for ${brand}...`);
   
+  // 品牌页面生成到根目录，与 /brand/ 同一层级
+  // 遵循BRAND_DATA_COMPLETE_GUIDE.md铁律7g-7l: 品牌页面必须与/brand/同一层级
   const brandOutputDir = path.join(config.outputDir, brand);
   ensureDir(brandOutputDir);
   
@@ -230,7 +232,9 @@ function generateBrandPages(brand, data) {
     data.products.categories.forEach(category => {
       // 预处理参数映射：将参数显示名称映射到产品字段名
       var paramMapping = {};
-      category.parameters.forEach(function(param) {
+      // 如果 category.parameters 不存在，使用空数组
+      var parameters = category.parameters || [];
+      parameters.forEach(function(param) {
         var fieldKey = param.toLowerCase().replace(/[^a-z0-9]/g, '');
         // 特殊字段映射 - Infineon
         if (fieldKey === 'flashmemory') fieldKey = 'flash';
@@ -286,7 +290,7 @@ function generateBrandPages(brand, data) {
       // 为每个产品预计算参数值
       var productsWithParamValues = category.products.map(function(product) {
         var paramValues = {};
-        category.parameters.forEach(function(param) {
+        parameters.forEach(function(param) {
           var fieldKey = paramMapping[param];
           paramValues[param] = product[fieldKey] || '-';
         });
@@ -296,7 +300,7 @@ function generateBrandPages(brand, data) {
       // 生成分类列表页 - 嵌套结构: /hgsemi/products/{category-id}.html
       generatePage(
         path.join(config.inputDir, 'brands', 'product-category.html'),
-        { ...data, page: 'category', category: Object.assign({}, category, { products: productsWithParamValues }), categories: data.products.categories },
+        { ...data, page: 'category', category: Object.assign({}, category, { products: productsWithParamValues, slug: category.id }), categories: data.products.categories },
         path.join(brandOutputDir, 'products', `${category.id}.html`)
       );
 
@@ -313,11 +317,14 @@ function generateBrandPages(brand, data) {
           const fallbackTemplatePath = path.join(config.inputDir, 'brands', 'product-detail.html');
           const finalTemplatePath = fs.existsSync(templatePath) ? templatePath : fallbackTemplatePath;
           
-          // 产品详情页 - 嵌套结构: /hgsemi/products/{part-number}.html
+          // 产品详情页 - 简化结构: /hgsemi/products/{category}/{part-number}.html
+          const productSlug = product.slug || product.partNumber.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+          const productDir = path.join(brandOutputDir, 'products', category.id);
+          ensureDir(productDir);
           generatePage(
             finalTemplatePath,
             { ...data, page: 'product-detail', category, product, templateConfig: brandTemplate },
-            path.join(brandOutputDir, 'products', `${product.partNumber.toLowerCase()}.html`)
+            path.join(productDir, `${productSlug}.html`)
           );
         });
       }
@@ -352,14 +359,30 @@ function generateBrandPages(brand, data) {
   // 生成技术支持详情页 (每篇文章) - 嵌套结构: /hgsemi/support/{article-id}.html
   if (data.support && data.support.articles) {
     data.support.articles.forEach(article => {
-      // 将 Markdown 内容转换为 HTML
-      // 支持字符串或数组格式的 content
-      const contentStr = Array.isArray(article.content)
-        ? article.content.join('\n\n')
-        : (article.content || '');
+      // 处理 content 字段
+      // 支持两种格式：
+      // 1. 字符串或字符串数组（Markdown格式）
+      // 2. 对象数组（结构化格式，每个对象有 type, text/items 等字段）
+      let contentHtml = '';
+      
+      if (Array.isArray(article.content)) {
+        // 检查是否是对象数组（结构化格式）
+        if (article.content.length > 0 && typeof article.content[0] === 'object' && (article.content[0].type || article.content[0].heading)) {
+          // 结构化格式，直接在模板中处理，这里不转换
+          contentHtml = null;
+        } else {
+          // 字符串数组（Markdown格式）
+          const contentStr = article.content.join('\n\n');
+          contentHtml = markdownToHtml(contentStr);
+        }
+      } else if (typeof article.content === 'string') {
+        // 字符串格式（Markdown）
+        contentHtml = markdownToHtml(article.content);
+      }
+      
       const articleWithHtml = {
         ...article,
-        contentHtml: markdownToHtml(contentStr)
+        contentHtml: contentHtml
       };
       generatePage(
         path.join(config.inputDir, 'brands', 'support-detail.html'),
